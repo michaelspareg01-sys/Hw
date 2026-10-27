@@ -191,7 +191,10 @@ f.raw(f'<circle cx="{cx}" cy="{cy}" r="{R}" fill="none" stroke="{INK}" stroke-wi
 f.line(cx, cy, ax, ay).line(cx, cy, bx, by).line(ax, ay, bx, by)
 f.line(cx, cy, ax, cy, "ink", 1.1, "4 3").text((cx + ax) / 2, cy - 6, "x", italic=True)
 f.arc(cx, cy, 14, -th, th).text(cx - 4, cy - 6, "2θ", "end", size=11)
-f.text(cx + 14, cy + 34, "r", italic=True).text(ax + 6, ay - 6, "A", "start", italic=True)
+f.right(ax, cy, -1, -1, 7)
+# A is the area of the shaded segment (labelled with a pointer, as in the textbook)
+f.text(cx + 14, cy + 34, "r", italic=True).text(150, 20, "A", "start", italic=True)
+f.arrow(151, 25, 133, 50, "ink", 1.1, 6)
 save("chord", f)
 
 # 9E Q13 radars
@@ -236,6 +239,7 @@ g.curve(lambda x: -5 * x ** 2 * 10 / 200 ** 2 + 3 * x, "rose", 2.0, x0=0, x1=200
 g.dot(2000, 1000).label(2000, 1000, "F", dx=10, dy=-6, anchor="start")
 g.vline(2000, 0, 1000)
 g.hline(1000, x0=0, x1=2000)
+g.curve(lambda x: x / 2, "faint", 1.2, dash="4 3", x0=0, x1=2000)   # the line OF, as in the textbook
 save("fortress", g)
 
 # ---------------- 10B ----------------

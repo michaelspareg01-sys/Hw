@@ -104,7 +104,8 @@ A cannon fires with initial speed 40 m/s at a variable angle \(\alpha\). Take \(
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 A gun at \(O\) fires shells with an initial speed of 200 m/s, but a variable angle of inclination \(\alpha\). Take \(g=10\) m/s².
 <b>a</b> Find the two possible angles at which the gun can be set so that it will hit a fortress \(F\) that is 2 km away on top of a mountain 1000 metres high.
-<b>b</b> Find the corresponding flight times and the impact speeds and angles.
+<b>b</b> Show that the inclination of the lower angle to \(OF\) is the same as the inclination of the higher angle to the vertical.
+<b>c</b> Find the corresponding flight times and the impact speeds and angles.
 <div class="sol-label">Solution</div>
 <p>Place the origin at the gun. Resolving, \(\dot x=200\cos\alpha\) and \(\dot y=200\sin\alpha\). Integrating from \(\ddot x=0\) and \(\ddot y=-10\) exactly as before:</p>
 \[\dot x=200\cos\alpha\ \ (2)\qquad\qquad x=200t\cos\alpha\ \ (3)\]
@@ -116,7 +117,8 @@ A gun at \(O\) fires shells with an initial speed of 200 m/s, but a variable ang
 \[\sec^2\alpha-4\tan\alpha+2=0.\]
 <p>But \(\sec^2\alpha=\tan^2\alpha+1\), so \(\tan^2\alpha-4\tan\alpha+3=0\), \((\tan\alpha-3)(\tan\alpha-1)=0\), giving \(\tan\alpha=1\) or 3, and \(\alpha=45^\circ\) or \(\tan^{-1}3\doteq71^\circ34'\).</p>
 </div><div>{{svg:fortress}}</div></div>
-<p><b>b</b> When \(\alpha=45^\circ\): \(t=\dfrac{10}{\cos45^\circ}=10\sqrt2\) seconds. Then from (5), \(\dot y=-100\sqrt2+200\times\tfrac{1}{\sqrt2}=0\), so from (2) the shell hits <b>horizontally</b> at \(100\sqrt2\) m/s.</p>
+<p><b>b</b> The line \(OF\) is inclined at \(\tan^{-1}\tfrac12\doteq26^\circ34'\) to the horizontal, so the \(45^\circ\) shot is inclined at \(18^\circ26'\) to \(OF\), and the \(71^\circ34'\) shot is inclined at \(18^\circ26'\) to the vertical.</p>
+<p><b>c</b> When \(\alpha=45^\circ\): \(t=\dfrac{10}{\cos45^\circ}=10\sqrt2\) seconds. Then from (5), \(\dot y=-100\sqrt2+200\times\tfrac{1}{\sqrt2}=0\), so from (2) the shell hits <b>horizontally</b> at \(100\sqrt2\) m/s.</p>
 <p>When \(\alpha=\tan^{-1}3\): \(\cos\alpha=\dfrac{1}{\sqrt{10}}\) and \(\sin\alpha=\dfrac{3}{\sqrt{10}}\), so \(t=\dfrac{10}{\cos\alpha}=10\sqrt{10}\) seconds. From (5), \(\dot y=-100\sqrt{10}+60\sqrt{10}=-40\sqrt{10}\), and from (2), \(\dot x=20\sqrt{10}\).</p>
 <p>Then \(v^2=16\,000+4000=20\,000\), so \(v=100\sqrt2\) m/s. Also \(\tan\theta=\dfrac{\dot y}{\dot x}=-2\), so \(\theta=-\tan^{-1}2\doteq-63^\circ26'\). This shell hits at \(100\sqrt2\) m/s, at about \(63^\circ26'\) below the horizontal.</p>
 </div></div>
