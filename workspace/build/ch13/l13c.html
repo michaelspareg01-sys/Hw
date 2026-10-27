@@ -1,0 +1,144 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 13C</div><h2>Separable differential equations</h2>
+<div class="focus">Solve DEs of the form \(y'=f(x)\,g(y)\) by separating the variables and integrating, always looking first for constant solutions, and dealing carefully with absolute values.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:separating the variables}}
+<div class="box concept"><div class="bt">Separable differential equations</div>
+<p>A first-order DE is <b>separable</b> if it can be put into the form \(y'=f(x)\,g(y)\).</p>
+<ul><li>The general case is \(y'=f(x)\,g(y)\), where neither function is a constant.</li>
+<li>The case \(y'=f(x)\), where \(g(y)=1\), is equivalent to an indefinite integral.</li>
+<li>The case \(y'=g(y)\), where \(f(x)=1\), is Lesson 13D.</li></ul>
+<p>To solve the general case, separate the \(dx\) and \(dy\) and integrate both sides:</p>
+\[\dfrac{1}{g(y)}\,dy=f(x)\,dx\qquad\Longrightarrow\qquad\int\dfrac{1}{g(y)}\,dy=\int f(x)\,dx.\]
+<p class="small">Justification: dividing \(\dfrac{dy}{dx}=f(x)g(y)\) by \(g(y)\) and integrating with respect to \(x\) gives \(\displaystyle\int\dfrac{1}{g(y)}\dfrac{dy}{dx}\,dx=\int f(x)\,dx\); the chain rule then lets us cancel \(dx\), as with substitution in Chapter 12.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Separate, integrate, solve for y</span></div><div class="ex-body">
+<b>a</b> Solve \(y'=3x^2e^{-y}\). &nbsp; <b>b</b> Find the solution curve through \((0,0)\).
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">A relation as the answer</span></div><div class="ex-body">
+<b>a</b> Solve \(y'=\dfrac{2x}{y}\). &nbsp; <b>b</b> Find the solution passing through \((1,3)\).
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Solve \(y'=-2xe^{y}\), and find the solution curve through \((0,0)\). &nbsp; <b>b</b> Solve \(y'=\dfrac{x}{y}\), and find the solution passing through \(P(4,5)\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Arrange the equation as \(-e^{-y}\,dy=2x\,dx\) and integrate:</p>
+\[\begin{aligned}\int-e^{-y}\,dy&=\int2x\,dx\\e^{-y}&=x^2+C\\y&=-\log(x^2+C)\end{aligned}\]
+<p>Substituting \((0,0)\): \(0=-\log C\), so \(C=1\) and \(y=-\log(x^2+1)\).</p>
+</div><div>
+<p><b>b</b> Separating, \(y\,dy=x\,dx\):</p>
+\[\begin{aligned}\int y\,dy&=\int x\,dx\\\tfrac12y^2&=\tfrac12x^2+C\\y^2-x^2&=D\quad(D=2C)\end{aligned}\]
+<p>Substituting \(P(4,5)\): \(25-16=D\), so the solution is \(y^2-x^2=9\).</p>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:look for constant solutions first}}
+<div class="box concept"><div class="bt">Constant solutions</div>
+<ul><li>Always check first whether any constant functions \(y=k\) are solutions of the DE: substitute \(y'=0\).</li>
+<li>This matters because when the DE is solved by separation, constant solutions are often lost through a division by zero.</li>
+<li>They are horizontal isoclines of horizontal line elements, and are usually horizontal asymptotes of nearby solution curves.</li></ul></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A lost solution</span></div><div class="ex-body">
+<b>a</b> Solve \(y'=2xy^2\). &nbsp; <b>b</b> Find the particular solution given (i) \(y(1)=-1\), (ii) \(y(0)=0\).
+{{work:55}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Solve \(y'=\dfrac{y^2}{x^2}\), and find the solutions with (i) \(y(1)=\tfrac12\), (ii) \(y(2)=0\).
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Solve \(y'=-xy^2\). &nbsp; <b>b</b> Find the particular solution given that (i) \(y(1)=\tfrac12\), (ii) \(y(2)=0\).
+<div class="sol-label">Solution</div>
+<p><b>a</b> First, the constant function \(y=0\) is trivially a solution. Now, because \(y\ne0\), we can write the DE as \(-y^{-2}\,dy=x\,dx\), and integrating,</p>
+\[\int-y^{-2}\,dy=\int x\,dx,\qquad\text{so for some constant }C,\quad y^{-1}=\tfrac12x^2+C.\qquad(*)\]
+<p><b>b</b> (i) Substituting \(y(1)=\tfrac12\) into \((*)\): \(2=\tfrac12+C\), so \(C=\tfrac32\) and \(y^{-1}=\tfrac12x^2+\tfrac32\), that is \(y=\dfrac{2}{x^2+3}\).</p>
+<p>(ii) Substituting \(y(2)=0\) into \((*)\) is impossible because of division by zero, but the first solution \(y=0\) satisfies \(y(2)=0\), so it is the required solution.</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:dealing with absolute values}}
+<div class="box concept"><div class="bt">When the integral is a logarithm</div>
+<p>Many solutions involve absolute values, because \(\dfrac1y\) has primitive \(\log|y|\). Although the constant \(C\) may take any value, the power \(e^C\) is never negative and never zero. When interpreting the absolute value signs:</p>
+<ul><li>Acknowledge that \(e^C\) is always positive.</li>
+<li>Modify the solution when removing the absolute value signs (the constant can then be positive or negative).</li>
+<li>Modify the solution again if any constant function is a solution (often this allows the constant to be zero too).</li></ul></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Absolute values</span></div><div class="ex-body">
+<b>a</b> Solve \(y'=2x(3-y)\). &nbsp; <b>b</b> Find the particular solution through (i) the origin, (ii) \((1,3)\).
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Solve \(y'=y\cos x\). &nbsp; <b>b</b> Find the solution for which \(y(0)=2\).
+{{work:55}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Solve the DE \(y'=x(1-y)\). &nbsp; <b>b</b> Find the particular solution passing through (i) the origin, (ii) \((1,1)\).
+<div class="sol-label">Solution</div>
+<p><b>a</b> First, the constant function \(y=1\) is trivially a solution. Now, because \(y\ne1\), we can write the DE as \(\dfrac{dy}{1-y}=x\,dx\), and integrating,</p>
+\[\begin{aligned}\int\dfrac{dy}{y-1}&=-\int x\,dx\\\log|y-1|&=-\tfrac12x^2+C,\quad\text{for some constant }C\\|y-1|&=e^{-\frac12x^2+C}\\|y-1|&=Ae^{-\frac12x^2},\quad\text{where }A=e^C\text{ is positive.}\end{aligned}\]
+<p>Hence \(y-1=Ae^{-\frac12x^2}\), where \(A\) can be positive or negative. We have already remarked that \(y-1=0\) is a solution of the original DE, so the general solution is \(y=1+Ae^{-\frac12x^2}\), for any constant \(A\).</p>
+<p><b>b</b> (i) Substituting \((0,0)\) gives \(0=1+A\), so \(A=-1\) and \(y=1-e^{-\frac12x^2}\). &nbsp; (ii) Substituting \((1,1)\) gives \(1=1+Ae^{-\frac12}\), so \(A=0\), giving the constant function \(y=1\).</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 13C}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Consider the differential equation \(\dfrac{dy}{dx}=\dfrac{x-1}{y+1}\).
+<div class="parts one"><span><span class="pl">a</span>Multiply through by \(y+1\) and then by \(dx\), so that the variables are separated.</span><span><span class="pl">b</span>Use the result \(\displaystyle\int(x+a)^n\,dx=\dfrac{1}{n+1}(x+a)^{n+1}+C\) to find the general solution of this differential equation. Write your answer without using fractions.</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Likewise find the general solutions of these separable equations. Make \(y\) the subject of the solution in each case.
+<div class="parts"><span><span class="pl">a</span>\(\dfrac{dy}{dx}=xe^{-y}\)</span><span><span class="pl">b</span>\(\dfrac{dy}{dx}=4x^3(1+y^2)\)</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Explain why \(y=0\), where \(x\ne0\), is a solution of \(\dfrac{dy}{dx}=-\dfrac{y^2}{x}\). (Always look first for constant solutions.)</span><span><span class="pl">b</span>Use the method of separable DEs to find the other solutions.</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Suppose that the solution curve for \(\dfrac{dy}{dx}=-\dfrac{x}{y}\) passes through \((1,\sqrt3)\).
+<div class="parts one"><span><span class="pl">a</span>Separate the variables and hence write down the corresponding equation of integrals.</span><span><span class="pl">b</span>The general solution of this DE is a relation, not a function. Find the general solution, writing your answer without fractions.</span><span><span class="pl">c</span>Hence determine the equation of the solution curve through the given point.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Likewise, for each DE, find the solution curve passing through the given point.
+<div class="parts"><span><span class="pl">a</span>\(\dfrac{dy}{dx}=\dfrac{x}{y}\), through \((0,1)\)</span><span><span class="pl">b</span>\(\dfrac{dy}{dx}=(1+x)(1+y^2)\), with \(y(-1)=0\)</span><span><span class="pl">c</span>\(\dfrac{dy}{dx}=-2y^2x\), with \(y(1)=\tfrac12\)</span><span><span class="pl">d</span>\(\dfrac{dy}{dx}=e^{-y}\sec^2x\), through \(\left(\tfrac{\pi}{4},\log2\right)\)</span></div>{{work:62}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">6</span><div class="q-body">Consider the differential equation \(\dfrac{dy}{dx}=\dfrac{2y+4}{x}\).
+<div class="parts one"><span><span class="pl">a</span>Find the constant solution, substituting to show that it is a solution of the DE.</span><span><span class="pl">b</span>Use separation of variables to find the other solutions of the DE.</span><span><span class="pl">c</span>How can the solutions in parts a and b be combined?</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Consider the differential equation \(y'=-xy\).
+<div class="parts one"><span><span class="pl">a</span>Find the constant solution, substituting to show it is a solution of the DE.</span><span><span class="pl">b</span>Use separation of variables to find the other solutions of the DE.</span><span><span class="pl">c</span>How can the solutions in parts a and b be combined?</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Use a similar approach to Questions 6 and 7 to solve these DEs.
+<div class="parts three"><span><span class="pl">a</span>\(\dfrac{dy}{dx}=\dfrac{2-y}{x}\)</span><span><span class="pl">b</span>\(\dfrac{dy}{dx}=\dfrac{xy}{1+x^2}\)</span><span><span class="pl">c</span>\(\dfrac{dy}{dx}=\dfrac{-2y}{x}\)</span><span><span class="pl">d</span>\(\dfrac{dy}{dx}=y\sin x\)</span><span><span class="pl">e</span>\(\dfrac{dy}{dx}=\dfrac{3y}{x^2}\)</span><span><span class="pl">f</span>\(\dfrac{dy}{dx}=\dfrac{y(1-x)}{x}\)</span></div>{{work:75}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Find all the constant solutions of \(\dfrac{dy}{dx}=3x^2\cos^2y\) in the interval \(-2\pi\le y\le2\pi\).</span><span><span class="pl">b</span>Find all the non-constant solutions.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Consider the initial value problem \(\dfrac{dy}{dx}=\dfrac{2y}{x-1}\) with \(y(2)=1\).
+<div class="parts one"><span><span class="pl">a</span>Show that the constant solution of the DE is not a solution of the IVP.</span><span><span class="pl">b</span>Use separation of variables to find the general solution of the DE.</span><span><span class="pl">c</span>Hence solve the IVP.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Consider the initial value problem \(\dfrac{dy}{dx}=(y-1)\tan x\) with \(y\left(\tfrac{\pi}{4}\right)=3\).
+<div class="parts one"><span><span class="pl">a</span>Show that the constant solution of the DE is not a solution of the IVP.</span><span><span class="pl">b</span>Use separation of variables to find the general solution of the DE.</span><span><span class="pl">c</span>Hence solve the IVP.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Use a similar approach to Questions 10 and 11 to solve these IVPs.
+<div class="parts"><span><span class="pl">a</span>\(\dfrac{dy}{dx}=\dfrac{y}{x}\) with \(y(2)=1\)</span><span><span class="pl">b</span>\(\dfrac{dy}{dx}=\dfrac{y}{2x}\) with \(y(1)=2\)</span><span><span class="pl">c</span>\(\dfrac{dy}{dx}=\dfrac{-2xy}{1+x^2}\) with \(y(1)=2\)</span><span><span class="pl">d</span>\(\dfrac{dy}{dx}=-\dfrac{y}{x}\) with \(y(2)=1\)</span><span><span class="pl">e</span>\(\dfrac{dy}{dx}=y\cos x\) with \(y\left(\tfrac{\pi}{2}\right)=1\)</span><span><span class="pl">f</span>\(\dfrac{dy}{dx}=\dfrac{y(2-x)}{x^2}\) with \(y(2)=\tfrac12\)</span></div>{{work:75}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Differentiate \(\log(\log x)\).</span><span><span class="pl">b</span>Hence find the general solution of \((x\log x)\,y'=y\).</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{x}{x+2}=1-\dfrac{2}{x+2}\).</span><span><span class="pl">b</span>Hence solve the initial value problem \((x+2)\,y'-xy=0\) with \(y(0)=1\).</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Use the double-angle formulae to rewrite \(2\cos^2x\) in terms of \(\cos2x\).</span><span><span class="pl">b</span>The solution of the DE \(\dfrac{dy}{dx}=\dfrac{2\cos^2x}{y}\) is a relation and not a function. Use part a to find its equation, given that it passes through \((0,\sqrt2)\).</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Let \(y=x\times u\), where \(u\) is an unknown function of \(x\). Use the product rule to find an expression for \(y'\).</span><span><span class="pl">b</span>Consider the differential equation \(xy'=2x+2y\). (i) Use the result of part a to write a corresponding differential equation for \(u\) that is separable. (ii) Solve this DE for \(u\). (iii) Hence write down the general solution of \(xy'=2x+2y\).</span></div>{{work:55}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">17</span><div class="q-body">Suppose that \((x^2+1)\,y'+(y^2+1)=0\) with \(y(0)=1\).
+<div class="parts one"><span><span class="pl">a</span>Find a general solution of this DE.</span><span><span class="pl">b</span>Show that the general solution is equivalent to \(\dfrac{y+x}{1-xy}=D\).</span><span><span class="pl">c</span>Hence find the solution of the IVP. Make \(y\) the subject of your answer.</span></div>{{work:55}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>19 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics Extension 1, Q12(b)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Solve the initial value problem where \(\dfrac{dy}{dx}=2xe^{-y}\) given \(y(0)=\ln4\). Express your answer with \(y\) as the subject.</div>
+<div class="hint"><b>Hint:</b> multiply both sides by \(e^{y}\) before separating.</div>{{work:42}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Abbotsleigh, 2021, Higher School Certificate Assessment Task 4, Mathematics Extension 1, Q11(f)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find the solution curve with \(y(0)=2\) for the differential equation \(\dfrac{dy}{dx}=\dfrac{y}{1+x^2}\).</div>
+<div class="hint"><b>Hint:</b> \(\int\dfrac{dy}{y}=\int\dfrac{dx}{1+x^2}\). Deal with the absolute value using the initial condition.</div>{{work:42}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Hornsby Girls High School, 2023, Year 12 Higher School Certificate Trial Examination, Mathematics Extension 1, Q13(b)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find the equation of the curve which satisfies the differential equation \(\dfrac{dy}{dx}=\dfrac{1-x}{y}\) and passes through the point \((2,0)\).</div>
+<div class="hint"><b>Hint:</b> the answer is a relation. Complete the square to recognise it.</div>{{work:42}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Sydney Grammar School, 2022, Trial Examination, Form VI Mathematics Extension 1, Q13(e)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Solve the separable differential equation \(\dfrac{dy}{dx}=x(y^2+4)\) if the solution passes through the point \((0,2)\). Express your solution as a function of \(x\).</div>
+<div class="hint"><b>Hint:</b> \(\displaystyle\int\dfrac{dy}{y^2+4}\) is a \(\tan^{-1}\) standard form.</div>{{work:46}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Technical High School, 2023, Trial HSC, Extension 1 Mathematics, Q13(a)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Solve the differential equation \(\dfrac{dy}{dx}=3(y+2)\sqrt{x}\), given that \(y(0)=7\). Give your answer in the form \(y=f(x)\).</div>
+<div class="hint"><b>Hint:</b> \(\displaystyle\int\dfrac{dy}{y+2}=\int3x^{\frac12}\,dx\).</div>{{work:46}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Blacktown Boys' High School, 2020, HSC Trial Examination, Mathematics Extension 1, Q13(d)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">Solve the differential equation \(\dfrac{dy}{dx}=\dfrac{1}{(2-y)\sqrt{2-x^2}}\) given that when \(x=1\), \(y=0\). Express \(y\) as a function of \(x\).</div>
+<div class="hint"><b>Hint:</b> you will get a quadratic in \(y\). Use the initial condition to choose the correct sign of the square root.</div>{{work:55}}</div>
+</div>

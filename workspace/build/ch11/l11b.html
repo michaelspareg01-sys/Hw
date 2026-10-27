@@ -1,0 +1,235 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 11B</div><h2>The sum of sine and cosine functions</h2>
+<div class="focus">Write \(a\sin x+b\cos x\) as a single wave \(R\sin(x\pm\alpha)\) or \(R\cos(x\pm\alpha)\), then use it to sketch, find maximum and minimum values, and solve equations and inequations.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:adding a sine wave and a cosine wave}}
+<div class="box concept"><div class="bt">Sketching y = sin x + cos x by graphical methods</div>
+<p>Add the heights of \(y=\sin x\) and \(y=\cos x\) at convenient points.</p>
+<ul>
+<li>The new graph has the same period \(2\pi\). It looks like a wave, and within \([0,2\pi]\) its zeroes are at \(x=\tfrac{3\pi}{4}\) and \(x=\tfrac{7\pi}{4}\), where \(\sin x\) and \(\cos x\) take opposite values.</li>
+<li>The amplitude is bigger than 1. At \(x=\tfrac{\pi}{4}\) the value is \(\tfrac12\sqrt2+\tfrac12\sqrt2=\sqrt2\), so if the maximum occurs there, the amplitude is \(\sqrt2\).</li>
+</ul>
+{{svg:sumwave}}
+<p>This suggests \(y=\sqrt2\sin\left(x+\tfrac{\pi}{4}\right)\): the sine curve stretched by \(\sqrt2\) and shifted left \(\tfrac{\pi}{4}\). Check by expanding:</p>
+\[\sqrt2\sin\left(x+\tfrac{\pi}{4}\right)=\sqrt2\left(\sin x\cos\tfrac{\pi}{4}+\cos x\sin\tfrac{\pi}{4}\right)=\sin x+\cos x,\quad\text{because }\cos\tfrac{\pi}{4}=\sin\tfrac{\pi}{4}=\tfrac{1}{\sqrt2}.\]
+</div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:the auxiliary-angle method}}
+<div class="box concept"><div class="bt">Auxiliary-angle method</div>
+<ul>
+<li>Any function \(f(x)=a\sin x+b\cos x\) (\(a, b\) constants, not both zero) can be written in any one of the four forms
+\[y=R\sin(x-\alpha)\qquad y=R\sin(x+\alpha)\qquad y=R\cos(x-\alpha)\qquad y=R\cos(x+\alpha)\]
+where \(R>0\) and \(0^\circ\le\alpha<360^\circ\). The constant \(R=\sqrt{a^2+b^2}\) is the same for all forms, but the <b>auxiliary angle</b> \(\alpha\) depends on which form is chosen.</li>
+<li>To begin, <b>expand the standard form and equate coefficients</b> of \(\sin x\) and \(\cos x\). Be careful to identify the <b>quadrant</b> in which \(\alpha\) lies.</li>
+</ul></div>
+<div class="box tip"><div class="bt">The algorithm</div>
+<ol>
+<li>Expand the required form with the compound-angle formula.</li>
+<li>Equate coefficients of \(\sin x\) and \(\cos x\): this gives \(R\cos\alpha=\dots\;(1)\) and \(R\sin\alpha=\dots\;(2)\).</li>
+<li>Square and add: \(R^2=a^2+b^2\), and \(R>0\).</li>
+<li>Use the <b>signs</b> of \(\cos\alpha\) and \(\sin\alpha\) to find the quadrant, then the related angle.</li>
+</ol>
+<p>Maximum value \(=R\), minimum value \(=-R\). The graph is a sine or cosine wave with amplitude \(R\), shifted sideways by \(\alpha\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Exact auxiliary angle, two forms</span></div><div class="ex-body">
+Express \(y=\sqrt3\sin x+\cos x\) in the two forms <b>a</b> \(R\sin(x+\alpha)\), <b>b</b> \(R\cos(x+\alpha)\), where \(R>0\) and \(0\le\alpha<2\pi\). Then sketch the curve for \(0\le x\le 2\pi\), showing all intercepts and turning points.
+{{work:85}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">One form</span></div><div class="ex-body">
+Express \(\sin x-\cos x\) in the form \(R\sin(x-\alpha)\), where \(R>0\) and \(0<\alpha<\dfrac{\pi}{2}\). State the maximum and minimum values of \(\sin x-\cos x\), and sketch \(y=\sin x-\cos x\) for \(0\le x\le 2\pi\).
+{{work:72}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Express \(y=\sin x+\cos x\) in the two forms <b>a</b> \(R\sin(x+\alpha)\), <b>b</b> \(R\cos(x+\alpha)\), where \(R>0\) and \(0\le\alpha<2\pi\). Then sketch the curve, showing all intercepts and turning points in \(0\le x\le 2\pi\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Expanding, \(R\sin(x+\alpha)=R\sin x\cos\alpha+R\cos x\sin\alpha\), so for all \(x\),</p>
+\[\sin x+\cos x=R\sin x\cos\alpha+R\cos x\sin\alpha.\]
+<p>Equating coefficients:</p>
+\[\begin{aligned}
+\sin x:\quad R\cos\alpha&=1 \quad(1)\\
+\cos x:\quad R\sin\alpha&=1 \quad(2)
+\end{aligned}\]
+<p>Squaring and adding, \(R^2=2\), and because \(R>0\), \(R=\sqrt2\).</p>
+\[\cos\alpha=\tfrac{1}{\sqrt2}>0,\qquad \sin\alpha=\tfrac{1}{\sqrt2}>0\]
+<p>so \(\alpha\) is in the 1st quadrant, with related angle \(\tfrac{\pi}{4}\):</p>
+\[\sin x+\cos x=\sqrt2\sin\left(x+\tfrac{\pi}{4}\right)\]
+</div><div>
+<p><b>b</b> Expanding, \(R\cos(x+\alpha)=R\cos x\cos\alpha-R\sin x\sin\alpha\).</p>
+\[\begin{aligned}
+\cos x:\quad R\cos\alpha&=1 \quad(1)\\
+\sin x:\quad R\sin\alpha&=-1 \quad(2)
+\end{aligned}\]
+<p>Squaring and adding, \(R=\sqrt2\). Now \(\cos\alpha>0\) and \(\sin\alpha<0\), so \(\alpha\) is in the 4th quadrant, with related angle \(\tfrac{\pi}{4}\):</p>
+\[\sin x+\cos x=\sqrt2\cos\left(x+\tfrac{7\pi}{4}\right)\]
+<div style="display:flex;gap:6mm;justify-content:center">{{svg:q45}}{{svg:q315}}</div>
+</div></div>
+<p>The graph is \(y=\sin x\) shifted left \(\tfrac{\pi}{4}\) and stretched vertically by \(\sqrt2\). The \(x\)-intercepts are \(x=\tfrac{3\pi}{4}\) and \(x=\tfrac{7\pi}{4}\); there is a maximum of \(\sqrt2\) when \(x=\tfrac{\pi}{4}\) and a minimum of \(-\sqrt2\) when \(x=\tfrac{5\pi}{4}\).</p>
+{{svg:root2sin}}
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:approximating the auxiliary angle}}
+<div class="box concept"><div class="bt">When α is not a special angle</div>
+<p>Unless special angles are involved, approximate the auxiliary angle on the calculator. Degrees or radians may be used.</p>
+<p><b>Calculator note.</b> In Worked Example 2 below the exact value is \(\alpha=180^\circ-\sin^{-1}\tfrac35\), because \(\alpha\) is in the second quadrant. Store this value in the calculator's memory and use it whenever \(\alpha\) is needed later. Re-entering a rounded value may lead to rounding errors.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Approximate α</span></div><div class="ex-body">
+Express \(5\sin x+12\cos x\) in the form \(R\cos(x-\alpha)\), where \(R>0\) and \(0^\circ\le\alpha<360^\circ\), giving \(\alpha\) correct to the nearest minute.
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Express \(4\sin x+3\cos x\) in the form \(R\sin(x+\alpha)\), where \(R>0\) and \(0^\circ\le\alpha<360^\circ\), giving \(\alpha\) correct to the nearest minute.
+{{work:52}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Express \(y=3\sin x-4\cos x\) in the form \(y=R\cos(x-\alpha)\), where \(R>0\) and \(0^\circ\le\alpha<360^\circ\), giving \(\alpha\) correct to the nearest degree.<br>
+<b>b</b> Sketch the curve, showing all intercepts and turning points in \(-180^\circ\le x\le 180^\circ\), correct to the nearest degree.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Expanding, \(R\cos(x-\alpha)=R\cos x\cos\alpha+R\sin x\sin\alpha\), so for all \(x\),</p>
+\[3\sin x-4\cos x=R\cos x\cos\alpha+R\sin x\sin\alpha.\]
+\[\begin{aligned}
+\cos x:\quad R\cos\alpha&=-4 \quad(1)\\
+\sin x:\quad R\sin\alpha&=3 \quad(2)
+\end{aligned}\]
+<p>Squaring and adding, \(R^2=25\), so \(R=5\).</p>
+\[\cos\alpha=-\tfrac45,\qquad\sin\alpha=\tfrac35\]
+<p>so \(\alpha\) is in the 2nd quadrant, with related angle about \(37^\circ\). Hence</p>
+\[3\sin x-4\cos x=5\cos(x-\alpha),\ \text{where}\ \alpha\approx 143^\circ.\]
+</div><div>{{svg:q143}}</div></div>
+<p><b>b</b> The graph is \(y=\cos x\) shifted right by \(\alpha\approx143^\circ\) and stretched vertically by 5. The \(x\)-intercepts are \(x\approx53^\circ\) and \(x\approx-127^\circ\); there is a maximum of 5 when \(x\approx143^\circ\) and a minimum of \(-5\) when \(x\approx-37^\circ\). (The \(y\)-intercept is \(-4\).)</p>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+{{sec:teal:key:Concept 4:solving a sin x + b cos x = c, and inequations}}
+<div class="box concept"><div class="bt">Auxiliary-angle method for a sin x + b cos x = c</div>
+<ul><li>Get the LHS into one of the four forms \(R\sin(x+\alpha)\), \(R\sin(x-\alpha)\), \(R\cos(x+\alpha)\) or \(R\cos(x-\alpha)\).</li>
+<li>Then solve the resulting equation. Always keep track of the <b>restriction on the compound angle</b>: if \(0^\circ\le x\le 360^\circ\), then \(-\alpha\le x-\alpha\le 360^\circ-\alpha\).</li>
+<li>For an <b>inequation</b>, solve the equation first, then use the graph of the wave and the horizontal line to read off where the curve is above or below the line.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Solve with the auxiliary angle</span></div><div class="ex-body">
+Using your answer to the tutor demo in Concept 3, solve \(5\sin x+12\cos x=6.5\) for \(0^\circ\le x\le 360^\circ\), correct to the nearest minute.
+{{work:55}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Using your answer to the Concept 3 attempt, solve \(4\sin x+3\cos x=2.5\) for \(0^\circ\le x\le 360^\circ\), correct to the nearest minute.
+{{work:55}}</div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">An inequation</span></div><div class="ex-body">
+Using \(\sqrt3\sin x+\cos x=2\sin\left(x+\dfrac{\pi}{6}\right)\), solve \(\sqrt3\sin x+\cos x\ge 1\) for \(0\le x\le 2\pi\).
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Using \(\sin x-\cos x=\sqrt2\sin\left(x-\dfrac{\pi}{4}\right)\), solve \(\sin x-\cos x>1\) for \(0\le x\le 2\pi\).
+{{work:55}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Using Worked Example 2, solve \(3\sin x-4\cos x=-2\) for \(-180^\circ\le x\le 180^\circ\), correct to the nearest degree.<br>
+<b>b</b> Hence use the graph to solve \(3\sin x-4\cos x\le -2\) for \(-180^\circ\le x\le 180^\circ\).
+<div class="sol-label">Solution</div>
+<p><b>a</b> Using \(3\sin x-4\cos x=5\cos(x-\alpha)\), where \(\alpha\approx143^\circ\):</p>
+\[\begin{aligned}
+5\cos(x-\alpha)&=-2,\quad\text{where } -323^\circ\le x-\alpha\le 37^\circ\\
+\cos(x-\alpha)&=-\tfrac25
+\end{aligned}\]
+<p>Hence \(x-\alpha\) is in quadrant 2 or 3, with related angle about \(66^\circ\), so</p>
+\[\begin{aligned}
+x-\alpha&\approx-114^\circ\ \text{or}\ -246^\circ\\
+x&\approx 30^\circ\ \text{or}\ -103^\circ
+\end{aligned}\]
+<p class="small">Be careful to use the calculator's memory here. Never re-enter approximations of the angles.</p>
+<p><b>b</b> The graph of \(y=3\sin x-4\cos x\) with the line \(y=-2\) added verifies the two answers in part <b>a</b>, and shows that the solution of the inequation is</p>
+\[-103^\circ\le x\le 30^\circ.\]
+{{svg:fivecos}}
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 11B}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Find \(R\) and \(\alpha\) exactly, if \(R>0\) and \(0\le\alpha<2\pi\), and:
+<div class="parts"><span><span class="pl">a</span>\(R\sin\alpha=\sqrt3\) and \(R\cos\alpha=1\)</span><span><span class="pl">b</span>\(R\sin\alpha=3\) and \(R\cos\alpha=3\)</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Find \(R\) (exactly) and \(\alpha\) (correct to the nearest minute), if \(R>0\) and \(0^\circ\le\alpha<360^\circ\), and:
+<div class="parts"><span><span class="pl">a</span>\(R\sin\alpha=5\) and \(R\cos\alpha=12\)</span><span><span class="pl">b</span>\(R\cos\alpha=2\) and \(R\sin\alpha=4\)</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>If \(\cos x-\sin x=A\cos(x+\alpha)\), show that \(A\cos\alpha=1\) and \(A\sin\alpha=1\).</span>
+<span><span class="pl">b</span>Find the positive value of \(A\) by squaring and adding.</span>
+<span><span class="pl">c</span>Find \(\alpha\), if \(0\le\alpha<2\pi\).</span>
+<span><span class="pl">d</span>State the maximum and minimum values of \(\cos x-\sin x\), and the first positive values of \(x\) for which they occur.</span>
+<span><span class="pl">e</span>Solve the equation \(\cos x-\sin x=-1\), for \(0\le x\le 2\pi\).</span>
+<span><span class="pl">f</span>Write down the amplitude and period of \(\cos x-\sin x\). Hence sketch \(y=\cos x-\sin x\), for \(0\le x\le 2\pi\). Indicate on your sketch the line \(y=-1\) and the solutions of the equation in part e.</span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>If \(\sqrt3\cos x-\sin x=B\cos(x+\theta)\), show that \(B\cos\theta=\sqrt3\) and \(B\sin\theta=1\).</span>
+<span><span class="pl">b</span>Find \(B\), if \(B>0\), by squaring and adding.</span>
+<span><span class="pl">c</span>Find \(\theta\), if \(0\le\theta<2\pi\).</span>
+<span><span class="pl">d</span>State the greatest and least possible values of \(\sqrt3\cos x-\sin x\), and the values of \(x\) closest to \(x=0\) for which they occur.</span>
+<span><span class="pl">e</span>Solve the equation \(\sqrt3\cos x-\sin x=1\), for \(0\le x\le 2\pi\).</span>
+<span><span class="pl">f</span>Sketch \(y=\sqrt3\cos x-\sin x\), for \(0\le x\le 2\pi\). On the same diagram, sketch the line \(y=1\). Indicate the solutions of the equation in part e.</span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Let \(4\sin x-3\cos x=A\sin(x-\alpha)\), where \(A>0\) and \(0^\circ\le\alpha<360^\circ\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(A\cos\alpha=4\) and \(A\sin\alpha=3\).</span><span><span class="pl">b</span>Show that \(A=5\) and \(\alpha=\tan^{-1}\tfrac34\).</span><span><span class="pl">c</span>Hence solve the equation \(4\sin x-3\cos x=5\), for \(0^\circ\le x\le 360^\circ\). Give the solution(s) correct to the nearest minute.</span></div>{{work:45}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Let \(\cos x-3\sin x=D\cos(x+\phi)\), where \(D>0\) and \(0^\circ\le\phi<360^\circ\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(D=\sqrt{10}\) and \(\phi=\tan^{-1}3\).</span><span><span class="pl">b</span>Hence solve \(\cos x-3\sin x=3\), for \(0^\circ\le x\le 360^\circ\). Give the solutions correct to the nearest minute where necessary.</span></div>{{work:45}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Consider the equation \(\sqrt5\sin x+2\cos x=-2\).
+<div class="parts one"><span><span class="pl">a</span>Transform the LHS into the form \(C\sin(x+\alpha)\), where \(C>0\) and \(0^\circ\le\alpha<360^\circ\).</span><span><span class="pl">b</span>Find, correct to the nearest minute where necessary, the solutions of the equation, for \(0^\circ\le x\le 360^\circ\).</span></div>{{work:45}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body">Solve each equation, for \(0^\circ\le x\le 360^\circ\), by transforming the LHS into a single-term sine or cosine function. Give solutions correct to the nearest minute.
+<div class="parts"><span><span class="pl">a</span>\(3\sin x+5\cos x=4\)</span><span><span class="pl">b</span>\(6\sin x-5\cos x=7\)</span><span><span class="pl">c</span>\(7\cos x-2\sin x=5\)</span><span><span class="pl">d</span>\(9\cos x+7\sin x=3\)</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) Express \(\sqrt3\cos x+\sin x\) in the form \(A\cos(x+\theta)\), where \(A>0\) and \(0<\theta<2\pi\). (ii) Hence solve \(\sqrt3\cos x+\sin x=1\), for \(0\le x<2\pi\).</span>
+<span><span class="pl">b</span>(i) Express \(\cos x-\sin x\) in the form \(B\sin(x+\alpha)\), where \(B>0\) and \(0<\alpha<2\pi\). (ii) Hence solve \(\cos x-\sin x=1\), for \(0\le x<2\pi\).</span>
+<span><span class="pl">c</span>(i) Express \(\sin x-\sqrt3\cos x\) in the form \(C\sin(x+\beta)\), where \(C>0\) and \(0<\beta<2\pi\). (ii) Hence solve \(\sin x-\sqrt3\cos x=-1\), for \(0\le x<2\pi\).</span>
+<span><span class="pl">d</span>(i) Express \(-\cos x-\sin x\) in the form \(D\cos(x-\phi)\), where \(D>0\) and \(0<\phi<2\pi\). (ii) Hence solve \(-\cos x-\sin x=1\), for \(0\le x<2\pi\).</span></div>{{work:95}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) Express \(2\cos x-\sin x\) in the form \(R\sin(x+\alpha)\), where \(R>0\) and \(0^\circ<\alpha<360^\circ\). (Write \(\alpha\) correct to the nearest minute.) (ii) Hence solve \(2\cos x-\sin x=1\), for \(0^\circ\le x<360^\circ\). Give the solutions correct to the nearest minute where necessary.</span>
+<span><span class="pl">b</span>(i) Express \(-3\sin x-4\cos x\) in the form \(S\cos(x-\beta)\), where \(S>0\) and \(0<\beta<2\pi\). (Write \(\beta\) correct to four decimal places.) (ii) Hence solve \(-3\sin x-4\cos x=2\), for \(0\le x<2\pi\). Give the solutions correct to two decimal places.</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Solve, for \(0^\circ\le x\le 360^\circ\), giving solutions correct to the nearest minute:
+<div class="parts"><span><span class="pl">a</span>\(2\sec x-2\tan x=5\)</span><span><span class="pl">b</span>\(2\,\mathrm{cosec}\,x+5\cot x=3\)</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Given the equation \(\sin\theta+\cos\theta=\cos 2\theta\), show that \(\tan\theta=-1\) or \(\cos\theta-\sin\theta=1\).</span><span><span class="pl">b</span>Hence solve \(\sin\theta+\cos\theta=\cos 2\theta\), for \(0\le\theta<2\pi\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Solve, for \(0\le x\le 2\pi\):
+<div class="parts three"><span><span class="pl">a</span>\(\sin x-\cos x=\sqrt{1.5}\)</span><span><span class="pl">b</span>\(\sqrt3\sin 2x-\cos 2x=2\)</span><span><span class="pl">c</span>\(\sin 4x+\cos 4x=1\)</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) Show that \(\sin x-\cos x=\sqrt2\sin\left(x-\tfrac{\pi}{4}\right)\). (ii) Hence sketch the graph of \(y=\sin x-\cos x\), for \(0\le x\le 2\pi\). (iii) Use your sketch to determine the values of \(x\) in the domain \(0\le x\le 2\pi\) for which \(\sin x-\cos x>1\).</span>
+<span><span class="pl">b</span>Use a similar approach to part a to solve, for \(0\le x\le 2\pi\):<br>(i) \(\sin x+\sqrt3\cos x\le 1\) &nbsp; (ii) \(\sin x-\sqrt3\cos x<-1\) &nbsp; (iii) \(\left|\sqrt3\sin x+\cos x\right|<1\) &nbsp; (iv) \(\cos x-\sin x\ge\tfrac12\sqrt2\)</span></div>{{work:100}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">15</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that if \(\cos(x-\alpha)=\cos\beta\), then \(\tan x=\tan(\alpha+\beta)\) or \(\tan x=\tan(\alpha-\beta)\).</span>
+<span><span class="pl">b</span>Show that \(2\cos x+11\sin x=5\sqrt5\cos\left(x-\tan^{-1}\tfrac{11}{2}\right)\).</span>
+<span><span class="pl">c</span>Consider the equation \(2\cos x+11\sin x=10\), for \(0\le x<2\pi\). (i) By writing the equation in the form \(\cos(x-\alpha)=\cos\beta\) and using part a, show that \(\tan x=\tfrac43\) or \(-\tfrac{24}{7}\). (ii) Deduce that the equation has roots \(\tan^{-1}\tfrac43\) and \(\pi-\tan^{-1}\tfrac{24}{7}\). (iii) Prove that one of the roots is twice the other.</span></div>{{work:85}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>21 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Normanhurst Boys' High School, 2022, Mathematics Extension 1 Assessment Task 4 (Trial Examination), Q9</span><span class="mk">1 mark</span></div>
+<div class="pp-q">The expression \(3\cos x+2\sin x\) is written in the form \(R\cos(x-\theta)\), where \(R>0\) and \(0\le\theta\le\dfrac{\pi}{2}\).<br>What is the value of \(\tan\theta\)?
+<div class="mc"><span>(A) \(-\dfrac32\)</span><span>(C) \(\dfrac23\)</span><span>(B) \(-\dfrac23\)</span><span>(D) \(\dfrac32\)</span></div></div>
+<div class="hint"><b>Hint:</b> expand \(R\cos(x-\theta)\) and equate coefficients, then divide one equation by the other.</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Grammar School, 2021, Trial Examination, Form VI Mathematics Extension 1, Q12(e)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Express \(3\cos x+2\sin x\) in the form \(R\cos(x-\alpha)\), where \(R>0\) and \(0^\circ<\alpha<90^\circ\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence, or otherwise, solve \(3\cos x+2\sin x=\sqrt{13}\), for \(0^\circ\le x\le 360^\circ\). Give your answer in degrees correct to two decimal places.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> \(\sqrt{13}\) is the value of \(R\). What must \(\cos(x-\alpha)\) equal?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics Extension 1, Q12(c)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Express \(6\cos x+8\sin x\) in the form \(A\cos(x-\alpha)\), where \(A>0\) and \(0\le\alpha\le\dfrac{\pi}{2}\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence, or otherwise, solve the equation \(6\cos x+8\sin x=5\) for \(0\le x\le 2\pi\). Write your answers correct to three decimal places.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> keep \(\alpha\) in the calculator's memory, and write down the range of \(x-\alpha\) before solving.</div>{{work:55}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>North Sydney Boys High School, 2023, Year 12 Mathematics Extension 1 Assessment Task 3, Q11(b)</span><span class="mk">7 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Express \(\sin 2x+\sqrt3\cos 2x\) in the form of \(R\sin(2x+\alpha)\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Find the greatest value of \(\sin 2x+\sqrt3\cos 2x\) and the values of \(x\), \(0\le x\le 2\pi\), at which it occurs.</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(iii) Hence, or otherwise, solve \(\sin 2x+\sqrt3\cos 2x=1\), \(0\le x\le 2\pi\).</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> the method is the same with \(2x\) in place of \(x\). If \(0\le x\le 2\pi\), what is the range of \(2x+\alpha\)? Expect four answers in (iii).</div>{{work:75}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Abbotsleigh, 2020, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q13(c)</span><span class="mk">5 marks</span></div>
+<div class="pp-q">A machine produces a sound which can be modelled using the equation \(y=\cos t-\sqrt3\sin t\), where \(y\) gives a measure of the sound at time \(t\) seconds after the machine is switched on. The sound is audible to humans when \(y\ge 1\).
+<div class="pp-sub"><span>(i) Express \(\cos t-\sqrt3\sin t\) in the form \(R\cos(t+\alpha)\), where \(R>0\) and \(0\le\alpha<\dfrac{\pi}{2}\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence find the time intervals during which the noise is audible to humans for \(0<t\le 4\pi\).</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> solve the equation \(R\cos(t+\alpha)=1\) first, then sketch the wave and the line \(y=1\) to see where the curve is above the line.</div>{{work:70}}</div>
+</div>

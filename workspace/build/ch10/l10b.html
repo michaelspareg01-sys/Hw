@@ -1,0 +1,175 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 10B</div><h2>Projectile motion: the equation of path</h2>
+<div class="focus">Eliminating \(t\) from the time equations gives the Cartesian equation of the path, which is always an upside-down parabola. This lesson covers deriving the equation of path, using it to find heights, range and direction, the range formula \(\frac{V^2}{g}\sin2\alpha\), and the equation of path as a quadratic in \(\tan\alpha\).</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:deriving the equation of path}}
+<div class="box concept"><div class="bt">The general case</div>
+<p>The formulae for \(x\) and \(y\) in terms of \(t\) are a parametric equation of the path. A projectile fired from the origin with initial speed \(V\) and angle of elevation \(\alpha\) has \(\dot x=V\cos\alpha\), \(\dot y=V\sin\alpha\) initially, and integrating \(\ddot x=0\) and \(\ddot y=-g\) gives</p>
+\[x=Vt\cos\alpha\ \ \text{(3)}\qquad\qquad y=-\tfrac12gt^2+Vt\sin\alpha\ \ \text{(6)}\]
+<p>From (3), \(t=\dfrac{x}{V\cos\alpha}\). Substituting into (6),</p>
+\[y=-\dfrac{gx^2}{2V^2\cos^2\alpha}+\dfrac{Vx\sin\alpha}{V\cos\alpha}\qquad\text{so}\qquad y=-\dfrac{gx^2}{2V^2}\sec^2\alpha+x\tan\alpha.\]
+<p>The Pythagorean identity \(\dfrac{1}{\cos^2\alpha}=\sec^2\alpha=1+\tan^2\alpha\) gives the alternative form</p>
+\[y=-\dfrac{gx^2}{2V^2}\left(1+\tan^2\alpha\right)+x\tan\alpha.\]
+<ul><li>This formula is <b>not to be memorised</b>: the working must always be shown, unless the equation is given in the question.</li>
+<li>The last form is quadratic in \(x\), quadratic in \(\tan\alpha\), and linear in \(g\) and \(y\).</li>
+<li>Differentiating the equation of path gives the gradient \(\dfrac{dy}{dx}\) at any value of \(x\). This is an alternative way to find the angle of inclination in flight: \(\tan\theta=\dfrac{dy}{dx}\).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">From parametric to Cartesian</span></div><div class="ex-body">
+A particle is projected from the origin, and \(x=30t\) and \(y=-5t^2+40t\).
+<b>a</b> Find the Cartesian equation of the path.
+<b>b</b> Use it to find the horizontal range and the greatest height.
+<b>c</b> Find \(\dfrac{dy}{dx}\), and hence the angle of projection, to the nearest minute.
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A particle is projected from the origin, and \(x=20t\) and \(y=-5t^2+15t\). Find the Cartesian equation of its path, the horizontal range, the greatest height, and the angle of projection to the nearest minute.
+{{work:55}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A ball is thrown from the origin with speed 20 m/s at \(60^\circ\) to the horizontal. Take \(g=10\) m/s².
+<b>a</b> Derive the Cartesian equation of the path. &nbsp; <b>b</b> Find the horizontal range. &nbsp; <b>c</b> Find the direction of motion when \(x=15\sqrt3\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Initially \(\dot x=20\cos60^\circ=10\) and \(\dot y=20\sin60^\circ=10\sqrt3\).</p>
+<p>From \(\ddot x=0\): \(\dot x=10\), and \(x=10t\) (using \(x=0\) when \(t=0\)).</p>
+<p>From \(\ddot y=-10\): \(\dot y=-10t+10\sqrt3\), and \(y=-5t^2+10\sqrt3\,t\).</p>
+<p>From \(x=10t\), \(t=\dfrac{x}{10}\). Substituting,</p>
+\[y=-5\times\dfrac{x^2}{100}+10\sqrt3\times\dfrac{x}{10}=-\dfrac{x^2}{20}+\sqrt3\,x.\]
+</div><div>
+<p><b>b</b> Put \(y=0\): \(x\left(\sqrt3-\dfrac{x}{20}\right)=0\), so \(x=0\) or \(x=20\sqrt3\). The range is \(20\sqrt3\doteq34.6\) m.</p>
+<p><b>c</b> Differentiating, \(\dfrac{dy}{dx}=-\dfrac{x}{10}+\sqrt3\).</p>
+<p>When \(x=15\sqrt3\), \(\dfrac{dy}{dx}=-\tfrac32\sqrt3+\sqrt3=-\dfrac{\sqrt3}{2}\).</p>
+<p>So \(\tan\theta=-\dfrac{\sqrt3}{2}\) and \(\theta\doteq-40^\circ54'\). The ball is moving at about \(40^\circ54'\) below the horizontal.</p>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:the range on level ground, and the maximum range}}
+<div class="box concept"><div class="bt">Range and greatest height</div>
+<p>Putting \(y=0\) in the equation of path, \(x=0\) or</p>
+\[\dfrac{gx}{2V^2\cos^2\alpha}=\dfrac{\sin\alpha}{\cos\alpha},\quad\text{so}\quad x=\dfrac{2V^2}{g}\sin\alpha\cos\alpha=\dfrac{V^2}{g}\sin2\alpha.\]
+<div class="split"><div>
+<ul><li>The range on level ground is \(\dfrac{V^2}{g}\sin2\alpha\).</li>
+<li>Because \(\sin2\alpha\) has a maximum value of 1 when \(\alpha=45^\circ\), the <b>maximum range</b> is \(\dfrac{V^2}{g}\), when \(\alpha=45^\circ\).</li>
+<li>Any range less than the maximum can be reached with two angles, \(\alpha\) and \(90^\circ-\alpha\), because \(\sin2\alpha=\sin(180^\circ-2\alpha)\).</li>
+<li>By symmetry, the greatest height is reached halfway, at \(x=\dfrac{V^2\sin2\alpha}{2g}\), and it is \(\dfrac{V^2\sin^2\alpha}{2g}\).</li></ul>
+</div><div>{{svg:range}}</div></div>
+<p class="small">These results must be derived in an exam unless they are given.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Using the range</span></div><div class="ex-body">
+<b>a</b> Using the equation of path, show that the range on level ground is \(\dfrac{V^2}{g}\sin2\alpha\).
+<b>b</b> A ball is kicked from level ground at 30 m/s and lands 45 m away. Taking \(g=10\) m/s², find the two possible angles of projection, and the maximum possible range at this speed.
+{{work:55}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A stone is thrown from level ground at 20 m/s and lands \(20\sqrt3\) m away. Taking \(g=10\) m/s² and assuming the range formula, find the two possible angles of projection, and the greatest height for each.
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A particle is projected from the origin with initial speed \(V\) at an angle \(\theta\) to the horizontal. You may assume that its path is \(y=x\tan\theta-\dfrac{gx^2\sec^2\theta}{2V^2}\). Find \(\dfrac{dy}{dx}\), and hence show that the vertex of the parabola is \(\left(\dfrac{V^2\sin2\theta}{2g},\ \dfrac{V^2\sin^2\theta}{2g}\right)\).
+<div class="sol-label">Solution</div>
+\[\dfrac{dy}{dx}=\tan\theta-\dfrac{gx\sec^2\theta}{V^2}\]
+<p>At the vertex the path is horizontal, so put \(\dfrac{dy}{dx}=0\):</p>
+\[x=\dfrac{V^2\tan\theta}{g\sec^2\theta}=\dfrac{V^2}{g}\sin\theta\cos\theta=\dfrac{V^2\sin2\theta}{2g}.\]
+<p>Substituting \(x=\dfrac{V^2}{g}\sin\theta\cos\theta\) into the two terms of the equation of path:</p>
+\[x\tan\theta=\dfrac{V^2\sin^2\theta}{g}\qquad\text{and}\qquad \dfrac{gx^2\sec^2\theta}{2V^2}=\dfrac{g}{2V^2}\times\dfrac{V^4\sin^2\theta\cos^2\theta}{g^2\cos^2\theta}=\dfrac{V^2\sin^2\theta}{2g},\]
+<p>so \(y=\dfrac{V^2\sin^2\theta}{g}-\dfrac{V^2\sin^2\theta}{2g}=\dfrac{V^2\sin^2\theta}{2g}\), as required.</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:the equation of path as a quadratic in tan α}}
+<div class="box concept"><div class="bt">Which points can be hit?</div>
+<div class="split"><div>
+<p>Multiplying the equation of path through by \(2V^2\) and rearranging gives a quadratic in \(\tan\alpha\):</p>
+\[gx^2\tan^2\alpha-2V^2x\tan\alpha+\left(2V^2y+gx^2\right)=0.\]
+<ul><li>To hit a given point \(P(x,y)\) at a given speed, substitute \(x\) and \(y\) and solve for \(\tan\alpha\). Two roots give the low shot and the lobbed shot.</li>
+<li>There is a solution if and only if \(\Delta\ge0\), which simplifies to \(2V^2gy\le V^4-g^2x^2\).</li>
+<li>Geometrically, \(P\) can be reached only if it lies on or under the parabola \(y=\dfrac{V^4-g^2x^2}{2V^2g}\), whose vertex \(\left(0,\dfrac{V^2}{2g}\right)\) lies on the \(y\)-axis and whose zeroes are \(x=\pm\dfrac{V^2}{g}\).</li></ul>
+</div><div>{{svg:safety}}<p class="small" style="text-align:center">Paths at one speed and several angles. None goes above the outer (shaded) parabola.</p></div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Hitting a point at a fixed speed</span></div><div class="ex-body">
+A projectile is fired from the origin at 20 m/s at an angle \(\alpha\). Take \(g=10\) m/s².
+<b>a</b> Show that its path is \(y=x\tan\alpha-\dfrac{x^2}{80}\left(1+\tan^2\alpha\right)\).
+<b>b</b> Find the two angles, to the nearest degree, at which it can be fired to pass through \((20,5)\).
+<b>c</b> Show that it cannot pass through \((40,10)\) for any angle.
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A projectile is fired from the origin at 30 m/s at an angle \(\alpha\). Take \(g=10\) m/s² and assume the path is \(y=x\tan\alpha-\dfrac{x^2}{180}\left(1+\tan^2\alpha\right)\). Find the two angles, to the nearest degree, at which it can pass through \((30,10)\).
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use the equation of path \(y=-\dfrac{gx^2}{2V^2}\left(1+\tan^2\alpha\right)+x\tan\alpha\). Arrange it as a quadratic in \(\tan\alpha\), and hence show that with a given initial speed \(V\) and variable angle \(\alpha\) of elevation, a projectile can be fired through the point \(P(x,y)\) if and only if \(2V^2gy\le V^4-g^2x^2\). What does this mean geometrically?
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p>Multiplying through by \(2V^2\),</p>
+\[2V^2y=-gx^2\left(1+\tan^2\alpha\right)+2V^2x\tan\alpha\]
+\[gx^2\tan^2\alpha-2V^2x\tan\alpha+\left(2V^2y+gx^2\right)=0.\]
+<p>This is a quadratic in \(\tan\alpha\), so it has a solution when \(\Delta\ge0\):</p>
+\[\left(2V^2x\right)^2-4gx^2\left(2V^2y+gx^2\right)\ge0\]
+\[4V^4x^2-8x^2V^2gy-4g^2x^4\ge0\]
+<p>Dividing by \(4x^2\): \(\ 2V^2gy\le V^4-g^2x^2\).</p>
+</div><div>
+<p>Rearranging again, \(y\le\dfrac{V^4-g^2x^2}{2V^2g}\).</p>
+<p>This means that the target \(P(x,y)\) must lie on or under the parabola \(y=\dfrac{V^4-g^2x^2}{2V^2g}\), whose vertex \(\left(0,\dfrac{V^2}{2g}\right)\) lies on the \(y\)-axis, and whose zeroes are \(x=\dfrac{V^2}{g}\) and \(x=-\dfrac{V^2}{g}\).</p>
+<p class="small">Check: the zeroes agree with the maximum range \(\dfrac{V^2}{g}\), and the vertex agrees with the greatest height of a vertical throw, \(\dfrac{V^2}{2g}\).</p>
+</div></div>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 10B}}
+<p class="small"><b>Note:</b> in this exercise take \(g=10\) m/s² unless otherwise indicated.</p>
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Suppose that a particle is projected from the origin and its parabolic path has equation \(y=-\tfrac{5}{324}x^2+\tfrac43x\).
+<div class="parts one"><span><span class="pl">a</span>Find the height of the particle when it has travelled a horizontal distance of 12 m.</span><span><span class="pl">b</span>Find how far the particle has travelled horizontally when its height is 19 m.</span><span><span class="pl">c</span>Find \(\dfrac{dy}{dx}\) and hence show that: (i) the angle of projection is \(\tan^{-1}\tfrac43\), (ii) when the horizontal distance travelled is 18 m, the direction of motion is \(\tan^{-1}\tfrac79\) above the horizontal, (iii) when the horizontal distance travelled is 54 m, the direction of motion is \(\tan^{-1}\tfrac13\) below the horizontal.</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">A particle is projected from a point \(O\). Its parabolic motion is governed by the parametric equations \(x=48t\) and \(y=-5t^2+20t\), where \(x\) metres and \(y\) metres are the respective horizontal and vertical components of the displacement from \(O\) after \(t\) seconds.
+<div class="parts one"><span><span class="pl">a</span>Show that the parabolic path has Cartesian equation \(y=-\tfrac{5}{2304}x^2+\tfrac{5}{12}x\).</span><span><span class="pl">b</span>Use the Cartesian equation of the parabola to find: (i) the horizontal range of the particle, (ii) the greatest height of the particle, (iii) the angle of projection (correct to one decimal place), (iv) the direction in which the particle is moving when \(x=120\) (correct to the nearest degree).</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">A particle is projected from the origin \(O\) with initial velocity vector \(3\tv{i}+\tv{j}\).
+<div class="parts one"><span><span class="pl">a</span>What is the initial speed of the particle?</span><span><span class="pl">b</span>Show that the parabolic path has parametric equations \(x=3t\) and \(y=t-5t^2\).</span><span><span class="pl">c</span>Hence show that the Cartesian equation of the path is \(9y=3x-5x^2\).</span><span><span class="pl">d</span>Find, correct to one decimal place, the direction of motion when: (i) \(x=0.15\), (ii) \(t=0.15\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">An object is tossed from the top of a 20 m tower with initial velocity vector \(5\tv{i}\).
+<div class="parts one"><span><span class="pl">a</span>If the point of projection is the origin, find the Cartesian equation of the path of the object.</span><span><span class="pl">b</span>Find how far the object lands from the base of the tower.</span><span><span class="pl">c</span>Find, correct to the nearest degree, the direction in which the object is travelling when it hits the ground.</span></div>{{work:46}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">5</span><div class="q-body">A ball is tossed from the origin \(O\) that is 6 m above ground level. The initial velocity is 24 m/s at an angle of \(30^\circ\) above the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Find \(\dot x\), \(\dot y\), \(x\) and \(y\) as functions of \(t\).</span><span><span class="pl">b</span>Show that the Cartesian equation of the path of the ball is \(y=\tfrac{1}{\sqrt3}x-\tfrac{5}{432}x^2\).</span><span><span class="pl">c</span>If \(D\) metres is the horizontal distance that the ball has travelled when it strikes the ground, show that \(5D^2-144\sqrt3\,D-2592=0\).</span><span><span class="pl">d</span>Hence find \(D\) correct to one decimal place.</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">A stone is thrown from the top of a 60 m cliff at an angle of \(27^\circ\) below the horizontal. It lands in the ocean 35 m from the base of the cliff.
+<div class="parts one"><span><span class="pl">a</span>Taking the origin at the point of projection, show that the path of the stone has Cartesian equation \(y=-x\tan27^\circ-\dfrac{5x^2}{V^2\cos^227^\circ}\), where \(V\) is the initial speed.</span><span><span class="pl">b</span>Hence find: (i) the initial speed of the stone correct to one decimal place, (ii) the direction in which the stone is moving, correct to the nearest degree, when it lands in the ocean.</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">A particle is projected from the origin with initial speed \(V\) at an angle of \(\theta\) to the horizontal. You may assume that the equation of its path is \(y=x\tan\theta-\dfrac{gx^2\sec^2\theta}{2V^2}\).
+<div class="parts one"><span><span class="pl">a</span>Show that the horizontal range of the particle is \(\dfrac{V^2\sin2\theta}{g}\).</span><span><span class="pl">b</span>If the initial speed is 30 m/s and the horizontal range is to be 75 m, find the two possible values of \(\theta\) correct to one decimal place.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">A particle is projected from the origin with initial speed \(V\) at an angle of \(\theta\) to the horizontal. You may assume the equation of its parabolic path (as given, for example, in Question 7).
+<div class="parts one"><span><span class="pl">a</span>Find \(\dfrac{dy}{dx}\), and hence show that the vertex of the parabola is \(\left(\dfrac{V^2\sin2\theta}{2g},\dfrac{V^2\sin^2\theta}{2g}\right)\).</span><span><span class="pl">b</span>If the initial speed is 20 m/s and the greatest height is 15 m, find \(\theta\).</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">A gun can fire a shell with a constant initial speed \(V\) and a variable angle of elevation \(\alpha\). Assume that \(t\) seconds after being fired, the horizontal and vertical displacements \(x\) and \(y\) of the shell from the gun are given by \(x=Vt\cos\alpha\) and \(y=-\tfrac12gt^2+Vt\sin\alpha\).
+<div class="parts one"><span><span class="pl">a</span>Show that the Cartesian equation of the shell's path may be written as \(gx^2\tan^2\alpha-2xV^2\tan\alpha+\left(2yV^2+gx^2\right)=0\).</span><span><span class="pl">b</span>Suppose that \(V=200\) m/s, and that the shell hits a target positioned 3 km horizontally and 0.5 km vertically from the gun. Show that \(\tan\alpha=\dfrac{4+\sqrt3}{3}\) or \(\tan\alpha=\dfrac{4-\sqrt3}{3}\), and hence find the two possible values of \(\alpha\), correct to the nearest minute.</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">A particle is projected from a point \(O\) with speed 34 m/s at an angle of \(\theta\) above the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Show that the parabolic path of the particle has equation \(y=x\tan\theta-\dfrac{5x^2\sec^2\theta}{1156}\).</span><span><span class="pl">b</span>During its flight the particle passes through a point that is 11 m above \(O\) and 30 m horizontally from \(O\). Show that the two possible angles of projection are \(\theta=\arctan\tfrac{8}{15}\) and \(\theta=\arctan\tfrac{538}{75}\).</span></div>{{work:50}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">11</span><div class="q-body">A boy throws a ball with speed \(V\) m/s at an angle of \(45^\circ\) to the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Derive expressions for the horizontal and vertical components of the displacement of the ball from the point of projection.</span><span><span class="pl">b</span>Hence show that the Cartesian equation of the path of the ball is \(y=x-\dfrac{gx^2}{V^2}\).</span><span><span class="pl">c</span>The boy is now standing on a hill inclined at an angle \(\theta\) to the horizontal. He throws the ball at the same angle of elevation of \(45^\circ\) and at the same speed of \(V\) m/s. If he can throw the ball 60 metres measured down the hill, but only 30 metres measured up the hill, use the result in part b to show that \(\tan\theta=1-\dfrac{30g\cos\theta}{V^2}=\dfrac{60g\cos\theta}{V^2}-1\), and hence that \(\theta=\tan^{-1}\tfrac13\).</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><div class="split"><div>A particle is projected from the origin with speed \(V\) m/s at an angle \(\alpha\) to the horizontal.</div><div>{{svg:q12path}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>Assuming that the coordinates of the particle at time \(t\) are \(\left(Vt\cos\alpha,\ Vt\sin\alpha-\tfrac12gt^2\right)\), prove that the horizontal range \(R\) of the particle is \(\dfrac{V^2\sin2\alpha}{g}\).</span><span><span class="pl">b</span>Hence prove that the path of the particle has equation \(y=x\left(1-\dfrac xR\right)\tan\alpha\).</span><span><span class="pl">c</span>Suppose that \(\alpha=45^\circ\) and that the particle passes through two points 6 metres apart and 4 metres above the point of projection, as shown in the diagram. Let \(x_1\) and \(x_2\) be the \(x\)-coordinates of the two points. (i) Show that \(x_1\) and \(x_2\) are the roots of the equation \(x^2-Rx+4R=0\). (ii) Use the identity \((x_2-x_1)^2=(x_2+x_1)^2-4x_2x_1\) to find \(R\).</span></div>{{work:62}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+@@PP10B@@
+</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter 10 Review</div><h2>Chapter review exercise</h2>
+<div class="focus">Mixed practice from the whole chapter. Take \(g=10\) m/s² unless otherwise indicated. Question 10 is from the Chapter 9 review and practises related rates.</div></div>
+<div class="q"><span class="q-num">1</span><div class="q-body">A particle is projected from horizontal ground with a speed of 60 m/s at an angle of \(40^\circ\) above the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Starting with \(\ddot x=0\) and \(\ddot y=-10\), show that \(\dot x=60\cos40^\circ\) and \(\dot y=-10t+60\sin40^\circ\).</span><span><span class="pl">b</span>Hence find \(x\) and \(y\) in terms of \(t\).</span><span><span class="pl">c</span>Find, correct to one decimal place: (i) when the particle returns to the ground, (ii) the horizontal distance travelled by the particle, (iii) the greatest height reached above the ground.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">A rock is thrown from the top of a vertical cliff of height 40 metres. Its initial velocity is 30 m/s at an angle of \(60^\circ\) above the horizontal. Find, correct to two decimal places where necessary: <b>a</b> the greatest height reached by the rock above the point of projection, <b>b</b> the distance that the rock lands from the base of the cliff, <b>c</b> the speed at which the rock hits the ground.{{work:55}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">A particle is projected from the origin \(O\) with a speed of 25 m/s at an angle of \(\tan^{-1}\tfrac43\) to the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dot x=15\) and \(\dot y=-10t+20\).</span><span><span class="pl">b</span>Find \(x\) and \(y\) as functions of \(t\).</span><span><span class="pl">c</span>Find the distance of the particle from the point of projection after one second.</span><span><span class="pl">d</span>Show that the velocity of the particle after one second is \(5\sqrt{13}\) m/s at an angle of \(\tan^{-1}\tfrac23\) above the horizontal.</span><span><span class="pl">e</span>If \(R\) is the horizontal range of the particle and \(H\) is the greatest height, show that \(R=3H\).</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">An object is projected from level ground with initial speed 10 m/s at an angle of \(45^\circ\) to the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Find \(\dot x\), \(x\), \(\dot y\) and \(y\) by integration from \(\ddot x=0\) and \(\ddot y=-10\). Then, by eliminating \(t\), show that the equation of the parabolic path is \(y=x-\tfrac{1}{10}x^2\).</span><span><span class="pl">b</span>Use the equation of the path to find the horizontal range and the maximum height.</span><span><span class="pl">c</span>Suppose first that the stone hits a wall 8 metres away. (i) Find how far up the wall the stone hits. (ii) Differentiate the equation of the path, and hence find the direction of the object when it hits the wall.</span><span><span class="pl">d</span>Suppose now that the stone hits a ceiling 2.1 metres high. (i) Find the horizontal distance travelled before impact. (ii) Find the angle at which the stone hits the ceiling.</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">A particle is projected from the origin. Its initial velocity vector is \(24\tv{i}+18\tv{j}\).
+<div class="parts one"><span><span class="pl">a</span>Express its velocity at time \(t\) in component vector form.</span><span><span class="pl">b</span>Express its displacement at time \(t\) in component vector form.</span><span><span class="pl">c</span>(i) Find the initial speed of the particle. (ii) Find the position vector of the particle after 4 seconds. (iii) Find the position vector of the particle when it reaches its greatest height.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">A ball is thrown with initial speed \(V\) at an angle of \(\alpha\) to the horizontal. Two seconds later it passes through the point with position vector \(24\sqrt5\,\tv{i}+28\tv{j}\).
+<div class="parts one"><span><span class="pl">a</span>Find the initial velocity vector of the ball.</span><span><span class="pl">b</span>Find the position vector of the ball after 3 seconds.</span><span><span class="pl">c</span>Is the ball rising or falling after 3 seconds? Justify your answer.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">A particle is projected from a point \(O\) on level ground with initial speed \(V\) m/s at an angle of \(\theta\) to the horizontal. Its horizontal range is 108 m, and its flight time is 3 seconds.
+<div class="parts one"><span><span class="pl">a</span>Show that \(V=39\) m/s and \(\theta=\arctan\tfrac{5}{12}\).</span><span><span class="pl">b</span>Find the greatest height reached by the particle.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Steve tosses an apple to Adam, who is sitting near him. Adam catches the apple at exactly the same height that Steve released it. Suppose that the initial speed of the apple is \(V=5\) m/s, and the initial angle \(\alpha\) of elevation is given by \(\tan\alpha=2\).
+<div class="parts one"><span><span class="pl">a</span>Use a velocity resolution diagram to find the initial values of \(\dot x\) and \(\dot y\).</span><span><span class="pl">b</span>Find \(\dot x\), \(x\), \(\dot y\) and \(y\) by integrating \(\ddot x=0\) and \(\ddot y=-10\), taking the origin at Steve's hands.</span><span><span class="pl">c</span>Show by substitution into \(y\) that the apple is in the air for less than 1 second.</span><span><span class="pl">d</span>Find the greatest height above the point of release reached by the apple.</span><span><span class="pl">e</span>Show that the flight time is \(\tfrac25\sqrt5\) seconds, and hence find the horizontal distance travelled by the apple.</span><span><span class="pl">f</span>Find \(\dot x\) and \(\dot y\) at the time Adam catches the apple. Then use a diagram to resolve the velocity and show that the final speed equals the initial speed, and the final angle of inclination is the opposite of the initial angle of elevation.</span><span><span class="pl">g</span>The path of the apple is a parabolic arc. By eliminating \(t\) from the equations for \(x\) and \(y\), find its equation in Cartesian form.</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">A golf ball was hit from level ground and just cleared a 12 m tall tree that was 30 m from the point of projection. If the angle of projection was \(26^\circ\), find the initial speed of the ball in m/s correct to the nearest integer.{{work:40}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">A 5-metre ladder is leaning against a wall, and the base is sliding away from the wall at 5 cm/s. Find the rate at which: <b>a</b> the height, <b>b</b> the angle of inclination, is changing when the foot is 1.4 m from the wall.{{work:46}}</div></div>
+</div>

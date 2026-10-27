@@ -1,0 +1,158 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 13D</div><h2>y′ = g(y) and the logistic equation</h2>
+<div class="focus">Solve autonomous DEs \(y'=g(y)\) by separating or by taking reciprocals, including exponential growth \(y'=ky\) and the logistic equation \(y'=ky(P-y)\), and use the DE itself to analyse gradient and concavity.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:solving y′ = g(y)}}
+<div class="box concept"><div class="bt">Two equivalent approaches</div>
+<p>Solve \(y'=g(y)\) by integration using either of the forms</p>
+\[\dfrac{1}{g(y)}\,dy=dx\qquad\text{OR}\qquad\dfrac{dx}{dy}=\dfrac{1}{g(y)}.\]
+<p>A DE that does not involve the independent variable \(x\) is called <b>autonomous</b>. Laws of physics are usually independent of time, so autonomous DEs model populations, radioactive decay and cooling.</p></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Both approaches</span></div><div class="ex-body">
+Solve \(y'=e^{2y}\) using both approaches, then make \(y\) the subject.
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Solve \(y'=e^{y}\) using both approaches.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p>EITHER regard it as a separable DE, \(e^{-y}\,dy=dx\), and integrate:</p>
+\[\begin{aligned}-\int-e^{-y}\,dy&=-\int dx\\e^{-y}&=-x+C\\x&=-e^{-y}+C\end{aligned}\]
+</div><div>
+<p>OR take reciprocals, \(\dfrac{dx}{dy}=e^{-y}\), and integrate:</p>
+\[x=-e^{-y}+C,\quad\text{for some constant }C.\]
+</div></div>
+<p>After either approach, solving for \(y\) gives \(y=-\log(-x+C)\).</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:the exponential growth DE}}
+<div class="box concept"><div class="bt">y′ = ky</div>
+<p>Exponential growth has the DE \(y'=ky\) (\(k\ne0\)): the rate of change of the quantity is proportional to the quantity. Growth occurs when \(k\) is positive, and decay when \(k\) is negative. Its general solution is \(y=Ae^{kx}\), where \(A\) can be any real number. (The constant function \(y=0\) is the case \(A=0\).)</p></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">An IVP</span></div><div class="ex-body">
+Solve \(y'=2y\) given the initial value \(y(1)=10\).
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Shifted constant</span></div><div class="ex-body">
+Solve \(y'=4-y\), with \(y(0)=1\). (Find the constant solution first.)
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Solve the differential equation \(y'=-3y\) given the initial value \(y(2)=50\).
+<div class="sol-label">Solution</div>
+<p>First, the constant function \(y=0\) is trivially a solution. Otherwise, rearranging, \(\dfrac1y\,dy=-3\,dx\), and integrating,</p>
+\[\begin{aligned}\log|y|&=-3x+C,\quad\text{for some constant }C\\|y|&=e^{-3x+C}=Ae^{-3x},\quad\text{where }A=e^C\\y&=Ae^{-3x},\quad\text{where }A\text{ can be positive or negative.}\end{aligned}\]
+<p>Because the constant function \(y=0\) is a solution, the general solution is \(y=Ae^{-3x}\), where \(A\) can be any real number. Substituting \(y(2)=50\) gives \(50=Ae^{-6}\), so \(A=50e^6\), and \(y=50e^{-3(x-2)}\).</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:the logistic equation}}
+<div class="box concept"><div class="bt">The logistic differential equation</div>
+<ul><li>In this course a logistic DE has the form \(y'=ky(P-y)\), where \(k\) and \(P\) are constants (assumed positive below).</li>
+<li>The constant functions \(y=0\) and \(y=P\) are solutions.</li>
+<li>Otherwise there are three groups of solution curves: between \(y=0\) and \(y=P\), with domain all real \(x\); above \(y=P\); and below \(y=0\).</li>
+<li>Solving needs a <b>partial fractions</b> decomposition, which will always be given in a question.</li>
+<li>In applications, one group, or even two groups, may have no significance.</li></ul></div>
+<div class="split"><div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Show that \(\dfrac{1}{y(1-y)}=\dfrac1y+\dfrac{1}{1-y}\). &nbsp; <b>b</b> Hence solve \(y'=y(1-y)\), writing \(y\) as the subject.
+<div class="sol-label">Solution</div>
+<p><b>a</b> RHS \(=\dfrac{(1-y)+y}{y(1-y)}=\) LHS.</p>
+<p><b>b</b> First, \(y=0\) and \(y=1\) are trivially solutions. Otherwise, using part a,</p>
+\[\begin{aligned}\left(\dfrac1y+\dfrac{1}{1-y}\right)dy&=dx\\\log|y|-\log|1-y|&=x+C\\\left|\dfrac{y}{1-y}\right|&=Ae^x,\quad A=e^C>0\\\dfrac{y}{1-y}&=Ae^x,\quad A\ne0\\y&=\dfrac{Ae^x}{Ae^x+1}=\dfrac{1}{1+Be^{-x}}\end{aligned}\]
+<p>where \(B=A^{-1}\). Hence \(y=0\), or \(y=1\), or \(y=\dfrac{1}{1+Be^{-x}}\) for some non-zero constant \(B\).</p>
+</div></div>
+</div><div>{{svg:logistic}}
+<p class="small">Solution curves of \(y'=y(1-y)\) through \(\left(0,\tfrac12\right)\) (blue, \(B=1\)), \((0,2)\) (\(B=-\tfrac12\)) and \((0,-1)\) (\(B=-2\)). No solution crosses \(y=0\) or \(y=1\).</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Picking a solution curve</span></div><div class="ex-body">
+Using the general solution \(y=\dfrac{1}{1+Be^{-x}}\) of \(y'=y(1-y)\), find the solution curve through \(\left(0,\tfrac12\right)\). State its domain, range and asymptotes, and describe it if \(x\) is time and \(y\) is population.
+{{work:55}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">A different region</span></div><div class="ex-body">
+Find the solution curve of \(y'=y(1-y)\) through \((0,2)\). Find its vertical asymptote, and the domain and range of the connected curve through \((0,2)\).
+{{work:55}}</div></div>
+
+<!-- ============ Concept 4 ============ -->
+{{sec:teal:key:Concept 4:using the DE to find the second derivative}}
+<div class="box concept"><div class="bt">Concavity straight from the DE</div>
+<p>Rather than differentiating the solution twice, differentiate the DE itself with the chain rule: \(y''=\dfrac{d}{dy}\big(g(y)\big)\times\dfrac{dy}{dx}=g'(y)\,y'\).</p></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+For \(y'=y(1-y)\): <b>a</b> prove that \(y''=y(1-y)(1-2y)\); <b>b</b> use this and the DE to analyse the gradient and concavity of the solution curves.
+<div class="sol-label">Solution</div>
+<p><b>a</b> Expanding, \(y'=y-y^2\). Using the chain rule, \(y''=\dfrac{d}{dy}(y-y^2)\times\dfrac{dy}{dx}=(1-2y)\,y'=y(1-y)(1-2y)\).</p>
+<p><b>b</b> \(y'\) is positive for \(0<y<1\) and negative for \(y<0\) or \(y>1\), so curves in the middle region always increase and those in the top and bottom regions always decrease. \(y''\) is positive for \(0<y<\tfrac12\) or \(y>1\), and negative for \(\tfrac12<y<1\) or \(y<0\). So the top region is always concave up, the bottom region always concave down, and curves in the middle region change from concave up to concave down at \(y=\tfrac12\), giving a point of inflection there.</p>
+</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+For \(y'=2y(3-y)\), find \(y''\) in terms of \(y\) alone, and hence find the height \(y\) at which the solution curves between \(y=0\) and \(y=3\) have a point of inflection.
+{{work:42}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 13D}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Consider the differential equation \(\dfrac{dy}{dx}=-y\).
+<div class="parts one"><span><span class="pl">a</span>What is the constant solution of this equation?</span><span><span class="pl">b</span>Use separation of variables to solve the DE.</span><span><span class="pl">c</span>Make \(y\) the subject of this solution, simplifying the constant part of the expression.</span><span><span class="pl">d</span>Check that the constant solution is included in your answer to part c.</span><span><span class="pl">e</span>Find the solution for the initial condition \(y(0)=2\).</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Consider the differential equation \(\dfrac{dy}{dx}=3y\).
+<div class="parts one"><span><span class="pl">a</span>What is the constant solution of this equation?</span><span><span class="pl">b</span>Write down the DE obtained by taking the reciprocal of both sides.</span><span><span class="pl">c</span>Use direct integration to obtain \(x\) as a function of \(y\).</span><span><span class="pl">d</span>Make \(y\) the subject of this solution, simplifying the constant part of the expression.</span><span><span class="pl">e</span>Check that the constant solution is included in your answer to part d.</span><span><span class="pl">f</span>Find the solution for the initial condition \(y(0)=-1\).</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Find the solutions of these autonomous IVPs (autonomous means that it has the form \(y'=g(y)\)). Use either of the methods given in Questions 1 and 2.
+<div class="parts"><span><span class="pl">a</span>\(y'-y=0\), with \(y(0)=-3\)</span><span><span class="pl">b</span>\(y'+2y=0\), with \(y(0)=1\)</span><span><span class="pl">c</span>\(y'=-3y\), with \(y(0)=2\)</span><span><span class="pl">d</span>\(y'=2y\), with \(y(0)=-1\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Consider the differential equation \(\dfrac{dy}{dx}=2-y\).
+<div class="parts one"><span><span class="pl">a</span>What is the constant solution of this equation?</span><span><span class="pl">b</span>Use separation of variables or take reciprocals to solve this DE.</span><span><span class="pl">c</span>Make \(y\) the subject, simplifying the constant part of the expression.</span><span><span class="pl">d</span>Check that the constant solution is included in your answer to part c.</span><span><span class="pl">e</span>Find the solution for the initial condition \(y(0)=3\).</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Follow the procedures in Question 4 to solve these IVPs.
+<div class="parts"><span><span class="pl">a</span>\(y'=1-y\), with \(y(0)=3\)</span><span><span class="pl">b</span>\(y'=y-1\), with \(y(0)=0\)</span><span><span class="pl">c</span>\(y'=\tfrac12(y+1)\), with \(y(0)=1\)</span><span><span class="pl">d</span>\(y'=2(3-y)\), with \(y(0)=4\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Solve these initial value problems.
+<div class="parts"><span><span class="pl">a</span>\(y'=2y^2\), with \(y(0)=3\)</span><span><span class="pl">b</span>\(y'=-y^2\), with \(y(0)=1\)</span><span><span class="pl">c</span>\(y'=1+y^2\), with \(y\left(\tfrac{\pi}{4}\right)=1\)</span><span><span class="pl">d</span>\(y'=-e^{y}\), with \(y(0)=0\)</span></div>{{work:55}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">7</span><div class="q-body">Consider the differential equation \(y'=ky\), where \(k\) is an unknown constant.
+<div class="parts one"><span><span class="pl">a</span>Find the general solution of this DE.</span><span><span class="pl">b</span>Evaluate the arbitrary constant, given the initial condition \(y(0)=20\).</span><span><span class="pl">c</span>Finally, evaluate \(k\) given the condition \(y(2)=5\).</span><span><span class="pl">d</span>Simplify your solution, and hence evaluate \(y(3)\).</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Once again consider the differential equation \(y'=ky\), where \(k\) is an unknown constant.
+<div class="parts one"><span><span class="pl">a</span>Find the general solution of this DE.</span><span><span class="pl">b</span>Evaluate the arbitrary constant, given the initial condition \(y(0)=8\).</span><span><span class="pl">c</span>Finally, evaluate \(k\) given the condition \(y(2)=18\).</span><span><span class="pl">d</span>Simplify your solution, and hence evaluate \(y(4)\).</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Find the general solution of the DE \(y'=e^{-y}\).</span><span><span class="pl">b</span>Describe the family of curves that you have found.</span><span><span class="pl">c</span>Draw the slope field for this DE. (i) Draw the solution curve that passes through the origin. (ii) Draw two other solution curves. (iii) Describe how your two solution curves can be obtained by simple transformations. (iv) What feature of the slope field makes this possible?</span><span><span class="pl">d</span>Evaluate the arbitrary constant, given that the curve passes through \((0,1)\).</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Let \(L(x)=\dfrac{1}{1+e^{-x}}\) and consider the curve \(y=L(x)\).
+<div class="parts one"><span><span class="pl">a</span>What is the \(y\)-intercept?</span><span><span class="pl">b</span>Explain why the function is always positive.</span><span><span class="pl">c</span>Determine \(\displaystyle\lim_{x\to\infty}L(x)\) and \(\displaystyle\lim_{x\to-\infty}L(x)\).</span><span><span class="pl">d</span>Find \(L'\) and hence show that the curve has no stationary points.</span><span><span class="pl">e</span>(i) Show that \(L'=\dfrac{1}{\left(e^{\frac{x}{2}}+e^{-\frac{x}{2}}\right)^2}\). (ii) Use the result in part i to find \(L''\). (iii) Hence find the point of inflection of \(y=L(x)\).</span><span><span class="pl">f</span>Sketch \(y=L(x)\).</span><span><span class="pl">g</span>Show by substitution that \(y=L(x)\) is a solution of the logistic DE \(y'=y(1-y)\).</span></div>{{work:85}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{1}{y(1-y)}=\dfrac1y+\dfrac{1}{1-y}\).</span><span><span class="pl">b</span>Consider the logistic differential equation \(y'=y(1-y)\). (i) What are the constant solutions of this equation? (ii) Use part a to find the general solution of the logistic DE.</span><span><span class="pl">c</span>Show that the solution is the result of shifting the function in Question 10, and determine the shift.</span><span><span class="pl">d</span>The constant solutions cannot be obtained in the usual way from the general solution. Use the general solution \(y=\dfrac{1}{1+Be^{-x}}\) to answer: (i) Find \(\displaystyle\lim_{B\to\infty}y\). Is this one of the constant solutions? (ii) Find \(\displaystyle\lim_{B\to0^+}y\). Is this one of the constant solutions?</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">A more generalised version of the logistic equation is \(y'=ry(1-y)\), for some constant \(r\).
+<div class="parts one"><span><span class="pl">a</span>Find the constant solutions.</span><span><span class="pl">b</span>Use part a of Question 11 to find the general solution.</span><span><span class="pl">c</span>Suppose that the initial condition is \(y(0)=y_0\). Determine the value of the arbitrary constant \(B\) given in the answer to part b.</span><span><span class="pl">d</span>By using the answer to part c, or otherwise, what happens as: (i) \(y_0\to0^+\), (ii) \(y_0\to1^-\)?</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{1}{(y-1)(y-3)}=\dfrac12\left(\dfrac{1}{y-3}-\dfrac{1}{y-1}\right)\).</span><span><span class="pl">b</span>Consider the modified logistic equation \(y'=-(1-y)(3-y)\). (i) What are the constant solutions? (ii) Use part a to find the general solution of the given DE.</span><span><span class="pl">c</span>Using the general solution given in the answers: (i) Which of the constant solutions is found by taking \(B\to0^+\)? (ii) Which of the constant solutions is found by taking \(B\to\infty\)?</span><span><span class="pl">d</span>(i) Find an expression for \(y''\) in terms of \(y\) alone. (ii) Hence determine the location of the inflection point for the solution curve with \(B=1\).</span></div>{{work:70}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">14</span><div class="q-body">Care must be taken when the solution of a DE involves inverse functions. Consider the initial value problem \(\dfrac{dy}{dx}=-\sqrt{1-y^2}\), with \(y(0)=1\).
+<div class="parts one"><span><span class="pl">a</span>Find the implicit general solution of the DE.</span><span><span class="pl">b</span>Evaluate the unknown constant by applying the initial condition.</span><span><span class="pl">c</span>Making \(y\) the subject without taking care, it would seem that the solution of the IVP is \(y=\cos x\). Explain why this solution is not valid for all values of \(x\). It may help to substitute this solution into each side of the DE.</span><span><span class="pl">d</span>What is the correct solution of the IVP in which \(y\) is the subject?</span></div>{{work:62}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>21 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Kinross Wolaroi School, 2023, Year 12 Mathematics Extension 1 Trial HSC Examination, Q8</span><span class="mk">1 mark</span></div>
+<div class="pp-q">If \(\dfrac{dN}{dt}=0.1(N-200)\) which of the following is a correct expression for \(N\)?
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>(A) \(-200-100e^{0.1t}\)</span><span>(B) \(-100-200e^{0.1t}\)</span><span>(C) \(200+100e^{0.1t}\)</span><span>(D) \(100+200e^{0.1t}\)</span></div></div>
+<div class="hint"><b>Hint:</b> the general solution is \(N-200=Ae^{0.1t}\).</div>{{work:20}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Hurlstone Agricultural High School, 2021, Higher School Certificate Assessment Task 4, Mathematics Extension 1, Q13(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Solve the differential equation \(\dfrac{dy}{dx}=\cos^2y\) given that \(y=\dfrac{\pi}{4}\) when \(x=0\).</div>
+<div class="hint"><b>Hint:</b> \(\dfrac{1}{\cos^2y}=\sec^2y\).</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Gosford High School, 2023, Trial HSC Examination, Mathematics Extension 1, Q13(b)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">Show that the solution to the differential equation \(\dfrac{dy}{dx}=1+\dfrac{2y}{3}\), given \(y=-1\) when \(x=2\), can be written in the form
+\[y=\dfrac{e^{\frac{2(x-2)}{3}}-3}{2}.\]</div>
+<div class="hint"><b>Hint:</b> write the RHS as \(\dfrac{3+2y}{3}\), then separate. Decide the sign of \(3+2y\) from the initial condition.</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>PLC, 2023, HSC Trial Examination, Mathematics Extension 1, Q14(a)</span><span class="mk">5 marks</span></div>
+<div class="pp-q">An area \(A\) cm² is occupied by a bacteria colony. The colony has a growth rate modelled by the logistic equation
+\[\dfrac{dA}{dt}=\dfrac{1}{25}A(50-A)\quad\text{where }t\ge0\text{ and is measured in days.}\]
+At time \(t=0\), the area occupied by the bacteria colony is \(\tfrac12\) cm².
+<div class="pp-sub"><span>(i) Show that \(\dfrac{1}{A(50-A)}=\dfrac{1}{50}\left(\dfrac1A+\dfrac{1}{50-A}\right)\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Solve the logistic equation and hence show that \(A=\dfrac{50}{1+99e^{-2t}}\).</span><span class="mk">3</span></div>
+<div class="pp-sub"><span>(iii) What is the limiting area of the bacteria colony?</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> after integrating you get \(\tfrac{1}{50}\log\left|\tfrac{A}{50-A}\right|=\tfrac{t}{25}+C\). Note that \(0<A<50\) throughout.</div>{{work:62}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics Extension 1, Q14(b)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">In the town of Eulerville, the population was estimated in the year 2000 to be 50 000. The population growth is given by the logistic equation \(\dfrac{dP}{dt}=0.05P\left(\dfrac{C-P}{C}\right)\), where \(t\) is the number of years after 2000 and \(C\) is the carrying capacity.<br>
+In the year 2023, the population was estimated to be 80 000. Use the fact that \(\dfrac{C}{P(C-P)}=\dfrac1P+\dfrac{1}{C-P}\) to find the carrying capacity, to the nearest thousand.</div>
+<div class="hint"><b>Hint:</b> solve to get \(P=\dfrac{C}{1+Be^{-0.05t}}\), use \(t=0\) to write \(B\) in terms of \(C\), then solve for \(C\) using \(t=23\).</div>{{work:62}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Gosford High School, 2023, Trial HSC Examination, Mathematics Extension 1, Q13(c)</span><span class="mk">5 marks</span></div>
+<div class="pp-q">A rabbit population grows according to the logistic equation \(\dfrac{dP}{dt}=0.2P\left(1-\dfrac{P}{10000}\right)\), where \(P\) is the number of rabbits after \(t\) months. The initial population is 1000.
+<div class="pp-sub"><span>(i) Show that \(\dfrac{10000}{P(10000-P)}=\dfrac1P+\dfrac{1}{10000-P}\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Find the population of rabbits after seven months.</span><span class="mk">4</span></div></div>
+<div class="hint"><b>Hint:</b> rewrite the DE as \(\dfrac{dP}{dt}=\dfrac{0.2}{10000}P(10000-P)\) before separating.</div>{{work:62}}</div>
+</div>

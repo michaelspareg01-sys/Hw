@@ -1,0 +1,161 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 13E</div><h2>Applications of differential equations</h2>
+<div class="focus">Find unknown constants when the form of the solution is known, then model real situations with the natural growth DE, Newton's law of cooling and the logistic equation. The variable is usually \(t\) for time.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:when the form of the solution is known}}
+<div class="box concept"><div class="bt">Equating coefficients</div>
+<p>People who work with DEs learn to recognise them, so they often know what the solution looks like but not the values of the constants. Substitute the given form into the DE, then equate coefficients (of \(x\), of each exponential, and the constants) to find them.</p></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Equate coefficients</span></div><div class="ex-body">
+<b>a</b> Find the values of \(a\) and \(b\) so that \(y=ax+b+2e^{-x}\) is a solution of \(y'+y=4x\). &nbsp; <b>b</b> Find \(n\) so that \(y=3\sin nx\) is a solution of \(y''=-16y\).
+{{work:55}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Find the values of \(b\) and \(c\) so that \(y=e^{3x}+bx+c\) is a solution of \(y'=3y-18x\). &nbsp; <b>b</b> Find \(n\) so that \(y=10\cos nx\) is a solution of the second-order DE \(y''=-49y\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Substituting \(y=e^{3x}+bx+c\) into the DE,</p>
+\[\text{LHS}=3e^{3x}+b\qquad\text{RHS}=3e^{3x}+(3b-18)x+3c\]
+<p>Equating coefficients of \(x\): \(3b-18=0\). Equating constants: \(3c=b\). So \(b=6\) and \(c=2\), giving \(y=e^{3x}+6x+2\).</p>
+</div><div>
+<p><b>b</b> Substituting \(y=10\cos nx\): LHS \(=-10n^2\cos nx\), RHS \(=-490\cos nx\).</p>
+<p>Hence \(-10n^2=-490\), so \(n=7\) or \(n=-7\), giving \(y=10\cos7x\) and \(y=10\cos(-7x)\), which are the same function because cosine is even.</p>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:natural growth in a practical situation}}
+<div class="box concept"><div class="bt">Forming and solving the DE</div>
+<ol><li>Translate the words into a DE: "the rate of increase of \(N\) is proportional to \(N\)" means \(\dfrac{dN}{dt}=kN\).</li>
+<li>Solve the DE, remembering any constant solution and the absolute values.</li>
+<li>Use the two given data points to find the arbitrary constant and \(k\).</li></ol>
+<p>The same steps handle "the rate of change of temperature is proportional to the difference from the surroundings" (Newton's law of cooling, \(\dfrac{dT}{dt}=k(T-R)\)).</p></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Newton's law of cooling</span></div><div class="ex-body">
+A cup of tea at 90°C is left in a room at 20°C, and its temperature \(T\) obeys \(\dfrac{dT}{dt}=k(T-20)\). After 10 minutes it is 60°C. <b>a</b> Solve the DE and find \(k\). <b>b</b> When will the tea reach 40°C?
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Radioactive decay</span></div><div class="ex-body">
+A radioactive mass \(M\) grams decays according to \(\dfrac{dM}{dt}=kM\). Initially there are 80 grams, and after 5 days there are 60 grams. Find \(M\) as a function of \(t\), and the half-life correct to the nearest tenth of a day.
+{{work:55}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+The rabbits on Bandicoot Island are increasing. Fifty years ago, 100 rabbits were released, and now there are 10 000 rabbits. Assume that the rate of increase of rabbits is proportional to the number of rabbits. <b>a</b> Find the equation for the population \(N\) at time \(t\) years after they were introduced. <b>b</b> Find how many rabbits there will be in another 25 years.
+<div class="sol-label">Solution</div>
+<p><b>a</b> As a DE, \(\dfrac{dN}{dt}=kN\). First, \(N=0\) is trivially a solution. Otherwise \(\dfrac1N\,dN=k\,dt\), and integrating, \(\log|N|=kt+C\), so \(N=Ae^{kt}\), where \(A\) can be any real number.</p>
+<p>When \(t=0\), \(N=100\), so \(A=100\) and \(N=100e^{kt}\). When \(t=50\), \(N=10\,000\), so \(10\,000=100e^{50k}\) and \(k=\tfrac{1}{50}\log100\).</p>
+<p><b>b</b> Substituting \(t=75\): \(kt=\tfrac{1}{50}\log100\times75=1.5\log100\), so \(N=100e^{1.5\log100}=100\times100^{1.5}=100\,000\) rabbits.</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:the logistic equation as a limit to growth}}
+<div class="box concept"><div class="bt">Logistic growth</div>
+<p>Populations cannot grow exponentially forever: food is limited and there may be predators. The simplest model of a limit is the logistic equation \(\dfrac{dN}{dt}=kN(P-N)\), where \(P\) is the <b>carrying capacity</b> (maximum population). Its solution between \(0\) and \(P\) is</p>
+\[N=\dfrac{P}{1+Be^{-Pkt}},\]
+<p>found using the partial fractions \(\dfrac{1}{N(P-N)}=\dfrac1P\left(\dfrac1N+\dfrac{1}{P-N}\right)\). The population rises rapidly, then levels off towards \(P\).</p></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+The carrying capacity of Bandicoot Island is 20 000 rabbits. Using the data of Worked Example 2 (100 rabbits at \(t=0\), 10 000 at \(t=50\)), model the population by \(\dfrac{dN}{dt}=kN(P-N)\) with \(P=20\,000\). Find \(N\), and the population in another 25 years.
+<div class="sol-label">Solution</div>
+<p>First, \(N=0\) and \(N=P\) are trivially solutions. Otherwise, using partial fractions,</p>
+\[\begin{aligned}\left(\dfrac1N+\dfrac{1}{P-N}\right)dN&=Pk\,dt\\\log|N|-\log|P-N|&=Pkt+C\\\dfrac{N}{P-N}&=Ae^{Pkt}\quad(A\text{ positive or negative})\\N&=\dfrac{P}{1+Be^{-Pkt}}\quad(B=A^{-1})\end{aligned}\]
+<p>When \(t=0\), \(N=100\): \(100=\dfrac{20\,000}{1+B}\), so \(B=199\). When \(t=50\), \(N=10\,000\): \(1+199e^{-1\,000\,000k}=2\), so \(k=\dfrac{\log199}{1\,000\,000}\).</p>
+<p>When \(t=75\): \(-Pkt=-1.5\log199\), so \(N=\dfrac{20\,000}{1+199e^{-1.5\log199}}\approx18\,676\) rabbits, far fewer than the 100 000 predicted by exponential growth.</p>
+</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Logistic model</span></div><div class="ex-body">
+A population obeys \(\dfrac{dN}{dt}=kN(500-N)\), with \(N(0)=50\) and \(N(2)=100\). Find \(N\) as a function of \(t\), and the population when \(t=6\).
+{{work:62}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 13E}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>In each case find the values of \(a\) and \(b\) given that: (i) \(y=ax^2+bx\) is a solution of \(y'=1-4x\); (ii) \(y=e^{-x}(a\cos x+b\sin x)\) is a solution of \(y'=2e^{-x}\sin x\); (iii) \(y=ax+b+3e^{-x}\) is a solution of \(y'=x-y\).</span><span><span class="pl">b</span>In each case find the values of \(a\), \(b\) and \(c\) given that: (i) \(y=ax^2+bx+c+4e^{-2x}\) is a solution of \(y'+2y=x^2-3x-4\); (ii) \(y=ax^2+bx+c-\sin2x\) is a solution of \(y''+4y=x^2+5x\).</span><span><span class="pl">c</span>Find the possible values of \(\lambda\) given that \(y=5e^{\lambda x}\) is a solution of \(y''+5y'+6y=0\).</span></div>{{work:75}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">In a laboratory, a scientist has a sample of radioactive material. The material decays at a rate proportional to the amount present, that is \(\dfrac{dR}{dt}=kR\), where \(R\) is the amount present at time \(t\) days, and \(k\) is an unknown constant.
+<div class="parts one"><span><span class="pl">a</span>Find the general solution of this DE.</span><span><span class="pl">b</span>Initially there is 100 grams of the material. Determine the arbitrary constant in your solution.</span><span><span class="pl">c</span>After 4 days only 20 grams of the substance remains radioactive. Determine the value of \(k\).</span><span><span class="pl">d</span>Hence determine the amount present after 12 days.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">A metal ingot is put in a fridge until its temperature is 5°C. The ingot is then taken out of the fridge and left in a room maintained at 25°C. Let \(H\) be the temperature of the ingot after \(t\) minutes. Experiments show that \(\dfrac{dH}{dt}=k(H-25)\), for some constant \(k\).
+<div class="parts one"><span><span class="pl">a</span>Find the general solution of this DE.</span><span><span class="pl">b</span>Use the initial condition to determine the arbitrary constant.</span><span><span class="pl">c</span>After 10 minutes the ingot is at 15°C. Determine the value of \(k\).</span><span><span class="pl">d</span>Find how long it takes, correct to the nearest minute, for the temperature to reach 24°C.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">A certain tank is in the shape of a cylinder. It is filled with water to a height of 400 cm. A tap at the bottom of the tank is opened, and as the water empties, the rate of change of height of water in the tank is proportional to the square root of the height: \(\dfrac{dh}{dt}=k\sqrt{h}\).
+<div class="parts one"><span><span class="pl">a</span>State the initial condition, and explain why the constant \(k\) must be negative.</span><span><span class="pl">b</span>Solve the IVP. You may assume that the arbitrary constant of integration is positive.</span><span><span class="pl">c</span>After 20 minutes the height of the water in the tank is 100 cm. Find the value of \(k\).</span><span><span class="pl">d</span>How long does the tank take to drain?</span><span><span class="pl">e</span>Is the function you found in part b valid for larger values of \(t\)?</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">A certain curve has the property that the tangent at any point passes through the origin.
+<div class="parts one"><span><span class="pl">a</span>Write down the gradient of the line from \((0,0)\) to the point \((x,y)\).</span><span><span class="pl">b</span>Now suppose that \((x,y)\) is on this curve. Write down a differential equation for this curve.</span><span><span class="pl">c</span>Hence determine the general equation of this curve.</span><span><span class="pl">d</span>Which special case is a solution of the problem, but not of the DE?</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">A certain curve has the property that the normal at any point passes through the origin.
+<div class="parts one"><span><span class="pl">a</span>Write down the gradient of the line from \((0,0)\) to the point \((x,y)\).</span><span><span class="pl">b</span>Now suppose that \((x,y)\) is on this curve. Write down a differential equation for this curve.</span><span><span class="pl">c</span>Hence determine the general equation of this curve, which is a relation and not a function.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">A tangent is drawn to a curve, and it is found that its \(x\)-intercept is 1 less than the \(x\)-coordinate of the point of contact.
+<div class="parts one"><span><span class="pl">a</span>Write down the gradient of the line from \((x-1,0)\) to the point \((x,y)\).</span><span><span class="pl">b</span>Now suppose that \((x,y)\) is on this curve. Write down a differential equation for this curve.</span><span><span class="pl">c</span>Hence determine the general equation of this curve.</span><span><span class="pl">d</span>Find such a curve passing through \((0,1)\).</span></div>{{work:42}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body">The atmospheric pressure \(P\) on the planet Nebula changes with altitude \(h\) at a rate proportional to \(P\), that is \(\dfrac{dP}{dh}=kP\), for some constant \(k\). Let the atmospheric pressure at ground level be \(P=P_0\).
+<div class="parts one"><span><span class="pl">a</span>Find the general solution of this DE.</span><span><span class="pl">b</span>Measurements from satellites orbiting the planet show that the pressure at 10 000 m is 40 kPa, and the pressure at 6000 m is 80 kPa. Find the value of \(k\).</span><span><span class="pl">c</span>Determine the pressure at ground level correct to the nearest kPa.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">A tangent to a curve intersects the coordinate axes at \(A\) and \(B\). It is found that the point of contact of the tangent is also the midpoint of \(AB\).
+<div class="parts one"><span><span class="pl">a</span>Let the point of contact with the curve be \((x,y)\). Find the coordinates of \(A\) and \(B\) in terms of \(x\) and \(y\).</span><span><span class="pl">b</span>Use the gradient of \(AB\) to determine a differential equation for this curve.</span><span><span class="pl">c</span>Hence determine the general equation of this curve.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">According to Fick's law, diffusion across a cell membrane is governed by a differential equation. If \(C(t)\) is the concentration of a solute in a cell, and \(S\) is the concentration of the solute in the surrounding medium, then \(\dfrac{dC}{dt}=k(S-C)\), for some constant \(k\).
+<div class="parts one"><span><span class="pl">a</span>Find the general solution of this DE.</span><span><span class="pl">b</span>Suppose that initially \(C(0)=C_0\), where \(C_0<S\). Solve the IVP.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">In order to save an endangered species, it has been decided to release 40 animals on an island where there are no predators. The carrying capacity is 1000. It is assumed that the population \(N\) of these animals at time \(t\) years after release fits the logistic growth equation \(\dfrac{dN}{dt}=kN(1000-N)\), for some constant \(k\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{1000}{N(1000-N)}=\dfrac1N+\dfrac{1}{1000-N}\).</span><span><span class="pl">b</span>Use the result of part a to find the general solution of the logistic growth equation.</span><span><span class="pl">c</span>Determine the arbitrary constant by applying the initial condition \(N(0)=40\), then simplify the function.</span><span><span class="pl">d</span>Given that the population of animals after 1 year was 80, find the value of \(k\) correct to four significant figures.</span><span><span class="pl">e</span>What will the population be after 5 years, correct to the nearest whole number?</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">In the mid-1800s, Verhulst estimated the population growth of the United States of America using the logistic differential equation \(\dot N=kN(P-N)\), for some positive constant \(k\), where \(N\) is the population in millions, and \(t\) is the number of years after 1850.
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{P}{N(P-N)}=\dfrac1N+\dfrac{1}{P-N}\).</span><span><span class="pl">b</span>Use the result of part a to find the general solution of the logistic growth equation.</span><span><span class="pl">c</span>It was estimated at the time that the carrying capacity of the USA was \(P=187.5\), and the population in 1850 was recorded as \(N(0)=23.2\), both in units of millions. Determine the arbitrary constant and simplify the function.</span><span><span class="pl">d</span>The estimate used for \(k\) was \(k=1.6\times10^{-4}\), which predicted a population of 59.8 million in 1890. The actual population of the USA in 1890 was 63.0 million. Calculate a new value for \(k\).</span><span><span class="pl">e</span>Using the revised value of \(k\), compare the predicted population for 1930 using this model with the actual population, which was 123.2 million.</span><span><span class="pl">f</span>The population of the USA in 2018 was approximately 327 million. Comment on this value.</span></div>{{work:75}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Biologists are modelling the population of an endangered species of fish in a river system. The indigenous population of the area are permitted to harvest 200 fish once a year in January as part of their culture. Data collected in December indicate that there are 500 fish in the river system. The data also suggest the model \(\dfrac{dy}{dt}=-2+\tfrac{1}{24}y(16-y)\), where \(y\) is the population measured in hundreds at time \(t\) years after the next harvest.
+<div class="parts one"><span><span class="pl">a</span>The term \(\tfrac{1}{24}y(16-y)\) on the right-hand side represents the familiar logistic growth model. What is the significance of the \(-2\) in this equation?</span><span><span class="pl">b</span>Show that the DE can be re-written as \(\dfrac{dy}{dt}=-\tfrac{1}{24}(y-4)(y-12)\), and write down the initial condition assuming that the harvest goes ahead.</span><span><span class="pl">c</span>Show that \(\dfrac{24}{(y-4)(y-12)}=\dfrac{3}{y-12}-\dfrac{3}{y-4}\).</span><span><span class="pl">d</span>Hence solve the IVP in part b.</span><span><span class="pl">e</span>According to this model, the fish in the river will die out. When will that be?</span><span><span class="pl">f</span>(i) If the most recent harvest had not occurred, what would the initial condition change to? (ii) It can be shown that the solution of the DE for this initial condition is \(y=\dfrac{4\left(3+7e^{-\frac13t}\right)}{1+7e^{-\frac13t}}\). Investigate what happens for this solution over time. Comment on the result.</span></div>{{work:85}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">14</span><div class="q-body">An object is heated to 100°C and then placed in a room at 20°C. Let \(h\) be the temperature of the object after \(t\) minutes. The rate of change of temperature is proportional to its difference from the room temperature, \(\dfrac{dh}{dt}=k(h-20)\). After 10 minutes the temperature of the object is 80°C.
+<div class="parts one"><span><span class="pl">a</span>Solve the initial value problem and find the value of the constant \(k\).</span><span><span class="pl">b</span>At the 10-minute mark, refrigeration equipment is turned on, which lowers the temperature in the room by 1°C/min. Assume that the rate of change of temperature continues to be proportional to the difference, with the same \(k\). Let \(H(t)\) be the temperature of the object \(t\) minutes after the refrigeration is turned on. (i) Write down the initial value problem for \(H(t)\) in terms of \(k\). (ii) Let \(y=H-20+t\). What is the corresponding IVP for \(y\)? (iii) Find \(y\), and hence determine \(H(t)\).</span></div>{{work:70}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 35 minutes</b></span><span><b>22 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Abbotsleigh, 2020, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q13(b)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">Miriam takes a saucepan of soup from the stove and measures its temperature as 96°C. The air temperature in Miriam's kitchen is 21°C. Miriam knows that the temperature \(T\) of her soup at time \(t\) minutes after she has removed it from the stove can be modelled using the differential equation
+\[\dfrac{dT}{dt}=-k(T-R),\]
+where \(R\) is the air temperature of the kitchen and \(k\) is a positive constant.
+<div class="pp-sub"><span>(i) Show that \(T=21+75e^{-kt}\) is a solution of the differential equation.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Miriam finds the temperature of the soup 5 minutes after she removes it from the stove is 87°C. If she likes to start eating it when it reaches 70°C, find how much longer Miriam will need to wait until the soup is cool enough.</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> "how much longer" is measured from the 5-minute mark, not from when the soup left the stove.</div>{{work:55}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Grammar School, 2023, Trial Examination, Form VI Mathematics Extension 1, Q12(b)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">The current world population is approximately 8 billion people. Assuming that the 'carrying capacity' of the earth is 25 billion people, Anna models the population \(P\) after \(t\) years using the differential equation
+\[\dfrac{dP}{dt}=k(25-P).\]
+<div class="pp-sub"><span>(i) Show that \(P=25-17e^{-kt}\) satisfies the differential equation above.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Find \(k\) if the world population after 1 year is 8.072 billion people. Write your answer correct to 3 significant figures.</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(iii) After how many years does Anna's model say the world population will reach 20 billion people? Round your answer to the nearest whole year.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> in (ii), make \(e^{-k}\) the subject and take logs.</div>{{work:55}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Killara High School, 2023, Year 12 Mathematics Extension 1 Trial Examination, Q14(a)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">Steve weighs 80 kg and decides to go on a diet of 1600 calories per day. His body automatically uses 850 calories each day to maintain his basic bodily functions. He spends 15 cal/kg/day doing exercise. 1 kg of fat stores 10 000 calories and the process of storing energy in fat is assumed to be 100% efficient, such that all 10 000 calories must be used to remove a full 1 kg of weight from a person, or 5000 calories need to be used to remove 0.5 kg of weight.
+<div class="pp-sub"><span>(i) Show that the rate of change of Steve's weight \((w)\) over time \((t)\) is given by the equation \(\dfrac{dw}{dt}=\dfrac{750-15w}{10\,000}\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Solve the differential equation to find an expression for Steve's weight.</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(iii) If he continues this diet and the exercise regime, will his weight approach an equilibrium in the long term?</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> calories in minus calories used per day, divided by the calories per kilogram, gives kilograms per day.</div>{{work:55}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics Extension 1, Q13(b)</span><span class="mk">5 marks</span></div>
+<div class="pp-q">A tank contains a saltwater solution consisting initially of 20 kg of salt dissolved into 10 L of water. Fresh water is being poured into the tank at a rate of 3 L/min and the solution (kept uniform by stirring) is flowing out at 2 L/min.
+<div class="pp-sub"><span>(i) Show that \(Q\), the amount of salt (in kilograms), at time \(t\) (in minutes) satisfies the equation \(\dfrac{dQ}{dt}=-\dfrac{2Q}{(10+t)}\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Solve the differential equation given in (i) to find the amount of salt in the tank after 5 minutes. Answer in kilograms correct to 2 decimal places.</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> the volume increases by 1 L each minute, so at time \(t\) the volume is \(10+t\) litres, and the concentration is \(\dfrac{Q}{10+t}\).</div>{{work:55}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Ascham School, 2023, Year 12 Mathematics Extension 1 Trial Examination, Q13(d)</span><span class="mk">5 marks</span></div>
+<div class="pp-q">A dam can sustainably carry 10 million fish. The fish population \(N\) (in millions) in the dam follows the logistic differential equation \(\dfrac{dN}{dt}=\dfrac{N(10-N)}{200}\), where \(t\) is the time in months since the initial fish count. A fish farming company was unaware of this carrying capacity and introduces 15 million fish. Prior to this, the dam did not have fish.<br>
+Find the number of fish remaining after 6 months. Answer to the nearest million fish. (You may use the identity \(\dfrac{10}{N(10-N)}=\dfrac1N+\dfrac{1}{10-N}\).)</div>
+<div class="hint"><b>Hint:</b> here \(N>10\), so \(\left|\dfrac{N}{10-N}\right|=\dfrac{N}{N-10}\).</div>{{work:62}}</div>
+</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter 13 Review</div><h2>Chapter review exercise</h2>
+<div class="focus">Mixed practice from the whole chapter.</div></div>
+<div class="q"><span class="q-num">1</span><div class="q-body">In each part, state the order of the DE, whether or not it is linear, and how many arbitrary constants will appear in the general solution.
+<div class="parts three"><span><span class="pl">a</span>\(y'+xy=\cos x\)</span><span><span class="pl">b</span>\(y''+x^2y'-3y=e^x\sin x\)</span><span><span class="pl">c</span>\(y'''+y''y'=x-2\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Show by substitution that the given function with arbitrary constant \(C\) is a general solution of the accompanying differential equation.
+<div class="parts three"><span><span class="pl">a</span>\(y=Cx^2e^x;\quad xy'=y(2+x)\)</span><span><span class="pl">b</span>\(y=\sqrt{x^2+C};\quad y'y=x\)</span><span><span class="pl">c</span>\(y=\dfrac{1}{x^2+C};\quad y'=-2xy^2\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Consider the differential equation \(\dfrac{dy}{dx}=-\tfrac12y\).
+<div class="parts one"><span><span class="pl">a</span>What is the constant solution of this equation?</span><span><span class="pl">b</span>Write down the DE obtained by taking the reciprocal of both sides.</span><span><span class="pl">c</span>Use direct integration to obtain \(x\) as a function of \(y\).</span><span><span class="pl">d</span>Make \(y\) the subject of this solution, simplifying the constant part of the expression.</span><span><span class="pl">e</span>Check that the constant solution is included in your answer to part d.</span><span><span class="pl">f</span>Find the solution for the initial condition \(y(0)=3\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Verify that the given function is a general solution of the differential equation for all values of the constants \(A,B,C\) and \(D\).
+<div class="parts"><span><span class="pl">a</span>\(y=Ae^{-x}+Be^{-2x};\quad y''+3y'+2y=0\)</span><span><span class="pl">b</span>\(y=Ae^{-x}\cos2x+Be^{-x}\sin2x;\quad y''+2y'+5y=0\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Use separation of variables to solve each differential equation. Note that the solution of part b is a relation that is not a function.
+<div class="parts three"><span><span class="pl">a</span>\(\dfrac{dy}{dx}=\dfrac{-2xy}{1+x^2}\)</span><span><span class="pl">b</span>\(\dfrac{dy}{dx}=\dfrac{1-x}{2+y}\)</span><span><span class="pl">c</span>\(\dfrac{dy}{dx}=\dfrac{y(x-1)}{x}\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Solve each IVP by taking the reciprocal and using direct integration.
+<div class="parts"><span><span class="pl">a</span>\(y'=\tfrac12(1-y)\), with \(y(0)=2\)</span><span><span class="pl">b</span>\(y'=\tfrac13(5-y)\), with \(y(0)=2\)</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{1}{1-x^2}=\dfrac12\left(\dfrac{1}{1+x}+\dfrac{1}{1-x}\right)\).</span><span><span class="pl">b</span>Hence solve \(\dfrac{dy}{dx}=\dfrac{y}{1-x^2}\) by separation of variables.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Use separation of variables to solve each initial value problem.
+<div class="parts three"><span><span class="pl">a</span>\(\dfrac{dy}{dx}=-\dfrac{y}{x}\), with \(y(2)=1\)</span><span><span class="pl">b</span>\(\dfrac{dy}{dx}=(1+2x)e^{-y}\), with \(y(1)=0\)</span><span><span class="pl">c</span>\(\dfrac{dy}{dx}=\dfrac{y^2}{\sqrt x}\), with \(y(0)=-1\)</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{1}{y(1-y)}=\dfrac1y+\dfrac{1}{1-y}\).</span><span><span class="pl">b</span>Consider the logistic differential equation \(y'=y(1-y)\). (i) What are the constant solutions of this equation? (ii) Use part a to find the general solution of the logistic DE. (iii) Hence find the solution that passes through \(\left(0,\tfrac14\right)\).</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{1}{(2-y)(3-y)}=\dfrac{1}{y-3}-\dfrac{1}{y-2}\).</span><span><span class="pl">b</span>Consider the harvest logistic differential equation \(y'=-\tfrac15(3-y)(2-y)\). (i) What are the constant solutions of this equation? (ii) Use part a to find the general solution of the harvest logistic DE with initial condition \(y(0)=1\). (iii) For what value of \(x\) does \(y=0\)?</span></div>{{work:62}}</div></div>
+</div>

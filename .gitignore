@@ -1,0 +1,10 @@
+*.pdf
+*.png
+workspace/pp
+workspace/zip
+workspace/sources
+workspace/txt
+workspace/build/*/lesson.html
+workspace/build/*/answers.html
+__pycache__/
+.superpowers/

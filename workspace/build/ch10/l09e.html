@@ -1,0 +1,159 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 9E</div><h2>Related rates</h2>
+<div class="focus">Applying the chain rule to rates: expressing one quantity as a function of another, differentiating with respect to time, using geometry to eliminate a variable, rates of change of angles, and chains with more than two links. This reviews Year 11 Section 16A.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:the chain rule applied to rates}}
+<div class="box concept"><div class="bt">Related rates</div>
+<p>When two quantities both change with time, and one is a function of the other, their rates of change are related by the chain rule. For example, if a bubble's volume \(V\) is a function of its radius \(r\), then</p>
+\[\dfrac{dV}{dt}=\dfrac{dV}{dr}\times\dfrac{dr}{dt}.\]
+<ul><li>Express one quantity as a function of the other quantity.</li>
+<li>Then differentiate with respect to time \(t\) using the chain rule.</li>
+<li>Substitute the given values <b>after</b> differentiating, never before.</li>
+<li>Be very careful with units, here and anywhere calculus is applied. A rate has units such as mm³/s or m/s.</li></ul>
+<p>If the rate you are given is for the "wrong" variable, use \(\dfrac{dr}{dV}=1\Big/\dfrac{dV}{dr}\), or simply solve the chain-rule equation for the unknown rate.</p></div>
+<div class="box formula"><div class="bt">Volume and surface area of solids (Year 11)</div>
+<table class="t"><tr><th></th><th>Sphere</th><th>Cylinder</th><th>Cone</th><th>Pyramid</th></tr>
+<tr><td>Volume</td><td>\(V=\tfrac43\pi r^3\)</td><td>\(V=\pi r^2h\)</td><td>\(V=\tfrac13\pi r^2h\)</td><td>\(V=\tfrac13\times\text{base}\times\text{height}\)</td></tr>
+<tr><td>Surface area</td><td>\(A=4\pi r^2\)</td><td>\(A=2\pi r^2+2\pi rh\)</td><td>\(A=\pi r^2+\pi r\ell\)</td><td>\(A=\) sum of faces</td></tr></table>
+<p class="small">In the formula for the surface area of a cone, \(\ell\) is the slant height.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A growing sphere</span></div><div class="ex-body">
+A spherical balloon is being inflated, so that \(V=\tfrac43\pi r^3\).
+<b>a</b> Differentiate with respect to time using the chain rule.
+<b>b</b> Find the rate of increase of the volume when the radius is 5 mm, if the radius is increasing at 2 mm/s.
+<b>c</b> Find the rate of increase of the radius when the volume is \(36\pi\) mm³, if the volume is increasing at \(72\pi\) mm³/s.
+{{work:55}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+The sides of a square of side length \(x\) metres are increasing at 0.2 m/s.
+<b>a</b> Find the rate of increase of the area when \(x=4\).
+<b>b</b> What is the side length when the area is increasing at 2 m²/s?
+{{work:42}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A hemispherical bubble on the water surface is growing in size.
+<b>a</b> Write down the formula for the volume \(V\) mm³ in terms of the radius \(r\) mm, then differentiate with respect to time using the chain rule.
+<b>b</b> Find the rate at which the volume is increasing when the radius is 6 mm, if the radius is increasing at 3 mm/s.
+<b>c</b> Find the rate at which the radius is increasing when the volume is 18 mm³, if the volume is increasing at 90 mm³/s.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> The volume is \(V=\tfrac12\times\tfrac43\pi r^3=\tfrac{2\pi}{3}r^3\).</p>
+\[\dfrac{dV}{dt}=\dfrac{dV}{dr}\times\dfrac{dr}{dt}=2\pi r^2\,\dfrac{dr}{dt}\]
+<p><b>b</b> Substituting \(r=6\) and \(\dfrac{dr}{dt}=3\):</p>
+\[\dfrac{dV}{dt}=2\pi\times36\times3=216\pi\ \text{mm}^3/\text{s}.\]
+</div><div>
+<p><b>c</b> When \(V=18\): \(18=\tfrac{2\pi}{3}r^3\), so \(r^3=27\pi^{-1}\) and \(r=3\pi^{-\frac13}\).</p>
+<p>Substituting \(r=3\pi^{-\frac13}\) and \(\dfrac{dV}{dt}=90\):</p>
+\[90=2\pi\times9\pi^{-\frac23}\times\dfrac{dr}{dt}\]
+\[\dfrac{dr}{dt}=5\pi^{-\frac13}\ \text{mm/s}\doteq3.4\ \text{mm/s}.\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:using the geometry to eliminate a variable}}
+<div class="box concept"><div class="bt">One variable too many</div>
+<p>Often the formula involves two changing lengths, such as the radius \(r\) and depth \(h\) of water in a cone, \(V=\tfrac13\pi r^2h\). Before differentiating, use the geometry of the situation (similar triangles, a given ratio, or Pythagoras' theorem) to write the quantity as a function of <b>one</b> variable only.</p>
+<ul><li>Draw a diagram and name every quantity that changes.</li>
+<li>Write down the rate you are given and the rate you want, with their signs. A quantity that is decreasing has a <b>negative</b> rate.</li>
+<li>Find the relation between the two quantities in one variable, then differentiate with respect to \(t\) by the chain rule.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Filling a cone</span></div><div class="ex-body">
+<div class="split"><div>
+Water is poured at 12 cm³/s into a conical tank with its vertex down. When the depth of water is \(h\) cm, the radius of the water surface is \(r=\tfrac12h\) cm.
+<b>a</b> Show that the volume of water is \(V=\tfrac{\pi}{12}h^3\).
+<b>b</b> Find the rate at which the depth is increasing when the depth is 4 cm.
+</div><div>{{svg:cone}}</div></div>
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Water flows at \(9\pi\) cm³/s into an inverted cone in which the radius of the water surface always equals the depth, \(r=h\). Find the rate at which the depth is increasing when the depth is 3 cm.
+{{work:40}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="split"><div>
+A 5-metre ladder leans against a vertical wall. Its foot slides away from the wall at 0.3 m/s. Find the rate at which the top of the ladder is moving down the wall when the foot is 3 m from the wall.
+</div><div>{{svg:ladder}}</div></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p>Let the foot be \(x\) m from the wall and the top be \(y\) m above the ground. We are given \(\dfrac{dx}{dt}=0.3\), and we want \(\dfrac{dy}{dt}\).</p>
+<p>By Pythagoras, \(y=\sqrt{25-x^2}=(25-x^2)^{\frac12}\), so</p>
+\[\dfrac{dy}{dx}=\tfrac12(25-x^2)^{-\frac12}\times(-2x)=\dfrac{-x}{\sqrt{25-x^2}}.\]
+</div><div>
+<p>By the chain rule,</p>
+\[\dfrac{dy}{dt}=\dfrac{dy}{dx}\times\dfrac{dx}{dt}=\dfrac{-x}{\sqrt{25-x^2}}\times0.3.\]
+<p>When \(x=3\), \(\sqrt{25-9}=4\), so</p>
+\[\dfrac{dy}{dt}=-\dfrac34\times0.3=-0.225\ \text{m/s}.\]
+<p>The top of the ladder is sliding down the wall at 0.225 m/s. The negative sign shows that \(y\) is decreasing.</p>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:rates of change of angles}}
+<div class="box concept"><div class="bt">Angles that change with time</div>
+<ul><li>Use trigonometry to express a length in terms of the angle, for example \(x=\dfrac{h}{\tan\theta}\), then differentiate with respect to \(\theta\).</li>
+<li>Calculus with trigonometric functions always uses <b>radians</b>, so \(\dfrac{d\theta}{dt}\) comes out in radians per unit of time.</li>
+<li>To convert, multiply by \(\dfrac{180}{\pi}\) to get degrees, and divide by 60 or 3600 to change minutes or hours into seconds.</li></ul>
+\[\dfrac{d}{d\theta}\left(\dfrac{1}{\tan\theta}\right)=\dfrac{d}{d\theta}\left(\dfrac{\cos\theta}{\sin\theta}\right)=-\dfrac{1}{\sin^2\theta}\qquad\qquad \dfrac{d}{d\theta}(\tan\theta)=\sec^2\theta=\dfrac{1}{\cos^2\theta}\]</div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Watching a plane</span></div><div class="ex-body">
+<div class="split"><div>
+A plane flies at 600 km/h at a constant altitude of 2 km, directly towards an observer at \(A\). Let \(\theta\) be its angle of elevation from \(A\), and let \(x\) km be the distance from \(A\) to the point \(B\) directly below the plane.
+<b>a</b> By writing \(x=\dfrac{2}{\tan\theta}\), show that \(\dfrac{dx}{d\theta}=-\dfrac{2}{\sin^2\theta}\).
+<b>b</b> Find the rate at which \(\theta\) is increasing when \(\theta=\dfrac{\pi}{6}\), in radians per hour and in degrees per second.
+</div><div>{{svg:plane}}</div></div>
+{{work:55}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A boat is observed from the top of an 80-metre-high cliff. The boat travels directly towards the cliff at 4 m/s. Find the rate at which the angle of depression is changing when it is \(30^\circ\), in radians per second and in degrees per second (to two decimal places).
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A balloon rises vertically at 5 m/s from a point \(B\) on level ground. An observer stands at \(A\), 120 m from \(B\). Find the rate at which the angle of elevation \(\theta\) of the balloon from \(A\) is increasing when the balloon is 50 m high.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p>Let the height be \(h\) m. Then \(h=120\tan\theta\), so \(\dfrac{dh}{d\theta}=120\sec^2\theta\) and</p>
+\[\dfrac{d\theta}{dh}=\dfrac{1}{120\sec^2\theta}=\dfrac{\cos^2\theta}{120}.\]
+<p>By the chain rule,</p>
+\[\dfrac{d\theta}{dt}=\dfrac{d\theta}{dh}\times\dfrac{dh}{dt}=\dfrac{\cos^2\theta}{24}.\]
+</div><div>
+<p>When \(h=50\), the line of sight has length \(\sqrt{120^2+50^2}=130\), so \(\cos\theta=\dfrac{12}{13}\) and</p>
+\[\dfrac{d\theta}{dt}=\dfrac{144}{169}\times\dfrac{1}{24}=\dfrac{6}{169}.\]
+<p>The angle is increasing at \(\dfrac{6}{169}\doteq0.0355\) radians per second.</p>
+<p>In degrees, \(\dfrac{6}{169}\times\dfrac{180}{\pi}\doteq2.03^\circ\) per second.</p>
+</div></div>
+<p class="small">Chains can have more than two links. If an area \(A\) depends on an angle \(\theta\), which depends on a length \(x\), which changes with time, then \(\dfrac{dA}{dt}=\dfrac{dA}{d\theta}\times\dfrac{d\theta}{dx}\times\dfrac{dx}{dt}\) (see Question 12).</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 9E}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">The sides of a square of side length \(x\) metres are increasing at a rate of 0.1 m/s.
+<div class="parts one"><span><span class="pl">a</span>Show that the rate of increase of the area is given by \(\dfrac{dA}{dt}=0.2x\) m²/s.</span><span><span class="pl">b</span>At what rate is the area of the square increasing when its sides are 5 metres long?</span><span><span class="pl">c</span>What is the side length when the area is increasing at 1.4 m²/s?</span><span><span class="pl">d</span>What is the area when the area is increasing at 0.6 m²/s?</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">The diagonal of a square is decreasing at a rate of \(\tfrac12\) m/s.
+<div class="parts one"><span><span class="pl">a</span>Find the area \(A\) of a square with a diagonal of length \(\ell\).</span><span><span class="pl">b</span>Hence show that the rate of change of area is \(\dfrac{dA}{dt}=-\tfrac12\ell\) m²/s.</span><span><span class="pl">c</span>Find the rate at which the area is decreasing when: (i) the diagonal is 10 metres, (ii) the area is 18 m².</span><span><span class="pl">d</span>What is the length of the diagonal when the area is decreasing at 17 m²/s?</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">The radius \(r\) of a sphere is increasing at a rate of 0.3 m/s. In both parts, approximate \(\pi\) using a calculator and give your answer correct to three significant figures.
+<div class="parts one"><span><span class="pl">a</span>Show that the sphere's rate of change of volume is \(\dfrac{dV}{dt}=1.2\pi r^2\), and find the rate of increase of its volume when the radius is 2 metres.</span><span><span class="pl">b</span>Show that the sphere's rate of change of surface area is \(\dfrac{dS}{dt}=2.4\pi r\), and find the rate of increase of its surface area when the radius is 4 metres.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Jules is blowing up a spherical balloon at a constant rate of 200 cm³/s.
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{dV}{dt}=4\pi r^2\dfrac{dr}{dt}\).</span><span><span class="pl">b</span>Hence find the rate at which the radius is growing when the radius is 15 cm.</span><span><span class="pl">c</span>Find the radius and volume when the radius is growing at 0.5 cm/s.</span></div>{{work:42}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">5</span><div class="q-body">An artist pours plaster of Paris into a conical mould at a rate of 5 cm³/s. At time \(t\), let the top of the plaster have radius \(r\), and let the depth be \(h\), where \(h=2r\).
+<div class="parts one"><span><span class="pl">a</span>Find the volume of plaster, and show that it is the same as that of a hemisphere with the same radius.</span><span><span class="pl">b</span>Find the rate at which the radius is increasing when the depth of the plaster is 10 cm.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><div class="split"><div>An observer at \(A\) in the diagram is watching a plane fly overhead, and he tilts his head so that he is always looking directly at the plane. The aircraft is flying at 650 km/h at an altitude of 1.5 km. Let \(\theta\) be the angle of elevation of the plane from the observer, and suppose that the distance from \(A\) to \(B\), directly below the aircraft, is \(x\) km.</div><div>{{svg:q6plane}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>By writing \(x=\dfrac{3}{2\tan\theta}\), show that \(\dfrac{dx}{d\theta}=-\dfrac{3}{2\sin^2\theta}\).</span><span><span class="pl">b</span>Hence find the rate at which the observer's head is tilting when the angle of inclination to the plane is \(\tfrac{\pi}{3}\). Convert your answer from radians per hour to degrees per second, correct to the nearest degree.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">A boat is observed from the top of a 100-metre-high cliff. The boat is travelling towards the cliff at a speed of 50 m/min. How fast is the angle of depression changing when the angle of depression is \(15^\circ\)? Convert your answer from radians per minute to degrees per minute, correct to the nearest degree.{{work:42}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><div class="split"><div>The water trough in the diagram is in the shape of an isosceles right triangular prism, \(x\) metres long. It is found that during summer in a drought, the amount of water lost to evaporation each day in cm³ is equal to 10% of the surface area in cm².</div><div>{{svg:trough}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>Find a formula for the volume \(V\) cm³ of water in the trough when the depth is \(h\) cm.</span><span><span class="pl">b</span>Show that the rate at which the depth of the water is changing is constant.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">The volume of a sphere is increasing at a rate numerically equal to its surface area at that instant. Show that \(\dfrac{dr}{dt}=1\).{{work:28}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">A point moves anticlockwise around the circle \(x^2+y^2=1\) at a uniform speed of 2 m/s.
+<div class="parts one"><span><span class="pl">a</span>Find an expression for the rate of change of its \(x\)-coordinate in terms of \(x\), when the point is above the \(x\)-axis. (The units on the axes are metres.)</span><span><span class="pl">b</span>Use your answer to part a to find the rate of change of the \(x\)-coordinate as it crosses the \(y\)-axis at \(P(0,1)\). Why should this answer have been obvious without this formula?</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><div class="split"><div>A car is travelling \(C\) metres behind a truck, both travelling at a constant speed of \(V\) m/s. The road widens \(L\) metres ahead of the truck and there is an overtaking lane. The car accelerates at a uniform rate so that it is exactly alongside the truck at the beginning of the overtaking lane.</div><div>{{svg:overtake}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>What is the acceleration of the car?</span><span><span class="pl">b</span>Show that the speed of the car as it passes the truck is \(V\left(1+\dfrac{2C}{L}\right)\).</span><span><span class="pl">c</span>The objective of the driver of the car is to spend as little time alongside the truck as possible. What strategies could the driver employ?</span><span><span class="pl">d</span>The speed limit is 100 km/h, and the truck is travelling at 90 km/h and is 50 metres ahead of the car. How far before the overtaking lane should the car begin to accelerate if applying the objective in part c?</span></div>{{work:55}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">12</span><div class="q-body"><div class="split"><div>The diagram shows a chord distant \(x\) from the centre of a circle. The radius of the circle is \(r\), and the chord subtends an angle \(2\theta\) at the centre.</div><div>{{svg:chord}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>Show that the area of the segment cut off by this chord is \(A=r^2(\theta-\sin\theta\cos\theta)\).</span><span><span class="pl">b</span>Explain why \(\dfrac{dA}{dt}=\dfrac{dA}{d\theta}\times\dfrac{d\theta}{dx}\times\dfrac{dx}{dt}\).</span><span><span class="pl">c</span>Show that \(\dfrac{d\theta}{dx}=-\dfrac{1}{\sqrt{r^2-x^2}}\).</span><span><span class="pl">d</span>Given that \(r=2\), find the rate of increase in the area if \(\dfrac{dx}{dt}=-\sqrt3\) when \(x=1\).</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><div class="split"><div>The diagram shows two radars at \(A\) and \(B\) 100 metres apart. An aircraft at \(P\) is approaching and the radars are tracking it, hence the angles \(\alpha\) and \(\beta\) are changing with time.</div><div>{{svg:radars}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>Show that \(x\tan\beta=(x+100)\tan\alpha\).</span><span><span class="pl">b</span>Keeping in mind that \(x\), \(\alpha\) and \(\beta\) are all functions of time, use the chain and product rules to show that \(\dfrac{dx}{dt}=\dfrac{\dot\alpha(x+100)\sec^2\alpha-\dot\beta x\sec^2\beta}{\tan\beta-\tan\alpha}\).</span><span><span class="pl">c</span>Use part a to find the value of \(x\) and the height of the plane when \(\alpha=\tfrac{\pi}{6}\) and \(\beta=\tfrac{\pi}{4}\).</span><span><span class="pl">d</span>At the angles given in part c, it is found that \(\dfrac{d\alpha}{dt}=\tfrac{5}{36}\left(\sqrt3-1\right)\) radians per second and \(\dfrac{d\beta}{dt}=\tfrac{5}{18}\left(\sqrt3-1\right)\) radians per second. Find the speed of the plane.</span></div>{{work:70}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+@@PP9E@@
+</div>

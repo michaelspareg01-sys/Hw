@@ -1,0 +1,158 @@
+{{ahead:Lesson 12D | Integration by substitution}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> \(du=3x^2\,dx\): \(\tfrac13\int u^4\,du=\tfrac1{15}(1+x^3)^5+C\) &nbsp;&nbsp; <b>Your turn.</b> \(du=2x\,dx\): \(\tfrac12\int u^5\,du=\tfrac1{12}(x^2+3)^6+C\)</div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo 1.</b> \(du=\cos x\,dx\): \(\int u^{\frac12}\,du=\tfrac23(1+\sin x)^{\frac32}+C\)<br>
+<b>Tutor demo 2.</b> \(x=u-2\), \(dx=du\): \(\int(u-2)u^{\frac12}\,du=\tfrac25(x+2)^{\frac52}-\tfrac43(x+2)^{\frac32}+C\)<br>
+<b>Your turn.</b> \(x=u+1\): \(\int(u+1)u^{\frac12}\,du=\tfrac25(x-1)^{\frac52}+\tfrac23(x-1)^{\frac32}+C\)</div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b> \(u\) from 1 to 2: \(\tfrac13\displaystyle\int_1^2u^{-2}\,du=\tfrac13\Big[-u^{-1}\Big]_1^2=\tfrac16\) &nbsp;&nbsp; <b>Your turn.</b> \(u\) from 1 to \(\tfrac12\): \(-\displaystyle\int_1^{\frac12}u^3\,du=\int_{\frac12}^1u^3\,du=\tfrac{15}{64}\)</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><b>c</b> \(\tfrac14(1+x^2)^4+C\)</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><b>a</b> \(\tfrac14(2x+3)^4+C\) &nbsp; <b>b</b> \(\dfrac{-1}{1+x^2}+C\) &nbsp; <b>c</b> \(2\sqrt{3x-5}+C\) &nbsp; <b>d</b> \(\log_e(1+x^4)+C\)</div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>c</b> \(-\sqrt{1-x^2}+C\)</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> \(\tfrac1{24}(x^4+1)^6+C\) &nbsp; <b>b</b> \(\tfrac29(x^3-1)^{\frac32}+C\) &nbsp; <b>c</b> \(\dfrac{-1}{(1+\sqrt{x})^2}+C\) &nbsp; <b>d</b> \(\tfrac16\tan^32x+C\)</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>a</b> \(\tfrac{65}{12}\) &nbsp; <b>b</b> \(\tfrac13\) &nbsp; <b>c</b> \(\tfrac1{24}\) &nbsp; <b>d</b> 2 &nbsp; <b>e</b> \(\tfrac1{10}\) &nbsp; <b>f</b> \(\tfrac{\pi^4}{64}\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab">\(\tfrac{\pi}{12}\) units²</div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>a</b> \(\log_e\tfrac32\) &nbsp; <b>b</b> \(\tfrac{\pi}{4}\) &nbsp; <b>c</b> \(\tfrac23\)</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> \(\sqrt{1+e^{2x}}+C\) &nbsp; <b>b</b> \(\ln(\ln x)+C\)</div></div>
+<div class="a"><span class="an">9</span><div class="ab">\(y=\tfrac12\tan^{-1}e^{2x}\)</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>b</b> (i) \(\dfrac{2}{\ln2}\) (ii) \(\tfrac15\left(4\sqrt2-1\right)\)</div></div>
+<div class="a"><span class="an">11</span><div class="ab">\(\ln2\)</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a</b> \(2\sin^{-1}\sqrt{x}+C_1\) &nbsp; <b>b</b> \(\sin^{-1}(2x-1)+C_2\) &nbsp; <b>c</b> The two primitives differ by a constant; put \(x=\tfrac12\) to find it: \(2\times\tfrac{\pi}{4}-0=\tfrac{\pi}{2}\).</div></div>
+<div class="a"><span class="an">13</span><div class="ab">With \(u=x-\tfrac1x\): \(du=\left(1+\tfrac{1}{x^2}\right)dx\), and dividing top and bottom by \(x^2\), the integrand becomes \(\dfrac{1}{u^2+2}\). The limits become \(u=0\) and \(u=\sqrt2\), giving \(\tfrac{1}{\sqrt2}\tan^{-1}1=\dfrac{\pi}{4\sqrt2}\).</div></div>
+
+{{ahead:Lesson 12D | Integration by substitution}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>North Sydney Girls High School, 2020, HSC Trial Examination, Mathematics Extension 1, Q2</span></div>
+<p>\(u=1+3x\) gives \(x=\tfrac13(u-1)\) and \(dx=\tfrac13\,du\), so \(\displaystyle\int x\sqrt{1+3x}\,dx=\int\tfrac13(u-1)\sqrt{u}\times\tfrac13\,du=\tfrac19\int(u-1)\sqrt u\,du\). <b>Answer A.</b></p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics Extension 1, Q8</span></div>
+<p>\(du=-\sin x\,dx\); when \(x=0\), \(u=1\); when \(x=\tfrac{\pi}{3}\), \(u=\tfrac12\). So the integral is \(-\displaystyle\int_1^{\frac12}u^5\,du=\int_{\frac12}^1u^5\,du\). <b>Answer (D).</b> (B) has the minus sign and the swapped limits together; (A) and (C) keep the \(x\)-limits.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Fort Street High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension 1, Q11(a)</span></div>
+\[u=x^2-1,\ du=2x\,dx:\qquad\int2x\cos(x^2-1)\,dx=\int\cos u\,du=\sin(x^2-1)+C\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics Extension 1, Q13(a)</span></div>
+\[u=\sqrt x,\ du=\dfrac{dx}{2\sqrt x}:\qquad\int\dfrac{\sin\sqrt x}{\sqrt x}\,dx=\int2\sin u\,du=-2\cos\sqrt x+C\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>North Sydney Boys High School, 2023, Year 12 Mathematics Extension 1 Assessment Task 3, Q11(c)</span></div>
+\[u=\tan^{-1}x,\ du=\dfrac{dx}{1+x^2}:\qquad\int\dfrac{e^{\tan^{-1}x}}{1+x^2}\,dx=\int e^u\,du=e^{\tan^{-1}x}+C\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Blacktown Boys' High School, 2022, HSC Trial Examination, Mathematics Extension 1, Q11(e)</span></div>
+<p>\(u=x^3\), \(du=3x^2\,dx\); when \(x=0\), \(u=0\); when \(x=1\), \(u=1\).</p>
+\[\int_0^1x^2e^{x^3}\,dx=\tfrac13\int_0^1e^u\,du=\tfrac13\Big[e^u\Big]_0^1=\tfrac13(e-1)\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>Kinross Wolaroi School, 2023, Year 12 Mathematics Extension 1 Trial HSC Examination, Q12(a)</span></div>
+<p>\(u=\tan x\), \(du=\sec^2x\,dx\); when \(x=\tfrac{\pi}{4}\), \(u=1\); when \(x=\tfrac{\pi}{3}\), \(u=\sqrt3\).</p>
+\[\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\tan^2x\sec^2x\,dx=\int_1^{\sqrt3}u^2\,du=\Big[\tfrac13u^3\Big]_1^{\sqrt3}=\sqrt3-\tfrac13\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 8</span>Sydney Grammar School, 2023, Trial Examination, Form VI Mathematics Extension 1, Q12(a)</span></div>
+<p>\(u=1-x\), \(du=-dx\), \(x=1-u\); when \(x=0\), \(u=1\); when \(x=1\), \(u=0\).</p>
+\[\int_0^1x(1-x)^7\,dx=-\int_1^0(1-u)u^7\,du=\int_0^1\left(u^7-u^8\right)du=\tfrac18-\tfrac19=\tfrac{1}{72}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 9</span>St Aloysius' College, 2024, Trial Higher School Certificate Examination, Mathematics Extension 1, Q12(f)</span></div>
+<p>\(u=2x^3+3x\), \(du=3(2x^2+1)\,dx\); when \(x=0\), \(u=0\); when \(x=1\), \(u=5\).</p>
+\[\int_0^1\dfrac{2x^2+1}{25+(2x^3+3x)^2}\,dx=\tfrac13\int_0^5\dfrac{du}{25+u^2}=\tfrac13\times\tfrac15\Big[\tan^{-1}\tfrac{u}{5}\Big]_0^5=\tfrac1{15}\times\tfrac{\pi}{4}=\dfrac{\pi}{60}\]</div>
+
+{{ahead:Lesson 12E | Further integration by substitution}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> \(dx=2u\,du\), \(\sqrt{x+1}=u\), \(u\) from 1 to 2: \(\displaystyle\int_1^2\dfrac{u^2-1}{u}\,2u\,du=2\Big[\tfrac13u^3-u\Big]_1^2=\tfrac83\)<br>
+<b>Your turn.</b> \(u\) from 1 to 3: \(2\Big[\tfrac13u^3-u\Big]_1^3=2\left(6+\tfrac23\right)=\tfrac{40}{3}\)</div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b> \(dx=3\cos\theta\,d\theta\), \(\theta\) from 0 to \(\tfrac{\pi}{6}\): \(\displaystyle\int_0^{\frac{\pi}{6}}9\cos^2\theta\,d\theta=9\Big[\tfrac12\theta+\tfrac14\sin2\theta\Big]_0^{\frac{\pi}{6}}=\tfrac{3\pi}{4}+\tfrac{9\sqrt3}{8}\)<br>
+<b>Your turn.</b> \(\theta\) from 0 to \(\tfrac{\pi}{4}\): \(4\Big[\tfrac12\theta+\tfrac14\sin2\theta\Big]_0^{\frac{\pi}{4}}=\tfrac{\pi}{2}+1\)</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><b>c</b> \(\tfrac17(x-1)^7+\tfrac16(x-1)^6+C\)</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><b>a</b> \(\tfrac23(x-1)^{\frac32}+2(x-1)^{\frac12}+C\) &nbsp; <b>b</b> \(\ln|x-1|-\dfrac{1}{x-1}+C\)</div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>c</b> \(\tfrac25(x+1)^{\frac52}-\tfrac23(x+1)^{\frac32}+C\)</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> \(\tfrac27(x+1)^{\frac72}-\tfrac45(x+1)^{\frac52}+\tfrac23(x+1)^{\frac32}+C\) &nbsp; <b>b</b> \(\tfrac43(x+1)^{\frac32}+2(x+1)^{\frac12}+C\)</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>a</b> \((x+2)-4\ln(x+2)+C\) &nbsp; <b>b</b> \(\tfrac13(2x-1)^{\frac32}+2(2x-1)^{\frac12}+C\) &nbsp; <b>c</b> \(2(1+\sqrt x)-2\ln(1+\sqrt x)+C\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> \(\tfrac{49}{20}\) &nbsp; <b>b</b> \(\tfrac89\) &nbsp; <b>c</b> \(\tfrac{128}{15}\) &nbsp; <b>d</b> \(4-6\ln\tfrac53\)</div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>a</b> \(\sin^{-1}\dfrac{x+2}{3}+C\) &nbsp; <b>b</b> (i) \(\dfrac{1}{\sqrt3}\tan^{-1}\dfrac{x+1}{\sqrt3}+C\) (ii) \(\tfrac{\pi}{6}\)</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>b</b> (i) \(\tfrac13\tan^{-1}\tfrac{x}{3}+C\) (ii) \(\tfrac12\sin^{-1}2x+C\) (iii) \(\tfrac{\pi}{6}\)</div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>b</b> (i) \(\dfrac{x}{4\sqrt{4+x^2}}+C\) (ii) \(\pi\)</div></div>
+<div class="a"><span class="an">10</span><div class="ab">\(y=\sqrt{x^2-9}-3\tan^{-1}\dfrac{\sqrt{x^2-9}}{3}\)</div></div>
+<div class="a"><span class="an">11</span><div class="ab">\(\tfrac13\left(6\sqrt3-7\sqrt2\right)\) units²</div></div>
+<div class="a"><span class="an">12</span><div class="ab">\(2\displaystyle\int_{-r}^{r}\sqrt{r^2-x^2}\,dx=2\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}r^2\cos^2\theta\,d\theta=r^2\Big[\theta+\tfrac12\sin2\theta\Big]_{-\frac{\pi}{2}}^{\frac{\pi}{2}}=\pi r^2\)</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>b</b> Adding the two equal forms gives \(2I=\displaystyle\int_{-2}^{2}x^2\,dx=\tfrac{16}{3}\), so \(I=\tfrac83\).</div></div>
+
+{{ahead:Lesson 12E | Further integration by substitution}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics Extension 1, Q13(b)</span></div>
+<p>\(x=2\sin\theta\), \(dx=2\cos\theta\,d\theta\), \(\sqrt{4-x^2}=2\cos\theta\). When \(x=0\), \(\theta=0\); when \(x=1\), \(\theta=\tfrac{\pi}{6}\).</p>
+\[\int_0^1\sqrt{4-x^2}\,dx=\int_0^{\frac{\pi}{6}}4\cos^2\theta\,d\theta=\Big[2\theta+\sin2\theta\Big]_0^{\frac{\pi}{6}}=\dfrac{\pi}{3}+\dfrac{\sqrt3}{2}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Gosford High School, 2022, Trial Higher School Certificate Examination, Mathematics Extension 1, Q11(d)</span></div>
+<p>\(x=u^2-1\), \(dx=2u\,du\), \(x+2=u^2+1\). When \(x=0\), \(u=1\); when \(x=3\), \(u=2\).</p>
+\[\int_0^3\dfrac{x+2}{\sqrt{x+1}}\,dx=\int_1^2\dfrac{u^2+1}{u}\,2u\,du=2\Big[\tfrac13u^3+u\Big]_1^2=2\left(\tfrac{14}{3}-\tfrac43\right)=\dfrac{20}{3}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Hornsby Girls High School, 2022, Year 12 Higher School Certificate Trial Examination, Mathematics Extension 1, Q11(d)</span></div>
+<p>\(dx=2u\,du\), \(\sqrt{x+1}=u\); \(u\) from 1 to 2.</p>
+\[\int_0^3x\sqrt{x+1}\,dx=\int_1^2(u^2-1)u\cdot2u\,du=2\Big[\tfrac15u^5-\tfrac13u^3\Big]_1^2=2\left(\tfrac{31}{5}-\tfrac73\right)=\dfrac{116}{15}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Normanhurst Boys' High School, 2023, Year 12 Mathematics Extension 1 Course Assessment Task 4 (Trial Examination), Q12(c)</span></div>
+<p>\(x=\tfrac14(u^2+5)\), so \(dx=\tfrac12u\,du\) and \(\sqrt{4x-5}=u\).</p>
+\[\begin{aligned}\int3x\sqrt{4x-5}\,dx&=\int3\cdot\tfrac14(u^2+5)\cdot u\cdot\tfrac12u\,du=\tfrac38\int\left(u^4+5u^2\right)du\\&=\tfrac{3}{40}u^5+\tfrac58u^3+C=\tfrac{3}{40}(4x-5)^{\frac52}+\tfrac58(4x-5)^{\frac32}+C\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension 1, Q13(d)</span></div>
+<p>\(x=\sin\theta\), \(dx=\cos\theta\,d\theta\), \(\sqrt{1-x^2}=\cos\theta\); \(\theta\) from 0 to \(\tfrac{\pi}{6}\).</p>
+\[\int_0^{\frac12}\dfrac{x^2}{\sqrt{1-x^2}}\,dx=\int_0^{\frac{\pi}{6}}\sin^2\theta\,d\theta=\Big[\tfrac12\theta-\tfrac14\sin2\theta\Big]_0^{\frac{\pi}{6}}=\dfrac{\pi}{12}-\dfrac{\sqrt3}{8}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Ascham School, 2023, Year 12 Mathematics Extension 1 Trial Examination, Q11(d)</span></div>
+<p>(i) \(1-\dfrac{1}{1+u^2}=\dfrac{1+u^2-1}{1+u^2}=\dfrac{u^2}{1+u^2}\).</p>
+<p>(ii) \(x=u^2\), \(dx=2u\,du\), \(\sqrt x=u\):</p>
+\[\int\dfrac{\sqrt x}{1+x}\,dx=\int\dfrac{u}{1+u^2}\,2u\,du=2\int\left(1-\dfrac{1}{1+u^2}\right)du=2u-2\tan^{-1}u+C=2\sqrt x-2\tan^{-1}\sqrt x+C\]</div>
+
+{{ahead:Lesson 12F | Volumes of rotation}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> \(\pi\displaystyle\int_1^3(9-x^2)\,dx=\pi\Big[9x-\tfrac13x^3\Big]_1^3=\tfrac{28\pi}{3}\) u³ &nbsp;&nbsp; <b>Your turn.</b> \(\pi\displaystyle\int_0^4x\,dx=8\pi\) u³</div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b> \(x^2=y\): \(\pi\displaystyle\int_1^4y\,dy=\tfrac{15\pi}{2}\) u³ &nbsp;&nbsp; <b>Your turn.</b> \(x^2=y^4\): \(\pi\displaystyle\int_0^2y^4\,dy=\tfrac{32\pi}{5}\) u³</div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b> The curves meet at \(x=0\) and 1, with \(x>x^2\) between: \(\pi\displaystyle\int_0^1\left(x^2-x^4\right)dx=\tfrac{2\pi}{15}\) u³<br>
+<b>Your turn.</b> In terms of \(y\), the line is \(x=y\) and the parabola is \(x=\sqrt y\), with \(\sqrt y>y\) for \(0<y<1\): \(\pi\displaystyle\int_0^1\left(y-y^2\right)dy=\tfrac{\pi}{6}\) u³</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><b>b</b> radius 9, height 3, \(V=81\pi\) u³</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><b>b</b> radius 3, \(V=36\pi\) u³</div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>a</b> \(16\pi\) &nbsp; <b>b</b> \(\tfrac{32\pi}{5}\) &nbsp; <b>c</b> \(6\pi\) &nbsp; <b>d</b> \(\tfrac{16\pi}{3}\) &nbsp; <b>e</b> \(9\pi\) &nbsp; (all u³)</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> \(\tfrac{256\pi}{3}\) &nbsp; <b>b</b> \(\tfrac{3093\pi}{5}\) &nbsp; <b>c</b> \(\tfrac{256\pi}{3}\) &nbsp; <b>d</b> \(\tfrac{243\pi}{5}\) &nbsp; (all u³)</div></div>
+<div class="a"><span class="an">5</span><div class="ab">\(\tfrac{\pi}{2}(e^2-1)\) u³</div></div>
+<div class="a"><span class="an">6</span><div class="ab">\(\pi\ln2\) u³</div></div>
+<div class="a"><span class="an">7</span><div class="ab">\(\pi\ln6\) u³</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> \(\tan^2x=\sec^2x-1\) &nbsp; <b>b</b> \(\pi\left(\sqrt3-\tfrac{\pi}{3}\right)\) u³</div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>a</b> \(\sin^2x=\tfrac12-\tfrac12\cos2x\) &nbsp; <b>b</b> \(\tfrac{\pi^2}{4}\) u³</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> \(\tfrac{296\pi}{3}\) &nbsp; <b>b</b> \(\tfrac{119\pi}{6}\) &nbsp; <b>c</b> \(\tfrac{16\pi}{105}\) &nbsp; (all u³)</div></div>
+<div class="a"><span class="an">11</span><div class="ab"><b>a</b> \(\tfrac{\pi}{3}\) &nbsp; <b>b</b> \(\tfrac{28\pi}{15}\) &nbsp; <b>c</b> \(\tfrac{\pi}{2}\) &nbsp; (all u³)</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a</b> \(256\pi\) u³ &nbsp; <b>b</b> \(128\pi\) u³ &nbsp; <b>c</b> \(128\pi\) u³</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>a</b> \(\pi\displaystyle\int_0^h\dfrac{r^2x^2}{h^2}\,dx=\tfrac13\pi r^2h\) &nbsp; <b>b</b> \(\pi\displaystyle\int_0^hr^2\,dx=\pi r^2h\) &nbsp; <b>c</b> (i) \(\pi\displaystyle\int_{-r}^{r}(r^2-x^2)\,dx=\tfrac43\pi r^3\) (ii) \(\pi\displaystyle\int_{r-h}^{r}(r^2-x^2)\,dx=\tfrac13\pi h^2(3r-h)\)</div></div>
+<div class="a"><span class="an">14</span><div class="ab"><b>b</b> (i) \(\tfrac{2\pi}{35}\) u³ (ii) \(\tfrac{\pi}{10}\) u³</div></div>
+<div class="a"><span class="an">15</span><div class="ab"><b>a</b> They meet at \((1,5)\) and \((5,1)\). &nbsp; <b>b</b> \(\tfrac{64\pi}{3}\) u³</div></div>
+<div class="a"><span class="an">16</span><div class="ab"><b>a</b> \((0,0)\) and \((1,1)\) &nbsp; <b>c</b> the cone formed by rotating the line \(y=x\) from \(x=0\) to \(x=1\) about the \(x\)-axis &nbsp; <b>d</b> \(\tfrac{\pi}{3}\) u³</div></div>
+
+{{ahead:Lesson 12F | Volumes of rotation}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Gosford High School, 2022, Trial Higher School Certificate Examination, Mathematics Extension 1, Q5</span></div>
+<p>\(V=\pi\displaystyle\int_0^{\frac{\pi}{3}}\sin^2x\,dx=\dfrac{\pi}{2}\int_0^{\frac{\pi}{3}}(1-\cos2x)\,dx\). <b>Answer B.</b> A and D have the sign reversed (they would give a negative volume); C uses \(\cos^2x\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Abbotsleigh, 2020, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q2</span></div>
+<p>The curve is the upper half of the circle \((x+1)^2+y^2=16\), meeting the \(x\)-axis at \(x+1=\pm4\), that is, \(x=-5\) and \(x=3\). Then \(V=\pi\displaystyle\int_{-5}^{3}y^2\,dx=\pi\int_{-5}^{3}\left(16-(x+1)^2\right)dx\). <b>Answer D.</b></p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2021, Trial Examination, Form VI Mathematics Extension 1, Q12(a)</span></div>
+\[V=\pi\int_2^8\dfrac1x\,dx=\pi\Big[\ln x\Big]_2^8=\pi\ln4=2\pi\ln2\ \text{u}^3\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics Extension 1, Q12(b)</span></div>
+<p>\(y=\ln x\) gives \(x=e^y\), so \(x^2=e^{2y}\), for \(0\le y\le\ln4\).</p>
+\[V=\pi\int_0^{\ln4}e^{2y}\,dy=\dfrac{\pi}{2}\Big[e^{2y}\Big]_0^{\ln4}=\dfrac{\pi}{2}(16-1)=\dfrac{15\pi}{2}\ \text{u}^3\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics Extension 1, Q13(d)</span></div>
+<p>Intersections: \((x-1)^2=x+1\) gives \(x^2-3x=0\), so \(x=0\) or \(x=3\). The line is above the parabola for \(0<x<3\), and both are non-negative there.</p>
+\[\begin{aligned}V&=\pi\int_0^3\left((x+1)^2-(x-1)^4\right)dx=\pi\Big[\tfrac13(x+1)^3-\tfrac15(x-1)^5\Big]_0^3\\&=\pi\left[\left(\tfrac{64}{3}-\tfrac{32}{5}\right)-\left(\tfrac13+\tfrac15\right)\right]=\pi\left(21-\tfrac{33}{5}\right)=\dfrac{72\pi}{5}\ \text{u}^3\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q11(c)</span></div>
+\[V=\pi\int_0^1\dfrac{4}{x^2+3}\,dx=4\pi\times\dfrac{1}{\sqrt3}\Big[\tan^{-1}\dfrac{x}{\sqrt3}\Big]_0^1=\dfrac{4\pi}{\sqrt3}\times\dfrac{\pi}{6}=\dfrac{2\pi^2}{3\sqrt3}=\dfrac{2\sqrt3\,\pi^2}{9}\ \text{u}^3\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>Ascham School, 2023, Year 12 Mathematics Extension 1 Trial Examination, Q11(c)</span></div>
+<p>(i) Domain \(-1\le x\le1\), range \(-\pi\le y\le\pi\); an increasing curve through the origin with endpoints \((-1,-\pi)\) and \((1,\pi)\), and vertical tangents at the endpoints.</p>
+<p>(ii) \(y=2\sin^{-1}x\) gives \(x=\sin\tfrac{y}{2}\), for \(0\le y\le\tfrac{\pi}{2}\).</p>
+\[V=\pi\int_0^{\frac{\pi}{2}}\sin^2\tfrac{y}{2}\,dy=\pi\int_0^{\frac{\pi}{2}}\left(\tfrac12-\tfrac12\cos y\right)dy=\pi\Big[\tfrac12y-\tfrac12\sin y\Big]_0^{\frac{\pi}{2}}=\pi\left(\dfrac{\pi}{4}-\dfrac12\right)=\dfrac{\pi^2}{4}-\dfrac{\pi}{2}\ \text{u}^3\]</div>
+
+{{ahead:Chapter 12 Review | Chapter review exercise}}
+<div class="a"><span class="an">1</span><div class="ab"><b>a</b> \(\dfrac{3}{\sqrt{1-9x^2}}\) &nbsp; <b>b</b> \(\dfrac{3}{9+x^2}\) &nbsp; <b>c</b> \(\dfrac{1}{\sqrt{2x-x^2}}\) &nbsp; <b>d</b> \(2x\tan^{-1}x+\dfrac{x^2}{1+x^2}\) &nbsp; <b>e</b> \(\dfrac{2}{x^2+4x+8}\) &nbsp; <b>f</b> \(\dfrac{-1}{\sqrt{x^4-x^2}}\)</div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>a</b> Each has derivative \(\dfrac{-1}{\sqrt{1-x^2}}\). &nbsp; <b>b</b> The functions differ by at most a constant. The constant is zero, so \(\cos^{-1}x=\sin^{-1}\sqrt{1-x^2}\) for \(0\le x\le1\).</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> \(\tfrac{1}{\sqrt3}\tan^{-1}\tfrac{x}{\sqrt3}+C\) &nbsp; <b>b</b> \(\sin^{-1}\tfrac{x}{\sqrt3}+C\) &nbsp; <b>c</b> \(\tfrac16\tan^{-1}\tfrac{2x}{3}+C\) &nbsp; <b>d</b> \(\tfrac13\cos^{-1}\tfrac{3x}{4}+C\)</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>a</b> \(\tfrac{\pi}{36}\) &nbsp; <b>b</b> \(\tfrac{\pi}{3}\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> \(\tfrac12x+\tfrac14\sin2x+C\) &nbsp; <b>b</b> \(\tfrac12x-\tfrac14\sin2x+C\) &nbsp; <b>c</b> \(\tfrac12x+\tfrac18\sin4x+C\) &nbsp; <b>d</b> \(\tfrac12x-\tfrac1{16}\sin8x+C\)</div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>a</b> \(\tfrac{\pi}{6}\) &nbsp; <b>b</b> \(\tfrac1{12}(\pi+3)\)</div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>a</b> \(\tfrac16(5x-1)^6+C\) &nbsp; <b>b</b> \(\tfrac13(x^2+2)^3+C\) &nbsp; <b>c</b> \(\dfrac{-1}{x^4+1}+C\) &nbsp; <b>d</b> \(\tfrac12\sqrt{4x+3}+C\) &nbsp; <b>e</b> \(\tfrac13\sin^3x+C\) &nbsp; <b>f</b> \(\tfrac14\tan^4x+C\)</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> \(\tfrac1{15}\) &nbsp; <b>b</b> \(\tfrac14\) &nbsp; <b>c</b> \(\tfrac13\) &nbsp; <b>d</b> \(\tfrac13\) &nbsp; <b>e</b> \(e^2-e\) &nbsp; <b>f</b> \(\tfrac12\ln2\)</div></div>
+<div class="a"><span class="an">11</span><div class="ab"><b>a</b> \(x-1+\ln(x-1)+C\) &nbsp; <b>b</b> \(\tfrac23(x+2)^{\frac32}-6(x+2)^{\frac12}+C\) &nbsp; <b>c</b> \(\tfrac1{10}(2x+1)^{\frac52}-\tfrac16(2x+1)^{\frac32}+C\) &nbsp; <b>d</b> \(2(4+\sqrt x)-8\ln(4+\sqrt x)+C\)</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a</b> \(\tfrac{11}{30}\) &nbsp; <b>b</b> \(4-3\ln2\) &nbsp; <b>c</b> 36 &nbsp; <b>d</b> \(\tfrac{13}{15}\)</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>a</b> \(x\le9\), \(y\ge0\) &nbsp; <b>c</b> 18 u² &nbsp; <b>d</b> (i) \(\tfrac{81\pi}{2}\) u³ (ii) \(\tfrac{648\pi}{5}\) u³</div></div>
+<div class="a"><span class="an">14</span><div class="ab">\(4\pi\ln2\) u³</div></div>
+<div class="a"><span class="an">15</span><div class="ab">\(\tfrac{2688\pi}{5}\) u³</div></div>
+<div class="a"><span class="an">16</span><div class="ab"><b>a</b> \(\cos^22x=\tfrac12+\tfrac12\cos4x\)</div></div>
+<div class="a"><span class="an">17</span><div class="ab">\(\approx8.49\) u³</div></div>
+<div class="a"><span class="an">18</span><div class="ab"><b>b</b> \(\pi(1-\ln2)\) u³</div></div>
+<div class="a"><span class="an">19</span><div class="ab"><b>a</b> minimum turning point at \((1,2)\), maximum turning point at \((-1,-2)\) &nbsp; <b>c</b> \(\tfrac{9\pi}{4}\) u³</div></div>
+<div class="a"><span class="an">20</span><div class="ab"><b>b</b> \(72-\tfrac{9\pi}{2}\) u² &nbsp; <b>c</b> \(\tfrac{5004\pi}{5}\) u³</div></div>
+<div class="a"><span class="an">21</span><div class="ab"><b>a</b> \(\pi\displaystyle\int_1^32^{2x+2}\,dx\) &nbsp; <b>b</b> \(180\pi\) u³ &nbsp; <b>c</b> \(\dfrac{120\pi}{\ln2}\approx173\pi\) u³. The curve is concave up, so the trapezoidal rule overestimates.</div></div>

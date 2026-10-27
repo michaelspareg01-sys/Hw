@@ -1,0 +1,169 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 10A</div><h2>Projectile motion: the time equations</h2>
+<div class="focus">A projectile is thrown or fired into the air and then moves under gravity alone. We treat it as a point, ignore air resistance, and take \(g\doteq9.8\) m/s² (or 10 m/s²). This lesson covers the two ways to describe velocity, resolving velocity, the fundamental equations \(\ddot x=0\) and \(\ddot y=-g\), and problems where the speed or angle is unknown.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:two ways to specify velocity}}
+<div class="box concept"><div class="bt">Position and velocity in two dimensions</div>
+<ul><li>Place the origin at the point of projection. Measure horizontal distance \(x\) and vertical distance \(y\) from it. Treat time \(t\) as a <b>parameter</b>: at each time \(t\) the projectile is at some point \(P(x,y)\) on its path.</li>
+<li>Take \(\tv{i}\) and \(\tv{j}\) as unit vectors in the positive \(x\) and \(y\) directions. The point \(P(30,15)\) then has position vector \(\overrightarrow{OP}=30\tv{i}+15\tv{j}\).</li>
+<li>Velocity is a vector. Its <b>speed</b> is its magnitude.</li></ul>
+<p>The velocity at any time \(t\) can be given in two ways:</p>
+<ul><li>By its <b>speed and angle of inclination</b>. The angle of inclination is the acute angle between the path and the horizontal. It is positive if the object is travelling upwards and negative if it is travelling downwards.</li>
+<li>By its <b>horizontal and vertical components</b> \(\dot x\) and \(\dot y\), so that \(\tv{v}=\dot x\,\tv{i}+\dot y\,\tv{j}\), where \(\dot x=\tv{v}\cdot\tv{i}\) and \(\dot y=\tv{v}\cdot\tv{j}\).</li></ul></div>
+<div class="box formula"><div class="bt">Resolution of velocity</div>
+<p>To convert between the two descriptions, draw a diagram to <b>resolve the velocity into its horizontal and vertical components</b>, or use the conversion equations</p>
+\[\begin{cases}\dot x=v\cos\theta\\ \dot y=v\sin\theta\end{cases}\qquad\text{and}\qquad\begin{cases}v^2=\dot x^2+\dot y^2\\ \tan\theta=\dfrac{\dot y}{\dot x}\end{cases}\]
+<p>(where ambiguity between \(\theta\) and \(180^\circ-\theta\) may need to be clarified by the diagram).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Resolving, both ways</span></div><div class="ex-body">
+<b>a</b> A projectile moves with speed 20 m/s. Resolve its velocity into components, and write it as a vector, when its angle of inclination is (i) \(30^\circ\) (ii) \(-45^\circ\).<br>
+<b>b</b> Find the speed and the angle of inclination (to the nearest degree) when the velocity is (i) \(\tv{v}=6\tv{i}+8\tv{j}\) (ii) \(\tv{v}=12\tv{i}-5\tv{j}\).
+{{work:55}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+<b>a</b> Resolve a velocity of 16 m/s at an angle of inclination of (i) \(60^\circ\) (ii) \(-30^\circ\), giving each answer as a vector.<br>
+<b>b</b> Find the speed and angle of inclination when (i) \(\tv{v}=5\tv{i}+12\tv{j}\) (ii) \(\tv{v}=7\tv{i}-7\tv{j}\).
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Resolve the velocity of a projectile moving at 12 m/s, with angle of inclination (i) \(60^\circ\) (ii) \(-60^\circ\), giving the velocity as a vector.<br>
+<b>b</b> Find the speed \(v\) and angle of inclination \(\theta\) (to the nearest degree) when (i) \(\tv{v}=4\tv{i}+3\tv{j}\) m/s (ii) \(\tv{v}=5\tv{i}-2\tv{j}\) m/s.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> (i) \(\dot x=12\cos60^\circ=6\) m/s and \(\dot y=12\sin60^\circ=6\sqrt3\) m/s, so \(\tv{v}=6\tv{i}+6\sqrt3\,\tv{j}\) m/s.</p>
+<p>(ii) \(\dot x=12\cos60^\circ=6\) m/s and \(\dot y=-12\sin60^\circ=-6\sqrt3\) m/s, so \(\tv{v}=6\tv{i}-6\sqrt3\,\tv{j}\) m/s.</p>
+<div style="display:flex;gap:3mm;justify-content:center">{{svg:res60}}{{svg:resm60}}</div>
+</div><div>
+<p><b>b</b> (i) \(v^2=4^2+3^2\), so \(v=5\) m/s, and \(\tan\theta=\tfrac34\), so \(\theta\doteq37^\circ\).</p>
+<p>(ii) \(v^2=5^2+2^2\), so \(v=\sqrt{29}\) m/s, and \(\tan\theta=-\tfrac25\), so \(\theta\doteq-22^\circ\).</p>
+<div style="display:flex;gap:3mm;justify-content:center">{{svg:res43}}{{svg:res52}}</div>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:the fundamental equations of projectile motion}}
+<div class="box concept"><div class="bt">The vertical and horizontal motions are independent</div>
+<p>No force acts on a projectile except the downwards force of gravity. This acceleration is downwards, so it affects the vertical component \(\dot y\) of the velocity according to \(\ddot y=-g\). It has no effect on the horizontal component \(\dot x\), so \(\ddot x=0\). In vector form, \(\tv{a}=-g\tv{j}\).</p>
+<ul><li>Unless otherwise indicated, <b>every question on projectile motion should begin with the two equations</b> \(\ddot x=0\) and \(\ddot y=-g\).</li>
+<li>The working usually involves four integrations, two for \(\ddot x\) and two for \(\ddot y\), with four corresponding substitutions of the initial conditions (resolve the initial velocity first).</li>
+<li>This gives six equations: the two accelerations, the two velocities \(\dot x,\ \dot y\), and the two displacements \(x,\ y\). Number them, so you can refer to them.</li></ul>
+<p><b>Key ideas:</b> at the greatest height, \(\dot y=0\). The projectile lands when \(y\) equals the height of the ground (0, or negative if it lands below the origin). The horizontal range is the value of \(x\) when it lands. To find the impact velocity, resolve \(\dot x\) and \(\dot y\) back into speed and angle.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The six equations, from a platform</span></div><div class="ex-body">
+A ball is thrown with initial speed 30 m/s at an angle of inclination \(30^\circ\) from the top of a platform 20 metres above the ground. Take \(g=10\) m/s² and the top of the platform as the origin.
+<b>a</b> Find the six equations of motion.
+<b>b</b> Find the greatest height above the platform, and when it is reached.
+<b>c</b> Find the flight time, the horizontal range, and the impact speed and angle (to the nearest degree).
+{{work:80}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method, level ground</span></div><div class="ex-body">
+A ball is thrown from ground level with initial speed 20 m/s at an angle of \(30^\circ\) to the horizontal. Take \(g=10\) m/s². Find the six equations of motion, the greatest height, the flight time and the horizontal range.
+{{work:70}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A ball is thrown with initial speed 40 m/s and angle of inclination \(30^\circ\) from the top of a stand 25 metres above the ground.
+<b>a</b> Using the stand as the origin and \(g=10\) m/s², find the six equations of motion.
+<b>b</b> Find how high it rises, how long it takes to get there, what its speed is then, and how far it is horizontally from the stand.
+<b>c</b> Find the flight time, the horizontal range, and the impact speed and angle.
+<div class="sol-label">Solution</div>
+<p>Initially \(x=y=0\), and \(\dot x=40\cos30^\circ=20\sqrt3\), \(\dot y=40\sin30^\circ=20\).</p>
+<div class="split"><div>
+<p><b>a</b> To begin, \(\ddot x=0\). &nbsp;(1)</p>
+<p>Integrating, \(\dot x=C_1\). When \(t=0\), \(\dot x=20\sqrt3\), so \(C_1=20\sqrt3\) and</p>
+<p style="margin-left:6mm">\(\dot x=20\sqrt3.\) &nbsp;(2)</p>
+<p>Integrating, \(x=20\sqrt3\,t+C_2\). When \(t=0\), \(x=0\), so \(C_2=0\) and</p>
+<p style="margin-left:6mm">\(x=20\sqrt3\,t.\) &nbsp;(3)</p>
+</div><div>
+<p>To begin, \(\ddot y=-10\). &nbsp;(4)</p>
+<p>Integrating, \(\dot y=-10t+C_3\). When \(t=0\), \(\dot y=20\), so \(C_3=20\) and</p>
+<p style="margin-left:6mm">\(\dot y=-10t+20.\) &nbsp;(5)</p>
+<p>Integrating, \(y=-5t^2+20t+C_4\). When \(t=0\), \(y=0\), so \(C_4=0\) and</p>
+<p style="margin-left:6mm">\(y=-5t^2+20t.\) &nbsp;(6)</p>
+</div></div>
+<div class="split"><div>
+<p><b>b</b> At the top of its flight, the vertical component of velocity is zero, so put \(\dot y=0\). From (5), \(t=2\) seconds. From (6), \(y=-20+40=20\) metres above the stand, and from (3), \(x=40\sqrt3\) metres from the stand. Because \(\dot y=0\) there, the speed is \(\dot x=20\sqrt3\) m/s.</p>
+<p><b>c</b> It hits the ground when it is 25 metres below the stand, so put \(y=-25\). From (6), \(-5t^2+20t=-25\), so \(t^2-4t-5=0\), \((t-5)(t+1)=0\), and \(t=5\) (\(t=-1\) is inadmissible). From (3), the horizontal range is \(x=100\sqrt3\) metres.</p>
+</div><div>{{svg:stand}}
+<p>At impact, \(\dot x=20\sqrt3\) and \(\dot y=-50+20=-30\), so \(v^2=1200+900\) and the impact speed is \(v=10\sqrt{21}\) m/s. Also \(\tan\theta=-\dfrac{30}{20\sqrt3}\), so \(\theta\doteq-40^\circ54'\): the impact angle is about \(40^\circ54'\) below the horizontal.</p>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:using pronumerals for the initial speed or angle}}
+<div class="box concept"><div class="bt">Unknown angle of projection</div>
+<p>Many problems require the initial speed or angle of inclination to be found so that the projectile behaves in some particular way. Often the muzzle speed of a gun is fixed but the angle \(\alpha\) can be altered. There are then usually <b>two</b> solutions: a low-flying shot and a "lobbed" shot that goes high into the air.</p>
+<ul><li>Resolve with pronumerals: \(\dot x=V\cos\alpha\), \(\dot y=V\sin\alpha\), and derive the six equations as before.</li>
+<li>Substitute the target's \(x\) into the \(x\)-equation to find \(t\) in terms of \(\alpha\), then substitute into the \(y\)-equation.</li>
+<li>Use \(\dfrac{1}{\cos^2\alpha}=\sec^2\alpha=1+\tan^2\alpha\) to obtain a <b>quadratic in \(\tan\alpha\)</b>.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two angles to hit a target</span></div><div class="ex-body">
+A gun at \(O\) fires shells with initial speed 50 m/s, at a variable angle of inclination \(\alpha\). Take \(g=10\) m/s².
+<b>a</b> Find the two possible angles (to the nearest minute where necessary) that will hit a target 200 m away horizontally and 40 m above the gun.
+<b>b</b> Find the flight time for each angle.
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A cannon fires with initial speed 40 m/s at a variable angle \(\alpha\). Take \(g=10\) m/s². Find the two angles at which it can be fired to hit a target 80 m away horizontally and 40 m above the cannon.
+{{work:60}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A gun at \(O\) fires shells with an initial speed of 200 m/s, but a variable angle of inclination \(\alpha\). Take \(g=10\) m/s².
+<b>a</b> Find the two possible angles at which the gun can be set so that it will hit a fortress \(F\) that is 2 km away on top of a mountain 1000 metres high.
+<b>b</b> Find the corresponding flight times and the impact speeds and angles.
+<div class="sol-label">Solution</div>
+<p>Place the origin at the gun. Resolving, \(\dot x=200\cos\alpha\) and \(\dot y=200\sin\alpha\). Integrating from \(\ddot x=0\) and \(\ddot y=-10\) exactly as before:</p>
+\[\dot x=200\cos\alpha\ \ (2)\qquad\qquad x=200t\cos\alpha\ \ (3)\]
+\[\dot y=-10t+200\sin\alpha\ \ (5)\qquad\qquad y=-5t^2+200t\sin\alpha\ \ (6)\]
+<div class="split"><div>
+<p><b>a</b> Because the fortress is 2 km away, \(x=2000\), so from (3), \(t=\dfrac{10}{\cos\alpha}\).</p>
+<p>Because the mountain is 1000 m high, \(y=1000\), so from (6),</p>
+\[-\dfrac{500}{\cos^2\alpha}+\dfrac{2000\sin\alpha}{\cos\alpha}-1000=0\]
+\[\sec^2\alpha-4\tan\alpha+2=0.\]
+<p>But \(\sec^2\alpha=\tan^2\alpha+1\), so \(\tan^2\alpha-4\tan\alpha+3=0\), \((\tan\alpha-3)(\tan\alpha-1)=0\), giving \(\tan\alpha=1\) or 3, and \(\alpha=45^\circ\) or \(\tan^{-1}3\doteq71^\circ34'\).</p>
+</div><div>{{svg:fortress}}</div></div>
+<p><b>b</b> When \(\alpha=45^\circ\): \(t=\dfrac{10}{\cos45^\circ}=10\sqrt2\) seconds. Then from (5), \(\dot y=-100\sqrt2+200\times\tfrac{1}{\sqrt2}=0\), so from (2) the shell hits <b>horizontally</b> at \(100\sqrt2\) m/s.</p>
+<p>When \(\alpha=\tan^{-1}3\): \(\cos\alpha=\dfrac{1}{\sqrt{10}}\) and \(\sin\alpha=\dfrac{3}{\sqrt{10}}\), so \(t=\dfrac{10}{\cos\alpha}=10\sqrt{10}\) seconds. From (5), \(\dot y=-100\sqrt{10}+60\sqrt{10}=-40\sqrt{10}\), and from (2), \(\dot x=20\sqrt{10}\).</p>
+<p>Then \(v^2=16\,000+4000=20\,000\), so \(v=100\sqrt2\) m/s. Also \(\tan\theta=\dfrac{\dot y}{\dot x}=-2\), so \(\theta=-\tan^{-1}2\doteq-63^\circ26'\). This shell hits at \(100\sqrt2\) m/s, at about \(63^\circ26'\) below the horizontal.</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 10A}}
+<p class="small"><b>Note:</b> in this exercise take \(g=10\) m/s² unless otherwise indicated.</p>
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">A particle is projected from the origin with a speed of \(30\sqrt2\) m/s at an angle of \(45^\circ\) to the horizontal.
+<div class="parts"><span><span class="pl">a</span>Starting with \(\ddot x=0\) and \(\ddot y=-10\), show that \(\dot x=30\) and \(\dot y=-10t+30\).</span><span><span class="pl">b</span>Hence find \(x\) and \(y\) in terms of \(t\).</span><span><span class="pl">c</span>Put \(y=0\) to find when the particle returns to the \(x\)-axis.</span><span><span class="pl">d</span>Hence find the horizontal distance travelled by the particle.</span><span><span class="pl">e</span>Put \(\dot y=0\) to find when the particle reaches its greatest height above the \(x\)-axis.</span><span><span class="pl">f</span>Find the greatest height.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">A particle is projected from horizontal ground with a speed of 40 m/s at an angle of \(30^\circ\) to the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Starting with \(\ddot x=0\) and \(\ddot y=-10\), show that \(\dot x=20\sqrt3\) and \(\dot y=-10t+20\).</span><span><span class="pl">b</span>Hence find \(x\) and \(y\) in terms of \(t\).</span><span><span class="pl">c</span>Find: (i) when the particle returns to the ground, (ii) the horizontal distance travelled by the particle, (iii) the greatest height reached above the ground.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">A particle is projected from the origin with a speed of 20 m/s at an angle of \(60^\circ\) to the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Starting with \(\ddot x=0\) and \(\ddot y=-10\), show that \(\dot x=10\) and \(\dot y=-10t+10\sqrt3\).</span><span><span class="pl">b</span>Hence find \(x\) and \(y\) in terms of \(t\).</span><span><span class="pl">c</span>Use Pythagoras' theorem to find, correct to one decimal place: (i) the distance of the particle from the origin after one second, (ii) the speed of the particle after one second.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">A particle is projected from ground level with a speed of 60 m/s at an angle of \(\tan^{-1}\tfrac43\) to the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dot x=36\) and \(\dot y=-10t+48\).</span><span><span class="pl">b</span>Find \(x\) and \(y\) as functions of \(t\).</span><span><span class="pl">c</span>Find, correct to one decimal place, the distance of the particle from the point of projection after 3 seconds.</span><span><span class="pl">d</span>Show that the velocity of the particle after 3 seconds is \(18\sqrt5\) m/s at an angle of \(\tan^{-1}\tfrac12\) above the horizontal. (Note that velocity is a vector quantity, so both the speed and the direction must be specified.)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">A particle is projected from the origin. Its initial velocity vector is \(8\tv{i}+6\tv{j}\).
+<div class="parts one"><span><span class="pl">a</span>Express its velocity at time \(t\) in the form \(\tv{v}=\dot x\tv{i}+\dot y\tv{j}\).</span><span><span class="pl">b</span>Express its displacement at time \(t\) in the form \(\tv{r}=x\tv{i}+y\tv{j}\).</span><span><span class="pl">c</span>Find: (i) the initial speed of the particle, (ii) the position vector of the particle after 2 seconds, (iii) the position vector of the particle when it reaches its greatest height.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">A particle is projected from the origin. Its horizontal and vertical components of displacement after \(t\) seconds are \(x=40t\) and \(y=-5t^2+25t\) respectively.
+<div class="parts one"><span><span class="pl">a</span>Find the initial values of \(\dot x\) and \(\dot y\).</span><span><span class="pl">b</span>Hence show that the initial velocity is \(5\sqrt{89}\) at an angle of approximately \(32^\circ\) to the horizontal.</span></div>{{work:32}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">7</span><div class="q-body">A particle is projected from the origin with initial speed \(V\) at an angle of \(\alpha\) to the horizontal. Two seconds later it passes through the point with position vector \(8\tv{i}-12\tv{j}\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(V\cos\alpha=4\) and \(V\sin\alpha=4\), and hence write down the initial velocity vector of the particle.</span><span><span class="pl">b</span>Find the position vector of the particle after 0.5 seconds.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">A particle is projected from a point \(O\) with initial speed \(V\) m/s at an angle of \(\theta\) to the horizontal. After 2 seconds its horizontal and vertical displacements from \(O\) are both 30 m.
+<div class="parts"><span><span class="pl">a</span>Show that \(V\cos\theta=15\) and \(V\sin\theta=25\).</span><span><span class="pl">b</span>Hence show that \(V=5\sqrt{34}\) m/s and \(\theta=\arctan\tfrac53\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">A stone is thrown from the top of an 11 m high vertical tower standing on level ground. The initial speed is 12 m/s and the initial direction is \(30^\circ\) <i>below</i> the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Starting with the horizontal and vertical components of acceleration, show that \(\dot x=6\sqrt3\) and \(\dot y=-10t-6\).</span><span><span class="pl">b</span>If the origin is at the point of projection, find \(x\) and \(y\) in terms of \(t\).</span><span><span class="pl">c</span>How long will it take for the stone to hit the ground?</span><span><span class="pl">d</span>How far from the base of the tower, in metres correct to one decimal place, will the stone hit the ground?</span><span><span class="pl">e</span>Show that the stone will hit the ground at an angle of \(\tan^{-1}\dfrac{8\sqrt3}{9}\) below the horizontal.</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">A ball is tossed with initial speed 6 m/s at an angle of \(45^\circ\) to the horizontal. It hits the ground at a point that is 2 m below the point of projection. Find, correct to two decimal places: <b>a</b> the time of flight of the ball, &nbsp; <b>b</b> the horizontal distance travelled by the ball.{{work:40}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">A projectile was fired from level ground and just cleared a wall that is 10 m high and 20 m from the point of projection. If the angle of projection was \(36^\circ\), find the initial speed of the projectile in m/s correct to the nearest integer.{{work:40}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">A ball was projected from ground level and, when at its highest point, it just cleared a 3-metre wall. Given that the initial velocity of the ball was 20 m/s at an angle of \(\alpha\) to the horizontal, prove that \(\alpha=\sin^{-1}\dfrac{\sqrt{15}}{10}\).{{work:36}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Two particles \(P_1\) and \(P_2\) are projected from the origin with initial velocity vectors \(20\tv{i}+30\tv{j}\) and \(60\tv{i}+50\tv{j}\) respectively. If \(P_2\) is projected 2 seconds after \(P_1\), determine whether the particles collide and, if so, when they collide.{{work:46}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">A particle is projected from the origin with initial speed \(20\sqrt2\) m/s. On its flight it passes through the point \((20,15)\) at time \(t\). Let \(\theta\) be the angle of projection.
+<div class="parts one"><span><span class="pl">a</span>Show that \(\sqrt2\,t\cos\theta=1\) and \(4\sqrt2\,t\sin\theta-t^2=3\).</span><span><span class="pl">b</span>Hence show that \(\tan^2\theta-8\tan\theta+7=0\).</span><span><span class="pl">c</span>Hence find, correct to the nearest minute where necessary, the two possible values of \(\theta\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">A particle is projected with initial speed 50 m/s. On its flight it passes through a point \(P\) that is at a horizontal distance of 100 m and a vertical distance of 25 m from the point of projection.
+<div class="parts one"><span><span class="pl">a</span>Show that the angle of projection \(\alpha\) is \(\tan^{-1}\tfrac12\) or \(\tan^{-1}\tfrac92\).</span><span><span class="pl">b</span>For each of the possible angles of projection, find: (i) the time it takes for the particle to reach \(P\), (ii) the velocity of the particle as it passes through \(P\), giving answers correct to one decimal place where necessary.</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">A particle is projected from level ground with initial speed \(V\) m/s at an angle of \(\theta\) to the horizontal.
+<div class="parts one"><span><span class="pl">a</span>Prove that: (i) the greatest height is \(\dfrac{V^2\sin^2\theta}{2g}\) metres, (ii) the horizontal range is \(\dfrac{V^2\sin2\theta}{g}\) metres.</span><span><span class="pl">b</span>If the horizontal range is five times the greatest height, prove that \(\theta=\arctan\tfrac45\).</span></div>{{work:55}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">17</span><div class="q-body">A particle is projected from the floor of a horizontal tunnel that is 2 m high. If the particle just touches the ceiling of the tunnel, prove that the horizontal range inside the tunnel is \(\sqrt{\dfrac{16}{g}\left(V^2-4g\right)}\) metres.{{work:50}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">A projectile is fired from level ground with initial speed \(V\) at an angle of \(\theta\) to the horizontal. Suppose that the greatest height of the projectile is \(h\).
+<div class="parts one"><span><span class="pl">a</span>Prove that \(V^2\sin^2\theta=2gh\).</span><span><span class="pl">b</span>Prove that the particle is at height \(\dfrac h2\) when \(t=\dfrac{\left(\sqrt2+1\right)\sqrt h}{\sqrt g}\) or \(t=\dfrac{\left(\sqrt2-1\right)\sqrt h}{\sqrt g}\).</span><span><span class="pl">c</span>If the ratio of the speed of the particle at height \(\dfrac h2\) to the speed at height \(h\) is \(\sqrt5:\sqrt2\), find \(\theta\).</span></div>{{work:62}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+@@PP10A@@
+</div>

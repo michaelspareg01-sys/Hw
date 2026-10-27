@@ -1,0 +1,6 @@
+{"chapter": "Chapter 12 Further Calculus | Lesson and Homework",
+ "lesson": {"parts": ["cover.html","revision.html","l12a.html","l12b.html","l12c.html","l12d.html","l12e.html","l12f.html"], "out": "lesson.pdf",
+            "title": "Year 12 Ext 1 Chapter 12 Further Calculus - Lesson and Homework"},
+ "answers": {"parts": ["a_12a.html","a_12bc.html","a_12def.html"], "out": "answers.pdf",
+             "title": "Year 12 Ext 1 Chapter 12 Further Calculus - Homework Answers",
+             "footer": "Chapter 12 Further Calculus | Homework Answers", "heading": "Chapter 12 Further Calculus - Homework Answers"}}

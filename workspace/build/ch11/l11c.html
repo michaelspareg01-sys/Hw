@@ -1,0 +1,179 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 11C</div><h2>Using the t-formula to solve equations</h2>
+<div class="focus">Substitute \(t=\tan\tfrac12x\) to turn \(a\sin x+b\cos x=c\) into a quadratic in \(t\), and never lose the solution \(x=180^\circ\).</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:the t-formula substitution}}
+<div class="box concept"><div class="bt">A different method for a sin x + b cos x = c</div>
+<p>Substitute \(t=\tan\tfrac12x\), using
+\[\sin x=\dfrac{2t}{1+t^2}\qquad\text{and}\qquad\cos x=\dfrac{1-t^2}{1+t^2},\]
+then multiply through by \(1+t^2\). Everything quickly reduces to a <b>quadratic equation in \(t\)</b>.</p>
+<p><b>Advantages:</b> the method is far more automatic, and only a single approximation is involved.</p>
+<p><b>Two disadvantages:</b></p>
+<ul><li>The intuition about the LHS being a shifted wave function is lost.</li>
+<li>If \(x=180^\circ\) happens to be a solution, it will not be found by this method, because \(\tan\tfrac12x\) is not defined at \(x=180^\circ\).</li></ul>
+<p>Remember the restriction on \(\tfrac12x\): if \(-180^\circ\le x\le 180^\circ\) then \(-90^\circ\le\tfrac12x\le 90^\circ\); if \(0^\circ\le x\le 360^\circ\) then \(0^\circ\le\tfrac12x\le 180^\circ\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">t-formula, quadratic in t</span></div><div class="ex-body">
+Solve \(5\sin x+2\cos x=3\), for \(-180^\circ\le x\le 180^\circ\), correct to the nearest minute, using the substitution \(t=\tan\tfrac12x\).
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Solve \(3\sin x+4\cos x=1\), for \(-180^\circ\le x\le 180^\circ\), correct to the nearest minute, using the substitution \(t=\tan\tfrac12x\).
+{{work:70}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Solve \(3\sin x-4\cos x=-2\), for \(-180^\circ\le x\le 180^\circ\), correct to the nearest minute, using the substitution \(t=\tan\tfrac12x\).
+<div class="sol-label">Solution</div>
+<p>Using \(\sin x=\dfrac{2t}{1+t^2}\) and \(\cos x=\dfrac{1-t^2}{1+t^2}\), the equation becomes</p>
+\[\begin{aligned}
+\dfrac{6t}{1+t^2}-\dfrac{4-4t^2}{1+t^2}&=-2,\quad\text{provided that } x\ne 180^\circ\\
+6t-4+4t^2&=-2-2t^2\\
+6t^2+6t-2&=0\\
+3t^2+3t-1&=0,\quad\text{which has discriminant }\Delta=21\\
+\tan\tfrac12x&=-\tfrac12+\tfrac16\sqrt{21}\ \ \text{or}\ \ -\tfrac12-\tfrac16\sqrt{21}
+\end{aligned}\]
+<p>Because \(-180^\circ\le x\le 180^\circ\), the restriction on \(\tfrac12x\) is \(-90^\circ\le\tfrac12x\le 90^\circ\), so</p>
+\[\begin{aligned}
+\tfrac12x&=14.775\,961\ldots^\circ\ \ \text{or}\ \ -51.645\,859\ldots^\circ\quad\text{(only round at the last step)}\\
+x&\approx 29^\circ33'\ \ \text{or}\ \ -103^\circ18'
+\end{aligned}\]
+<p>Check \(x=\pm180^\circ\), which the substitution cannot reach: LHS \(=3\times0-4\times(-1)=4\ne-2\), so neither is a solution.</p>
+<p class="small">Compare with Worked Example 3 of Lesson 11B, which solved the same equation to the nearest degree.</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:the problem when x = 180° is a solution}}
+<div class="box warn"><div class="bt">Always be ready to add x = 180°</div>
+<p>The substitution \(t=\tan\tfrac12x\) fails when \(x=180^\circ\), because \(\tan 90^\circ\) is undefined. We must always be aware of this possibility, and be prepared to add this answer to the final solution. The situation can easily be recognised in either of these ways:</p>
+<ul><li>The terms in \(t^2\) <b>cancel out</b>, leaving a linear equation in \(t\).</li>
+<li>The coefficient of \(\cos x\) is the <b>opposite</b> of the constant term.</li></ul>
+<p>Check by substituting \(x=180^\circ\) (where \(\sin x=0\), \(\cos x=-1\)) into the original equation.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The t² terms cancel</span></div><div class="ex-body">
+Solve \(5\sin x-3\cos x=3\), for \(0^\circ\le x\le 360^\circ\), by using the substitution \(t=\tan\tfrac12x\). Give answers correct to the nearest minute where necessary.
+{{work:58}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same check</span></div><div class="ex-body">
+Solve \(2\sin x-\cos x=1\), for \(0^\circ\le x\le 360^\circ\), by using the substitution \(t=\tan\tfrac12x\). Give answers correct to the nearest minute where necessary.
+{{work:58}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Solve \(7\sin x-4\cos x=4\), for \(0^\circ\le x\le 360^\circ\), by using the substitution \(t=\tan\tfrac12x\).
+<div class="sol-label">Solution</div>
+<p>Substituting \(t=\tan\tfrac12x\) gives</p>
+\[\begin{aligned}
+\dfrac{14t}{1+t^2}-\dfrac{4-4t^2}{1+t^2}&=4,\quad\text{provided that } x\ne 180^\circ\\
+14t-4+4t^2&=4+4t^2\\
+14t&=8
+\end{aligned}\]
+<p><b>Warning:</b> the terms in \(t^2\) have cancelled out, so check \(x=180^\circ\)!</p>
+\[\tan\tfrac12x=\tfrac47,\qquad x\approx 59^\circ29'\]
+<p>But \(x=180^\circ\) is also a solution, because then LHS \(=7\times0-4\times(-1)=4=\) RHS. So \(x=180^\circ\) or \(x\approx59^\circ29'\).</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:choosing a method}}
+<div class="box formula"><div class="bt">Solving equations of the form a sin x + b cos x = c</div>
+<ul><li><b>The auxiliary-angle method:</b> get the LHS into one of the forms \(R\sin(x+\alpha)\), \(R\sin(x-\alpha)\), \(R\cos(x+\alpha)\) or \(R\cos(x-\alpha)\), then solve the resulting equation.</li>
+<li><b>Using the t-formulae:</b> substitute \(t=\tan\tfrac12x\) and then solve the resulting quadratic in \(t\). Be aware that \(x=180^\circ\) may also be a solution if
+<ul><li>the terms in \(t^2\) cancel out, leaving a linear equation in \(t\), or equivalently,</li><li>the coefficient of \(\cos x\) is the opposite of the constant term.</li></ul></li></ul></div>
+<div class="box tip"><div class="bt">Double angles: use t = tan x</div>
+<p>For an equation in \(\sin 2x\) and \(\cos 2x\), use the substitution \(t=\tan x\), so that \(\sin 2x=\dfrac{2t}{1+t^2}\) and \(\cos 2x=\dfrac{1-t^2}{1+t^2}\). Now the value that can be lost is \(2x=180^\circ\) (and \(540^\circ\)), that is, \(x=90^\circ\) and \(x=270^\circ\).</p></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">t = tan x for a double angle</span></div><div class="ex-body">
+Solve \(\sin 2x+3\cos 2x=3\), for \(0\le x\le 2\pi\), using the substitution \(t=\tan x\). Give answers correct to 3 decimal places where necessary.
+<div class="sol-label">Solution</div>
+\[\begin{aligned}
+\dfrac{2t}{1+t^2}+\dfrac{3(1-t^2)}{1+t^2}&=3,\quad\text{provided that } x\ne\tfrac{\pi}{2},\tfrac{3\pi}{2}\\
+2t+3-3t^2&=3+3t^2\\
+6t^2-2t&=0\\
+2t\,(3t-1)&=0\\
+\tan x=0\quad\text{or}\quad\tan x&=\tfrac13
+\end{aligned}\]
+<p>So \(x=0,\ \pi,\ 2\pi\), or \(x\approx0.322\) or \(x\approx0.322+\pi\approx3.463\).</p>
+<p>Check \(x=\tfrac{\pi}{2}\) and \(\tfrac{3\pi}{2}\): \(\sin\pi+3\cos\pi=-3\ne3\), so neither is a solution.</p>
+<p>Solutions: \(x=0,\ 0.322,\ \pi,\ 3.463,\ 2\pi\).</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 11C}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Consider the equation \(\cos x-\sin x=1\), where \(0\le x\le 2\pi\).
+<div class="parts one"><span><span class="pl">a</span>Using the substitutions \(\sin x=\dfrac{2t}{1+t^2}\) and \(\cos x=\dfrac{1-t^2}{1+t^2}\), where \(t=\tan\tfrac12x\), show that the equation can be written as \(t^2+t=0\).</span><span><span class="pl">b</span>Hence show that \(\tan\tfrac12x=0\) or \(-1\), where \(0\le\tfrac12x\le\pi\).</span><span><span class="pl">c</span>Hence solve the given equation for \(x\).</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Consider the equation \(\sqrt3\sin x+\cos x=1\).
+<div class="parts one"><span><span class="pl">a</span>Show that the equation can be written as \(t^2=\sqrt3\,t\), where \(t=\tan\tfrac12x\).</span><span><span class="pl">b</span>Hence solve the equation, for \(0\le x\le 2\pi\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that the equation \(4\cos x+\sin x=1\) can be written as \((5t+3)(t-1)=0\), where \(t=\tan\tfrac12x\).</span><span><span class="pl">b</span>Hence solve the equation, for \(0^\circ\le x\le 360^\circ\). Give the solutions correct to the nearest minute where necessary.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that the equation \(3\sin x-2\cos x=2\) can be written as \(3t-2=0\), where \(t=\tan\tfrac12x\).</span><span><span class="pl">b</span>Hence solve the equation for \(0^\circ\le x\le 360^\circ\), giving solutions correct to the nearest minute where necessary. (Remember to check \(x=180^\circ\) as a possible solution, given that the resulting equation in \(t\) is linear.)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that the equation \(6\sin x-4\cos x=5\) can be written as \(t^2-12t+9=0\), where \(t=\tan\tfrac12x\).</span><span><span class="pl">b</span>Show that \(\tan\tfrac12x=6+3\sqrt3\) or \(6-3\sqrt3\).</span><span><span class="pl">c</span>Hence show that \(77^\circ35'\) and \(169^\circ48'\) are the solutions (correct to the nearest minute) of the given equation over the domain \(0^\circ\le x\le 360^\circ\).</span></div>{{work:46}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">6</span><div class="q-body">Solve each equation, for \(0^\circ\le x\le 360^\circ\), using the t-formulae, where \(t=\tan\tfrac12x\). Give solutions correct to the nearest minute where necessary.
+<div class="parts"><span><span class="pl">a</span>\(5\sin x+4\cos x=5\)</span><span><span class="pl">b</span>\(7\cos x-6\sin x=2\)</span><span><span class="pl">c</span>\(3\sin x-2\cos x=1\)</span><span><span class="pl">d</span>\(5\cos x+6\sin x=-5\)</span></div>{{work:85}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Use t-formulae to prove that the equation \(8\tan\theta-4\sec\theta=1\) has solutions \(2\tan^{-1}\tfrac13\) and \(2\tan^{-1}5\) in the domain \(0\le\theta\le 2\pi\).{{work:46}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Solve the equation \(2\sin 2x+\cos 2x=2\), for \(0^\circ\le x\le 360^\circ\), using the substitution \(t=\tan x\). Give solutions correct to the nearest tenth of a degree where necessary.{{work:50}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Suppose that \(a\cos x=1+\sin x\), where \(0^\circ<x<90^\circ\).
+<div class="parts one"><span><span class="pl">a</span>Prove that \(\dfrac{a-1}{a+1}=t\), where \(t=\tan\tfrac12x\).</span><span><span class="pl">b</span>Hence find, correct to the nearest minute, the acute angle \(x\) that satisfies the equation \(2\cos x-\sin x=1\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Let \(\theta_1\) and \(\theta_2\), where \(\theta_1>\theta_2\), be the solutions of the equation \(6\cos\theta+17\sin\theta=18\) in the domain \(0\le\theta\le 2\pi\). Show that \(\tan\left(\dfrac{\theta_1-\theta_2}{2}\right)=\dfrac{1}{18}\).{{work:55}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">11</span><div class="q-body">Consider the equation \(a\cos x+b\sin x=c\), where \(a\), \(b\) and \(c\) are constants.
+<div class="parts one"><span><span class="pl">a</span>Show that the equation can be written in the form \((a+c)t^2-2bt-(a-c)=0\), where \(t=\tan\tfrac12x\).</span><span><span class="pl">b</span>Show that the root(s) of the equation are real if \(c^2\le a^2+b^2\).</span><span><span class="pl">c</span>Suppose that \(\tan\tfrac12\alpha\) and \(\tan\tfrac12\beta\) are distinct real roots of the quadratic equation in part a. Prove that \(\tan\tfrac12(\alpha+\beta)=\dfrac{b}{a}\).</span></div>{{work:75}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Given the equation \((2k-1)\cos\theta+(k+2)\sin\theta=2k+1\), where \(k\) is a constant, use t-formulae to prove that \(\tan\theta=\dfrac43\) or \(\dfrac{2k}{k^2-1}\).{{work:60}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>20 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Fort Street High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension 1, Q3</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Given that \(t=\tan\dfrac{\theta}{2}\), then \(\tan\theta\sin\theta\) is equal to
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>A. \(\dfrac{4t^2}{1-t^4}\)</span><span>B. \(\dfrac{2t^2}{1-t^4}\)</span><span>C. \(\dfrac{4t^2}{1+t^4}\)</span><span>D. \(\dfrac{2t^2}{1+t^2}\)</span></div></div>
+<div class="hint"><b>Hint:</b> multiply the t-formulae for \(\tan\theta\) and \(\sin\theta\), and use the difference of two squares in the denominator.</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Hornsby Girls High School, 2023, Year 12 Higher School Certificate Trial Examination, Mathematics Extension 1, Q11(c)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Using \(t=\tan\dfrac{\theta}{2}\), solve \(2\cos\theta+3\sin\theta=-2\) for \(0\le\theta\le 2\pi\).</div>
+<div class="hint"><b>Hint:</b> compare the coefficient of \(\cos\theta\) with the constant term before you start.</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Kinross Wolaroi School, 2023, Year 12 Mathematics Extension 1 Trial HSC Examination, Q12(b)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Using the t-formula solve the equation \(\dfrac{5\sin x}{2}+\cos x=2\) for \(0^\circ\le x\le 180^\circ\). Answer correct to the nearest minute.</div>
+<div class="hint"><b>Hint:</b> multiply by 2 first. With \(0^\circ\le x\le180^\circ\), what is the range of \(\tfrac12x\)?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Normanhurst Boys' High School, 2021, Mathematics Extension 1 (Year 12 Course) Assessment Task 4 (Trial Examination), Q11(c)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Using the substitution \(t=\tan\theta\), solve for \(0^\circ\le\theta\le 360^\circ\):
+\[2\sin 2\theta=2+4\cos 2\theta\]</div>
+<div class="hint"><b>Hint:</b> \(\sin 2\theta\) and \(\cos 2\theta\) in terms of \(t=\tan\theta\). Then check \(\theta=90^\circ\) and \(270^\circ\).</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Ascham School, 2023, Year 12 Mathematics Extension 1 Trial Examination, Q14(a)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Using the substitution \(t=\tan x\), solve \(3\sin 2x-5\cos 2x=5\) for \(0\le x\le 2\pi\).</div>
+<div class="hint"><b>Hint:</b> watch what happens to the \(t^2\) terms, and think about which values of \(x\) the substitution cannot reach.</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2020, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q11(a)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">Use the t-formulae to solve the equation \(\sin 4\theta+\sqrt3\cos 4\theta=0\) for \(0\le\theta\le\pi\).</div>
+<div class="hint"><b>Hint:</b> let \(t=\tan 2\theta\), so \(\sin 4\theta=\dfrac{2t}{1+t^2}\). Write down the range of \(2\theta\).</div>{{work:55}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Normanhurst Boys' High School, 2023, Year 12 Mathematics Extension 1 Course Assessment Task 4 (Trial Examination), Q12(b)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">It is given that \(t=\tan A\) and \(p\cos 2A-\sin 2A=1\), where \(p\in\mathbb{R}\). Show that
+\[t=\dfrac{p-1}{p+1}\]
+where \(0\le A\le\dfrac{\pi}{2}\).</div>
+<div class="hint"><b>Hint:</b> you will get a quadratic in \(t\). One root is a simple number; use the domain of \(A\) to reject it.</div>{{work:55}}</div>
+</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter 11 Review</div><h2>Chapter review exercise</h2>
+<div class="focus">Mixed practice from the whole chapter. Decide which method fits before you start each question.</div></div>
+<div class="q"><span class="q-num">1</span><div class="q-body">Solve, for \(0\le x\le 2\pi\):
+<div class="parts"><span><span class="pl">a</span>\(\sin 2x+\sin x=0\)</span><span><span class="pl">b</span>\(\cos 2x+\cos x=0\)</span><span><span class="pl">c</span>\(\cos 2x+5\sin x+2=0\)</span><span><span class="pl">d</span>\(2\sin\left(x-\tfrac{\pi}{6}\right)=\cos\left(x-\tfrac{\pi}{3}\right)\)</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Express \(\sin x-\cos x\) in the form \(R\sin(x-\alpha)\), where \(R>0\) and \(0<\alpha<\tfrac{\pi}{2}\).</span><span><span class="pl">b</span>Hence solve \(\sin x-\cos x=\sqrt2\), for \(0\le x\le 2\pi\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Express \(\sqrt3\cos x+\sin x\) in the form \(A\cos(x-\theta)\), where \(A>0\) and \(0<\theta<\tfrac{\pi}{2}\).</span><span><span class="pl">b</span>Hence solve \(\sqrt3\cos x+\sin x=-1\), for \(0\le x\le 2\pi\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Express \(2\sin x+\sqrt5\cos x\) in the form \(R\sin(x+\alpha)\), where \(R>0\) and \(\alpha\) is acute.</span><span><span class="pl">b</span>Hence solve \(2\sin x+\sqrt5\cos x=3\), for \(0^\circ\le x\le 360^\circ\), writing the solution in degrees correct to one decimal place.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Express \(3\cos x-2\sin x\) in the form \(A\cos(x+\theta)\), where \(A>0\) and \(\theta\) is acute.</span><span><span class="pl">b</span>Hence solve \(3\cos x-2\sin x=1\), for \(0^\circ\le x\le 360^\circ\), writing the solutions correct to the nearest minute.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Use a suitable t-formula to solve \(\sin x=\tan\tfrac12x\), for \(0\le x\le 2\pi\).{{work:40}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Consider the equation \(7\sin x+\cos x=5\).
+<div class="parts one"><span><span class="pl">a</span>Show that the equation can be written as \(3t^2-7t+2=0\), where \(t=\tan\tfrac{x}{2}\).</span><span><span class="pl">b</span>Hence show that the equation has solutions \(x=2\tan^{-1}\tfrac13\) and \(x=2\tan^{-1}2\).</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Use t-formulae to solve \(4\sin x-2\cos x=3\), for \(0\le x\le 2\pi\). Write the solutions correct to 2 decimal places.{{work:46}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Use compound- and double-angle formulae to prove that \(\cos 3x=4\cos^3x-3\cos x\).</span><span><span class="pl">b</span>Hence solve \(\cos 3x+\sin 2x+\cos x=0\), for \(0\le x\le 2\pi\).</span></div>{{work:60}}</div></div>
+</div>

@@ -1,0 +1,233 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 11A</div><h2>Equations involving compound angles</h2>
+<div class="focus">Use compound-angle and double-angle identities to turn an equation into one trigonometric function of one angle, then solve.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:sin²θ and cos²θ in terms of cos 2θ}}
+<div class="box concept"><div class="bt">Two new forms of the cos 2θ formula</div>
+<p>Start from the second and third forms of \(\cos 2\theta\) and make the square the subject.</p>
+\[\begin{aligned}
+\cos 2\theta&=2\cos^2\theta-1 &\qquad\qquad \cos 2\theta&=1-2\sin^2\theta\\
+2\cos^2\theta&=1+\cos 2\theta & 2\sin^2\theta&=1-\cos 2\theta\\
+\cos^2\theta&=\tfrac12+\tfrac12\cos 2\theta & \sin^2\theta&=\tfrac12-\tfrac12\cos 2\theta
+\end{aligned}\]
+<p>Check: adding the two gives \(\cos^2\theta+\sin^2\theta=1\), as it must. These forms are used again in Chapter 12 to integrate \(\sin^2 x\) and \(\cos^2 x\).</p>
+</div>
+<div class="box take"><div class="bt">Why this helps</div>A squared sine or cosine becomes a <b>single cosine wave</b> \(y=\tfrac12\pm\tfrac12\cos 2x\), so you can read off its amplitude, period and range.</div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Sketching a squared cosine</span></div><div class="ex-body">
+Sketch \(y=\cos^2 x\) for \(0\le x\le 2\pi\), and state its amplitude, period and range.
+{{work:62}}</div></div>
+
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Sketch \(y=2\cos^2 x\) for \(0\le x\le 2\pi\), and state its amplitude, period and range.
+{{work:62}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Sketch \(y=\sin^2 x\), and state its amplitude, period and range.
+<div class="sol-label">Solution</div>
+\[y=\sin^2 x=\tfrac12-\tfrac12\cos 2x\]
+<p>This is \(y=\cos 2x\) turned upside down, stretched vertically by the factor \(\tfrac12\), then shifted up \(\tfrac12\).</p>
+<p><b>Period</b> \(\pi\) &nbsp;·&nbsp; <b>amplitude</b> \(\tfrac12\) &nbsp;·&nbsp; it oscillates about \(y=\tfrac12\), so the <b>range</b> is \(0\le y\le 1\).</p>
+{{svg:sin2}}
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:more than one trig function, same angle}}
+<div class="box concept"><div class="bt">Equations with more than one trigonometric function</div>
+<ul>
+<li>Use trigonometric identities (ratio and Pythagorean identities) to produce an equation in <b>only one</b> trigonometric function.</li>
+<li>Many trigonometric equations can be solved by more than one method.</li>
+</ul></div>
+<div class="box warn"><div class="bt">The danger of squaring</div>
+<p>Squaring both sides can introduce <b>extra solutions</b>. For example, \(\sin x=1\) for \(0\le x\le 2\pi\) has one solution \(x=\tfrac{\pi}{2}\), but \(\sin^2x=1\) has two solutions, \(x=\tfrac{\pi}{2}\) and \(x=\tfrac{3\pi}{2}\).</p>
+<p>If you square, you <b>must check every answer</b> in the original equation.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two methods</span></div><div class="ex-body">
+Solve \(4\tan\theta=3\sec\theta\) for \(0^\circ\le\theta\le 360^\circ\), correct to the nearest minute:
+<div class="parts one"><span><span class="pl">a</span>using the ratio identities,</span><span><span class="pl">b</span>by squaring both sides.</span></div>
+{{work:70}}</div></div>
+
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Ratio identities</span></div><div class="ex-body">
+Solve \(\tan\theta=2\sin\theta\) for \(0^\circ\le\theta\le 360^\circ\).
+<p class="small">Careful: do not divide by \(\sin\theta\). Move everything to one side and factor.</p>
+{{work:48}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Solve \(2\tan\theta=\sec\theta\) for \(0^\circ\le\theta\le 360^\circ\): <b>a</b> using the ratio identities, <b>b</b> by squaring both sides.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}
+2\tan\theta&=\sec\theta\\
+\dfrac{2\sin\theta}{\cos\theta}&=\dfrac{1}{\cos\theta}\\
+\sin\theta&=\tfrac12\\
+\theta&=30^\circ\ \text{or}\ 150^\circ
+\end{aligned}\]
+</div><div>
+<p><b>b</b> Squaring, \(4\tan^2\theta=\sec^2\theta\)</p>
+\[\begin{aligned}
+4\sec^2\theta-4&=\sec^2\theta\\
+\sec^2\theta&=\tfrac43\\
+\cos\theta&=\tfrac{\sqrt3}{2}\ \text{or}\ -\tfrac{\sqrt3}{2}\\
+\theta&=30^\circ,150^\circ,210^\circ\ \text{or}\ 330^\circ
+\end{aligned}\]
+</div></div>
+<p>Checking each solution in the original equation, only \(\theta=30^\circ\) or \(150^\circ\) work. (At \(210^\circ\), \(\tan\theta>0\) but \(\sec\theta<0\).)</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:equations involving different angles}}
+<div class="box concept"><div class="bt">Different angles in one equation</div>
+<p>Use compound-angle identities to change all the trigonometric functions to functions of <b>one angle</b>.</p></div>
+<div class="box tip"><div class="bt">General approach to any trigonometric equation</div>
+<ol><li>First, try to get all the <b>angles</b> the same.</li><li>Then try to get all the <b>trigonometric functions</b> the same.</li></ol>
+<p>Then factor, solve each factor, and keep track of the domain of every angle that appears (if \(0\le x\le 2\pi\) then \(0\le 2x\le 4\pi\)).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Double angle, then factor</span></div><div class="ex-body">
+Solve \(\sin 2x+\cos x=0\) for \(0\le x\le 2\pi\).
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Double angle, then a quadratic</span></div><div class="ex-body">
+Solve \(\cos 2x=\sin x\) for \(0\le x\le 2\pi\). (Choose the form of \(\cos 2x\) that leaves only \(\sin x\).)
+{{work:46}}</div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Compound angle, then tan</span></div><div class="ex-body">
+Use compound-angle formulae to show that \(\cos\left(x-\dfrac{\pi}{3}\right)=\sin x\) reduces to \(\tan x=2+\sqrt3\). Hence solve the equation for \(0\le x\le 2\pi\), given that \(\tan\dfrac{5\pi}{12}=2+\sqrt3\).
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same structure</span></div><div class="ex-body">
+Solve \(\sin\left(x+\dfrac{\pi}{6}\right)=\cos x\) for \(0\le x\le 2\pi\).
+{{work:46}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Solve \(\tan 4x=-\tan 2x\) for \(0\le x\le \dfrac{\pi}{2}\), using the \(\tan 2\theta\) formula.
+<div class="sol-label">Solution</div>
+\[\begin{aligned}
+\tan 4x&=-\tan 2x\\
+\dfrac{2\tan 2x}{1-\tan^2 2x}&=-\tan 2x\\
+2\tan 2x&=-\tan 2x+\tan^3 2x\\
+\tan^3 2x-3\tan 2x&=0\\
+\tan 2x\,(\tan^2 2x-3)&=0\\
+\tan 2x=0,\quad \tan 2x&=\sqrt3\quad\text{or}\quad \tan 2x=-\sqrt3
+\end{aligned}\]
+<p>The restriction on \(2x\) is \(0\le 2x\le\pi\), so \(2x=0\) or \(\pi\), or \(2x=\tfrac{\pi}{3}\), or \(2x=\tfrac{2\pi}{3}\).</p>
+\[x=0,\ \tfrac{\pi}{6},\ \tfrac{\pi}{3}\ \text{or}\ \tfrac{\pi}{2}\]
+<p class="small">Alternatively, substitute \(t=\tan 2x\) after the second line.</p>
+</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Two ways to make the angles the same</span></div><div class="ex-body">
+Solve \(\cos 2x=4\sin^2x-14\cos^2x\) for \(0\le x\le 2\pi\): <b>a</b> by changing all the angles to \(x\), <b>b</b> by changing all the angles to \(2x\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Using \(\cos 2x=\cos^2x-\sin^2x\):</p>
+\[\begin{aligned}
+\cos^2x-\sin^2x&=4\sin^2x-14\cos^2x\\
+15\cos^2x&=5\sin^2x\\
+\tan^2x&=3\\
+\tan x&=\sqrt3\ \text{or}\ -\sqrt3\\
+x&=\tfrac{\pi}{3},\tfrac{2\pi}{3},\tfrac{4\pi}{3}\ \text{or}\ \tfrac{5\pi}{3}
+\end{aligned}\]
+</div><div>
+<p><b>b</b> Using Concept 1:</p>
+\[\begin{aligned}
+\cos 2x&=4\left(\tfrac12-\tfrac12\cos 2x\right)-14\left(\tfrac12+\tfrac12\cos 2x\right)\\
+10\cos 2x&=-5\\
+\cos 2x&=-\tfrac12\quad (0\le 2x\le 4\pi)\\
+2x&=\tfrac{2\pi}{3},\tfrac{4\pi}{3},\tfrac{8\pi}{3}\ \text{or}\ \tfrac{10\pi}{3}\\
+x&=\tfrac{\pi}{3},\tfrac{2\pi}{3},\tfrac{4\pi}{3}\ \text{or}\ \tfrac{5\pi}{3}
+\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+{{sec:teal:key:Concept 4:homogeneous equations}}
+<div class="box concept"><div class="bt">Homogeneous equations</div>
+<ul>
+<li>An equation is <b>homogeneous</b> in \(\sin x\) and \(\cos x\) if the sum of the indices of \(\sin x\) and \(\cos x\) in each term is the same.</li>
+<li>To solve it, <b>divide through by a suitable power of \(\cos x\)</b> to produce an equation in \(\tan x\) alone.</li>
+</ul>
+<p>The expansions of \(\sin 2x\) and \(\cos 2x\) are homogeneous of degree 2 in \(\sin x\) and \(\cos x\). Also, \(1=\sin^2x+\cos^2x\) can be regarded as homogeneous of degree 2.</p>
+<p class="small">Before dividing by \(\cos^2x\), check that \(\cos x=0\) is not a solution (substitute \(x=\tfrac{\pi}{2}\)), otherwise you would lose it.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Already homogeneous</span></div><div class="ex-body">
+Solve \(\sin^2x-2\sin x\cos x-3\cos^2x=0\) for \(0\le x\le 2\pi\), giving answers correct to 3 decimal places where necessary.
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Solve \(\sin^2x+\sin x\cos x-2\cos^2x=0\) for \(0\le x\le 2\pi\), giving answers correct to 3 decimal places where necessary.
+{{work:50}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Make it homogeneous first</span></div><div class="ex-body">
+Solve \(\sin 2x+\cos 2x=\sin^2x+1\) for \(0\le x\le 2\pi\).
+<div class="sol-label">Solution</div>
+<p>Expand, writing \(1\) as \(\sin^2x+\cos^2x\) so that every term has degree 2:</p>
+\[\begin{aligned}
+2\sin x\cos x+(\cos^2x-\sin^2x)&=\sin^2x+(\sin^2x+\cos^2x)\\
+3\sin^2x-2\sin x\cos x&=0\\
+3\tan^2x-2\tan x&=0 \qquad(\div\cos^2x)\\
+\tan x\,(3\tan x-2)&=0\\
+\tan x=0\quad\text{or}\quad\tan x&=\tfrac23
+\end{aligned}\]
+<p>Hence \(x=0,\ \pi\) or \(2\pi\), or \(x\approx 0.588\) or \(3.730\). (\(\cos x=0\) is not a solution: at \(x=\tfrac{\pi}{2}\), LHS \(=-1\), RHS \(=2\).)</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 11A}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Consider the equation \(\sin 2x-\cos x=0\).
+<div class="parts one"><span><span class="pl">a</span>By using a double-angle formula and then factoring, show that \(\cos x=0\) or \(\sin x=\tfrac12\).</span><span><span class="pl">b</span>Hence solve the equation for \(0\le x\le 2\pi\).</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Consider the equation \(\cos 2x-\cos x=0\).
+<div class="parts one"><span><span class="pl">a</span>By using a double-angle formula and then factoring, show that \(\cos x=1\) or \(-\tfrac12\).</span><span><span class="pl">b</span>Hence solve the equation for \(0\le x\le 2\pi\).</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Consider the equation \(\sin\left(x+\tfrac{\pi}{4}\right)=2\cos\left(x-\tfrac{\pi}{4}\right)\).
+<div class="parts one"><span><span class="pl">a</span>Use compound-angle formulae to show that \(\tan x=-1\).</span><span><span class="pl">b</span>Hence solve the equation for \(0\le x\le 2\pi\).</span></div>{{work:30}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">4</span><div class="q-body">Use compound-angle formulae to solve, for \(0\le\theta\le 2\pi\):
+<div class="parts"><span><span class="pl">a</span>\(\sin\left(\theta+\tfrac{\pi}{6}\right)=2\sin\left(\theta-\tfrac{\pi}{6}\right)\)</span><span><span class="pl">b</span>\(\cos 4\theta\cos\theta+\sin 4\theta\sin\theta=\tfrac12\)</span><span><span class="pl">c</span>\(\cos 3\theta=\cos 2\theta\cos\theta\) <span class="small">(write \(\cos 3\theta\) as \(\cos(2\theta+\theta)\))</span></span></div>{{work:58}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Use double-angle formulae to solve, for \(0\le x\le 2\pi\):
+<div class="parts"><span><span class="pl">a</span>\(\sin 2x+\sqrt3\cos x=0\)</span><span><span class="pl">b</span>\(3\sin x+\cos 2x=2\)</span><span><span class="pl">c</span>\(\tan 2x+\tan x=0\)</span><span><span class="pl">d</span>\(\sin 2x=\tan x\)</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Solve, for \(0^\circ\le\theta\le 360^\circ\), giving solutions correct to the nearest minute where necessary:
+<div class="parts"><span><span class="pl">a</span>\(2\sin 2\theta+\cos\theta=0\)</span><span><span class="pl">b</span>\(2\cos 2\theta+4\cos\theta=1\)</span><span><span class="pl">c</span>\(3\cos 2\theta+\sin\theta=1\)</span><span><span class="pl">d</span>\(10\cos\theta+13\cos\tfrac12\theta=5\)</span><span><span class="pl">e</span>\(\cos^2 2\theta=\sin^2\theta\) <span class="small">(use \(\sin^2\theta=\tfrac12-\tfrac12\cos 2\theta\))</span></span><span><span class="pl">f</span>\(\cos 2\theta+3=3\sin 2\theta\) <span class="small">(write 3 as \(3\cos^2\theta+3\sin^2\theta\))</span></span></div>{{work:85}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Consider the equation \(\tan\left(\tfrac{\pi}{4}+\theta\right)=3\tan\left(\tfrac{\pi}{4}-\theta\right)\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(\tan^2\theta-4\tan\theta+1=0\).</span><span><span class="pl">b</span>Hence use the quadratic formula to solve the equation for \(0\le\theta\le\pi\).</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Given the equation \(2\cos x-1=2\cos 2x\):
+<div class="parts one"><span><span class="pl">a</span>Show that \(\cos x=\tfrac14\left(1+\sqrt5\right)\) or \(\cos x=\tfrac14\left(1-\sqrt5\right)\).</span><span><span class="pl">b</span>Hence solve the equation for \(0\le x\le 2\pi\). <span class="small">(Use \(\cos\tfrac{\pi}{5}=\tfrac14(1+\sqrt5)\) and \(\cos\tfrac{3\pi}{5}=\tfrac14(1-\sqrt5)\).)</span></span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(\sin 3x=3\sin x-4\sin^3x\).</span><span><span class="pl">b</span>Hence solve the equation \(\sin 3x+\sin 2x=\sin x\), for \(0\le x\le 2\pi\).</span></div>{{work:52}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Use compound-angle formulae, other trigonometric identities, and factoring to solve for \(0^\circ\le\alpha\le 360^\circ\), giving solutions correct to the nearest minute where necessary.
+<div class="parts"><span><span class="pl">a</span>\(\sec^2\alpha=2\sec\alpha\)</span><span><span class="pl">b</span>\(\sec^2\alpha-\tan\alpha-3=0\)</span><span><span class="pl">c</span>\(\sqrt3\,\mathrm{cosec}^2\alpha=4\cot\alpha\)</span><span><span class="pl">d</span>\(\cot\alpha+3\tan\alpha=5\,\mathrm{cosec}\,\alpha\)</span></div>{{work:70}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">11</span><div class="q-body">Consider the equation \(\sin\theta+\cos\theta=\sin 2\theta\), for \(0^\circ\le\theta\le 360^\circ\).
+<div class="parts one"><span><span class="pl">a</span>By squaring both sides, show that \(\sin^2 2\theta-\sin 2\theta-1=0\).</span><span><span class="pl">b</span>Hence solve for \(\theta\) over the given domain, giving solutions correct to the nearest minute. (Beware: squaring can create invalid solutions.)</span></div>{{work:58}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(\cos 3\theta=4\cos^3\theta-3\cos\theta\).</span><span><span class="pl">b</span>By substituting \(x=2\cos\theta\), show that the equation \(x^3-3x-1=0\) has roots \(2\cos 20^\circ\), \(-2\sin 10^\circ\) and \(-2\cos 40^\circ\).</span></div>{{work:62}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>19 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Blacktown Boys' High School, 2022, HSC Trial Examination, Mathematics Extension 1, Q11(d)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Solve \(3\sin 2x=\cos x\), for \(0\le x\le 2\pi\). Round your answers to 2 decimal places where necessary.</div>
+<div class="hint"><b>Hint:</b> expand \(\sin 2x\), then take out the common factor. Do not divide by \(\cos x\).</div>{{work:42}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics Extension 1, Q12(a)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Solve the equation \(\sin 2x=\sqrt2\sin x\), for \(0\le x\le 2\pi\).</div>
+<div class="hint"><b>Hint:</b> same idea as PP 1: factor out \(\sin x\) and solve both factors.</div>{{work:42}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Ascham School, 2023, Year 12 Mathematics Extension 1 Trial Examination, Q13(a)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Show that \(\tan 2x+\tan x=\dfrac{\sin 3x}{\cos 2x\cos x}\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence solve the equation \(\tan 2x+\tan x=0\) for \(0\le x\le\dfrac{\pi}{2}\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> write both tangents as sine over cosine and add over a common denominator. The numerator is a compound-angle expansion.</div>{{work:58}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics Extension 1, Q13(c)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Show that \(\sin 2\theta+\sin 4\theta-\sin 6\theta=4\sin 3\theta\sin 2\theta\sin\theta\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence, solve \(\sin 2\theta+\sin 4\theta=\sin 6\theta\) for \(0\le\theta\le\pi\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> write \(\sin 4\theta=\sin(3\theta+\theta)\), \(\sin 2\theta=\sin(3\theta-\theta)\) and \(\sin 6\theta=2\sin 3\theta\cos 3\theta\); then \(\cos 3\theta\) and \(\cos\theta\) are \(\cos(2\theta\pm\theta)\).</div>{{work:66}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics Extension 1, Q13(c)</span><span class="mk">6 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Show \(\sin(x-y)\sin(x+y)=\sin^2x-\sin^2y\).</span><span class="mk">3</span></div>
+<div class="pp-sub"><span>(ii) Solve \(\sin^2 3x-\sin^2 x=\sin 4x\) for \(0\le x\le\pi\).</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> in (ii) use part (i) with \(3x\) and \(x\) in place of \(x\) and \(y\), then factor out \(\sin 4x\).</div>{{work:66}}</div>
+</div>

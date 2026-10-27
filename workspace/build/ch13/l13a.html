@@ -1,0 +1,166 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 13A</div><h2>Differential equations and their solutions</h2>
+<div class="focus">What a differential equation (DE) is, its order, testing solutions by substitution, families of solutions, initial value problems, relations as solutions, and first-order linear DEs.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:differential equations and their order}}
+<div class="box concept"><div class="bt">Definitions</div>
+<ul><li>A <b>differential equation</b> (DE) is an equation that involves a derivative. For example \(y'=-7y\), \(\;y'=1+y^2\), \(\;yy'+x=0\), \(\;y''+49y=0\).</li>
+<li>The <b>order</b> of a DE is the order of the highest derivative that occurs in it. \(y''+49y=0\) and \(x^2y''-xy'+y=0\) have order 2; the others above have order 1.</li>
+<li>Its solutions are not numbers but <b>functions</b> (or, more generally, relations in \(x\) and \(y\)). To <b>test</b> whether a function is a solution, substitute it into the DE.</li>
+<li>An indefinite integral \(\displaystyle\int f(x)\,dx\) is equivalent to the DE \(y'=f(x)\).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Order, and testing a solution</span></div><div class="ex-body">
+<b>a</b> State whether each is a DE, and if so its order: (i) \(y'''+y=x\) &nbsp; (ii) \(x^2+y^2=4\) &nbsp; (iii) \(y'=\sin x\).<br>
+<b>b</b> Test whether each function is a solution of \(y'=3y\): (i) \(y=5e^{3x}\) &nbsp; (ii) \(y=e^{x}+3\).
+{{work:55}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+<b>a</b> State the order of: (i) \(y''-4y=0\) &nbsp; (ii) \(xy'+y=x^2\).<br>
+<b>b</b> Show that \(y=\tan x\) is a solution of \(y'=1+y^2\).
+{{work:45}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Test whether each function is a solution of the differential equation \(y'=-7y\): <b>a</b> \(y=20e^{7x}\) &nbsp; <b>b</b> \(y=20e^{-7x}\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Differentiating, \(y'=140e^{7x}\). Substituting into \(y'=-7y\):</p>
+\[\text{LHS}=140e^{7x}\qquad\text{RHS}=-7\times20e^{7x}=-140e^{7x}\]
+<p>LHS \(\ne\) RHS, so the function is not a solution.</p>
+</div><div>
+<p><b>b</b> Differentiating, \(y'=-140e^{-7x}\):</p>
+\[\text{LHS}=-140e^{-7x}\qquad\text{RHS}=-7\times20e^{-7x}=-140e^{-7x}\]
+<p>LHS \(=\) RHS, so the function is a solution.</p>
+</div></div>
+<p class="small">The DE involves only algebraic operations, yet its solution is exponential. This is typical of DEs, just as \(\int\frac{dx}{1+x^2}=\tan^{-1}x+C\).</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:a family of solutions, and particular solutions}}
+<div class="box concept"><div class="bt">General and particular solutions</div>
+<ul><li>The general solution of a DE normally involves one or more <b>arbitrary constants</b>, giving a <b>family</b> of solutions. The number of arbitrary constants is normally equal to the <b>order</b> of the DE.</li>
+<li>These constants can be evaluated to give <b>particular solutions</b> if one or more <b>initial conditions</b> (boundary conditions) are known. The problem of finding a particular solution is called an <b>initial value problem</b> (IVP).</li>
+<li>For a higher-order DE the initial conditions may also involve values of \(y'\), and usually give simultaneous equations.</li>
+<li>A <b>solution curve</b> (integral curve) may be just one of the connected branches of a function.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">One arbitrary constant</span></div><div class="ex-body">
+<b>a</b> Show that \(y=Ae^{2x}-1\) is a solution of \(y'=2y+2\) for all values of \(A\). &nbsp; <b>b</b> Find the particular solution with \(y(0)=3\).
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Show that \(y=Ce^{-x}+x-1\) is a solution of \(y'=x-y\) for all values of \(C\). &nbsp; <b>b</b> Find the particular solution through \((0,2)\).
+{{work:46}}</div></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two arbitrary constants</span></div><div class="ex-body">
+Show that \(y=A\cos 3x+B\sin 3x\) satisfies \(y''=-9y\) for all \(A\) and \(B\), and find the solution for which \(y(0)=2\) and \(y'(0)=6\).
+{{work:55}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Integrating twice</span></div><div class="ex-body">
+Solve the IVP \(y''=6x\), with \(y(0)=1\) and \(y'(0)=-2\).
+{{work:40}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Show that \(y=Ae^x-x-1\) is a solution of \(y'=x+y\), for all values of \(A\).<br>
+<b>b</b> Find the particular solutions (i) through the origin, (ii) with \(y=-2\) when \(x=0\), (iii) through \((0,-1)\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Substituting \(y=Ae^x-x-1\):</p>
+\[\text{LHS}=y'=Ae^x-1\qquad \text{RHS}=x+(Ae^x-x-1)=Ae^x-1\]
+<p>Hence \(y=Ae^x-x-1\) is a solution for all values of \(A\).</p>
+<p><b>b</b> (i) \(0=A-0-1\), so \(A=1\): \(y=e^x-x-1\).<br>
+(ii) \(-2=A-0-1\), so \(A=-1\): \(y=-e^x-x-1\).<br>
+(iii) \(-1=A-0-1\), so \(A=0\): \(y=-x-1\).</p>
+<p>Substituting \(y'=0\) into the DE gives the line \(x+y=0\): a solution curve has a stationary point only where it crosses this line. Only the curve in (i) does (a minimum at the origin).</p>
+</div><div>{{svg:family}}</div></div>
+</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+It is known that \(y=A\sin 7x+B\cos 7x\) is a solution of \(y''=-49y\) for all \(A\) and \(B\). Find the solution for which \(y(0)=1\) and \(y'(0)=14\).
+<div class="sol-label">Solution</div>
+\[y=A\sin 7x+B\cos 7x,\qquad y'=7A\cos 7x-7B\sin 7x\]
+<p>When \(x=0\), \(y=1\), so \(1=0+B\). When \(x=0\), \(y'=14\), so \(14=7A+0\). Hence \(A=2\), \(B=1\), and \(y=2\sin 7x+\cos 7x\).</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:relations as solutions, and linear DEs}}
+<div class="box concept"><div class="bt">Relations can be solutions</div>
+<p>Relations that are not functions can be solutions of DEs, with the usual arbitrary constants and families of curves. Forming the DE from such a relation uses the chain rule, for example \(\dfrac{d}{dx}(y^2)=2yy'\) and \(\dfrac{d}{dx}(xy)=y+xy'\).</p></div>
+<div class="box concept"><div class="bt">First-order linear DEs</div>
+<ul><li>A first-order DE is <b>linear</b> if it can be put into the form \(y'+f(x)\,y=g(x)\).</li>
+<li>An indefinite integral is equivalent to a first-order linear DE with \(f(x)=0\): \(y'=g(x)\).</li>
+<li>An exponential growth DE \(y'-ky=0\) is first-order linear with \(g(x)=0\) and \(f(x)\) constant.</li></ul>
+<p>For example, \(y'=\dfrac{y}{x}\) is linear (it is \(y'-\tfrac1x y=0\)), but \(y'=\dfrac{x}{y}\) is not (it becomes \(yy'=x\)).</p></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A relation as a solution</span></div><div class="ex-body">
+Differentiate \(x^2+y^2=a^2\) with respect to \(x\) to show that every circle in this family satisfies \(y'=-\dfrac{x}{y}\). What geometric fact does this express?
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Show that the hyperbola \(xy=a^2\) satisfies \(y'=-\dfrac{y}{x}\). Is this DE linear?
+{{work:40}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 13A}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">For each DE, state: (i) its order, (ii) whether it is linear (first-order DEs only), (iii) how many arbitrary constants will appear in the general solution.
+<div class="parts three"><span><span class="pl">a</span>\(y'-y=x\)</span><span><span class="pl">b</span>\(y'y=3x\)</span><span><span class="pl">c</span>\(y''+4y'-y=\sin x\)</span><span><span class="pl">d</span>\(y'+y\cos x=e^x\)</span><span><span class="pl">e</span>\(y''-\tfrac12(y')^2=0\)</span><span><span class="pl">f</span>\(y'+y^2=1\)</span><span><span class="pl">g</span>\(y'+xy=0\)</span><span><span class="pl">h</span>\(xy''+y'=x^2\)</span><span><span class="pl">i</span>\(y''-xy'+e^xy=0\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Show by substitution that the given function is a particular solution of the DE.
+<div class="parts"><span><span class="pl">a</span>\(y=5x^3;\quad xy'-3y=0\)</span><span><span class="pl">b</span>\(y=x^2-1;\quad xy'-2y=2\)</span><span><span class="pl">c</span>\(y=3e^{-x};\quad y'+y=0\)</span><span><span class="pl">d</span>\(y=\sqrt{x^2+4};\quad y'y=x\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Find the general solution of each DE by integration.
+<div class="parts three"><span><span class="pl">a</span>\(y'=2x-3\)</span><span><span class="pl">b</span>\(y'=12e^{-2x}+4\)</span><span><span class="pl">c</span>\(y'=\sec^2x\)</span><span><span class="pl">d</span>\(y'=6\cos 2x+9\sin 3x\)</span><span><span class="pl">e</span>\(y'=\sqrt{1+5x}\)</span><span><span class="pl">f</span>\(y'=4x\cos x^2\)</span></div>{{work:50}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">4</span><div class="q-body">Show by substitution that the given function with arbitrary constant \(C\) is the general solution of the DE.
+<div class="parts"><span><span class="pl">a</span>\(y=Ce^x-x-1;\quad y'=x+y\)</span><span><span class="pl">b</span>\(y=Cxe^{-x};\quad xy'=y(1-x)\)</span><span><span class="pl">c</span>\(y=\sin(x+C);\quad (y')^2=1-y^2\)</span><span><span class="pl">d</span>\(y=\dfrac{C}{x}+2;\quad \dfrac{dy}{dx}=\dfrac{2-y}{x}\)</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Verify that the given function is a particular solution of the DE.
+<div class="parts"><span><span class="pl">a</span>\(x^2y''-2xy'+2y=6;\quad y=x^2-2x+3\)</span><span><span class="pl">b</span>\(y''-6y'+5y=0;\quad y=2e^x+e^{5x}\)</span><span><span class="pl">c</span>\(y''+4y'+5y=0;\quad y=e^{-2x}\sin x\)</span><span><span class="pl">d</span>\(y''+\pi^2y=0;\quad y=\cos\pi x-3\sin\pi x\)</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Solve these second-order DEs by integrating twice.
+<div class="parts"><span><span class="pl">a</span>\(y''=2\)</span><span><span class="pl">b</span>\(y''=\cos 2x\)</span><span><span class="pl">c</span>\(y''=e^{\frac12x}\)</span><span><span class="pl">d</span>\(y''=\sec^2x\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(y=e^{-x}\) and \(y=e^{3x}\) are each solutions of \(y''-2y'-3y=0\).</span><span><span class="pl">b</span>Now show that \(y=Ae^{-x}+Be^{3x}\) is also a solution of this equation for any values of the constants \(A\) and \(B\).</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Solve these initial value problems. In each case, use integration to find the general solution, then use the initial condition to evaluate the constant.
+<div class="parts three"><span><span class="pl">a</span>\(y'=1;\ y(2)=1\)</span><span><span class="pl">b</span>\(y'=2x-3;\ y(0)=2\)</span><span><span class="pl">c</span>\(y'=3x^2+6x-9;\ y(1)=2\)</span><span><span class="pl">d</span>\(y'=\sin x;\ y(\pi)=3\)</span><span><span class="pl">e</span>\(y'=6e^{2x};\ y(0)=0\)</span><span><span class="pl">f</span>\(y'=3\sqrt{x}-2;\ y(4)=7\)</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Consider the IVP \(y'=\dfrac{1}{x(1-x)}\), where \(y\left(\tfrac12\right)=0\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{1}{x(1-x)}=\dfrac1x+\dfrac{1}{1-x}\).</span><span><span class="pl">b</span>Find the general solution of the DE.</span><span><span class="pl">c</span>Hence solve the IVP.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>(i) Differentiate both sides of \(x^2+y^2=9\) with respect to \(x\). (ii) Hence show that \(\dfrac{dy}{dx}=-\dfrac{x}{y}\) at each point on the circle. (iii) Where is this DE undefined, and why is this expected?</span><span><span class="pl">b</span>Likewise, find \(\dfrac{dy}{dx}\) for: (i) the parabola \(y^2=x+4\) &nbsp; (ii) the hyperbola \(xy=c^2\) &nbsp; (iii) the ellipse \(9x^2+16y^2=144\) &nbsp; (iv) the hyperbola \(x^2-4y^2=4\)</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(y=\sin x\) is a solution of \(y''+y=0\).</span><span><span class="pl">b</span>Find the value of the second derivative \(y''\) when \(y=12\).</span><span><span class="pl">c</span>Suppose that \(y=f(x)\) is a solution of this DE. What does the equation say about \(f''(x)\)? Answer in terms of a transformation of \(f(x)\).</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Use integration and the initial conditions to find the solution of \(y''=\sec^2x\) with \(y(0)=1\) and \(y'(0)=1\).{{work:40}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">13</span><div class="q-body">For each DE, use substitution to find the values of \(\lambda\), if any, that make \(y=Ae^{\lambda x}\) a solution for all values of \(A\).
+<div class="parts three"><span><span class="pl">a</span>\(y''-4y'+3y=0\)</span><span><span class="pl">b</span>\(y''+2y'+y=0\)</span><span><span class="pl">c</span>\(y''-3y'+4y=0\)</span></div>{{work:46}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>16 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q7</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What are the values of \(p\) for which \(y=e^{px}\) satisfies the differential equation
+\[\dfrac{d^2y}{dx^2}-\dfrac{dy}{dx}-12y=0\,?\]
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>(A) \(p=-4,\ p=3\)</span><span>(B) \(p=-3,\ p=4\)</span><span>(C) \(p=\pm3\)</span><span>(D) \(p=\pm4\)</span></div></div>
+<div class="hint"><b>Hint:</b> substitute \(y=e^{px}\), \(y'=pe^{px}\), \(y''=p^2e^{px}\) and divide by \(e^{px}\).</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Cherrybrook Technology High School, 2020, Year 12 AP4 Mathematics Extension 1 (Trial), Q8</span><span class="mk">1 mark</span></div>
+<div class="pp-q">The equation \(y=e^{ax}\) satisfies the differential equation \(\dfrac{d^2y}{dx^2}+\dfrac{dy}{dx}-6y=0\). What are the possible values of \(a\)?
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>A. \(a=-2\) or \(a=3\)</span><span>B. \(a=-1\) or \(a=6\)</span><span>C. \(a=2\) or \(a=-3\)</span><span>D. \(a=1\) or \(a=-6\)</span></div></div>
+<div class="hint"><b>Hint:</b> same method as PP 1.</div>{{work:20}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Technical High School, 2020, Trial Higher School Certificate Examination (Sample 1), Mathematics Extension 1, Q11(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Show that \(y=x\ln x\) satisfies the differential equation \(x^2y''-xy'+y=0\).</div>
+<div class="hint"><b>Hint:</b> find \(y'\) by the product rule, then \(y''\), and substitute all three.</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Gosford High School, 2022, Trial Higher School Certificate Examination, Mathematics Extension 1, Q11(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Show that \(y=Ae^{3x}+Be^{-2x}\) satisfies the differential equation \(y''-y'-6y=0\) for any real values of \(A\) and \(B\).</div>
+<div class="hint"><b>Hint:</b> collect the \(e^{3x}\) terms and the \(e^{-2x}\) terms separately.</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension 1, Q13(a)</span><span class="mk">5 marks</span></div>
+<div class="pp-q">A model for the population, \(K\), of kangaroos is
+\[K=\dfrac{21\,000}{7+3e^{-\frac{t}{3}}},\]
+where \(t\) is the time in years from today.
+<div class="pp-sub"><span>(i) Show that \(K\) satisfies the differential equation \(\dfrac{dK}{dt}=\dfrac13\left(1-\dfrac{K}{3000}\right)K\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) What is the population today?</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(iii) What does the model predict that the eventual population will be?</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(iv) What is the annual percentage rate of growth today?</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> in (i) work out \(1-\dfrac{K}{3000}\) as a single fraction first. In (iv), the percentage rate is \(\dfrac{1}{K}\dfrac{dK}{dt}\times100\%\).</div>{{work:70}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Blacktown Boys' High School, 2020, HSC Trial Examination, Mathematics Extension 1, Q13(b)</span><span class="mk">5 marks</span></div>
+<div class="pp-q">Metal fatigue is a phenomenon where a piece of steel will fail when repeatedly subjected to force \(F\). The endurance limit is the force below which the steel will not break even if subjected to an infinite number of applications of that force. Let the number of applications be \(n\). The force and the number of applications are related by the differential equation \(\dfrac{dF}{dn}=-k(F-F_0)\), where \(k\) and \(F_0\) are constants.
+<div class="pp-sub"><span>(i) Show that \(F=275e^{-k(n-1)}+F_0\) is a solution to the differential equation.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) If \(F=350\) when \(n=1\), find the value of \(F_0\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(iii) Find the exact value of \(k\) if \(F=80\) when \(n=200\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(iv) Find the endurance limit.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> the endurance limit is what \(F\) approaches as \(n\to\infty\).</div>{{work:62}}</div>
+</div>

@@ -1,0 +1,158 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 13B</div><h2>Slope fields</h2>
+<div class="focus">Draw and read slope fields for DEs of the form \(y'=G(x,y)\), sketch solution curves, use isoclines, and recognise constant (equilibrium) solutions.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:drawing a slope field}}
+<div class="box concept"><div class="bt">Slope fields (gradient fields, direction fields)</div>
+<p>A slope field can only be drawn for a first-order DE that can be written with \(y'\) as the subject, \(y'=G(x,y)\). At each point on a solution curve the tangent has gradient \(G(x,y)\), so we draw a short <b>line element</b> with that gradient.</p>
+<ul><li>Choose a suitable grid of points in the plane.</li>
+<li>Draw up a table showing the gradients at these grid points.</li>
+<li>Display these gradients by short tilted line elements of a fixed length, centred at the grid points.</li></ul>
+<p class="small">Each line element shows only a gradient: it has no direction, and its length has no significance.</p></div>
+<div class="split"><div>
+<div class="box tip"><div class="bt">Example: y′ = ½x</div>
+<p>All the rows of the table of slopes are the same, because \(y\) is not involved. The slope field suggests a family of parabolas with the \(y\)-axis as axis of symmetry, all vertical translations of each other. Indeed, integrating gives \(y=\tfrac14x^2+C\).</p>
+<p>Every vertical line is an <b>isocline</b> (a curve through points where the gradient is the same). The \(y\)-axis is special: the gradient is zero there, so every solution curve has a stationary point where it crosses the \(y\)-axis.</p></div>
+</div><div>{{svg:sf_halfx}}</div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Table, then field</span></div><div class="ex-body">
+For \(y'=x-y\): <b>a</b> find the gradients at the nine points with \(x, y\in\{-1,0,1\}\); <b>b</b> draw these line elements; <b>c</b> identify the isoclines.
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+For \(y'=xy\): find the gradients at the nine points with \(x,y\in\{-1,0,1\}\), draw the line elements, and describe where the gradient is zero.
+{{work:62}}</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:sketching solution curves and reading a field}}
+<div class="box concept"><div class="bt">Sketching a solution curve (integral curve)</div>
+<ul><li>Place a pencil on the diagram and follow the gradients. Two solution curves can never cross (apart from strange singularities), because the gradient at each point can only have one value.</li>
+<li>This is not an accurate procedure. In particular, asymptotic behaviour may not be clear.</li>
+<li>If there is an initial condition, start there and draw in both directions. Otherwise draw about three representative curves.</li></ul></div>
+<div class="box tip"><div class="bt">Things to look for in a slope field</div>
+<ul><li>Where the slope is <b>zero</b> (horizontal line elements): solution curves have stationary points there.</li>
+<li>Where the line elements slope <b>upwards</b> (positive) and <b>downwards</b> (negative): this tells where curves increase and decrease.</li>
+<li><b>Isoclines</b>, and any isocline whose line elements lie along the isocline itself: such a line is a solution curve, no other solution crosses it, and nearby curves often have it as an asymptote.</li>
+<li><b>Vertical</b> line elements, where the DE has a division by zero.</li></ul>
+<p>These features are the quickest way to eliminate wrong options when matching a DE to a slope field.</p></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Construct a slope field for \(y'y+x=0\). &nbsp; <b>b</b> What family of curves look as if they are solution curves? &nbsp; <b>c</b> Check by differentiation.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Solving for \(y'\) gives \(y'=-\dfrac{x}{y}\), provided that \(y\ne0\). On the \(x\)-axis the line elements are drawn vertical, because there they arise from division of a non-zero number by zero. The origin has no line element at all.</p>
+<p>The gradient is zero on the \(y\)-axis (excluding the origin), negative in quadrants 1 and 3 and positive in 2 and 4. The isoclines are all the lines through the origin.</p>
+<p><b>b</b> The solution curves look like circles with centre the origin.</p>
+<p><b>c</b> Testing \(x^2+y^2=r^2\): differentiating, \(2x+2yy'=0\), as required.</p>
+</div><div>{{svg:sf_circles}}</div></div>
+</div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Match a DE to a field</span></div><div class="ex-body">
+A slope field has zero gradient along the \(y\)-axis, positive slopes in quadrant 2 and negative slopes in quadrants 1 and 3, and the slopes become steeper away from the axes. Which of these could it be: A \(y'=-xy\) &nbsp; B \(y'=-x^2y\) &nbsp; C \(y'=-xy^2\) &nbsp; D \(y'=-x-y\)?
+{{work:40}}</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:isoclines that are solutions, and constant solutions}}
+<div class="box concept"><div class="bt">An isocline that is an asymptote</div>
+<p>For \(y'=x+y\), every line \(x+y=c\) is an isocline (gradient \(c\)). The isocline \(y=-x-1\) is exceptional: its gradient \(-1\) matches the line elements along it, so it is itself a solution. No other solution crosses it; the curves above it curl upwards, those below curl downwards, and all are asymptotic to it on the left.</p></div>
+<div class="split"><div>
+<div class="box concept"><div class="bt">Constant solutions are horizontal asymptotes</div>
+<p>Any constant solution \(y=k\) stands out on a slope field as a horizontal line of horizontal line elements. It is an isocline, and it divides the solutions into those above and those below. Usually many solution curves have it as a horizontal asymptote on the left or right.</p>
+<p>A constant solution that is an asymptote on the <b>right</b> is a <b>stable equilibrium</b>; one that is an asymptote on the <b>left</b> is an <b>unstable equilibrium</b>.</p></div>
+</div><div>{{svg:sf_xpy}}</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+For the DE \(y'=\tfrac14(y-2)(y+2)\): <b>a</b> identify the constant solutions from the slope field; <b>b</b> show that they are solutions; <b>c</b> if the horizontal axis is time, describe the behaviour of solution curves near each constant solution.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> The horizontal isoclines \(y=2\) and \(y=-2\) stand out because both consist of points where the gradient is zero.</p>
+<p><b>b</b> Substituting \(y=2\) or \(y=-2\) gives LHS \(=y'=0\) and RHS \(=0\).</p>
+<p><b>c</b> As time increases, the curves between and below the lines approach \(y=-2\): this is a <b>stable</b> equilibrium. A curve starting just above \(y=2\) goes up without bound, and one just below goes down towards \(y=-2\), so \(y=2\) is an <b>unstable</b> equilibrium.</p>
+</div><div>{{svg:sf_const}}</div></div>
+</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Constant solutions</span></div><div class="ex-body">
+For \(y'=y(3-y)\), find the constant solutions, describe the sign of \(y'\) in each region they create, and state which is stable.
+{{work:46}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 13B}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">In each case, find the value of \(y'\) at the given point.
+<div class="parts three"><span><span class="pl">a</span>\(y'=2x-3\) at \((1,1)\)</span><span><span class="pl">b</span>\(y'=2\cos x-1\) at \((0,0)\)</span><span><span class="pl">c</span>\(y'=4-y^2\) at \((0,1)\)</span><span><span class="pl">d</span>\(y'=\dfrac{1}{1+y}\) at \((3,1)\)</span><span><span class="pl">e</span>\(y'=\dfrac{y}{x}+1\) at \((-2,1)\)</span><span><span class="pl">f</span>\(y'=xy-x\) at \((1,-2)\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Answer these questions for the differential equation \(y'=\tfrac12x-1\).
+<div class="parts one"><span><span class="pl">a</span>Complete a table of values of \(y'\) for \(x=-1,0,1,\dots,5\) and \(y=-3,-2,\dots,3\).</span><span><span class="pl">b</span>Draw a number plane with domain \([-1,5]\) and range \([-3,3]\), and through each grid point draw a short line element with the gradient in the table.</span><span><span class="pl">c</span>Notice that the vertical line \(x=1\) is an isocline. Why is this expected from the table?</span><span><span class="pl">d</span>The slope field indicates a positive gradient to the right of \(x=2\) and a negative gradient to the left of \(x=2\). What will be the concavity of a solution curve?</span><span><span class="pl">e</span>Starting at the origin, draw an integral curve to the right and to the left. What type of curve might this be?</span><span><span class="pl">f</span>Draw two more integral curves, starting at \((0,2)\) and \((0,3)\).</span></div>{{work:85}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Consider the differential equation \(y'+y=x\).
+<div class="parts one"><span><span class="pl">a</span>Make \(y'\) the subject.</span><span><span class="pl">b</span>Complete a table of values for \(x=-1,-\tfrac12,0,\tfrac12,1,\tfrac32,2\) and \(y=1,\tfrac12,0,-\tfrac12,-1,-\tfrac32,-2\), and draw the slope field.</span><span><span class="pl">c</span>Look carefully at the table for matching entries. Check that these agree with the isoclines in your graph.</span><span><span class="pl">d</span>What concavity would you expect for the solution curve passing through the origin? Draw this solution curve.</span><span><span class="pl">e</span>Add solution curves through \((-1,-1)\) and \((1,-1)\).</span><span><span class="pl">f</span>Which line do all your solution curves appear to have as an asymptote? Is this line a solution of the differential equation?</span></div>{{work:85}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">4</span><div class="q-body">The slope field for the differential equation \(y'=-\tfrac12x-y\) is drawn below.
+{{svg:sf_q7}}
+<div class="parts one"><span><span class="pl">a</span>Draw the solution curves through the points \((-2,0)\) and \((2,0)\).</span><span><span class="pl">b</span>Look carefully at the slope of the line elements on the vertical line \(x=1\), from bottom to top. (i) Do the gradients increase or decrease? (ii) Do your solution curves converge or diverge as they cross \(x=1\), from left to right?</span><span><span class="pl">c</span>Explain why the line \(y=\tfrac12-\tfrac12x\) is an isocline.</span><span><span class="pl">d</span>Show that the equation of this isocline is also a solution of the DE, then add the solution to your diagram.</span><span><span class="pl">e</span>What do you notice about the isocline and the two solution curves you have drawn?</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Consider the differential equation \(y'=\dfrac{9-y^2}{9}\).
+<div class="parts one"><span><span class="pl">a</span>Draw the slope field for this DE.</span><span><span class="pl">b</span>What are the constant solutions for this DE?</span><span><span class="pl">c</span>Are these constant solutions isoclines?</span><span><span class="pl">d</span>Draw the solution curve through \((0,0)\), and describe its shape.</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">The slope fields for \(y'=-\dfrac{y}{x}\) and \(y'=\dfrac{2y}{x}\) are shown.
+<div style="display:flex;gap:6mm;justify-content:center">{{svg:sf_q13}}{{svg:sf_q14}}</div>
+<div class="parts one"><span><span class="pl">a</span>On the first field, add the solution curves through \((2,2)\) and \((-2,-2)\), and show that the hyperbola \(xy=4\) is the solution of this IVP.</span><span><span class="pl">b</span>On the second field, add the solution curve through \((2,2)\), and show that the parabola \(y=\tfrac12x^2\) is the solution of this IVP.</span><span><span class="pl">c</span>Show that \(x^2-y^2=4\) satisfies \(y'=\dfrac{x}{y}\), and that \(x^2+2y^2=4\) satisfies \(y'=-\dfrac{x}{2y}\).</span><span><span class="pl">d</span>Explain why the hyperbolas \(xy=4\) and \(x^2-y^2=4\) are perpendicular where they intersect.</span></div>{{work:62}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">7</span><div class="q-body">Prove the following three statements about isoclines.
+<div class="parts one"><span><span class="pl">a</span>If \(y'=f(x)\), then the isoclines \(y'=c\) are the vertical lines.</span><span><span class="pl">b</span>If \(y'=g(y)\), then the isoclines \(y'=c\) are the horizontal lines.</span><span><span class="pl">c</span>If \(y=cx+b\) is a solution of a first-order DE for a specific value of the constant \(c\), then this line is also an isocline.</span></div>{{work:50}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>14 marks</b></span><span>Show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Blacktown Boys' High School, 2022, HSC Trial Examination, Mathematics Extension 1, Q2</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Consider the slope field below. What is the possible differential equation for the slope field?
+{{svg:pp_bb22}}
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>A. \(\dfrac{dy}{dx}=-\dfrac{x}{2}\)</span><span>B. \(\dfrac{dy}{dx}=-\dfrac{y}{2}\)</span><span>C. \(\dfrac{dy}{dx}=\dfrac{x}{2}\)</span><span>D. \(\dfrac{dy}{dx}=\dfrac{y}{2}\)</span></div></div>
+<div class="hint"><b>Hint:</b> do the line elements change as you move left–right, or up–down?</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Gosford High School, 2022, Trial Higher School Certificate Examination, Mathematics Extension 1, Q3</span><span class="mk">1 mark</span></div>
+<div class="pp-q">The slope field for a first order differential equation is shown. Which of the following best represents the differential equation shown in the slope field?
+{{svg:pp_gos22}}
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>A. \(\dfrac{dy}{dx}=\dfrac{x}{y}-y^2\)</span><span>B. \(\dfrac{dy}{dx}=\dfrac{x}{y}+y^2\)</span><span>C. \(\dfrac{dy}{dx}=-\dfrac{x}{y}-y^2\)</span><span>D. \(\dfrac{dy}{dx}=-\dfrac{x}{y}+y^2\)</span></div></div>
+<div class="hint"><b>Hint:</b> test the gradient at points such as \((1,1)\) and \((1,-1)\), and compare with the line elements there.</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Normanhurst Boys' High School, 2023, Year 12 Mathematics Extension 1 Course Assessment Task 4 (Trial Examination), Q7</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following differential equations best corresponds to the slope field shown below?
+{{svg:pp_nbhs23}}
+<div class="mc"><span>(A) \(y'=\tfrac14(-x^2+y^2)\)</span><span>(C) \(y'=\tfrac14(x^2-y^2)\)</span><span>(B) \(y'=-\tfrac14(x^2+y^2)\)</span><span>(D) \(y'=\tfrac14(x^2+y^2)\)</span></div></div>
+<div class="hint"><b>Hint:</b> the slopes are not all one sign. Check the sign on the \(y\)-axis above the origin.</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Kinross Wolaroi School, 2023, Year 12 Mathematics Extension 1 Trial HSC Examination, Q7</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Consider the slope field below. Which of the following equations could have generated the above slope field?
+{{svg:pp_kws23}}
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>(A) \(\dfrac{dy}{dx}=xy\)</span><span>(B) \(\dfrac{dy}{dx}=x^2y\)</span><span>(C) \(\dfrac{dy}{dx}=xy^2\)</span><span>(D) \(\dfrac{dy}{dx}=x^2y^2\)</span></div></div>
+<div class="hint"><b>Hint:</b> look at the sign of the slope in each of the four quadrants.</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q9</span><span class="mk">1 mark</span></div>
+<div class="pp-q">The diagram shows the direction field of a differential equation. The differential equation is undefined along both axes. Which of the following differential equations is best represented by the direction field above?
+{{svg:pp_abb24}}
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>A. \(\dfrac{dy}{dx}=\dfrac{xy}{x+y}\)</span><span>B. \(\dfrac{dy}{dx}=\dfrac{x}{y}+\dfrac{y}{x}\)</span><span>C. \(\dfrac{dy}{dx}=\dfrac{x+y}{xy}\)</span><span>D. \(\dfrac{dy}{dx}=\dfrac{x}{y}-\dfrac{y}{x}\)</span></div></div>
+<div class="hint"><b>Hint:</b> which options are undefined on both axes? Then look for lines of zero gradient.</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Ascham School, 2024, Year 12 Trial Examination, Mathematics Extension 1, Q7</span><span class="mk">1 mark</span></div>
+<div class="pp-q">The diagram below shows the direction field for a differential equation. Which of the following differential equations could be represented by this direction field?
+{{svg:pp_asc24}}
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>A. \(\dfrac{dy}{dx}=\dfrac{y-x}{y}\)</span><span>B. \(\dfrac{dy}{dx}=\dfrac{y+x}{y}\)</span><span>C. \(\dfrac{dy}{dx}=\dfrac{x-y}{x}\)</span><span>D. \(\dfrac{dy}{dx}=\dfrac{x+y}{x}\)</span></div></div>
+<div class="hint"><b>Hint:</b> where are the line elements vertical? Then find where they are horizontal.</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Blacktown Boys' High School, 2023, Year 12 Trial Examination, Mathematics Extension 1, Q12(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">A direction field is to be drawn for the differential equation \(\dfrac{dy}{dx}=\dfrac{2x-y}{y^2+x^2}\). Copy the diagram below, then clearly draw the correct slopes of the direction field at the points \(A\) and \(B\).
+{{svg:pp_bb23}}</div>
+<div class="hint"><b>Hint:</b> calculate the gradient at each point first, then draw a short line element with that gradient.</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Knox Grammar School, 2023, Higher School Certificate Trial Examination, Mathematics Extension 1, Q12(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Consider the differential equation \(\dfrac{dy}{dx}=\dfrac{2x+y}{x^3-y^3}\). Draw the correct slopes of the direction field at the points \(A(0,-2)\), \(B(-1,2)\) and \(C(1,1)\).</div>
+<div class="hint"><b>Hint:</b> one of the three points gives a zero denominator. What does that mean for the line element?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Sydney Technical High School, 2020, Trial Higher School Certificate Examination (Sample 3), Mathematics Extension 1, Q14(d)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">A slope field representing the differential equation \(\dfrac{dy}{dx}=\dfrac{-x}{1+y^2}\) is shown below.
+{{svg:pp_st20}}
+<div class="pp-sub"><span>(i) Sketch the solution curve of the differential equation corresponding to the condition \(y(-1)=1\) on the slope field above and, hence, estimate the positive value of \(x\) when \(y=0\). Give your answer correct to one decimal place.</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Solve the differential equation \(\dfrac{dy}{dx}=\dfrac{-x}{1+y^2}\) with the condition \(y(-1)=1\). Express your answer in the form \(ay^3+by+cx^2+d=0\), where \(a,b,c\) and \(d\) are integers.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> in (ii) separate the variables: \((1+y^2)\,dy=-x\,dx\). Lesson 13C shows this method.</div>{{work:62}}</div>
+</div>
