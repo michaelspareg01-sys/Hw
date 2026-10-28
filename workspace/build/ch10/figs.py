@@ -433,8 +433,8 @@ g.label(9, 4, "6", dy=-9)
 save("q12path", g)
 
 # ---------------- 10B past papers ----------------
-# (PP 2, North Sydney Girls 2020 Q13(d)(iii), reuses pp_nsg20 from 10A)
-# PP 3 Sydney Grammar 2022 Q13(d): projectile from O at speed V, angle alpha, range R (drawn for alpha = 50 deg)
+# (PP 2 Girraween 2021 Q13(b) has no diagram; PP 3 North Sydney Girls 2020 Q13(d)(iii) reuses pp_nsg20 from 10A)
+# PP 4 Sydney Grammar 2022 Q13(d): projectile from O at speed V, angle alpha, range R (drawn for alpha = 50 deg)
 f = Fig(260, 156)
 ox, oy, R, al = 34, 112, 190, radians(50)
 f.arrow(ox, oy, 250, oy, "ink", 1.3, 6).arrow(ox, oy + 8, ox, 8, "ink", 1.3, 6)
@@ -450,7 +450,7 @@ f.line(ox, oy + 16, ox, oy + 26, "ink", 1).line(ox + R, oy + 16, ox + R, oy + 26
 f.dim(ox, oy + 21, ox + R, oy + 21, "ink").text(ox + R / 2, oy + 36, "R", italic=True)
 save("pp_sgs22", f)
 
-# PP 4 Baulkham Hills 2023 Q14(c)(ii): two balls at the same speed through (a, b)
+# PP 5 Baulkham Hills 2023 Q14(c)(ii): two balls at the same speed through (a, b)
 # to scale in units of h = V^2/2g: y = xT - x^2(1 + T^2)/4 with tan(theta1) = 3.66, tan(theta2) = 0.56
 f = Fig(270, 165)
 ox, oy, s = 30, 140, 125
@@ -474,20 +474,5 @@ yb = xa * T2 - xa * xa * (1 + T2 * T2) / 4
 f.dot(ox + s * xa, oy - s * yb, 3.5).text(ox + s * xa + 6, oy - s * yb - 8, "(a, b)", "start", size=11)
 save("pp_bhhs23b", f)
 
-# PP 5 Killara 2024 Q14(d): P (speed u, angle theta) and Q (speed 2u, angle 2 theta) both land at B
-# drawn as in the paper (not to scale)
-f = Fig(250, 175)
-ox, oy, X = 30, 150, 190
-f.line(10, oy, 238, oy, "ink", 1.3).arrow(238, oy, 246, oy, "ink", 1.3, 6).arrow(ox, oy + 12, ox, 8, "ink", 1.3, 6)
-f.text(244, oy - 8, "x", italic=True).text(ox - 9, 14, "y", italic=True)
-for hgt in (40, 102):
-    traj(f, [(ox + X * i / 80, oy - 4 * hgt * (i / 80) * (1 - i / 80)) for i in range(81)], "ink", 1.5)
-f.arrow(ox, oy, ox + 40, oy - 4 * 40 / X * 40 - 4, "ink", 1.3, 7)
-f.arrow(ox, oy, ox + 72, oy - 136, "ink", 1.3, 7)
-f.text(ox + 44, oy - 41, "u", "start", italic=True, size=11)
-f.text(ox + 30, oy - 70, "2u", "end", italic=True, size=11)
-f.dot(ox, oy, 3).dot(ox + X, oy, 3)
-f.text(ox - 4, oy + 14, "A", "end", italic=True).text(ox + X + 4, oy + 14, "B", "start", italic=True)
-save("pp_kil24b", f)
 
 print("figures written")

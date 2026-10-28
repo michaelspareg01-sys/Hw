@@ -18,7 +18,7 @@
 
 ## 10B
 - Ascham, 2020, Q7 | PB | 1 | `2020/2020 Ascham.pdf` | question p3, solution p9
+- Girraween, 2021, Q13(b) | PB | 2 | `2021/3U Girraween.pdf` | question p8, solution p15 (scanned, handwritten) | Q13(c) not used
 - NSG, 2020, Q13(d)(iii) | PA→PB | 3 | `2020/2020 NSG.pdf` | question p9, solution p23 | only (iii); r from (ii) supplied in the stem
 - SGS, 2022, Q13(d) | PB | 6 | `2022/Sydney Grammar 2022 Extension 1 _ Solutions.pdf` | question p11, solution p27-28
 - BHHS, 2023, Q14(c) | PB | 6 | `2023/Baulkham Hills 2023 3U.pdf` | question p10, solution p21
-- Killara, 2024, Q14(d) | PB | 3 | `2024/Killara 2024 3U Trials & Solutions.pdf` | question p13, solution p30-31

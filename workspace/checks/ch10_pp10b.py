@@ -220,9 +220,9 @@ try:
         src_a = re.search(r"^(.*?)</span>", PPA.get(n, "")).group(1) if n in PPA else None
         report(src_q == src_a, f"PP{n} source label", src_q)
         report(PPQ[n].count('<div class="hint">') == 1 and "{{work:" in PPQ[n], f"PP{n} hint and work box", "one hint, one work box")
-    report("Q13(d)(iii)" in PPQ[2] and "(i)" not in PPQ[2].replace("(iii)", ""), "PP2 only part (iii)",
+    report("Q13(d)(iii)" in PPQ[3] and "(i)" not in PPQ[3].replace("(iii)", ""), "PP3 only part (iii)",
            "NSG 2020 Q13(d)(i)-(ii) are used in 10A; only (iii) here, with r from (ii) given in the stem")
-    report("30t\\sin\\alpha^\\circ-5t^2+20" in PPQ[2], "PP2 stem supplies r", "result of (ii) given")
+    report("30t\\sin\\alpha^\\circ-5t^2+20" in PPQ[3], "PP3 stem supplies r", "result of (ii) given")
 except Exception as e:
     report(False, "lesson structure", f"ERROR {e}")
 
@@ -242,34 +242,45 @@ try:
 except Exception as e:
     report(False, "PP1 MC letter", f"ERROR {e}")
 
-# ---------------------------------------------------------------- PP 2  30 m/s at alpha from 20 m, a = -10 j; target (90, 1)
+# ---------------------------------------------------------------- PP 2  x = Vt cos th, y = Vt sin th - g t^2 / 2 (symbolic g and V)
+XTVG = [(random.uniform(0.1, 60), radians(random.uniform(5, 85)), random.uniform(5, 40), random.choice((9.8, 10.0, 3.7))) for _ in range(4)]
+check(2, r"From \(x=Vt\cos\theta\), \(t=@\). Substituting", lambda x, th, V, g: root(lambda t: V * t * cos(th) - x, 0, 1e3), var=("x", "TH", "V", "g"), samples=XTVG)
+check(2, r"{V\cos\theta}\right)^2=@.\]", lambda x, th, V, g: path_y((0, 0), V, th, g, x), var=("x", "TH", "V", "g"), samples=XTVG)
+check(2, r"the cartesian equation is \(y=@\).</p>", lambda x, th, V, g: path_y((0, 0), V, th, g, x), var=("x", "TH", "V", "g"), samples=XTVG)
+try:
+    stem = re.search(r"cartesian equation of the path is given by \\\((.+?)\\\)\.</div>", PPQ[2]).group(1)
+    report(stem == "y=" + printed(2, r"the cartesian equation is \(y=@\).</p>"), "PP2 result matches the question", stem)
+except Exception as e:
+    report(False, "PP2 result matches the question", f"ERROR {e}")
+
+# ---------------------------------------------------------------- PP 3  30 m/s at alpha from 20 m, a = -10 j; target (90, 1)
 y3 = lambda x, a: path_y((0, 20), 30, a, 10, x)
 XA = [(random.uniform(0, 120), radians(random.uniform(5, 85))) for _ in range(4)]
-check(2, r"{900\cos^2\alpha}+20=@.\]", y3, var=("x", "AL"), samples=XA)
-check(2, r"\text{so}\quad@=0.\]", lambda a: 1 - y3(90, a), var=("AL",), samples=[(xa[1],) for xa in XA])
+check(3, r"{900\cos^2\alpha}+20=@.\]", y3, var=("x", "AL"), samples=XA)
+check(3, r"\text{so}\quad@=0.\]", lambda a: 1 - y3(90, a), var=("AL",), samples=[(xa[1],) for xa in XA])
 a_lo = root(lambda a: y3(90, a) - 1, radians(1), radians(45))
 a_hi = root(lambda a: y3(90, a) - 1, radians(45), radians(89))
 try:
-    ex = printed(2, r"=\dfrac{90\pm\sqrt{3420}}{90}=@.\]")
+    ex = printed(3, r"=\dfrac{90\pm\sqrt{3420}}{90}=@.\]")
     vals = sorted(tex_val(ex.replace("\\pm", s)) for s in "+-")
     ok = abs(vals[0] - tan(a_lo)) < 1e-6 and abs(vals[1] - tan(a_hi)) < 1e-6
-    report(ok, "PP2 exact roots", f"printed {ex} = {vals[0]:.6g}, {vals[1]:.6g}; computed tan = {tan(a_lo):.6g}, {tan(a_hi):.6g}")
-    ex = printed(2, r"\tan\alpha=\dfrac{90\pm\sqrt{@}}{90}")
-    report(tex_val(ex) == 90 ** 2 - 4 * 45 * 26, "PP2 discriminant", f"printed {ex}, computed {90 ** 2 - 4 * 45 * 26}")
+    report(ok, "PP3 exact roots", f"printed {ex} = {vals[0]:.6g}, {vals[1]:.6g}; computed tan = {tan(a_lo):.6g}, {tan(a_hi):.6g}")
+    ex = printed(3, r"\tan\alpha=\dfrac{90\pm\sqrt{@}}{90}")
+    report(tex_val(ex) == 90 ** 2 - 4 * 45 * 26, "PP3 discriminant", f"printed {ex}, computed {90 ** 2 - 4 * 45 * 26}")
 except Exception as e:
-    report(False, "PP2 exact roots", f"ERROR {e}")
-check(2, r"So \(\tan\alpha\approx@\) or", tan(a_lo), "r")
-check(2, r"or \(\tan\alpha\approx@\), giving", tan(a_hi), "r")
-check(2, r"giving \(\alpha\approx@\) or", degrees(a_lo), kind="dms")
-check(2, r"or \(\alpha\approx@\).</p>", degrees(a_hi), kind="dms")
+    report(False, "PP3 exact roots", f"ERROR {e}")
+check(3, r"So \(\tan\alpha\approx@\) or", tan(a_lo), "r")
+check(3, r"or \(\tan\alpha\approx@\), giving", tan(a_hi), "r")
+check(3, r"giving \(\alpha\approx@\) or", degrees(a_lo), kind="dms")
+check(3, r"or \(\alpha\approx@\).</p>", degrees(a_hi), kind="dms")
 low = min(min(y3(90 * i / 200, a) for i in range(201)) for a in (a_lo, a_hi))
-report(low > 0, "PP2 target reached in flight", f"lowest point of either path for 0 <= x <= 90 is {low:.4g} m > 0")
+report(low > 0, "PP3 target reached in flight", f"lowest point of either path for 0 <= x <= 90 is {low:.4g} m > 0")
 
-# ---------------------------------------------------------------- PP 3  x = Vt cos a, y = Vt sin a - 5t^2 (g = 10)
+# ---------------------------------------------------------------- PP 4  x = Vt cos a, y = Vt sin a - 5t^2 (g = 10)
 VA = [(random.uniform(5, 400), radians(random.uniform(5, 85))) for _ in range(4)]
-check(3, r"the time of flight is \(t=@\). Substituting", lambda V, a: flight((0, 0), V, a, 10)[0], var=("V", "AL"), samples=VA)
-check(3, r"\dfrac{V\sin\alpha}{5}=@=\dfrac{V^2\sin2", lambda V, a: flight((0, 0), V, a, 10)[1], var=("V", "AL"), samples=VA)
-check(3, r"\cos\alpha}{5}=@.\]", lambda V, a: flight((0, 0), V, a, 10)[1], var=("V", "AL"), samples=VA)
+check(4, r"the time of flight is \(t=@\). Substituting", lambda V, a: flight((0, 0), V, a, 10)[0], var=("V", "AL"), samples=VA)
+check(4, r"\dfrac{V\sin\alpha}{5}=@=\dfrac{V^2\sin2", lambda V, a: flight((0, 0), V, a, 10)[1], var=("V", "AL"), samples=VA)
+check(4, r"\cos\alpha}{5}=@.\]", lambda V, a: flight((0, 0), V, a, 10)[1], var=("V", "AL"), samples=VA)
 
 
 def rmax(V):
@@ -286,33 +297,33 @@ def rmax(V):
 
 try:
     a_opt = rmax(50.0)[0]
-    report(abs(a_opt - tex_val(printed(3, r"occurs when \(\alpha=@^\circ\), and"))) < 1e-3, "PP3 angle of maximum range", f"printed 45, numerical maximum at {a_opt:.5f} deg")
+    report(abs(a_opt - tex_val(printed(4, r"occurs when \(\alpha=@^\circ\), and"))) < 1e-3, "PP4 angle of maximum range", f"printed 45, numerical maximum at {a_opt:.5f} deg")
 except Exception as e:
-    report(False, "PP3 angle of maximum range", f"ERROR {e}")
-check(3, r"R_{\max}=\dfrac{V^2\times1}{10}=@.\]", lambda V: rmax(V)[1], var=("V",), samples=[(20.0,), (137.0,)])
+    report(False, "PP4 angle of maximum range", f"ERROR {e}")
+check(4, r"R_{\max}=\dfrac{V^2\times1}{10}=@.\]", lambda V: rmax(V)[1], var=("V",), samples=[(20.0,), (137.0,)])
 Vmin = root(lambda V: flight((0, 0), V, pi / 4, 10)[1] - 12000, 100, 1000)
-check(3, r"so it must be within the maximum range: \(\dfrac{V^2}{10}\ge@\). Then", 12000)
-check(3, r"Then \(V^2\ge@\), so", Vmin ** 2)
-check(3, r"V\ge\sqrt{120\,000}=@\approx", Vmin)
-check(3, r"\approx@&gt;343.\]", Vmin, "r")
-report(Vmin > 343 and flight((0, 0), 343, pi / 4, 10)[1] < 12000, "PP3 343 m/s is too slow", f"minimum speed {Vmin:.6g} > 343; best range at 343 m/s is {flight((0, 0), 343, pi / 4, 10)[1]:.6g} m < 12000 m")
+check(4, r"so it must be within the maximum range: \(\dfrac{V^2}{10}\ge@\). Then", 12000)
+check(4, r"Then \(V^2\ge@\), so", Vmin ** 2)
+check(4, r"V\ge\sqrt{120\,000}=@\approx", Vmin)
+check(4, r"\approx@&gt;343.\]", Vmin, "r")
+report(Vmin > 343 and flight((0, 0), 343, pi / 4, 10)[1] < 12000, "PP4 343 m/s is too slow", f"minimum speed {Vmin:.6g} > 343; best range at 343 m/s is {flight((0, 0), 343, pi / 4, 10)[1]:.6g} m < 12000 m")
 
-# ---------------------------------------------------------------- PP 4  r = Vt cos th i + (Vt sin th - g t^2/2) j, h = V^2/2g
+# ---------------------------------------------------------------- PP 5  r = Vt cos th i + (Vt sin th - g t^2/2) j, h = V^2/2g
 G4 = 9.8
 y4 = lambda x, th, h: path_y((0, 0), sqrt(2 * G4 * h), th, G4, x)
 XTH = [(random.uniform(0.1, 30), radians(random.uniform(5, 85)), random.uniform(2, 40)) for _ in range(4)]
-check(4, r"{2V^2\cos^2\theta}=@,\]", y4, var=("x", "TH", "h"), samples=XTH)
+check(5, r"{2V^2\cos^2\theta}=@,\]", y4, var=("x", "TH", "h"), samples=XTH)
 ABHT = [(random.uniform(0.5, 20), random.uniform(0, 10), random.uniform(2, 30), radians(random.uniform(5, 85))) for _ in range(4)]
-check(4, r"rearranging,</p>" + "\n" + r"\[@=0.\]", lambda a, b, h, th: -4 * h * (y4(a, th, h) - b), var=("a", "b", "h", "TH"), samples=ABHT)
+check(5, r"rearranging,</p>" + "\n" + r"\[@=0.\]", lambda a, b, h, th: -4 * h * (y4(a, th, h) - b), var=("a", "b", "h", "TH"), samples=ABHT)
 disc = lambda a, b, h: (-4 * h * a) ** 2 - 4 * a * a * (a * a + 4 * h * b)
-check(4, r"positive:</p>" + "\n" + r"\[@&gt;0,\quad", disc, var=("a", "b", "h"), samples=[s[:3] for s in ABHT])
-check(4, r"that is,}\quad@&gt;0.\]", disc, var=("a", "b", "h"), samples=[s[:3] for s in ABHT])
+check(5, r"positive:</p>" + "\n" + r"\[@&gt;0,\quad", disc, var=("a", "b", "h"), samples=[s[:3] for s in ABHT])
+check(5, r"that is,}\quad@&gt;0.\]", disc, var=("a", "b", "h"), samples=[s[:3] for s in ABHT])
 try:
-    parts = printed(4, r"this gives \(a^2&lt;@\).</p>").split("=")
+    parts = printed(5, r"this gives \(a^2&lt;@\).</p>").split("=")
     errs = [abs(tex_val(p, ("h", "b"))(h, b) - 4 * h * (h - b)) for p in parts for _, b, h, _ in ABHT]
-    report(len(parts) == 2 and max(errs) < 1e-9, "PP4 (ii) bound", f"printed {'='.join(parts)} = 4h(h-b)")
+    report(len(parts) == 2 and max(errs) < 1e-9, "PP5 (ii) bound", f"printed {'='.join(parts)} = 4h(h-b)")
 except Exception as e:
-    report(False, "PP4 (ii) bound", f"ERROR {e}")
+    report(False, "PP5 (ii) bound", f"ERROR {e}")
 
 
 def angles_through(a, b, h, n=1500):
@@ -330,31 +341,11 @@ for _ in range(300):
         bad += 1
     if len(roots) == 2:
         n2 += 1
-        prod_err = max(prod_err, abs(tan(roots[0]) * tan(roots[1]) - tex_val(printed(4, r"\tan\theta_1\tan\theta_2=@=1+"), ("a", "b", "h"))(a, b, h)))
+        prod_err = max(prod_err, abs(tan(roots[0]) * tan(roots[1]) - tex_val(printed(5, r"\tan\theta_1\tan\theta_2=@=1+"), ("a", "b", "h"))(a, b, h)))
         if max(roots) < radians(45):
             bad += 1
-report(bad == 0, "PP4 brute force", f"300 random (a, b, h): two angles exactly when a^2 < 4h(h-b); in {n2} two-angle cases the larger angle is never below 45 deg")
-report(prod_err < 1e-6, "PP4 product of roots", f"printed product formula matches tan(th1)tan(th2) from the scan (max err {prod_err:.1e})")
-
-# ---------------------------------------------------------------- PP 5  P: u at th, Q: 2u at 2th, same landing point; t_P = 0.6
-G5 = 9.8
-UTH = [(random.uniform(2, 50), radians(random.uniform(3, 44)), G5) for _ in range(4)]
-check(5, r"So \(P\) lands at \(t_P=@\), and", lambda u, th, g: flight((0, 0), u, th, g)[0], var=("u", "TH", "g"), samples=UTH)
-check(5, r"\dfrac{2u^2\sin\theta\cos\theta}{g}=@\).</p>", lambda u, th, g: flight((0, 0), u, th, g)[1], var=("u", "TH", "g"), samples=UTH)
-check(5, r"=\dfrac{2(2u)\sin2\theta}{g}=@\), and", lambda u, th, g: flight((0, 0), 2 * u, 2 * th, g)[0], var=("u", "TH", "g"), samples=UTH)
-check(5, r"\(\dfrac{(2u)^2\sin4\theta}{g}=@\).</p>", lambda u, th, g: flight((0, 0), 2 * u, 2 * th, g)[1], var=("u", "TH", "g"), samples=UTH)
-# theta from equal ranges (u cancels, so use u = 1), then u from t_P = 0.6
-th5 = root(lambda th: flight((0, 0), 1, th, G5)[1] - flight((0, 0), 2, 2 * th, G5)[1], radians(5), radians(44.9))
-u5 = root(lambda u: flight((0, 0), u, th5, G5)[0] - 0.6, 0.1, 100)
-tQ = flight((0, 0), 2 * u5, 2 * th5, G5)[0]
-check(5, r"so \(\cos2\theta=@\). Then", cos(2 * th5))
-check(5, r"so \(\cos^2\theta=@\) and", cos(th5) ** 2)
-check(5, r"\(\cos\theta=@\).</p>", cos(th5))
-check(5, r"\times0.6=@.\]", tQ)
-check(5, r"takes @ seconds to travel", tQ)
-report(0 < 2 * th5 < pi / 2, "PP5 both angles acute", f"theta = {degrees(th5):.4f} deg, 2 theta = {degrees(2 * th5):.4f} deg")
-tQg = flight((0, 0), 2 * root(lambda u: flight((0, 0), u, th5, 3.7)[0] - 0.6, 0.01, 100), 2 * th5, 3.7)[0]
-report(abs(tQg - tQ) < 1e-6, "PP5 independent of g", f"t_Q = {tQ:.6g} s with g = 9.8 and {tQg:.6g} s with g = 3.7")
+report(bad == 0, "PP5 brute force", f"300 random (a, b, h): two angles exactly when a^2 < 4h(h-b); in {n2} two-angle cases the larger angle is never below 45 deg")
+report(prod_err < 1e-6, "PP5 product of roots", f"printed product formula matches tan(th1)tan(th2) from the scan (max err {prod_err:.1e})")
 
 print(f"\n{len(FAILS)} problem(s)" if FAILS else "\nAll OK")
 sys.exit(1 if FAILS else 0)
