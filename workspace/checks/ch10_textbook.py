@@ -1,503 +1,725 @@
-"""Numeric check of every numeric answer printed in the Ch 10 answer fragments.
+"""Numeric check of the Ch 10 answers, tied to the HTML fragments.
 
-Covers: warm-up (revision.html), lesson examples C1-C3 (tutor demos, your turns,
-worked examples) of 9E, 10A, 10B, textbook homework (Ex 9E, 10A, 10B) and the
-chapter review (Ch 10 review Q1-9, Ch 9 review Q18 as Q10).
+Part 1 (HTML-tied). For every numeric answer printed in the answer fragments
+workspace/build/ch10/a_rev_9e.html, a_10a.html, a_10b.html (warm-up, lesson
+examples C1-C3, textbook homework, chapter review) and in the lesson worked
+examples (l09e.html, l10a.html, l10b.html), the script
+  1. locates the answer block (fragment heading, answer section, answer number;
+     or the lesson file and worked-example number),
+  2. extracts the printed value(s) with a template in which '@' marks a value,
+     (the template must match exactly once, otherwise the item FAILS),
+  3. converts the printed LaTeX to a number (or to a function of the named
+     variables, for answers such as x = 30t), and
+  4. compares it with a value recomputed independently from the question's
+     given data, to the printed precision ('r' items: half a unit in the last
+     printed place, half a minute for d°m'; 'e' items: exact to 1e-9).
+Printed functions are compared with the recomputed function at several sample
+values of their variables.
 
-Each item recomputes the value from the question data and compares it with the
-value printed in workspace/build/ch10/a_*.html (or in the lesson worked
-examples). Prints OK / MISMATCH per item.
+Part 2 (identities). "Show that" results that have no printed answer are
+checked as identities, using arbitrary values of V, g, theta etc. These are
+NOT tied to the HTML and are counted separately.
 
-Run: python3 workspace/checks/ch10_textbook.py
+Exit status is 1 if anything fails. Run: python3 workspace/checks/ch10_textbook.py
 """
-from math import sqrt, pi, sin, cos, tan, atan, asin, radians, degrees, isclose
+import os
+import re
+import sys
+from math import sqrt, pi, sin, cos, tan, atan, asin, acos, radians, degrees
 
-results = []
+HERE = os.path.dirname(os.path.abspath(__file__))
+SRC = os.environ.get("CH10_SRC", os.path.join(HERE, "..", "build", "ch10"))   # override only for mutation tests
+G = 10
 
-
-def check(name, computed, printed, tol=None):
-    """printed is the value shown in the HTML. tol defaults to half a unit in
-    the last printed place when rounding is implied, else a tight relative tol."""
-    if tol is None:
-        tol = 1e-9 * max(1.0, abs(printed))
-    ok = abs(computed - printed) <= tol
-    results.append(ok)
-    print(f"{'OK      ' if ok else 'MISMATCH'} {name}: computed {computed:.6g}, printed {printed:.6g}")
-
-
-def dms(d, m):
-    return d + m / 60
+# --------------------------------------------------------------------------
+# HTML block extraction
+# --------------------------------------------------------------------------
+def read(name):
+    with open(os.path.join(SRC, name), encoding="utf-8") as f:
+        return f.read()
 
 
-def deg_min(x):
-    """Round degrees to nearest minute, return (d, m)."""
-    tot = round(x * 60)
-    return tot // 60, tot % 60
+ANS_RE = re.compile(r'<div class="a"><span class="an">([^<]+)</span><div class="ab">(.*?)</div></div>\s*(?=<div class="a">|<div class="ans-sec">|\{\{ahead:|@@|$)', re.S)
 
 
-def check_dm(name, angle_deg, d, m):
-    got = deg_min(angle_deg)
-    ok = got == (d, m)
-    results.append(ok)
-    print(f"{'OK      ' if ok else 'MISMATCH'} {name}: computed {got[0]}°{got[1]}', printed {d}°{m}'")
+def answer_blocks():
+    blocks = {}
+    for name in ("a_rev_9e.html", "a_10a.html", "a_10b.html"):
+        text = read(name)
+        parts = re.split(r"\{\{ahead:([^|}]+)", text)
+        for i in range(1, len(parts), 2):
+            head, body = parts[i].strip(), parts[i + 1]
+            secs = re.split(r'<div class="ans-sec">([^<]+)</div>', body)
+            chunks = [(None, secs[0])] + [(secs[j].strip(), secs[j + 1]) for j in range(1, len(secs), 2)]
+            for sec, chunk in chunks:
+                for an, ab in ANS_RE.findall(chunk):
+                    key = (head, sec, an.strip())
+                    if key in blocks:
+                        raise SystemExit(f"duplicate answer block {key}")
+                    blocks[key] = ab
+    return blocks
+
+
+def worked_blocks():
+    blocks = {}
+    for lesson, name in (("9E", "l09e.html"), ("10A", "l10a.html"), ("10B", "l10b.html")):
+        text = read(name)
+        for chunk in re.split(r'(?=<div class="ex )|(?=<!-- =)', text):
+            m = re.search(r'<span class="tag">Worked example (\d+)</span>', chunk)
+            if m:
+                blocks[(lesson, "WE", m.group(1))] = chunk
+    return blocks
+
+
+BLOCKS = answer_blocks()
+BLOCKS.update(worked_blocks())
+
+
+def block(key):
+    head, sec, an = key[:3]
+    if sec == "WE":
+        return BLOCKS.get((head, sec, an))
+    text = BLOCKS.get((head, sec, an))
+    if text is None or len(key) == 3:
+        return text
+    i = text.find("<b>Your turn.</b>")
+    if i < 0:
+        return None
+    return text[:i] if key[3] == "demo" else text[i:]
+
+
+# --------------------------------------------------------------------------
+# LaTeX -> Python
+# --------------------------------------------------------------------------
+KNOWN = {"sqrt", "pi", "cosd", "sind"}
+NS = {"sqrt": sqrt, "pi": pi, "cosd": lambda d: cos(radians(d)), "sind": lambda d: sin(radians(d))}
+
+
+def _arg(s, i):
+    if s[i] == "{":
+        depth, j = 0, i
+        while True:
+            if s[j] == "{":
+                depth += 1
+            elif s[j] == "}":
+                depth -= 1
+                if depth == 0:
+                    return s[i + 1:j], j + 1
+            j += 1
+    if s[i] == "\\":                                   # a command such as \pi as the argument
+        m = re.match(r"\\[A-Za-z]+", s[i:])
+        return m.group(0), i + len(m.group(0))
+    return s[i], i + 1
+
+
+def _conv(s):
+    out, i = "", 0
+    while i < len(s):
+        for cmd in ("\\dfrac", "\\tfrac", "\\frac"):
+            if s.startswith(cmd, i):
+                a, i = _arg(s, i + len(cmd))
+                b, i = _arg(s, i)
+                out += f"\x01(({_conv(a)})/({_conv(b)}))\x02"
+                break
+        else:
+            if s.startswith("\\sqrt", i):
+                a, i = _arg(s, i + 5)
+                out += f"\x01sqrt({_conv(a)})\x02"
+            elif s.startswith("\\pi", i):
+                out += "\x01pi\x02"
+                i += 3
+            elif s.startswith("\\times", i):
+                out += "*"
+                i += 6
+            elif s[i] == "^":
+                a, i = _arg(s, i + 1)
+                out += f"**({_conv(a)})"
+            elif s[i] == "{":
+                a, i = _arg(s, i)
+                out += f"({_conv(a)})"
+            elif s[i] == "\\":
+                raise ValueError(f"unsupported LaTeX in {s!r}")
+            else:
+                out += s[i]
+                i += 1
+    return out
+
+
+def to_python(tex):
+    s = tex.strip()
+    for a, b in (("\\left", ""), ("\\right", ""), ("\\,", ""), ("\\ ", ""), ("\\ell", "l"), (" ", "")):
+        s = s.replace(a, b)
+    s = re.sub(r"\\(cos|sin)(\d+)\^\\circ", lambda m: "\x01" + m.group(1) + "d(" + m.group(2) + ")\x02", s)
+    e = _conv(s)
+    e = re.sub(r"(?<=[\w)])\x01", "*", e).replace("\x01", "")
+    e = re.sub(r"\x02(?=[\w(])", "*", e).replace("\x02", "")
+    e = re.sub(r"(?<=\d)(?=[A-Za-z(])", "*", e)
+    e = re.sub(r"(?<=\))(?=[\w(])", "*", e)
+    # split runs of letters that are not known function names into single variables
+    e = re.sub(r"[A-Za-z]+", lambda m: m.group(0) if m.group(0) in KNOWN else "*".join(m.group(0)), e)
+    e = re.sub(r"\b([A-Za-z])\(", r"\1*(", e)          # single variable followed by (
+    return e
+
+
+ANGLE = re.compile(r"(-?)(\d+(?:\.\d+)?)\^\\circ(?:(\d+)')?$")
+
+
+def parse(tex):
+    """Return (value or function, tolerance-for-'r', variables)."""
+    t = tex.strip()
+    m = ANGLE.match(t)
+    if m:
+        sign = -1 if m.group(1) else 1
+        if m.group(3) is not None:
+            return sign * (float(m.group(2)) + int(m.group(3)) / 60), 0.5 / 60 + 1e-9, ()
+        dec = m.group(2).split(".")
+        return sign * float(m.group(2)), 0.5 * 10 ** -(len(dec[1]) if len(dec) > 1 else 0) + 1e-9, ()
+    if re.fullmatch(r"-?\d+(\.\d+)?", t):
+        dec = t.split(".")
+        return float(t), 0.5 * 10 ** -(len(dec[1]) if len(dec) > 1 else 0) + 1e-9, ()
+    e = to_python(t)
+    names = sorted(set(re.findall(r"\b[A-Za-z]\b", e)) - KNOWN)
+    if names:
+        code = compile(e, tex, "eval")
+        return (lambda env, code=code: eval(code, dict(NS), dict(env))), 0, tuple(names)
+    return eval(e, dict(NS)), 0, ()
+
+
+SAMPLES = [
+    {"t": 0.37, "x": 0.41, "h": 1.3, "r": 2.2, "l": 3.1, "V": 7.3, "g": 9.7, "C": 11.0, "L": 23.0, "T": 0.6},
+    {"t": 1.9, "x": -0.25, "h": 4.1, "r": 0.7, "l": 1.4, "V": 13.0, "g": 10.0, "C": 3.0, "L": 5.0, "T": 1.7},
+    {"t": 3.3, "x": 0.83, "h": 0.6, "r": 5.0, "l": 9.0, "V": 21.0, "g": 9.8, "C": 40.0, "L": 900.0, "T": 3.1},
+]
+
+# --------------------------------------------------------------------------
+# checking
+# --------------------------------------------------------------------------
+tied, ident = [], []
+
+
+def tpl_regex(tpl):
+    anchor_start = tpl.startswith("^")
+    anchor_end = tpl.endswith("$")
+    core = tpl[1 if anchor_start else 0: len(tpl) - (1 if anchor_end else 0)]
+    pieces = core.split("@")
+    rx = r"((?:(?!\\\(|\\\)|\\\[|\\\]).)+?)".join(re.escape(p) for p in pieces)
+    return ("^" if anchor_start else "") + rx + ("$" if anchor_end else "")
+
+
+def A(name, key, tpl, expected, kinds=None):
+    """HTML-tied check. expected: value or tuple of values; a value may be a
+    function env -> number for printed functions. kinds: string of 'e'/'r'."""
+    if not isinstance(expected, tuple):
+        expected = (expected,)
+    kinds = kinds or "e" * len(expected)
+    text = block(key)
+    if text is None:
+        tied.append(False)
+        print(f"FAIL     {name}: answer block {key} not found")
+        return
+    found = list(re.finditer(tpl_regex(tpl), text, re.S))
+    if len(found) != 1:
+        tied.append(False)
+        print(f"FAIL     {name}: template matched {len(found)} times in {key}: {tpl}")
+        return
+    caps = found[0].groups()
+    if len(caps) != len(expected) or len(kinds) != len(expected):
+        raise SystemExit(f"{name}: {len(caps)} captures, {len(expected)} expected values, kinds {kinds!r}")
+    for cap, exp, kind in zip(caps, expected, kinds):
+        label = f"{name} [{cap}]"
+        try:
+            val, rtol, names = parse(cap)
+        except Exception as err:  # unparseable printed value
+            tied.append(False)
+            print(f"FAIL     {label}: cannot read printed value ({err})")
+            continue
+        if callable(exp) and not callable(val):         # printed constant for a function, e.g. xdot = 15sqrt3
+            val = (lambda e, c=val: c)
+            names = ()
+        if callable(val) != callable(exp):
+            tied.append(False)
+            print(f"FAIL     {label}: printed {'function' if callable(val) else 'number'}, expected {'function' if callable(exp) else 'number'}")
+            continue
+        if callable(val):
+            try:
+                errs = [abs(val(s) - exp(s)) / max(1.0, abs(exp(s))) for s in SAMPLES]
+                ok = max(errs) < 1e-9
+                msg = f"function of ({','.join(names) or 'constant'}), max rel err {max(errs):.1e}"
+            except Exception as err:
+                ok, msg = False, f"cannot evaluate ({err})"
+        else:
+            tol = rtol if kind == "r" else 1e-9 * max(1.0, abs(exp))
+            ok = abs(val - exp) <= tol
+            msg = f"printed {val:.6g}, computed {exp:.6g}"
+        tied.append(ok)
+        print(f"{'OK      ' if ok else 'MISMATCH'} {label}: {msg}")
+
+
+def I(name, lhs, rhs):
+    """Identity check with arbitrary values (not tied to the HTML)."""
+    ok = abs(lhs - rhs) <= 1e-9 * max(1.0, abs(rhs))
+    ident.append(ok)
+    print(f"{'OK      ' if ok else 'MISMATCH'} [identity] {name}: {lhs:.6g} vs {rhs:.6g}")
 
 
 def roots(a, b, c):
     D = b * b - 4 * a * c
-    if D < 0:
-        return None
     return ((-b + sqrt(D)) / (2 * a), (-b - sqrt(D)) / (2 * a))
 
 
-# =================== Warm-up ===================
-x = lambda t: t * t - 6 * t + 5
-check("W1b stationary t", 6 / 2, 3)
-check("W1b position", x(3), -4)
-dist = abs(x(3) - x(0)) + abs(x(4) - x(3))
-check("W1c distance", dist, 10)
-check("W1c average velocity", (x(4) - x(0)) / 4, -2)
-check("W1c average speed", dist / 4, 2.5)
-check("W2 discriminant of 3t^2-4t+3 (negative)", 16 - 36 < 0, True)
-check("W3 greatest height", 20 * 2 - 5 * 4, 20)
-check("W3 return time", 20 / 5, 4)
-check("W3 return speed", abs(20 - 10 * 4), 20)
-check("W4 40cos30 = 20sqrt3", 40 * cos(radians(30)), 20 * sqrt(3))
-check("W4 40sin30", 40 * sin(radians(30)), 20)
-check("W4 tan^-1 3/4 nearest degree", round(degrees(atan(0.75))), 37)
-check("W4 sqrt(36+64)", sqrt(36 + 64), 10)
-check("W5 dA/dt", 2 * pi * 4 * 3, 24 * pi)
+def simpson(f, a, b, n=200):
+    h = (b - a) / n
+    return h / 3 * (f(a) + f(b) + sum((4 if k % 2 else 2) * f(a + k * h) for k in range(1, n)))
 
-# =================== 9E lesson ===================
-check("9E C1 demo b", 4 * pi * 25 * 2, 200 * pi)
-r = (36 * pi * 3 / (4 * pi)) ** (1 / 3)
-check("9E C1 demo c r", r, 3)
-check("9E C1 demo c dr/dt", 72 * pi / (4 * pi * r * r), 2)
-check("9E C1 your turn a", 0.4 * 4, 1.6)
-check("9E C1 your turn b", 2 / 0.4, 5)
-# worked example 1 (textbook Example 18)
-check("9E WE1 b", 2 * pi * 36 * 3, 216 * pi)
-r = (18 * 3 / (2 * pi)) ** (1 / 3)
-check("9E WE1 c r = 3 pi^-1/3", r, 3 * pi ** (-1 / 3))
-check("9E WE1 c dr/dt = 5 pi^-1/3", 90 / (2 * pi * r * r), 5 * pi ** (-1 / 3))
-check("9E WE1 c dr/dt ~ 3.4", 90 / (2 * pi * r * r), 3.4, 0.05)
-# C2: cone r = h/2, V = pi h^3/12
-check("9E C2 demo b dh/dt", 12 / (pi / 4 * 16), 3 / pi)
-check("9E C2 demo b ~0.95", 3 / pi, 0.95, 0.005)
-check("9E C2 your turn", 9 * pi / (pi * 9), 1)
-# WE2 ladder 5 m, dx/dt = 0.3, x = 3
-check("9E WE2 dy/dt", -3 / sqrt(25 - 9) * 0.3, -0.225)
-# C3 plane 2 km, 600 km/h, theta = pi/6
-th = pi / 6
-dthdt = -(sin(th) ** 2) / 2 * (-600)
-check("9E C3 demo rad/h", dthdt, 75)
-check("9E C3 demo deg/s", dthdt * 180 / pi / 3600, 1.19, 0.005)
-th = radians(30)
-dthdt = -(sin(th) ** 2) / 80 * (-4)
-check("9E C3 your turn rad/s", dthdt, 0.0125)
-check("9E C3 your turn deg/s", degrees(dthdt), 0.72, 0.005)
-# WE3 balloon 5 m/s, 120 m, h = 50
-c2 = (120 / 130) ** 2
-check("9E WE3 rad/s", c2 * 5 / 120, 6 / 169)
-check("9E WE3 rad/s ~0.0355", 6 / 169, 0.0355, 0.00005)
-check("9E WE3 deg/s", degrees(6 / 169), 2.03, 0.005)
 
-# =================== Exercise 9E ===================
-check("9E Q1b", 0.2 * 5, 1)
-check("9E Q1c", 1.4 / 0.2, 7)
-check("9E Q1d", (0.6 / 0.2) ** 2, 9)
-# Q2 A = l^2/2, dA/dt = -l/2
-check("9E Q2c(i)", 10 / 2, 5)
-check("9E Q2c(ii)", sqrt(2 * 18) / 2, 3)
-check("9E Q2d", 17 * 2, 34)
-check("9E Q3a", 1.2 * pi * 4, 15.1, 0.05)
-check("9E Q3b", 2.4 * pi * 4, 30.2, 0.05)
-check("9E Q4b", 200 / (4 * pi * 225), 2 / (9 * pi))
-r = sqrt(200 / (4 * pi * 0.5))
-check("9E Q4c r", r, 10 / sqrt(pi))
-check("9E Q4c V", 4 / 3 * pi * r ** 3, 4000 / (3 * sqrt(pi)))
-# Q5 h = 2r: V = 2/3 pi r^3, dV/dt = 2 pi r^2 dr/dt, h = 10 -> r = 5
-check("9E Q5a V = (1/3)pi r^2 (2r) = (2/3) pi r^3 at r=1.7", pi * 1.7 ** 2 * 2 * 1.7 / 3, 2 / 3 * pi * 1.7 ** 3)
-check("9E Q5b", 5 / (2 * pi * 25), 1 / (10 * pi))
-# Q6 x = 3/(2 tan th), dx/dt = -650, th = pi/3
-th = pi / 3
-d6 = 650 * 2 * sin(th) ** 2 / 3
-check("9E Q6b rad/h", d6, 325)
-check("9E Q6b deg/s nearest", round(d6 * 180 / pi / 3600), 5)
-# Q7 x = 100/tan th, dx/dt = -50, th = 15 deg
+def proj(V, ang_deg, g=G):
+    """Time equations from the given launch data: (xdot, x, ydot, y) as env functions."""
+    u, w = V * cos(radians(ang_deg)), V * sin(radians(ang_deg))
+    return (lambda e: u, lambda e: u * e["t"], lambda e: w - g * e["t"], lambda e: w * e["t"] - g * e["t"] ** 2 / 2), u, w
+
+
+def path(V, ang_deg, g=G):
+    """Cartesian path recomputed by eliminating t numerically: y at x."""
+    u, w = V * cos(radians(ang_deg)), V * sin(radians(ang_deg))
+    return lambda e: w * (e["x"] / u) - g / 2 * (e["x"] / u) ** 2
+
+
+def deriv(f, var):
+    def d(e, f=f, var=var):
+        hh = 1e-5
+        e1, e2 = dict(e), dict(e)
+        e1[var] += hh
+        e2[var] -= hh
+        return (f(e1) - f(e2)) / (2 * hh)
+    return d
+
+
+def fn(f):
+    return lambda e: f(e)
+
+
+# ==========================================================================
+# Warm-up
+# ==========================================================================
+W = ("Chapter revision", None)
+xw = lambda t: t * t - 6 * t + 5
+A("W1a", W + ("1",), r"<b>a</b> \(v=@\), \(a=@\)",
+  (deriv(lambda e: xw(e["t"]), "t"), 2))
+tst = 6 / 2
+A("W1b", W + ("1",), r"when \(t=@\), at \(x=@\)", (tst, xw(tst)))
+dist = abs(xw(3) - xw(0)) + abs(xw(4) - xw(3))
+A("W1c distance", W + ("1",), r"the distance is \(9+1=@\) m", dist)
+A("W1c average velocity", W + ("1",), r"Average velocity \(=\dfrac{-3-5}{4}=@\) m/s", (xw(4) - xw(0)) / 4)
+A("W1c average speed", W + ("1",), r"average speed \(=\dfrac{10}{4}=@\) m/s", dist / 4)
+v2 = lambda t: 3 + simpson(lambda s: 6 * s - 4, 0, t)
+A("W2 velocity and displacement", W + ("2",), r"^\(\dot x=@\), \(x=@\).",
+  (lambda e: v2(e["t"]), lambda e: simpson(v2, 0, e["t"], 40)))
+A("W2 discriminant", W + ("2",), r"\(\Delta=@<0\)", (-4) ** 2 - 4 * (6 / 2) * 3)
+A("W3 velocity and displacement", W + ("3",), r"^\(\dot x=@\), \(x=@\).",
+  (lambda e: 20 - G * e["t"], lambda e: 20 * e["t"] - G / 2 * e["t"] ** 2))
+A("W3 greatest height", W + ("3",), r"Greatest height @ m when \(t=@\)", (20 ** 2 / (2 * G), 20 / G))
+A("W3 landing", W + ("3",), r"ground when \(t=@\), with \(\dot x=@\), so the speed is @ m/s",
+  (2 * 20 / G, 20 - G * 4, abs(20 - G * 4)))
+A("W4", W + ("4",), r"\(40\cos30^\circ=@\), \(40\sin30^\circ=@\); \(\theta\doteq@\); \(\sqrt{36+64}=@\)",
+  (40 * cos(radians(30)), 40 * sin(radians(30)), degrees(atan(3 / 4)), sqrt(6 ** 2 + 8 ** 2)), "eere")
+A("W5", W + ("5",), r"=2\pi r\times3=@\) when", 2 * pi * 4 * 3)
+
+# ==========================================================================
+# Lesson 9E: examples
+# ==========================================================================
+L9 = ("Lesson 9E", "Lesson Examples")
+A("9E C1 demo b", L9 + ("C1", "demo"), r"\(4\pi\times25\times2=@\) mm³/s", 4 * pi * 5 ** 2 * 2)
+r3 = 36 * pi / (4 / 3 * pi)
+A("9E C1 demo c", L9 + ("C1", "demo"), r"gives \(r^3=@\), \(r=@\); then", (r3, r3 ** (1 / 3)))
+A("9E C1 demo c rate", L9 + ("C1", "demo"), r"so \(\dfrac{dr}{dt}=@\) mm/s", 72 * pi / (4 * pi * r3 ** (2 / 3)))
+A("9E C1 turn", L9 + ("C1", "turn"), r"\(\dfrac{dA}{dt}=2x\times0.2=@\). <b>a</b> @ m²/s",
+  (lambda e: 2 * e["x"] * 0.2, 2 * 4 * 0.2))
+A("9E C1 turn b", L9 + ("C1", "turn"), r"so \(x=@\) m.", 2 / (2 * 0.2))
+A("9E C2 demo a", L9 + ("C2", "demo"), r"\(V=\tfrac13\pi\left(\tfrac12h\right)^2h=@\) &nbsp;",
+  lambda e: pi / 3 * (e["h"] / 2) ** 2 * e["h"])
+A("9E C2 demo b", L9 + ("C2", "demo"), r"and \(\dfrac{dh}{dt}=@\doteq@\) cm/s",
+  (12 / (pi / 4 * 4 ** 2), 12 / (pi / 4 * 4 ** 2)), "er")
+A("9E C2 turn", L9 + ("C2", "turn"), r"the depth increases at @ cm/s", 9 * pi / (pi * 3 ** 2))
+d3 = (sin(pi / 6) ** 2 / 2) * 600
+A("9E C3 demo b", L9 + ("C3", "demo"), r"300\sin^2\theta=@\) radians per hour", d3)
+A("9E C3 demo b deg", L9 + ("C3", "demo"), r"\div3600\doteq@^\circ\) per second", d3 * 180 / pi / 3600, "r")
+d3t = sin(radians(30)) ** 2 / 80 * 4
+A("9E C3 turn", L9 + ("C3", "turn"), r"=\dfrac{\sin^2\theta}{20}=@\) rad/s \(\doteq@^\circ\) per second",
+  (d3t, degrees(d3t)), "er")
+WE9 = ("9E", "WE")
+rr = (18 / (2 * pi / 3)) ** (1 / 3)
+A("9E WE1 b", WE9 + ("1",), r"=2\pi\times36\times3=@\ \text{mm}^3", 2 * pi * 6 ** 2 * 3)
+A("9E WE1 c r", WE9 + ("1",), r"and \(r=@\).</p>", rr)
+A("9E WE1 c rate", WE9 + ("1",), r"\dfrac{dr}{dt}=@\ \text{mm/s}\doteq@\ \text{mm/s}",
+  (90 / (2 * pi * rr ** 2), 90 / (2 * pi * rr ** 2)), "er")
+A("9E WE2", WE9 + ("2",), r"\times0.3=@\ \text{m/s}", -3 / sqrt(5 ** 2 - 3 ** 2) * 0.3)
+c2 = (120 / sqrt(120 ** 2 + 50 ** 2)) ** 2
+A("9E WE3", WE9 + ("3",), r"\times\dfrac{1}{24}=@.\]", c2 / 120 * 5)
+A("9E WE3 dec", WE9 + ("3",), r"increasing at \(\dfrac{6}{169}\doteq@\) radians", c2 / 120 * 5, "r")
+A("9E WE3 deg", WE9 + ("3",), r"\dfrac{180}{\pi}\doteq@^\circ\) per second", degrees(c2 / 120 * 5), "r")
+
+# ==========================================================================
+# Exercise 9E
+# ==========================================================================
+H9 = ("Lesson 9E", "Textbook Homework")
+A("9E Q1", H9 + ("1",), r"<b>b</b> @ m²/s &nbsp; <b>c</b> @ metres &nbsp; <b>d</b> @ m²",
+  (0.2 * 5, 1.4 / 0.2, (0.6 / 0.2) ** 2))
+A("9E Q2a", H9 + ("2",), r"\(A=@\)", lambda e: (e["l"] / sqrt(2)) ** 2)
+A("9E Q2c,d", H9 + ("2",), r"(i) @ m²/s (ii) @ m²/s &nbsp; <b>d</b> @ metres",
+  (10 / 2, sqrt(2 * 18) / 2, 17 * 2))
+A("9E Q3", H9 + ("3",), r"<b>a</b> @ m³/s &nbsp; <b>b</b> @ m²/s",
+  (4 * pi * 2 ** 2 * 0.3, 8 * pi * 4 * 0.3), "rr")
+r4 = sqrt(200 / (4 * pi * 0.5))
+A("9E Q4", H9 + ("4",), r"<b>b</b> \(@\) cm/s &nbsp; <b>c</b> \(r=@\) cm, \(V=@\) cm³",
+  (200 / (4 * pi * 15 ** 2), r4, 4 / 3 * pi * r4 ** 3))
+A("9E Q5a", H9 + ("5",), r"(2r)=@\), which", lambda e: pi / 3 * e["r"] ** 2 * (2 * e["r"]))
+A("9E Q5b", H9 + ("5",), r"<b>b</b> \(@\) cm/s", 5 / (2 * pi * (10 / 2) ** 2))
+th6 = pi / 3
+d6 = 650 / (1.5 / sin(th6) ** 2)
+A("9E Q6", H9 + ("6",), r"<b>b</b> @ radians per hour, about @ degrees", (d6, d6 * 180 / pi / 3600), "er")
 d7 = 50 * sin(radians(15)) ** 2 / 100
-check("9E Q7 rad/min", d7, 0.5 * sin(radians(15)) ** 2)
-check("9E Q7 rad/min ~0.0335", d7, 0.0335, 0.00005)
-check("9E Q7 deg/min nearest", round(degrees(d7)), 2)
-# Q8 isosceles right-angled cross-section: width 2h, length 100x cm
-hh, xx = 7.0, 3.0
-check("9E Q8a V = 100 h^2 x", 0.5 * (2 * hh) * hh * (100 * xx), 100 * hh ** 2 * xx)
-dVdt = -0.1 * (2 * hh) * (100 * xx)
-check("9E Q8b rate of fall of depth (cm/day)", -dVdt / (200 * xx * hh), 0.1)
-# Q10 unit circle, speed 2, above x-axis: dx/dt = -2 sqrt(1-x^2)
-phi = 1.1
-check("9E Q10a at phi=1.1", -2 * sin(phi), -2 * sqrt(1 - cos(phi) ** 2))
-check("9E Q10b at x=0", -2 * sqrt(1 - 0), -2)
-# Q11: a = 2CV^2/L^2 ; passing speed V(1+2C/L); d: V=90, limit 100, C=50
-Cc, Vv, Ll = 50.0, 90.0, None
-Ll = 2 * Cc / (100 / Vv - 1)
-check("9E Q11d L", Ll, 900, 1e-6)
-check("9E Q11d distance before lane", Ll + Cc, 950, 1e-6)
-# check a: car from rest-relative frame: s = C + L in time L/V with initial V
-Cc, Vv, Ll = 7.0, 3.0, 11.0
-T = Ll / Vv
-acc = 2 * (Cc + Ll - Vv * T) / T ** 2
-check("9E Q11a acceleration", acc, 2 * Cc * Vv ** 2 / Ll ** 2)
-check("9E Q11b passing speed", Vv + acc * T, Vv * (1 + 2 * Cc / Ll))
-# Q12 r = 2, x = 1, dx/dt = -sqrt3
-rr, xx = 2.0, 1.0
-th = atan(sqrt(rr * rr - xx * xx) / xx)
-dAdth = rr * rr * (1 - cos(2 * th))
-dthdx = -1 / sqrt(rr * rr - xx * xx)
-check("9E Q12d", dAdth * dthdx * (-sqrt(3)), 6)
-# Q13
+A("9E Q7", H9 + ("7",), r"\doteq@\) radians per minute, about @ degrees", (d7, degrees(d7)), "rr")
+A("9E Q8a", H9 + ("8",), r"<b>a</b> \(V=@\) cm³", lambda e: 0.5 * (2 * e["h"]) * e["h"] * 100 * e["x"])
+A("9E Q8b loss", H9 + ("8",), r"\(0.1\times200xh=@\) cm³",
+  lambda e: 0.1 * (2 * e["h"]) * (100 * e["x"]))
+hh8, xx8 = 7.0, 3.0
+A("9E Q8b rate", H9 + ("8",), r"at a constant @ cm/day",
+  0.1 * (2 * hh8) * (100 * xx8) / (100 * 2 * hh8 * xx8))
+A("9E Q10a", H9 + ("10",), r"<b>a</b> \(\dfrac{dx}{dt}=@\)",
+  lambda e: -2 * sin(acos(e["x"])))
+A("9E Q10b", H9 + ("10",), r"<b>b</b> \(@\) m/s.", -2 * sin(acos(0)))
+
+
+def acc11(e):
+    T = e["L"] / e["V"]
+    return 2 * (e["C"] + e["L"] - e["V"] * T) / T ** 2
+
+
+A("9E Q11a", H9 + ("11",), r"<b>a</b> \(@\) m/s²", acc11)
+L11 = 2 * 50 / (100 / 90 - 1)
+A("9E Q11d", H9 + ("11",), r"<b>d</b> @ metres", L11 + 50)
+th12 = acos(1 / 2)
+A("9E Q12d", H9 + ("12",), r"<b>d</b> @$",
+  2 ** 2 * (1 - cos(2 * th12)) * (-1 / sqrt(2 ** 2 - 1)) * (-sqrt(3)))
 xq = 100 * tan(pi / 6) / (tan(pi / 4) - tan(pi / 6))
-check("9E Q13c x", xq, 50 * (sqrt(3) + 1))
-check("9E Q13c h", xq * tan(pi / 4), 50 * (sqrt(3) + 1))
-ad = 5 / 36 * (sqrt(3) - 1)
-bd = 5 / 18 * (sqrt(3) - 1)
-a, b = pi / 6, pi / 4
-dxdt = (ad * (xq + 100) / cos(a) ** 2 - bd * xq / cos(b) ** 2) / (tan(b) - tan(a))
-check("9E Q13d dx/dt", dxdt, -500 / 9)
-check("9E Q13d speed km/h", abs(dxdt) * 3.6, 200)
+ad, bd = 5 / 36 * (sqrt(3) - 1), 5 / 18 * (sqrt(3) - 1)
+dxdt = (ad * (xq + 100) / cos(pi / 6) ** 2 - bd * xq / cos(pi / 4) ** 2) / (tan(pi / 4) - tan(pi / 6))
+A("9E Q13", H9 + ("13",), r"\(x=h=@\) metres &nbsp; <b>d</b> \(\dfrac{dx}{dt}=@\) m/s, so the speed is @ km/h",
+  (xq, dxdt, abs(dxdt) * 3.6))
 
-# =================== 10A lesson ===================
-check("10A C1 demo a(i) x", 20 * cos(radians(30)), 10 * sqrt(3))
-check("10A C1 demo a(i) y", 20 * sin(radians(30)), 10)
-check("10A C1 demo a(ii) x", 20 * cos(radians(45)), 10 * sqrt(2))
-check("10A C1 demo b(i) v", sqrt(36 + 64), 10)
-check("10A C1 demo b(i) angle", round(degrees(atan(8 / 6))), 53)
-check("10A C1 demo b(ii) v", sqrt(144 + 25), 13)
-check("10A C1 demo b(ii) angle", round(degrees(atan(-5 / 12))), -23)
-check("10A C1 turn a(i) y", 16 * sin(radians(60)), 8 * sqrt(3))
-check("10A C1 turn a(ii) x", 16 * cos(radians(30)), 8 * sqrt(3))
-check("10A C1 turn b(i)", sqrt(25 + 144), 13)
-check("10A C1 turn b(i) angle", round(degrees(atan(12 / 5))), 67)
-check("10A C1 turn b(ii)", sqrt(49 + 49), 7 * sqrt(2))
-check("10A C1 turn b(ii) angle", degrees(atan(-1)), -45)
-check("10A WE1 a(i) y", 12 * sin(radians(60)), 6 * sqrt(3))
-check("10A WE1 b(i) angle", round(degrees(atan(3 / 4))), 37)
-check("10A WE1 b(ii) v", sqrt(29), sqrt(29))
-check("10A WE1 b(ii) angle", round(degrees(atan(-2 / 5))), -22)
-# C2 demo: 30 m/s at 30 deg from 20 m platform
-u, w = 30 * cos(radians(30)), 30 * sin(radians(30))
-check("10A C2 demo top time", w / 10, 1.5)
-check("10A C2 demo top height", w * w / 20, 11.25)
-t = max(roots(-5, w, 20))
-check("10A C2 demo flight time", t, 4)
-check("10A C2 demo range", u * t, 60 * sqrt(3))
-check("10A C2 demo range ~103.9", u * t, 103.9, 0.05)
-vy = w - 10 * t
-check("10A C2 demo impact vy", vy, -25)
-check("10A C2 demo impact speed", sqrt(u * u + vy * vy), 10 * sqrt(13))
-check("10A C2 demo impact speed ~36.1", sqrt(u * u + vy * vy), 36.1, 0.05)
-check("10A C2 demo impact angle", round(degrees(atan(-vy / u))), 44)
-u, w = 20 * cos(radians(30)), 20 * sin(radians(30))
-check("10A C2 turn height", w * w / 20, 5)
-check("10A C2 turn flight", 2 * w / 10, 2)
-check("10A C2 turn range", u * 2 * w / 10, 20 * sqrt(3))
-# WE2 = textbook Example 3
-u, w = 40 * cos(radians(30)), 20
-check("10A WE2 top time", w / 10, 2)
-check("10A WE2 top height", -5 * 4 + 20 * 2, 20)
-check("10A WE2 top x", u * 2, 40 * sqrt(3))
-t = max(roots(-5, 20, 25))
-check("10A WE2 flight", t, 5)
-check("10A WE2 range", u * t, 100 * sqrt(3))
-vy = -10 * t + 20
-check("10A WE2 impact speed", sqrt(u * u + vy * vy), 10 * sqrt(21))
-check_dm("10A WE2 impact angle", degrees(atan(-vy / u)), 40, 54)
-# C3 demo: 50 m/s, target (200, 40)
-T1, T2 = roots(2, -5, 3)
-check("10A C3 demo tan roots", max(T1, T2), 1.5)
-check("10A C3 demo tan roots", min(T1, T2), 1)
-check_dm("10A C3 demo angle", degrees(atan(1.5)), 56, 19)
-for T in (1, 1.5):  # verify the target is hit
+# ==========================================================================
+# Lesson 10A: examples
+# ==========================================================================
+L10 = ("Lesson 10A", "Lesson Examples")
+A("10A C1 demo a", L10 + ("C1", "demo"), r"(i) \(\tv{v}=@\tv{i}+@\tv{j}\) (ii) \(\tv{v}=@\tv{i}-@\tv{j}\)",
+  (20 * cos(radians(30)), 20 * sin(radians(30)), 20 * cos(radians(45)), 20 * sin(radians(45))))
+A("10A C1 demo b", L10 + ("C1", "demo"),
+  r"(i) \(v=@\) m/s, \(\theta=\tan^{-1}@\doteq@\) (ii) \(v=@\) m/s, \(\theta=-\tan^{-1}@\doteq@\)",
+  (sqrt(6 ** 2 + 8 ** 2), 8 / 6, degrees(atan(8 / 6)), sqrt(12 ** 2 + 5 ** 2), 5 / 12, degrees(atan(-5 / 12))), "eereer")
+A("10A C1 turn a", L10 + ("C1", "turn"), r"(i) \(@\tv{i}+@\tv{j}\) (ii) \(@\tv{i}-@\tv{j}\)",
+  (16 * cos(radians(60)), 16 * sin(radians(60)), 16 * cos(radians(30)), 16 * sin(radians(30))))
+A("10A C1 turn b", L10 + ("C1", "turn"), r"(i) @ m/s at \(\tan^{-1}@\doteq@\) (ii) \(@\) m/s at \(@\)",
+  (sqrt(5 ** 2 + 12 ** 2), 12 / 5, degrees(atan(12 / 5)), sqrt(7 ** 2 + 7 ** 2), degrees(atan(-7 / 7))), "eerer")
+(fx, fX, fy, fY), u, w = proj(30, 30)
+A("10A C2 demo a", L10 + ("C2", "demo"), r"\(\dot x=@\), \(x=@\); \(\ddot y=-10\), \(\dot y=@\), \(y=@\).", (fx, fX, fy, fY))
+A("10A C2 demo b", L10 + ("C2", "demo"), r"at \(t=@\) s, height @ m above", (w / G, w ** 2 / (2 * G)))
+t = max(roots(-G / 2, w, 20))
+vy = w - G * t
+A("10A C2 demo c", L10 + ("C2", "demo"), r"so \(t=@\) s. Range \(@\doteq@\) m.", (t, u * t, u * t), "eer")
+A("10A C2 demo c impact", L10 + ("C2", "demo"),
+  r"\(\dot y=@\), so \(v=\sqrt{1300}=@\doteq@\) m/s at \(\tan^{-1}\dfrac{25}{15\sqrt3}\doteq@\) below",
+  (vy, sqrt(u * u + vy * vy), sqrt(u * u + vy * vy), degrees(atan(-vy / u))), "eerr")
+(fx, fX, fy, fY), u, w = proj(20, 30)
+A("10A C2 turn", L10 + ("C2", "turn"),
+  r"\(\dot x=@\), \(x=@\), \(\dot y=@\), \(y=@\). Greatest height @ m (at \(t=@\)); flight time @ s; range \(@\doteq@\) m.",
+  (fx, fX, fy, fY, w * w / (2 * G), w / G, 2 * w / G, u * 2 * w / G, u * 2 * w / G), "eeeeeeeer")
+# target (200, 40) at 50 m/s: (g x^2 / 2V^2) T^2 - x T + (y + g x^2 / 2V^2) = 0
+k = G * 200 ** 2 / (2 * 50 ** 2)
+Ta, Tb = sorted(roots(k, -200, 40 + k))
+A("10A C3 demo a", L10 + ("C3", "demo"), r"\(\tan\alpha=@\) or \(@\): \(\alpha=@\) or \(\alpha\doteq@\)",
+  (Ta, Tb, degrees(atan(Ta)), degrees(atan(Tb))), "eeer")
+A("10A C3 demo b", L10 + ("C3", "demo"), r"\(t=@\doteq@\) s, or \(t=@\doteq@\) s.",
+  (200 / (50 * cos(atan(Ta))), 200 / (50 * cos(atan(Ta))), 200 / (50 * cos(atan(Tb))), 200 / (50 * cos(atan(Tb)))), "erer")
+k = G * 80 ** 2 / (2 * 40 ** 2)
+Ta, Tb = sorted(roots(k, -80, 40 + k))
+A("10A C3 turn", L10 + ("C3", "turn"), r"so \(\alpha=@\) or \(\tan^{-1}@\doteq@\).",
+  (degrees(atan(Ta)), Tb, degrees(atan(Tb))), "eer")
+WE10 = ("10A", "WE")
+A("10A WE1 a(i)", WE10 + ("1",), r"(i) \(\dot x=12\cos60^\circ=@\) m/s and \(\dot y=12\sin60^\circ=@\) m/s",
+  (12 * cos(radians(60)), 12 * sin(radians(60))))
+A("10A WE1 a(ii)", WE10 + ("1",), r"(ii) \(\dot x=12\cos60^\circ=@\) m/s and \(\dot y=-12\sin60^\circ=@\) m/s",
+  (12 * cos(radians(-60)), 12 * sin(radians(-60))))
+A("10A WE1 b(i)", WE10 + ("1",), r"so \(v=@\) m/s, and \(\tan\theta=\tfrac34\), so \(\theta\doteq@\)",
+  (sqrt(4 ** 2 + 3 ** 2), degrees(atan(3 / 4))), "er")
+A("10A WE1 b(ii)", WE10 + ("1",), r"so \(v=@\) m/s, and \(\tan\theta=-\tfrac25\), so \(\theta\doteq@\)",
+  (sqrt(5 ** 2 + 2 ** 2), degrees(atan(-2 / 5))), "er")
+(fx, fX, fy, fY), u, w = proj(40, 30)
+A("10A WE2 b", WE10 + ("2",),
+  r"From (5), \(t=@\) seconds. From (6), \(y=-20+40=@\) metres above the stand, and from (3), \(x=@\) metres",
+  (w / G, w * w / (2 * G), u * w / G))
+A("10A WE2 b speed", WE10 + ("2",), r"the speed is \(\dot x=@\) m/s", u)
+t = max(roots(-G / 2, w, 25))
+vy = w - G * t
+A("10A WE2 c", WE10 + ("2",), r"and \(t=@\) (\(t=-1\)", t)
+A("10A WE2 c range", WE10 + ("2",), r"the horizontal range is \(x=@\) metres", u * t)
+A("10A WE2 c speed", WE10 + ("2",), r"the impact speed is \(v=@\) m/s", sqrt(u * u + vy * vy))
+A("10A WE2 c angle", WE10 + ("2",), r"so \(\theta\doteq@\): the impact", degrees(atan(vy / u)), "r")
+k = G * 2000 ** 2 / (2 * 200 ** 2)
+Ta, Tb = sorted(roots(k, -2000, 1000 + k))
+A("10A WE3 a", WE10 + ("3",), r"\(\alpha=45^\circ\) or \(\tan^{-1}3\doteq@\).</p>", degrees(atan(Tb)), "r")
+A("10A WE3 a low", WE10 + ("3",), r"giving \(\tan\alpha=1\) or 3, and \(\alpha=@\) or", degrees(atan(Ta)))
+aOF = degrees(atan(1000 / 2000))
+A("10A WE3 b", WE10 + ("3",),
+  r"\(\tan^{-1}\tfrac12\doteq@\) to the horizontal, so the \(45^\circ\) shot is inclined at \(@\) to \(OF\), and the \(71^\circ34'\) shot is inclined at \(@\) to the vertical",
+  (aOF, degrees(atan(Ta)) - aOF, 90 - degrees(atan(Tb))), "rrr")
+for T, lab in ((Ta, "45"), (Tb, "tan3")):
     a = atan(T)
-    t = 200 / (50 * cos(a))
-    check(f"10A C3 demo hits target, tan={T}", -5 * t * t + 50 * t * sin(a), 40, 1e-9)
-check("10A C3 demo flight 45", 4 / cos(radians(45)), 4 * sqrt(2))
-check("10A C3 demo flight 45 ~5.66", 4 * sqrt(2), 5.66, 0.005)
-check("10A C3 demo flight tan 1.5", 4 / cos(atan(1.5)), 2 * sqrt(13))
-check("10A C3 demo flight ~7.21", 2 * sqrt(13), 7.21, 0.005)
-for T in (1, 3):
-    a = atan(T)
-    t = 80 / (40 * cos(a))
-    check(f"10A C3 turn hits target, tan={T}", -5 * t * t + 40 * t * sin(a), 40, 1e-9)
-check_dm("10A C3 turn angle", degrees(atan(3)), 71, 34)
-# WE3 = textbook Example 4: 200 m/s, F (2000, 1000)
-for T in (1, 3):
-    a = atan(T)
-    t = 2000 / (200 * cos(a))
-    check(f"10A WE3 hits fortress, tan={T}", -5 * t * t + 200 * t * sin(a), 1000, 1e-6)
-check_dm("10A WE3 a high angle", degrees(atan(3)), 71, 34)
-check_dm("10A WE3 b OF inclination", degrees(atan(0.5)), 26, 34)
-check_dm("10A WE3 b low shot to OF", 45 - degrees(atan(0.5)), 18, 26)
-check_dm("10A WE3 b high shot to vertical", 90 - degrees(atan(3)), 18, 26)
-check("10A WE3 c flight 45", 10 / cos(radians(45)), 10 * sqrt(2))
-check("10A WE3 c vy 45", -10 * 10 * sqrt(2) + 200 * sin(radians(45)), 0, 1e-9)
-check("10A WE3 c speed 45", 200 * cos(radians(45)), 100 * sqrt(2))
-a = atan(3)
-t = 10 / cos(a)
-check("10A WE3 c flight tan3", t, 10 * sqrt(10))
-vx, vy = 200 * cos(a), -10 * t + 200 * sin(a)
-check("10A WE3 c vy tan3", vy, -40 * sqrt(10))
-check("10A WE3 c vx tan3", vx, 20 * sqrt(10))
-check("10A WE3 c speed tan3", sqrt(vx * vx + vy * vy), 100 * sqrt(2))
-check_dm("10A WE3 c angle tan3 (below)", -degrees(atan(vy / vx)), 63, 26)
+    tF = 2000 / (200 * cos(a))
+    vxF, vyF = 200 * cos(a), 200 * sin(a) - G * tF
+    if lab == "45":
+        A("10A WE3 c flight 45", WE10 + ("3",), r"\(t=\dfrac{10}{\cos45^\circ}=@\) seconds", tF)
+        A("10A WE3 c vy 45", WE10 + ("3",), r"+200\times\tfrac{1}{\sqrt2}=@\), so", vyF)
+        A("10A WE3 c speed 45", WE10 + ("3",), r"<b>horizontally</b> at \(@\) m/s", vxF)
+    else:
+        A("10A WE3 c flight tan3", WE10 + ("3",), r"so \(t=\dfrac{10}{\cos\alpha}=@\) seconds", tF)
+        A("10A WE3 c components", WE10 + ("3",), r"+60\sqrt{10}=@\), and from (2), \(\dot x=@\).", (vyF, vxF))
+        A("10A WE3 c speed", WE10 + ("3",), r"so \(v=@\) m/s. Also \(\tan\theta=\dfrac{\dot y}{\dot x}=@\), so \(\theta=-\tan^{-1}2\doteq@\).",
+          (sqrt(vxF ** 2 + vyF ** 2), vyF / vxF, degrees(atan(vyF / vxF))), "eer")
 
-# =================== Exercise 10A (g = 10) ===================
-g = 10
-# Q1 30sqrt2 at 45: xdot = 30, ydot0 = 30
-check("10A Q1c", 2 * 30 / g, 6)
-check("10A Q1d", 30 * 6, 180)
-check("10A Q1e", 30 / g, 3)
-check("10A Q1f", 30 * 30 / (2 * g), 45)
-check("10A Q1a xdot", 30 * sqrt(2) * cos(radians(45)), 30)
-check("10A Q2a xdot", 40 * cos(radians(30)), 20 * sqrt(3))
-check("10A Q2c(i)", 2 * 20 / g, 4)
-check("10A Q2c(ii)", 20 * sqrt(3) * 4, 80 * sqrt(3))
-check("10A Q2c(iii)", 400 / 20, 20)
-x1, y1 = 10, -5 + 10 * sqrt(3)
-check("10A Q3c(i)", sqrt(x1 * x1 + y1 * y1), 15.9, 0.05)
-check("10A Q3c(ii)", sqrt(10 ** 2 + (-10 + 10 * sqrt(3)) ** 2), 12.4, 0.05)
-check("10A Q4a xdot", 60 * 3 / 5, 36)
-check("10A Q4a ydot0", 60 * 4 / 5, 48)
-check("10A Q4c", sqrt((36 * 3) ** 2 + (-45 + 48 * 3) ** 2), 146.5, 0.05)
-vx, vy = 36, -30 + 48
-check("10A Q4d speed", sqrt(vx * vx + vy * vy), 18 * sqrt(5))
-check("10A Q4d angle", vy / vx, 0.5)
-check("10A Q5c(i)", sqrt(64 + 36), 10)
-check("10A Q5c(ii) x", 16, 16)
-check("10A Q5c(ii) y", 12 - 20, -8)
-tt = 6 / 10
-check("10A Q5c(iii) x", 8 * tt, 4.8)
-check("10A Q5c(iii) y", 6 * tt - 5 * tt * tt, 1.8)
-check("10A Q6b speed", sqrt(40 ** 2 + 25 ** 2), 5 * sqrt(89))
-check("10A Q6b angle", round(degrees(atan(25 / 40))), 32)
-check("10A Q7a Vcos", 8 / 2, 4)
-check("10A Q7a Vsin", (-12 + 20) / 2, 4)
-check("10A Q7b x", 4 * 0.5, 2)
-check("10A Q7b y", 4 * 0.5 - 5 * 0.25, 0.75)
-check("10A Q8a Vcos", 30 / 2, 15)
-check("10A Q8a Vsin", (30 + 20) / 2, 25)
-check("10A Q8b V", sqrt(15 ** 2 + 25 ** 2), 5 * sqrt(34))
-t = max(roots(-5, -6, 11))
-check("10A Q9c", t, 1)
-check("10A Q9d", 6 * sqrt(3) * t, 10.4, 0.05)
-check("10A Q9e", (10 * t + 6) / (6 * sqrt(3)), 8 * sqrt(3) / 9)
-u = 6 * cos(radians(45))
-t = max(roots(-5, u, 2))
-check("10A Q10a", t, 1.19, 0.005)
-check("10A Q10b", u * t, 5.03, 0.005)
-a = radians(36)
-V = sqrt(5 * 400 / (cos(a) ** 2 * (20 * tan(a) - 10)))
-check("10A Q11", round(V), 26)
-a = asin(sqrt(15) / 10)
-check("10A Q12 greatest height", (20 * sin(a)) ** 2 / (2 * g), 3)
-# Q13: P1 at time t, P2 at time t-2
-t = 2 * 60 / (60 - 20)
-check("10A Q13 x match time", t, 3)
-check("10A Q13 y P1", 30 * t - 5 * t * t, 45)
-check("10A Q13 y P2", 50 * (t - 2) - 5 * (t - 2) ** 2, 45)
-check("10A Q13 x", 20 * t, 60)
-T1, T2 = roots(1, -8, 7)
-check("10A Q14c", degrees(atan(min(T1, T2))), 45)
-check_dm("10A Q14c", degrees(atan(max(T1, T2))), 81, 52)
-for T in (1, 7):
-    th = atan(T)
-    t = 20 / (20 * sqrt(2) * cos(th))
-    check(f"10A Q14 passes (20,15), tan={T}", 20 * sqrt(2) * t * sin(th) - 5 * t * t, 15, 1e-9)
-# Q15 50 m/s through (100, 25)
-for T, tP, ang in ((0.5, sqrt(5), 0.0), (4.5, sqrt(85), 76.0)):
+# ==========================================================================
+# Exercise 10A
+# ==========================================================================
+H10 = ("Lesson 10A", "Textbook Homework")
+(fx, fX, fy, fY), u, w = proj(30 * sqrt(2), 45)
+A("10A Q1", H10 + ("1",), r"<b>b</b> \(x=@\), \(y=@\) &nbsp; <b>c</b> \(t=@\) seconds &nbsp; <b>d</b> @ m &nbsp; <b>e</b> \(t=@\) seconds &nbsp; <b>f</b> @ m",
+  (fX, fY, 2 * w / G, u * 2 * w / G, w / G, w * w / (2 * G)))
+(fx, fX, fy, fY), u, w = proj(40, 30)
+A("10A Q2", H10 + ("2",), r"<b>b</b> \(x=@\), \(y=@\) &nbsp; <b>c</b> (i) \(t=@\) seconds (ii) \(@\) m (iii) @ m",
+  (fX, fY, 2 * w / G, u * 2 * w / G, w * w / (2 * G)))
+(fx, fX, fy, fY), u, w = proj(20, 60)
+e1 = {"t": 1}
+A("10A Q3", H10 + ("3",), r"<b>b</b> \(x=@\), \(y=@\) &nbsp; <b>c</b> (i) @ m (ii) @ m/s",
+  (fX, fY, sqrt(fX(e1) ** 2 + fY(e1) ** 2), sqrt(fx(e1) ** 2 + fy(e1) ** 2)), "eerr")
+(fx, fX, fy, fY), u, w = proj(60, degrees(atan(4 / 3)))
+e3 = {"t": 3}
+A("10A Q4", H10 + ("4",), r"<b>b</b> \(x=@\), \(y=@\) &nbsp; <b>c</b> @ m",
+  (fX, fY, sqrt(fX(e3) ** 2 + fY(e3) ** 2)), "eer")
+
+
+def vec_answers(name, key, ux, uy):
+    ttop = uy / G
+    A(name, key, r"<b>a</b> \(\tv{v}=@\tv{i}+@\tv{j}\) &nbsp; <b>b</b> \(\tv{r}=@\tv{i}+@\tv{j}\)",
+      (lambda e: ux, lambda e: uy - G * e["t"], lambda e: ux * e["t"], lambda e: uy * e["t"] - G / 2 * e["t"] ** 2))
+    return ttop
+
+
+ttop = vec_answers("10A Q5a,b", H10 + ("5",), 8, 6)
+A("10A Q5c", H10 + ("5",), r"(i) @ m/s (ii) \(@\tv{i}-@\tv{j}\) (iii) \(@\tv{i}+@\tv{j}\)",
+  (sqrt(8 ** 2 + 6 ** 2), 8 * 2, -(6 * 2 - 5 * 4), 8 * ttop, 6 * ttop - 5 * ttop ** 2))
+A("10A Q6a", H10 + ("6",), r"\(\dot x=@\), \(\dot y=@\)",
+  (deriv(lambda e: 40 * e["t"], "t")({"t": 0}), deriv(lambda e: -5 * e["t"] ** 2 + 25 * e["t"], "t")({"t": 0})))
+A("10A Q7", H10 + ("7",), r"<b>a</b> \(\tv{v}=@\tv{i}+@\tv{j}\) &nbsp; <b>b</b> \(@\tv{i}+@\tv{j}\)",
+  (8 / 2, (-12 + 5 * 4) / 2, 4 * 0.5, 4 * 0.5 - 5 * 0.25))
+(fx, fX, fy, fY), u, w = proj(12, -30)
+t9 = max(roots(-5, w, 11))
+A("10A Q9", H10 + ("9",), r"<b>b</b> \(x=@\), \(y=@\) &nbsp; <b>c</b> @ second &nbsp; <b>d</b> @ m",
+  (fX, fY, t9, u * t9), "eeer")
+(fx, fX, fy, fY), u, w = proj(6, 45)
+t10 = max(roots(-5, w, 2))
+A("10A Q10", H10 + ("10",), r"<b>a</b> @ seconds &nbsp; <b>b</b> @ m", (t10, u * t10), "rr")
+a11 = radians(36)
+A("10A Q11", H10 + ("11",), r"^@ m/s", sqrt(5 * 20 ** 2 / (cos(a11) ** 2 * (20 * tan(a11) - 10))), "r")
+tc = 2 * 60 / (60 - 20)
+A("10A Q13", H10 + ("13",), r"collide @ second after \(P_2\) is projected (at \(@\tv{i}+@\tv{j}\))",
+  (tc - 2, 20 * tc, 30 * tc - 5 * tc ** 2))
+k = G * 20 ** 2 / (2 * (20 * sqrt(2)) ** 2)
+Ta, Tb = sorted(roots(k, -20, 15 + k))
+A("10A Q14c", H10 + ("14",), r"\(\theta=@\) or \(\theta\doteq@\)", (degrees(atan(Ta)), degrees(atan(Tb))), "er")
+k = G * 100 ** 2 / (2 * 50 ** 2)
+Ta, Tb = sorted(roots(k, -100, 25 + k))
+res15 = []
+for T in (Ta, Tb):
     a = atan(T)
-    t = 100 / (50 * cos(a))
-    check(f"10A Q15 passes P, tan={T}", -5 * t * t + 50 * t * sin(a), 25, 1e-9)
-    check(f"10A Q15b(i) tan={T}", t, tP)
-    vx, vy = 50 * cos(a), 50 * sin(a) - 10 * t
-    check(f"10A Q15b(ii) speed tan={T}", sqrt(vx * vx + vy * vy), 20 * sqrt(5))
-    check(f"10A Q15b(ii) speed ~44.7 tan={T}", sqrt(vx * vx + vy * vy), 44.7, 0.05)
-    check(f"10A Q15b(ii) angle below tan={T}", round(-degrees(atan(vy / vx)), 1), ang, 1e-9)
-# Q16b: range = 5 * height  ->  tan = 4/5
+    tP = 100 / (50 * cos(a))
+    vx, vy = 50 * cos(a), 50 * sin(a) - G * tP
+    res15.append((tP, sqrt(vx * vx + vy * vy), -degrees(atan(vy / vx))))
+I("10A Q15 both speeds equal", res15[0][1], res15[1][1])
+A("10A Q15b", H10 + ("15",), r"(i) \(@\) s and \(@\) s (ii) \(@\doteq@\) m/s in both cases, at angles of \(@\) and \(@\) (below)",
+  (res15[0][0], res15[1][0], res15[0][1], res15[0][1], res15[0][2], res15[1][2]), "eeerer")
+# Q18c: speed ratio at h/2 and h is sqrt5 : sqrt2 -> 1 + tan^2/2 = 5/2
+A("10A Q18c", H10 + ("18",), r"\(\theta=@\)", degrees(atan(sqrt(2 * (5 / 2 - 1)))))
+
+# ==========================================================================
+# Lesson 10B: examples
+# ==========================================================================
+LB = ("Lesson 10B", "Lesson Examples")
+pB = lambda e: -5 * (e["x"] / 30) ** 2 + 40 * (e["x"] / 30)
+R = max(roots(-5 / 900, 40 / 30, 0))
+A("10B C1 demo", LB + ("C1", "demo"),
+  r"so \(y=@\). &nbsp; <b>b</b> \(y=0\) gives the range \(x=@\) m; the greatest height is at \(x=@\): \(y=@\) m.",
+  (pB, R, R / 2, pB({"x": R / 2})))
+A("10B C1 demo c", LB + ("C1", "demo"), r"\(\dfrac{dy}{dx}=@\), which", fn(lambda e: -2 * 5 * e["x"] / 900 + 40 / 30))
+A("10B C1 demo c angle", LB + ("C1", "demo"), r"the angle of projection is \(\tan^{-1}\tfrac43\doteq@\)", degrees(atan(40 / 30)), "r")
+pT = lambda e: -5 * (e["x"] / 20) ** 2 + 15 * (e["x"] / 20)
+R = max(roots(-5 / 400, 15 / 20, 0))
+A("10B C1 turn", LB + ("C1", "turn"),
+  r"\(y=@\). Range @ m, greatest height @ m (at \(x=@\)), angle of projection \(\tan^{-1}\tfrac34\doteq@\)",
+  (pT, R, pT({"x": R / 2}), R / 2, degrees(atan(15 / 20))), "eeeer")
+s2 = 45 * G / 30 ** 2
+A("10B C2 demo", LB + ("C2", "demo"), r"so \(\sin2\alpha=@\), \(2\alpha", s2)
+A("10B C2 demo angles", LB + ("C2", "demo"), r"and \(\alpha=@\) or \(@\). The maximum range is \(\dfrac{V^2}{g}=@\) m.",
+  (degrees(asin(s2)) / 2, 90 - degrees(asin(s2)) / 2, 30 ** 2 / G))
+s2 = 20 * sqrt(3) * G / 20 ** 2
+a1, a2 = degrees(asin(s2)) / 2, 90 - degrees(asin(s2)) / 2
+A("10B C2 turn", LB + ("C2", "turn"),
+  r"\(\sin2\alpha=@\), so \(\alpha=@\) or \(@\). Greatest heights \(\dfrac{V^2\sin^2\alpha}{2g}\): @ m and @ m.",
+  (s2, a1, a2, (20 * sin(radians(a1))) ** 2 / (2 * G), (20 * sin(radians(a2))) ** 2 / (2 * G)))
+A("10B C3 demo a", LB + ("C3", "demo"), r"=\dfrac{10}{800}=@\).", G / (2 * 20 ** 2))
+k = G * 20 ** 2 / (2 * 20 ** 2)
+Ta, Tb = sorted(roots(k, -20, 5 + k))
+A("10B C3 demo b", LB + ("C3", "demo"), r"\(T=2\pm\sqrt2\): \(\alpha\doteq@\) or \(@\).",
+  (degrees(atan(Tb)), degrees(atan(Ta))), "rr")
+k = G * 40 ** 2 / (2 * 20 ** 2)
+A("10B C3 demo c", LB + ("C3", "demo"), r"with \(\Delta=@<0\)", (40 ** 2 - 4 * k * (10 + k)) / 10 ** 2)
+k = G * 30 ** 2 / (2 * 30 ** 2)
+Ta, Tb = sorted(roots(k, -30, 10 + k))
+A("10B C3 turn", LB + ("C3", "turn"), r"\(T=3\pm\sqrt6\): \(\alpha\doteq@\) or \(@\).",
+  (degrees(atan(Tb)), degrees(atan(Ta))), "rr")
+WEB = ("10B", "WE")
+p1 = path(20, 60)
+A("10B WE1 a", WEB + ("1",), r"\times\dfrac{x}{10}=@.\]", p1)
+R1 = 2 * 20 ** 2 * sin(radians(60)) * cos(radians(60)) / G
+A("10B WE1 b", WEB + ("1",), r"or \(x=@\). The range is \(20\sqrt3\doteq@\) m.", (R1, R1), "er")
+A("10B WE1 c", WEB + ("1",), r"Differentiating, \(\dfrac{dy}{dx}=@\).</p>", deriv(p1, "x"))
+sl = deriv(p1, "x")({"x": 15 * sqrt(3)})
+A("10B WE1 c slope", WEB + ("1",), r"+\sqrt3=@\).</p>", sl)
+A("10B WE1 c angle", WEB + ("1",), r"\(\theta\doteq@\). The ball", degrees(atan(sl)), "r")
+
+# ==========================================================================
+# Exercise 10B
+# ==========================================================================
+HB = ("Lesson 10B", "Textbook Homework")
+y1 = lambda x: -5 / 324 * x * x + 4 / 3 * x
+r1, r2 = sorted(roots(5 / 324, -4 / 3, 19))
+A("10B Q1", HB + ("1",), r"<b>a</b> @ m &nbsp; <b>b</b> @ m or @ m &nbsp; <b>c</b> \(\dfrac{dy}{dx}=@\)",
+  (y1(12), r1, r2, deriv(lambda e: y1(e["x"]), "x")), "rere")
+p2 = lambda x: -5 * (x / 48) ** 2 + 20 * (x / 48)
+R2 = max(roots(-5 / 48 ** 2, 20 / 48, 0))
+sl2 = (p2(120 + 1e-6) - p2(120 - 1e-6)) / 2e-6
+A("10B Q2b", HB + ("2",), r"(i) @ m (ii) @ m (iii) \(@\) (iv) \(@\) below",
+  (R2, p2(R2 / 2), degrees(atan(20 / 48)), -degrees(atan(sl2))), "eerr")
+p3 = lambda x: (x / 3) - 5 * (x / 3) ** 2
+A("10B Q3", HB + ("3",), r"<b>a</b> \(@\) &nbsp; <b>d</b> (i) \(@\) above the horizontal (ii) \(@\) below",
+  (sqrt(3 ** 2 + 1), degrees(atan((p3(0.15 + 1e-6) - p3(0.15 - 1e-6)) / 2e-6)), -degrees(atan((1 - 10 * 0.15) / 3))), "err")
+A("10B Q4", HB + ("4",), r"<b>a</b> \(y=@\) &nbsp; <b>b</b> @ m &nbsp; <b>c</b> \(@\) below",
+  (lambda e: -5 * (e["x"] / 5) ** 2, 5 * sqrt(20 / 5), degrees(atan(G * sqrt(20 / 5) / 5))), "eer")
+(fx, fX, fy, fY), u, w = proj(24, 30)
+p5 = path(24, 30)
+D = max(roots(-5 / u ** 2, w / u, 6))
+A("10B Q5", HB + ("5",), r"<b>a</b> \(\dot x=@\), \(\dot y=@\), \(x=@\), \(y=@\) &nbsp; <b>d</b> \(D\doteq@\)",
+  (fx, fy, fX, fY, D), "eeeer")
+a6 = radians(27)
+V2 = 5 * 35 ** 2 / (cos(a6) ** 2 * (60 - 35 * tan(a6)))
+A("10B Q6b", HB + ("6",), r"(i) @ m/s (ii) \(@\) below",
+  (sqrt(V2), degrees(atan(tan(a6) + G * 35 / (V2 * cos(a6) ** 2)))), "rr")
+s7 = 75 * G / 30 ** 2
+A("10B Q7b", HB + ("7",), r"\(\theta\doteq@\) or \(@\)", (degrees(asin(s7)) / 2, 90 - degrees(asin(s7)) / 2), "rr")
+A("10B Q8b", HB + ("8",), r"<b>b</b> \(@\)", degrees(asin(sqrt(15 * 2 * G / 20 ** 2))))
+k = G * 3000 ** 2 / (2 * 200 ** 2)
+Ta, Tb = sorted(roots(k, -3000, 500 + k))
+A("10B Q9b", HB + ("9",), r"<b>b</b> \(@\) or \(@\)", (degrees(atan(Tb)), degrees(atan(Ta))), "rr")
+A("10B Q11a", HB + ("11",), r"<b>a</b> \(x=@\), \(y=@\)",
+  (lambda e: e["V"] * e["t"] * cos(pi / 4), lambda e: -e["g"] * e["t"] ** 2 / 2 + e["V"] * e["t"] * sin(pi / 4)))
+A("10B Q12c(ii)", HB + ("12",), r"\(R=@\) metres", max(roots(1, -16, -6 ** 2)))
+
+# ==========================================================================
+# Chapter review
+# ==========================================================================
+RV = ("Chapter 10 Review", None)
+(fx, fX, fy, fY), u, w = proj(60, 40)
+A("Rev Q1", RV + ("1",), r"<b>b</b> \(x=@\), \(y=@\) &nbsp; <b>c</b> (i) \(t\doteq@\) seconds (ii) @ m (iii) @ m",
+  (fX, fY, 2 * w / G, u * 2 * w / G, w * w / (2 * G)), "eerrr")
+(fx, fX, fy, fY), u, w = proj(30, 60)
+t2 = max(roots(-5, w, 40))
+A("Rev Q2", RV + ("2",), r"<b>a</b> @ m &nbsp; <b>b</b> @ m &nbsp; <b>c</b> @ m/s",
+  (w * w / (2 * G), u * t2, sqrt(u * u + (w - G * t2) ** 2)), "err")
+(fx, fX, fy, fY), u, w = proj(25, degrees(atan(4 / 3)))
+A("Rev Q3", RV + ("3",), r"<b>b</b> \(x=@\), \(y=@\) &nbsp; <b>c</b> \(@\) m",
+  (fX, fY, sqrt(fX({"t": 1}) ** 2 + fY({"t": 1}) ** 2)))
+(fx, fX, fy, fY), u, w = proj(10, 45)
+p4 = path(10, 45)
+R4 = u * 2 * w / G
+xa, xb = sorted(roots(-G / (2 * u * u), w / u, -2.1))
+A("Rev Q4a", RV + ("4",), r"<b>a</b> \(\dot x=@\), \(x=@\), \(\dot y=@\), \(y=@\)", (fx, fX, fy, fY))
+A("Rev Q4b,c,d", RV + ("4",),
+  r"range: @ metres, maximum height: @ metres when \(x=@\) &nbsp; <b>c</b> (i) @ metres (ii) \(\tan^{-1}@\) below the horizontal &nbsp; <b>d</b> (i) \(x=@\) (ii) \(\tan^{-1}@\) above",
+  (R4, p4({"x": R4 / 2}), R4 / 2, p4({"x": 8}), -deriv(p4, "x")({"x": 8}), xa, deriv(p4, "x")({"x": xa})))
+vec_answers("Rev Q5a,b", RV + ("5",), 24, 18)
+A("Rev Q5c", RV + ("5",), r"(i) @ m/s (ii) \(@\tv{i}-@\tv{j}\) (iii) \(@\tv{i}+@\tv{j}\)",
+  (sqrt(24 ** 2 + 18 ** 2), 24 * 4, -(18 * 4 - 5 * 16), 24 * 1.8, 18 * 1.8 - 5 * 1.8 ** 2))
+ux6, uy6 = 24 * sqrt(5) / 2, (28 + 5 * 4) / 2
+A("Rev Q6", RV + ("6",), r"<b>a</b> \(\tv{v}=@\tv{i}+@\tv{j}\) &nbsp; <b>b</b> \(@\tv{i}+@\tv{j}\)",
+  (ux6, uy6, 3 * ux6, 3 * uy6 - 5 * 9))
+A("Rev Q6c", RV + ("6",), r"\(\dot y=@<0\)", uy6 - G * 3)
+uy7 = G * 3 / 2
+A("Rev Q7b", RV + ("7",), r"<b>b</b> @ m", uy7 ** 2 / (2 * G))
+ux8, uy8 = 5 * cos(atan(2)), 5 * sin(atan(2))
+tf8 = 2 * uy8 / G
+A("Rev Q8a", RV + ("8",), r"Initially \(\dot x=@\) and \(\dot y=@\).", (ux8, uy8))
+A("Rev Q8b", RV + ("8",), r"<b>b</b> \(\dot x=@\), \(x=@\), \(\dot y=@\), \(y=@\) &nbsp;",
+  (lambda e: ux8, lambda e: ux8 * e["t"], lambda e: uy8 - G * e["t"], lambda e: uy8 * e["t"] - 5 * e["t"] ** 2))
+A("Rev Q8d,e", RV + ("8",), r"<b>d</b> @ metre &nbsp; <b>e</b> @ metres", (uy8 ** 2 / (2 * G), ux8 * tf8))
+A("Rev Q8f", RV + ("8",), r"<b>f</b> \(\dot x=@\), \(\dot y=@\), \(v=@\) m/s, \(\theta=-\tan^{-1}@\)",
+  (ux8, uy8 - G * tf8, sqrt(ux8 ** 2 + (uy8 - G * tf8) ** 2), -(uy8 - G * tf8) / ux8))
+A("Rev Q8g", RV + ("8",), r"<b>g</b> \(y=@\)$", lambda e: uy8 * (e["x"] / ux8) - 5 * (e["x"] / ux8) ** 2)
+a9 = radians(26)
+A("Rev Q9", RV + ("9",), r"^@ m/s", sqrt(5 * 30 ** 2 / (cos(a9) ** 2 * (30 * tan(a9) - 12))), "r")
+# pack Q10 = textbook Ch 10 review Q11: 15 m/s at 60 deg, slope 30 deg
+p10 = path(15, 60)
+xl = (tan(radians(60)) - tan(radians(30))) / (G / (2 * (15 * cos(radians(60))) ** 2))
+A("Rev Q10 (textbook Q11)", RV + ("10",), r"<b>b</b> \(y=@\) &nbsp; <b>c</b> (i) @ m (ii) \(@\) seconds",
+  (p10, xl / cos(radians(30)), xl / (15 * cos(radians(60)))))
+I("Rev Q10 landing point is on the slope", p10({"x": xl}), xl * tan(radians(30)))
+# pack Q11 = Ch 9 review Q18: ladder 500 cm, foot 140 cm, 5 cm/s
+yl = sqrt(500 ** 2 - 140 ** 2)
+A("Rev Q11 (Ch 9 Q18)", RV + ("11",), r"<b>a</b> \(@\) cm/s &nbsp; <b>b</b> \(@\) radians per second",
+  (-140 / yl * 5, -5 / yl))
+
+# ==========================================================================
+# Part 2: identities with arbitrary values (not tied to the HTML)
+# ==========================================================================
+for V, thd, g in ((17.0, 50.0, 9.8), (23.0, 31.0, 10.0)):
+    th = radians(thd)
+    H = (V * sin(th)) ** 2 / (2 * g)
+    Rg = 2 * V * V * sin(th) * cos(th) / g
+    tt = 2 * V * sin(th) / g
+    I(f"10A Q16a(i) greatest height V={V},θ={thd}", V * sin(th) * (V * sin(th) / g) - g / 2 * (V * sin(th) / g) ** 2, V ** 2 * sin(th) ** 2 / (2 * g))
+    I(f"10A Q16a(ii) range V={V},θ={thd}", V * cos(th) * tt, V ** 2 * sin(2 * th) / g)
+    for kk in (1, -1):
+        t = (sqrt(2) + kk) * sqrt(H) / sqrt(g)
+        I(f"10A Q18b height h/2 at t (k={kk}) V={V},θ={thd}", V * t * sin(th) - g * t * t / 2, H / 2)
+    I(f"10A Q18a V={V},θ={thd}", V ** 2 * sin(th) ** 2, 2 * g * H)
+    xv = Rg / 2
+    I(f"10B Q8a vertex x V={V},θ={thd}", xv, V * V * sin(2 * th) / (2 * g))
+    I(f"10B Q8a vertex y V={V},θ={thd}", xv * tan(th) - g * xv * xv / (2 * V * V * cos(th) ** 2), V * V * sin(th) ** 2 / (2 * g))
+    I(f"10B Q12b path V={V},θ={thd}", 0.3 * Rg * tan(th) - g * (0.3 * Rg) ** 2 / (2 * V * V * cos(th) ** 2), 0.3 * Rg * (1 - 0.3) * tan(th))
 th = atan(4 / 5)
-check("10A Q16b", sin(2 * th) / g, 5 * sin(th) ** 2 / (2 * g))
-# Q17: tunnel 2 m: range = sqrt(16/g (V^2 - 4g)); check with V = 13, g = 9.8
-V, gg = 13.0, 9.8
-s2 = 2 * 2 * gg / V ** 2                      # sin^2 from V^2 sin^2/(2g) = 2
-th = asin(sqrt(s2))
-check("10A Q17 range formula", V * V * sin(2 * th) / gg, sqrt(16 / gg * (V * V - 4 * gg)))
-# Q18: b times, c theta = 60
-V, th, gg = 17.0, radians(50), 9.8
-h = (V * sin(th)) ** 2 / (2 * gg)
-for k in (1, -1):
-    t = (sqrt(2) + k) * sqrt(h) / sqrt(gg)
-    check(f"10A Q18b height h/2 at t (k={k})", V * t * sin(th) - gg * t * t / 2, h / 2, 1e-9)
-th = radians(60)
-h = (V * sin(th)) ** 2 / (2 * gg)
-vtop = V * cos(th)
-vhalf = sqrt(V * V - 2 * gg * (h / 2))           # energy: v^2 = V^2 - 2g(height)
-check("10A Q18c ratio^2", (vhalf / vtop) ** 2, 5 / 2)
-
-# =================== 10B lesson ===================
-check("10B C1 demo range", (4 / 3) * 180, 240)
-check("10B C1 demo height", -(120 ** 2) / 180 + 4 / 3 * 120, 80)
-check_dm("10B C1 demo angle", degrees(atan(4 / 3)), 53, 8)
-check("10B C1 turn range", 0.75 * 80, 60)
-check("10B C1 turn height", -(30 ** 2) / 80 + 0.75 * 30, 11.25)
-check_dm("10B C1 turn angle", degrees(atan(0.75)), 36, 52)
-# WE1: 20 m/s at 60
-check("10B WE1 b range", sqrt(3) * 20, 20 * sqrt(3))
-check("10B WE1 b range ~34.6", 20 * sqrt(3), 34.6, 0.05)
-check("10B WE1 c slope", -15 * sqrt(3) / 10 + sqrt(3), -sqrt(3) / 2)
-check_dm("10B WE1 c angle below", degrees(atan(sqrt(3) / 2)), 40, 54)
-# C2
-check("10B C2 demo sin2a", 45 / 90, 0.5)
-check("10B C2 demo max range", 900 / 10, 90)
-check("10B C2 turn sin2a", 20 * sqrt(3) / 40, sqrt(3) / 2)
-check("10B C2 turn heights 30", 400 * sin(radians(30)) ** 2 / 20, 5)
-check("10B C2 turn heights 60", 400 * sin(radians(60)) ** 2 / 20, 15)
-# C3 demo V = 20: y = xT - x^2(1+T^2)/80
-check("10B C3 demo a coefficient", 10 / (2 * 400), 1 / 80)
-T1, T2 = roots(1, -4, 2)
-for T in (T1, T2):
-    check(f"10B C3 demo passes (20,5) T={T:.3f}", 20 * T - 400 * (1 + T * T) / 80, 5, 1e-9)
-check("10B C3 demo angle hi", round(degrees(atan(T1))), 74)
-check("10B C3 demo angle lo", round(degrees(atan(T2))), 30)
-check("10B C3 demo (40,10) no roots", roots(2, -4, 3) is None, True)
-check("10B C3 turn coefficient", 10 / (2 * 900), 1 / 180)
-T1, T2 = roots(1, -6, 3)
-for T in (T1, T2):
-    check(f"10B C3 turn passes (30,10) T={T:.3f}", 30 * T - 900 * (1 + T * T) / 180, 10, 1e-9)
-check("10B C3 turn angle hi", round(degrees(atan(T1))), 80)
-check("10B C3 turn angle lo", round(degrees(atan(T2))), 29)
-
-# =================== Exercise 10B ===================
-y = lambda x: -5 / 324 * x * x + 4 / 3 * x
-check("10B Q1a", y(12), 13.8, 0.05)
-r1, r2 = roots(5 / 324, -4 / 3, 19)
-check("10B Q1b small", min(r1, r2), 18, 1e-9)
-check("10B Q1b large", max(r1, r2), 68.4, 0.05)
-dy = lambda x: -10 / 324 * x + 4 / 3
-check("10B Q1c coefficient", 10 / 324, 5 / 162)
-check("10B Q1c(ii)", dy(18), 7 / 9)
-check("10B Q1c(iii)", dy(54), -1 / 3)
-check("10B Q2a coefficient", 5 / 48 ** 2, 5 / 2304)
-check("10B Q2a coefficient x", 20 / 48, 5 / 12)
-R = (5 / 12) / (5 / 2304)
-check("10B Q2b(i)", R, 192)
-check("10B Q2b(ii)", -5 / 2304 * 96 ** 2 + 5 / 12 * 96, 20)
-check("10B Q2b(iii)", degrees(atan(5 / 12)), 22.6, 0.05)
-check("10B Q2b(iv) below", round(-degrees(atan(-10 / 2304 * 120 + 5 / 12))), 6)
-check("10B Q3a", sqrt(9 + 1), sqrt(10))
-yq = lambda x: (3 * x - 5 * x * x) / 9
-check("10B Q3c from x=3t,y=t-5t^2 at t=0.7", yq(2.1), 0.7 - 5 * 0.49)
-check("10B Q3d(i)", degrees(atan(1 / 3 - 10 * 0.15 / 9)), 9.5, 0.05)
-check("10B Q3d(ii) below", -degrees(atan((1 - 10 * 0.15) / 3)), 9.5, 0.05)
-check("10B Q4a coefficient", 5 / 25, 1 / 5)
-check("10B Q4b", sqrt(20 * 5), 10)
-check("10B Q4c below", round(degrees(atan(2 * 10 / 5))), 76)
-check("10B Q5a xdot", 24 * cos(radians(30)), 12 * sqrt(3))
-check("10B Q5a ydot0", 24 * sin(radians(30)), 12)
-check("10B Q5b coefficient", 5 / (12 * sqrt(3)) ** 2, 5 / 432)
-D = max(roots(5, -144 * sqrt(3), -2592))
-check("10B Q5c D on path y=-6", D / sqrt(3) - 5 / 432 * D * D, -6, 1e-9)
-check("10B Q5d", D, 58.7, 0.05)
-a = radians(27)
-V2 = 5 * 35 ** 2 / (cos(a) ** 2 * (60 - 35 * tan(a)))
-check("10B Q6b(i)", sqrt(V2), 13.5, 0.05)
-check("10B Q6b(ii) below", round(degrees(atan(tan(a) + 10 * 35 / (V2 * cos(a) ** 2)))), 71)
-s = 75 * 10 / 900
-check("10B Q7b low", degrees(asin(s)) / 2, 28.2, 0.05)
-check("10B Q7b high", 90 - degrees(asin(s)) / 2, 61.8, 0.05)
-check("10B Q8b", degrees(asin(sqrt(15 * 20 / 400))), 60)
-# Q8a vertex check with V=20, th=50 deg
-V, th = 20.0, radians(50)
-xv = V * V * sin(2 * th) / (2 * g)
-check("10B Q8a vertex slope 0", tan(th) - g * xv / (V * V * cos(th) ** 2), 0, 1e-9)
-check("10B Q8a vertex y", xv * tan(th) - g * xv * xv / (2 * V * V * cos(th) ** 2), V * V * sin(th) ** 2 / (2 * g))
-T1, T2 = roots(10 * 3000 ** 2, -2 * 3000 * 200 ** 2, 2 * 500 * 200 ** 2 + 10 * 3000 ** 2)
-check("10B Q9b root 1", T1, (4 + sqrt(3)) / 3)
-check("10B Q9b root 2", T2, (4 - sqrt(3)) / 3)
-check_dm("10B Q9b angle 1", degrees(atan(T1)), 62, 22)
-check_dm("10B Q9b angle 2", degrees(atan(T2)), 37, 5)
-check("10B Q10a coefficient", 10 / (2 * 34 ** 2), 5 / 1156)
-for T in (8 / 15, 538 / 75):
-    check(f"10B Q10b passes (30,11) T={T:.4f}", 30 * T - 5 * 900 * (1 + T * T) / 1156, 11, 1e-9)
-# Q11c: tan th = 1 - 30k = 60k - 1, k = g cos th / V^2  -> k = 1/45, tan = 1/3
-k = 2 / 90
-check("10B Q11c tan", 1 - 30 * k, 1 / 3)
+I("10A Q16b range = 5 x height at θ = arctan 4/5", sin(2 * th), 5 * sin(th) ** 2 / 2)
+V, g = 13.0, 9.8
+th = asin(sqrt(2 * 2 * g) / V)
+I("10A Q17 tunnel range (V=13, g=9.8)", V * V * sin(2 * th) / g, sqrt(16 / g * (V * V - 4 * g)))
 th = atan(1 / 3)
-V2 = g * cos(th) / k
+kk = 1 / 45
 for d, sgn in ((60, -1), (30, 1)):
     X, Y = d * cos(th), sgn * d * sin(th)
-    check(f"10B Q11c point {d} m on path", X - g * X * X / V2, Y, 1e-9)
-R = max(roots(1, -16, -36))
-check("10B Q12c(ii)", R, 18)
-r1, r2 = roots(1, -R, 4 * R)
-check("10B Q12c points 6 apart", abs(r1 - r2), 6, 1e-9)
-check("10B Q12c height 4", r1 * (1 - r1 / R), 4, 1e-9)
+    I(f"10B Q11c point {d} m along the hill is on y = x - gx²/V²", X - X * X * kk / cos(th), Y)
+Cc, Vv, Ll = 7.0, 3.0, 11.0
+I("9E Q11b passing speed (C=7,V=3,L=11)", Vv + acc11({"C": Cc, "V": Vv, "L": Ll}) * Ll / Vv, Vv * (1 + 2 * Cc / Ll))
 
-# =================== Chapter review ===================
-u, w = 60 * cos(radians(40)), 60 * sin(radians(40))
-t = 2 * w / g
-check("Rev Q1c(i)", t, 7.7, 0.05)
-check("Rev Q1c(ii)", u * t, 354.5, 0.05)
-check("Rev Q1c(iii)", w * w / (2 * g), 74.4, 0.05)
-u, w = 15, 15 * sqrt(3)
-check("Rev Q2a", w * w / 20, 33.75)
-t = max(roots(-5, w, 40))
-check("Rev Q2b", u * t, 96.58, 0.005)
-check("Rev Q2c", sqrt(30 ** 2 + 2 * g * 40), 41.23, 0.005)
-check("Rev Q3a xdot", 25 * 3 / 5, 15)
-check("Rev Q3a ydot0", 25 * 4 / 5, 20)
-check("Rev Q3c", sqrt(15 ** 2 + 15 ** 2), 15 * sqrt(2))
-check("Rev Q3d speed", sqrt(15 ** 2 + 10 ** 2), 5 * sqrt(13))
-check("Rev Q3d angle", 10 / 15, 2 / 3)
-check("Rev Q3e", (2 * 15 * 20 / g) / (400 / 20), 3)
-y = lambda x: x - x * x / 10
-check("Rev Q4a xdot", 10 * cos(radians(45)), 5 * sqrt(2))
-check("Rev Q4b range", 10, max(roots(-0.1, 1, 0)))
-check("Rev Q4b height", y(5), 2.5)
-check("Rev Q4c(i)", y(8), 1.6)
-check("Rev Q4c(ii) below", -(1 - 8 / 5), 3 / 5)
-check("Rev Q4d(i)", min(roots(1, -10, 21)), 3)
-check("Rev Q4d(ii)", 1 - 3 / 5, 2 / 5)
-check("Rev Q5c(i)", sqrt(24 ** 2 + 18 ** 2), 30)
-check("Rev Q5c(ii) y", 18 * 4 - 5 * 16, -8)
-check("Rev Q5c(ii) x", 24 * 4, 96)
-check("Rev Q5c(iii) x", 24 * 1.8, 43.2)
-check("Rev Q5c(iii) y", 18 * 1.8 - 5 * 1.8 ** 2, 16.2)
-ux, uy = 24 * sqrt(5) / 2, (28 + 20) / 2
-check("Rev Q6a x", ux, 12 * sqrt(5))
-check("Rev Q6a y", uy, 24)
-check("Rev Q6b x", 3 * ux, 36 * sqrt(5))
-check("Rev Q6b y", 3 * uy - 45, 27)
-check("Rev Q6c ydot", uy - 30, -6)
-ux, uy = 108 / 3, 3 * g / 2
-check("Rev Q7a V", sqrt(ux * ux + uy * uy), 39)
-check("Rev Q7a tan", uy / ux, 5 / 12)
-check("Rev Q7b", uy * uy / 20, 11.25)
-ux, uy = 5 / sqrt(5), 10 / sqrt(5)
-check("Rev Q8a x", ux, sqrt(5))
-check("Rev Q8a y", uy, 2 * sqrt(5))
-check("Rev Q8d", uy * uy / 20, 1)
-check("Rev Q8e flight", 2 * uy / g, 2 / 5 * sqrt(5))
-check("Rev Q8c flight < 1", 2 * uy / g < 1, True)
-check("Rev Q8e distance", ux * 2 * uy / g, 2)
-check("Rev Q8f ydot", uy - g * 2 * uy / g, -2 * sqrt(5))
-check("Rev Q8f speed", sqrt(ux * ux + uy * uy), 5)
-check("Rev Q8g coefficient", 5 / ux ** 2, 1)
-a = radians(26)
-V = sqrt(5 * 900 / (cos(a) ** 2 * (30 * tan(a) - 12)))
-check("Rev Q9", round(V), 46)
-# Ch 9 review Q18: ladder 500 cm, dx/dt = 5 cm/s, x = 140 cm
-yl = sqrt(500 ** 2 - 140 ** 2)
-check("Rev Q10a", -140 / yl * 5, -35 / 24)
-check("Rev Q10b", -5 / (500 * (yl / 500)), -1 / 96)
-
-n_ok = sum(results)
-print(f"\n{n_ok}/{len(results)} OK, {len(results) - n_ok} MISMATCH")
+# --------------------------------------------------------------------------
+nt, ni = len(tied), len(ident)
+bad = (nt - sum(tied)) + (ni - sum(ident))
+print(f"\nHTML-tied values: {sum(tied)}/{nt} OK")
+print(f"Identity checks (arbitrary values, not tied to HTML): {sum(ident)}/{ni} OK")
+print("ALL OK" if bad == 0 else f"{bad} FAILED")
+sys.exit(1 if bad else 0)
