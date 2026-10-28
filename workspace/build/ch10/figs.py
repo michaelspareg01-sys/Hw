@@ -337,6 +337,69 @@ g.hline(1000, x0=0, x1=2000)
 g.curve(lambda x: x / 2, "faint", 1.2, dash="4 3", x0=0, x1=2000)   # the line OF, as in the textbook
 save("fortress", g)
 
+
+# ---------------- 10A past papers ----------------
+def unit_inv(f, x, y, pre, power, anchor="start", size=11):
+    """Label such as '30 ms^-1' with a raised power."""
+    f.raw(f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}" font-size="{size}" fill="{INK}" font-weight="500">'
+          f'{pre}<tspan dy="-4" font-size="{size * 0.72:.1f}">{power}</tspan></text>')
+
+
+def traj(f, pts, color="blue", width=2.0):
+    f.path("M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts), color, width)
+
+
+# PP 1 Baulkham Hills 2023 Q7: thrown horizontally at 50 m/s from a 90 m tower (to scale, 0.8 px per metre)
+f = Fig(240, 112)
+ox, oy, s = 34, 94, 0.8
+d = 50 * sqrt(180 / 9.8)
+f.arrow(ox, oy, 226, oy, "ink", 1.3, 6).arrow(ox, oy, ox, 12, "ink", 1.3, 6)
+f.text(232, oy, "x", "start", italic=True).text(ox, 6, "y", italic=True)
+f.right(ox, oy, 1, -1, 7)
+traj(f, [(ox + s * 50 * t, oy - s * (90 - 4.9 * t * t)) for t in [i * sqrt(180 / 9.8) / 60 for i in range(61)]])
+f.arrow(ox, oy - 90 * s, ox + 150, oy - 90 * s, "ink", 1.1, 6, "4 3")
+plain(f, ox + 154, oy - 90 * s + 4, "50 m/s", "start")
+f.text(ox - 6, oy - 45 * s, "90 m", "end", size=11)
+f.text(ox - 6, oy + 9, "O", "end", italic=True)
+f.dot(ox + s * d, oy, 2.5).text(ox + s * d, oy + 12, "d", italic=True)
+save("pp_bhhs23", f)
+
+# PP 3 North Sydney Girls 2020 Q13(d): 30 m/s at alpha from 20 m (drawn for alpha = 50 deg, 1.3 px per metre)
+f = Fig(220, 124)
+ox, oy, s, al = 30, 108, 1.3, radians(50)
+T = (30 * sin(al) + sqrt((30 * sin(al)) ** 2 + 400)) / 10
+f.line(10, oy, 200, oy, "ink", 1.3).arrow(200, oy, 212, oy, "ink", 1.3, 6).arrow(ox, 120, ox, 8, "ink", 1.3, 6)
+f.text(212, oy + 11, "x", italic=True).text(ox + 8, 10, "y", "start", italic=True)
+traj(f, [(ox + s * 30 * cos(al) * t, oy - s * (20 + 30 * sin(al) * t - 5 * t * t)) for t in [i * T / 80 for i in range(81)]], "ink", 1.8)
+ly = oy - 20 * s
+f.line(ox, ly, ox + 50, ly, "ink", 1, "4 3")
+f.arrow(ox, ly, ox + 60 * cos(al), ly - 60 * sin(al), "ink", 1.3, 6)
+unit_inv(f, ox + 60 * cos(al) + 4, ly - 60 * sin(al) + 2, "30 ms", "−1")
+f.arc(ox, ly, 16, 0, 50, "ink", 1).text(ox + 20, ly - 10, "α", "start", italic=True)
+f.text(ox - 5, ly, "20 m", "end", size=11)
+save("pp_nsg20", f)
+
+# PP 4 Ascham 2024 Q12(d): stuntman from 5 m at 10 m/s, 30 deg; pad 1 m high (15 px per metre)
+f = Fig(305, 150)
+ox, oy, s = 34, 122, 15
+f.arrow(ox, oy, 272, oy, "ink", 1.3, 6).arrow(ox, oy, ox, 12, "ink", 1.3, 6)
+f.text(268, oy + 13, "x", italic=True).text(ox - 10, 18, "y", italic=True)
+f.text(ox - 4, oy + 13, "O", "end", italic=True)
+ly = oy - 5 * s
+f.text(ox - 6, ly, "5", "end", size=11).line(ox, ly, ox + 70, ly, "ink", 1, "4 3")
+pts = [(ox + s * 5 * sqrt(3) * t, oy - s * (5 + 5 * t - 5 * t * t)) for t in [i * 0.9 / 50 for i in range(51)]]
+traj(f, pts, "ink", 1.6)
+f.arrow(*pts[-3], *pts[-1], "ink", 1.6, 7)
+f.arrow(ox, ly, ox + 50 * cos(radians(30)), ly - 50 * sin(radians(30)), "ink", 1.3, 6)
+plain(f, ox + 50 * cos(radians(30)) + 2, ly - 50 * sin(radians(30)) - 5, "10 m/s", "start")
+f.arc(ox, ly, 20, 0, 30, "ink", 1).text(ox + 24, ly - 9, "30°", "start", size=11)
+px = ox + s * 5 * sqrt(3) * (5 + sqrt(105)) / 10
+f.raw(f'<rect x="{px - 1.0 * s:.1f}" y="{oy - s:.1f}" width="{2 * s}" height="{s}" fill="{FAINT}" fill-opacity=".45" stroke="{INK}" stroke-width="1.1"/>')
+f.text(px, oy + 12, "PAD", size=10.5)
+f.line(px + s + 2, oy - s, px + s + 26, oy - s, "ink", 1, "4 3")
+f.dim(px + s + 30, oy - s, px + s + 30, oy).text(px + s + 35, oy - s / 2, "1 m", "start", size=11)
+save("pp_asc24b", f)
+
 # ---------------- 10B ----------------
 g = Graph(-1, 13, -0.6, 5.2, 330, 180, pad=(30, 40, 18, 30))
 g.axes()
