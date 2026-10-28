@@ -698,7 +698,16 @@ for V, thd, g in ((17.0, 50.0, 9.8), (23.0, 31.0, 10.0)):
     for kk in (1, -1):
         t = (sqrt(2) + kk) * sqrt(H) / sqrt(g)
         I(f"10A Q18b height h/2 at t (k={kk}) V={V},θ={thd}", V * t * sin(th) - g * t * t / 2, H / 2)
-    I(f"10A Q18a V={V},θ={thd}", V ** 2 * sin(th) ** 2, 2 * g * H)
+    # 10A Q18a: find the greatest height by a ternary search on y(t), with no formula for H
+    lo, hi = 0.0, tt
+    for _ in range(200):
+        m1, m2 = lo + (hi - lo) / 3, hi - (hi - lo) / 3
+        if V * m1 * sin(th) - g * m1 * m1 / 2 < V * m2 * sin(th) - g * m2 * m2 / 2:
+            lo = m1
+        else:
+            hi = m2
+    hnum = V * lo * sin(th) - g * lo * lo / 2
+    I(f"10A Q18a V^2 sin^2θ = 2gh, h by search, V={V},θ={thd}", V ** 2 * sin(th) ** 2, 2 * g * hnum)
     xv = Rg / 2
     I(f"10B Q8a vertex x V={V},θ={thd}", xv, V * V * sin(2 * th) / (2 * g))
     I(f"10B Q8a vertex y V={V},θ={thd}", xv * tan(th) - g * xv * xv / (2 * V * V * cos(th) ** 2), V * V * sin(th) ** 2 / (2 * g))

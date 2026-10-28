@@ -13,26 +13,26 @@
 <li>Be very careful with units, here and anywhere calculus is applied. A rate has units such as mm³/s or m/s.</li></ul>
 <p>If the rate you are given is for the "wrong" variable, use \(\dfrac{dr}{dV}=1\Big/\dfrac{dV}{dr}\), or simply solve the chain-rule equation for the unknown rate.</p></div>
 <div class="box formula"><div class="bt">Volume and surface area of solids (Year 11)</div>
-<table class="t"><tr><th></th><th>Sphere</th><th>Cylinder</th><th>Cone</th><th>Pyramid</th></tr>
+<table class="t" style="font-size:9.8pt"><tr><th></th><th>Sphere</th><th>Cylinder</th><th>Cone</th><th>Pyramid</th></tr>
 <tr><td>Volume</td><td>\(V=\tfrac43\pi r^3\)</td><td>\(V=\pi r^2h\)</td><td>\(V=\tfrac13\pi r^2h\)</td><td>\(V=\tfrac13\times\text{base}\times\text{height}\)</td></tr>
 <tr><td>Surface area</td><td>\(A=4\pi r^2\)</td><td>\(A=2\pi r^2+2\pi rh\)</td><td>\(A=\pi r^2+\pi r\ell\)</td><td>\(A=\) sum of faces</td></tr></table>
 <p class="small">In the formula for the surface area of a cone, \(\ell\) is the slant height.</p></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A growing sphere</span></div><div class="ex-body">
-A spherical balloon is being inflated, so that \(V=\tfrac43\pi r^3\).
-<b>a</b> Differentiate with respect to time using the chain rule.
-<b>b</b> Find the rate of increase of the volume when the radius is 5 mm, if the radius is increasing at 2 mm/s.
+A spherical balloon is being inflated, so that \(V=\tfrac43\pi r^3\).<br>
+<b>a</b> Differentiate with respect to time using the chain rule.<br>
+<b>b</b> Find the rate of increase of the volume when the radius is 5 mm, if the radius is increasing at 2 mm/s.<br>
 <b>c</b> Find the rate of increase of the radius when the volume is \(36\pi\) mm³, if the volume is increasing at \(72\pi\) mm³/s.
 {{work:55}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
-The sides of a square of side length \(x\) metres are increasing at 0.2 m/s.
-<b>a</b> Find the rate of increase of the area when \(x=4\).
+The sides of a square of side length \(x\) metres are increasing at 0.2 m/s.<br>
+<b>a</b> Find the rate of increase of the area when \(x=4\).<br>
 <b>b</b> What is the side length when the area is increasing at 2 m²/s?
 {{work:42}}</div></div>
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
-A hemispherical bubble on the water surface is growing in size.
-<b>a</b> Write down the formula for the volume \(V\) mm³ in terms of the radius \(r\) mm, then differentiate with respect to time using the chain rule.
-<b>b</b> Find the rate at which the volume is increasing when the radius is 6 mm, if the radius is increasing at 3 mm/s.
+A hemispherical bubble on the water surface is growing in size.<br>
+<b>a</b> Write down the formula for the volume \(V\) mm³ in terms of the radius \(r\) mm, then differentiate with respect to time using the chain rule.<br>
+<b>b</b> Find the rate at which the volume is increasing when the radius is 6 mm, if the radius is increasing at 3 mm/s.<br>
 <b>c</b> Find the rate at which the radius is increasing when the volume is 18 mm³, if the volume is increasing at 90 mm³/s.
 <div class="sol-label">Solution</div>
 <div class="split"><div>
@@ -58,8 +58,8 @@ A hemispherical bubble on the water surface is growing in size.
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Filling a cone</span></div><div class="ex-body">
 <div class="split"><div>
-Water is poured at 12 cm³/s into a conical tank with its vertex down. When the depth of water is \(h\) cm, the radius of the water surface is \(r=\tfrac12h\) cm.
-<b>a</b> Show that the volume of water is \(V=\tfrac{\pi}{12}h^3\).
+Water is poured at 12 cm³/s into a conical tank with its vertex down. When the depth of water is \(h\) cm, the radius of the water surface is \(r=\tfrac12h\) cm.<br>
+<b>a</b> Show that the volume of water is \(V=\tfrac{\pi}{12}h^3\).<br>
 <b>b</b> Find the rate at which the depth is increasing when the depth is 4 cm.
 </div><div>{{svg:cone}}</div></div>
 {{work:46}}</div></div>
@@ -74,10 +74,12 @@ A 5-metre ladder leans against a vertical wall. Its foot slides away from the wa
 <div class="split"><div>
 <p>Let the foot be \(x\) m from the wall and the top be \(y\) m above the ground. We are given \(\dfrac{dx}{dt}=0.3\), and we want \(\dfrac{dy}{dt}\).</p>
 <p>By Pythagoras, \(y=\sqrt{25-x^2}=(25-x^2)^{\frac12}\), so</p>
-\[\dfrac{dy}{dx}=\tfrac12(25-x^2)^{-\frac12}\times(-2x)=\dfrac{-x}{\sqrt{25-x^2}}.\]
+\[\dfrac{dy}{dx}=\tfrac12(25-x^2)^{-\frac12}\times(-2x)\]
+\[\phantom{\dfrac{dy}{dx}}=\dfrac{-x}{\sqrt{25-x^2}}.\]
 </div><div>
 <p>By the chain rule,</p>
-\[\dfrac{dy}{dt}=\dfrac{dy}{dx}\times\dfrac{dx}{dt}=\dfrac{-x}{\sqrt{25-x^2}}\times0.3.\]
+\[\dfrac{dy}{dt}=\dfrac{dy}{dx}\times\dfrac{dx}{dt}\]
+\[\phantom{\dfrac{dy}{dt}}=\dfrac{-x}{\sqrt{25-x^2}}\times0.3.\]
 <p>When \(x=3\), \(\sqrt{25-9}=4\), so</p>
 \[\dfrac{dy}{dt}=-\dfrac34\times0.3=-0.225\ \text{m/s}.\]
 <p>The top of the ladder is sliding down the wall at 0.225 m/s. The negative sign shows that \(y\) is decreasing.</p>
@@ -94,8 +96,8 @@ A 5-metre ladder leans against a vertical wall. Its foot slides away from the wa
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Watching a plane</span></div><div class="ex-body">
 <div class="split"><div>
-A plane flies at 600 km/h at a constant altitude of 2 km, directly towards an observer at \(A\). Let \(\theta\) be its angle of elevation from \(A\), and let \(x\) km be the distance from \(A\) to the point \(B\) directly below the plane.
-<b>a</b> By writing \(x=\dfrac{2}{\tan\theta}\), show that \(\dfrac{dx}{d\theta}=-\dfrac{2}{\sin^2\theta}\).
+A plane flies at 600 km/h at a constant altitude of 2 km, directly towards an observer at \(A\). Let \(\theta\) be its angle of elevation from \(A\), and let \(x\) km be the distance from \(A\) to the point \(B\) directly below the plane.<br>
+<b>a</b> By writing \(x=\dfrac{2}{\tan\theta}\), show that \(\dfrac{dx}{d\theta}=-\dfrac{2}{\sin^2\theta}\).<br>
 <b>b</b> Find the rate at which \(\theta\) is increasing when \(\theta=\dfrac{\pi}{6}\), in radians per hour and in degrees per second.
 </div><div>{{svg:plane}}</div></div>
 {{work:55}}</div></div>
