@@ -212,6 +212,101 @@ f.arc(100, 120, 22, 0, degrees(atan2(100, 120))).text(126, 110, "β", "start", i
 save("radars", f)
 
 
+# ---------------- 9E past papers ----------------
+def plain(f, x, y, s, anchor="middle", size=11, italic=False):
+    """Text without the fraction handling of _txt (for labels such as L/min)."""
+    st = ' font-style="italic"' if italic else ''
+    f.raw(f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}" font-size="{size}" fill="{INK}" font-weight="500"{st}>{s}</text>')
+
+
+# PP 3 Killara 2024 Q13(e): searchlight 6 m from the path (scale 15 px per metre)
+f = Fig(250, 150)
+Lx, Ly, Fy = 40, 128, 38
+Mx = Lx + 15 * 8
+f.line(10, Fy, 240, Fy, "ink", 1.8)
+f.right(Lx, Fy, 1, 1, 8)
+f.line(Lx, Ly, Lx, Fy, "ink", 1.3)
+f.line(Lx, Ly, Mx, Fy, "blue", 1.6)
+f.dot(Lx, Ly, 4).dot(Mx, Fy, 4, "rose")
+f.text(Lx - 6, (Ly + Fy) / 2 + 4, "6 m", "end", size=11)
+f.text((Lx + Mx) / 2, Fy - 7, "x", italic=True)
+f.arc(Lx, Ly, 24, degrees(atan2(Ly - Fy, Mx - Lx)), 90).text(Lx + 10, Ly - 30, "θ", "start", italic=True)
+f.text(Lx + 8, Ly + 14, "searchlight", "start", size=10, color="faint")
+f.text(Mx, Fy - 7, "man", "start", size=10, color="faint")
+f.text(200, Fy + 14, "path", size=10, color="faint")
+save("pp_kil24", f)
+
+# PP 4 Ascham 2024 Q14(c): conical tank 6 m across, 5 m deep (scale 25 px per metre)
+f = Fig(230, 220)
+cx, top, s = 100, 44, 25
+apex = top + 5 * s
+hw = 2.2                      # water depth drawn (m)
+wy, wr = apex - hw * s, 0.6 * hw * s
+f.dim(cx - 3 * s, 18, cx + 3 * s, 18).text(cx, 12, "6 m", size=11)
+f.line(cx - 3 * s, 14, cx - 3 * s, 24, "faint", 1).line(cx + 3 * s, 14, cx + 3 * s, 24, "faint", 1)
+f.poly([(cx - wr, wy), (cx + wr, wy), (cx, apex)], color="blue", opacity=0.22, stroke="blue", width=1.1)
+f.raw(f'<ellipse cx="{cx}" cy="{wy:.1f}" rx="{wr:.1f}" ry="5" fill="{ACC["blue"]}" fill-opacity=".3" stroke="{ACC["blue"]}" stroke-width="1.2"/>')
+f.raw(f'<ellipse cx="{cx}" cy="{top}" rx="{3 * s}" ry="10" fill="none" stroke="{INK}" stroke-width="1.5"/>')
+f.line(cx - 3 * s, top, cx, apex).line(cx + 3 * s, top, cx, apex)
+f.dot(cx, wy, 1.8)
+f.line(cx, wy - 16, cx + wr, wy - 16, "ink", 1, "3 3").line(cx, wy - 20, cx, wy - 12, "ink", 1).line(cx + wr, wy - 20, cx + wr, wy - 12, "ink", 1)
+f.text(cx + wr / 2, wy - 23, "r", italic=True)
+f.line(cx - wr - 14, wy, cx - wr - 14, apex, "ink", 1, "3 3").line(cx - wr - 18, wy, cx - wr - 10, wy, "ink", 1).line(cx - wr - 18, apex, cx - wr - 10, apex, "ink", 1)
+f.text(cx - wr - 20, (wy + apex) / 2 + 4, "h", "end", italic=True)
+f.dim(cx + 3 * s + 22, top, cx + 3 * s + 22, apex).text(cx + 3 * s + 28, (top + apex) / 2 + 4, "5 m", "start", size=11)
+f.line(cx + 3 * s + 16, top, cx + 3 * s + 28, top, "faint", 1).line(cx + 10, apex, cx + 3 * s + 28, apex, "faint", 1, "3 3")
+f.dot(cx, apex + 7, 1.3).dot(cx, apex + 13, 1.3)
+f.arrow(cx, apex + 18, cx, apex + 40, "ink", 1.6)
+plain(f, cx + 6, apex + 36, "1.5 L/min", "start")
+save("pp_asc24", f)
+
+# PP 5 North Sydney Girls 2023 Q13(d): lamp above a round table, drawn for h = 2.5 (scale 24 px per metre)
+f = Fig(340, 172)
+cx, s, hh = 150, 30, 2.5
+ground, tabletop = 22 + (hh + 1) * s, 22 + hh * s
+lampy = tabletop - hh * s
+rt, rs = 3 * s, 3 * (1 + 1 / hh) * s
+k = 0.2                       # ellipse squash for the perspective view
+f.raw(f'<ellipse cx="{cx}" cy="{ground}" rx="{rs:.1f}" ry="{rs * k:.1f}" fill="{FAINT}" fill-opacity=".45" stroke="{INK}" stroke-width="1.1" stroke-dasharray="4 3"/>')
+for x in (cx - rt + 4, cx + rt - 4):
+    f.raw(f'<rect x="{x - 3:.1f}" y="{tabletop:.1f}" width="6" height="{s}" fill="#fff" stroke="{INK}" stroke-width="1.1"/>')
+f.raw(f'<rect x="{cx - 2.5}" y="{tabletop + 4}" width="5" height="{s - 10}" fill="#fff" stroke="{INK}" stroke-width="1"/>')
+f.raw(f'<ellipse cx="{cx}" cy="{tabletop}" rx="{rt}" ry="{rt * k:.1f}" fill="#fff" stroke="{INK}" stroke-width="1.5"/>')
+f.line(cx - rt, tabletop, cx - rt, tabletop + 3, "ink", 1.5).line(cx + rt, tabletop, cx + rt, tabletop + 3, "ink", 1.5)
+f.line(cx, lampy, cx - rs, ground, "ink", 1, "3 3").line(cx, lampy, cx + rs, ground, "ink", 1, "3 3")
+f.raw(f'<path d="M{cx - 9},{lampy - 8} L{cx + 9},{lampy - 8} L{cx + 4},{lampy - 2} L{cx - 4},{lampy - 2} Z" fill="#fff" stroke="{INK}" stroke-width="1.2"/>')
+f.dot(cx, lampy, 2.6, "amber")
+f.text(cx - 10, lampy + 4, "O", "end", italic=True)
+f.text(cx - rs - 6, ground + 4, "L", "end", italic=True).text(cx + rs + 6, ground + 4, "N", "start", italic=True)
+f.text(cx, ground + rs * k + 13, "M", italic=True)
+xr = cx + rs + 26
+f.line(cx + 12, lampy, xr + 6, lampy, "faint", 1).line(cx + rt + 6, tabletop, xr + 6, tabletop, "faint", 1).line(cx + rs + 18, ground, xr + 6, ground, "faint", 1)
+f.dim(xr, lampy, xr, tabletop).dim(xr, tabletop, xr, ground)
+f.text(xr + 6, (lampy + tabletop) / 2 + 4, "h m", "start", size=11).text(xr + 6, (tabletop + ground) / 2 + 4, "1 m", "start", size=11)
+save("pp_nsg23", f)
+
+# PP 6 North Sydney Boys 2022 Q12(b): cone of height 2 inscribed in a sphere, drawn for R = 1.6 (scale 70 px per unit)
+f = Fig(240, 216)
+cx, cy, s, Rr = 104, 108, 62, 1.6
+Rp = Rr * s
+apy = cy - Rp
+by = apy + 2 * s
+rp = sqrt(4 * Rr - 4) * s
+f.raw(f'<circle cx="{cx}" cy="{cy}" r="{Rp:.1f}" fill="none" stroke="{INK}" stroke-width="1.5"/>')
+f.raw(f'<path d="M{cx - rp:.1f},{by:.1f} A{rp:.1f},13 0 0 1 {cx + rp:.1f},{by:.1f}" fill="none" stroke="{INK}" stroke-width="1.1" stroke-dasharray="4 3"/>')
+f.raw(f'<path d="M{cx - rp:.1f},{by:.1f} A{rp:.1f},13 0 0 0 {cx + rp:.1f},{by:.1f}" fill="none" stroke="{INK}" stroke-width="1.3"/>')
+f.line(cx, apy, cx - rp, by, "ink", 1.3).line(cx, apy, cx + rp, by, "ink", 1.3)
+f.line(cx, apy, cx, cy + Rp, "faint", 1, "3 3")
+f.dot(cx, cy, 3.5).dot(cx, by, 3.5)
+f.arrow(cx, cy, cx + rp - 3, by - 1, "blue", 1.4, 6).text(cx + rp * 0.4, cy + 0.4 * (by - cy) - 7, "R", italic=True, color="blue")
+f.dim(cx + 4, by + 8, cx + rp, by + 8).text(cx + rp * 0.5, by + 22, "r", italic=True)
+f.text(cx + rp * 0.55 + 8, (apy + by) / 2 - 2, "l", "start", italic=True)
+xr = cx + Rp + 22
+f.line(cx, apy, xr + 4, apy, "faint", 1, "3 3").line(cx + rp + 4, by, xr + 4, by, "faint", 1, "3 3")
+f.dim(xr, apy, xr, by).text(xr + 7, (apy + by) / 2 + 4, "2", "start", italic=True)
+save("pp_nsb22", f)
+
+
 # ---------------- 10A ----------------
 vel_box("res60", "ẋ = 12 cos 60°", "ẏ", "12", "60°")
 vel_box("resm60", "ẋ = 12 cos 60°", "ẏ", "12", "60°", ang_at_top=True)
