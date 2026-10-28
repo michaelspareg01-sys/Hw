@@ -9,13 +9,13 @@ Two PDFs, built with `workspace/build/build.py workspace/build/ch10 all` (run fr
 No tutor-notes PDF.
 
 ## Scope and structure (fixed)
-- Cover → Revision (short review of Advanced 9A–9C motion + warm-up) → Lesson 9E Related rates → Lesson 10A Projectile motion: the time equations → Lesson 10B Projectile motion: the equation of path → Chapter 10 review exercise (plus Ch 9 review Q18 ladder, related rates).
+- Cover → Revision (short review of Advanced 9A–9C motion + warm-up) → Lesson 9E Related rates → Lesson 10A Projectile motion: the time equations → Lesson 10B Projectile motion: the equation of path → Chapter 10 review exercise (textbook Q1–9 and Q11 as pack Q1–10; textbook Q10 omitted as doubtful; Ch 9 review Q18 ladder as pack Q11).
 - Each lesson: Concepts (from the textbook teaching part, no omissions) → Tutor demo → Your turn → Worked example(s) to keep; Textbook homework banded Foundation / Development / Enrichment (from the textbook exercise, verbatim); Past-paper homework mini exam.
 - Fragment files: `cover.html`, `revision.html`, `l09e.html`, `l10a.html`, `l10b.html` (lesson); `a_rev_9e.html`, `a_10a.html`, `a_10b.html` (answers). Figures: `workspace/build/ch10/figs.py` → `svg/*.svg`, inserted with `{{svg:name}}`.
 - Placeholders still to fill: `@@PP9E@@`, `@@PP10A@@`, `@@PP10B@@` (lesson past-paper sets), `@@PPA9E@@`, `@@PPA10A@@`, `@@PPA10B@@` (answers), `@@M9E@@`, `@@M10A@@`, `@@M10B@@` (cover: "NN marks · NN min").
 
 ## Sources
-- Textbook: `workspace/zip/Math Textbook CMS6 Ext1 Y12.pdf` (PDF page ≈ printed + 26). 9E = PDF 491–494; 10A = 506–513; 10B = 514–518; Ch 10 review = 519–520; Ch 9 review Q18 = 504. Textbook answers: 9E = PDF 919; 10A = 921 (right column); 10B = 921–922; Ch 10 review = 922; Ch 9 review = 920–921. Year 11 16A (related rates teaching) = `workspace/sources/CSM6_EXT1Y11_book.pdf` PDF 770–772.
+- Textbook: `workspace/zip/Math Textbook CMS6 Ext1 Y12.pdf` (PDF page ≈ printed + 26). 9E = PDF 491–494; 10A = 506–513; 10B = 514–518; Ch 10 review = 519–521; Ch 9 review Q18 = 504. Textbook answers: 9E = PDF 919; 10A = 921 (right column); 10B = 921–922; Ch 10 review = 922; Ch 9 review = 920–921. Year 11 16A (related rates teaching) = `workspace/sources/CSM6_EXT1Y11_book.pdf` PDF 770–772.
 - Past papers: `workspace/pp/Ext 1/<YEAR>/` 2020–2024. Candidate catalogue (pre-screened, page numbers, flags): `docs/pp_candidates_ch10.md`.
 - Tools: `workspace/tools/render.py pdf page out.png [zoom] [y0frac y1frac]`, `renderclip.py`, `qa.py file.pdf` (flags raw LaTeX), `sheet.py file.pdf prefix [zoom] [first last]` (2-up contact sheets). Run Python on source PDFs with `python3 -I`.
 
