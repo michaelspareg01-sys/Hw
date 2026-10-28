@@ -432,4 +432,62 @@ g.dot(x1, 4).dot(x2, 4)
 g.label(9, 4, "6", dy=-9)
 save("q12path", g)
 
+# ---------------- 10B past papers ----------------
+# (PP 2, North Sydney Girls 2020 Q13(d)(iii), reuses pp_nsg20 from 10A)
+# PP 3 Sydney Grammar 2022 Q13(d): projectile from O at speed V, angle alpha, range R (drawn for alpha = 50 deg)
+f = Fig(260, 156)
+ox, oy, R, al = 34, 112, 190, radians(50)
+f.arrow(ox, oy, 250, oy, "ink", 1.3, 6).arrow(ox, oy + 8, ox, 8, "ink", 1.3, 6)
+f.text(250, oy + 13, "x", italic=True).text(ox - 9, 14, "y", italic=True)
+f.text(ox - 6, oy + 13, "O", "end", italic=True)
+k = 0.42   # vertical squash so the figure stays short; the arrow follows the drawn path
+f.path("M" + " L".join(f"{ox + R * i / 60:.1f},{oy - R * i / 60 * tan(al) * (1 - i / 60) * k:.1f}" for i in range(61)), "ink", 1.4, dash="5 4")
+ang = atan(tan(al) * k)   # direction of the drawn path at O
+f.arrow(ox, oy, ox + 62 * cos(ang), oy - 62 * sin(ang), "ink", 1.4, 7)
+f.text(ox + 38 * cos(ang), oy - 38 * sin(ang) - 9, "V", italic=True)
+f.arc(ox, oy, 26, 0, degrees(ang), "ink", 1).text(ox + 32, oy - 8, "α", "start", italic=True)
+f.line(ox, oy + 16, ox, oy + 26, "ink", 1).line(ox + R, oy + 16, ox + R, oy + 26, "ink", 1)
+f.dim(ox, oy + 21, ox + R, oy + 21, "ink").text(ox + R / 2, oy + 36, "R", italic=True)
+save("pp_sgs22", f)
+
+# PP 4 Baulkham Hills 2023 Q14(c)(ii): two balls at the same speed through (a, b)
+# to scale in units of h = V^2/2g: y = xT - x^2(1 + T^2)/4 with tan(theta1) = 3.66, tan(theta2) = 0.56
+f = Fig(270, 165)
+ox, oy, s = 30, 140, 125
+T1, T2 = 3.66, 0.56
+f.arrow(ox, oy, 262, oy, "ink", 1.3, 6).arrow(ox, oy + 8, ox, 6, "ink", 1.3, 6)
+f.text(258, oy + 14, "x", italic=True).text(ox - 9, 12, "y", italic=True)
+f.text(ox - 6, oy + 13, "O", "end", italic=True)
+for T, c in ((T1, "violet"), (T2, "rose")):
+    X = 4 * T / (1 + T * T)
+    traj(f, [(ox + s * X * i / 80, oy - s * (X * i / 80 * T - (X * i / 80) ** 2 * (1 + T * T) / 4)) for i in range(81)], c, 1.8)
+    a = atan(T)
+    f.arrow(ox, oy, ox + 46 * cos(a), oy - 46 * sin(a), "ink", 1.4, 7)
+    if T > 1:
+        f.text(ox + 46 * cos(a) + 5, oy - 46 * sin(a) + 8, "V", "start", italic=True)
+    else:
+        f.text(ox + 46 * cos(a) + 3, oy - 46 * sin(a) - 7, "V", "start", italic=True)
+f.arc(ox, oy, 14, degrees(atan(T2)), degrees(atan(T1)), "ink", 1).text(ox + 6, oy - 20, "θ₁", "start", size=11, italic=True)
+f.arc(ox, oy, 22, 0, degrees(atan(T2)), "ink", 1).text(ox + 26, oy - 4, "θ₂", "start", size=11, italic=True)
+xa = 4 / (T1 + T2)
+yb = xa * T2 - xa * xa * (1 + T2 * T2) / 4
+f.dot(ox + s * xa, oy - s * yb, 3.5).text(ox + s * xa + 6, oy - s * yb - 8, "(a, b)", "start", size=11)
+save("pp_bhhs23b", f)
+
+# PP 5 Killara 2024 Q14(d): P (speed u, angle theta) and Q (speed 2u, angle 2 theta) both land at B
+# drawn as in the paper (not to scale)
+f = Fig(250, 175)
+ox, oy, X = 30, 150, 190
+f.line(10, oy, 238, oy, "ink", 1.3).arrow(238, oy, 246, oy, "ink", 1.3, 6).arrow(ox, oy + 12, ox, 8, "ink", 1.3, 6)
+f.text(244, oy - 8, "x", italic=True).text(ox - 9, 14, "y", italic=True)
+for hgt in (40, 102):
+    traj(f, [(ox + X * i / 80, oy - 4 * hgt * (i / 80) * (1 - i / 80)) for i in range(81)], "ink", 1.5)
+f.arrow(ox, oy, ox + 40, oy - 4 * 40 / X * 40 - 4, "ink", 1.3, 7)
+f.arrow(ox, oy, ox + 72, oy - 136, "ink", 1.3, 7)
+f.text(ox + 44, oy - 41, "u", "start", italic=True, size=11)
+f.text(ox + 30, oy - 70, "2u", "end", italic=True, size=11)
+f.dot(ox, oy, 3).dot(ox + X, oy, 3)
+f.text(ox - 4, oy + 14, "A", "end", italic=True).text(ox + X + 4, oy + 14, "B", "start", italic=True)
+save("pp_kil24b", f)
+
 print("figures written")
