@@ -344,8 +344,8 @@ d3 = (sin(pi / 6) ** 2 / 2) * 600
 A("9E C3 demo b", L9 + ("C3", "demo"), r"300\sin^2\theta=@\) radians per hour", d3)
 A("9E C3 demo b deg", L9 + ("C3", "demo"), r"\div3600\doteq@^\circ\) per second", d3 * 180 / pi / 3600, "r")
 d3t = sin(radians(30)) ** 2 / 80 * 4
-A("9E C3 turn", L9 + ("C3", "turn"), r"=\dfrac{\sin^2\theta}{20}=@\) rad/s \(\doteq@^\circ\) per second",
-  (d3t, degrees(d3t)), "er")
+A("9E C3 turn", L9 + ("C3", "turn"), r"=\dfrac{\sin^2\theta}{20}=@\doteq@\) rad/s \(\doteq@^\circ\) per second",
+  (d3t, d3t, degrees(d3t)), "err")
 WE9 = ("9E", "WE")
 rr = (18 / (2 * pi / 3)) ** (1 / 3)
 A("9E WE1 b", WE9 + ("1",), r"=2\pi\times36\times3=@\ \text{mm}^3", 2 * pi * 6 ** 2 * 3)
