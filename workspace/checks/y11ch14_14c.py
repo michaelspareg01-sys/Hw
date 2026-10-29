@@ -677,7 +677,12 @@ try:
     intro = re.search(r"Suggested time: (\d+) minutes</b></span><span><b>(\d+) marks", pps[1])
     marks = [int(m) for m in re.findall(r'<span class="mk">(\d+) marks?</span>', pps[1])]
     T, M = int(intro.group(1)), int(intro.group(2))
-    report(sum(marks) == M and 15 <= M <= 22, "lesson marks", f"PP marks {marks} sum {sum(marks)}, intro {M} (15 to 22)")
+    report(sum(marks) == M == 12, "lesson marks", f"PP marks {marks} sum {sum(marks)}, intro {M}")
+    print(f"NOTE     {M} marks is below 15: house rule 8 (no other clean 14C school item; the rest need 14D), see the task report")
+    note = re.search(r'<p class="small">(.*?)</p>', pps[1], re.S).group(1)
+    probs = [n_ for n_ in PPQ if "probability" in PPQ[n_]]
+    report(probs == [5, 8] and "PP 5 and PP 8 are probability questions" in note and "shorter than usual" in note, "intro note",
+           f"probability items {probs}; note names PP 5 and PP 8 and the short exam")
     report(T == roundhalf5(Fr(3, 2) * M), "lesson time", f"{T} min for {M} marks (1.5 x {M} = {float(1.5 * M)})")
     report(sorted(PPQ) == sorted(PPA) == list(range(1, len(PPQ) + 1)), "PP numbering", f"lesson {sorted(PPQ)}, answers {sorted(PPA)}")
     for n_ in PPQ:
@@ -720,32 +725,28 @@ check("PP2", PPA.get(2, ""), r"\[\text{number of arrangements}=@.\]", count(ol, 
 check("PP2 option B", PPA.get(2, ""), r"Option (B), \(@\), forgets", count(ol, lambda p: p.index("L") == p.index("C") + 1))
 mc(2, count(ol, lambda p: adjacent(p, "C", "L")), r"<span>\(([A-D])\) (\d+)</span>")
 
-# ---------------------------------------------------------------- PP 3  3 girls and 3 boys on a bench, girls apart
+# ---------------------------------------------------------------- PP 3  EPSILON vowels adjacent (number)
+ep = list(permutations("EPSILON"))
+n_ep = count(ep, lambda p: contiguous(p, "EIO"))
+check("PP3", PPA.get(3, ""), r"\[\text{number of arrangements}=@.\]", n_ep)
+has("PP3 question", PPQ.get(3, ""), "ii) the three vowels are adjacent to each other.")
+report("PP 4" not in PPA.get(3, "") and "PP 4" not in PPQ.get(3, ""), "PP3 no cross-reference", "no reference to the removed EPSILON item")
+
+# ---------------------------------------------------------------- PP 4  3 girls and 3 boys on a bench, girls apart
 bench = list(permutations(["G0", "G1", "G2", "B0", "B1", "B2"]))
 apart = lambda p: all(not (p[i][0] == "G" and p[i + 1][0] == "G") for i in range(5))
 n3 = count(bench, apart)
-check("PP3", PPA.get(3, ""), r"\[\text{number of ways}=@.\]", n3)
-check("PP3 boys", PPA.get(3, ""), r"seat them in a row in \(@\) ways", count(permutations("BCD")))
+check("PP4", PPA.get(4, ""), r"\[\text{number of ways}=@.\]", n3)
+check("PP4 boys", PPA.get(4, ""), r"seat them in a row in \(@\) ways", count(permutations("BCD")))
 try:
-    v = int(find(PPA[3], r"This leaves @ gaps"))
-    report(v == 3 + 1, "PP3 gaps", f"{v} gaps around 3 boys")
+    v = int(find(PPA[4], r"This leaves @ gaps"))
+    report(v == 3 + 1, "PP4 gaps", f"{v} gaps around 3 boys")
 except Exception as ex:
-    report(False, "PP3 gaps", f"ERROR {ex}")
-check("PP3 option A", PPA.get(3, ""), r"Option (A), \(@\), counts", count(bench, lambda p: all(p[i][0] != p[i + 1][0] for i in range(5))))
-report(apart(("G0", "B0", "B1", "G1", "B2", "G2")), "PP3 GBBGBG", "GBBGBG has the girls apart but does not alternate")
-mc(3, n3, r"<span>\(([A-D])\) (\d+)</span>")
-
-# ---------------------------------------------------------------- PP 4  EPSILON vowels together (expression)
-ep = list(permutations("EPSILON"))
-n4 = count(ep, lambda p: contiguous(p, "EIO"))
-try:
-    tex = find(PPA[4], r"So the number of arrangements is \(@\).</p>")
-    report(tex_eval(tex) == n4, "PP4", f"printed {tex}, computed {n4}")
-except Exception as ex:
-    report(False, "PP4", f"ERROR {ex}")
-check("PP4 option B", PPA.get(4, ""), r"Option (B), \(@\), forgets", count(ep, lambda p: p.index("E") + 2 == p.index("I") + 1 == p.index("O")))
-mc(4, n4, r"<span>\(([A-D])\) \\\((.+?)\\\)</span>")
-
+    report(False, "PP4 gaps", f"ERROR {ex}")
+check("PP4 option A", PPA.get(4, ""), r"Option (A), \(@\), counts", count(bench, lambda p: all(p[i][0] != p[i + 1][0] for i in range(5))))
+report(apart(("G0", "B0", "B1", "G1", "B2", "G2")), "PP4 GBBGBG", "GBBGBG has the girls apart but does not alternate")
+mc(4, n3, r"<span>\(([A-D])\) (\d+)</span>")
+has("PP4 question", PPQ.get(4, ""), "three girls and three boys be seated on a bench for a photograph if the girls must sit apart")
 # ---------------------------------------------------------------- PP 5  three dice, product a perfect square
 dice = list(product(range(1, 7), repeat=3))
 sq = lambda t: isqrt(t[0] * t[1] * t[2]) ** 2 == t[0] * t[1] * t[2]
@@ -776,39 +777,30 @@ aligned("PP7", PPA.get(7, ""), r"\text{number of ways}&=@\end{aligned}", count(e
 check("PP7 total", PPA.get(7, ""), r"scheduled in \(@\) ways", len(ex8))
 has("PP7 question", PPQ.get(7, ""), "schedule the 8 exams so that Mathematics Extension 1 and Mathematics Extension 2 are NOT consecutive")
 
-# ---------------------------------------------------------------- PP 8  EPSILON vowels adjacent (number)
-check("PP8", PPA.get(8, ""), r"\[\text{number of arrangements}=@.\]", n4)
-
-# ---------------------------------------------------------------- PP 9  two cards, at least one heart
-cards = list(permutations(range(52), 2))                # cards 0-12 are the hearts
-blk = PPA.get(9, "")
-check("PP9 |S|", blk, r"replacement: \(|S|=@\).", len(cards))
-check("PP9 no heart", blk, r"with no heart is \(@\). Hence", count(cards, lambda c: min(c) >= 13))
-p9 = Fr(count(cards, lambda c: min(c) < 13), len(cards))
-try:
-    al = find(blk, r"\begin{aligned}P(\text{at least 1 heart})&=1-P(\text{no heart})\\ &=@\end{aligned}")
-    rows = [r.replace("&", "").strip().lstrip("=").rstrip(".") for r in al.split("\\\\")]
-    report(all(tex_eval(r) == p9 for r in rows) and len(rows) == 2, "PP9", f"rows {rows}, computed {p9}")
-except Exception as ex:
-    report(False, "PP9", f"ERROR {ex}")
-report(sum(1 for c in range(52) if c < 13) == 13 and 52 - 13 == 39, "PP9 hearts", "13 hearts, 39 other cards")
-
-# ---------------------------------------------------------------- PP 10  batteries
+# ---------------------------------------------------------------- PP 8  batteries
 bat = list(permutations(range(11), 4))                  # batteries 0-6 good, 7-10 defective; places 1-2 projector, 3-4 air conditioner
 G = lambda b: b < 7
-blk = PPA.get(10, "")
-check("PP10 |S|", blk, r"\[|S|=@.\]", len(bat))
-check("PP10 (i) count", blk, r"There are \(@\) such selections", count(bat, lambda s: all(G(b) for b in s)))
+blk = PPA.get(8, "")
+check("PP8 |S|", blk, r"\[|S|=@.\]", len(bat))
+check("PP8 (i) count", blk, r"There are \(@\) such selections", count(bat, lambda s: all(G(b) for b in s)))
 p_i = Fr(count(bat, lambda s: all(G(b) for b in s)), len(bat))
-check("PP10 (i)", blk, r"P(\text{both work})=@.\]", p_i)
-check("PP10 (ii) projector", blk, r"its two batteries are good: \(@\) ways", count(permutations(range(11), 2), lambda s: G(s[0]) and G(s[1])))
+check("PP8 (i)", blk, r"P(\text{both work})=@.\]", p_i)
+check("PP8 (ii) projector", blk, r"its two batteries are good: \(@\) ways", count(permutations(range(11), 2), lambda s: G(s[0]) and G(s[1])))
 rest = list(permutations([0, 1, 2, 3, 4, 7, 8, 9, 10], 2))      # after two good ones are used: 5 good and 4 defective left
-check("PP10 (ii) AC total", blk, r"chosen in \(@\) ways, of which", len(rest))
-check("PP10 (ii) AC good", blk, r"of which \(@\) are both good", count(rest, lambda s: G(s[0]) and G(s[1])))
-check("PP10 (ii) AC fails", blk, r"So there are \(@\) ways for it to fail", count(rest, lambda s: not (G(s[0]) and G(s[1]))))
+check("PP8 (ii) AC total", blk, r"chosen in \(@\) ways, of which", len(rest))
+check("PP8 (ii) AC good", blk, r"of which \(@\) are both good", count(rest, lambda s: G(s[0]) and G(s[1])))
+check("PP8 (ii) AC fails", blk, r"So there are \(@\) ways for it to fail", count(rest, lambda s: not (G(s[0]) and G(s[1]))))
 p_ii = Fr(count(bat, lambda s: G(s[0]) and G(s[1]) and not (G(s[2]) and G(s[3]))), len(bat))
-aligned("PP10 (ii)", blk, r"P(\text{only the projector works})&=@\end{aligned}", p_ii)
-has("PP10 question", PPQ.get(10, ""), "A drawer contains 11 different batteries of which 7 are good and 4 are defective.")
+aligned("PP8 (ii)", blk, r"P(\text{only the projector works})&=@\end{aligned}", p_ii)
+# the ordered/unordered remark: enumerate unordered pairs (projector pair, then a pair from the rest)
+un = [(a, c) for a in combinations(range(11), 2) for c in combinations([x for x in range(11) if x not in a], 2)]
+u_i = Fr(count(un, lambda q: all(G(x) for x in q[0] + q[1])), len(un))
+u_ii = Fr(count(un, lambda q: all(G(x) for x in q[0]) and not all(G(x) for x in q[1])), len(un))
+check("PP8 factor", blk, r"matches exactly \(@\) ordered selections", Fr(len(bat), len(un)))
+report(u_i == p_i and u_ii == p_ii, "PP8 unordered model", f"unordered pairs give {u_i}, {u_ii}; ordered give {p_i}, {p_ii}")
+has("PP8 question", PPQ.get(8, ""), "A drawer contains 11 different batteries of which 7 are good and 4 are defective.")
+report(not any(s in LES + ANS for s in ("Sydney Technical High School, 2021", "James Ruse Agricultural High School, 2023")), "removed items",
+       "STHS 2021 Q11(c) and JRAHS 2023 Q10 are not in either file")
 
 print(f"\n{COUNT[0]} checks, {len(FAILS)} problem(s)" if FAILS else f"\n{COUNT[0]} checks, all OK")
 sys.exit(1 if FAILS else 0)
