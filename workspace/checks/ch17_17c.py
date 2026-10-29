@@ -522,10 +522,16 @@ for k in PPQ:
     report(PPQ[k].count('<div class="hint"><b>Hint:</b>') == 1, f"PP{k} one hint", "")
     sub = [int(m) for m in re.findall(r'<div class="pp-sub"><span>.*?</span><span class="mk">(\d+)</span></div>', PPQ[k], re.S)]
     report(not sub or sum(sub) == marks[k], f"PP{k} part marks", str(sub))
-    report(PPA[k].count("Using the normal approximation without a continuity correction, as in the school solution") == 1, f"PP{k} method line", "")
+    ml = ("Using the normal approximation to the count, without a continuity correction. (The school solution" if k in (3, 5)
+          else "Using the normal approximation without a continuity correction, as in the school solution")
+    report(PPA[k].count(ml) == 1 and PPA[k].count("Using the normal approximation") == 1, f"PP{k} method line", ml[:60])
+    hint = re.search(r'<div class="hint"><b>Hint:</b> (.*?)</div>', PPQ[k]).group(1)
+    stem_nums = set(re.findall(r"\d+", PPQ[k].split('<div class="hint">')[0]))
+    report(hint.endswith("?") and set(re.findall(r"\d+", hint)) <= stem_nums and not re.search(r"quadratic|reverse|z-score|sqrt|continuity|np|nq", hint),
+           f"PP{k} hint is a starting question", hint)
 report("use the standard normal table at the end of the Revision section" in pps[1].split("</div>")[0] + pps[1][:600], "PP intro table line", "")
 R = "[the standard normal table at the end of the Revision section]"
-for k, keep in ((3, "the probability that less than 5% are left-handed? [You may refer to " + R + ".]"),
+for k, keep in ((3, "the probability that less than 5% are left-handed? [You may refer to the table at the end of the Revision section.]"),
                 (4, "A normal distribution table is included [at the end of the Revision section]."),
                 (5, "<i>You may use the information [in the standard normal table at the end of the Revision section] to answer this question.</i>"),
                 (6, "(A Standard Normal Distribution table is [at the end of the Revision section].")):
@@ -552,8 +558,10 @@ report(z2((113 - 120) / sd2) == "-1.43", "PP2 school's cured version same z", ""
 # PP3
 chk(PPA[3], "PP3", r"\mu=np=@,\qquad\sigma^2=npq=@,\qquad\sigma=@.", "10", "9", "3")
 z = (5 - 10) / 3
+chk(PPA[3], "PP3", r"the count with one, which gives @.)", rnd(1 - tabz(-(4.5 - 10) / 3), 4))
 chk(PPA[3], "PP3", r"&amp;=P(Z&lt;@)\\&amp;=1-\Phi(@)\\&amp;\doteq1-@\\&amp;=@.\end{aligned}", z2(z), z2(-z), tab(z2(-z)), str(1 - Decimal(tab(z2(-z)))))
 report(F(5, 100) * 100 == 5, "PP3 5% of 100", "")
+report([CON[5]["tags"][0]] == ["Worked example"] and "From the text" not in CON[5]["worked"][0] and "Testing the rule of thumb" in CON[5]["seg"], "Concept 5 WE title (pack-written)", "")
 # PP4
 mu4, var4 = 288 * F(27, 100), 288 * F(27, 100) * F(73, 100)
 chk(PPA[4], "PP4", r"with \(np=@\) and \(nq=@\), both", str(float(mu4)), str(float(288 - mu4)))
