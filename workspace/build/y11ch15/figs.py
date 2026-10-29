@@ -80,5 +80,28 @@ class Fig:
                 f'height="{self.h}" font-family="Inter, Arial, sans-serif">' + "".join(self.items) + "</svg>")
 
 
+# ---------------- 15A ----------------
+def fig_15a():
+    from math import comb
+    # Pascal's triangle in the equilateral layout, rows 0 to 8, with the addition property 3 + 1 = 4 marked
+    dx, dy, top, cx = 31, 19, 14, 186
+    f = Fig(330, top + 8 * dy + 14)
+    pos = {}
+    for n in range(9):
+        f.text(2, top + n * dy, f"n = {n}", "start", size=10.5, color="faint", italic=False)
+        for r in range(n + 1):
+            x, y = cx + (r - n / 2) * dx, top + n * dy
+            pos[n, r] = (x, y)
+    marked = {(3, 2), (3, 3), (4, 3)}
+    for (n, r), (x, y) in pos.items():
+        if (n, r) in marked:
+            col = "rose" if n == 4 else "blue"
+            f.raw(f'<rect x="{x - 11:.1f}" y="{y - 8.5:.1f}" width="22" height="16.5" rx="3" fill="{ACC[col]}" fill-opacity="0.12" stroke="{ACC[col]}" stroke-width="1.3"/>')
+        f.text(x, y, str(comb(n, r)), size=13.5, weight=600 if (n, r) in marked else 500,
+               color=("rose" if (n, r) == (4, 3) else "blue" if (n, r) in marked else "ink"))
+    f.text(pos[4, 4][0] + 14, pos[4, 4][1], "3 + 1 = 4", "start", size=11.5, color="rose")
+    save("pascal_tri", f)
+
+
 if __name__ == "__main__":
-    pass  # figures are added by the lesson tasks
+    fig_15a()   # later lessons add their own figure functions here

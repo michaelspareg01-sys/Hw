@@ -1,1 +1,71 @@
-<!-- filled by Task 2 -->
+{{ahead:Lesson 15A | Binomial expansions and Pascal's triangle}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b><br><b>a</b> \((1+3a)^4=1+12a+54a^2+108a^3+81a^4\)<br><b>b</b> \((1-x)^5=1-5x+10x^2-10x^3+5x^4-x^5\)<br><b>c</b> \(\big(1-\tfrac12x\big)^5=1-\tfrac52x+\tfrac52x^2-\tfrac54x^3+\tfrac{5}{16}x^4-\tfrac{1}{32}x^5\)<br>
+<b>Your turn.</b><br><b>a</b> \((1+5a)^3=1+15a+75a^2+125a^3\)<br><b>b</b> \((1-x)^3=1-3x+3x^2-x^3\)<br><b>c</b> \(\big(1-\tfrac13x\big)^4=1-\tfrac43x+\tfrac23x^2-\tfrac{4}{27}x^3+\tfrac{1}{81}x^4\)</div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b><br><b>a</b> \(1+0.07+0.0021+0.000035+0.00000035+\cdots\doteq1.07214\)<br><b>b</b> \(1-0.05+0.001-0.00001+0.00000005-\cdots\doteq0.95099\)<br>
+<b>Your turn.</b><br><b>a</b> \(1+0.12+0.006+0.00016+0.0000024+\cdots\doteq1.12616\)<br><b>b</b> \(1-0.08+0.0024-0.000032+0.00000016\doteq0.92237\)</div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b><br><b>a</b> \(\Big(1+\dfrac3x\Big)^2=1+6x^{-1}+9x^{-2}\) and \((1-x)^6=1-6x+15x^2-20x^3+\cdots\)<br><b>b</b> (i) \(1-36+135=100\) &nbsp; (ii) \(-6x+90x-180x=-96x\)<br>
+<b>Your turn.</b><br><b>a</b> \(\Big(1+\dfrac2x\Big)^2=1+4x^{-1}+4x^{-2}\) and \((1-x)^5=1-5x+10x^2-10x^3+\cdots\)<br><b>b</b> (i) \(1-20+40=21\) &nbsp; (ii) \(-5x+40x-40x=-5x\)</div></div>
+<div class="a"><span class="an">C4</span><div class="ab"><div style="padding:1.2mm 0"><b>Tutor demo.</b> <b>a</b> \(80k^3x^3\) and \(40k^2x^2\) &nbsp; <b>b</b> \(\dfrac{80k^3}{40k^2}=2k=\dfrac34\), so \(k=\tfrac38\)</div><div style="padding:1.2mm 0"><b>Your turn.</b> <b>a</b> \(20k^3x^3\) and \(15k^2x^2\) &nbsp; <b>b</b> \(\dfrac{20k^3}{15k^2}=\dfrac43k=2\), so \(k=\tfrac32\)</div></div></div>
+<div class="a"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b> \(\big(1+x+x^2\big)^3=1+3x+6x^2+7x^3+6x^4+3x^5+x^6\)<br>
+<b>Your turn.</b> \(\big(1+x-x^2\big)^3=1+3x-5x^3+3x^5-x^6\) (the terms in \(x^2\) and \(x^4\) cancel)</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab">Coefficients of \((1+x)^n\):
+<table class="t" style="font-size:8.6pt;margin:1mm 0 0"><tr><th>\(n\)</th><th>\(x^{0}\)</th><th>\(x^{1}\)</th><th>\(x^{2}\)</th><th>\(x^{3}\)</th><th>\(x^{4}\)</th><th>\(x^{5}\)</th><th>\(x^{6}\)</th><th>\(x^{7}\)</th><th>\(x^{8}\)</th><th>\(x^{9}\)</th><th>\(x^{10}\)</th><th>\(x^{11}\)</th><th>\(x^{12}\)</th></tr>
+<tr><th>0</th><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>1</th><td>1</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>2</th><td>1</td><td>2</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>3</th><td>1</td><td>3</td><td>3</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>4</th><td>1</td><td>4</td><td>6</td><td>4</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>5</th><td>1</td><td>5</td><td>10</td><td>10</td><td>5</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>6</th><td>1</td><td>6</td><td>15</td><td>20</td><td>15</td><td>6</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>7</th><td>1</td><td>7</td><td>21</td><td>35</td><td>35</td><td>21</td><td>7</td><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>8</th><td>1</td><td>8</td><td>28</td><td>56</td><td>70</td><td>56</td><td>28</td><td>8</td><td>1</td><td></td><td></td><td></td><td></td></tr>
+<tr><th>9</th><td>1</td><td>9</td><td>36</td><td>84</td><td>126</td><td>126</td><td>84</td><td>36</td><td>9</td><td>1</td><td></td><td></td><td></td></tr>
+<tr><th>10</th><td>1</td><td>10</td><td>45</td><td>120</td><td>210</td><td>252</td><td>210</td><td>120</td><td>45</td><td>10</td><td>1</td><td></td><td></td></tr>
+<tr><th>11</th><td>1</td><td>11</td><td>55</td><td>165</td><td>330</td><td>462</td><td>462</td><td>330</td><td>165</td><td>55</td><td>11</td><td>1</td><td></td></tr>
+<tr><th>12</th><td>1</td><td>12</td><td>66</td><td>220</td><td>495</td><td>792</td><td>924</td><td>792</td><td>495</td><td>220</td><td>66</td><td>12</td><td>1</td></tr></table></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><div style="margin:0.6mm 0"><b>a</b> \(1+6x+15x^2+20x^3+15x^4+6x^5+x^6\)</div><div style="margin:0.6mm 0"><b>b</b> \(1-6x+15x^2-20x^3+15x^4-6x^5+x^6\)</div><div style="margin:0.6mm 0"><b>c</b> \(1+9x+36x^2+84x^3+126x^4+126x^5+84x^6+36x^7+9x^8+x^9\)</div><div style="margin:0.6mm 0"><b>d</b> \(1-9x+36x^2-84x^3+126x^4-126x^5+84x^6-36x^7+9x^8-x^9\)</div><div style="margin:0.6mm 0"><b>e</b> \(1+5c+10c^2+10c^3+5c^4+c^5\)</div><div style="margin:0.6mm 0"><b>f</b> \(1+8y+24y^2+32y^3+16y^4\)</div><div style="padding:1.6mm 0"><b>g</b> \(1+\dfrac{7x}{3}+\dfrac{7x^2}{3}+\dfrac{35x^3}{27}+\dfrac{35x^4}{81}+\dfrac{7x^5}{81}+\dfrac{7x^6}{729}+\dfrac{x^7}{2187}\)</div><div style="margin:0.6mm 0"><b>h</b> \(1-9z+27z^2-27z^3\)</div><div style="padding:1.6mm 0"><b>i</b> \(1-\dfrac8x+\dfrac{28}{x^2}-\dfrac{56}{x^3}+\dfrac{70}{x^4}-\dfrac{56}{x^5}+\dfrac{28}{x^6}-\dfrac{8}{x^7}+\dfrac{1}{x^8}\)</div><div style="padding:1.6mm 0"><b>j</b> \(1+\dfrac{10}{x}+\dfrac{40}{x^2}+\dfrac{80}{x^3}+\dfrac{80}{x^4}+\dfrac{32}{x^5}\)</div><div style="padding:1.6mm 0"><b>k</b> \(1+\dfrac{5y}{x}+\dfrac{10y^2}{x^2}+\dfrac{10y^3}{x^3}+\dfrac{5y^4}{x^4}+\dfrac{y^5}{x^5}\)</div><div style="padding:1.6mm 0"><b>l</b> \(1+\dfrac{12x}{y}+\dfrac{54x^2}{y^2}+\dfrac{108x^3}{y^3}+\dfrac{81x^4}{y^4}\)</div></div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> (i) \(55x^2\) (ii) \(165x^8\) &nbsp; <b>b</b> (i) \(-35x^3\) (ii) \(-21x^5\) &nbsp; <b>c</b> (i) \(240x^4\) (ii) \(192x^5\) &nbsp; <b>d</b> (i) \(-\dfrac{12}{x}\) (ii) \(\dfrac{54}{x^2}\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> \(\big(1+(x-1)\big)^3=x^3\) &nbsp; <b>b</b> \(\big(1-(x+1)\big)^6=(-x)^6=x^6\)</div></div>
+<div class="a"><span class="an">7</span><div class="ab">\(21\)</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> \(a=76\), \(b=44\) &nbsp; <b>b</b> \(a=16\), \(b=-8\)</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> \(1.01814\) &nbsp; <b>b</b> \(0.81537\)</div></div>
+<div class="a"><span class="an">11</span><div class="ab"><b>a</b> (i) \(1+4x+6x^2+\cdots\) (ii) \(-14\)<br><b>b</b> (i) \(1+10x+40x^2+80x^3+\cdots\) (ii) \(40\)<br><b>c</b> (i) \(1-12x+54x^2-108x^3+\cdots\) (ii) \(-228\)</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a</b> \(x=0\) or \(\tfrac12\) &nbsp; <b>b</b> \(x=0\), \(1\) or \(5\)</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>a</b> \(-12\) &nbsp; <b>b</b> \(0\) &nbsp; <b>c</b> \(380\) &nbsp; <b>d</b> \(-\tfrac53\)</div></div>
+<div class="a"><span class="an">14</span><div class="ab"><b>a</b> \(97\) &nbsp; <b>b</b> \(1\tfrac{10}{27}\)</div></div>
+<div class="a"><span class="an">15</span><div class="ab"><b>a</b> (i) \(15x^2\) (ii) \(20x^3\) (iii) \(3:4x\) (iv) \(135\), \(540\), \(1:4\)<br>
+<b>b</b> (i) \(\dfrac{224}{81x^5}\) (ii) \(\dfrac{448}{729x^6}\) (iii) \(9x:2\) (iv) \(\tfrac{7}{81}\), \(\tfrac{7}{729}\), \(9:1\)</div></div>
+<div class="a"><span class="an">16</span><div class="ab"><b>a</b> \(k=5\) &nbsp; <b>b</b> \(k=-2\) or \(0\)</div></div>
+<div class="a"><span class="an">18</span><div class="ab">\(1.0634\)</div></div>
+<div class="a"><span class="an">19</span><div class="ab">\((1+x+y)^0=1\), \((1+x+y)^1=1+x+y\),<br>
+\((1+x+y)^2=1+2x+2y+2xy+x^2+y^2\),<br>
+\((1+x+y)^3=1+3x+3y+6xy+3x^2+3y^2+3x^2y+3xy^2+x^3+y^3\),<br>
+\((1+x+y)^4=1+4x+4y+12xy+6x^2+6y^2+6x^2y^2+12x^2y+12xy^2+4x^3+4y^3+4x^3y+4xy^3+x^4+y^4\)<br>
+The coefficients form a triangular pyramid, with 1s on the edges, and each face a copy of Pascal's triangle.</div></div>
+
+{{ahead:Lesson 15A | Binomial expansions and Pascal's triangle}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics Extension 1, Q2</span></div>
+<p>Since \(2x-1=-(1-2x)\) and \((-1)^3=-1\), \((2x-1)^3=-(1-2x)^3\). Row 3 of Pascal's triangle is 1, 3, 3, 1, so</p>
+\[(1-2x)^3=1+3(-2x)+3(-2x)^2+(-2x)^3=1-6x+12x^2-8x^3.\]
+<p>Hence \((2x-1)^3=8x^3-12x^2+6x-1\). <b>Answer (B).</b> Option (A) has the wrong sign on the \(x^2\) term, (C) has the wrong coefficients of \(x^2\) and \(x\), and (D) forgets that \((2x)^3=8x^3\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics Extension 1, Q9(d)</span></div>
+<p>(i) Row 3 of Pascal's triangle is 1, 3, 3, 1, so \((1+x)^3=1+3x+3x^2+x^3\).</p>
+<p>(ii) First \((2x-1)^2=4x^2-4x+1\), so</p>
+\[(2x-1)^2(1+x)^3=\big(4x^2-4x+1\big)\big(1+3x+3x^2+x^3\big).\]
+<p>The terms in \(x^4\) come from \(4x^2\times3x^2=12x^4\) and \((-4x)\times x^3=-4x^4\). The constant 1 cannot give \(x^4\), because \((1+x)^3\) stops at \(x^3\). So the coefficient of \(x^4\) is \(12-4=8\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2023, Trial Examination, Form VI Mathematics Extension 1, Q13(a)</span></div>
+<p>Take out the factor \(x\): \(x-\dfrac2x=x\Big(1-\dfrac{2}{x^2}\Big)\), so \(\Big(x-\dfrac2x\Big)^4=x^4\Big(1-\dfrac{2}{x^2}\Big)^4\). Row 4 is 1, 4, 6, 4, 1, so</p>
+\[\Big(1-\dfrac{2}{x^2}\Big)^4=1+4\Big(-\dfrac{2}{x^2}\Big)+6\Big(-\dfrac{2}{x^2}\Big)^2+4\Big(-\dfrac{2}{x^2}\Big)^3+\Big(-\dfrac{2}{x^2}\Big)^4=1-\dfrac{8}{x^2}+\dfrac{24}{x^4}-\dfrac{32}{x^6}+\dfrac{16}{x^8}.\]
+<p>Multiplying by \(x^4\),</p>
+\[\Big(x-\dfrac2x\Big)^4=x^4-8x^2+24-\dfrac{32}{x^2}+\dfrac{16}{x^4}.\]
+<p>(Lesson 15B gives a direct method: \(x^4+4x^3\big(-\tfrac2x\big)+6x^2\big(-\tfrac2x\big)^2+4x\big(-\tfrac2x\big)^3+\big(-\tfrac2x\big)^4\), with the same result.)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Abbotsleigh, 2021, Higher School Certificate Assessment Task 4, Mathematics Extension 1, Q12(c)</span></div>
+<p>Take out the factor \(3x^2\): \(3x^2-2a=3x^2\Big(1-\dfrac{2a}{3x^2}\Big)\), so</p>
+\[\big(3x^2-2a\big)^5=\big(3x^2\big)^5\Big(1-\dfrac{2a}{3x^2}\Big)^5=243x^{10}\Big(1-\dfrac{2a}{3x^2}\Big)^5.\]
+<p>Row 5 is 1, 5, 10, 10, 5, 1. Since \(x^6=x^{10}\times x^{-4}\), we need the term of the bracket in \(x^{-4}\). That is the third term, \(10\Big(-\dfrac{2a}{3x^2}\Big)^2=\dfrac{40a^2}{9x^4}\). So the term in \(x^6\) is</p>
+\[243x^{10}\times\dfrac{40a^2}{9x^4}=1080a^2x^6,\]
+<p>and the coefficient of \(x^6\) is \(1080a^2\). (Lesson 15B gives a direct method: the term is \(10\big(3x^2\big)^3(-2a)^2=10\times27x^6\times4a^2=1080a^2x^6\).)</p></div>

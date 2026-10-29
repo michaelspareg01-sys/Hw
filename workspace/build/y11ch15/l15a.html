@@ -1,1 +1,247 @@
-<!-- filled by Task 2 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 15A</div><h2>Binomial expansions and Pascal's triangle</h2>
+<div class="focus">A binomial expansion is the expansion of a power of a binomial, such as \((1-x)^3=1-3x+3x^2-x^3\). This lesson expands \((1+x)^n\) for small \(n\), builds Pascal's triangle from its three basic properties, and uses it to expand, to approximate, to find terms in products, to solve problems about coefficients, and to expand a trinomial.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:expansions of (1 + x)ⁿ and Pascal's triangle}}
+<div class="box concept"><div class="bt">Binomials and binomial expansions</div>
+<ul><li>A <b>binomial</b> is a polynomial with two terms, such as \(1-x\) or \(3x^4-\tfrac12x^2\).</li>
+<li>A <b>binomial expansion</b> is the expansion of a power of a binomial, for example \((1-x)^3=1-3x+3x^2-x^3\).</li>
+<li>This lesson deals only with expansions of \((1+x)^n\), and the techniques that come from them. They are all based on Pascal's triangle and its three most basic properties.</li></ul></div>
+<div class="box formula"><div class="bt">Some expansions of \((1+x)^n\)</div>
+<p>Each expansion is found from the one before, in two rows, with like terms in columns. To begin, \((1+x)^0=1\) and \((1+x)^1=1+x\). Then:</p>
+<div class="split"><div>
+\[(1+x)^2=1(1+x)+x(1+x)\]
+\[\begin{alignedat}{3}&=1&&{}+x&&\\&&&{}+x&&{}+x^2\\&=1&&{}+2x&&{}+x^2\end{alignedat}\]
+</div><div>
+\[(1+x)^3=1(1+x)^2+x(1+x)^2\]
+\[\begin{alignedat}{4}&=1&&{}+2x&&{}+x^2&&\\&&&{}+x&&{}+2x^2&&{}+x^3\\&=1&&{}+3x&&{}+3x^2&&{}+x^3\end{alignedat}\]
+</div></div>
+\[(1+x)^4=1(1+x)^3+x(1+x)^3\]
+\[\begin{alignedat}{5}&=1&&{}+3x&&{}+3x^2&&{}+\boxed{1}\,x^3&&\\&&&{}+x&&{}+3x^2&&{}+\boxed{3}\,x^3&&{}+x^4\\&=1&&{}+4x&&{}+6x^2&&{}+\boxed{4}\,x^3&&{}+x^4\end{alignedat}\]
+<p>Look at the last expansion: the boxed 4 is the sum of the boxed 1 and 3. The expansion of \((1+x)^2\) has 3 terms, \((1+x)^3\) has 4 terms, and so on. In general, <b>the expansion of \((1+x)^n\) has \(n+1\) terms</b>, from the constant term in \(x^0=1\) to the term in \(x^n\). Be careful: this is inclusive counting, since there are \(n+1\) numbers from 0 to \(n\) inclusive.</p></div>
+
+<div class="box formula"><div class="bt">Pascal's triangle</div>
+<p>The coefficients of \((1+x)^n\), arranged in a table, form <b>Pascal's triangle</b>. Here are rows 0 to 8:</p>
+<div class="split" style="grid-template-columns:1.05fr 1fr;align-items:center"><div>
+<style>table.pt td,table.pt th{padding:.3mm 2.2mm;line-height:1.25}</style><table class="t pt" style="font-size:9.2pt;margin:0"><tr><th>\(n\)</th><th>\(x^0\)</th><th>\(x^1\)</th><th>\(x^2\)</th><th>\(x^3\)</th><th>\(x^4\)</th><th>\(x^5\)</th><th>\(x^6\)</th><th>\(x^7\)</th><th>\(x^8\)</th></tr>
+<tr><th>0</th><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>1</th><td>1</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>2</th><td>1</td><td>2</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>3</th><td>1</td><td>3</td><td><b>3</b></td><td><b>1</b></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>4</th><td>1</td><td>4</td><td>6</td><td><b>4</b></td><td>1</td><td></td><td></td><td></td><td></td></tr>
+<tr><th>5</th><td>1</td><td>5</td><td>10</td><td>10</td><td>5</td><td>1</td><td></td><td></td><td></td></tr>
+<tr><th>6</th><td>1</td><td>6</td><td>15</td><td>20</td><td>15</td><td>6</td><td>1</td><td></td><td></td></tr>
+<tr><th>7</th><td>1</td><td>7</td><td>21</td><td>35</td><td>35</td><td>21</td><td>7</td><td>1</td><td></td></tr>
+<tr><th>8</th><td>1</td><td>8</td><td>28</td><td>56</td><td>70</td><td>56</td><td>28</td><td>8</td><td>1</td></tr></table>
+</div><div>{{svg:pascal_tri}}</div></div>
+</div>
+<p style="margin-top:0">The table (above left) keeps the columns lined up with the powers of \(x\), which is what we need. The equilateral layout (above right) shows the left-right symmetry well. You should be able to work from both layouts.</p>
+<div class="box take"><div class="bt">1 Three basic properties of Pascal's triangle</div>
+<ul><li><b>1.</b> Each row starts and ends with 1.</li>
+<li><b>2.</b> Each row is reversible. That is, the rows are symmetric.</li>
+<li><b>3.</b> [The addition property] Every number in the triangle, apart from the 1s, is the sum of the number directly above, and the number above and to the left.</li></ul>
+<p>For example, \(3+1=4\). This happens because the coefficient of \(x^3\) in \((1+x)^4\) is the sum of the coefficients of \(x^3\) and \(x^2\) in \((1+x)^3\): multiplying \((1+x)^3\) by \(1\) and by \(x\) puts both of them in the \(x^3\) column. These properties are used in this lesson and proven formally later. The triangle can be built row by row with them.</p></div>
+<div class="box tip"><div class="bt">Using the triangle to expand</div>
+<ul><li>The row for \(n\) gives the coefficients of \((1+x)^n\). To expand \((1+\text{term})^n\), replace \(x\) by the term, <b>in brackets</b>: \((1+2a)^6=1+6(2a)+15(2a)^2+\cdots\).</li>
+<li>A power applies to the number as well as to the letter: \((2a)^3=8a^3\), not \(2a^3\).</li>
+<li>When the term is negative, as in \((1-x)^n\) or \(\big(1-\tfrac23x\big)^n\), the signs alternate.</li></ul></div>
+<p class="small"><b>History.</b> Pascal did not discover the triangle, though he wrote an important treatise on it in 1653. It was known to the ancient Indian mathematician Pingala in the 2nd century BC, and later to mediaeval Persian and Chinese mathematicians. The first known occurrence in Europe is in a 1527 book on business calculations.</p>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Expanding with a row of the triangle</span></div><div class="ex-body">
+Use Pascal's triangle to write out the expansions of:<br>
+<b>a</b> \((1+3a)^4\)<br>
+<b>b</b> \((1-x)^5\)<br>
+<b>c</b> \(\big(1-\tfrac12x\big)^5\)
+{{work:92}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+Use Pascal's triangle to write out the expansions of:<br>
+<b>a</b> \((1+5a)^3\)<br>
+<b>b</b> \((1-x)^3\)<br>
+<b>c</b> \(\big(1-\tfrac13x\big)^4\)
+{{work:62}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use Pascal's triangle to write out the expansions of:<br>
+<b>a</b> \((1+2a)^6\)<br>
+<b>b</b> \((1-x)^4\)<br>
+<b>c</b> \(\big(1-\tfrac23x\big)^5\)
+<div class="sol-label">Solution</div>
+<p><b>a</b> Row 6 is 1, 6, 15, 20, 15, 6, 1, so</p>
+\[\begin{aligned}(1+2a)^6&=1+6(2a)+15(2a)^2+20(2a)^3+15(2a)^4+6(2a)^5+(2a)^6\\&=1+12a+60a^2+160a^3+240a^4+192a^5+64a^6.\end{aligned}\]
+<p><b>b</b> Be particularly careful with the alternating signs in this expansion.</p>
+\[\begin{aligned}(1-x)^4&=1+4(-x)+6(-x)^2+4(-x)^3+(-x)^4\\&=1-4x+6x^2-4x^3+x^4.\end{aligned}\]
+<p><b>c</b> The signs also alternate in this expansion.</p>
+\[\begin{aligned}\big(1-\tfrac23x\big)^5&=1+5\big(-\tfrac23x\big)+10\big(-\tfrac23x\big)^2+10\big(-\tfrac23x\big)^3+5\big(-\tfrac23x\big)^4+\big(-\tfrac23x\big)^5\\&=1-\tfrac{10}{3}x+\tfrac{40}{9}x^2-\tfrac{80}{27}x^3+\tfrac{80}{81}x^4-\tfrac{32}{243}x^5.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:approximations}}
+<div class="box concept"><div class="bt">Approximating a power of a number close to 1</div>
+<ul><li>Write the number as \(1+\text{(a small number)}\), for example \(1.02^8=(1+0.02)^8\), and expand with the row of Pascal's triangle.</li>
+<li>The powers of a small number shrink quickly, so only the first few terms matter. Write out terms until the next ones are too small to affect the decimal place you need, then add.</li>
+<li>For a number just below 1, such as \(0.98=1-0.02\), the signs alternate.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Five decimal places from a few terms</span></div><div class="ex-body">
+By expanding the first few terms, find an approximation correct to five decimal places of:<br>
+<b>a</b> \(1.01^7\), using \((1+0.01)^7\)<br>
+<b>b</b> \(0.99^5\), using \((1-0.01)^5\)
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+By expanding the first few terms, find an approximation correct to five decimal places of:<br>
+<b>a</b> \(1.02^6\), using \((1+0.02)^6\)<br>
+<b>b</b> \(0.98^4\), using \((1-0.02)^4\)
+{{work:70}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+By expanding the first few terms of \((1+0.02)^8\), find an approximation of \(1.02^8\) correct to five decimal places.
+<div class="sol-label">Solution</div>
+<p>Row 8 is 1, 8, 28, 56, 70, 56, 28, 8, 1, so</p>
+\[\begin{aligned}(1+0.02)^8&=1+8\times0.02+28\times(0.02)^2+56\times(0.02)^3+70\times(0.02)^4+\cdots\\&=1+0.16+0.0112+0.000448+0.0000112+\cdots\\&\doteq1.17166.\end{aligned}\]
+<p>The remaining four terms are too small to affect the fifth decimal place.</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:terms in a product of expansions}}
+<div class="box concept"><div class="bt">Finding one term of a product</div>
+<ul><li>Expand each factor, but only as far as you need. Write powers of \(x\) in a denominator as negative powers: \(\dfrac5x=5x^{-1}\).</li>
+<li>To find the term in \(x^k\) in the product, multiply each term of the first factor by the term of the second factor that makes the power of \(x\) equal to \(k\). Then add these products.</li>
+<li>The <b>constant term</b>, or <b>term independent of \(x\)</b>, is the term in \(x^0\).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Constant term and term in x</span></div><div class="ex-body">
+<b>a</b> Write out the expansion of \(\Big(1+\dfrac3x\Big)^2\), then write out the first four terms in the expansion of \((1-x)^6\).<br>
+<b>b</b> Hence find, in the expansion of \(\Big(1+\dfrac3x\Big)^2(1-x)^6\): (i) the term independent of \(x\), (ii) the term in \(x\).
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Write out the expansion of \(\Big(1+\dfrac2x\Big)^2\), then write out the first four terms in the expansion of \((1-x)^5\).<br>
+<b>b</b> Hence find, in the expansion of \(\Big(1+\dfrac2x\Big)^2(1-x)^5\): (i) the term independent of \(x\), (ii) the term in \(x\).
+{{work:70}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Write out the expansion of \(\Big(1+\dfrac5x\Big)^2\), then write out the first four terms in the expansion of \((1-x)^8\).<br>
+<b>b</b> Hence find, in the expansion of \(\Big(1+\dfrac5x\Big)^2(1-x)^8\): (i) the term independent of \(x\), (ii) the term in \(x\).
+<div class="sol-label">Solution</div>
+<p><b>a</b> \(\Big(1+\dfrac5x\Big)^2=1+10x^{-1}+25x^{-2}\) and \((1-x)^8=1-8x+28x^2-56x^3+\cdots\)</p>
+<p><b>b</b> Hence in the expansion of \(\Big(1+\dfrac5x\Big)^2(1-x)^8\):</p>
+<p>(i) The constant term is</p>
+\[\begin{aligned}&1\times1+(10x^{-1})\times(-8x)+(25x^{-2})\times(28x^2)\\&=1-80+700\\&=621.\end{aligned}\]
+<p>(ii) The term in \(x\) is</p>
+\[\begin{aligned}&1\times(-8x)+(10x^{-1})\times(28x^2)+(25x^{-2})\times(-56x^3)\\&=-8x+280x-1400x\\&=-1128x.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+{{sec:teal:key:Concept 4:particular terms and the ratio of coefficients}}
+<div class="box concept"><div class="bt">Writing down only the terms you need</div>
+<ul><li>A single term can be written straight from the row. In \((1+2kx)^6\) the term in \(x^3\) is \(20(2kx)^3=160k^3x^3\). You need not write out the whole expansion.</li>
+<li>If two coefficients are in a given ratio, write the ratio as a fraction equal to the given ratio. Cancel the common power of \(k\) and solve for \(k\).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Terms and a ratio</span></div><div class="ex-body">
+<b>a</b> Write down the terms in \(x^3\) and \(x^2\) in the expansion of \((1+2kx)^5\).<br>
+<b>b</b> Find \(k\) if these terms in \(x^3\) and \(x^2\) have coefficients in the ratio \(3:4\).
+{{work:65}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Write down the terms in \(x^3\) and \(x^2\) in the expansion of \((1+kx)^6\).<br>
+<b>b</b> Find \(k\) if these terms in \(x^3\) and \(x^2\) have coefficients in the ratio \(2:1\).
+{{work:48}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Write down the terms in \(x^4\) and \(x^3\) in the expansion of \((1+2kx)^6\).<br>
+<b>b</b> Find \(k\) if these terms in \(x^4\) and \(x^3\) have coefficients in the ratio \(2:3\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Row 6 is 1, 6, 15, 20, 15, 6, 1, so</p>
+\[\begin{aligned}(1+2kx)^6&=\cdots+15(2kx)^2+20(2kx)^3+15(2kx)^4+\cdots\\&=\cdots+60k^2x^2+160k^3x^3+240k^4x^4+\cdots\end{aligned}\]
+<p>The terms are \(240k^4x^4\) and \(160k^3x^3\). (Alternatively, just write down the two terms.)</p>
+</div><div>
+<p><b>b</b> Put</p>
+\[\dfrac{240k^4}{160k^3}=\dfrac23.\]
+<p>Then \(\tfrac32k=\tfrac23\), so \(k=\tfrac49\).</p>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+{{sec:teal:key:Concept 5:a harder example, expanding a trinomial}}
+<div class="box concept"><div class="bt">Treating part of a trinomial as one term</div>
+<ul><li>A trinomial such as \(1+x+x^2\) can be written as \(1+X\), where \(X=x+x^2=x(1+x)\).</li>
+<li>Expand \((1+X)^n\) with a row of Pascal's triangle. Each power \(X^r=x^r(1+x)^r\) is then expanded with Pascal's triangle again.</li>
+<li>Finally multiply out and collect like terms. Writing like terms in columns helps.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A trinomial cubed</span></div><div class="ex-body">
+Expand \(\big(1+x+x^2\big)^3\) using Pascal's triangle, by writing \(1+x+x^2=1+\big(x+x^2\big)\), and writing \(x+x^2=x(1+x)\).
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Expand \(\big(1+x-x^2\big)^3\) using Pascal's triangle, by writing \(1+x-x^2=1+\big(x-x^2\big)\), and writing \(x-x^2=x(1-x)\).
+{{work:125}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+[A harder example] Expand \(\big(1+x+x^2\big)^4\) using Pascal's triangle, by writing \(1+x+x^2=1+\big(x+x^2\big)\), and writing \(x+x^2=x(1+x)\).
+<div class="sol-label">Solution</div>
+\[\begin{aligned}\big(1+x+x^2\big)^4&=\big(1+x(1+x)\big)^4\\
+&=1+4x(1+x)+6x^2(1+x)^2+4x^3(1+x)^3+x^4(1+x)^4\\
+&=1+4x(1+x)+6x^2\big(1+2x+x^2\big)+4x^3\big(1+3x+3x^2+x^3\big)\\
+&\qquad+x^4\big(1+4x+6x^2+4x^3+x^4\big)\\
+&=1+\big(4x+4x^2\big)+\big(6x^2+12x^3+6x^4\big)+\big(4x^3+12x^4+12x^5+4x^6\big)\\
+&\qquad+\big(x^4+4x^5+6x^6+4x^7+x^8\big)\\
+&=1+4x+10x^2+16x^3+19x^4+16x^5+10x^6+4x^7+x^8\end{aligned}\]
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 15A}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Complete all the rows of Pascal's triangle for \(n=0,\ 1,\ 2,\ 3,\ \dots,\ 12\). Keep this in a prominent place for use in the rest of this chapter.{{work:62}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Using Pascal's triangle to provide the binomial coefficients, give the expansions of:
+<div class="parts three"><span><span class="pl">a</span>\((1+x)^6\)</span><span><span class="pl">b</span>\((1-x)^6\)</span><span><span class="pl">c</span>\((1+x)^9\)</span><span><span class="pl">d</span>\((1-x)^9\)</span><span><span class="pl">e</span>\((1+c)^5\)</span><span><span class="pl">f</span>\((1+2y)^4\)</span><span><span class="pl">g</span>\(\Big(1+\dfrac x3\Big)^7\)</span><span><span class="pl">h</span>\((1-3z)^3\)</span><span><span class="pl">i</span>\(\Big(1-\dfrac1x\Big)^8\)</span><span><span class="pl">j</span>\(\Big(1+\dfrac2x\Big)^5\)</span><span><span class="pl">k</span>\(\Big(1+\dfrac yx\Big)^5\)</span><span><span class="pl">l</span>\(\Big(1+\dfrac{3x}{y}\Big)^4\)</span></div>{{work:136}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Continue the calculations of the expansions of \((1+x)^n\) at the beginning of this section, expanding \((1+x)^5\) and \((1+x)^6\) in the same manner. Keep your work in columns, so that the addition property of Pascal's triangle is clear.{{work:46}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Find the specified term in each expansion.
+<div class="parts"><span><span class="pl">a</span>For \((1+x)^{11}\):<br>(i) find the term in \(x^2\),<br>(ii) find the term in \(x^8\).</span><span><span class="pl">b</span>For \((1-x)^7\):<br>(i) find the term in \(x^3\),<br>(ii) find the term in \(x^5\).</span><span><span class="pl">c</span>For \((1+2x)^6\):<br>(i) find the term in \(x^4\),<br>(ii) find the term in \(x^5\).</span><span><span class="pl">d</span>For \(\Big(1-\dfrac3x\Big)^4\):<br>(i) find the term in \(x^{-1}\),<br>(ii) find the term in \(x^{-2}\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Expand \((1+x)^9\) and \((1+x)^{10}\), and show that the sum of the coefficients in the second expansion is twice the sum of the coefficients in the first expansion.{{work:40}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">6</span><div class="q-body">Without expanding, simplify:
+<div class="parts one"><span><span class="pl">a</span>\(1+3(x-1)+3(x-1)^2+(x-1)^3\)</span><span><span class="pl">b</span>\(1-6(x+1)+15(x+1)^2-20(x+1)^3+15(x+1)^4-6(x+1)^5+(x+1)^6\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Find the coefficient of \(x^4\) in the expansion of \((1-x)^4+(1-x)^5+(1-x)^6\).{{work:36}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Find integers \(a\) and \(b\) such that:
+<div class="parts"><span><span class="pl">a</span>\(\big(1+\sqrt3\big)^5=a+b\sqrt3\)</span><span><span class="pl">b</span>\(\big(1-\sqrt5\big)^3=a+b\sqrt5\)</span></div>{{work:52}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Verify by direct expansion, and by taking out the common factor, that:
+<div class="parts"><span><span class="pl">a</span>\((1+x)^4-(1+x)^3=x(1+x)^3\)</span><span><span class="pl">b</span>\((1+x)^7-(1+x)^6=x(1+x)^6\)</span></div>{{work:58}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Do not use a calculator in this question.
+<div class="parts one"><span><span class="pl">a</span>Expand the first few terms of \((1+x)^6\), hence evaluate \(1.003^6\) to five decimal places.</span><span><span class="pl">b</span>Similarly, expand \((1-4x)^5\), and hence evaluate \(0.96^5\) to five decimal places.</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) Expand \((1+x)^4\) as far as the term in \(x^2\).<br>(ii) Hence find the coefficient of \(x^2\) in the expansion of \((1-5x)(1+x)^4\).</span><span><span class="pl">b</span>(i) Expand \((1+2x)^5\) as far as the term in \(x^3\).<br>(ii) Hence find the coefficient of \(x^3\) in the expansion of \((2-3x)(1+2x)^5\).</span><span><span class="pl">c</span>(i) Expand \((1-3x)^4\) as far as the term in \(x^3\).<br>(ii) Hence find the coefficient of \(x^3\) in the expansion of \((2+x)^2(1-3x)^4\).</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>When \((1+2x)^5\) is expanded in increasing powers of \(x\), the third and fourth terms in the expansion are equal. Find the value of \(x\).</span><span><span class="pl">b</span>When \((1+x)^7\) is expanded in increasing powers of \(x\), the sixth term is the average of the fifth and seventh terms in the expansion. Find the value of \(x\).</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Find the coefficient of:
+<div class="parts"><span><span class="pl">a</span>\(x^3\) in \((3-4x)(1+x)^4\)</span><span><span class="pl">b</span>\(x\) in \(\big(1+3x+x^2\big)(1-x)^3\)</span><span><span class="pl">c</span>\(x^4\) in \(\big(5-2x^3\big)(1+2x)^5\)</span><span><span class="pl">d</span>\(x^0\) in \(\Big(1-\dfrac x3\Big)^3\Big(1+\dfrac2x\Big)^2\)</span></div>{{work:78}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Determine the value of the term independent of \(x\) in the expansion of:
+<div class="parts"><span><span class="pl">a</span>\((1+2x)^4\Big(1-\dfrac{1}{x^2}\Big)^6\)</span><span><span class="pl">b</span>\(\Big(1-\dfrac x3\Big)^5\Big(1+\dfrac2x\Big)^3\)</span></div>{{work:52}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>In the expansion of \((1+x)^6\):<br>(i) find the term in \(x^2\),<br>(ii) find the term in \(x^3\),<br>(iii) find the ratio of the term in \(x^2\) to the term in \(x^3\),<br>(iv) find the values of (i), (ii) and (iii) when \(x=3\).</span><span><span class="pl">b</span>In the expansion of \(\Big(1+\dfrac{2}{3x}\Big)^7\):<br>(i) find the term in \(x^{-5}\),<br>(ii) find the term in \(x^{-6}\),<br>(iii) find the ratio of the term in \(x^{-5}\) to the term in \(x^{-6}\),<br>(iv) find the values of (i), (ii) and (iii) when \(x=2\).</span></div>{{work:52}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find the coefficients of \(x^4\) and \(x^5\) in the expansion of \((1+kx)^8\). Hence find \(k\) if these coefficients are in the ratio \(1:4\).</span><span><span class="pl">b</span>Find the coefficients of \(x^5\) and \(x^6\) in the expansion of \(\Big(1-\dfrac34kx\Big)^9\). Hence find \(k\) if these coefficients are equal.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">[Patterns in Pascal's triangle]<br>Check the following results using the triangle you constructed in Question 1. (Some of these will be proven later.)
+<div class="parts one"><span><span class="pl">a</span>The sum of the numbers in the row beginning \(1,\ n,\ \dots\) is equal to \(2^n\).</span><span><span class="pl">b</span>If the second member of a row is a prime number, all the numbers in that row excluding the 1s are divisible by it.</span><span><span class="pl">c</span>[The hockey-stick pattern]<br>Start at the top 1 of any column of Pascal's triangle, and go vertically down any number of rows. Then the sum of these numbers is the number in the next row down and to the right. For example, if you start at the 1 in the \(x^2\) column, and add downwards:<br><span style="display:block;text-align:center">\(1+3+6+10+15+21=56\), which is one row down in the \(x^3\) column.</span></span><span><span class="pl">d</span>[The powers of 11]<br>If a row is made into a single number by using each element as a digit of the number, the number is a power of 11 (except that after the row \(1,\ 4,\ 6,\ 4,\ 1\), the pattern gets confused by carrying).</span><span><span class="pl">e</span>Find the diagonal and the column containing the triangular numbers, and show that adding adjacent pairs gives the square numbers.</span></div>{{work:70}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">18</span><div class="q-body">By writing \(\big(1+x+3x^2\big)^6\) as \((1+A)^6\), where \(A=x+3x^2\), expand \(\big(1+x+3x^2\big)^6\) as far as the term in \(x^3\). Hence evaluate \((1.0103)^6\) to four decimal places.{{work:84}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">[The Pascal pyramid]<br>By considering the expansion of \((1+x+y)^n\), where \(0\le n\le4\), calculate the first five layers of the Pascal pyramid.{{work:250}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 10 minutes</b></span><span><b>8 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics Extension 1, Q2</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following is the correct expansion of \((2x-1)^3\)?
+<div class="mc"><span>(A) \(8x^3+12x^2+6x-1\)</span><span>(B) \(8x^3-12x^2+6x-1\)</span><span>(C) \(8x^3-4x^2+2x-1\)</span><span>(D) \(2x^3-12x^2+6x-1\)</span></div></div>
+<div class="hint"><b>Hint:</b> \(2x-1=-(1-2x)\), and \((1-2x)^3\) comes from row 3 of Pascal's triangle.</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics Extension 1, Q9(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Write down the expansion of \((1+x)^3\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Hence, find the coefficient of \(x^4\) from \((2x-1)^2(1+x)^3\)</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> expand \((2x-1)^2\) first. Then look for the pairs of terms whose powers of \(x\) add to 4.</div>{{work:115}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2023, Trial Examination, Form VI Mathematics Extension 1, Q13(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Expand and simplify \(\Big(x-\dfrac2x\Big)^4\).</div>
+<div class="hint"><b>Hint:</b> take out a factor of \(x\) so that the bracket starts with 1: \(x-\dfrac2x=x\Big(1-\dfrac{2}{x^2}\Big)\).</div>{{work:106}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Abbotsleigh, 2021, Higher School Certificate Assessment Task 4, Mathematics Extension 1, Q12(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">By using Pascal's triangle, or otherwise, find the coefficient of \(x^6\) for the expansion of \(\big(3x^2-2a\big)^5\).</div>
+<div class="hint"><b>Hint:</b> as in PP 3, take out a factor so that the bracket starts with 1. Which term of row 5 gives \(x^6\)?</div>{{work:106}}</div>
+</div>
