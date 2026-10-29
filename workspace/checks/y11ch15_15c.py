@@ -613,8 +613,24 @@ try:
            "A20c rows", " | ".join(rw))
 except Exception as err:
     report(False, "A20", f"ERROR {err}")
-# answered questions: 7a, 12c, 16, 18, 20a are show/verify/prove items with no final answer
-report(set(BLK) == {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "17", "19", "20", "C1", "C2", "C3", "C1t", "C1y"},
+# Q18: the printed proof, and a brute-force check of the result for primes up to 13
+try:
+    (g,) = grab(BLK["18"], r"The second member of row \(n\) is \(@\). Suppose", "18")
+    report(len(g.split("=")) == 2 and all(tex(t).subs(n, m) == ncr(m, 1) for t in g.split("=") for m in range(2, 15)), "A18 second member nC1 = n", g)
+    (g,) = grab(BLK["18"], r"Then \({}^nC_r\times r!\,(n-r)!=@\), so", "18")
+    sd = g.split("=")
+    report(len(sd) == 2 and all(same(tex(t).subs({n: m}), sp.factorial(m)) for t in sd for m in range(2, 12))
+           and all(ncr(m, r) * sp.factorial(r) * sp.factorial(m - r) == sp.factorial(m) for m in range(2, 12) for r in range(0, m + 1)),
+           "A18 nCr r!(n-r)! = n!", g)
+    (g,) = grab(BLK["18"], r"Also \(@\). So every", "18")
+    report(all(tex(t).subs(n, m) == m for m in range(2, 15) for t in [r"{}^nC_1", r"{}^nC_{n-1}"]) and g.split("=")[-1] == "n", "A18 nC1 = nC(n-1) = n", g)
+    primes = [m for m in range(2, 14) if all(m % d for d in range(2, m))]
+    report(primes == [2, 3, 5, 7, 11, 13] and all(ncr(m, r) % m == 0 for m in primes for r in range(1, m)),
+           "A18 brute force: n | nCr for 1 <= r <= n-1, primes n <= 13", str(primes))
+except Exception as err:
+    report(False, "A18", f"ERROR {err}")
+# answered questions: 7a, 12c, 16, 20a are show/verify items with no final answer
+report(set(BLK) == {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "17", "18", "19", "20", "C1", "C2", "C3", "C1t", "C1y"},
        "answer blocks", f"{sorted(BLK, key=lambda t: (len(t), t))}")
 
 # ================================================================ past papers: structure
