@@ -1,1 +1,270 @@
-<!-- filled by Task 7 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 14F</div><h2>Using counting in probability</h2>
+<div class="focus">The purpose of this lesson is to apply the counting procedures of the last four lessons to questions about probability. In these more complicated questions, counting procedures are required for counting both the sample space and the event space. Then \(P(E)=\dfrac{|E|}{|S|}\), as on the revision page.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:counting the sample space and the event space}}
+<div class="box concept"><div class="bt">Counting the sample space and the event space</div>
+<p>As always in this topic, the two questions that need to be asked are:</p>
+<ul><li>Are the selections we are counting ordered or unordered?</li>
+<li>If they are ordered, is repetition allowed or not?</li></ul>
+<p>If the questions can be done with ordered selections or with unordered selections, it is usually easier to use unordered selections because the numbers are smaller.</p></div>
+<div class="box warn"><div class="bt">Use the same kind of selection on the top and the bottom</div>
+<p>The sample space and the event space must be counted in the same way. If the sample space is the set of unordered hands, count the favourable unordered hands. If it is the set of ordered hands, count the favourable ordered hands.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Any order, or that order</span></div><div class="ex-body">
+Four cards are dealt from a pack of 52.<br>
+<b>a</b> Find the probability that one heart and three spades are dealt, in any order.<br>
+<b>b</b> Find the probability that one heart and three spades are dealt in the order \(\heartsuit\spadesuit\spadesuit\spadesuit\).
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Two cards are dealt from a pack of 52.<br>
+<b>a</b> Find the probability that one red card and one black card are dealt, in any order.<br>
+<b>b</b> Find the probability that a red card and then a black card are dealt, in that order.
+{{work:60}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 21</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Three cards are dealt from a pack of 52.<br>
+<b>a</b> Find the probability that one club and two hearts are dealt, in any order.<br>
+<b>b</b> Find the probability that one club and two hearts are dealt in that order.
+<div class="sol-label">Solution</div>
+<p><b>a</b> Let the sample space be the set of all unordered selections of 3 cards from 52,</p>
+\[\text{so}\qquad\text{number of unordered hands}={}^{52}\mathrm{C}_{3}=\dfrac{52\times51\times50}{3\times2\times1}.\]
+<p style="margin-left:5mm">We can now choose the hand by choosing 1 club from 13 in \({}^{13}\mathrm{C}_{1}=13\) ways,<br>
+and choosing the 2 hearts from 13 in \({}^{13}\mathrm{C}_{2}=78\) ways,<br>
+so the hand can be chosen in \(13\times78\) ways.</p>
+\[\text{Hence}\qquad P(\text{1 club and 2 hearts})=13\times78\times\dfrac{3\times2\times1}{52\times51\times50}=\dfrac{39}{850}.\]
+<p><b>b</b> Let the sample space be the set of all ordered selections of 3 cards from 52,</p>
+\[\begin{aligned}\text{so}\qquad\text{number of ordered hands}&={}^{52}\mathrm{P}_{3}=52\times51\times50,\\ \text{and}\qquad\text{number of such hands in the order }\clubsuit\heartsuit\heartsuit&=13\times13\times12.\end{aligned}\]
+\[\text{Hence}\qquad P(\clubsuit\heartsuit\heartsuit)=\dfrac{13\times13\times12}{52\times51\times50}=\dfrac{13}{850}.\]
+<p><b>Note:</b> The answer to part <b>b</b> must be \(\tfrac13\) of the answer to part <b>a</b>, because in a hand with one club and two hearts, the club can be any one of three positions. This indicates that it would be quite reasonable to do part <b>a</b> using ordered selections, and to do part <b>b</b> using unordered selections, although the methods chosen above are more natural to the way in which each question was worded.</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div class="page-break"></div>
+{{sec:teal:key:Concept 2:problems requiring a variety of methods}}
+<div class="box concept"><div class="bt">Problems requiring a variety of methods</div>
+<p>The sample spaces in the next two examples are easily found, but a variety of methods is needed to establish the sizes of the various event spaces.</p>
+<ul><li>The first digit of a number cannot be zero. Deal with this difficulty first (Lesson 14B).</li>
+<li>‘The digits are distinct’ means counting without replacement.</li>
+<li>Every unordered selection of distinct digits can be arranged in exactly one way with the digits in increasing order. So numbers with distinct digits in increasing order are counted by \({}^{n}\mathrm{C}_{r}\) (Lesson 14E).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A four-digit number chosen at random</span></div><div class="ex-body">
+A four-digit number is chosen at random. Find the probability:<br>
+<b>a</b> that it is at least 7000,<br>
+<b>b</b> that it consists only of odd digits,<br>
+<b>c</b> that the digits are distinct,<br>
+<b>d</b> that the digits are distinct and in increasing order.
+{{work:42}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A three-digit number is chosen at random. Find the probability:<br>
+<b>a</b> that it is at least 400,<br>
+<b>b</b> that it consists only of even digits,<br>
+<b>c</b> that the digits are distinct,<br>
+<b>d</b> that the digits are distinct and in increasing order.
+{{work:40}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 22</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A five-digit number is chosen at random. Find the probability:<br>
+<b>a</b> that it is at least \(60\,000\),<br>
+<b>b</b> that it consists only of even digits,<br>
+<b>c</b> that the digits are distinct,<br>
+<b>d</b> that the digits are distinct and in increasing order.
+<div class="sol-label">Solution</div>
+<p>The first digit of a five-digit number cannot be zero, giving nine choices, but the other digits can be any one of the ten digits.<br>
+Hence the number of five-digit numbers \(=9\times10\times10\times10\times10=90\,000\).</p>
+<p><b>a</b> To be at least \(60\,000\), the first digit can be 6, 7, 8 or 9,<br>
+<span style="margin-left:5mm">so the number of favourable numbers is \(4\times10\times10\times10\times10=40\,000\).</span><br>
+<span style="margin-left:5mm">Hence \(P(\text{at least }60\,000)=\tfrac49\).</span></p>
+<p><b>b</b> If all the digits are even, there are four choices for the first digit (it cannot be zero) and five choices for each of the other four.<br>
+<span style="margin-left:5mm">Hence number of such numbers \(=4\times5\times5\times5\times5=2500\),</span><br>
+<span style="margin-left:5mm">and \(P(\text{all digits are even})=\dfrac{2500}{90\,000}=\dfrac{1}{36}\).</span></p>
+<p><b>c</b> This is counting without replacement:</p>
+<table class="t" style="margin-left:5mm"><tr><th>1st digit</th><th>2nd digit</th><th>3rd digit</th><th>4th digit</th><th>5th digit</th></tr><tr><td>9</td><td>9</td><td>8</td><td>7</td><td>6</td></tr></table>
+<p style="margin-left:5mm">so number of such numbers \(=9\times9\times8\times7\times6\)<br>
+and \(P(\text{digits are distinct})=\dfrac{9\times9\times8\times7\times6}{90\,000}=\dfrac{189}{625}\).</p>
+<p><b>d</b> Every <i>unordered</i> five-member subset of the set of nine non-zero digits can be arranged in exactly one way into a five-digit number with the digits in increasing order. (Note that the digit zero cannot be used, because a number can’t begin with the digit zero.)<br>
+<span style="margin-left:5mm">Hence number of such numbers \(=\) number of unordered 5-member subsets of \(\{1,2,3,4,5,6,7,8,9\}\)</span><br>
+<span style="margin-left:5mm">\(={}^{9}\mathrm{C}_{5}=126\),</span><br>
+<span style="margin-left:5mm">so \(P(\text{digits are distinct and in increasing order})=\dfrac{126}{90\,000}=\dfrac{7}{5000}\).</span></p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div class="page-break"></div>
+{{sec:teal:key:Concept 3:a harder question: complements, the addition theorem and cases}}
+<div class="box concept"><div class="bt">Three more methods for the event space</div>
+<p>Worked example 23 needs three more methods for its event spaces:</p>
+<ul><li><b>the complementary event:</b> ‘at least one 4’ is everything except ‘no 4’,</li>
+<li><b>the addition theorem</b> \(|A\cup B|=|A|+|B|-|A\cap B|\), for ‘no 4 or no 5’,</li>
+<li><b>cases:</b> count the strings of digits first, then subtract the strings that begin with zero.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Four-digit numbers again</span></div><div class="ex-body">
+A four-digit number is chosen at random. Find the probability that:<br>
+<b>a</b> the number contains at least one three,<br>
+<b>b</b> the number contains at least one three and at least one six,<br>
+<b>c</b> the number contains exactly two sevens,<br>
+<b>d</b> the number contains at least two sevens.
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A three-digit number is chosen at random. Find the probability that:<br>
+<b>a</b> the number contains at least one five,<br>
+<b>b</b> the number contains at least one five and at least one six,<br>
+<b>c</b> the number contains exactly two twos,<br>
+<b>d</b> the number contains at least two twos.
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 23</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+[A harder question] Continuing with Worked example 22, find the probability that:<br>
+<b>a</b> the number contains at least one four,<br>
+<b>b</b> the number contains at least one four and at least one five,<br>
+<b>c</b> the number contains exactly three sevens,<br>
+<b>d</b> the number contains at least three sevens.
+<div class="sol-label">Solution</div>
+<p><b>a</b> This can be approached using the complementary event:<br>
+<span style="margin-left:5mm">number of five-digit numbers without a 4 \(=8\times9\times9\times9\times9=52\,488\),</span><br>
+<span style="margin-left:5mm">so number of five-digit numbers with a 4 \(=90\,000-52\,488=37\,512\).</span><br>
+<span style="margin-left:5mm">Hence \(P(\text{at least one 4})=\dfrac{37\,512}{90\,000}=\dfrac{521}{1250}\).</span></p>
+<p><b>b</b> This can be approached using the addition theorem:<br>
+<span style="margin-left:5mm">number without a 4 \(=52\,488\),</span><br>
+<span style="margin-left:5mm">similarly number without a 5 \(=52\,488\),</span><br>
+<span style="margin-left:5mm">and number with no 5 and no 4 \(=7\times8\times8\times8\times8=28\,672\).</span><br>
+<span style="margin-left:5mm">Hence number with no 5 or no 4 \(=52\,488+52\,488-28\,672=76\,304\),</span><br>
+<span style="margin-left:5mm">and number with at least one 5 and at least one 4 \(=90\,000-76\,304=13\,696\).</span><br>
+<span style="margin-left:5mm">Hence \(P(\text{at least one 4 and at least one 5})=\dfrac{13\,696}{90\,000}=\dfrac{856}{5625}\).</span></p>
+<p><b>c</b> Counting the number of five-digit numbers with exactly three 7s requires cases. First we count the five-digit strings with exactly three 7s, by first placing the three 7s and then choosing the first and second non-7 digits:</p>
+<table class="t" style="margin-left:5mm"><tr><th>position of the three 7s</th><th>choose first non-7</th><th>choose second non-7</th></tr><tr><td>\({}^{5}\mathrm{C}_{3}=10\)</td><td>9</td><td>9</td></tr></table>
+<p style="margin-left:5mm">giving 810 such strings. Secondly, we must subtract the number of five-digit strings with exactly three 7s and beginning with zero:</p>
+<table class="t" style="margin-left:5mm"><tr><th>position of the three 7s</th><th>choose the other non-7</th></tr><tr><td>\({}^{4}\mathrm{C}_{3}=4\)</td><td>9</td></tr></table>
+<p style="margin-left:5mm">giving 36 such strings. Hence there are \(810-36=774\) such numbers, and \(P(\text{number has exactly three 7s})=\dfrac{774}{90\,000}=\dfrac{43}{5000}\).</p>
+<p><b>d</b> The number \(77\,777\) is the only five-digit number with five 7s. Any five-digit number with exactly four 7s has one of the five forms \({*}7777,\ \ 7{*}777,\ \ 77{*}77,\ \ 777{*}7,\ \ 7777{*}\), where the \(*\) in \({*}7777\) is a non-zero digit. There are eight numbers of the first form, and nine of the other four forms, giving 44 numbers altogether.<br>
+<span style="margin-left:5mm">Hence the number with at least three 7s \(=774+44+1=819\),</span><br>
+<span style="margin-left:5mm">and \(P(\text{at least three 7s})=\dfrac{819}{90\,000}=\dfrac{91}{10\,000}\).</span></p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 14F}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">A committee of three is to be selected from the nine members in a club.
+<div class="parts one"><span><span class="pl">a</span>How many different committees can be formed?</span><span><span class="pl">b</span>If there are five men in the club, what is the probability that the selected committee consists entirely of males?</span></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">The integers from 1 to 10 inclusive are written on ten separate pieces of paper. Four pieces of paper are drawn at random. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>the four numbers drawn are 1, 2, 3 and 6,</span><span><span class="pl">b</span>the number 9 is one of the numbers drawn,</span><span><span class="pl">c</span>the number 8 is not drawn,</span><span><span class="pl">d</span>the number 7 is drawn but the number 1 is not.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">A bag contains three red, seven yellow and five blue balls. If three balls are drawn from the bag simultaneously, find the probability that:
+<div class="parts one"><span><span class="pl">a</span>all three balls are yellow,</span><span><span class="pl">b</span>all the balls are of the same colour,</span><span><span class="pl">c</span>there are two red balls and one blue ball,</span><span><span class="pl">d</span>all the balls are of different colours.</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">A sports committee of five members is to be chosen from eight AFL footballers and seven soccer players. Find the probability that the committee will contain:
+<div class="parts one"><span><span class="pl">a</span>only AFL footballers,</span><span><span class="pl">b</span>only soccer players,</span><span><span class="pl">c</span>three soccer players and two AFL footballers,</span><span><span class="pl">d</span>at least one soccer player,</span><span><span class="pl">e</span>at most one soccer player,</span><span><span class="pl">f</span>Ian, a particular soccer player.</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">From a standard pack of 52 cards, three are selected at random. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>they are the jack of spades, the two of clubs and the seven of diamonds,</span><span><span class="pl">b</span>all three are aces,</span><span><span class="pl">c</span>they are all diamonds,</span><span><span class="pl">d</span>they are all of the same suit,</span><span><span class="pl">e</span>they are all picture cards,</span><span><span class="pl">f</span>two are red and one is black,</span><span><span class="pl">g</span>one is a seven, one is an eight and one is a nine,</span><span><span class="pl">h</span>two are sevens and one is a six,</span><span><span class="pl">i</span>exactly one is a diamond,</span><span><span class="pl">j</span>at least two of them are diamonds.</span></div>{{work:72}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Repeat the previous question if the cards are selected from the pack one at a time, and each card is replaced before the next one is drawn.{{work:56}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Three boys and three girls are to sit in a row. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>the boys and girls alternate,</span><span><span class="pl">b</span>the boys sit together and the girls sit together,</span><span><span class="pl">c</span>two specific girls sit next to one another.</span></div>{{work:32}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">A family of five are seated in a row at the cinema. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>the parents sit on the end and the three children are in the middle,</span><span><span class="pl">b</span>the parents sit next to one another.</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Six people, of whom Patrick and Jessica are two, arrange themselves in a row. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>Patrick and Jessica occupy the end positions,</span><span><span class="pl">b</span>Patrick and Jessica are not next to each other.</span></div>{{work:26}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">10</span><div class="q-body">The letters of PROMISE are arranged randomly in a row. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>the word starts with R and ends with S,</span><span><span class="pl">b</span>the letters P and R are next to one another,</span><span><span class="pl">c</span>the letters P and R are separated by at least three letters,</span><span><span class="pl">d</span>the vowels and the consonants alternate,</span><span><span class="pl">e</span>the vowels are together.</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">The digits 3, 3, 4, 4, 4 and 5 are placed in a row to form a six-digit number. If one of these numbers is selected at random, find the probability that:
+<div class="parts one"><span><span class="pl">a</span>it is even,</span><span><span class="pl">b</span>it ends in 5,</span><span><span class="pl">c</span>the 4s occur together,</span><span><span class="pl">d</span>the number starts with 5 and then the 4s and 3s alternate,</span><span><span class="pl">e</span>the 3s are separated by at least one other number.</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">The letters of the word PRINTER are arranged in a row. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>the word starts with the letter E,</span><span><span class="pl">b</span>the letters I and P are next to one another,</span><span><span class="pl">c</span>there are three letters between N and T,</span><span><span class="pl">d</span>there are at least three letters between N and T.</span></div>{{work:32}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">The letters of KETTLE are arranged randomly in a row. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>the two letters E are together,</span><span><span class="pl">b</span>the two letters E are not together,</span><span><span class="pl">c</span>the two letters E are together and the two letters T are together,</span><span><span class="pl">d</span>the Es and Ts are together in one group.</span></div>{{work:32}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">The letters of ENTERTAINMENT are arranged in a row. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>the letters E are together,</span><span><span class="pl">b</span>two Es are together and one is apart,</span><span><span class="pl">c</span>all the letters E are apart,</span><span><span class="pl">d</span>the word starts and ends with E.</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">A tank contains 20 tagged fish and 80 untagged fish. On each day, four fish are selected at random, and after noting whether they are tagged or untagged, they are returned to the tank. Answer the following questions, correct to three significant figures.
+<div class="parts one"><span><span class="pl">a</span>What is the probability of selecting no tagged fish on a given day?</span><span><span class="pl">b</span>What is the probability of selecting at least one tagged fish on a given day?</span><span><span class="pl">c</span>Calculate the probability of selecting no tagged fish on every day for a week.</span><span><span class="pl">d</span>What is the probability of selecting no tagged fish on exactly three of the seven days during the week?</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">A bag contains seven white and five black discs. Three discs are chosen from the bag. Find the probability that all three discs are black, if the discs are chosen:
+<div class="parts one"><span><span class="pl">a</span>without replacement,</span><span><span class="pl">b</span>with replacement,</span><span><span class="pl">c</span>so that after each draw the disc is replaced with one of the opposite colour.</span></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">Six people are to be divided into two groups, each with at least one person. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>there will be three in each group,</span><span><span class="pl">b</span>there will be two in one group and four in the other,</span><span><span class="pl">c</span>there will be one group of five and an individual.</span></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">A three-digit number is formed from the digits 3, 4, 5, 6 and 7 (no repetitions allowed). Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>the number is 473,</span><span><span class="pl">b</span>the number is odd,</span><span><span class="pl">c</span>the number is divisible by 5,</span><span><span class="pl">d</span>the number is divisible by 3,</span><span><span class="pl">e</span>the number starts with 4 and ends with 7,</span><span><span class="pl">f</span>the number contains the digit 3,</span><span><span class="pl">g</span>the number contains the digits 3 and 5,</span><span><span class="pl">h</span>the number contains the digit 3 or 5,</span><span><span class="pl">i</span>all digits in the number are odd,</span><span><span class="pl">j</span>the number is greater than 500.</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">The digits 1, 2, 3 and 4 are used to form numbers that may have 1, 2, 3 or 4 digits in them. If one of the numbers is selected at random, find the probability that:
+<div class="parts one"><span><span class="pl">a</span>it has three digits,</span><span><span class="pl">b</span>it is even,</span><span><span class="pl">c</span>it is greater than 200,</span><span><span class="pl">d</span>it is odd and greater than 3000,</span><span><span class="pl">e</span>it is divisible by 3.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>A senate committee of five members is to be selected from six Labor and five Liberal senators. What is the probability that Labor will have a majority on the committee?</span><span><span class="pl">b</span>The senate committee is to be selected from \(N\) Labor and five Liberal senators. Use trial and error to find the minimum value of \(N\), given that the probability of Labor having a majority on the committee is greater than \(\tfrac34\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body">Four basketball teams A, B, C and D each consist of ten players, and in each team, the players are numbered 1, 2, …, 9, 10. Five players are to be selected at random from the four teams. Find the probability that of the five players selected:
+<div class="parts one"><span><span class="pl">a</span>three are numbered 4 and two are numbered 9,</span><span><span class="pl">b</span>at least four are from the same team.</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body">A poker hand of five cards is dealt from a standard pack of 52. Find the probability of obtaining:
+<div class="parts one"><span><span class="pl">a</span>one pair,</span><span><span class="pl">b</span>two pairs,</span><span><span class="pl">c</span>three of a kind,</span><span><span class="pl">d</span>four of a kind,</span><span><span class="pl">e</span>a full house (one pair and three of a kind),</span><span><span class="pl">f</span>a straight (five cards in sequence regardless of suit, ace high or low),</span><span><span class="pl">g</span>a flush (five cards of the same suit),</span><span><span class="pl">h</span>a royal flush (ten, jack, queen, king and ace in a single suit).</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">23</span><div class="q-body">Four adults are standing in a room that has five exits. Each adult is equally likely to leave the room through any one of the five exits.
+<div class="parts one"><span><span class="pl">a</span>What is the probability that all four adults leave the room via the same exit?</span><span><span class="pl">b</span>What is the probability that three particular adults use the same exit and the fourth adult uses a different exit?</span><span><span class="pl">c</span>What is the probability that any three of the four adults come out the same exit, and the remaining adult comes out a different exit?</span><span><span class="pl">d</span>What is the probability that no more than two adults come out any one exit?</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">24</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Five diners in a restaurant choose randomly from a menu featuring five main courses. Find the probability that exactly one of the main courses is not chosen by any of the diners.</span><span><span class="pl">b</span>Repeat the question if there are \(n\) diners and a choice of \(n\) main courses.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">25</span><div class="q-body">[The birthday problem]
+<div class="parts one"><span><span class="pl">a</span>Assuming a 365-day year, find the probability that in a group of three people there will be at least one birthday in common. Answer correct to two significant figures.</span><span><span class="pl">b</span>If there are \(n\) people in the group, find an expression for the probability of at least one common birthday.</span><span><span class="pl">c</span>By choosing a number of values of \(n\), plot a graph of the probability of at least one common birthday against \(n\) for \(n\le50\).</span><span><span class="pl">d</span>How many people need to be in the group before the probability exceeds 0.5?</span><span><span class="pl">e</span>How many people need to be in the group before the probability exceeds 90%?</span></div>{{work:76}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">26</span><div class="q-body">During the seven games of the football season, Max and Bert must each miss three consecutive games. The games to be missed by each player are randomly and independently selected.
+<div class="parts one"><span><span class="pl">a</span>What is the probability that they both have the first game off together?</span><span><span class="pl">b</span>What is the probability that the second game is the first one where Max and Bert are both missing?</span><span><span class="pl">c</span>What is the probability that Max and Bert miss at least one of the same games?</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">27</span><div class="q-body">Eight players make the quarter-finals at Wimbledon. The winner of each of the quarter-finals plays a semi-final to see who enters the final.
+<div class="parts one"><span><span class="pl">a</span>Assuming that all eight players are equally likely to win a match, show that the probability that any two particular players will play each other is \(\tfrac14\).</span><span><span class="pl">b</span>What is the probability that two particular people will play each other if the tournament starts with 16 players?</span><span><span class="pl">c</span>What is the probability that two particular players will meet in a similar knockout tournament if \(2^n\) players enter?</span></div>{{work:66}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>15 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>The King’s School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q8</span><span class="mk">1 mark</span></div>
+<div class="pp-q">A bag contains 5 identical blue marbles, 6 identical black marbles and 3 identical red marbles. Three marbles are drawn at random.<br>
+Which expression below gives the correct probability that exactly two blue marbles are drawn?
+<div class="mc" style="row-gap:2.5mm"><span>(A) \(\dfrac{{}^{5}\mathrm{C}_{2}}{{}^{14}\mathrm{C}_{3}}\)</span><span>(B) \(\dfrac{{}^{5}\mathrm{C}_{2}\times{}^{9}\mathrm{C}_{1}}{{}^{14}\mathrm{C}_{3}}\)</span><span>(C) \(\dfrac25\times\dfrac19\)</span><span>(D) \(\dfrac{2}{14}\times\dfrac19\)</span></div></div>
+<div class="hint"><b>Hint:</b> is the selection of three marbles ordered or unordered?</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Killara High School, 2023, Year 12 Examination, Mathematics Extension&nbsp;1 Trial,&nbsp;Q6</span><span class="mk">1 mark</span></div>
+<div class="pp-q">A lottery has 30 numbers and 6 are drawn without replacement. A player of this game chooses 6 distinct numbers themselves.<br>
+The probability of matching at least 4 of the 6 numbers is given by:
+<div class="mc"><span>A. 0.005</span><span>B. 0.007</span><span>C. 0.018</span><span>D. 0.046</span></div></div>
+<div class="hint"><b>Hint:</b> which numbers of matches count as ‘at least 4’?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Normanhurst Boys High School, 2020, Mathematics Extension&nbsp;1, Year 12 Course Assessment Task 4 (Trial Examination),&nbsp;Q11(f)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">At a soccer club a team of 13 players is to be chosen from a pool of 25 players consisting of 20 female players and 5 male players.<br>
+What is the probability that the team will consist of only female players?</div>
+<div class="hint"><b>Hint:</b> what is the sample space, and is a team ordered or unordered?</div>{{work:42}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Sydney Technical High School, 2021, Extension&nbsp;1 Mathematics, Trial HSC,&nbsp;Q11(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">2 cards are chosen at random, without replacement, from a standard 52-deck of playing cards. Find the probability of choosing at least 1 heart.</div>
+<div class="hint"><b>Hint:</b> ‘at least 1’ is a warning word.</div>{{work:42}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Hornsby Girls High School, 2022, Mathematics Extension&nbsp;1, Year 12 Higher School Certificate Trial Examination Term 3,&nbsp;Q12(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">A class consists of 10 girls and 8 boys. What is the probability of selecting a committee of 5, that contains 3 girls and 2 boys.</div>
+<div class="hint"><b>Hint:</b> think about the girls and the boys separately.</div>{{work:42}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Normanhurst Boys High School, 2022, Mathematics Extension&nbsp;1, Year 12 Course Assessment Task 4 (Trial Examination),&nbsp;Q11(c)(i)(ii)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">A school has twenty prefects. Jun and Alex are two of those prefects.<br>
+A committee of seven prefects is to be formed to organise a function.
+<div class="pp-sub"><span>(i) How many different committees can be formed?</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) What is the probability that the committee contains Jun but does not contain Alex?</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> in (ii), which prefects are still available for the other places on the committee?</div>{{work:60}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Girraween High School, 2023, Year 12 Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q11(c)(i)(ii)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">A group of 40 new Year 7 students is going to be randomly divided into two classes A and B of 20 students each. Four of the students, Anne, Ben, Carrie and David have been together in the same class since they started school and are close friends.
+<div class="pp-sub"><span>(i) What is the probability that the four friends will be in the same class?</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) What is the probability that exactly three of the friends will be in the same class?</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> the division is fixed once class A is chosen. How many ways are there to choose class A?</div>{{work:90}}</div>
+</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter 14 Review</div><h2>Chapter review exercise</h2>
+<div class="focus">Mixed practice from the whole chapter, Lessons 14A to 14F.</div></div>
+<div class="q"><span class="q-num">1</span><div class="q-body">How many ways can 8 people line up in a queue?{{work:14}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">By unrolling the factorial (see Box 2 in Lesson 14A) simplify:
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\(\dfrac{9!}{7!}\)</span><span><span class="pl">b</span>\(\dfrac{(n+1)!}{(n-1)!}\)</span><span><span class="pl">c</span>\((k+1)!-k!\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Use your calculator to evaluate:
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\({}^{12}\mathrm{C}_{7}\)</span><span><span class="pl">b</span>\({}^{10}\mathrm{C}_{3}\div{}^{6}\mathrm{C}_{3}\)</span><span><span class="pl">c</span>\(\dbinom{20}{17}\)</span></div>{{work:22}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">How many four-letter words, with no repeated letters, can be formed from the letters of JACKSON?{{work:16}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">A number plate in a certain country consists of 3 letters A–Z followed by 4 digits 0–9. How many number plates are possible?{{work:16}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Find how many arrangements of the letters of the word FOUNDER are possible:
+<div class="parts one"><span><span class="pl">a</span>if the vowels and consonants must alternate,</span><span><span class="pl">b</span>if the word must start with N and end with D,</span><span><span class="pl">c</span>if all the consonants must be in a group at the end of the word,</span><span><span class="pl">d</span>if the R is somewhere to the right of the U.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Five boys and five girls are to sit in a row. Find how many ways this can be done if:
+<div class="parts one"><span><span class="pl">a</span>there are no restrictions,</span><span><span class="pl">b</span>the boys and girls sit in distinct groups,</span><span><span class="pl">c</span>a particular boy and girl must sit together.</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">How many ways can the letters of REPORTER be arranged?{{work:16}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">How many words of three or four letters may be formed using the letters of SAMUEL?{{work:16}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">A quiz consists of ten questions, each taking the answer Yes or No. How many ways is it possible to get 6 correct and 4 wrong answers?{{work:16}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">A committee of seven is to be chosen from six men and ten women. Find how many committees are possible if:
+<div class="parts one"><span><span class="pl">a</span>there are no restrictions,</span><span><span class="pl">b</span>all members are to be female,</span><span><span class="pl">c</span>all members are to be male,</span><span><span class="pl">d</span>there are to be exactly two men,</span><span><span class="pl">e</span>there are to be four women and three men,</span><span><span class="pl">f</span>there is to be a majority of women,</span><span><span class="pl">g</span>a particular man must be included,</span><span><span class="pl">h</span>a particular man must not be included,</span><span><span class="pl">i</span>Mustafa refuses to be on a committee with Ying Yue.</span></div>{{work:84}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Eight people arrive at a restaurant. Find how many ways can they be assigned to:
+<div class="parts one"><span><span class="pl">a</span>a large table for five and a smaller table for three,</span><span><span class="pl">b</span>two quite different tables for four,</span><span><span class="pl">c</span>two indistinguishable tables for four.</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">What is the probability that if a committee of six is formed at random from four men and three women, it will have more men than women?{{work:40}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">From a standard pack of 52 cards, three are selected at random. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>they are the queen of spades, the three of clubs and the nine of hearts,</span><span><span class="pl">b</span>all three are kings,</span><span><span class="pl">c</span>they are all clubs,</span><span><span class="pl">d</span>they are all of the same suit,</span><span><span class="pl">e</span>one is red and two are black,</span><span><span class="pl">f</span>one is a three, one is a five, and one is an eight,</span><span><span class="pl">g</span>two are fives and one is a seven,</span><span><span class="pl">h</span>at least two of them are spades.</span></div>{{work:96}}</div></div>
+</div>
