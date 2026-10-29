@@ -1,1 +1,233 @@
-<!-- filled by Task 5 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 14D</div><h2>Ordered selections with identical elements</h2>
+<div class="focus">So far, our ordered sets have not permitted any element to be repeated. This lesson deals with permutations of all the letters of a word containing several copies of the one letter. Swapping identical letters does not change a word, so we must allow for <b>overcounting</b>.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:counting with identical elements}}
+<div class="box concept"><div class="bt">Counting with identical elements</div>
+<p>Finding the number of different words formed using all the letters of the word ‘PRESSES’ is complicated by the fact that there are three Ss and two Es. If the seven letters were all different, we would conclude that</p>
+\[\text{number of ways}=7!\]
+<p>But we have <i>overcounted by a factor of</i> \(2!=2\), because the Es can be interchanged without changing the word. We have also <i>overcounted by a factor of</i> \(3!=6\), because the three Ss can be permuted amongst themselves in \(3!\) ways without changing the word. Taking account of both overcountings,</p>
+\[\text{number of ways}=\dfrac{7!}{2!\times3!}=420.\]
+<p>This method is easily generalised. In the language of ‘words’:</p></div>
+<div class="box formula"><div class="bt">Box 10 &nbsp;Counting with identical elements</div>
+<p>Suppose that a word of \(n\) letters has \(r_1\) alike of one type, \(r_2\) alike of another type, …, \(r_k\) alike of a final type. Then the number of distinct words that can be formed by rearranging the letters is</p>
+\[\text{number of words}=\dfrac{n!}{r_1!\times r_2!\times\cdots\times r_k!}.\]</div>
+<p>If \(r_i=1\), that is, there is only one letter of the \(i\)th type, then \(r_i!=1\), so it doesn’t matter whether we include it in the formula or not.</p>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Divide by the orderings of the identical items</span></div><div class="ex-body">
+Four identical mugs and five identical cups are to be arranged in a row along a shelf.<br>
+<b>a</b> In how many ways can this be done (counting only the patterns)?<br>
+<b>b</b> How does this change if one of the mugs becomes clearly chipped, and two cups break and are replaced by two identical cups different from the other three?<br>
+<b>c</b> How many different words can be formed using all the letters of the word PEPPER?
+{{work:34}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Two identical vases and four identical jars are to be arranged in a row along a shelf.<br>
+<b>a</b> In how many ways can this be done (counting only the patterns)?<br>
+<b>b</b> How does this change if one of the vases becomes clearly chipped, and two jars break and are replaced by two identical jars different from the other two?<br>
+<b>c</b> How many different words can be formed using all the letters of the word TOOTH?
+{{work:32}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 12</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Three identical wine glasses and five identical tumblers are to be arranged in a row across the front of a cupboard.<br>
+<b>a</b> In how many ways can this be done (counting only the patterns)?<br>
+<b>b</b> How does this change if one of the wine glasses becomes clearly chipped, and two tumblers break and are replaced by two identical tumblers different from the other three?
+<div class="sol-label">Solution</div>
+<p><b>a</b> There are 8 glasses, 3 alike of one type and 5 alike of another, so</p>
+\[\text{number of ways}=\dfrac{8!}{3!\times5!}=56.\]
+<p><b>b</b> There are now 2 alike of one type, 1 of another, 3 of another, 2 of another, so</p>
+\[\text{number of ways}=\dfrac{8!}{2!\times1!\times3!\times2!}=1680\quad\text{(the }1!\text{ can be omitted).}\]
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div class="page-break"></div>
+{{sec:teal:key:Concept 2:words containing only two different letters}}
+<div class="box concept"><div class="bt">Words containing only two different letters</div>
+<p>The theory about counting with identical letters assumes particular importance when there are only two types of letters, as in part <b>a</b> of Worked example 12. The answer to part <b>a</b> was \(\dfrac{8!}{3!\times5!}\). This formula is true in general:</p></div>
+<div class="box formula"><div class="bt">Box 11 &nbsp;Permutations of words containing only two different letters</div>
+<p>Suppose that an \(n\)-letter word consists of \(r\) Ys and \(n-r\) Ns. Then the number of possible distinct words is</p>
+\[\text{number of words}=\dfrac{n!}{r!\times(n-r)!}.\]</div>
+<div class="box concept"><div class="bt">An application: paths on a grid</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>A path from \(A\) to \(B\) along the grid lines, moving only right or down, is a list of single steps. On the 3 by 2 grid of unit squares shown, every path has 3 steps right (R) and 2 steps down (D), so each path is a five-letter word with three Rs and two Ds. The path drawn is RDRRD. Each such word gives exactly one path, so by Box 11</p>
+\[\text{number of paths}=\dfrac{5!}{3!\times2!}=10.\]
+</div><div>
+{{svg:grid32}}
+</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two types of letters</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:2fr 1fr"><div>
+<b>a</b> Five women and three men form a queue at the bus stop. How many patterns of men and women are there?<br>
+<b>b</b> There is space at the bus stop for a queue of eight adults. How many patterns of men and women are possible?<br>
+<b>c</b> The diagram shows a grid of unit squares. How many paths are there from \(A\) to \(B\) moving only right or down along the grid lines?
+</div><div>
+{{svg:grid42}}
+</div></div>
+{{work:30}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:2fr 1fr"><div>
+<b>a</b> Four women and two men form a queue at the bus stop. How many patterns of men and women are there?<br>
+<b>b</b> There is space at the bus stop for a queue of six adults. How many patterns of men and women are possible?<br>
+<b>c</b> The diagram shows a grid of unit squares. How many paths are there from \(A\) to \(B\) moving only right or down along the grid lines?
+</div><div>
+{{svg:grid33}}
+</div></div>
+{{work:36}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 13</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Six women and four men form a queue at the bus stop. How many patterns of men and women are there?<br>
+<b>b</b> There is space at the bus stop for a queue of ten adults. How many patterns of men and women are possible?
+<div class="sol-label">Solution</div>
+<p><b>a</b> We can use the formula above, or we can think of arranging ten letters, six alike of one type and four of another.</p>
+\[\text{Number of patterns}=\dfrac{10!}{6!\times4!}=210.\]
+<p><b>b</b> Each of the 10 positions can be filled in two possible ways:</p>
+<table class="t"><tr><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th><th>6th</th><th>7th</th><th>8th</th><th>9th</th><th>10th</th></tr><tr><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td></tr></table>
+\[\text{Hence number of ways}=2^{10}=1024.\]
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:using cases}}
+<div class="box concept"><div class="bt">Using cases</div>
+<p>As mentioned in Lesson 14C, many counting problems are too complicated to be analysed completely by a single box diagram. In such situations, the use of cases is unavoidable. Attention should be given, however, to minimising the number of different cases that need to be considered.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">One case for each letter left out</span></div><div class="ex-body">
+How many six-letter words can be formed by using the letters of the word ‘ADDRESS’?
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+How many five-letter words can be formed by using the letters of the word ‘LETTER’?
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 14</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+How many six-letter words can be formed by using the letters of the word ‘PRESSES’?
+<div class="sol-label">Solution</div>
+<p>We omit in turn each of the four letters ‘P’, ‘R’, ‘E’ and ‘S’. This leaves six letters which we must then arrange in order.</p>
+<div class="split"><div>
+<p><b>1</b> If an S is omitted, there are then 2 Es and 2 Ss, so</p>
+\[\text{number of words}=\dfrac{6!}{2!\times2!}=180.\]
+<p><b>2</b> If an E is omitted, there are then 3 Ss, so</p>
+\[\text{number of words}=\dfrac{6!}{3!}=120.\]
+</div><div>
+<p><b>3</b> If P or R is omitted (2 cases), there are then 2 Es and 3 Ss, so</p>
+\[\begin{aligned}\text{number of words}&=\dfrac{6!}{3!\times2!}\times2\\ &=120.\end{aligned}\]
+<p>(doubling for the two cases)</p>
+</div></div>
+\[\text{Hence the total number of words is }180+120+120=420.\]
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 14D}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Find the number of permutations of the following words if all the letters are used.
+<div class="parts one"><span><span class="pl">a</span>BOB</span><span><span class="pl">b</span>ALAN</span><span><span class="pl">c</span>SNEEZE</span><span><span class="pl">d</span>TASMANIA</span><span><span class="pl">e</span>BEGINNER</span><span><span class="pl">f</span>FOOTBALLS</span><span><span class="pl">g</span>EQUILATERAL</span><span><span class="pl">h</span>COMMITTEE</span><span><span class="pl">i</span>WOOLLOOMOOLOO</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">The six digits 1, 1, 1, 2, 2, 3 are used to form a six-digit number. How many numbers can be formed?{{work:16}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Six coins are lined up on a table. Find how many patterns are possible if there are:
+<div class="parts one"><span><span class="pl">a</span>five tails and one head,</span><span><span class="pl">b</span>four heads and two tails,</span><span><span class="pl">c</span>three tails and three heads.</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Eight balls, identical except for colour, are arranged in a line. Find how many different arrangements are possible if:
+<div class="parts one"><span><span class="pl">a</span>all balls are of a different colour,</span><span><span class="pl">b</span>there are seven red balls and one white ball,</span><span><span class="pl">c</span>there are six red balls, one white ball and one black ball,</span><span><span class="pl">d</span>there are three red balls, three white balls and two black balls.</span></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Five identical green chairs and three identical red chairs are arranged in a row. Find how many arrangements are possible:
+<div class="parts one"><span><span class="pl">a</span>if there are no restrictions,</span><span><span class="pl">b</span>if there must be a green chair on either end.</span></div>{{work:26}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">6</span><div class="q-body">A motorist travels through eight sets of traffic lights, each of which is red or green. He is forced to stop at three sets of lights.
+<div class="parts one"><span><span class="pl">a</span>In how many ways could this happen?</span><span><span class="pl">b</span>What other number of red lights would give an identical answer to part <b>a</b>?</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">In how many ways can the letters of the word SOCKS be arranged in a line:
+<div class="parts one"><span><span class="pl">a</span>without restriction,</span><span><span class="pl">b</span>so that the two Ss are together,</span><span><span class="pl">c</span>so that the two Ss are separated by at least one other letter,</span><span><span class="pl">d</span>so that the K is somewhere to the left of the C?</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Find the number of arrangements of the letters in SLOOPS if:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; there are no restrictions,</span><span>ii&nbsp; the two Os are together,</span><span>iii&nbsp; the two Os are to be separated,</span><span>iv&nbsp; the Os are together and the Ss are together.</span></div>
+<div class="parts one"><span><span class="pl">b</span>In how many arrangements of the letters in TATTOO are the two Os separated?</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">In how many ways can the letters of the word DECISIONS be arranged:
+<div class="parts one"><span><span class="pl">a</span>without restriction,</span><span><span class="pl">b</span>so that the vowels and consonants alternate,</span><span><span class="pl">c</span>so that the vowels come first followed by the consonants,</span><span><span class="pl">d</span>so that the N is somewhere to the right of the D?</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">In how many ways can the letters of the word PROPORTIONALITY be arranged so that the vowels and consonants still occupy the same places?{{work:30}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">A form has ten questions in order, each of which requires the answer ‘Yes’ or ‘No’. Find the number of ways the form can be filled in:
+<div class="parts one"><span><span class="pl">a</span>without restriction,</span><span><span class="pl">b</span>if the first and last answers are ‘Yes’,</span><span><span class="pl">c</span>if two are ‘Yes’ and eight are ‘No’,</span><span><span class="pl">d</span>if five are ‘Yes’ and five are ‘No’,</span><span><span class="pl">e</span>if more than seven answers are ‘Yes’,</span><span><span class="pl">f</span>if an odd number of answers are ‘Yes’,</span><span><span class="pl">g</span>if exactly three answers are ‘Yes’, and they occur together,</span><span><span class="pl">h</span>if the first and last answers are ‘Yes’ and exactly four more are ‘Yes’.</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Containers are identified by a row of coloured dots on their lids. The colours used are yellow, green and purple. In any arrangement, there are to be no more than three yellow dots, no more than two green dots and no more than one purple dot.
+<div class="parts one"><span><span class="pl">a</span>If six dots are used, what is the number of possible codes?</span><span><span class="pl">b</span>What is the number of different codes possible if only five dots are used?</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>How many five-letter words can be formed by using the letters of the word STRESS?</span><span><span class="pl">b</span>How many five-letter words can be formed by using the letters of the word BANANA?</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Find how many arrangements of the letters of the word TRANSITION are possible if:
+<div class="parts one"><span><span class="pl">a</span>there are no restrictions,</span><span><span class="pl">b</span>the Is are together,</span><span><span class="pl">c</span>the Is are together, and so are the Ns, and so are the Ts,</span><span><span class="pl">d</span>the Ns occupy the end positions,</span><span><span class="pl">e</span>an N occupies the first but not the last position,</span><span><span class="pl">f</span>the letter N is not at either end,</span><span><span class="pl">g</span>the vowels are together.</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">Ten coloured marbles are placed in a row.
+<div class="parts one"><span><span class="pl">a</span>If they are all of different colours, how many arrangements are possible?</span><span><span class="pl">b</span>What is the minimum number of colours needed to guarantee at least 10&#8239;000 different patterns? (Hint: This will need a guess-and-check approach.)</span></div>{{work:46}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">16</span><div class="q-body">Find how many arrangements there are of the letters of the word GUMTREE if:
+<div class="parts one"><span><span class="pl">a</span>there are no restrictions,</span><span><span class="pl">b</span>the Es are together,</span><span><span class="pl">c</span>the Es are separated by:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; one,</span><span>ii&nbsp; two,</span><span>iii&nbsp; three,</span><span>iv&nbsp; four,</span><span>v&nbsp; five letters,</span></div>
+<div class="parts one"><span><span class="pl">d</span>the G is somewhere between the two Es,</span><span><span class="pl">e</span>the M is somewhere to the left of both Es and the U is somewhere between them,</span><span><span class="pl">f</span>the G is somewhere to the left of the U and the M is somewhere to the right of the U.</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">If the letters of the word GUMTREE and the letters of the word KOALA are combined and arranged into a single twelve-letter word, in how many of these arrangements do the letters of KOALA appear in their correct order, but not necessarily together?{{work:44}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">Bob is about to hang his eight shirts in the wardrobe. He has four different styles of shirt, with two identical shirts in each style. How many different arrangements are possible if no two identical shirts are next to one another?{{work:70}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">[Derangements and the number \(e\)]<br>
+A <i>derangement</i> was defined in question 22 of Exercise 14C as a permutation that leaves no letter unmoved, and \(D(n)\) was defined as the number of derangements of \(n\) letters. Another approach to finding a formula for \(D(n)\) uses the <i>inclusion–exclusion principle</i> introduced in the Enrichment section of Exercise 12C. Consider, for example, the derangements of ABCD.
+<div class="parts one"><span><span class="pl">a</span>How many permutations are there of ABCD?</span><span><span class="pl">b</span>How many of these leave in its original position:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; A,</span><span>ii&nbsp; B,</span><span>iii&nbsp; C,</span><span>iv&nbsp; D?</span></div>
+<div style="margin-left:6mm">Each of these numbers will need to be subtracted from the answer to part <b>a</b>.</div>
+<div class="parts one"><span><span class="pl">c</span>In doing part B, however, we have subtracted some of the permutations twice. For example, some of them would leave both A and B unmoved. Thus we need to add back the number of permutations that leave any two particular letters unmoved. How many of these are there?</span><span><span class="pl">d</span>Now you will need to subtract the number of permutations that leave three letters unmoved, and so on. Hence find an expression for \(D(4)\).</span><span><span class="pl">e</span>Rearrange your expression into the form \(D(4)=4!\left(\dfrac{1}{0!}-\dfrac{1}{1!}+\dfrac{1}{2!}-\dfrac{1}{3!}+\dfrac{1}{4!}\right)\).</span><span><span class="pl">f</span>Explain how this can be generalised to \(D(n)=n!\left(\dfrac{1}{0!}-\dfrac{1}{1!}+\dfrac{1}{2!}-\dfrac{1}{3!}+\cdots+\dfrac{(-1)^n}{n!}\right)\).</span><span><span class="pl">g</span>We shall prove in an Enrichment question of the Year 12 volume that the sequence in the brackets of part <b>f</b> above converges to \(\dfrac{1}{e}\) as \(n\to\infty\). Give both a combinatorial and a probabilistic interpretation of this result in terms of the ratio of the numbers of permutations and derangements of \(n\) letters.</span></div>{{work:70}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>16 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">PP 8 and PP 9 are probability questions: they combine the counting of this lesson with \(P(E)=\dfrac{|E|}{|S|}\) from the revision page. PP 10 and PP 11 count paths on a grid (Concept 2).</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Knox Grammar School, 2022, Higher School Certificate Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q7</span><span class="mk">1 mark</span></div>
+<div class="pp-q">In how many ways can the letters of the word EXCELLENT be arranged?
+<div class="mc"><span>A. 3024</span><span>B. 30240</span><span>C. 60480</span><span>D. 362880</span></div></div>
+<div class="hint"><b>Hint:</b> how many times does each letter of EXCELLENT appear?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension&nbsp;1,&nbsp;Q11(a)</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Six chairs are to be painted. Two of the chairs are to be painted black.<br>
+The other four are to be painted blue, green, yellow and grey.<br>
+The chairs are then arranged in a row.<br>
+How many possible arrangements are there for the colours of the chairs?</div>
+<div class="hint"><b>Hint:</b> once they are painted, which chairs look the same?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Technical High School, 2023, Trial HSC, Extension&nbsp;1 Mathematics,&nbsp;Q1</span><span class="mk">1 mark</span></div>
+<div class="pp-q">The number of different arrangements of the letters of the word SPUDDLE which begins with the letter P is:
+<div class="mc" style="row-gap:2.5mm"><span>A. \(\dfrac{7!}{2!}\)</span><span>B. \(\dfrac{6!}{2!}\)</span><span>C. \(\dfrac{6!}{5!\,2!}\)</span><span>D. \(\dfrac{7!}{5!\,2!}\)</span></div></div>
+<div class="hint"><b>Hint:</b> deal with the restriction first (Lesson 14B).</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Sydney Grammar School, 2022, Trial Examination, Form VI Mathematics Extension&nbsp;1,&nbsp;Q12(a)</span><span class="mk">1 mark</span></div>
+<div class="pp-q">How many different ten-letter arrangements can be made using the letters of the word TABLECLOTH?</div>
+<div class="hint"><b>Hint:</b> which letters of TABLECLOTH are repeated?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Grammar School, 2023, Trial Examination, Form VI Mathematics Extension&nbsp;1,&nbsp;Q11(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Which boy’s name has more unique arrangements of letters: MILO or SAVVAS? Show your working.</div>
+<div class="hint"><b>Hint:</b> use Box 10 for each name.</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Baulkham Hills High School, 2020, Year 12 Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q8</span><span class="mk">1 mark</span></div>
+<div class="pp-q">In how many ways can the letters of the word <b>EXTENSION</b> be arranged if the letter E’s are to be together?
+<div class="mc" style="row-gap:2.5mm"><span>A. \(\dfrac{9!}{2!\,2!}\)</span><span>B. \(\dfrac{9!}{2!}\)</span><span>C. \(\dfrac{8!}{2!\,2!}\)</span><span>D. \(\dfrac{8!}{2!}\)</span></div></div>
+<div class="hint"><b>Hint:</b> glue the two Es together as one group (Lesson 14C).</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>St George Girls High School, 2020, Trial HSC Examination, Mathematics Extension&nbsp;1,&nbsp;Q11(c)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Consider the word STATISTICS.
+<div class="pp-sub"><span>(i) How many arrangements of the letters are there?</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) How many arrangements of the letters are there where the A and C are next to each other?</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> start by counting how many times each letter of STATISTICS appears.</div>{{work:56}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Normanhurst Boys High School, 2021, Year 12 Course Assessment Task 4 (Trial Examination), Mathematics Extension&nbsp;1,&nbsp;Q3</span><span class="mk">1 mark</span></div>
+<div class="pp-q">The letters in the word CALCULUS were randomly rearranged.<br>
+What is the probability that C is at the start and end of the new arrangement?
+<div class="mc" style="row-gap:2.5mm"><span>(A) \(\dfrac{1}{6}\)</span><span>(B) \(\dfrac{1}{14}\)</span><span>(C) \(\dfrac{1}{28}\)</span><span>(D) \(\dfrac{1}{56}\)</span></div></div>
+<div class="hint"><b>Hint:</b> first count all the different arrangements of CALCULUS.</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Ascham School, 2020, Trial HSC Examination, Mathematics Extension&nbsp;1,&nbsp;Q2</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Each of the letters A, A, C, H, M, and S is written on a separate card. The cards are drawn at random from a hat and placed next to each other to form a word. What is the probability that the word ASCHAM appears?
+<div class="mc" style="row-gap:2.5mm"><span>A. \(\dfrac{1}{60}\)</span><span>B. \(\dfrac{1}{360}\)</span><span>C. \(\dfrac{1}{720}\)</span><span>D. \(\dfrac{1}{50}\)</span></div></div>
+<div class="hint"><b>Hint:</b> how many different words can the six cards make?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Normanhurst Boys High School, 2022, Year 12 Course Assessment Task 4 (Trial Examination), Mathematics Extension&nbsp;1,&nbsp;Q11(e)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">The diagram shows a grid consisting of unit squares. Chris needs to travel from point \(A\) to point \(B\) but can only do so by moving right or down along the grid lines.
+{{svg:nbhs22}}
+How many paths are there for Chris?</div>
+<div class="hint"><b>Hint:</b> describe each path as a list of single steps.</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 11</span>St Aloysius’ College, 2024, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q8</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Moving only right or up, how many different paths exist to get from Point A to Point B?
+{{svg:stalo24}}
+<div class="mc"><span>(A) 45</span><span>(B) 840</span><span>(C) 480480</span><span>(D) \(16!\)</span></div></div>
+<div class="hint"><b>Hint:</b> is there a point that every path must pass through?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 12</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q10</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Out of a group of 10 professional tiddlywinks players, 6 are to be selected for the final round of a competition. 4 of those 6 will be placed as 1st, 2nd, 3rd and 4th.<br>
+In how many ways can this process be carried out?
+<div class="mc" style="row-gap:2.5mm"><span>(A) \(\dfrac{10!}{6!\,4!}\)</span><span>(B) \(\dfrac{10!}{4!\,4!}\)</span><span>(C) \(\dfrac{10!}{4!\,2!}\)</span><span>(D) \(\dfrac{10!}{6!}\)</span></div></div>
+<div class="hint"><b>Hint:</b> give each player a label that says what happens to them.</div>{{work:60}}</div>
+</div>

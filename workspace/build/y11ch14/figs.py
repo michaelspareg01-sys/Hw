@@ -113,6 +113,45 @@ def fig_14c():
           ["couple: 2! orders", "3 girls: 3! orders", "boy", "boy", "boy"], bw=104, fixed=(0, 1))
 
 
+# ---------------------------------------------------------------- 14D: paths on a grid
+def grid(name, rects, points, path=None, cell=30, pad=24):
+    """Grids of unit squares drawn in grid units with y upwards.
+    rects: (x0, y0, cols, rows) blocks of squares; points: {label: (gx, gy, dx, dy)} with a
+    dot at (gx, gy) and the label offset by (dx, dy) pixels; path: grid points joined in colour."""
+    X1 = max(x + c for x, y, c, r in rects)
+    Y1 = max(y + r for x, y, c, r in rects)
+    f = Fig(X1 * cell + 2 * pad, Y1 * cell + 2 * pad)
+    P = lambda gx, gy: (pad + gx * cell, pad + (Y1 - gy) * cell)
+    for x0, y0, c, r in rects:
+        for i in range(c + 1):
+            f.line(*P(x0 + i, y0), *P(x0 + i, y0 + r), color="faint", width=1.2)
+        for j in range(r + 1):
+            f.line(*P(x0, y0 + j), *P(x0 + c, y0 + j), color="faint", width=1.2)
+    if path:
+        d = "M" + " L".join("{:.1f},{:.1f}".format(*P(*q)) for q in path)
+        f.path(d, color="blue", width=3)
+    for lab, (gx, gy, dx, dy) in points.items():
+        x, y = P(gx, gy)
+        f.dot(x, y, 4)
+        f.text(x + dx, y + dy, lab, size=13, italic=True, weight=600)
+    save(name, f)
+
+
+def fig_14d():
+    # Concept 2: a 3 by 2 grid, right or down from A (top left) to B (bottom right), path R D R R D
+    grid("grid32", [(0, 0, 3, 2)], {"A": (0, 2, -12, -8), "B": (3, 0, 12, 12)},
+         path=[(0, 2), (1, 2), (1, 1), (2, 1), (3, 1), (3, 0)], cell=40)
+    # Tutor demo and Your turn: 4 by 2 and 3 by 3 grids
+    grid("grid42", [(0, 0, 4, 2)], {"A": (0, 2, -12, -8), "B": (4, 0, 12, 12)}, cell=26)
+    grid("grid33", [(0, 0, 3, 3)], {"A": (0, 3, -12, -8), "B": (3, 0, 12, 12)}, cell=26)
+    # Normanhurst Boys 2022 Q11(e): 5 by 3 grid of unit squares, A top left, B bottom right
+    grid("nbhs22", [(0, 0, 5, 3)], {"A": (0, 3, -12, -8), "B": (5, 0, 12, 12)}, cell=28)
+    # St Aloysius 2024 Q8: a 5 by 3 grid, and a 4 by 2 grid joined at its corner; right or up from A to B
+    grid("stalo24", [(0, 0, 5, 3), (5, 3, 4, 2)], {"A": (0, 0, -12, 12), "B": (9, 5, 12, -8)}, cell=25)
+    grid("stalo24c", [(0, 0, 5, 3), (5, 3, 4, 2)], {"A": (0, 0, -12, 12), "B": (9, 5, 12, -8), "C": (5, 3, -10, -9)}, cell=26)
+
+
 if __name__ == "__main__":
     fig_14a()
     fig_14c()
+    fig_14d()
