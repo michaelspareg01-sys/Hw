@@ -636,6 +636,9 @@ try:
         sa = re.search(r"^(.*?)</span></div>", PPA[k], re.S).group(1)
         report(sq == sa, f"PP{k} source label", re.sub("<[^>]+>|&nbsp;", " ", sq)[:90])
         report(PPQ[k].count('<div class="hint">') == 1, f"PP{k} hint", "exactly one hint")
+        hint = re.search(r'<div class="hint"><b>Hint:</b> (.*?)</div>', PPQ[k]).group(1)
+        bad = re.search(r"\d|complement|list|tree|compare|worked example|start with|write|in terms of|whole number|rule of thumb|think of", re.sub(r"\\\(.*?\\\)|Box \d", "", hint), re.I)
+        report(hint.endswith("?") and not bad, f"PP{k} hint is a starting question (no value, step or technique)", hint)
 except Exception as err:
     report(False, "PP structure", f"ERROR {err}")
 

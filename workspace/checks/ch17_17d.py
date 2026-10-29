@@ -532,9 +532,7 @@ for k in sorted(PPQ):
     sub = [int(x) for x in re.findall(r'<div class="pp-sub"><span>.*?</span><span class="mk">(\d+)</span></div>', PPQ[k], re.S)]
     report(not sub or sum(sub) == marks[k], f"PP{k} part marks", str(sub))
     hint = re.search(r'<div class="hint"><b>Hint:</b> (.*?)</div>', PPQ[k]).group(1)
-    if k in (2, 3):
-        report(hint == {2: r"what are \(n\) and \(p\) here?", 3: "for (i), recall the rule of thumb from Lesson 17C."}[k], f"PP{k} hint unchanged", hint)
-    else:
+    if True:
         bad = re.search(r"\d|%|standard deviation|deviation|sigma|mean|variance|formula|z-score|z\b|normal|empirical|continuity|sqrt|rule|np|nq|table|times|probabilit", hint.replace(r"\hat p", "").replace(r"\(n\)", "").replace(r"\(p\)", ""))
         report(hint.endswith("?") and not bad, f"PP{k} hint is an identification question (no numbers or method words)", hint)
     meth = PPA[k].count("Using the normal approximation to \\(\\hat p\\) without a continuity correction, as in the school solution.")
