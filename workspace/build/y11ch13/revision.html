@@ -1,0 +1,32 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter revision</div><h2>Probability and data</h2>
+<div class="focus">What this chapter builds on: probability rules (Chapter 12), and the mean, standard deviation and sigma notation (statistics).</div></div>
+
+{{sec:violet:loop:Summary:keep this page open while you work}}
+<div class="box formula"><div class="bt">Probability (Chapter 12)</div>
+<ul><li>If \(E\) is a subset of a <b>uniform sample space</b> \(S\) (all outcomes equally likely), then \(P(E)=\dfrac{|E|}{|S|}\), where \(|E|\) is the number of members of \(E\). An impossible event has probability \(0\), a certain event has probability \(1\), and the probabilities of all the outcomes of an experiment add to \(1\).</li>
+<li>The <b>complement</b> \(\overline{E}\) is the event ‘\(E\) does <u>not</u> occur’, and \(P(\overline{E})=1-P(E)\). Always consider using complementary events, particularly when the word ‘not’ occurs.</li>
+<li><b>Addition rule:</b> \(P(A\text{ or }B)=P(A)+P(B)-P(A\text{ and }B)\). If \(A\) and \(B\) are <b>mutually exclusive</b> (they cannot both occur), then \(P(A\text{ or }B)=P(A)+P(B)\).</li>
+<li><b>Product rule:</b> if \(A_1,A_2,\dots,A_n\) are events in successive <b>independent</b> stages, then \(P(A_1A_2\cdots A_n)=P(A_1)\times P(A_2)\times\cdots\times P(A_n)\). Sampling <b>with replacement</b> gives independent stages. <b>Without replacement</b> the second probability changes, because it is found from the objects that are left. On a <b>tree diagram</b>, multiply along a path and add the paths you want.</li>
+<li><b>Relative frequency:</b> if a result occurs \(f\) times in \(n\) runs of an experiment, its relative frequency is \(f/n\). It estimates the probability.</li></ul></div>
+
+<div class="box formula"><div class="bt">Mean, standard deviation and sigma notation (Advanced statistics)</div>
+<ul><li>The <b>mean</b> of \(n\) numbers is found by adding them up and dividing by \(n\): the mean of \(0,1,2,3,4\) is \((0+1+2+3+4)/5=2\). In a <b>frequency table</b> the value \(x\) occurs \(f\) times and \(n=\sum f\). The <b>relative frequency</b> is \(f_r=f/n\), and the \(f_r\) add to \(1\). The mean is the mean of the values weighted by their relative frequencies: \(\bar x=\sum xf\big/\sum f=\sum x\,f_r\).</li>
+<li>The <b>standard deviation</b> \(\sigma\) measures spread. Each <b>deviation</b> \(x-\bar x\) is squared, and the mean of these is the <b>variance</b>. It is easier to use the mean of the squares minus the square of the mean:
+\[\sigma^2=\sum(x-\bar x)^2f_r=\sum x^2f_r-\bar x^{\,2}\qquad\sigma=\sqrt{\sigma^2}\]
+On a calculator use the key \(\sigma_n\).</li>
+<li><b>Sigma notation:</b> \(\sum\) is the Greek capital sigma, standing for ‘take the sum’, so \(\sum_{k=1}^{4}k^2=1+4+9+16=30\). Sums split and constants come out: \(\sum(a_k+b_k)=\sum a_k+\sum b_k\) and \(\sum c\,a_k=c\sum a_k\).</li></ul></div>
+
+{{sec:violet:spark:Warm-up:answers are in the answers booklet}}
+<div class="q"><span class="q-num">1</span><div class="q-body">A card is drawn at random from a pack of 52 playing cards (the 12 jacks, queens and kings are the court cards). Find the probability that it is:
+<div class="parts one"><span><span class="pl">a</span>a court card,</span><span><span class="pl">b</span>not a court card,</span><span><span class="pl">c</span>a heart or a king.</span></div>{{work:14}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">A coin is tossed three times. Find the probability that:
+<div class="parts one"><span><span class="pl">a</span>all three tosses are heads,</span><span><span class="pl">b</span>there is at least one head,</span><span><span class="pl">c</span>there are exactly two heads.</span></div>{{work:14}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Two marbles are drawn in succession from a bag of three red and two blue marbles. Find the probability that both are red if the first marble is:
+<div class="parts one"><span><span class="pl">a</span>replaced before the second is drawn,</span><span><span class="pl">b</span>not replaced.</span></div>{{work:13}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">A spinner numbered 1 to 4 is spun 50 times. The results are shown in the frequency table.
+<table class="t" style="font-size:9.8pt;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(f\)</th><td>6</td><td>14</td><td>18</td><td>12</td></tr></table>
+<div class="parts one"><span><span class="pl">a</span>Find the relative frequency \(f_r\) of each value, and check that they add to 1.</span><span><span class="pl">b</span>Find the mean \(\bar x\).</span><span><span class="pl">c</span>Find the standard deviation, using \(\sum x^2f_r-\bar x^{\,2}\).</span></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Write \(3+6+9+12\) in sigma notation and evaluate it.</span><span><span class="pl">b</span>Given \(\sum p(x)=1\) and \(\sum x\,p(x)=2\), find \(\sum(3x+1)\,p(x)\).</span></div>{{work:15}}</div></div>
+</div>
