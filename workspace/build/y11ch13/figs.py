@@ -117,6 +117,14 @@ def bartext(x, y, s, size=13, anchor="middle"):
             f'font-style="italic" fill="{INK}">' + "".join(spans) + "</text>")
 
 
+def _off(xa, ya, xb, yb, d=19):
+    """Point beside the midpoint of a branch, d px along the normal on the outer side (up-left for a rising branch, down-left for a falling one)."""
+    dx, dy = xb - xa, yb - ya
+    L = sqrt(dx * dx + dy * dy)
+    nx, ny = ((dy, -dx) if dy < 0 else (-dy, dx))
+    return (xa + xb) / 2 + d * nx / L, (ya + yb) / 2 + d * ny / L
+
+
 def tree2(name, first, w=430, h=230):
     """Two-stage tree. first/second: lists of (branch label, probability label); leaves get outcome and probability."""
     f = Fig(w, h)
@@ -130,12 +138,12 @@ def tree2(name, first, w=430, h=230):
         y1 = 30 + (h - 40) * (i + 0.5) / n1
         f.line(x0, h / 2, x1 - 14, y1, width=1.3)
         f.raw(bartext(x1, y1, lab1))
-        f.text((x0 + x1) / 2 - (4 if y1 < h / 2 else 12), (h / 2 + y1) / 2 + (-17 if y1 < h / 2 else 15), p1, size=11, color="blue")
+        f.text(*_off(x0, h / 2, x1 - 14, y1), p1, size=11, color="blue")
         for j, (lab2, p2, outlab, prob) in enumerate(outs):
             y2 = y1 + (j - (len(outs) - 1) / 2) * (h - 40) / (n1 * len(outs))
             f.line(x1 + 12, y1, x2 - 14, y2, width=1.3)
             f.raw(bartext(x2, y2, lab2))
-            f.text((x1 + x2) / 2 + 2, (y1 + y2) / 2 + (-17 if y2 < y1 else 15), p2, size=11, color="blue")
+            f.text(*_off(x1 + 12, y1, x2 - 14, y2), p2, size=11, color="blue")
             f.raw(bartext(x2 + 70, y2, outlab))
             f.text(x2 + 140, y2, prob, size=12.5)
     save(name, f)
