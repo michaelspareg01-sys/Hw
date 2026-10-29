@@ -1,1 +1,217 @@
-<!-- filled by Task 4 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 15C</div><h2>The binomial theorem</h2>
+<div class="focus">The entries of Pascal's triangle are exactly the numbers \({}^nC_r\) from Chapter 14. This lesson proves the binomial theorem and uses the formula for \({}^nC_r\) to find a coefficient or a term without a row of the triangle, including terms with negative powers of \(x\).</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:the binomial theorem}}
+<div class="box concept"><div class="bt">Pascal's triangle and \({}^nC_r\)</div>
+<p>The entries in Pascal's triangle are exactly the numbers \({}^nC_r\) that arose in Chapter 14 when counting unordered selections of \(r\) elements from an \(n\)-member set. Once this has been proven below, the general binomial expansion can be written out explicitly as</p>
+\[(x+y)^n={}^nC_0\,x^n+{}^nC_1\,x^{n-1}y+{}^nC_2\,x^{n-2}y^2+\cdots+{}^nC_n\,y^n,\]
+<p>or, using the alternative notation \(\binom nr\) for “\(n\) choose \(r\)”,</p>
+\[(x+y)^n=\dbinom n0x^n+\dbinom n1x^{n-1}y+\dbinom n2x^{n-2}y^2+\cdots+\dbinom nny^n.\]
+<p>This result is known as the <b>binomial theorem</b>. It links the counting of Chapter 14 with the algebra of this chapter.</p></div>
+<div class="box formula"><div class="bt">Proving the binomial theorem</div>
+<p>We already know that \((x+y)^n=*\,x^n+*\,x^{n-1}y+*\,x^{n-2}y^2+\cdots+*\,y^n\), where \(*\) stands for the different coefficients. What remains is to prove that the coefficient of \(x^{n-r}y^r\) is \({}^nC_r\). Take the special case \((x+y)^4\). Expanding \((x+y)(x+y)(x+y)(x+y)\) without collecting like terms, and without even using the commutative law, gives \(2^4=16\) terms:</p>
+\[\begin{array}{lll}(x+y)^4=&xxxx&\text{(the term with 4 }x\text{s)}\\&{}+xxxy+xxyx+xyxx+yxxx&\text{(3 }x\text{s and 1 }y)\\&{}+xxyy+xyxy+yxxy+xyyx+yxyx+yyxx&\text{(2 }x\text{s and 2 }y\text{s)}\\&{}+xyyy+yxyy+yyxy+yyyx&\text{(1 }x\text{ and 3 }y\text{s)}\\&{}+yyyy&\text{(the term with 4 }y\text{s)}\end{array}\]
+<p>After collecting like terms, this becomes \(x^4+4x^3y+6x^2y^2+4xy^3+y^4\).</p>
+<ul><li>The coefficient of \(x^2y^2\) is 6 because there are six terms with two \(x\)s and two \(y\)s. These six terms are all the words formed with 4 letters, 2 alike of one kind and 2 of another. There are \(\tfrac{4!}{2!\times2!}=6\) such words.</li>
+<li>More generally, when we expand \((x+y)^n\), the coefficient of \(x^ry^{n-r}\) is the number of words formed with \(n\) letters, \(r\) alike of one kind and \(n-r\) alike of another. Chapter 14 showed that this number is \({}^nC_r=\tfrac{n!}{r!\,(n-r)!}\), the number of \(r\)-member subsets of an \(n\)-member set.</li></ul></div>
+<div class="box take"><div class="bt">3 The binomial theorem</div>
+\[(x+y)^n={}^nC_0\,x^n+{}^nC_1\,x^{n-1}y+{}^nC_2\,x^{n-2}y^2+\cdots+{}^nC_n\,y^n,\]
+<p>for all whole numbers \(n\), where \({}^nC_r=\dfrac{n!}{r!\,(n-r)!}\), for \(r=0,1,\dots,n\).</p></div>
+<div class="box tip"><div class="bt">Using the theorem</div>
+<ul><li>Alternatively, \({}^nC_r=\dfrac{n\times(n-1)\times\cdots\times(n-r+1)}{1\times2\times\cdots\times r}\). Cancel the factorials this way instead of using a calculator.</li>
+<li>The notations \(\dbinom nr\) and \({}^nC_r\) mean exactly the same thing. Do not mix the two notations in the same calculation.</li>
+<li>The term with \(y^r\) is \({}^nC_r\,x^{n-r}y^r\). Replace \(x\) and \(y\) by the two terms of the binomial, <b>in brackets</b>, as in Lesson 15B.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Coefficients from the formula</span></div><div class="ex-body">
+Use the binomial theorem to calculate:<br>
+<b>a</b> the coefficient of \(x^9\) in \((1+x)^{13}\),<br>
+<b>b</b> the term in \(x^4y^5\) in \((x+y)^9\),<br>
+<b>c</b> the coefficient of \(A^4B^4\) in \((3A-2B)^8\) (factored into primes),<br>
+<b>d</b> the term in \(a^{n-3}b^3\) in \((a-3b)^n\).
+{{work:58}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+Use the binomial theorem to calculate:<br>
+<b>a</b> the coefficient of \(x^6\) in \((1+x)^{10}\),<br>
+<b>b</b> the term in \(x^5y^3\) in \((x+y)^8\),<br>
+<b>c</b> the coefficient of \(A^3B^3\) in \((2A-5B)^6\) (factored into primes),<br>
+<b>d</b> the term in \(a^{n-2}b^2\) in \((a+4b)^n\).
+{{work:58}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 9</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use the binomial theorem to calculate:<br>
+<b>a</b> the coefficient of \(x^8\) in \((1+x)^{12}\),<br>
+<b>b</b> the term in \(x^3y^4\) in \((x+y)^7\),<br>
+<b>c</b> the coefficient of \(A^5B^5\) in \((2A-3B)^{10}\) (factored into primes),<br>
+<b>d</b> the term in \(a^{n-4}b^4\) in \((a-2b)^n\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> \((1+x)^{12}=\cdots+{}^{12}C_8\times1^4\times x^8+\cdots\), so the coefficient of \(x^8\) is</p>
+\[\begin{aligned}&\dfrac{12!}{8!\times4!}\\&=\dfrac{12\times11\times10\times9}{4\times3\times2\times1}\\&=495.\end{aligned}\]
+</div><div>
+<p><b>b</b> \((x+y)^7=\cdots+\dbinom74\times x^3\times y^4+\cdots\), so the term in \(x^3y^4\) is</p>
+\[\begin{aligned}&\dfrac{7!}{4!\times3!}\,x^3y^4\\&=\dfrac{7\times6\times5}{3\times2\times1}\,x^3y^4\\&=35x^3y^4.\end{aligned}\]
+</div></div>
+<p><b>c</b> \((2A-3B)^{10}=\cdots+{}^{10}C_5\times(2A)^5\times(-3B)^5+\cdots\), so the coefficient of \(A^5B^5\) is</p>
+\[\begin{aligned}&-\dfrac{10!}{5!\times5!}\times2^5\times3^5\\&=-\dfrac{10\times9\times8\times7\times6}{5\times4\times3\times2\times1}\times2^5\times3^5\\&=-9\times4\times7\times2^5\times3^5\\&=-2^7\times3^7\times7.\end{aligned}\]
+<p><b>d</b> \((a-2b)^n=\cdots+\dbinom n4\times a^{n-4}\times(-2b)^4+\cdots\), so the term in \(a^{n-4}b^4\) is</p>
+\[\begin{aligned}&\dfrac{n!}{4!\times(n-4)!}\times2^4\times a^{n-4}b^4\\&=\dfrac{n\times(n-1)\times(n-2)\times(n-3)}{4\times3\times2\times1}\times2^4\times a^{n-4}b^4\\&=\dfrac{2n(n-1)(n-2)(n-3)}{3}\,a^{n-4}b^4.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:the particular values ⁿC₀, ⁿC₁ and ⁿC₂}}
+<div class="box concept"><div class="bt">The formulae for \({}^nC_0\), \({}^nC_1\) and \({}^nC_2\)</div>
+<p>These particular formulae are important enough to be memorised:</p>
+\[{}^nC_0=\dfrac{n!}{0!\,n!}=1\qquad{}^nC_1=\dfrac{n!}{1!\,(n-1)!}=n\qquad{}^nC_2=\dfrac{n!}{2!\,(n-2)!}=\tfrac12n(n-1)\]
+<p>Chapter 14 showed that \({}^nC_r={}^nC_{n-r}\) for \(r=0,1,2,\dots,n\). It follows that \({}^nC_n=1\), \({}^nC_{n-1}=n\) and \({}^nC_{n-2}=\tfrac12n(n-1)\).</p></div>
+<div class="box take"><div class="bt">4 Some particular values of \({}^nC_r\)</div>
+<ul><li>For all whole numbers \(n\),
+\[{}^nC_0={}^nC_n=1,\qquad{}^nC_1={}^nC_{n-1}=n,\qquad{}^nC_2={}^nC_{n-2}=\tfrac12n(n-1).\]
+In particular, the rows begin and end with 1.</li>
+<li>For all whole numbers \(n\), and for \(r=0,1,2,\dots,n\), \({}^nC_r={}^nC_{n-r}\). That is, the rows are reversible.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Equations in n</span></div><div class="ex-body">
+Find the value of \(n\) if:<br>
+<b>a</b> \({}^nC_2=66\)<br>
+<b>b</b> \({}^nC_2+{}^nC_1+{}^nC_0=37\)
+{{work:77}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find the value of \(n\) if:<br>
+<b>a</b> \({}^nC_2=28\)<br>
+<b>b</b> \({}^nC_2+{}^nC_1+{}^nC_0=16\)
+{{work:77}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 10</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Find the value of \(n\) if:<br>
+<b>a</b> \({}^nC_2=55\)<br>
+<b>b</b> \({}^nC_2+{}^nC_1+{}^nC_0=29\)
+<div class="sol-label">Solution</div>
+<p>We know that \({}^nC_0=1\) and \({}^nC_1=n\) and \({}^nC_2=\tfrac12n(n-1)\).</p>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\tfrac12n(n-1)&=55\\n^2-n-110&=0\\ (n-11)(n+10)&=0\end{aligned}\]
+<p>Because \(n\ge0\), \(n=11\).</p>
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}{}^nC_2+{}^nC_1+{}^nC_0&=29\\\tfrac12n(n-1)+n+1&=29\\n^2-n+2n+2&=58\\n^2+n-56&=0\\ (n-7)(n+8)&=0\end{aligned}\]
+<p>Because \(n\ge0\), \(n=7\).</p>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:terms with negative powers in long expansions}}
+<div class="box concept"><div class="bt">Finding a term when the powers of \(x\) are negative</div>
+<ul><li>Write each term of the binomial as a power of \(x\), as in Lesson 15B. For example, \(\Big(x^3-\dfrac2x\Big)^{12}=\big(x^3-2x^{-1}\big)^{12}\).</li>
+<li>Find the power of \(x\) in the first term. From one term to the next, one factor of the first term is replaced by the second term, so the power of \(x\) changes by the same step each time. Count the number of steps \(r\) needed to reach the power you want.</li>
+<li>By the binomial theorem, the term after \(r\) steps is \({}^nC_r\,(\text{first term})^{n-r}(\text{second term})^r\). Simplify only that term. The <b>term independent of \(x\)</b> is the term in \(x^0\).</li>
+<li>A product of two powers with the same index can sometimes be written as one power first, because \(A^nB^n=(AB)^n\).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Constant term and term in x⁸</span></div><div class="ex-body">
+In the expansion of \(\Big(x^3-\dfrac2x\Big)^{12}\), find:<br>
+<b>a</b> the term independent of \(x\),<br>
+<b>b</b> the term in \(x^8\).
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+In the expansion of \(\Big(x+\dfrac{2}{x^2}\Big)^9\), find:<br>
+<b>a</b> the term independent of \(x\),<br>
+<b>b</b> the term in \(x^{-6}\).
+{{work:120}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Keep for homework (like Exercise 15C Question 15)</span></div><div class="ex-body">
+In the expansion of \(\Big(x+\dfrac1x\Big)^{20}\Big(x-\dfrac1x\Big)^{20}\), find the term independent of \(x\). Give your answer in the form \({}^nC_r\), and also correct to four significant figures.
+<div class="sol-label">Solution</div>
+<p>Because \(A^nB^n=(AB)^n\) and \(\big(x+x^{-1}\big)\big(x-x^{-1}\big)=x^2-x^{-2}\),</p>
+\[\Big(x+\dfrac1x\Big)^{20}\Big(x-\dfrac1x\Big)^{20}=\big(x^2-x^{-2}\big)^{20}.\]
+<p>The first term \(\big(x^2\big)^{20}\) has \(x^{40}\). From one term to the next, one factor \(x^2\) is replaced by \(-x^{-2},\) so the power of \(x\) goes down by 4. The power \(x^0\) is reached after 10 steps, so the term independent of \(x\) is</p>
+\[\begin{aligned}&{}^{20}C_{10}\times\big(x^2\big)^{10}\times\big(-x^{-2}\big)^{10}\\&={}^{20}C_{10}\times x^{20}\times x^{-20}\\&={}^{20}C_{10}\\&\approx1.848\times10^5.\end{aligned}\]
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 15C}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Use the result \({}^nC_r=\dfrac{n!}{r!\,(n-r)!}\) to evaluate the following. Do not use a calculator — you will need to unroll the factorial symbol. Check your answers against Pascal's triangle.
+<div class="parts one"><span><span class="pl">a</span>\({}^4C_3\)</span><span><span class="pl">b</span>\({}^6C_3\)</span><span><span class="pl">c</span>\({}^9C_1\)</span><span><span class="pl">d</span>\({}^7C_3\)</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Repeat the previous question for these binomial coefficients. Remember the alternative notation \(\dbinom nr={}^nC_r\).
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\(\dbinom52\)</span><span><span class="pl">b</span>\(\dbinom88\)</span><span><span class="pl">c</span>\(\dbinom{11}{10}\)</span><span><span class="pl">d</span>\(\dbinom{10}4\)</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Use your calculator button \(\boxed{{}^nC_r}\) to evaluate:
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\({}^{15}C_{10}\)</span><span><span class="pl">b</span>\(\dbinom{13}5\)</span><span><span class="pl">c</span>\({}^{12}C_7\)</span><span><span class="pl">d</span>\(\dbinom{12}3\div\dbinom52\)</span><span><span class="pl">e</span>\(\dfrac{{}^{15}C_8}{{}^6C_4}\)</span><span><span class="pl">f</span>\(\dfrac{{}^{19}C_6}{{}^7C_5}\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Expand \((1+x)^4\), and hence write down the values of \({}^4C_0\), \({}^4C_1\), \({}^4C_2\), \({}^4C_3\) and \({}^4C_4\).</span><span><span class="pl">b</span>Hence find:<br>(i) \({}^4C_0+{}^4C_1+{}^4C_2+{}^4C_3+{}^4C_4\)<br>(ii) \({}^4C_0-{}^4C_1+{}^4C_2-{}^4C_3+{}^4C_4\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Use the values of \({}^nC_r\) from Pascal's triangle to find:
+<div class="parts one"><span><span class="pl">a</span>\({}^6C_0+{}^6C_2+{}^6C_4+{}^6C_6\)</span><span><span class="pl">b</span>\({}^6C_1+{}^6C_3+{}^6C_5\)</span><span><span class="pl">c</span>\({}^2C_2+{}^3C_2+{}^4C_2+{}^5C_2\)</span><span><span class="pl">d</span>\(\big({}^5C_0\big)^2+\big({}^5C_1\big)^2+\big({}^5C_2\big)^2+\big({}^5C_3\big)^2+\big({}^5C_4\big)^2+\big({}^5C_5\big)^2\)</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Evaluate:<br>(i) \(\dbinom83\) and \(\dbinom85\),<br>(ii) \(\dbinom74\) and \(\dbinom73\).</span><span><span class="pl">b</span>If \(\dbinom n3=\dbinom n2\), find the value of \(n\).</span><span><span class="pl">c</span>If \(\dbinom{12}4=\dbinom{12}n\), find the value of \(n\).</span></div>{{work:77}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>By evaluating the LHS and RHS, verify the following result for \(n=8\) and \(r=3\):<span style="display:block;text-align:center;padding:1mm 0">\(\dbinom n{r-1}+\dbinom nr=\dbinom{n+1}r\)</span></span><span><span class="pl">b</span>Use this identity to solve each equation for \(n\).<span style="display:block;padding:1mm 0">(i) \(\dbinom53+\dbinom54=\dbinom n4\)</span><span style="display:block;padding:1mm 0">(ii) \(\dbinom n7+\dbinom n8=\dbinom{11}8\)</span></span></div>{{work:81}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Find the specified term or coefficient in each expansion.
+<div class="parts one"><span><span class="pl">a</span>For \((1+x)^{18}\), find the term in \(x^5\).</span><span><span class="pl">b</span>For \((1+6x)^{12}\), find the term in \(x^9\).</span><span><span class="pl">c</span>For \((1-7x)^8\), find the term in \(x^3\).</span><span><span class="pl">d</span>For \((1+3x)^7\), find the coefficient of \(x^2\).</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Find the specified terms in each expansion.
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>For \((2+x)^7\), find the term in \(x^2\).</span><span><span class="pl">b</span>For \(\big(x+\tfrac12y\big)^{14}\), find the term in \(x^9y^5\).</span><span><span class="pl">c</span>For \(\big(\tfrac12x-3y^2\big)^{11}\), find the term in \(x^{10}y^2\).</span><span><span class="pl">d</span>For \(\big(a-b^{\frac12}\big)^{20}\), find the term in \(a^2b^9\).</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find \(x\ne0\) if the terms in \(x^{10}\) and \(x^{11}\) in the expansion of \((5+2x)^{15}\) are equal.</span><span><span class="pl">b</span>Find \(x\ne0\) if the terms in \(x^{13}\) and \(x^{14}\) in the expansion of \((2-3x)^{17}\) are equal.</span></div>{{work:60}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>In the expansion of \((1+x)^{16}\), find the ratio of the term in \(x^{13}\) to the term in \(x^{11}\).</span><span><span class="pl">b</span>Find the ratio of the coefficients of \(x^{14}\) and \(x^5\) in the expansion of \((1+x)^{20}\).</span><span><span class="pl">c</span>In the expansion of \((2+x)^{18}\), find the ratio of the coefficients of \(x^{10}\) and \(x^{16}\).</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Use the binomial theorem to obtain formulae for:<br>(i) \({}^nC_0\)<br>(ii) \({}^nC_1\)<br>(iii) \({}^nC_2\)<br>(iv) \({}^nC_3\)</span><span><span class="pl">b</span>Hence solve each equation for \(n\).<br>(i) \({}^9C_2-{}^nC_1={}^6C_3\)<br>(ii) \({}^nC_2=36\)<br>(iii) \({}^nC_2+{}^6C_2={}^7C_2\)<br>(iv) \({}^nC_2+{}^nC_1=22-{}^nC_0\)<br>(v) \({}^nC_1+{}^nC_2={}^5C_2\)<br>(vi) \({}^nC_3+{}^nC_2=8\,{}^nC_1\)</span><span><span class="pl">c</span>Use the formula for \({}^nC_2\) to show that \({}^nC_2+{}^{n+1}C_2=n^2\), and verify the result on the third column of Pascal's triangle.</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">The expression \((1+ax)^n\) is expanded in increasing powers of \(x\). Find the values of \(a\) and \(n\) if the first three terms are:
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\(1+28x+364x^2+\cdots\)</span><span><span class="pl">b</span>\(1-\dfrac{10}{3}x+5x^2-\cdots\)</span></div>{{work:73}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>In the expansion of \((2+3x)^n\), the coefficients of \(x^5\) and \(x^6\) are in the ratio \(4:9\). Find the value of \(n\).</span><span><span class="pl">b</span>In the expansion of \((1+3x)^n\), the coefficients of \(x^8\) and \(x^{10}\) are in the ratio \(1:2\). Find the value of \(n\).</span></div>{{work:73}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">In the expansion of \(\Big(x+\dfrac1x\Big)^{40}\Big(x-\dfrac1x\Big)^{40}\), find the term independent of \(x\). Give your answer in the form \({}^nC_r\), and also correct to four significant figures.{{work:54}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">[Divisibility problems]
+<div class="parts one"><span><span class="pl">a</span>Use the binomial theorem to show that \(7^n+2\) is divisible by 3, where \(n\) is a positive integer. (Hint: Write \(7=6+1\).)</span><span><span class="pl">b</span>Use the binomial theorem to show that \(5^n+3\) is divisible by 4, where \(n\) is a positive integer.</span><span><span class="pl">c</span>Suppose that \(b\), \(c\) and \(n\) are positive integers, and \(a=b+c\). Use the binomial expansion of \((b+c)^n\) to show that \(a^n-b^{n-1}(b+cn)\) is divisible by \(c^2\). Hence show that \(5^{42}-2^{48}\) is divisible by 9.</span></div>{{work:115}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Use the binomial theorem to expand \((x+h)^n\).</span><span><span class="pl">b</span>Hence use the definition \(f'(x)=\displaystyle\lim_{h\to0}\dfrac{f(x+h)-f(x)}{h}\) to differentiate \(x^n\) from first principles.</span></div>{{work:100}}</div></div>
+
+<div class="page-break"></div>
+{{band:E}}
+<div class="q"><span class="q-num">18</span><div class="q-body">Use the formula \({}^nC_r=\dfrac{n!}{r!\,(n-r)!}\) to prove that if the second member of a row is a prime number, all the numbers in that row, excluding the 1s, are divisible by it.{{work:94}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">[These geometrical results should be related to the numbers in Pascal's triangle.]
+<div class="parts one"><span><span class="pl">a</span>Place three points on the circumference of a circle. How many line segments and triangles can be formed using these three points?</span><span><span class="pl">b</span>Place four points on the circumference of a circle. How many segments, triangles and quadrilaterals can be formed using these four points?</span><span><span class="pl">c</span>What happens if five points are placed on the circle?</span><span><span class="pl">d</span>How many pentagons could you form if you placed seven points on the circumference of a circle?</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">[A more general form of the binomial theorem]
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Show that the binomial expansion can be written as<span style="display:block;text-align:center;padding:1mm 0">\((1+x)^n=1+nx+\dfrac{n(n-1)}{2!}x^2+\dfrac{n(n-1)(n-2)}{3!}x^3+\cdots.\)</span></span><span><span class="pl">b</span>In this form, it can be shown that the expansion is true for negative or fractional values of \(n\), provided that the RHS is regarded as the limit of an infinite sum of powers of \(x\). This is called the <i>power series expansion</i> of \((1+x)^n\). Assuming this, generate the binomial expansions of:<span style="display:block;padding:1.2mm 0">(i) \(\dfrac{1}{1-x}\)</span><span style="display:block;padding:1.2mm 0">(ii) \(\dfrac{1}{(1-x)^2}\)</span><span style="display:block;padding:1.2mm 0">(iii) \(\dfrac{1}{(1+x)^2}\)</span><span style="display:block;padding:1.2mm 0">(iv) \(\sqrt{1+x}\)</span></span><span><span class="pl">c</span>Verify, using your expansions in parts b(i) and (ii), that \(\dfrac{d}{dx}\Big(\dfrac{1}{1-x}\Big)=\dfrac{1}{(1-x)^2}\).<br>(This assumes that a power series can be differentiated term-by-term.)</span></div>{{work:160}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>18 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics Extension 1, Q2</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the coefficient of the \(x^3\) term in the expansion of \((2-3x)^8\)?
+<div class="mc"><span>(A) \(56\)</span><span>(B) \(-1512\)</span><span>(C) \(1512\)</span><span>(D) \(-48\,384\)</span></div></div>
+<div class="hint"><b>Hint:</b> use the binomial theorem, with \(-3x\) in brackets.</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Grammar School, 2022, Trial Examination, Form VI Mathematics Extension 1, Q7</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the constant term in the binomial expansion of \(\Big(4x^2-\dfrac1x\Big)^9\)?
+<div class="mc"><span>(A) \(-344\,064\)</span><span>(B) \(-5376\)</span><span>(C) \(84\)</span><span>(D) \(5376\)</span></div></div>
+<div class="hint"><b>Hint:</b> compare the Concept 3 tutor demo. Write \(\dfrac1x\) as a power of \(x\).</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q11(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Consider the expansion of \((2x-p)^9\). The coefficient of the term in \(x^6\) is \(-672\,000\).<br>Find the value of \(p\).</div>
+<div class="hint"><b>Hint:</b> compare Worked example 9(c).</div>{{work:46}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>North Sydney Girls High School, 2023, HSC Trial Examination, Mathematics Extension 1, Q12(b)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Find the coefficient of \(x^k\) in the expansion of \((2+3x)^6\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Hence, or otherwise, find the coefficient of \(x^3\) in the expansion of \((2+3x)^6\big(1-4x^2\big)\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> in (i), compare Worked example 9(d). In (ii), which products of terms give \(x^3\)?</div>{{work:67}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>North Sydney Girls High School, 2020, HSC Trial Examination, Mathematics Extension 1, Q11(e)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find the term independent of \(x\) in the expansion of \(\Big(2x^2-\dfrac3x\Big)^9\).</div>
+<div class="hint"><b>Hint:</b> what is the power of \(x\) in the first term?</div>{{work:57}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>North Sydney Boys High School, 2020, Year 12 Assessment Task 3, Mathematics Extension 1, Q11(b)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find the term independent of \(x\) in the expansion \(\Big(x^2-\dfrac{1}{x^2}\Big)^{10}\)</div>
+<div class="hint"><b>Hint:</b> compare the Concept 3 worked example.</div>{{work:57}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Hornsby Girls High School, 2023, Year 12 Higher School Certificate Trial Examination, Mathematics Extension 1, Q11(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">In the expansion of \((1+2x)^n\), the coefficients of \(x^6\) and \(x^8\) are in the ratio 7:3.<br>Find the value of \(n\).</div>
+<div class="hint"><b>Hint:</b> compare Exercise 15C Question 14.</div>{{work:97}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Normanhurst Boys High School, 2021, Year 12 Course Assessment Task 4 (Trial Examination), Mathematics Extension 1, Q11(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">The coefficients of the \(x^{17}\) and the \(x^{27}\) terms are equal in the expansion of
+\[\Big(px^3-\dfrac{q}{x^2}\Big)^9\]
+Prove that \(p-6q=0\), where \(p\) and \(q\) are positive integers.</div>
+<div class="hint"><b>Hint:</b> how does the power of \(x\) change from one term to the next?</div>{{work:93}}</div>
+</div>
