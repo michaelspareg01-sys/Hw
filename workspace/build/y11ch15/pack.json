@@ -1,0 +1,6 @@
+{"chapter": "Year 11 Chapter 15 Binomial Theorem | Lesson and Homework",
+ "lesson": {"parts": ["cover.html","revision.html","l15a.html","l15b.html","l15c.html","l15d.html"], "out": "lesson.pdf",
+            "title": "Year 12 Ext 1 Year 11 Chapter 15 The Binomial Theorem - Lesson and Homework"},
+ "answers": {"parts": ["a_rev.html","a_15a.html","a_15b.html","a_15c.html","a_15d.html"], "out": "answers.pdf",
+             "title": "Year 12 Ext 1 Year 11 Chapter 15 The Binomial Theorem - Homework Answers",
+             "footer": "Year 11 Chapter 15 Binomial Theorem | Homework Answers", "heading": "Chapter 15 Binomial Theorem - Homework Answers"}}

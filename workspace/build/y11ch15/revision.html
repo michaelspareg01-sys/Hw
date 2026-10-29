@@ -1,0 +1,36 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter revision</div><h2>Counting and index laws</h2>
+<div class="focus">A short review of what this chapter combines: factorials and \({}^nC_r\) from Chapter 14, the index laws including negative powers, and expanding brackets. Lesson 15C shows that the numbers in a binomial expansion are the \({}^nC_r\) you already know.</div></div>
+
+{{sec:violet:loop:Summary:keep this page open while you work}}
+<div class="box formula"><div class="bt">Factorials and \({}^nC_r\) (Chapter 14, 14A and 14E)</div>
+<ul><li>\(n!=n(n-1)(n-2)\times\cdots\times2\times1\), with \(0!=1\) and \(n!=n\times(n-1)!\).</li>
+<li>The symbol \({}^nC_r\), or \(\dbinom nr\), is spoken “\(n\) choose \(r\)”. It is the number of \(r\)-member subsets of an \(n\)-member set, that is, the number of <b>unordered</b> selections of \(r\) objects from \(n\) objects.</li></ul>
+\[{}^nC_r=\dbinom nr=\dfrac{n!}{r!\,(n-r)!}=\dfrac{n(n-1)\times\cdots\times(n-r+1)}{1\times2\times\cdots\times r}\qquad(r=0,1,\dots,n)\]
+<ul><li>For example, \({}^8C_5=\dfrac{8!}{3!\,5!}=\dfrac{8\times7\times6}{3\times2\times1}=56\).</li>
+<li>\({}^nC_r={}^nC_{n-r}\): choosing the \(r\) objects to take is the same as choosing the \(n-r\) to leave. So \({}^nC_0={}^nC_n=1\) and \({}^nC_1={}^nC_{n-1}=n\).</li>
+<li>The total number of subsets is \(2^n\), so \({}^nC_0+{}^nC_1+\cdots+{}^nC_n=2^n\). Also \({}^nC_r\) counts words: the number of \(n\)-letter words with \(r\) letters alike of one kind and \(n-r\) alike of another is \(\dfrac{n!}{r!\,(n-r)!}={}^nC_r\). For example \(xxyy\) can be arranged in \(\dfrac{4!}{2!\,2!}=6\) ways.</li></ul></div>
+<div class="box formula"><div class="bt">Index laws (Advanced, Year 11), for \(a,b\ne0\)</div>
+\[a^m\times a^n=a^{m+n}\qquad a^m\div a^n=a^{m-n}\qquad (a^m)^n=a^{mn}\qquad (ab)^n=a^nb^n\qquad \Big(\dfrac ab\Big)^n=\dfrac{a^n}{b^n}\]
+\[a^0=1\qquad a^{-n}=\dfrac1{a^n}\qquad a^{1/n}=\sqrt[n]{a}\qquad a^{m/n}=\big(\sqrt[n]{a}\big)^m\]
+<ul><li>A power applies to the number as well as to the letter: \((2x)^3=8x^3\), not \(2x^3\).</li>
+<li>Take care with signs: \((-x)^n=x^n\) when \(n\) is even and \((-x)^n=-x^n\) when \(n\) is odd.</li>
+<li>Write a power of \(x\) in the denominator as a negative power: \(\dfrac3{x^2}=3x^{-2}\), and \(\Big(\dfrac2x\Big)^3=\dfrac8{x^3}=8x^{-3}\).</li></ul></div>
+<div class="box formula"><div class="bt">Expanding brackets (Year 10 and Advanced)</div>
+<ul><li>A <b>binomial</b> is an expression with two terms, such as \(1-x\) or \(3x^4-\tfrac12x^2\).</li>
+<li>\((a+b)^2=a^2+2ab+b^2\), \((a-b)^2=a^2-2ab+b^2\) and \((a+b)(a-b)=a^2-b^2\).</li>
+<li>To expand a product, multiply every term of one bracket by every term of the other, then <b>collect like terms</b>. A higher power is built one bracket at a time: \((1+x)^3=(1+x)(1+2x+x^2)=1+3x+3x^2+x^3\).</li>
+<li>The <b>coefficient</b> of a term is the number multiplying it, so the coefficient of \(x^2\) in \(5-3x+7x^2\) is \(7\). The <b>constant term</b> (term independent of \(x\)) has no \(x\) in it.</li></ul></div>
+
+{{sec:violet:spark:Warm-up:answers are in the answers booklet}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Evaluate
+<div class="parts one"><span><span class="pl">a</span>\(\dfrac{7!}{5!}\)</span><span><span class="pl">b</span>\({}^9C_3\)</span><span><span class="pl">c</span>\({}^{12}C_{10}\), using \({}^nC_r={}^nC_{n-r}\)</span><span><span class="pl">d</span>\({}^{10}C_0+{}^{10}C_1+{}^{10}C_9+{}^{10}C_{10}\)</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Write \({}^nC_1\) and \({}^nC_2\) in terms of \(n\), with no factorials.</span><span><span class="pl">b</span>Find \(n\) if \({}^nC_2=45\).</span></div>{{work:21}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Simplify, writing each answer with positive indices only, or evaluate:
+<div class="parts one"><span><span class="pl">a</span>\((2x^2)^3\)</span><span><span class="pl">b</span>\(\Big(\dfrac3x\Big)^2\times x^3\)</span><span><span class="pl">c</span>\(\Big(-\dfrac2x\Big)^3\)</span><span><span class="pl">d</span>\(8^{-2/3}\)</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Expand \((2x-3)^2\).</span><span><span class="pl">b</span>Expand and simplify \((1+x)(1+2x+x^2)\).</span><span><span class="pl">c</span>Find the coefficient of \(x^2\) in the expansion of \((1+2x)(3-x+x^2)\).</span></div>{{work:32}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>How many different five-letter arrangements can be made from the letters \(AAABB\)?</span><span><span class="pl">b</span>Write your answer as a value of \({}^nC_r\), and explain which choice it counts.</span></div>{{work:20}}</div></div>
+</div>
