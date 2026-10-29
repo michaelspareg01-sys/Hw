@@ -71,7 +71,7 @@ Prove that a Bernoulli trial with probabilities \(p\) of ‘success’ and \(q=1
 \[\begin{aligned}\text{E}(X)&amp;=n\times{}^{n-1}C_0\,p^1q^{n-1}+n\times{}^{n-1}C_1\,p^2q^{n-2}+\cdots+n\times{}^{n-1}C_{n-1}\,p^nq^0\\&amp;=np\big({}^{n-1}C_0\,p^0q^{n-1}+{}^{n-1}C_1\,p^1q^{n-2}+\cdots+{}^{n-1}C_{n-1}\,p^{n-1}q^0\big).\end{aligned}\]
 <p>The bit in brackets is the binomial expansion of \((p+q)^{n-1}\), where \(p+q=1\), so</p>
 \[\begin{aligned}\text{E}(X)&amp;=np(p+q)^{n-1}\\&amp;=np\times1\\&amp;=np.\end{aligned}\]</div>
-<div class="box concept" style="break-inside:auto"><div class="bt">Proving that the variance is \(npq\)</div>
+<div class="box concept" style="break-inside:auto;box-decoration-break:clone;-webkit-box-decoration-break:clone"><div class="bt">Proving that the variance is \(npq\)</div>
 <p>This proof again requires binomial expansions. First, however, we need to develop yet another formula for the variance.</p>
 \[\begin{aligned}\text{Var}(X)&amp;=\text{E}(X^2)-\big(\text{E}(X)\big)^2\\&amp;=\text{E}\big(X(X-1)\big)+\text{E}(X)-\big(\text{E}(X)\big)^2\\&amp;=\text{E}\big(X(X-1)\big)+np-n^2p^2,\quad\text{because }\text{E}(X)=np.\end{aligned}\]
 <p>We can find \(\text{E}\big(X(X-1)\big)\) using binomial expansions and part <b>b</b> of the lemma,</p>
@@ -120,7 +120,7 @@ A binomial random variable has parameters \(n=20\) and \(p=0.1\).<br>
 \[\begin{aligned}P(X=2)&amp;={}^{20}C_2\,p^2q^{18}\\&amp;={}^{20}C_2\times(0.1)^2\times(0.9)^{18}\\&amp;\doteq0.285.\end{aligned}\]</div>
 <div style="break-inside:avoid"><p><b>c</b></p>
 \[\begin{aligned}P(\mu-\sigma\le X\le\mu+\sigma)&amp;=P(0.658\le X\le3.342)\\&amp;=P(X=1\text{ or }X=2\text{ or }X=3)\\&amp;={}^{20}C_1\,p^1q^{19}+{}^{20}C_2\,p^2q^{18}+{}^{20}C_3\,p^3q^{17}\\&amp;=20\times(0.1)\times(0.9)^{19}+190\times(0.1)^2\times(0.9)^{18}\\&amp;\qquad+1140\times(0.1)^3\times(0.9)^{17}\\&amp;\doteq0.745.\end{aligned}\]</div>
-<p><b>d</b> Choose a busy intersection with traffic lights on the way to work. On 20 mornings, when crossing at the lights, look at the number plate of the left-most front vehicle stopped at the lights, and record whether the last digit-character is a 7. In a small country town, it is just possible that the events may not be independent, but in a city, independence is virtually certain.</p>
+<p style="break-inside:avoid"><b>d</b> Choose a busy intersection with traffic lights on the way to work. On 20 mornings, when crossing at the lights, look at the number plate of the left-most front vehicle stopped at the lights, and record whether the last digit-character is a 7. In a small country town, it is just possible that the events may not be independent, but in a city, independence is virtually certain.</p>
 </div></div>
 
 <!-- ============ Concept 3 ============ -->
@@ -238,22 +238,22 @@ The experiment is, ‘roll 8 dice and count the number of dice showing a 5 or a 
 <table class="t t17b" style="margin-left:5mm"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
 <tr><th>\(f\)</th><td>5</td><td>15</td><td>29</td><td>26</td><td>16</td><td>7</td><td>2</td><td>0</td><td>0</td></tr></table>
 <b>c</b> Draw the theoretical frequency histogram and polygon from part <b>a</b>. Then draw the frequency histogram and polygon of the simulation in part <b>b</b>.
-{{work:150}}</div></div>
-<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 9</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+{{work:110}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 9</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 The experiment is, ‘toss 10 coins and count the number of heads’.<br>
 <b>a</b> Find the mean and standard deviation, and complete a table of the probability distribution.<br>
 <b>b</b> Simulate the experiment 100 times, complete the table of relative frequencies, and find the mean and standard deviation of the data.<br>
 <b>c</b> Draw the theoretical frequency histograms and polygon from part <b>a</b>. Then draw the frequency histograms and polygon of the simulation in part <b>b</b>.
 <div class="sol-label">Solution</div>
-<p><b>a</b> Here \(p=q=\tfrac12\) and \(n=10\), so</p>
+<div style="break-inside:avoid"><p><b>a</b> Here \(p=q=\tfrac12\) and \(n=10\), so</p>
 \[\mu=np=5,\qquad\sigma^2=npq=2.5,\qquad\sigma=\sqrt{2.5}\doteq1.58.\]
 <table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
-<tr><th>\(P(X=x)\)</th><td>0.001</td><td>0.010</td><td>0.044</td><td>0.117</td><td>0.205</td><td>0.246</td><td>0.205</td><td>0.117</td><td>0.044</td><td>0.010</td><td>0.001</td></tr></table>
-<p><b>b</b> After running the experiment 100 times,</p>
+<tr><th>\(P(X=x)\)</th><td>0.001</td><td>0.010</td><td>0.044</td><td>0.117</td><td>0.205</td><td>0.246</td><td>0.205</td><td>0.117</td><td>0.044</td><td>0.010</td><td>0.001</td></tr></table></div>
+<div style="break-inside:avoid"><p><b>b</b> After running the experiment 100 times,</p>
 <table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
 <tr><th>\(f\)</th><td>0</td><td>2</td><td>6</td><td>15</td><td>20</td><td>23</td><td>17</td><td>13</td><td>1</td><td>3</td><td>0</td></tr>
 <tr><th>\(f_r\)</th><td>0</td><td>0.02</td><td>0.06</td><td>0.15</td><td>0.2</td><td>0.23</td><td>0.17</td><td>0.13</td><td>0.01</td><td>0.03</td><td>0</td></tr></table>
-<p>Calculation gives \(\bar x=4.82\) and \(s\doteq1.70\).</p>
+<p>Calculation gives \(\bar x=4.82\) and \(s\doteq1.70\).</p></div>
 <p><b>c</b></p>
 <div class="split big17b" style="break-inside:avoid"><div>{{svg:c17b_ex9a}}</div><div>{{svg:c17b_ex9b}}</div></div>
 </div></div>
@@ -338,7 +338,7 @@ What is the mean of \(X\)?
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Blacktown Boys' High School, 2023, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q5</span></span><span class="mk">1 mark</span></div>
 <div class="pp-q">The random variable \(X\) is such that \(X\sim Bin(n,p)\). The mean value of \(X\) is 225 and variance of \(X\) is 144. What is the value of \(p\)?
 <div class="mc"><span>A.&ensp;0.8</span><span>B.&ensp;0.64</span><span>C.&ensp;0.6</span><span>D.&ensp;0.36</span></div></div>
-<div class="hint"><b>Hint:</b> how are the formulae for the mean and the variance related?</div>{{work:22}}</div>
+<div class="hint"><b>Hint:</b> what do you know about \(n\), \(p\) and \(q\)?</div>{{work:22}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)(i)(ii)</span></span><span class="mk">2 marks</span></div>
 <div class="pp-q">The probability that a certain drug cures a disease is 0.8. The drug is administered to 10&nbsp;000 patients.<br>
@@ -367,7 +367,7 @@ If the mean of \(X\) is double the size of the standard deviation of \(X\), what
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Blacktown Boys' High School, 2022, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(d)</span></span><span class="mk">2 marks</span></div>
 <div class="pp-q">A coin is tossed 30 times.<br>
 Let \(X\) be the number of heads. Find the probability that the number of heads is within one standard deviation of the mean using the binomial distribution. Round off your answer to 3 decimal places.</div>
-<div class="hint"><b>Hint:</b> compare Worked example 6, part <b>c</b>.</div>{{work:40}}</div>
+<div class="hint"><b>Hint:</b> start with the mean and the standard deviation of \(X\).</div>{{work:40}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Sydney Technical High School, 2023, Extension&nbsp;1 Mathematics, Trial HSC,&nbsp;Q12(a)</span><span class="mk">6 marks</span></div>
 <div class="pp-q">Given that \(X\sim Bin(n,p)\), \(\mu=12\) and \(\sigma^2=4\)
