@@ -1,1 +1,190 @@
-<!-- filled by Task 4 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 14C</div><h2>Ordered selections and grouping</h2>
+<div class="focus">Lesson 14B gave one important counting principle: <b>deal with the difficulties first</b>. This lesson adds three more principles that are often useful in counting: <b>grouping</b> (order the groups, then order the individuals within each group), <b>the complementary situation</b> (count what is not wanted and subtract), and <b>using cases</b> (split the count into cases that do not overlap, or subtract the overlap).</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:grouping}}
+<div class="box concept"><div class="bt">A general counting principle: grouping</div>
+<p>In some ordering problems, particular members must be grouped together. This produces a <i>compound ordering</i>, in which the various groups must first be ordered, and then the individuals ordered within each group.</p>
+<p>For example, in Worked example 9 below, four boys and four girls form a queue. A couple (one girl and one boy) stand together, and the other three girls stand together. So the queue is made of five groups:</p>
+{{svg:groups9}}
+<p>The five groups can be ordered in \(5!\) ways. Then the couple can be ordered within their group in \(2!\) ways, and the three girls within their group in \(3!\) ways. A boy standing on his own is a group with only one member.</p></div>
+<div class="box formula"><div class="bt">Box 8 &nbsp;Grouping</div>
+<ul><li>First order the groups, then order the individuals within each group.</li>
+<li>A group may sometimes consist of a single individual.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Order the groups, then within the groups</span></div><div class="ex-body">
+<b>a</b> Five boys and three girls form a queue at the canteen. There is one couple who want to stand together, the other two girls want to stand together, but the other four boys don’t care where they stand. How many acceptable ways are there of forming the queue?<br>
+<b>b</b> How many arrangements of the letters of the word CAMPING are possible if the vowels must be together?
+{{work:36}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Three boys and three girls form a queue. There is one couple who want to stand together, the other two girls want to stand together, but the other two boys don’t care where they stand. How many acceptable ways are there of forming the queue?<br>
+<b>b</b> How many arrangements of the letters of the word TRAIN are possible if the vowels must be together?
+{{work:32}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 9</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Four boys and four girls form a queue at the bus stop. There is one couple who want to stand together, the other three girls want to stand together, but the other three boys don’t care where they stand. How many acceptable ways are there of forming the queue?
+<div class="sol-label">Solution</div>
+<p>There are five groups: the couple, the group of three girls, and the three groups each consisting of one individual boy. First order the five groups, then order the couple, and the three girls.</p>
+<table class="t"><tr><th>order the 5 groups</th><th>order the couple</th><th>order the 3 girls</th></tr><tr><td>\(5!\)</td><td>\(2!\)</td><td>\(3!\)</td></tr></table>
+\[\text{Hence number of ways}=5!\times2!\times3!=1440.\]
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:deal with the complementary situation}}
+<div class="box concept"><div class="bt">A general counting principle: the complementary situation</div>
+<p>Many probability questions have already been solved using complementary events (see the revision page). The same principle applies to counting: <b>count the unacceptable orderings, then subtract them from the total number of orderings</b>. The word ‘not’ may or may not be there to prompt you.</p>
+<p>A common use is with members that must be <b>apart</b>. Counting the orderings in which they are apart is hard, but counting the orderings in which they are together is easy, by grouping (Box 8). So subtract the ‘together’ orderings from the total.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Subtract the unacceptable orderings</span></div><div class="ex-body">
+<b>a</b> How many six-letter words can be formed from the letters A, B, C, D, E, F if the vowels must be separated by at least one consonant?<br>
+<b>b</b> In how many ways can nine people stand in a line if two particular people refuse to stand next to each other?
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> How many five-letter words can be formed from the letters A, B, C, D, E if the vowels must be separated by at least one consonant?<br>
+<b>b</b> In how many ways can six people sit in a row if two particular people refuse to sit next to each other?
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 10</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+How many seven-letter words can be formed from the letters A, B, C, D, E, F, G if the vowels must be separated by at least one consonant?
+<div class="sol-label">Solution</div>
+\[\begin{aligned}\text{Number of orderings without restriction}&=7!\\ \text{Number of orderings with A and E together}&=2!\times6!\end{aligned}\]
+<p>(Order the A and E and glue them together, then order the 6 groups.)</p>
+\[\begin{aligned}\text{Hence number of orderings with A and E apart}&=7!-2\times6!\\ &=3600.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:using cases}}
+<div class="box concept"><div class="bt">A general counting principle: using cases</div>
+<p>Sometimes the fiddly conditions of the problem mean that one set of boxes is not enough to solve it, and separate cases need to be considered. In this situation, the cases should not overlap, or if they do, the number in the overlap needs to be subtracted.</p></div>
+<div class="box formula"><div class="bt">Box 9 &nbsp;Using cases in counting</div>
+<ul><li>The cases should not overlap.</li>
+<li>If the cases do overlap, the overlap needs to be subtracted.</li></ul></div>
+<div class="box concept"><div class="bt">The same principle with sets</div>
+<p>This is the same principle as the counting form of the addition rule on the revision page:</p>
+\[|A\cup B|=|A|+|B|-|A\cap B|.\]
+<p>When the two cases \(A\) and \(B\) do not overlap, \(|A\cap B|=0\) and the two counts are simply added.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Cases, with and without an overlap</span></div><div class="ex-body">
+<b>a</b> How many whole numbers less than 1000 are odd and greater than 600, or multiples of 5 and less than 300?<br>
+<b>b</b> How many whole numbers less than 1000 are odd and greater than 300, or multiples of 5 and less than 600?<br>
+<b>c</b> How many numbers can be written down using each of the digits 2, 3, 5 and 7 at most once, if the result must be at least 500?
+{{work:86}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> How many whole numbers less than 1000 are odd and greater than 700, or multiples of 5 and less than 100?<br>
+<b>b</b> How many whole numbers less than 1000 are odd and greater than 400, or multiples of 5 and less than 700?<br>
+<b>c</b> How many numbers can be written down using each of the digits 3, 5 and 7 at most once, if the result must be at least 60?
+{{work:80}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 11</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> How many whole numbers less than 1000 are odd and greater than 500, or multiples of 5 and less than 200?<br>
+<b>b</b> How many whole numbers less than 1000 are odd and greater than 200, or multiples of 5 and less than 500?
+<div class="sol-label">Solution</div>
+<p><b>a</b> There are 250 odd numbers between 500 and 1000, and there are 40 multiples of 5 less than 200 (including zero). The two cases do not overlap, so the total number is 290.</p>
+<p><b>b</b> There are 400 odd numbers between 200 and 1000, and there are 100 multiples of 5 less than 500 (including zero). But the two cases overlap: from 200 to 500 there are 30 odd numbers that are multiples of 5. Hence</p>
+\[\text{Total}=400+100-30=470.\]
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 14C}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">How many rearrangements are there of the letters in each word, if the vowels must be together?
+<div class="parts one"><span><span class="pl">a</span>BOARDS</span><span><span class="pl">b</span>RIO</span><span><span class="pl">c</span>QUIT</span><span><span class="pl">d</span>TROUNCE</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">How many arrangements of the word MATHS are possible, if:
+<div class="parts one"><span><span class="pl">a</span>the T and H must remain together?</span><span><span class="pl">b</span>the TH must remain together and in this order?</span></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">How many ways can Andrew, Becky, Courtney, Dion and Ellie sit in a row, if Andrew and Becky sit together and Dion and Ellie sit together?{{work:26}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">In how many ways can three different Maths books, six different Science books and four different English books be placed on a shelf, if the books relating to each subject are to be kept together?{{work:26}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">A class is asked to determine how many ways the letters of the word SOLAR can be arranged, if the first two positions cannot both be vowels.
+<div class="parts one"><span><span class="pl">a</span>Jack decides to use cases (the word either starts with a vowel or it does not). Use Jack’s method to answer the question.</span><span><span class="pl">b</span>Jill decides to consider the complementary situation (both first positions are vowels). Use Jill’s method to answer the question.</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">A family of two parents and two children are going on a car trip. Only the parents can drive. If the father drives, then the mother will sit in the back seat where she feels safer. The father always sits in a front seat of the car. How many arrangements are possible, if two sit in the front and two in the back?{{work:56}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">How many numbers can be written down using each digit of 789 at most once, if the result must be at least 80?{{work:50}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body">Find how many arrangements of the letters of the word UNIFORM are possible:
+<div class="parts one"><span><span class="pl">a</span>if the vowels must occupy the first, middle and last positions,</span><span><span class="pl">b</span>if the word must start with U and end with M,</span><span><span class="pl">c</span>if all the consonants must be in a group at the end of the word,</span><span><span class="pl">d</span>if the M is somewhere to the right of the U.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Find how many arrangements of the letters of the word BEHAVING:
+<div class="parts one"><span><span class="pl">a</span>end in NG,</span><span><span class="pl">b</span>begin with three vowels,</span><span><span class="pl">c</span>have three vowels occurring together.</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">A Maths test is to consist of six questions. In how many ways can it be arranged so that:
+<div class="parts one"><span><span class="pl">a</span>the shortest question is first and the longest question is last,</span><span><span class="pl">b</span>the shortest and longest questions are next to one another?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">In Morse code, letters are formed by a sequence of dashes and dots. How many different letters is it possible to represent if a maximum of ten symbols are used?{{work:30}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Four boys and four girls are to sit in a row. Find how many ways this can be done if:
+<div class="parts one"><span><span class="pl">a</span>the boys and girls alternate,</span><span><span class="pl">b</span>the boys and girls sit in distinct groups.</span></div>{{work:65}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Five-letter words are formed without repetition from the letters of PHYSICAL.
+<div class="parts one"><span><span class="pl">a</span>How many consist only of consonants?</span><span><span class="pl">b</span>How many begin with P and end with S?</span><span><span class="pl">c</span>How many begin with a vowel?</span><span><span class="pl">d</span>How many contain the letter Y?</span><span><span class="pl">e</span>How many have the two vowels occurring next to one another?</span><span><span class="pl">f</span>How many have the letter A immediately following the letter L?</span></div>{{work:115}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>How many seven-letter words can be formed without repetition from the letters of the word INCLUDE?</span><span><span class="pl">b</span>How many of these do not begin with I?</span><span><span class="pl">c</span>How many end in L?</span><span><span class="pl">d</span>How many have the vowels and consonants alternating?</span><span><span class="pl">e</span>How many have the C immediately following the D?</span><span><span class="pl">f</span>How many have the letters N and D separated by exactly two letters?</span><span><span class="pl">g</span>How many have the letters N and D separated by more than two letters?</span></div>{{work:98}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">Repeat parts <b>a</b>–<b>d</b> of the previous question if repetition is allowed.{{work:88}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>In how many ways can ten people be arranged in a line:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; without restriction,</span><span>ii&nbsp; if one particular person must sit at either end,</span><span>iii&nbsp; if two particular people must sit next to one another,</span><span>iv&nbsp; if neither of two particular people can sit on either end of the row?</span></div>
+<div class="parts one"><span><span class="pl">b</span>In how many ways can \(n\) people be placed in a row of \(n\) chairs:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; if one particular person must be on either end of the row,</span><span>ii&nbsp; if two particular people must sit next to one another,</span><span>iii&nbsp; if two of them are not permitted to sit at either end?</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">Five boys and four girls form a queue at the cinema. There are two brothers who want to stand together, the remaining three boys wish to stand together, and the four girls don’t mind where they stand. In how many ways can the queue be formed?{{work:30}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">Eight people are to form two queues of four. In how many ways can this be done if:
+<div class="parts one"><span><span class="pl">a</span>there are no restrictions,</span><span><span class="pl">b</span>Jim will only stand in the left-hand queue,</span><span><span class="pl">c</span>Sean and Liam must stand in the same queue?</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">There are eight swimmers in a race. In how many ways can they finish if there are no dead heats and the swimmer in Lane 2 finishes:
+<div class="parts one"><span><span class="pl">a</span>immediately after the swimmer in Lane 5,</span><span><span class="pl">b</span>any time after the swimmer in Lane 5?</span></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">Five backpackers arrive in a city where there are five youth hostels.
+<div class="parts one"><span><span class="pl">a</span>How many different accommodation arrangements are there if there are no restrictions on where the backpackers stay?</span><span><span class="pl">b</span>How many different accommodation arrangements are there if each backpacker stays at a different youth hostel?</span><span><span class="pl">c</span>Suppose that two of the backpackers are brother and sister and wish to stay in the same youth hostel. How many different accommodation arrangements are there if the other three can go to any of the other youth hostels?</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body">Numbers less than 4000 are formed from the digits 1, 3, 5, 8 and 9, without repetition.
+<div class="parts one"><span><span class="pl">a</span>How many such numbers are there?</span><span><span class="pl">b</span>How many of them are odd?</span><span><span class="pl">c</span>How many of them are divisible by 5?</span><span><span class="pl">d</span>How many of them are divisible by 3?</span></div>{{work:70}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">22</span><div class="q-body">[Derangements]<br>
+A <i>derangement</i> of \(n\) distinct letters is a permutation of them so that no letter appears in its original position. For example, DABC is a derangement of ABCD, but DACB is not. Denote the number of derangements of \(n\) letters by \(D(n)\).
+<div class="parts one"><span><span class="pl">a</span>By listing all the derangements of A, AB, ABC and ABCD, find the values of \(D(1)\), \(D(2)\), \(D(3)\) and \(D(4)\).</span><span><span class="pl">b</span>Suppose that we have formed a derangement of the five letters ABCDE. Let the last letter in the derangement be X, and exchange X with E — this puts E back to its original position. Either X is now also in its original position so that three letters are away from their original positions, or X is not in its original position so that four letters are away from their original positions. Hence explain why
+\[D(5)=4\times D(4)+4\times D(3).\]</span><span><span class="pl">c</span>Use this formula to evaluate \(D(5)\). Then apply the corresponding arguments and formulae to evaluate \(D(6)\), \(D(7)\) and \(D(8)\).</span></div>{{work:150}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>15 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">PP 5, PP 9 and PP 10 are probability questions. They use the counting of this lesson and Lesson 14B with \(P(E)=\dfrac{|E|}{|S|}\) and the complement rule from the revision page.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Abbotsleigh, 2020, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q1</span><span class="mk">1 mark</span></div>
+<div class="pp-q">In how many different ways can 5 boys and 3 girls stand in a queue if the girls all stand next to each other?
+<div class="mc"><span>A. 40&#8239;320</span><span>B. 720</span><span>C. 4&#8239;320</span><span>D. 3&#8239;136</span></div></div>
+<div class="hint"><b>Hint:</b> Box 8. How many groups are there?</div>{{work:48}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics Extension 1, Q3</span><span class="mk">1 mark</span></div>
+<div class="pp-q">How many arrangements of the letters of the word ‘OLYMPIC’ are possible if the C and the L are to be together?
+<div class="mc"><span>(A) 120</span><span>(B) 720</span><span>(C) 240</span><span>(D) 1440</span></div></div>
+<div class="hint"><b>Hint:</b> letters that must be together form one group.</div>{{work:46}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q9</span><span class="mk">1 mark</span></div>
+<div class="pp-q">In how many different ways can three girls and three boys be seated on a bench for a photograph if the girls must sit apart?
+<div class="mc"><span>(A) 72</span><span>(B) 120</span><span>(C) 144</span><span>(D) 576</span></div></div>
+<div class="hint"><b>Hint:</b> seat the boys first. Where can the girls then go?</div>{{work:75}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>James Ruse Agricultural High School, 2023, Year 12 Trial HSC Examination, Mathematics Extension 1, Q10</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Find an expression of the number of ways all the letters of the word <b>EPSILON</b> can be arranged such that the three vowels are all next to each other.
+<div class="mc"><span>(A) \(7!\)</span><span>(B) \(5!\)</span><span>(C) \(4!\times5!\)</span><span>(D) \(3!\times5!\)</span></div></div>
+<div class="hint"><b>Hint:</b> first pick out the vowels of EPSILON.</div>{{work:72}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Caringbah High School, 2020, Higher School Certificate Trial Examination, Mathematics Extension 1, Q10</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Three fair dice of different colours are rolled together. What is the probability that the product of the three scores is a perfect square?
+<div class="mc"><span>(A) \(\dfrac{6}{216}\)</span><span>(B) \(\dfrac{13}{216}\)</span><span>(C) \(\dfrac{32}{216}\)</span><span>(D) \(\dfrac{38}{216}\)</span></div></div>
+<div class="hint"><b>Hint:</b> use cases (Box 9), based on how many of the three scores are equal.</div>{{work:80}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>North Sydney Girls High School, 2020, HSC Trial Examination, Mathematics Extension 1, Q11(d)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Donald, Melania and five other people get on a bus one at a time.<br>
+In how many ways can the seven people board the bus if Melania refuses to get on immediately following Donald?</div>
+<div class="hint"><b>Hint:</b> count the complementary situation.</div>{{work:68}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Pymble Ladies’ College, 2024, HSC Trial Examination Term 3, Mathematics Extension 1, Q11(b)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Mrs Munro needs to decide the order in which to schedule 8 exams.<br>
+Two of these exams are Mathematics Extension 1 and Mathematics Extension 2.<br>
+Find the number of different ways that Mrs Munro can schedule the 8 exams so that Mathematics Extension 1 and Mathematics Extension 2 are NOT consecutive.</div>
+<div class="hint"><b>Hint:</b> the word NOT is a prompt (Concept 2).</div>{{work:45}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Ascham School, 2023, Year 12 Trial Examination, Mathematics Extension 1, Q12(e)(ii)</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Find the number of ways in which the letters of the word EPSILON can be arranged in a straight line so that:
+<div class="pp-sub"><span>ii) the three vowels are adjacent to each other.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> compare with PP 4.</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Sydney Technical High School, 2021, Trial HSC, Extension 1 Mathematics, Q11(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">2 cards are chosen at random, without replacement, from a standard 52-deck of playing cards. Find the probability of choosing at least 1 heart.</div>
+<div class="hint"><b>Hint:</b> “at least one” suggests the complementary situation.</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Blacktown Boys’ High School, 2023, Year 12 Trial Examination, Mathematics Extension 1, Q12(c)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">A drawer contains 11 different batteries of which 7 are good and 4 are defective. A teacher selects two batteries for the remote control of the projector and then selects another two for the remote control of the air conditioner. If both batteries must be good for each remote control to work, find the probability that:
+<div class="pp-sub"><span>(i) Both remote controls work.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Only the remote control for the projector works.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> think of the four batteries as an ordered selection, chosen one at a time.</div>{{work:185}}</div>
+</div>

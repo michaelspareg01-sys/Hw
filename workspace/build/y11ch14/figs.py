@@ -107,5 +107,12 @@ def fig_14a():
     boxes("epsilon", ["P", 5, 4, 3, 2, 1, "S"], places, bw=50, fixed=(0, 6))
 
 
+def fig_14c():
+    # Example 9: the five groups of the queue (couple, three girls, three single boys)
+    boxes("groups9", ["G B", "G G G", "B", "B", "B"],
+          ["couple: 2! orders", "3 girls: 3! orders", "boy", "boy", "boy"], bw=104, fixed=(0, 1))
+
+
 if __name__ == "__main__":
     fig_14a()
+    fig_14c()
