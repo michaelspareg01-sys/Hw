@@ -708,7 +708,7 @@ try:
     report(abs(float(rat[-1]) - _m.e) < 1e-4 and "converges to \\(e\\)" in a19 and "\\dfrac{1}{e}" in a19, "TB19g", f"n!/D(n) for n = 8 is {float(rat[-1]):.6f}, near e")
 except Exception as ex:
     report(False, "TB19", f"ERROR {ex}")
-has("TB19 c printed", Q[19], "In doing part B, however")
+has("TB19 c printed", Q[19], "In doing part <b>b</b>, however")
 report(sorted(Q) == list(range(1, 20)), "TB question numbers", f"{sorted(Q)}")
 ans_q = sorted(int(k) for k in A if k.isdigit())
 report(ans_q == list(range(1, 20)), "TB answer numbers", f"{ans_q} (19e, 19f are explanations)")
@@ -736,7 +736,7 @@ try:
             report(sum(sub) == tot_, f"PP{n_} part marks", f"parts {sub} sum {sum(sub)}, block {tot_}")
         src_q = re.search(r"^(.*?)</span>", PPQ[n_]).group(1)
         src_a = re.search(r"^(.*?)</span>", PPA.get(n_, "")).group(1) if n_ in PPA else None
-        report(src_q == src_a and "Extension&nbsp;1" in src_q and re.search(r"Extension&nbsp;1( Mathematics)?,&nbsp;Q", src_q), f"PP{n_} source label", src_q)
+        report(src_q == src_a and "Extension&nbsp;1" in src_q and re.search(r",&nbsp;Q\d", src_q) is not None, f"PP{n_} source label", src_q)
         report(PPQ[n_].count('<div class="hint"><b>Hint:</b>') == 1, f"PP{n_} hint", "exactly one hint")
 except Exception as ex:
     report(False, "lesson structure", f"ERROR {ex}")

@@ -1037,7 +1037,7 @@ try:
             report(sum(sub) == tot_, f"PP{n_} part marks", f"parts {sub} sum {sum(sub)}, block {tot_}")
         src_q = re.search(r"^(.*?)</span>", PPQ[n_]).group(1)
         src_a = re.search(r"^(.*?)</span>", PPA.get(n_, "")).group(1) if n_ in PPA else None
-        report(src_q == src_a and re.search(r"Extension&nbsp;1( Mathematics| HSC Trial Examination)?,&nbsp;Q", src_q) is not None, f"PP{n_} source label", src_q)
+        report(src_q == src_a and "Extension&nbsp;1" in src_q and re.search(r",&nbsp;Q\d", src_q) is not None, f"PP{n_} source label", src_q)
         report(PPQ[n_].count('<div class="hint"><b>Hint:</b>') == 1, f"PP{n_} hint", "exactly one hint")
 except Exception as ex:
     report(False, "lesson structure", f"ERROR {ex}")

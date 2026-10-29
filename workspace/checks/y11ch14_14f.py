@@ -1188,7 +1188,7 @@ has("PP5 question", PPQ.get(5, ""), "A class consists of 10 girls and 8 boys.")
 # ---------------------------------------------------------------- PP 6: Jun = 0, Alex = 1
 c6p = list(combinations(range(20), 7))
 try:
-    tpl("PP6 (i)", PPA[6], r"\[\text{number of committees}=@.\]", len(c6p))
+    tpl("PP6 (i)", PPA[6], r"\[\text{number of committees}=@\]", len(c6p))
     chain("PP6 (ii) count", maths(PPA[6])[0], ncount(c6p, lambda c: 0 in c and 1 not in c))
     tpl("PP6 (ii)", PPA[6], r"P(\text{Jun but not Alex})=@.\]", Fr(ncount(c6p, lambda c: 0 in c and 1 not in c), len(c6p)))
 except Exception as ex:

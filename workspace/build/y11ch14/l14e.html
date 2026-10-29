@@ -158,6 +158,7 @@ Ten people meet to play doubles tennis.<br>
 </div></div>
 
 <!-- ============ Concept 4 ============ -->
+<div class="page-break"></div>
 {{sec:teal:key:Concept 4:subsets with conditions}}
 <div class="box concept"><div class="bt">Subsets with conditions</div>
 <p>‘At least two numbers’ is a warning word. Count the subsets that are <i>not</i> wanted (the 0-member and 1-member subsets) and subtract them from the total \(2^n\) of Box 12. A condition such as ‘does not contain 8’ removes 8 from the set before counting. A condition such as ‘does contain 10’ means that 10 has already been chosen, and only the rest of the subset remains to be chosen.</p></div>
@@ -200,7 +201,7 @@ Eight points \(A_1,A_2,\ldots,A_8\) are arranged in order around a circle.<br>
 <b>c</b> In how many such pairs will the triangles:<br>
 <span style="margin-left:6mm">i&nbsp; not overlap,</span><br>
 <span style="margin-left:6mm">ii&nbsp; overlap?</span>
-{{work:26}}</div></div>
+{{work:68}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 Seven points \(A_1,A_2,\ldots,A_7\) are arranged in order around a circle.<br>
 <b>a</b> How many triangles can be drawn with these points as vertices?<br>
@@ -208,7 +209,7 @@ Seven points \(A_1,A_2,\ldots,A_7\) are arranged in order around a circle.<br>
 <b>c</b> In how many such pairs will the triangles:<br>
 <span style="margin-left:6mm">i&nbsp; not overlap,</span><br>
 <span style="margin-left:6mm">ii&nbsp; overlap?</span>
-{{work:120}}</div></div>
+{{work:68}}</div></div>
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example 20</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 [A harder question]<br>
 Ten points \(A_1,A_2,\ldots,A_{10}\) are arranged in order around a circle.<br>
@@ -270,7 +271,7 @@ Ten points \(A_1,A_2,\ldots,A_{10}\) are arranged in order around a circle.<br>
 <div class="parts one" style="margin-left:6mm"><span>i&nbsp; two unequal groups (neither group being empty),</span><span>ii&nbsp; two equal groups?</span></div>
 <div class="parts one"><span><span class="pl">b</span>Repeat part <b>a</b> for four people.</span><span><span class="pl">c</span>Repeat part <b>a</b> for eight people.</span></div>{{work:36}}</div></div>
 <div class="q"><span class="q-num">17</span><div class="q-body">Find how many diagonals there are in:
-<div class="parts one"><span><span class="pl">a</span>a quadrilateral,</span><span><span class="pl">b</span>a pentagon,</span><span><span class="pl">c</span>a decagon,</span><span><span class="pl">d</span>a polygon with \(n\) sides.</span></div>{{work:30}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>a quadrilateral,</span><span><span class="pl">b</span>a pentagon,</span><span><span class="pl">c</span>a decagon,</span><span><span class="pl">d</span>a polygon with \(n\) sides.</span></div>{{work:54}}</div></div>
 <div class="q"><span class="q-num">18</span><div class="q-body">Twelve points are arranged in order around a circle.
 <div class="parts one"><span><span class="pl">a</span>How many triangles can be drawn with these points as vertices?</span><span><span class="pl">b</span>In how many pairs of such triangles are the vertices of the two triangles distinct?</span><span><span class="pl">c</span>In how many such pairs will the triangles:</span></div>
 <div class="parts one" style="margin-left:6mm"><span>i&nbsp; not overlap,</span><span>ii&nbsp; overlap?</span></div>{{work:36}}</div></div>
@@ -307,7 +308,7 @@ Ten points \(A_1,A_2,\ldots,A_{10}\) are arranged in order around a circle.<br>
 <div class="q"><span class="q-num">29</span><div class="q-body">Referring to Question 18 of Exercise 14D, Bob’s interest in shirts has matured recently: he now has \(2n\) shirts, with two identical shirts in each of \(n\) distinct styles. He still wants to hang his shirts in the wardrobe so that no two identical shirts are next to one another.
 <div class="parts one"><span><span class="pl">a</span>Show that the number of allowed arrangements is</span></div>
 \[{}^{n}\mathrm{C}_{0}\,(2n)!\,2^{-n}-{}^{n}\mathrm{C}_{1}\,(2n-1)!\,2^{1-n}+{}^{n}\mathrm{C}_{2}\,(2n-2)!\,2^{2-n}+\cdots+(-1)^n\,{}^{n}\mathrm{C}_{n}\,n!\,2^{0}.\]
-<div class="parts one"><span><span class="pl">b</span>Evaluate this number for \(n=1,2,3,4,5\) and 6, and find the corresponding ratio of the total number of arrangements to the number of allowed arrangements.</span></div>{{work:70}}</div></div>
+<div class="parts one"><span><span class="pl">b</span>Evaluate this number for \(n=1,2,3,4,5\) and 6, and find the corresponding ratio of the total number of arrangements to the number of allowed arrangements.</span></div>{{work:196}}</div></div>
 <div class="q"><span class="q-num">30</span><div class="q-body">Computing is based on <i>binary strings</i>, which are sequences of 0s and 1s, such as 00101 and 1001110. The problem in this question is to find the number \(N\) of binary strings that contain exactly \(a\) 0s and at most \(b\) 1s, where \(a\) and \(b\) are whole numbers. We will count such strings in two different ways, and hence prove an interesting identity.
 <div class="parts one"><span><span class="pl">a</span>Using \({}^{n}\mathrm{C}_{r}\) notation, find how many binary strings with exactly \(a\) 0s contain:</span></div>
 <div class="parts one" style="margin-left:6mm"><span>i&nbsp; no 1s</span><span>ii&nbsp; one 1</span><span>iii&nbsp; two 1s</span><span>iv&nbsp; three 1s</span><span>v&nbsp; \(r\) 1s.</span></div>
@@ -342,14 +343,14 @@ How many ways can this team be selected?
 <div class="mc" style="row-gap:2.5mm"><span>A. \(n(n-1)\dbinom{n}{r}\)</span><span>B. \(2!\times\dbinom{n}{r}\)</span><span>C. \(r(r-1)\dbinom{n-2}{r}\)</span><span>D. \(n(n-1)\dbinom{n-2}{r-2}\)</span></div></div>
 <div class="hint"><b>Hint:</b> two members of the team have special roles. Which choices are ordered, and which are not?</div>{{work:40}}</div>
 
-<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension&nbsp;1,&nbsp;Q12(d)</span><span class="mk">3 marks</span></div>
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension&nbsp;1,&nbsp;Q12(d)(i)(ii)</span><span class="mk">3 marks</span></div>
 <div class="pp-q">In a class of 27 students, there are 14 boys and 13 girls.<br>
 The class needs to elect two boys and two girls for the student council.
 <div class="pp-sub"><span>(i) In how many ways could the representatives be chosen?</span><span class="mk">2</span></div>
 <div class="pp-sub"><span>(ii) If the class elected Henry and Olivia for the student council, in how many ways could the representatives now be chosen?</span><span class="mk">1</span></div></div>
 <div class="hint"><b>Hint:</b> think about the boys and the girls separately.</div>{{work:44}}</div>
 
-<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Sydney Technical High School, 2021, Trial HSC, Extension&nbsp;1 Mathematics,&nbsp;Q11(e)</span><span class="mk">2 marks</span></div>
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Sydney Technical High School, 2021, Extension&nbsp;1 Mathematics, Trial HSC,&nbsp;Q11(e)</span><span class="mk">2 marks</span></div>
 <div class="pp-q">Peter and May are two of ten candidates for a committee.<br>
 How many ways can a committee of five be chosen, if Peter refuses to be on the same committee as May?</div>
 <div class="hint"><b>Hint:</b> which committees break Peter’s condition?</div>{{work:40}}</div>
@@ -361,13 +362,13 @@ Other than these four points, no other set of three points is collinear.
 How many different triangles can be drawn using the nine points as vertices?</div>
 <div class="hint"><b>Hint:</b> which sets of three points do not make a triangle?</div>{{work:40}}</div>
 
-<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Sydney Girls High School, 2023, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q11(e)</span><span class="mk">3 marks</span></div>
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Sydney Girls High School, 2023, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q11(e)(i)(ii)</span><span class="mk">3 marks</span></div>
 <div class="pp-q">A team of 12 basketball players is selected from a pool of 8 left-handed students and 16 right-handed students. How many ways can the team be chosen if:
 <div class="pp-sub"><span>(i) There are no restrictions?</span><span class="mk">1</span></div>
 <div class="pp-sub"><span>(ii) The team has more left-handed students than right-handed students?</span><span class="mk">2</span></div></div>
-<div class="hint"><b>Hint:</b> in (ii), what does ‘more left-handed than right-handed’ mean for a team of 12?</div>{{work:50}}</div>
+<div class="hint"><b>Hint:</b> in (ii), what does ‘more left-handed than right-handed’ mean for a team of 12?</div>{{work:82}}</div>
 
-<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Normanhurst Boys High School, 2023, Year 12 Course Assessment Task 4 (Trial Examination), Mathematics Extension&nbsp;1,&nbsp;Q11(e)(i)(ii)</span><span class="mk">2 marks</span></div>
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Normanhurst Boys High School, 2023, Mathematics Extension&nbsp;1, Year 12 Course Assessment Task 4 (Trial Examination),&nbsp;Q11(e)(i)(ii)</span><span class="mk">2 marks</span></div>
 <div class="pp-q">There are twelve people that need to be divided into groups.
 <div class="pp-sub"><span>(i) In how many ways can they be divided into two groups of six people?</span><span class="mk">1</span></div>
 <div class="pp-sub"><span>(ii) In how many ways can they be divided into two groups of six people if two particular people must be in the same group?</span><span class="mk">1</span></div></div>
@@ -384,5 +385,5 @@ Find \(n\) the number dancers in the performing arts academy.</div>
 <div class="pp-q">You are given two rows of square tiles, 10 tiles in each row. You are asked to shade 4 tiles in the top row and 6 tiles in the bottom row so that exactly two shaded tiles in the top row are directly above a shaded tile in the bottom row, An example of one such arrangement is shown.
 {{svg:abb24tiles}}
 In how many ways is this possible?</div>
-<div class="hint"><b>Hint:</b> which choices have to be made, and in which row?</div>{{work:56}}</div>
+<div class="hint"><b>Hint:</b> which choices have to be made, and in which row?</div>{{work:170}}</div>
 </div>
