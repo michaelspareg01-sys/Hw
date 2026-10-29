@@ -1,1 +1,253 @@
-<!-- filled by Task 3 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 14B</div><h2>Counting ordered selections</h2>
+<div class="focus">Counting is the key to many probability problems. Two questions decide the method: <b>is the selection ordered or unordered?</b> and, if it is ordered, <b>is repetition allowed?</b> This lesson counts ordered selections. It sets out the multiplication principle with box diagrams, counts selections with repetition (\(n^r\)) and without repetition (\({}^{n}\mathrm{P}_{r}\)), and shows why the restrictions in a problem must be dealt with first.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:the multiplication principle and box diagrams}}
+<div class="box concept"><div class="bt">Ordered or unordered? With or without repetition?</div>
+<p>Probability problems become much easier with a more systematic approach to counting. Two questions dominate:</p>
+<ul><li>Are the selections we are counting <b>ordered</b> or <b>unordered</b>?</li>
+<li>If they are ordered, is <b>repetition</b> allowed or not?</li></ul>
+<p>Sections 14B–14D develop the theory of counting ordered selections, with and without repetition. Section 14E deals with unordered selections.</p></div>
+<div class="box concept"><div class="bt">The multiplication principle</div>
+<p>This morning, Stefan chose a shirt to wear from the twelve that he owns. Then, without worrying about a match, he chose a pair of trousers from the six pairs he owns. How many possible outfits could he have walked out of the house wearing?</p>
+<p>The answer is \(12\times6=72\). Each choice of trousers was part of twelve outfits, depending on the choice of shirt. There were six choices of trousers, so</p>
+\[\text{number of outfits}=12+12+12+12+12+12=12\times6.\]
+<p>The multiplication principle may be applied to more than two successive choices. Stefan also chose a pair of shoes from his eight pairs, and a tie from his collection of 87 ties. Taking these choices into account,</p>
+\[\text{number of outfits}=12\times6\times8\times87=50\,112.\]</div>
+<div class="box formula"><div class="bt">Box 3 &nbsp;The multiplication principle</div>
+<p>Suppose that a selection is to be made in \(r\) stages. Suppose that the first stage can be chosen in \(n_1\) ways, the second in \(n_2\) ways, …, the \(r\)th in \(n_r\) ways. Then</p>
+\[\text{number of ways of choosing the complete selection}=n_1\times n_2\times\cdots\times n_r.\]</div>
+<div class="box concept"><div class="bt">Using boxes for multiplication principle questions</div>
+<p>An ordered selection can usually be regarded as a sequence of choices made one after the other. An efficient setting-out is to use a <b>box diagram</b> to keep track of these successive choices. In the situation above with Stefan’s outfits:</p>
+<table class="t"><tr><th>shirt</th><th>trousers</th><th>shoes</th><th>tie</th></tr><tr><td>12</td><td>6</td><td>8</td><td>87</td></tr></table>
+\[\text{Number of outfits}=12\times6\times8\times87=50\,112.\]
+<p><b>Note:</b> in these questions a “word” is any arrangement of letters, whether or not it is in a dictionary. There are 5 vowels (A, E, I, O, U) and 21 consonants. Unless otherwise indicated, always take the letter ‘y’ as a consonant.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Successive choices in boxes</span></div><div class="ex-body">
+<b>a</b> Ella chooses a shirt from her 10 shirts, a skirt from her 4 skirts, a pair of shoes from her 7 pairs and a hat from her 3 hats. How many outfits are possible?<br>
+<b>b</b> How many four-letter words can be formed in which the first and last letters are vowels and the middle two letters are consonants?
+{{work:34}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> A café menu has 5 entrées, 8 mains and 4 desserts. How many three-course meals, with one dish from each course, are possible?<br>
+<b>b</b> How many three-letter words can be formed in which the first and last letters are consonants and the middle letter is a vowel?
+{{work:30}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+How many five-letter words can be formed in which the second and fourth letters are vowels and the other three letters are consonants?
+<div class="sol-label">Solution</div>
+<p>We can select each letter in order:</p>
+<table class="t"><tr><th>1st letter</th><th>2nd letter</th><th>3rd letter</th><th>4th letter</th><th>5th letter</th></tr><tr><td>21</td><td>5</td><td>21</td><td>5</td><td>21</td></tr></table>
+\[\text{Number of words}=21\times5\times21\times5\times21=231\,525.\]
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:ordered selections with repetition}}
+<div class="box concept"><div class="bt">Each letter can be chosen in \(n\) ways</div>
+<p>Suppose that \(r\)-letter words are to be formed from \(n\) distinct letters, where any letter can be used any number of times. Then each successive letter in the word can be chosen in \(n\) ways:</p>
+<table class="t"><tr><th>1st letter</th><th>2nd letter</th><th>3rd letter</th><th>…</th><th>\(r\)th letter</th></tr><tr><td>\(n\)</td><td>\(n\)</td><td>\(n\)</td><td>…</td><td>\(n\)</td></tr></table>
+<p>giving \(n^r\) distinct words altogether.</p></div>
+<div class="box formula"><div class="bt">Box 4 &nbsp;Ordered selections with repetition</div>
+<p>The number of \(r\)-letter words formed from \(n\) distinct letters, with repetition, is \(n^r\).</p></div>
+<div class="box concept"><div class="bt">“At least one”: count the complement</div>
+<p>To count the selections containing <b>at least one</b> of something, it is usually easier to count those containing <b>none</b> of it, and subtract from the total. This is the counting form of the complement rule on the revision page.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Repetition allowed, then a complement</span></div><div class="ex-body">
+<b>a</b> How many five-digit numbers can be formed entirely from the digits 1, 2, 3 and 4?<br>
+<b>b</b> How many of these numbers contain at least one 4?
+{{work:30}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> How many four-letter words can be formed from the letters A, B, C, D, E and F, if any letter may be used any number of times?<br>
+<b>b</b> How many of these words contain at least one A?
+{{work:28}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> How many six-digit numbers can be formed entirely from odd digits?<br>
+<b>b</b> How many of these numbers contain at least one seven?
+<div class="sol-label">Solution</div>
+<p><b>a</b> There are five odd digits, so the number of such numbers is \(5^6\).</p>
+<p><b>b</b> We first count the number of these six-digit numbers not containing 7. Such numbers are formed from the digits 1, 3, 5 and 9, so there are \(4^6\) of them. Subtracting this from the answer to part <b>a</b>,</p>
+\[\text{number of numbers}=5^6-4^6=11\,529.\]
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:permutations without repetition}}
+<div class="box concept"><div class="bt">Ordered selections without repetition</div>
+<p>Counting ordered selections without repetition typically involves factorials, because as each stage is completed, the number of objects to choose from diminishes by 1.</p>
+<p><b>Note:</b> the phrases ‘with replacement’ and ‘with repetition’ are used almost interchangeably. Similarly, the phrases ‘without replacement’ and ‘without repetition’ are also used almost interchangeably.</p></div>
+<div class="box concept"><div class="bt">The general case: permutations</div>
+<p>A <i>permutation</i> or <i>ordered set</i> is an arrangement of objects chosen from a certain set. For example, the words ABC, CED, EAB and DBC are some of the permutations of three letters taken from the 5-member set \(\{\text{A},\text{B},\text{C},\text{D},\text{E}\}\).</p>
+<p>The symbol \({}^{n}\mathrm{P}_{r}\) is used to denote the number of permutations of \(r\) letters chosen without repetition from a set of \(n\) distinct letters. Fill the \(r\) places one at a time:</p>
+<table class="t"><tr><th>1st letter</th><th>2nd letter</th><th>3rd letter</th><th>4th letter</th><th>…</th><th>\(r\)th letter</th></tr><tr><td>\(n\)</td><td>\(n-1\)</td><td>\(n-2\)</td><td>\(n-3\)</td><td>…</td><td>\(n-r+1\)</td></tr></table>
+\[\begin{aligned}\text{Hence }{}^{n}\mathrm{P}_{r}&=n(n-1)(n-2)(n-3)\cdots(n-r+1)\\ &=\dfrac{n(n-1)(n-2)(n-3)\times\cdots\times2\times1}{(n-r)(n-r-1)\times\cdots\times2\times1}\\ &=\dfrac{n!}{(n-r)!}.\end{aligned}\]</div>
+<div class="box formula"><div class="bt">Box 5 &nbsp;Permutations: ordered selections without repetition</div>
+<ul><li>A <i>permutation</i> is an arrangement of objects chosen from a certain set without repetition, that is, without replacement.</li>
+<li>We often imagine permutations as words formed from distinct letters chosen from a larger word consisting only of distinct letters.</li>
+<li>The number of permutations with \(r\) letters that can be formed without repetition from a set of \(n\) distinct letters is
+\[{}^{n}\mathrm{P}_{r}=\dfrac{n!}{(n-r)!}.\]</li></ul>
+<p>The phrases ‘without repetition’ and ‘without replacement’ are used almost interchangeably. The term ‘distinct objects’ is also used to describe this situation.</p></div>
+<div class="box concept"><div class="bt">Evaluating \({}^{n}\mathrm{P}_{r}\), and the permutations of a set</div>
+<p>For example, the number of permutations of three distinct letters taken from the 5-member set \(\{\text{A},\text{B},\text{C},\text{D},\text{E}\}\) is \({}^{5}\mathrm{P}_{3}=\dfrac{5!}{2!}=60\).</p>
+<p>Scientific calculators have a button labelled \(\boxed{{}^{n}\mathrm{P}_{r}}\) which will find values of \({}^{n}\mathrm{P}_{r}\). For low values of \(n\) and \(r\) the answers are exact, but for high values they are only approximations. Make a practice of evaluating these numbers by hand when it is reasonable to do so, because such calculations greatly help the intuition.</p>
+<p>A <i>permutation of a set</i> is an arrangement of all the members of the set in a particular order. If the set has \(n\) members, then the number of permutations is \({}^{n}\mathrm{P}_{n}=\dfrac{n!}{0!}=n!\)</p></div>
+<div class="box formula"><div class="bt">Box 6 &nbsp;Permutations of a set</div>
+<p>The number of permutations of an \(n\)-member set, that is, the number of distinct orderings of the set, is \({}^{n}\mathrm{P}_{n}=n!\)</p>
+<p>Box 6 summarises the arguments used at the start of Lesson 14A and in Question 1 of Exercise 14A.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Permutations by boxes and by formula</span></div><div class="ex-body">
+<b>a</b> In how many ways can a club of 14 members choose a president, a vice-president and a secretary?<br>
+<b>b</b> How many six-digit numbers, and how many seven-digit numbers, can be formed from the digits 1, 2, 3, 4, 5, 6 and 7 if no repetition is allowed?<br>
+<b>c</b> In how many ways can 10 people form a queue? Will the number of ways double with 20 people?<br>
+<b>d</b> Write \({}^{6}\mathrm{P}_{4}\) as a product, and as a quotient of factorials, then evaluate it by hand.
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+<b>a</b> In how many ways can a class of 25 choose a captain and a vice-captain?<br>
+<b>b</b> How many four-digit numbers, and how many five-digit numbers, can be formed from the digits 1, 2, 3, 4 and 5 if no repetition is allowed?<br>
+<b>c</b> In how many ways can 6 different books be arranged in a row on a shelf?<br>
+<b>d</b> Write \({}^{8}\mathrm{P}_{3}\) as a product, and as a quotient of factorials, then evaluate it by hand.
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+In how many ways can a class of 16 select a committee consisting of a president, a vice-president, a treasurer and a secretary?
+<div class="sol-label">Solution</div>
+<p>Select in order the president, the vice-president, the treasurer and the secretary (we assume that the same person cannot fill two roles).</p>
+<table class="t"><tr><th>president</th><th>vice-president</th><th>treasurer</th><th>secretary</th></tr><tr><td>16</td><td>15</td><td>14</td><td>13</td></tr></table>
+<p>Hence there are \(16\times15\times14\times13=\dfrac{16!}{12!}\) possible committees (which evaluates to \(43\,680\)).</p>
+</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+How many eight-digit numbers, and how many nine-digit numbers, can be formed from the nine non-zero digits if no repetition is allowed?
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+\[\begin{aligned}\text{Number of 8-digit numbers}&={}^{9}\mathrm{P}_{8}\\ &=\dfrac{9!}{1!}\\ &=9!\end{aligned}\]
+</div><div>
+\[\begin{aligned}\text{Number of 9-digit numbers}&={}^{9}\mathrm{P}_{9}\\ &=\dfrac{9!}{0!}\\ &=9!\end{aligned}\]
+</div></div>
+</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 7</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+In how many ways can 20 people form a queue? Will the number of ways double with 40 people?
+<div class="sol-label">Solution</div>
+<p>With 20 people, number of ways \(=20!\ \ (\doteq2.4\times10^{18})\).<br>
+With 40 people, number of ways \(=40!\ \ (\doteq8.2\times10^{47})\).<br>
+Hence 40 people can form a queue in about \(3\times10^{29}\) times more ways than 20 people.</p>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+{{sec:teal:key:Concept 4:deal with the restrictions first}}
+<div class="box concept"><div class="bt">A general counting principle</div>
+<p>Many problems have some restrictions in the way things can be arranged. These restrictions should be dealt with first. It is also important to keep in mind that the order of the boxes represents the order in which the choices are made, not the final ordering of the objects, and that they can be used in surprisingly flexible ways.</p></div>
+<div class="box formula"><div class="bt">Box 7 &nbsp;Deal with the restrictions first</div>
+<ul><li>When counting ordered selections, deal with any restrictions first.</li>
+<li>Place the boxes in the order in which the selections are made.</li></ul></div>
+<div class="box concept"><div class="bt">Restrictions on digits</div>
+<p>When numbers are formed from digits, the usual restrictions are on the first digit (a number cannot begin with 0) and on the last digit (an even number ends in an even digit, and a multiple of 5 ends in 0 or 5). Fill those boxes first, then the unrestricted places.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Restricted places first</span></div><div class="ex-body">
+<b>a</b> Ten people form two queues, each with five people. Alice will only stand in the left-hand queue, Bob will only stand in the right-hand queue, and Carl and Dina insist on standing in the same queue. In how many ways can the two queues be formed?<br>
+<b>b</b> How many odd four-digit numbers can be formed from the digits 1, 2, 3, 4, 5, 6 and 7 if no repetition is allowed?<br>
+<b>c</b> How many four-digit numbers can be formed from the digits 0, 1, 2, 3, 4 and 5 if no repetition is allowed?
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Six people form two queues, each with three people. Ann will only stand in the left-hand queue and Ben will only stand in the right-hand queue. In how many ways can the two queues be formed?<br>
+<b>b</b> How many even three-digit numbers can be formed from the digits 1, 2, 3, 4, 5 and 6 if no repetition is allowed?<br>
+<b>c</b> How many three-digit numbers can be formed from the digits 0, 1, 2, 3 and 4 if no repetition is allowed?
+{{work:40}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 8</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Eight people form two queues, each with four people. Albert will only stand in the left-hand queue, Beth will only stand in the right-hand queue, and Charles and Diana insist on standing in the same queue. In how many ways can the two queues be formed?
+<div class="sol-label">Solution</div>
+<p>Place Albert in any of the 4 possible positions in the left-hand queue.<br>
+Then place Beth in any of the 4 positions in the right-hand queue.<br>
+Place Charles in any of the remaining 6 positions.<br>
+Place Diana in one of the 2 remaining positions in the same queue.<br>
+There remain 4 unfilled positions, which can be filled in \(4!\) ways:</p>
+<table class="t"><tr><th>Albert</th><th>Beth</th><th>Charles</th><th>Diana</th><th>Last four positions</th></tr><tr><td>4</td><td>4</td><td>6</td><td>2</td><td>\(4!\)</td></tr></table>
+\[\begin{aligned}\text{Hence number of ways}&=4\times4\times6\times2\times4!\\ &=4608.\end{aligned}\]
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 14B}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">List all the permutations of the letters of the word DOG. How many are there?{{work:16}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">List all the permutations of the letters EFGHI, beginning with F, taken three at a time.{{work:20}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Find how many arrangements of the letters of the word FRIEND are possible if the letters are taken:
+<div class="parts"><span><span class="pl">a</span>four at a time,</span><span><span class="pl">b</span>six at a time.</span></div>{{work:14}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Find how many four-digit numbers can be formed using the digits 5, 6, 7, 8 and 9 if:
+<div class="parts"><span><span class="pl">a</span>no digit is to be repeated,</span><span><span class="pl">b</span>any of the digits can occur more than once.</span></div>{{work:14}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">How many three-digit numbers can be formed using the digits 2, 3, 4, 5 and 6 if no digit can be repeated? How many of these are greater than 400?{{work:18}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">In how many ways can seven people be seated in a row of seven different chairs?{{work:10}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">The symbol \({}^{n}\mathrm{P}_{r}\) is the number of ways of arranging \(r\) objects selected without replacement from \(n\) objects. Use this expression, and the \(\boxed{{}^{n}\mathrm{P}_{r}}\) button on your calculator, to answer the following questions.
+<div class="parts one"><span><span class="pl">a</span>From a group of 10, three people line up to buy tickets. How many ways can this happen?</span><span><span class="pl">b</span>Five cards are each labelled uniquely with one of the digits 1, 2, 3, 4, 5. Three of the five cards are placed down in a row. How many ways can the cards be arranged?</span><span><span class="pl">c</span>One hundred people each buy one ticket in a lottery. How many ways can the first three places be awarded?</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">The expression \(n^r\) is the number of ways of arranging \(r\) objects selected with replacement from \(n\) objects. Use this expression to answer the following questions.
+<div class="parts one"><span><span class="pl">a</span>How many three-digit numbers can be written down from the digits 1 to 9? The digits need not be distinct.</span><span><span class="pl">b</span>One hundred people each buy one ticket in a lottery. Tickets are selected one by one at random from a barrel and then replaced between selections. How many ways can the first three places be awarded?</span><span><span class="pl">c</span>A computer sends a string of ten binary digits, that is, each symbol can only be 0 or 1. How many such ten-digit strings are possible?</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Eight runners are participating in a 400-metre race.
+<div class="parts one"><span><span class="pl">a</span>In how many ways can they finish?</span><span><span class="pl">b</span>In how many ways can the gold, silver and bronze medals be awarded?</span></div>{{work:14}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>If you toss a coin and roll a die, how many outcomes are possible?</span><span><span class="pl">b</span>If you toss two coins and roll three dice, how many outcomes are possible?</span></div>{{work:14}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">A woman has four hats, three blouses, five skirts, two handbags and six pairs of shoes. In how many ways can she be attired, assuming that she wears one of each item?{{work:10}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Jack has six different football cards and Meg has another eight different football cards. In how many ways can one of Jack’s cards be exchanged for one of Meg’s cards?{{work:10}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">13</span><div class="q-body">In Sydney, landline phone numbers, ignoring the area code, consist of eight digits. Let us consider those starting with the digit 9.
+<div class="parts one"><span><span class="pl">a</span>How many such phone numbers are possible?</span><span><span class="pl">b</span>How many of these end in an odd number?</span><span><span class="pl">c</span>How many consist of odd digits only?</span><span><span class="pl">d</span>How many are there that do not contain a zero, and in which the consecutive digits alternate between odd and even?</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Users of automatic teller machines are required to enter a four-digit PIN (personal identification number). Find how many PINs:
+<div class="parts"><span><span class="pl">a</span>are possible,</span><span><span class="pl">b</span>consist of four distinct digits,</span><span><span class="pl">c</span>consist of odd digits only,</span><span><span class="pl">d</span>start and end with the same digit.</span></div>{{work:22}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>If repetitions are not allowed, how many four-digit numbers can be formed from the digits \(1,\ 2,\ \ldots\ 8,\ 9\)?</span><span><span class="pl">b</span>How many of these end in 1?</span><span><span class="pl">c</span>How many of these are even?</span><span><span class="pl">d</span>How many are divisible by 5?</span><span><span class="pl">e</span>How many are greater than 7000?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">Repeat the previous question if repetitions are allowed.{{work:26}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">In Tasmania, a car licence plate consists of two letters followed by four digits. Find how many of these are possible:
+<div class="parts one"><span><span class="pl">a</span>if there are no restrictions,</span><span><span class="pl">b</span>if there is no repetition of letters or digits,</span><span><span class="pl">c</span>if the second letter is X and the third digit is 3,</span><span><span class="pl">d</span>if the letters are D and Q and the digits are 3, 6, 7 and 9.</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>In how many ways can the letters of the word NUMBER be arranged?</span><span><span class="pl">b</span>How many begin with N?</span><span><span class="pl">c</span>How many begin with N and end with U?</span><span><span class="pl">d</span>In how many is the N somewhere to the left of the U?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">In how many ways can a boat crew of eight women be arranged if three of the women can only row on the bow side and two others can only row on the stroke side?{{work:22}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">A motor bike can carry three people: the driver, one passenger behind the driver and one in the sidecar. If among five people, only two can drive, in how many ways can the bike be filled?{{work:16}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>How many five-digit numbers can be formed from the digits 2, 3, 4, 5 and 6?</span><span><span class="pl">b</span>How many of these numbers are greater than \(56\,432\)?</span><span><span class="pl">c</span>How many of these numbers are less than \(56\,432\)?</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Integers are formed from the digits 2, 3, 4 and 5, with repetitions not allowed.</span></div>
+<div class="parts" style="margin-left:6mm"><span>i&nbsp; How many such numbers are there?</span><span>ii&nbsp; How many of them are even?</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">23</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>How many five-digit numbers can be formed from the digits 0, 1, 2, 3 and 4 if repetitions are not allowed?</span><span><span class="pl">b</span>How many of these are odd?</span><span><span class="pl">c</span>How many are divisible by 5?</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">24</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>If \({}^{8}\mathrm{P}_{r}=336\), find the value of \(r\).</span><span><span class="pl">b</span>If \(7\times{}^{2n}\mathrm{P}_{n}=4\times{}^{2n+1}\mathrm{P}_{n}\), find \(n\).</span><span><span class="pl">c</span>Using the result \({}^{n}\mathrm{P}_{r}=\dfrac{n!}{(n-r)!}\), prove that:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; \({}^{n+1}\mathrm{P}_{r}={}^{n}\mathrm{P}_{r}+r\times{}^{n}\mathrm{P}_{r-1}\)</span><span>ii&nbsp; \({}^{n}\mathrm{P}_{r}={}^{n-2}\mathrm{P}_{r}+2r\times{}^{n-2}\mathrm{P}_{r-1}+r(r-1)\times{}^{n-2}\mathrm{P}_{r-2}\)</span></div>{{work:96}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">25</span><div class="q-body">Recall that a whole number is divisible by 3 if and only if the sum of the digits is divisible by 3.
+<div class="parts one"><span><span class="pl">a</span>How many 5-digit whole numbers are divisible by 3?</span><span><span class="pl">b</span>How many 5-digit whole numbers with no 0s are divisible by 3?</span><span><span class="pl">c</span>How many 5-digit whole numbers with no 0s are divisible by 2?</span><span><span class="pl">d</span>How many 5-digit whole numbers with no 0s are divisible by 6?</span></div>{{work:60}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 20 minutes</b></span><span><b>13 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">Trial papers usually test ordered selections inside longer questions on grouping or probability, so this mini exam is a little shorter than usual. Every question uses the methods of this lesson; PP 4 also uses the probability formula from the revision page.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Normanhurst Boys High School, 2023, Year 12 Course Assessment Task 4 (Trial Examination), Mathematics Extension 1, Q3</span><span class="mk">1 mark</span></div>
+<div class="pp-q">How many numbers greater than 2100 can be formed with the digits 1, 2, 3, 4 if no digit is to be used more than once?
+<div class="mc"><span>(A) 16</span><span>(B) 18</span><span>(C) 24</span><span>(D) 48</span></div></div>
+<div class="hint"><b>Hint:</b> the restriction is on the leading digits, so deal with them first (Box 7).</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics Extension 1, Q10(b)(ii)</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Lily and Ben are two of eight people.
+<div class="pp-sub"><span>(ii) Find the number of ways that the 8 people can arrange themselves in a straight line so that Lily is somewhere to the left of Ben.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> what happens to an arrangement if Lily and Ben swap places?</div>{{work:18}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Gosford High School, 2023, Trial HSC examination, Mathematics Extension 1, Q5</span><span class="mk">1 mark</span></div>
+<div class="pp-q">In how many ways can 5 people be selected from a group of 6 and then arranged in a line so that the two oldest people in the selected group are at either end of the line? (Note, no two people are the same age)
+<div class="mc"><span>A. 720</span><span>B. 144</span><span>C. 72</span><span>D. 36</span></div></div>
+<div class="hint"><b>Hint:</b> treat the selection and the arrangement as two stages of the multiplication principle.</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Hurlstone Agricultural High School, 2021, Higher School Certificate Assessment Task 4, Mathematics Extension 1, Q11(b)</span><span class="mk">1 mark</span></div>
+<div class="pp-q">The letters of the word CONSIDER are rearranged at random. What is the probability that an arrangement begins with ‘SI’?</div>
+<div class="hint"><b>Hint:</b> use \(P(E)=\dfrac{|E|}{|S|}\) from the revision page, and count both sets with boxes.</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Girraween High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension 1, Q14(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">How many numbers greater than 6000 can be formed with the digits 1, 4, 5, 7, 8 if no digit is repeated?</div>
+<div class="hint"><b>Hint:</b> the question does not say how many digits the numbers must have.</div>{{work:38}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Ascham School, 2023, Year 12 Trial Examination, Mathematics Extension 1, Q12(e)(iii)</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Find the number of ways in which the letters of the word EPSILON can be arranged in a straight line so that:
+<div class="pp-sub"><span>iii) N is somewhere to the left of L.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> the same idea as PP 2.</div>{{work:18}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension 1 HSC Trial Examination, Q12(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">It is given that
+\[\dfrac{{}^{n}P_{r-1}}{a}=\dfrac{{}^{n}P_{r}}{b}=\dfrac{{}^{n}P_{r+1}}{c}\]
+Prove that \(b^2=a(b+c)\).</div>
+<div class="hint"><b>Hint:</b> write each \({}^{n}P_{r}\) in factorial form (Box 5), and remember how unrolling simplifies a quotient of factorials.</div>{{work:100}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>North Sydney Girls High School, 2020, HSC Trial Examination, Mathematics Extension 1, Q13(c)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">A 4-digit number begins with 1 and has exactly one pair of identical digits (not necessarily adjacent).
+<div class="pp-sub"><span>(i) How many such numbers can be formed if the repeated digit is 1?</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) How many such numbers can be formed in total?</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> deal with the restrictions first. Which digits are allowed in the last three places?</div>{{work:80}}</div>
+</div>
