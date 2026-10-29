@@ -1,0 +1,192 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter revision</div><h2>The normal distribution</h2>
+<div class="focus">A short review of Year 12 Advanced Chapter 16D–16F: the standard normal distribution and its table, general normal distributions and \(z\)-scores, and applications. Lessons 17C and 17D approximate binomial distributions and sample proportions by normal distributions, so they use all of this. The standard normal table is on the last page of this section.</div></div>
+
+{{sec:violet:loop:Summary:keep these pages open while you work}}
+<div class="box formula"><div class="bt">The standard normal distribution (16D)</div>
+<div class="split"><div>
+<p>Let \(Z\) be the <b>standard normal random variable</b>. Its probability density function is</p>
+\[\phi(z)=\dfrac{e^{-\frac12z^2}}{\sqrt{2\pi}}\qquad\Big(\dfrac{1}{\sqrt{2\pi}}\doteq0.4\Big)\]
+<ul><li>The graph of the PDF is a <b>bell-shaped curve</b>, with global maximum at \(z=0\) (the mode) and points of inflection at \(z=1\) and \(z=-1\).</li>
+<li>The mean is \(\mu=0\) and the standard deviation is \(\sigma=1\). The points of inflection are each one standard deviation from the mean.</li></ul>
+</div><div>{{svg:phi_pdf}}{{svg:phi_area}}</div></div>
+<ul><li>The total area under the curve \(y=\phi(z)\) is 1, and the curve is <b>even</b>: it has line symmetry in the \(y\)-axis.</li>
+<li>The <b>cumulative distribution function</b> is \(\Phi(z)=P(Z\le z)=\displaystyle\int_{-\infty}^{z}\phi(t)\,dt\), the area under the curve to the left of \(z\). The primitive of \(\phi(z)\) cannot be written with our usual functions, so we read \(\Phi(z)\) from the <b>standard normal table</b> (last page of this section), or use a calculator.</li>
+<li><b>Reading the table:</b> go to the row for the units and first decimal place of \(z\), then to the column for the second decimal place. For example, \(\Phi(1.63)\) is in row 1.6, column \(+.03\), so \(\Phi(1.63)\doteq0.9484\). The table gives only \(z\ge0\), because \(\phi(z)\) is even.</li></ul>
+<p><b>Rules for juggling areas</b> (always sketch the curve and shade the area you want):</p>
+\[P(Z=a)=0\qquad\Phi(0)=0.5\qquad P(Z\ge z)=1-\Phi(z)\]
+\[\Phi(-z)=P(Z\ge z)=1-\Phi(z)\qquad P(a\le Z\le b)=\Phi(b)-\Phi(a)\]
+<ul><li>Because \(P(Z=a)=0\), there is no need to distinguish between \(\le\) and \(\lt\), or between \(\ge\) and \(\gt\).</li></ul></div>
+
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 10 (16D)</span></div><div class="ex-body">
+<b>a</b> Look up \(P(Z\le2)\) and illustrate it as an area under \(y=\phi(z)\).<br>
+<b>b</b> Illustrate each probability as an area under \(y=\phi(z)\). Then calculate it using the value of \(\Phi(2)\) found in part <b>a</b>. Keep looking back to the graph in part <b>a</b> while you juggle the intervals.
+<div style="display:flex;gap:12mm;margin:1mm 0 0 4mm"><span><span class="pl">i</span>\(P(Z\ge2)\)</span><span><span class="pl">ii</span>\(P(Z\le-2)\)</span><span><span class="pl">iii</span>\(P(0\le Z\le2)\)</span><span><span class="pl">iv</span>\(P(-2\le Z\le2)\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> From the table,</p>
+<p style="margin-left:6mm">\(P(Z\le2)=\Phi(2)=0.9772.\)</p>
+<p>The area under \(y=\phi(z)\) corresponding to \(\Phi(2)\) is shaded in the diagram to the right.</p>
+</div><div>{{svg:ex10a}}</div></div>
+<div style="break-inside:avoid"><p><b>b</b></p>
+<div style="display:flex;justify-content:space-between;text-align:center;font-size:10pt">
+<div>{{svg:ex10b1}}<br><b>i</b> \(P(Z\ge2)\)</div><div>{{svg:ex10b2}}<br><b>ii</b> \(P(Z\le-2)\)</div><div>{{svg:ex10b3}}<br><b>iii</b> \(P(0\le Z\le2)\)</div><div>{{svg:ex10b4}}<br><b>iv</b> \(P(-2\le Z\le2)\)</div></div></div>
+<p><b>i</b> \(P(Z\ge2)=1-P(Z\le2)\), because the total area is 1, \(\ \doteq1-0.9772\ \doteq0.0228.\)<br>
+<span style="margin-left:5mm">The probability that \(Z=2\) exactly is zero, so there is no need to distinguish between \(\le\) and \(\lt\) or between \(\ge\) and \(\gt\).</span></p>
+<p><b>ii</b> \(P(Z\le-2)=P(Z\ge2)\), because \(\phi(z)\) is even, \(\ \doteq0.0228\), from part i.</p>
+<p><b>iii</b> \(P(0\le Z\le2)=\Phi(2)-\Phi(0)\), using subtraction of areas,<br><span style="margin-left:23mm">\(\doteq0.9772-0.5\)</span>, because exactly half the scores are below the mean, \(\ \doteq0.4772.\)</p>
+<p><b>iv</b> \(P(-2\le Z\le2)=\Phi(2)-\Phi(-2)\ \doteq0.9772-0.0228\), by part ii, \(\ \doteq0.9544\),<br>
+<span style="margin-left:5mm">OR \(\ P(-2\le Z\le2)=2\times P(0\le Z\le2)\), by symmetry, \(\ \doteq2\times0.4772\), by part iii, \(\ \doteq0.9544.\)</span></p>
+</div></div>
+
+<div class="box formula"><div class="bt">The empirical rule, and reading the table in reverse (16D)</div>
+<p>From the table, \(P(-1\le Z\le1)\doteq0.6827\doteq68\%\), \(P(-2\le Z\le2)\doteq0.9545\doteq95\%\) and \(P(-3\le Z\le3)\doteq0.9973\doteq99.7\%\). These are the <b>empirical rule</b>, or the <b>68–95–99.7 rule</b>. In a normal distribution, the proportion of scores lying:</p>
+<ul><li>within 1 standard deviation of the mean is 68%,</li>
+<li>within 2 standard deviations of the mean is 95%,</li>
+<li>within 3 standard deviations of the mean is 99.7%.</li></ul>
+<div style="display:flex;justify-content:space-around">{{svg:emp1}}{{svg:emp2}}{{svg:emp3}}</div>
+<p>Use the symmetry of the curve with these: for example, \(P(Z\gt1)\doteq\tfrac12(100\%-68\%)=16\%\) and \(P(0\le Z\le2)\doteq\tfrac12\times95\%=47.5\%\).</p>
+<div class="split"><div>
+<p><b>Reading the table in reverse.</b> To solve \(\Phi(z)=p\), find \(p\) in the body of the table and read off \(z\). Take the closest entry, or interpolate between two entries. The graph of \(y=\Phi(z)\) on the right shows this as a horizontal line at height \(p\). If \(p\lt0.5\), then \(z\) is negative: use \(\Phi(-z)=1-p\).</p>
+<p>It is standard practice to round percentiles and quartiles of the normal to two decimal places. The quartiles are \(Q_1\doteq-0.67\) and \(Q_3\doteq0.67\), and \(\text{IQR}\doteq1.35\). By the IQR criterion, an outlier is a score more than \(1.5\times\text{IQR}\) beyond a quartile, that is, outside \(-2.70\le z\le2.70\).</p>
+</div><div>{{svg:Phi_cdf}}</div></div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 13 (16D)</span></div><div class="ex-body">
+<b>a</b> Find the 9th decile of the standard normal distribution.<br>
+<b>b</b> Find the third quartile \(Q_3\) and the first quartile \(Q_1\) of \(\Phi(z)\).<br>
+<b>c</b> Using the IQR criterion, what proportion of the scores of a standard normal random variable would be expected to be outliers?
+<div class="sol-label">Solution</div>
+<p><b>a</b> For the 9th decile, we need to solve \(\Phi(z)\doteq0.9\).<br>From the table, \(\Phi(1.2)\doteq0.8849\) and \(\Phi(1.3)\doteq0.9032\), with difference \(0.0183\) making the 9th decile about \(1.28\).<br>This agrees with the horizontal line with height 0.9 on the graph of \(\Phi(z)\).</p>
+<p><b>b</b> For the upper quartile, we need to solve \(\Phi(z)\doteq0.75\).<br>From the table, \(\Phi(0.6)\doteq0.7257\) and \(\Phi(0.7)\doteq0.7580\), with difference \(0.0323\).<br>Thus \(Q_3\doteq0.675\), and because \(\phi(z)\) is even, \(Q_1\doteq-0.675\).<br>This agrees with the horizontal line with height 0.75 on the graph of \(\Phi(z)\).</p>
+<p><b>c</b> From part <b>b</b>, the IQR is about \(1.35\), so \(Q_3+1.5\times\text{IQR}\doteq2.70\).<br>The IQR criterion is that an outlier lies outside \(-2.70\le z\le2.70\).</p>
+<p style="margin-left:6mm">\(\begin{aligned}[t]\text{Hence}\quad P(Z\text{ is an outlier})&=P(Z\gt2.70)+P(Z\lt-2.70)\\&=2\times P(Z\gt2.70)\\&=2\big(1-\Phi(2.70)\big)\\&\doteq0.007,\end{aligned}\)</p>
+<p>so roughly 7 in 1000 scores would be expected to be outliers.</p>
+<p class="small"><b>Note:</b> Correct to five significant figures, \(Q_3\doteq0.67449\). It is standard practice to round percentiles and quartiles of the normal to two decimal places, giving \(Q_1\doteq-0.67\), \(Q_3\doteq0.67\) and \(\text{IQR}\doteq1.35\). In a normal distribution, the IQR criterion makes just under 1% of scores outliers.</p>
+</div></div>
+
+<div class="box formula"><div class="bt">General normal distributions and \(z\)-scores (16E)</div>
+<div class="split"><div>
+<p>Let \(f(x)\) be the PDF of a normal distribution with mean \(\mu\) and standard deviation \(\sigma\). We write \(X\sim N(\mu,\sigma^2)\).</p>
+<ul><li>\(f(x)\) is obtained from the standard normal PDF by stretching horizontally with factor \(\sigma\) and vertically with factor \(\dfrac1\sigma\), then shifting right by \(\mu\) units:
+\[f(x)=\dfrac1\sigma\,\phi\Big(\dfrac{x-\mu}{\sigma}\Big)=\dfrac{1}{\sigma\sqrt{2\pi}}\,e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</li></ul>
+</div><div>{{svg:gen_normal}}</div></div>
+<ul><li>The points of inflection are each one standard deviation from the mean, at \(x=\mu-\sigma\) and \(x=\mu+\sigma\). The mean, the median and the mode coincide.</li>
+<li>The <b>\(z\)-score</b> of a score \(x\) is the number of standard deviations that \(x\) lies above the mean (negative if \(x\) is below the mean). The conversions are
+\[z=\dfrac{x-\mu}{\sigma}\qquad\text{and}\qquad x=\mu+\sigma z.\]</li>
+<li>If \(X\) is normal, then \(Z=\dfrac{X-\mu}{\sigma}\) is standard normal, so \(P(X\le a)=P\Big(Z\le\dfrac{a-\mu}{\sigma}\Big)=\Phi\Big(\dfrac{a-\mu}{\sigma}\Big)\). This is called <b>standardising</b>.</li>
+<li>The empirical rule becomes: 68% of scores lie in \(\mu-\sigma\le x\le\mu+\sigma\), 95% in \(\mu-2\sigma\le x\le\mu+2\sigma\), and 99.7% in \(\mu-3\sigma\le x\le\mu+3\sigma\).</li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 15 (16E)</span></div><div class="ex-body">
+A normally distributed random variable \(X\) has mean 100 and standard deviation 20.<br>
+<b>a</b> Write down the two conversion formulae between \(z\)-scores and values of \(x\).<br>
+<b>b</b> Find: &nbsp; <b>i</b> \(P(X\le110)\) &nbsp; <b>ii</b> \(P(X\ge90)\)<br>
+<b>c</b> Find (nearest whole number) the value of \(a\) such that \(P(X\le a)=0.98\).
+<div class="sol-label">Solution</div>
+<p><b>a</b> \(z=\dfrac{x-100}{20}\quad\text{and}\quad x=100+20z.\)</p>
+<div style="display:flex;gap:16mm"><div>
+<p><b>b</b> <b>i</b> \(\begin{aligned}[t]&P(X\le110)\\&\quad=P(Z\le0.5)\\&\quad=0.69\end{aligned}\)</p>
+</div><div>
+<p><b>ii</b> \(\begin{aligned}[t]P(X\ge90)&=P(Z\ge-0.5)\\&=P(Z\le0.5)\qquad(\phi(x)\text{ is even})\\&=0.69\end{aligned}\)</p>
+</div></div>
+<p><b>c</b> From the table, \(\Phi(2.0)=0.9772\) and \(\Phi(2.1)=0.9821\),<br>so by interpolation, \(\Phi(2.06)=0.98\).<br>Converting back to \(x\)-values, \(a=100+20\times2.06=141\).</p>
+</div></div>
+
+<div class="box formula"><div class="bt">Applications of the normal distribution (16F)</div>
+<ul><li>Identify \(\mu\) and \(\sigma\), and convert each score to a \(z\)-score. Sketch the curve and shade the region you want.</li>
+<li>If the \(z\)-scores are whole numbers of standard deviations, the empirical rule is often enough. Otherwise use the table (or technology).</li>
+<li>A percentage of a population is a probability times 100%. The expected number of scores in a region is (number of scores) \(\times\) (probability).</li>
+<li>To find a score from a probability, read the table in reverse to find \(z\), then convert back with \(x=\mu+\sigma z\).</li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 17 (16F)</span></div><div class="ex-body">
+The Happytime Chocolate Company manufactures a 100 g chocolate–nougat bar. As with any manufacturing process, these chocolate bars do not all have precisely the same weight, and these bars are known to be normally distributed with standard deviation 2 g. To reduce the number of complaints, the company has adjusted its machinery so that the mean is 102 g (such an adjustment does not affect the standard deviation).<br>
+<b>a</b> Using the empirical rule where possible, and tables or technology otherwise, find the percentage of chocolate bars:
+<div class="parts one" style="margin-left:6mm"><span><span class="pl">i</span>of weight less than the stated weight of 100 g,</span><span><span class="pl">ii</span>of weight greater than 105 g.</span></div>
+<b>b</b> What would the mean weight need to be for there to be less than 1 chocolate bar in 1000 under 100 g?
+<div class="sol-label">Solution</div>
+<p><b>a</b> <b>i</b> A weight of 100 g is 1 standard deviation below the mean of 102 g.</p>
+<p style="margin-left:9mm">By the empirical rule, \(P(-1\le Z\le1)=68\%\),<br>and using the complement, \(P(Z\lt-1\text{ or }Z\gt1)=32\%\),<br>so by the even symmetry, \(P(Z\lt-1)=32\%\div2=16\%\).</p>
+<p style="margin-left:5mm"><b>ii</b> A weight of 105 g is 1.5 standard deviations above the mean of 102 g.</p>
+<p style="margin-left:9mm">From the table, \(P(Z\le1.5)=93\%\),<br>so using complements, \(P(Z\gt1.5)=7\%\).</p>
+<p><b>b</b> Reading the table backwards, \(P(Z\le3.1)=0.999\),<br>so by symmetry and complements, \(P(Z\le-3.1)=0.001\).<br>Hence we need to make the mean \(3.1\sigma\) above 100 g,<br>meaning that we set the controls so that \(\mu=100+3.1\times2=106.2\) g.</p>
+</div></div>
+
+<div class="page-break"></div>
+{{sec:violet:spark:Warm-up:answers are in the answers booklet}}
+<p class="small">Use the standard normal table on the next page. Each question is from the textbook exercise named, with some parts left out.</p>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Exercise 16D Q9</span><br>Use the standard normal table to find:
+<div class="parts one"><span><span class="pl">a</span>\(P(Z\le1.3)\)</span><span><span class="pl">b</span>\(P(Z=2.4)\)</span><span><span class="pl">c</span>\(P(Z\gt0.4)\)</span><span><span class="pl">d</span>\(P(Z\le-0.8)\)</span><span><span class="pl">e</span>\(P(1.1\le Z\le1.5)\)</span><span><span class="pl">f</span>\(P(-1.3\le Z\le2.2)\)</span></div>{{work:32}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Exercise 16D Q12</span><br>Use the empirical rule (also called the 68–95–99.7 rule) to find:
+<div class="parts one"><span><span class="pl">a</span>\(P(Z\le1)\)</span><span><span class="pl">b</span>\(P(Z\lt-1)\)</span><span><span class="pl">c</span>\(P(0\le Z\le3)\)</span><span><span class="pl">d</span>\(P(-3\lt Z\le-2)\)</span><span><span class="pl">e</span>\(P(-2\le Z\lt1)\)</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Exercise 16D Q14</span><br>Use the standard normal table in reverse to find the value of \(a\), given that:
+<div class="parts one"><span><span class="pl">a</span>\(P(Z\lt a)=0.7257\)</span><span><span class="pl">b</span>\(P(Z\lt-a)=0.1151\)</span><span><span class="pl">c</span>\(P(Z\lt a)=0.2119\)</span><span><span class="pl">d</span>\(P(-a\le Z\lt a)=0.7286\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Exercise 16E Q6</span><br>Find each probability for a normally distributed random variable \(X\) with the given parameters. You will need to use the table of values for the standard normal distribution, or a statistics calculator, or other technology such as a spreadsheet, or online resources.
+<div class="parts one"><span><span class="pl">a</span>\(P(3\le X\le7)\), given mean \(\mu=5\) and standard deviation \(\sigma=0.8\).</span><span><span class="pl">b</span>\(P(X\le8)\), where \(\mu=12\) and \(\sigma=5\).</span><span><span class="pl">c</span>\(P(X\ge-39)\), where \(\mu=0\) and \(\sigma=30\).</span><span><span class="pl">d</span>\(P(3\lt X\le5)\), where \(\mu=8\) and \(\sigma=2\).</span></div>{{work:38}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Exercise 16F Q2 (use the empirical rule)</span><br>The results in an examination are approximately normally distributed with mean 68 and standard deviation 9. In a cohort of 2000, how many students will be expected to score:
+<div class="parts one"><span><span class="pl">a</span>more than 95,</span><span><span class="pl">b</span>less than 50,</span><span><span class="pl">c</span>between 59 and 86?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Exercise 16F Q7</span><br>In Australian adult males, height is found to be normally distributed with mean 176 cm and standard deviation 7.5 cm. A doorway is designed so that 90% of this population can enter without ducking.
+<div class="parts one"><span><span class="pl">a</span>Read the supplied standard normal distribution table backwards to find the \(z\)-score such that \(P(Z\lt z)=90\%\), correct to 2 decimal places.</span><span><span class="pl">b</span>Hence find the minimum height of the doorway.</span><span><span class="pl">c</span>In the Dinaric alps, the mean and standard deviation of the heights of adult males are respectively 185 and 7.5 centimetres. A customer orders a special design for the doorway so that 95% of adult males can enter without ducking.</span></div>
+<div class="parts one" style="margin-left:6mm"><span><span class="pl">i</span>Explain why a reasonable estimate from the table such that \(P(Z\lt z)=0.95\) is 1.65.</span><span><span class="pl">ii</span>Find the minimum design height of the door.</span></div>{{work:44}}</div></div>
+
+<div class="page-break"></div>
+<style>
+table.snt { border-collapse:collapse; width:100%; font-size:9.6pt; line-height:1.24; font-variant-numeric:tabular-nums; }
+table.snt th, table.snt td { padding:0.3mm 1.2mm; text-align:center; }
+table.snt thead th { background:#e9eef5; font-weight:700; }
+table.snt td.z, table.snt th.z { border-right:1.4px solid var(--line-strong); font-weight:700; background:#f3f5f8; }
+table.snt tr.gap td { border-top:1.4px solid var(--line-strong); }
+table.snt tbody tr:nth-child(even) td:not(.z) { background:#fafbfc; }
+</style>
+<div class="sn-table" id="normal-table">
+{{sec:violet:book:Standard normal table:values of \(\Phi(z)=P(Z\le z)\)}}
+<div style="display:flex;gap:6mm;align-items:center"><div style="flex:1">
+<p>The shaded area in the graph represents the value of the cumulative standard normal distribution function \(P(Z\le z)=\Phi(z)=\displaystyle\int_{-\infty}^{z}\phi(t)\,dt\). The table gives \(\Phi(z)\) to four decimal places, allowing two decimal places for \(z\). After that, use interpolation. For example,</p>
+\[P(Z\le1.627)=\Phi(1.627)\doteq0.9474+0.7\,(0.9484-0.9474)\doteq0.9481.\]
+<p class="small" style="margin:0">For negative \(z\), use \(\Phi(-z)=1-\Phi(z)\). For \(z\ge4\), \(\Phi(z)\doteq1.0000\).</p>
+</div><div style="flex:0 0 52mm">{{svg:phi_area_small}}</div></div>
+<table class="snt">
+<thead><tr><th class="z"></th><th colspan="10">second decimal place</th></tr>
+<tr><th class="z">\(z\)</th><th>+.00</th><th>+.01</th><th>+.02</th><th>+.03</th><th>+.04</th><th>+.05</th><th>+.06</th><th>+.07</th><th>+.08</th><th>+.09</th></tr></thead>
+<tbody>
+<tr><td class="z">0.0</td><td>0.5000</td><td>0.5040</td><td>0.5080</td><td>0.5120</td><td>0.5160</td><td>0.5199</td><td>0.5239</td><td>0.5279</td><td>0.5319</td><td>0.5359</td></tr>
+<tr><td class="z">0.1</td><td>0.5398</td><td>0.5438</td><td>0.5478</td><td>0.5517</td><td>0.5557</td><td>0.5596</td><td>0.5636</td><td>0.5675</td><td>0.5714</td><td>0.5753</td></tr>
+<tr><td class="z">0.2</td><td>0.5793</td><td>0.5832</td><td>0.5871</td><td>0.5910</td><td>0.5948</td><td>0.5987</td><td>0.6026</td><td>0.6064</td><td>0.6103</td><td>0.6141</td></tr>
+<tr><td class="z">0.3</td><td>0.6179</td><td>0.6217</td><td>0.6255</td><td>0.6293</td><td>0.6331</td><td>0.6368</td><td>0.6406</td><td>0.6443</td><td>0.6480</td><td>0.6517</td></tr>
+<tr><td class="z">0.4</td><td>0.6554</td><td>0.6591</td><td>0.6628</td><td>0.6664</td><td>0.6700</td><td>0.6736</td><td>0.6772</td><td>0.6808</td><td>0.6844</td><td>0.6879</td></tr>
+<tr><td class="z">0.5</td><td>0.6915</td><td>0.6950</td><td>0.6985</td><td>0.7019</td><td>0.7054</td><td>0.7088</td><td>0.7123</td><td>0.7157</td><td>0.7190</td><td>0.7224</td></tr>
+<tr><td class="z">0.6</td><td>0.7257</td><td>0.7291</td><td>0.7324</td><td>0.7357</td><td>0.7389</td><td>0.7422</td><td>0.7454</td><td>0.7486</td><td>0.7517</td><td>0.7549</td></tr>
+<tr><td class="z">0.7</td><td>0.7580</td><td>0.7611</td><td>0.7642</td><td>0.7673</td><td>0.7704</td><td>0.7734</td><td>0.7764</td><td>0.7794</td><td>0.7823</td><td>0.7852</td></tr>
+<tr><td class="z">0.8</td><td>0.7881</td><td>0.7910</td><td>0.7939</td><td>0.7967</td><td>0.7995</td><td>0.8023</td><td>0.8051</td><td>0.8078</td><td>0.8106</td><td>0.8133</td></tr>
+<tr><td class="z">0.9</td><td>0.8159</td><td>0.8186</td><td>0.8212</td><td>0.8238</td><td>0.8264</td><td>0.8289</td><td>0.8315</td><td>0.8340</td><td>0.8365</td><td>0.8389</td></tr>
+<tr class="gap"><td class="z">1.0</td><td>0.8413</td><td>0.8438</td><td>0.8461</td><td>0.8485</td><td>0.8508</td><td>0.8531</td><td>0.8554</td><td>0.8577</td><td>0.8599</td><td>0.8621</td></tr>
+<tr><td class="z">1.1</td><td>0.8643</td><td>0.8665</td><td>0.8686</td><td>0.8708</td><td>0.8729</td><td>0.8749</td><td>0.8770</td><td>0.8790</td><td>0.8810</td><td>0.8830</td></tr>
+<tr><td class="z">1.2</td><td>0.8849</td><td>0.8869</td><td>0.8888</td><td>0.8907</td><td>0.8925</td><td>0.8944</td><td>0.8962</td><td>0.8980</td><td>0.8997</td><td>0.9015</td></tr>
+<tr><td class="z">1.3</td><td>0.9032</td><td>0.9049</td><td>0.9066</td><td>0.9082</td><td>0.9099</td><td>0.9115</td><td>0.9131</td><td>0.9147</td><td>0.9162</td><td>0.9177</td></tr>
+<tr><td class="z">1.4</td><td>0.9192</td><td>0.9207</td><td>0.9222</td><td>0.9236</td><td>0.9251</td><td>0.9265</td><td>0.9279</td><td>0.9292</td><td>0.9306</td><td>0.9319</td></tr>
+<tr><td class="z">1.5</td><td>0.9332</td><td>0.9345</td><td>0.9357</td><td>0.9370</td><td>0.9382</td><td>0.9394</td><td>0.9406</td><td>0.9418</td><td>0.9429</td><td>0.9441</td></tr>
+<tr><td class="z">1.6</td><td>0.9452</td><td>0.9463</td><td>0.9474</td><td>0.9484</td><td>0.9495</td><td>0.9505</td><td>0.9515</td><td>0.9525</td><td>0.9535</td><td>0.9545</td></tr>
+<tr><td class="z">1.7</td><td>0.9554</td><td>0.9564</td><td>0.9573</td><td>0.9582</td><td>0.9591</td><td>0.9599</td><td>0.9608</td><td>0.9616</td><td>0.9625</td><td>0.9633</td></tr>
+<tr><td class="z">1.8</td><td>0.9641</td><td>0.9649</td><td>0.9656</td><td>0.9664</td><td>0.9671</td><td>0.9678</td><td>0.9686</td><td>0.9693</td><td>0.9699</td><td>0.9706</td></tr>
+<tr><td class="z">1.9</td><td>0.9713</td><td>0.9719</td><td>0.9726</td><td>0.9732</td><td>0.9738</td><td>0.9744</td><td>0.9750</td><td>0.9756</td><td>0.9761</td><td>0.9767</td></tr>
+<tr class="gap"><td class="z">2.0</td><td>0.9772</td><td>0.9778</td><td>0.9783</td><td>0.9788</td><td>0.9793</td><td>0.9798</td><td>0.9803</td><td>0.9808</td><td>0.9812</td><td>0.9817</td></tr>
+<tr><td class="z">2.1</td><td>0.9821</td><td>0.9826</td><td>0.9830</td><td>0.9834</td><td>0.9838</td><td>0.9842</td><td>0.9846</td><td>0.9850</td><td>0.9854</td><td>0.9857</td></tr>
+<tr><td class="z">2.2</td><td>0.9861</td><td>0.9864</td><td>0.9868</td><td>0.9871</td><td>0.9875</td><td>0.9878</td><td>0.9881</td><td>0.9884</td><td>0.9887</td><td>0.9890</td></tr>
+<tr><td class="z">2.3</td><td>0.9893</td><td>0.9896</td><td>0.9898</td><td>0.9901</td><td>0.9904</td><td>0.9906</td><td>0.9909</td><td>0.9911</td><td>0.9913</td><td>0.9916</td></tr>
+<tr><td class="z">2.4</td><td>0.9918</td><td>0.9920</td><td>0.9922</td><td>0.9925</td><td>0.9927</td><td>0.9929</td><td>0.9931</td><td>0.9932</td><td>0.9934</td><td>0.9936</td></tr>
+<tr><td class="z">2.5</td><td>0.9938</td><td>0.9940</td><td>0.9941</td><td>0.9943</td><td>0.9945</td><td>0.9946</td><td>0.9948</td><td>0.9949</td><td>0.9951</td><td>0.9952</td></tr>
+<tr><td class="z">2.6</td><td>0.9953</td><td>0.9955</td><td>0.9956</td><td>0.9957</td><td>0.9959</td><td>0.9960</td><td>0.9961</td><td>0.9962</td><td>0.9963</td><td>0.9964</td></tr>
+<tr><td class="z">2.7</td><td>0.9965</td><td>0.9966</td><td>0.9967</td><td>0.9968</td><td>0.9969</td><td>0.9970</td><td>0.9971</td><td>0.9972</td><td>0.9973</td><td>0.9974</td></tr>
+<tr><td class="z">2.8</td><td>0.9974</td><td>0.9975</td><td>0.9976</td><td>0.9977</td><td>0.9977</td><td>0.9978</td><td>0.9979</td><td>0.9979</td><td>0.9980</td><td>0.9981</td></tr>
+<tr><td class="z">2.9</td><td>0.9981</td><td>0.9982</td><td>0.9982</td><td>0.9983</td><td>0.9984</td><td>0.9984</td><td>0.9985</td><td>0.9985</td><td>0.9986</td><td>0.9986</td></tr>
+<tr class="gap"><td class="z">3.0</td><td>0.9987</td><td>0.9987</td><td>0.9987</td><td>0.9988</td><td>0.9988</td><td>0.9989</td><td>0.9989</td><td>0.9989</td><td>0.9990</td><td>0.9990</td></tr>
+<tr><td class="z">3.1</td><td>0.9990</td><td>0.9991</td><td>0.9991</td><td>0.9991</td><td>0.9992</td><td>0.9992</td><td>0.9992</td><td>0.9992</td><td>0.9993</td><td>0.9993</td></tr>
+<tr><td class="z">3.2</td><td>0.9993</td><td>0.9993</td><td>0.9994</td><td>0.9994</td><td>0.9994</td><td>0.9994</td><td>0.9994</td><td>0.9995</td><td>0.9995</td><td>0.9995</td></tr>
+<tr><td class="z">3.3</td><td>0.9995</td><td>0.9995</td><td>0.9995</td><td>0.9996</td><td>0.9996</td><td>0.9996</td><td>0.9996</td><td>0.9996</td><td>0.9996</td><td>0.9997</td></tr>
+<tr><td class="z">3.4</td><td>0.9997</td><td>0.9997</td><td>0.9997</td><td>0.9997</td><td>0.9997</td><td>0.9997</td><td>0.9997</td><td>0.9997</td><td>0.9997</td><td>0.9998</td></tr>
+<tr><td class="z">3.5</td><td>0.9998</td><td>0.9998</td><td>0.9998</td><td>0.9998</td><td>0.9998</td><td>0.9998</td><td>0.9998</td><td>0.9998</td><td>0.9998</td><td>0.9998</td></tr>
+<tr><td class="z">3.6</td><td>0.9998</td><td>0.9998</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td></tr>
+<tr><td class="z">3.7</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td></tr>
+<tr><td class="z">3.8</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td><td>0.9999</td></tr>
+<tr><td class="z">3.9</td><td>1.0000</td><td>1.0000</td><td>1.0000</td><td>1.0000</td><td>1.0000</td><td>1.0000</td><td>1.0000</td><td>1.0000</td><td>1.0000</td><td>1.0000</td></tr>
+</tbody></table>
+</div>
+</div>
