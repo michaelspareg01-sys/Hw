@@ -1,1 +1,384 @@
-<!-- filled by Task 5 -->
+<style>
+table.t.t17d { font-size:9.8pt; }
+table.t.t17d td, table.t.t17d th { padding:0.9mm 2.2mm; }
+table.t.s17d { font-size:9.2pt; }
+table.t.s17d td, table.t.s17d th { padding:0.8mm 1.5mm; }
+.p17d .fig svg { width:70mm; height:auto; }
+.w17d .fig svg { width:112mm; height:auto; }
+.q11d .fig svg { width:150mm; height:auto; }
+.cls17d { display:grid; grid-template-columns:repeat(4, auto); column-gap:7mm; row-gap:0.4mm; font-size:10pt; justify-content:start; margin:1.5mm 0 1.5mm 2mm; }
+.rn17d { display:grid; grid-template-columns:repeat(4, auto); column-gap:9mm; row-gap:0.6mm; justify-content:start; margin:1.5mm 0 1.5mm 2mm; font-variant-numeric:tabular-nums; }
+.q15d { display:grid; grid-template-columns:repeat(5, auto); column-gap:9mm; justify-content:start; }
+</style>
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 17D</div><h2>Sample proportions</h2>
+<div class="focus">So far, we have recorded the result of a binomial experiment as the number of successes. This lesson records instead the proportion of the Bernoulli trials that were successes, the <i>sample proportion</i> \(\hat p=\dfrac Xn\). Its mean is \(p\) and its variance is \(\dfrac{pq}{n}\), so it estimates \(p\), and for large \(n\) it is approximated by the normal distribution \(N\Big(p,\dfrac{pq}{n}\Big)\). Use the standard normal table at the end of the Revision section.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the sample proportion and its mean and variance}}
+<div class="box concept"><div class="bt">Sample proportions</div>
+<p>So far, we have recorded the result of a binomial experiment as the number of successes. Often, however, it is more interesting to record instead the <i>proportion of the Bernoulli trials that were successes</i>: this is called the <i>sample proportion</i>.</p>
+<p>Sample proportions have many purposes, but one important purpose is to estimate the probability \(p\) of each Bernoulli trial in the binomial experiment. For example, before every election, surveys estimate the proportion of Australians voting for the Working Together Party. If a survey of 2000 finds 700 WTP voters (the number of successes), then the sample proportion is 0.35 (the proportion of successes), so the survey has estimated the WTP vote to be 35% of the population.</p></div></div>
+<div class="box concept"><div class="bt">Population proportions</div>
+<p>The probability \(p\) that a voter chosen at random will vote for the Working Together Party is a <i>population proportion</i>,</p>
+\[p=\frac{\text{number of Australians voting WTP}}{\text{number of Australian voters}}.\]
+<p>Many probabilities arise in this way, as we have often seen. Sample proportions apply to all binomial situations, but may be intuitively easier to understand if we think of the probability \(p\) arising as a population proportion, as in this voting example.</p></div>
+<div class="box concept"><div class="bt">The sample proportion \(\hat p\)</div>
+<p>Let \(X\sim B(n,p)\) be a binomial variable consisting of \(n\) independent Bernoulli trials, each with probability \(p\) of success. The <i>sample proportion</i> \(\hat p\) is the proportion of successes when the experiment is run. Thus <i>the sample proportion is a new random variable denoted by \(\hat p\) and defined by</i></p>
+\[\hat p=\frac Xn.\]
+<p>For example, I survey 20 voters, and 7 say that they will vote WTP. This is a binomial experiment with 20 independent Bernoulli stages, and random variable \(X\) with 21 possible values \(0,\ 1,\ 2,\ 3,\ \dots,\ 20\). I can record my result as</p>
+\[X=7\qquad\text{or as}\qquad\hat p=\frac7{20}.\]
+<p>The binomial random variable \(X\) has 21 possible values \(0,\ 1,\ 2,\ 3,\ \dots,\ 20\), and the new random variable \(\hat p\) has 21 possible values \(0=\tfrac0{20},\ \tfrac1{20},\ \tfrac2{20},\ \dots,\ 1=\tfrac{20}{20}\).</p></div>
+<div class="box concept"><div class="bt">The sample proportion distribution: mean and variance</div>
+<p>A sample proportion random variable \(\hat p\) is not a binomial random variable \(X\) because its values are fractions between 0 and 1 rather than whole numbers from 0 to \(n\). But it is closely related to the corresponding binomial variable: the probability of each value of \(\hat p\) is the same as the probability of the corresponding value of \(X\),</p>
+\[P\Big(\hat p=\frac xn\Big)=P(X=x)={}^nC_x\,p^xq^{n-x},\]
+<p>so the various graphs of a sample proportion distribution are just the graphs of the corresponding binomial distribution stretched horizontally by a factor of \(\dfrac1n\).</p>
+<p>The mean and variance of \(\hat p\) come directly from the mean and variance of \(X\),</p>
+<div style="display:grid;grid-template-columns:auto auto auto;gap:10mm;justify-content:start;break-inside:avoid"><div>
+\[\begin{aligned}E(\hat p)&amp;=E\Big(\frac Xn\Big)\\&amp;=\frac{E(X)}n\\&amp;=\frac{np}n\\&amp;=p,\end{aligned}\]
+</div><div>
+\[\begin{aligned}\operatorname{Var}(\hat p)&amp;=\operatorname{Var}\Big(\frac Xn\Big)\\&amp;=\frac{\operatorname{Var}(X)}{n^2}\\&amp;=\frac{npq}{n^2}\\&amp;=\frac{pq}n,\end{aligned}\]
+</div><div>
+\[\begin{aligned}\text{SD}&amp;=\sqrt{\frac{npq}{n^2}}\\&amp;=\frac{\sqrt{npq}}n.\end{aligned}\]
+</div></div>
+<p>The first formula \(E(\hat p)=p\) proves what we said in the introduction to this lesson: running a binomial experiment and recording the sample proportion \(\hat p\) gives an estimate of the Bernoulli probability \(p\).</p></div>
+<div class="box take"><div class="bt">7 The sample proportion \(\hat p\)</div>
+<p>Suppose that a binomial experiment with random variable \(X\) consists of \(n\) independent Bernoulli trials, each with probability \(p\).</p>
+<ul><li>The <i>sample proportion</i> is the random variable \(\hat p=\dfrac Xn\).</li>
+<li>The values of \(\hat p\) are the \(n+1\) values \(0,\ 1,\ 2,\ \dots,\ n\) of \(X\) divided by \(n\). Thus the values of \(\hat p\) are \(0=\tfrac0n,\ \tfrac1n,\ \tfrac2n,\ \dots,\ 1=\tfrac nn\).</li>
+<li>The probability of each value of \(\hat p\) equals the probability of the corresponding value of \(X\),
+\[P\Big(\hat p=\frac xn\Big)=P(X=x)={}^nC_x\,p^xq^{n-x}.\]</li>
+<li>The mean, variance and standard deviation of \(\hat p\) are
+\[E(\hat p)=p,\qquad\operatorname{Var}(\hat p)=\frac{pq}n,\qquad\text{standard deviation}=\frac{\sqrt{npq}}n.\]</li>
+<li>The sample proportion \(\hat p\) gives an estimate of the probability \(p\).</li></ul></div>
+<p>Here is a simple example comparing a binomial distribution with the corresponding sample proportion distribution (Worked example 15).</p>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A spinner spun three times</span></div><div class="ex-body">
+A spinner has three equal sectors, one red and two blue. It is spun three times. Let \(X\) be the number of reds, and \(\hat p\) the corresponding sample proportion random variable.<br>
+<b>a</b> Tabulate the probabilities of \(X\), find the mean and variance, and draw the frequency polygon.<br>
+<b>b</b> Tabulate the probabilities of \(\hat p\), find the mean and variance, and draw the frequency polygon.
+{{work:75}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">A coin tossed four times</span></div><div class="ex-body">
+A coin is tossed four times. Let \(X\) be the number of heads, and \(\hat p\) the corresponding sample proportion random variable.<br>
+<b>a</b> Tabulate the probabilities of \(X\), find the mean and variance, and draw the frequency polygon.<br>
+<b>b</b> Tabulate the probabilities of \(\hat p\), find the mean and variance, and draw the frequency polygon.
+{{work:75}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 15</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A coin is tossed six times. Let \(X\) be the binomial variable and \(\hat p\) the corresponding sample proportion random variable.<br>
+<b>a</b> Tabulate the probabilities of \(X\), find the mean and variance, and draw the frequency polygon.<br>
+<b>b</b> Tabulate the probabilities of \(\hat p\), find the mean and variance, and draw the frequency polygon.
+<div class="sol-label">Solution</div>
+<div style="display:grid;grid-template-columns:1fr 72mm;gap:4mm;align-items:center;break-inside:avoid"><div>
+<p><b>a</b> Using the formula \(P(x\text{ heads})={}^6C_x\big(\tfrac12\big)^6\),</p>
+<table class="t t17d"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+<tr><th>prob</th><td>\(\tfrac1{64}\)</td><td>\(\tfrac6{64}\)</td><td>\(\tfrac{15}{64}\)</td><td>\(\tfrac{20}{64}\)</td><td>\(\tfrac{15}{64}\)</td><td>\(\tfrac6{64}\)</td><td>\(\tfrac1{64}\)</td></tr></table>
+<p>For the binomial variable \(X\),</p>
+\[E(X)=np=3\qquad\text{and}\qquad\operatorname{Var}(X)=npq=1\tfrac12.\]
+</div><div class="p17d">{{svg:c17d_ex15a}}</div></div>
+<div style="display:grid;grid-template-columns:1fr 72mm;gap:4mm;align-items:center;break-inside:avoid"><div>
+<p><b>b</b> The sample proportion is \(\hat p=\dfrac Xn\), and the corresponding probabilities are the same, so</p>
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>\(\tfrac16\)</td><td>\(\tfrac26\)</td><td>\(\tfrac36\)</td><td>\(\tfrac46\)</td><td>\(\tfrac56\)</td><td>1</td></tr>
+<tr><th>prob</th><td>\(\tfrac1{64}\)</td><td>\(\tfrac6{64}\)</td><td>\(\tfrac{15}{64}\)</td><td>\(\tfrac{20}{64}\)</td><td>\(\tfrac{15}{64}\)</td><td>\(\tfrac6{64}\)</td><td>\(\tfrac1{64}\)</td></tr></table>
+<p>For the sample proportion \(\hat p\),</p>
+\[E(\hat p)=p=\tfrac12\qquad\text{and}\qquad\operatorname{Var}(\hat p)=\frac{pq}n=\tfrac1{24}.\]
+</div><div class="p17d">{{svg:c17d_ex15b}}</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:using the sample proportion to estimate p}}
+<div class="box concept"><div class="bt">Why all this machinery of sample proportions?</div>
+<p>Marketers and public opinion pollsters are very keen to find sample proportions for the Australian population. But surveys are expensive, and pollsters need to know how effective they can be with the small samples that they can afford or have time to carry out.</p>
+<p>These things are also crucial for health research and public policy. Estimating a quantity such as the monthly unemployment statistics, or the number of Australians who require disability assistance services, is dependent on sample survey methods.</p>
+<p>Working with the sample proportion not only provides an immediate estimate of \(p\), but it also provides a straightforward approach to assessing how accurate the estimate is likely to be.</p>
+<p>For example, Worked example 16 calculates the probability that a pollster will get within 5% and 10% of the correct result when using a sample of 20 voters to estimate the proportion voting for the WTP.</p></div></div>
+<div class="box take"><div class="bt">8 Using the sample proportion</div>
+<p>The sample proportion \(\hat p\) can often be used to estimate the probability of obtaining an acceptable estimate to the probability \(p\) of a Bernoulli experiment.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">12 trials, \(p=\tfrac14\)</span></div><div class="ex-body">
+A binomial experiment with 12 Bernoulli trials is being used to estimate the probability \(p\) of success in the Bernoulli experiment. If the actual value of \(p\) is \(\tfrac14\), find the probability, correct to three decimal places, that the experiment will yield an estimate within:<br>
+<b>a</b> 0.05 of the actual value,<br>
+<b>b</b> 0.1 of the actual value.
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">15 trials, \(p=\tfrac23\)</span></div><div class="ex-body">
+A binomial experiment with 15 Bernoulli trials is being used to estimate the probability \(p\) of success in the Bernoulli experiment. If the actual value of \(p\) is \(\tfrac23\), find the probability, correct to three decimal places, that the experiment will yield an estimate within:<br>
+<b>a</b> 0.05 of the actual value,<br>
+<b>b</b> 0.1 of the actual value.
+{{work:60}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 16</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A binomial experiment with 20 Bernoulli trials is being used to estimate the probability \(p\) of success in the Bernoulli experiment. If the actual value of \(p\) is \(\tfrac13\), find the probability that the experiment will yield an estimate within:<br>
+<b>a</b> 0.05 of the actual value,<br>
+<b>b</b> 0.1 of the actual value.
+<div class="sol-label">Solution</div>
+<p>Notice first that the estimate cannot be exactly \(p=\tfrac13\doteq0.333\) because the size of the sample is 20, which is not a multiple of 3.</p>
+<p><b>a</b> To obtain an estimate within 0.05 of the actual value \(p\doteq0.333\), the sample proportion would need to be \(\hat p=\tfrac6{20}=0.30\) or \(\hat p=\tfrac7{20}=0.35\).</p>
+\[\begin{aligned}P\big(\hat p=\tfrac6{20}\ \text{ or }\ \hat p=\tfrac7{20}\big)&amp;={}^{20}C_6\big(\tfrac13\big)^6\big(\tfrac23\big)^{14}+{}^{20}C_7\big(\tfrac13\big)^7\big(\tfrac23\big)^{13}\\&amp;=0.36425\ldots\quad\text{(save this value in the memory).}\end{aligned}\]
+<p>Hence the probability that the estimate is within 0.05 of \(p\) is about 0.364.</p>
+<p><b>b</b> To obtain an estimate within 0.1 of the actual value \(p\doteq0.333\), the sample proportion would need to be \(\hat p=\tfrac5{20}=0.25\) or \(\tfrac6{20}\) or \(\tfrac7{20}\) or \(\tfrac8{20}=0.40\).</p>
+\[\begin{aligned}P\big(\hat p=\tfrac5{20}\ \text{ or }\ \hat p=\tfrac8{20}\big)&amp;={}^{20}C_5\big(\tfrac13\big)^5\big(\tfrac23\big)^{15}+{}^{20}C_8\big(\tfrac13\big)^8\big(\tfrac23\big)^{12}\\&amp;=0.29368\ldots,\end{aligned}\]
+<p>Adding the answer to part <b>a</b>, the probability that the estimate is within 0.1 of the actual value is about 0.658.</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:the normal approximation to the sample proportion}}
+<div class="box concept"><div class="bt">Using the normal approximation to the sample proportion</div>
+<p>We discussed in Lesson 17C how to use normal approximations to a binomial distribution to obtain reasonable approximations to the binomial distribution far more quickly. The probabilities of the sample proportions are just the probabilities of the corresponding values of the binomial variable, so the same approximation methods can be used here. We cannot prove in this course that the normal distribution approximates \(\hat p\): it is another example of the central limit theorem discussed at the start of Section 16G of the textbook, in the last chapter.</p>
+<p>The normal approximation to the sample proportion thus has the same mean \(p\) as the sample proportion distribution, and the same variance \(\dfrac{pq}n\), so we can approximate it using the normal distribution \(N\Big(p,\dfrac{pq}n\Big)\).</p>
+<p>As an example, let us increase the numbers in the previous worked example back up to realistic levels, and use the normal approximation to obtain the result. Political surveys before elections attempt to reduce the margin of error in their estimates to 1%–2%, that is, they attempt to estimate \(p\) correct to within 0.01–0.02.</p></div></div>
+<div class="box tip"><div class="bt">Working with \(\hat p\) in problems</div>
+<ul><li>Write the event in terms of \(\hat p\). For example, ‘more than 22% of the 500 people’ is \(\hat p&gt;0.22\).</li>
+<li>Use the mean \(\mu=p\) and the standard deviation \(\sigma=\sqrt{\dfrac{pq}n}\), where \(p\) is the assumed population proportion.</li>
+<li>Standardise with \(z=\dfrac{\hat p-p}{\sigma}\), then use the standard normal table, with \(z\) correct to two decimal places, or a calculator.</li>
+<li>The rule of thumb \(np&gt;5\) and \(nq&gt;5\) from Lesson 17C still tells us when the normal approximation is reasonable.</li>
+<li>The continuity correction is seldom used with \(\hat p\), because the numbers are usually large. If it is used, the gap between the values of \(\hat p\) is \(\dfrac1n\), so move by half a gap, \(\dfrac1{2n}\) (Worked example 19).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A survey of 1000 voters</span></div><div class="ex-body">
+A survey of 1000 voters is being used to estimate the probability \(p\) that a random voter will vote for a particular party. Assuming that the actual value of \(p\) is 0.4, use the normal approximation to the sample proportion distribution and the standard normal table to find, correct to four decimal places, the probability that the survey will yield an estimate:<br>
+<b>a</b> within 0.02 of the actual value,<br>
+<b>b</b> within 0.03 of the actual value,<br>
+<b>c</b> greater than 0.42.
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">A survey of 1500 voters</span></div><div class="ex-body">
+A survey of 1500 voters is being used to estimate the probability \(p\) that a random voter will vote for a particular party. Assuming that the actual value of \(p\) is 0.3, use the normal approximation to the sample proportion distribution and the standard normal table to find, correct to four decimal places, the probability that the survey will yield an estimate:<br>
+<b>a</b> within 0.01 of the actual value,<br>
+<b>b</b> within 0.02 of the actual value,<br>
+<b>c</b> less than 0.28.
+{{work:70}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 17</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A survey of 2000 Australian voters is being used to estimate the probability \(p\) that a random voter will vote for the Working Together Party. Assuming that the actual value of \(p\) is \(\tfrac13\), use the normal approximation to the sample proportion distribution to find the probability that the experiment will yield an estimate:<br>
+<b>a</b> within 0.01 of the actual value,<br>
+<b>b</b> within 0.02 of the actual value.
+<div class="sol-label">Solution</div>
+<p>The numbers in the sample are large enough for us to ignore continuity corrections.<br>
+The normal approximation to \(\hat p\) has</p>
+\[\text{mean}=\tfrac13\doteq0.3333\qquad\text{and}\qquad\text{variance}=\frac{pq}n=\frac29\times\frac1{2000}=\frac1{9000},\]
+<p>so taking the square root, the standard deviation is about 0.01054.</p>
+<p><b>a</b> We need to find \(P(0.3233\le\hat p\le0.3433)\), so we find \(z\)-scores.</p>
+<div class="split" style="break-inside:avoid"><div>
+\[\begin{aligned}\text{For }0.3233,\quad z&amp;=\frac{-0.01}{0.01054}\\&amp;\doteq-0.9487.\end{aligned}\]
+</div><div>
+\[\begin{aligned}\text{For }0.3433,\quad z&amp;=\frac{0.01}{0.01054}\\&amp;\doteq0.9487.\end{aligned}\]
+</div></div>
+<p>Hence the probability that the estimate is within 0.01 of the actual value is about</p>
+\[P(-0.9487\le Z\le0.9487)\doteq0.66.\]
+<p><b>b</b> We need to find \(P(0.3133\le\hat p\le0.3533)\). The \(z\)-scores are now:</p>
+<div class="split" style="break-inside:avoid"><div>
+\[\begin{aligned}\text{For }0.3133,\quad z&amp;=\frac{-0.02}{0.01054}\\&amp;\doteq-1.8974.\end{aligned}\]
+</div><div>
+\[\begin{aligned}\text{For }0.3533,\quad z&amp;=\frac{0.02}{0.01054}\\&amp;\doteq1.8974.\end{aligned}\]
+</div></div>
+<p>Hence the probability that the estimate is within 0.02 of the actual value is about</p>
+\[P(-1.8974\le Z\le1.8974)\doteq0.94.\]
+</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 18</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Election surveys usually claim that their margin of error is about 2%, and the last worked example has addressed this. What are some other issues that pollsters need to take into account?
+<div class="sol-label">Solution</div>
+<ul style="margin:0"><li>Can I be sure that the sample is unbiased?</li>
+<li>Are people answering honestly?</li>
+<li>Are opinions changing as the election approaches?</li>
+<li>What is to be done with people who refuse to answer or ‘don’t know’?</li>
+<li>Were there language or cultural problems that interfered with the interview?</li></ul>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:the data, the sample proportion, and the normal approximation}}
+<div class="box concept"><div class="bt">The data, the sample proportion, and the normal approximation</div>
+<p>The situation has now become quite complicated because we have:</p>
+<ol style="margin:0 0 1mm"><li>values of the sample proportion \(\hat p\) obtained from surveys,</li>
+<li>the sample proportion distribution, if we assume a value for \(p\),</li>
+<li>the normal approximation to the sample proportion distribution, also if we assume a value for \(p\).</li></ol>
+<p>We conclude this chapter by drawing one more picture, using the dataset that we gained by simulation of a binomial experiment in Worked example 9 of Lesson 17B. We are interested in the distribution of the sample proportion \(\hat p\), that is, the distribution of the estimate of the probability, and we will use the cumulative distributions in our comparisons.</p>
+<p>Notice that the density function of the normal approximation to \(\hat p\) is obtained from the density function of the approximation to \(X\) by stretching horizontally by a factor of \(\dfrac1n\), and then stretching vertically by a factor of \(n\) so that the area under the curve remains 1. Therefore we can’t superpose the graph of that normal density function on the graph of the frequency polygon because the heights don’t match. Instead, we will compare the cumulative graphs to see the agreement.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Eight coins, from Lesson 17B</span></div><div class="ex-body">
+In the tutor demo of Concept 5 in Lesson 17B, the experiment ‘toss 8 coins and count the number of heads’ was simulated 100 times, with these results.
+<table class="t t17d" style="margin-left:5mm"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><th>\(f\)</th><td>0</td><td>4</td><td>10</td><td>22</td><td>28</td><td>20</td><td>11</td><td>4</td><td>1</td></tr></table>
+Now imagine that each run gives an estimate of the probability of tossing heads, a value of \(\hat p\), which has the 9 values \(0,\ \tfrac18,\ \tfrac28,\ \dots,\ 1\).<br>
+<b>a</b> From the data, produce a table showing the relative frequency and the cumulative relative frequency of each value of \(\hat p\), and find the mean and standard deviation.<br>
+<b>b</b> Use binomial probability to calculate the cumulative probabilities of the values of \(\hat p\), correct to three decimal places, and find the mean and standard deviation.<br>
+<b>c</b> Use the normal approximation to the sample proportion distribution, with the continuity correction, to calculate the cumulative probabilities of the values of \(\hat p\). Give each \(z\) and \(\Phi(z)\) correct to three decimal places.<br>
+<b>d</b> On one graph, draw the cumulative relative frequency polygon of the data, the cumulative probability polygon of the distribution, and the CDF of the normal approximation.
+{{work:80}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Eight dice, from Lesson 17B</span></div><div class="ex-body">
+In the your-turn of Concept 5 in Lesson 17B, the experiment ‘roll 8 dice and count the number of dice showing a 5 or a 6’ was simulated 100 times, with these results.
+<table class="t t17d" style="margin-left:5mm"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><th>\(f\)</th><td>5</td><td>15</td><td>29</td><td>26</td><td>16</td><td>7</td><td>2</td><td>0</td><td>0</td></tr></table>
+Now imagine that each run gives an estimate of the probability of a 5 or a 6, a value of \(\hat p\), which has the 9 values \(0,\ \tfrac18,\ \tfrac28,\ \dots,\ 1\).<br>
+<b>a</b> From the data, produce a table showing the relative frequency and the cumulative relative frequency of each value of \(\hat p\), and find the mean and standard deviation.<br>
+<b>b</b> Use binomial probability to calculate the cumulative probabilities of the values of \(\hat p\), correct to three decimal places, and find the mean and standard deviation.<br>
+<b>c</b> Use the normal approximation to the sample proportion distribution, with the continuity correction, to calculate the cumulative probabilities of the values of \(\hat p\). Give each \(z\) and \(\Phi(z)\) correct to three decimal places.<br>
+<b>d</b> On one graph, draw the cumulative relative frequency polygon of the data, the cumulative probability polygon of the distribution, and the CDF of the normal approximation.
+{{work:80}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 19</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+In Worked example 9 of Lesson 17B, we ran 100 simulations of the binomial experiment of tossing 10 coins and recording the number of heads. Now imagine that the purpose of each simulation was to produce an estimate of the probability of tossing heads, that is, a value of the random variable \(\hat p\). Note that this random variable \(\hat p\) has the 11 values \(0=\tfrac0{10},\ \tfrac1{10},\ \tfrac2{10},\ \dots,\ 1=\tfrac{10}{10}\).<br>
+<b>a</b> From the data, produce a table showing the cumulative relative frequency of obtaining each value of \(\hat p\), and find the mean and standard deviation.<br>
+<b>b</b> Use binomial probability to calculate the cumulative probabilities of obtaining the values of \(\hat p\), and find the mean and standard deviation.<br>
+<b>c</b> Use the normal approximation to the sample proportion distribution to calculate the cumulative probabilities of values of \(\hat p\), and find the mean and standard deviation. Apply the continuity correction, because \(n=10\) is small.<br>
+<b>d</b> On one graph, draw the cumulative relative frequency polygon of the data, the cumulative probability polygon of the distribution, and the CDF of the normal approximation.
+<div class="sol-label">Solution</div>
+<p>The calculations in parts <b>a</b> and <b>b</b> were done in Worked example 9, and we only need to divide the values through by 10.</p>
+<div style="break-inside:avoid"><p><b>a</b> After running the experiment 100 times, each relative frequency is the estimated probability of obtaining each estimate of \(\hat p\).</p>
+<table class="t s17d"><tr><th>\(\hat p\)</th><td>0.0</td><td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td><td>0.5</td><td>0.6</td><td>0.7</td><td>0.8</td><td>0.9</td><td>1.0</td></tr>
+<tr><th>\(f_r\)</th><td>0.00</td><td>0.02</td><td>0.06</td><td>0.15</td><td>0.2</td><td>0.23</td><td>0.17</td><td>0.13</td><td>0.01</td><td>0.03</td><td>0.00</td></tr>
+<tr><th>\(cf_r\)</th><td>0.00</td><td>0.02</td><td>0.08</td><td>0.23</td><td>0.43</td><td>0.66</td><td>0.83</td><td>0.96</td><td>0.97</td><td>1.00</td><td>1.00</td></tr></table>
+<p>Calculation gives \(\bar x=0.482\) and \(s\doteq0.170\).</p></div>
+<div style="break-inside:avoid"><p><b>b</b> From previous calculations, \(\mu=0.5\) and \(\sigma=\tfrac1{10}\sqrt{2.5}\doteq0.158\).</p>
+<table class="t s17d"><tr><th>\(\hat p\)</th><td>0.0</td><td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td><td>0.5</td><td>0.6</td><td>0.7</td><td>0.8</td><td>0.9</td><td>1.0</td></tr>
+<tr><th>\(P(\hat p)\)</th><td>0.001</td><td>0.010</td><td>0.044</td><td>0.117</td><td>0.205</td><td>0.246</td><td>0.205</td><td>0.117</td><td>0.044</td><td>0.010</td><td>0.001</td></tr>
+<tr><th>Cmlve</th><td>0.001</td><td>0.011</td><td>0.055</td><td>0.172</td><td>0.377</td><td>0.623</td><td>0.828</td><td>0.945</td><td>0.989</td><td>0.999</td><td>1.000</td></tr></table></div>
+<div style="break-inside:avoid"><p><b>c</b> The mean and standard deviation of the normal approximation are the same as for the sample proportion distribution. We need \(z\)-scores first, and we apply the continuity correction with 0.1 as the gaps in the values for \(\hat p\). For example, for \(\hat p=0.7\) we find the \(z\)-score corresponding to \(\hat p=0.75\).</p>
+<table class="t s17d"><tr><th>\(\hat p\)</th><td>0.0</td><td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td><td>0.5</td><td>0.6</td><td>0.7</td><td>0.8</td><td>0.9</td><td>1.0</td></tr>
+<tr><th>\(z\)</th><td>−2.85</td><td>−2.21</td><td>−1.581</td><td>−0.949</td><td>−0.316</td><td>0.316</td><td>0.949</td><td>1.581</td><td>2.21</td><td>2.85</td><td>3.48</td></tr>
+<tr><th>\(\Phi(z)\)</th><td>0.002</td><td>0.014</td><td>0.057</td><td>0.171</td><td>0.376</td><td>0.624</td><td>0.829</td><td>0.943</td><td>0.986</td><td>0.998</td><td>1.000</td></tr></table></div>
+<div style="break-inside:avoid"><p><b>d</b></p>
+<div class="w17d">{{svg:c17d_ex19}}</div>
+<p>At the resolution of this graph, the theoretical probability distribution curve and the normal approximation to it are not separated. Look at the tables.</p></div>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 17D}}
+<div class="box concept" style="break-inside:avoid"><div class="bt">Note</div>
+<p>In the previous exercise we used continuity corrections when we approximated a discrete binomial distribution by a continuous normal distribution. For large values of \(n\) this correction is less necessary. In this lesson, however, using the continuity correction when using sample proportions leads to much messier calculations, and the numbers are mostly large, so it will seldom be applied.</p></div>
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>A student tosses five coins and the results are: H T H T T. What is the sample proportion \(\hat p\) of heads in this experiment?</span><span><span class="pl">b</span>A student selects ten cards from a standard pack with replacement, and records the suit: \(\heartsuit\clubsuit\spadesuit\diamondsuit\diamondsuit\spadesuit\heartsuit\spadesuit\spadesuit\diamondsuit\). What is the sample proportion \(\hat p\) of spades in this sample?</span><span><span class="pl">c</span>A manufacturer takes a sample of 12 items from their recent batch of gizmos, testing each item to see if it passes quality control (P) or not (F). The results were: P P P F F P P P P F P P. What is the proportion \(\hat p\) of items that pass?</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">A single fair coin is tossed five times, and the number \(x\) of heads is recorded.
+<div class="parts one"><span><span class="pl">a</span>Copy and complete the upper table, using the binomial probability formula.</span></div>
+<table class="t t17d" style="margin-left:5mm"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th>\(P(X=x)\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+<div class="parts one"><span><span class="pl">b</span>Copy and complete the lower table to convert part <b>a</b> to a table of probabilities of the sample proportions. You will need to divide each score \(x\) by 5 to obtain the corresponding sample proportion.</span></div>
+<table class="t t17d" style="margin-left:5mm"><tr><th>\(\hat p\)</th><td style="width:9mm"></td><td style="width:9mm"></td><td style="width:9mm"></td><td style="width:9mm"></td><td style="width:9mm"></td><td style="width:9mm"></td></tr>
+<tr><th>\(P(\hat p)\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+<div class="parts one"><span><span class="pl">c</span>Calculate the mean of the second table.</span><span><span class="pl">d</span>How would you interpret this mean?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Every Saturday for 20 weeks, a marketer surveyed five people chosen at random in a suburban shopping centre. The first question is, ‘Do you live in the suburb?’, and the weekly frequency of the number \(x\) of ‘Yes’ answers is given in the upper table.
+<table class="t t17d" style="margin-left:5mm"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th>\(f\)</th><td>1</td><td>1</td><td>3</td><td>2</td><td>6</td><td>7</td></tr></table>
+<div class="parts one"><span><span class="pl">a</span>Copy the lower table, and complete it to show a table in which the two rows are the sample proportions \(\hat p\) and the relative frequencies \(f_r\).</span></div>
+<table class="t t17d" style="margin-left:5mm"><tr><th>\(\hat p\)</th><td style="width:9mm"></td><td style="width:9mm"></td><td style="width:9mm"></td><td style="width:9mm"></td><td style="width:9mm"></td><td style="width:9mm"></td></tr>
+<tr><th>\(f_r\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+<div class="parts one"><span><span class="pl">b</span>Calculate the mean of this second table.</span><span><span class="pl">c</span>What is this mean an estimate of?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">A coin is tossed 10 times, and a student is asked to calculate the probability that more than 75% of the coins will show heads.
+<div class="parts one"><span><span class="pl">a</span>If more than 75% of the coins show heads, how many coins would this be?</span><span><span class="pl">b</span>Use the binomial probability formula to determine the probability of obtaining more than 75% heads. (On this occasion the calculation is easily done without a normal approximation.)</span></div>{{work:30}}</div></div>
+<div class="q" style="break-inside:avoid"><span class="q-num">6</span><div class="q-body">Information has been recorded about whether the 32 members of a class buy their lunch regularly at the school canteen:
+<div class="cls17d"><span>1. James N</span><span>2. Kate N</span><span>3. Xavier N</span><span>4. Jimmy N</span><span>5. Clyde Y</span><span>6. Bob N</span><span>7. Liam N</span><span>8. Agata N</span><span>9. Irene N</span><span>10. Aqila Y</span><span>11. Sonny Y</span><span>12. Andrea N</span><span>13. Magarida N</span><span>14. Terry N</span><span>15. Iman N</span><span>16. Lucie Y</span><span>17. Ping N</span><span>18. Maddy Y</span><span>19. Kamal Y</span><span>20. Xue Y</span><span>21. Odette N</span><span>22. Billy N</span><span>23. Chang N</span><span>24. Nahla N</span><span>25. Craig Y</span><span>26. Jerry N</span><span>27. Zahra Y</span><span>28. Jun N</span><span>29. Nara Y</span><span>30. Dakarai Y</span><span>31. Lerato N</span><span>32. Sahar Y</span></div>
+In order to generate random samples, each student has been given a unique identifying number.
+<div class="parts one"><span><span class="pl">a</span>Calculate the fraction of students who buy their lunch regularly at the canteen. This is called the <i>population proportion</i>.</span><span><span class="pl">b</span>Kamal generates the five random numbers 12&ensp;15&ensp;3&ensp;30&ensp;17, thus generating the sample of 5 students Andrea, Iman, Xavier, Dakarai, Ping. What proportion of these five students buy their lunch regularly at the canteen? This is called a <i>sample proportion</i>.</span><span><span class="pl">c</span>Copy the table below. Then use the following sets of five random numbers to generate 10 sample proportions for \(n=5\). Enter your results in the table: the first sample was dealt with in part <b>b</b> and is already included in the tally. (Notice that repetition is allowed: this is sampling with replacement.)</span></div>
+<div class="rn17d"><span>12&ensp;15&ensp;3&ensp;30&ensp;17</span><span>3&ensp;25&ensp;17&ensp;17&ensp;20</span><span>27&ensp;7&ensp;24&ensp;26&ensp;2</span><span>20&ensp;9&ensp;21&ensp;10&ensp;16</span><span>26&ensp;6&ensp;11&ensp;5&ensp;25</span><span>29&ensp;24&ensp;23&ensp;27&ensp;3</span><span>22&ensp;11&ensp;25&ensp;9&ensp;8</span><span>27&ensp;14&ensp;22&ensp;11&ensp;20</span><span>9&ensp;28&ensp;1&ensp;17&ensp;1</span><span>10&ensp;32&ensp;24&ensp;30&ensp;13</span></div>
+<table class="t t17d" style="margin-left:5mm"><tr><th>\(\hat p\)</th><td>0</td><td>0.2</td><td>0.4</td><td>0.6</td><td>0.8</td><td>1.0</td></tr>
+<tr><th>Tally</th><td style="width:11mm"></td><td style="width:11mm">|</td><td style="width:11mm"></td><td style="width:11mm"></td><td style="width:11mm"></td><td style="width:11mm"></td></tr>
+<tr><th>Frequency</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+<div class="parts one"><span><span class="pl">d</span>Draw a dot plot for the distribution obtained in part <b>c</b>.</span></div>{{work:40}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">7</span><div class="q-body">In a local election, 20% of the people voted independent. What is the probability that if 500 people are chosen for a random survey, more than 22% of them voted independent? Use a normal approximation to the sample proportion.{{work:36}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">A card is selected from a standard pack and it is then returned. This experiment is repeated 80 times. What is the probability that a hearts card turns up between 20% and 30% of the time, inclusive? Do this:
+<div class="parts one"><span><span class="pl">a</span>By interpreting it as between 16 to 24 hearts inclusive and using a normal approximation with a continuity correction;</span><span><span class="pl">b</span>Using sample proportion without any correction.</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">A farmer knows that a certain type of seed is 70% likely to germinate when planted. He plants 300 seeds at the start of the season. Use the normal approximation for the sample proportion to find the probability that:
+<div class="parts one"><span><span class="pl">a</span>at least 65% will germinate,</span><span><span class="pl">b</span>between 65% and 75% will germinate.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">A medication causes a painful reaction in 5% of users.
+<div class="parts one"><span><span class="pl">a</span>In a group of 100 people, find the probability that:<br>(i) no one reacts,<br>(ii) less than two per cent of the people react.</span><span><span class="pl">b</span>In a larger study into patients’ reactions to this medication, 1000 patients are given the medication (to which 5% are known to have a painful reaction). Researchers find that less than 3% of the patients in this study have a reaction.<br>(i) Use the normal approximation to the sample proportion to determine the probability of this happening by chance.<br>(ii) What should the researchers conclude?</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">A student is asked to redo Question 3 from Exercise 17C, but using sample proportions. A barrel contains 600 pink and 400 blue counters. At each stage of an experiment, the barrel is stirred well, then a counter is removed, its colour is noted, and it is returned to the barrel. This experiment is repeated 20 times.<br>
+The random variable for this sample proportion is \(\hat p=\dfrac Xn\), where \(X\) is the corresponding binomial random variable with \(n=20\) trials.<br>
+The student redraws his cumulative histogram to explore the idea of <i>sample proportion</i>. On the horizontal axis, he divides his results by 20 to record the fraction of pink counters occurring in the draw.
+<div class="parts one"><span><span class="pl">a</span>What is the mean and standard deviation of the sample proportion random variable \(\hat p\)? Recall the formulae \(\mu=p\) and \(\sigma^2=\dfrac{pq}n\), where \(q=1-p\).</span></div>
+He overlays the cumulative normal curve with the same mean and standard deviation on top, and finds a very good agreement.
+<div class="q11d">{{svg:c17d_q11}}</div>
+<div class="parts one"><span><span class="pl">b</span>Explain why the distribution of \(\hat p\) with values between 0 and 1 is not a continuous distribution.</span><span><span class="pl">c</span>To confirm his previous result, he decides to calculate the probability that \(\hat p\le0.4\), meaning that no more than 40% of the counters are pink. Assuming that the distribution is approximately that of a normal random variable \(N(\mu,\sigma^2)\), calculate the required probability \(P(\hat p\le0.4)\). Do <i>not</i> attempt any continuity correction.</span><span><span class="pl">d</span>Calculate the percentage difference in the exact answer 5.7% obtained by a direct binomial calculation. Is there good agreement?</span><span><span class="pl">e</span>Calculate the probability that no more than 75% of the counters are pink, that is, \(P(\hat p\le0.75)\).</span><span><span class="pl">f</span>Compare the percentage error in this second answer with the exact result 95% and explain why the approximation is better than parts <b>c</b>–<b>d</b>.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">In this question we investigate the accuracy of a normal approximation to the sample proportion for various sample sizes \(n\).<br>
+A coin is tossed repeatedly and the proportion of heads is recorded. The exact theoretical probability of obtaining at most 52% heads is calculated using the binomial distribution, and recorded in the second row of the table below for differing sample sizes.
+<table class="t t17d" style="margin-left:5mm"><tr><th>\(n\)</th><td>1000</td><td>500</td><td>100</td><td>50</td><td>25</td></tr>
+<tr><th>exact</th><td>0.9026</td><td>0.8262</td><td>0.6914</td><td>0.6641</td><td>0.6550</td></tr>
+<tr><th>approx</th><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>% error</th><td></td><td></td><td></td><td></td><td></td></tr></table>
+<div class="parts one"><span><span class="pl">a</span>Use a normal approximation for the sample proportion to fill in the second row of the table.</span><span><span class="pl">b</span>In each case calculate the percentage error in the approximation for each of these samples. Record your results in the third row of the table.</span><span><span class="pl">c</span>Comment on the accuracy of your approximations for various sample sizes \(n\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">A manufacturer distributes tins of pineapple under a recognised brand name, and also as a generic supermarket no-name product. In a trial, 50 customers are given a tin of each and later asked to express a preference. The customers in the trial must choose one product as their favourite. Assuming that there is no difference between the two products, the probability of choosing the branded pineapple should be 0.5. It is found that more than 60% of customers prefer the branded pineapple. Calculate the probability of this using the normal approximation for the sample proportion, then comment.{{work:40}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Long-term trials have showed that 30% of patients with a certain disease respond to treatment by a company’s drug. In further trials, 100 patients chosen at random from those with the disease are given a higher than usual dosage of the drug, and 40% respond positively. What is the probability that 40% or more could respond positively purely by chance?{{work:36}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">The variance of the sample proportion \(\hat p\) for a binomial distribution is \(\sigma^2=\dfrac{pq}n\). The variance measures the spread of the distribution of \(\hat p\) around the population proportion \(p\), thus it is customary to take \(n\) sufficiently large to ensure that \(\sigma\) is small.
+<div class="parts one"><span><span class="pl">a</span>Assume that 70% of residents on a college campus are living at home, and that researchers want to choose a sufficiently large sample to mirror this statistic. How big will a sample need to be to ensure that the standard deviation of \(\hat p\) is less than:<br><span class="q15d"><span>(i) 4%</span><span>(ii) 3%</span><span>(iii) 2%</span><span>(iv) 1%</span><span>(v) \(k\%\)</span></span></span><span><span class="pl">b</span>Repeat this question if a new survey finds that the number of residents living at home is 80%.</span><span><span class="pl">c</span>Repeat for \(p=50\%\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">[Simulation]
+<div class="parts one"><span><span class="pl">a</span>Ten coins are tossed.<br>(i) What is the probability of getting exactly six heads?<br>(ii) If this experiment is carried out 40 times, use your answer to part (i) to predict how many times you expect to get exactly 6 heads.</span></div>{{work:30}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">17</span><div class="q-body">Two dice are thrown and success is recorded if the sum is at least 10.
+<div class="parts one"><span><span class="pl">a</span>Find the probability of success.</span><span><span class="pl">b</span>Use the exact binomial distribution to find the probability of at most four successes on 20 throws.</span><span><span class="pl">c</span>Use a normal approximation to the binomial to estimate the probability of at most four successes without continuity correction.</span><span><span class="pl">d</span>Repeat part <b>c</b> with continuity correction.</span><span><span class="pl">e</span>Use sample proportion to estimate the probability of at most 20% successes. Do not use continuity correction. Explain why your result agrees with part <b>c</b>.</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">[Confidence intervals]
+<div class="parts one"><span><span class="pl">a</span>Let \(X\sim N(\mu,\sigma^2)\).<br>(i) Show that 95% of the data lie within \(1.96\sigma\) of the mean \(\mu\), that is,<span style="display:block;text-align:center;padding:0.8mm 0">\(P(\mu-1.96\sigma&lt;X&lt;\mu+1.96\sigma)\doteq95\%\).</span>(ii) We interpret this to mean that a randomly chosen value \(X\) will lie within the interval \([\mu-1.96\sigma,\ \mu+1.96\sigma]\) ninety-five per cent of the time. Draw a diagram to show that for a given value \(x\) of the random variable, \(\mu\) will lie within the interval \([x-1.96\sigma,\ x+1.96\sigma]\) ninety-five per cent of the time.</span><span><span class="pl">b</span>In a sample of 100 school pupils, 67 surf the internet more than 7 hours a week. Thus we might estimate that 67% of all school pupils do the same, but how confident can we be of this estimate?<br>(i) Estimate the population standard deviation using this single sample, from the formula \(\sigma^2=p(1-p)/n\), where we use the estimate \(p\doteq\hat p=67\%\).<br>(ii) Find the margin of error \(1.96\sigma\) and find the 95% confidence interval, which is \([\hat p-1.96\sigma,\ \hat p+1.96\sigma]\), indicating that 95% of the time we take such a sample, the population proportion will fall within this interval.<br>(iii) Using the estimate \(p\doteq67\%\), how large does the sample size \(n\) need to be to reduce the margin of error to 1%?</span></div>{{work:58}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>19 marks</b></span><span>Calculator allowed · use the standard normal table at the end of the Revision section · show working · hints are below each question if you get stuck</span></div>
+<p class="small" style="margin:0 0 2mm">None of these questions says whether to use a continuity correction. The worked solutions follow each school’s own solution, and say which method is used.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Baulkham Hills High School, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q4</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">In a large population, the probability that a person is left-handed is 0.3. Let \(\hat p\) be the random variable that represents the sample proportion of left-handed people from a sample size of \(n\), drawn from the population.<br>
+What is the smallest value of \(n\) such that the standard deviation of \(\hat p\) is less than or equal to 0.07?
+<div class="parts" style="grid-template-columns:repeat(4,1fr);margin-top:1.5mm"><span>A.&ensp;\(n=42\)</span><span>B.&ensp;\(n=43\)</span><span>C.&ensp;\(n=61\)</span><span>D.&ensp;\(n=62\)</span></div></div>
+<div class="hint"><b>Hint:</b> write the standard deviation of \(\hat p\) in terms of \(n\).</div>{{work:24}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Killara High School, 2021, Year 12 Mathematics Extension&nbsp;1 Trial <span style="white-space:nowrap">Examination,&nbsp;Q12(a)(ii)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">An online furniture store claims that 90% of all orders are shipped within 54 hours of a customer placing an order through the store’s website. Ty ordered a total of 150 various pieces of furniture from the store for his company.
+<div class="pp-sub"><span>(ii) Show that the expected value and the standard deviation of the sampling proportion are 0.9 and 0.0245 respectively.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> what are \(n\) and \(p\) here?</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>James Ruse Agricultural High School, 2023, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q15(c)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">It is known that the probability of obtaining a head when tossing a particular biased coin is 0.2. A random 100 flips of this biased coin is conducted and the number of heads are observed.
+<div class="pp-sub"><span>(i) Justify why the proportions of heads can be approximated using the normal distribution.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Determine the mean and standard deviation of the proportion of heads.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(iii) Hence or otherwise, approximate the probability that the proportion of heads obtained will be between 0.1 and 0.3 inclusive, to 4 decimal places.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> for (i), recall the rule of thumb from Lesson 17C.</div>{{work:60}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(c)(ii)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">In a certain school, 23% of Year 12 students study Mathematics Extension&nbsp;1.
+<div class="pp-sub"><span>(ii) The Principal meets with a random sample of 60 Year 12 students, to discuss their Year 12 HSC courses.<br>What is the probability that more than 30% of the students that meet with the Principal study Mathematics Extension&nbsp;1?<br>(You may assume that the sample of students is approximately normally distributed, and make reference to the extract below from a table of \(z\) scores).</span><span class="mk">4</span></div>
+<table class="t s17d" style="margin:2mm 0 1mm 5mm"><tr><th>\(z\)</th><th>0.00</th><th>0.01</th><th>0.02</th><th>0.03</th><th>0.04</th><th>0.05</th><th>0.06</th><th>0.07</th><th>0.08</th><th>0.09</th></tr>
+<tr><th>1.1</th><td>0.8643</td><td>0.8665</td><td>0.8686</td><td>0.8708</td><td>0.8729</td><td>0.8749</td><td>0.8770</td><td>0.8790</td><td>0.8810</td><td>0.8830</td></tr>
+<tr><th>1.2</th><td>0.8849</td><td>0.8869</td><td>0.8888</td><td>0.8907</td><td>0.8925</td><td>0.8944</td><td>0.8962</td><td>0.8980</td><td>0.8997</td><td>0.9015</td></tr>
+<tr><th>1.3</th><td>0.9032</td><td>0.9049</td><td>0.9066</td><td>0.9082</td><td>0.9099</td><td>0.9115</td><td>0.9131</td><td>0.9147</td><td>0.9162</td><td>0.9177</td></tr></table></div>
+<div class="hint"><b>Hint:</b> how many standard deviations above the mean is 30%?</div>{{work:56}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension&nbsp;1 HSC Trial <span style="white-space:nowrap">Examination,&nbsp;Q14(c)</span></span><span class="mk">5 marks</span></div>
+<div class="pp-q">A cereal company is interested to know whether people drink the cereal milk. They asked a random sample of 1012 Australian adults what they do with the milk in the bowl after they have eaten the cereal. Of the respondents, 67% said that they drank it. Suppose that 70% of Australian adults actually drink the cereal milk.<br>
+Let \(\hat p\) be the proportion of people in the sample who drink the cereal milk.
+<div class="pp-sub"><span>(i) What is the mean and standard deviation of the sampling distribution of \(\hat p\)?</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) By calculating the appropriate probability, do you have any doubts about the result of this poll? Justify your solution.</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> for (ii), if 70% is the truth, how unlikely is a sample result of 67% or less?</div>{{work:60}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)(i)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q"><i>You may use the information [in the standard normal table at the end of the Revision section] to answer this question.</i><br>
+A binomial variable, \(X\), is known to have a probability of success, \(p\), of close to 0.81, but the exact value is unknown.
+<div class="pp-sub"><span>(i) A mathematician needs to estimate the value of \(p\) to within one-thousandth of the true result, with 99.7% certainty.<br>To find a more accurate estimate of \(p\), the mathematician plans to perform \(n\) trials, and find \(\hat p\).<br>What is the minimum number of trials the mathematician needs to perform so that \(\hat p\) is accurate to within one-thousandth of the true value of \(p\), with 99.7% certainty?</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> what does 99.7% certainty mean in terms of standard deviations?</div>{{work:60}}</div>
+</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter 17 Review</div><h2>Chapter review exercise</h2>
+<div class="focus">Mixed practice from the whole chapter, Lessons 17A to 17D. Use the standard normal table at the end of the Revision section.</div></div>
+<div class="q"><span class="q-num">1</span><div class="q-body">A marksman finds that on average he hits the target five times out of six. Assuming that successive shots are independent events, find the probability that in four shots:
+<div class="parts"><span><span class="pl">a</span>he has exactly three hits,</span><span><span class="pl">b</span>he has exactly two misses.</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Five out of six people surveyed think that Tasmania is the most beautiful state in Australia. What is the probability that in a group of 15 randomly selected people, at least 13 of them think that Tasmania is the most beautiful state in Australia?{{work:30}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">There are ten questions in a multiple-choice test, and each question has five possible answers, only one of which is correct. What is the probability of answering exactly seven questions correctly by chance alone? Give your answer correct to three significant figures.{{work:24}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">A card is selected from a pack, its suit is noted, and it is returned. How many times must this be done so that the probability of a heart is more than 95%?{{work:30}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">An eight-sided die is inscribed with the digits 1–8.
+<div class="parts one"><span><span class="pl">a</span>What is the probability of obtaining an 8 when the die is thrown?</span><span><span class="pl">b</span>Six eight-sided dice are thrown. Construct a table for the distribution of the random variable \(X\) that counts the number of eights that occur. Record your results correct to 4 decimal places.</span><span><span class="pl">c</span>A player needs to get exactly three eights in order to win. How often would you predict this to occur in 1000 throws of the six dice?</span><span><span class="pl">d</span>Repeat part <b>c</b> if he needs a throw of three or more eights.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Are the following experiments Bernoulli trials? If so, state the probability of success \(p\) and failure \(q\).
+<div class="parts one"><span><span class="pl">a</span>A coin is tossed, and it is noted if the result is heads or tails.</span><span><span class="pl">b</span>Two dice are thrown, and the player wins if the sum is more than 10.</span><span><span class="pl">c</span>Tests show that 4 out of every 1000 items pass quality control. Consider the random variable ‘number of passes’ where an item is selected at random from the manufacturing process.</span><span><span class="pl">d</span>A card is drawn from a pack, and its suit is noted.</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">The binomial distribution \(B(n,p)\) consists of \(n\) independent Bernoulli trials. Find the mean, variance and standard deviation for each distribution.
+<div class="parts three"><span><span class="pl">a</span>\(B(20,0.2)\)</span><span><span class="pl">b</span>\(B(70,0.5)\)</span><span><span class="pl">c</span>\(B(6,0.8)\)</span><span><span class="pl">d</span>\(B(120,0.4)\)</span><span><span class="pl">e</span>\(B(300,0.1)\)</span><span><span class="pl">f</span>\(B(5,0.25)\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">A company manufactures mobile phone cases using a mixture of machinery and traditional techniques. Data shows that the probability that a random case will fail quality control is 5%. An inspector selects a random batch of 60 cases from the warehouse. Let \(X\) be the binomial random variable of the number of cases that do not pass inspection.
+<div class="parts one"><span><span class="pl">a</span>What is the mean, variance and standard deviation for this distribution?</span><span><span class="pl">b</span>Find the probability that the number of cases that fail to pass lies within one standard deviation of the mean.</span><span><span class="pl">c</span>New company standards insist that the number of failures in the batch must be no more than one standard deviation above the mean. Batches that fail to meet this standard are rejected. What is the probability of this?</span><span><span class="pl">d</span>Due to the new regulations and the number of rejected batches, the company improves its manufacturing process so that the new experimental probability of failure is reduced to 2%. Repeat part <b>c</b> to find the new probability that a batch will be rejected.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">A coin is tossed 80 times.
+<div class="parts one"><span><span class="pl">a</span>Use the exact binomial formula to find the probability of 38, 39 or 40 heads.</span><span><span class="pl">b</span>What is the mean and standard deviation for this binomial distribution?</span><span><span class="pl">c</span>Calculate \(np\) and \(nq\), and state whether this is a situation where a normal approximation may be used.</span><span><span class="pl">d</span>In your own words, explain why we calculate \(P(37.5\le X\le40.5)\) rather than \(P(38\le X\le40)\).</span><span><span class="pl">e</span>Find the probability of 38, 39 or 40 heads using a normal approximation.</span><span><span class="pl">f</span>What is the percentage error in this normal approximation?</span><span><span class="pl">g</span>Clearly in the example above, there was no need to use an approximation, because the probability could be calculated directly. Calculate now the probability of at least 50 heads using a normal approximation (but do not estimate the percentage error).</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">The sum of two dice is recorded.
+<div class="parts one"><span><span class="pl">a</span>Find the probability that the sum is at least 10.</span><span><span class="pl">b</span>Use a normal approximation to find the probability that the sum is at least 10 in more than 14 out of 80 throws.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">A sample of 100 voters are asked whether they intend to vote for the Working Together Party at the next election. Thirty-five respond in the affirmative.
+<div class="parts one"><span><span class="pl">a</span>What is the corresponding sample proportion?</span><span><span class="pl">b</span>If a further sample is taken, would you expect the same number of respondents to indicate yes?</span><span><span class="pl">c</span>What type of distribution will result if further such samples are taken and the sample proportions are recorded?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">A bag contains 3 red balls and 2 white balls. Five balls are selected in turn, with replacement, and the number of red balls is recorded.
+<div class="parts one"><span><span class="pl">a</span>Construct a table showing the theoretical sample proportions of red balls that are selected.</span><span><span class="pl">b</span>Find the probability that the proportion of red balls is less than:<br>(i) 40%, &emsp;&emsp; (ii) 50%.</span><span><span class="pl">c</span>Find the mean, variance and standard deviation for the random variable \(\hat p\) tabulated in part <b>a</b>.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">A fair die is to be thrown 500 times.
+<div class="parts one"><span><span class="pl">a</span>Find the mean and standard deviation for the sample proportion of sixes in the theoretical distribution for this experiment.</span><span><span class="pl">b</span>In one sample of 500 throws, the number of sixes was 70. How many standard deviations is this result below the mean?</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Long-term records show that the percentage of male babies born in a large hospital is 53%. A study is carried out on the effect of a high potassium diet (white beans, salmon, avocados, almonds, apples and mushrooms) on increasing the probability that the baby will be male. In the group of 653 births under this study, with the mother following this diet, more than 54% were male. What is the probability of this happening by chance? Use a normal approximation for the sample proportion with no continuity correction.{{work:40}}</div></div>
+</div>

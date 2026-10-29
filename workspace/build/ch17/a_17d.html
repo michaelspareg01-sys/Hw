@@ -1,1 +1,205 @@
-<!-- filled by Task 5 -->
+<style>
+table.t.t17d { font-size:9.4pt; margin:1mm 0; }
+table.t.t17d td, table.t.t17d th { padding:0.8mm 1.7mm; }
+.a .pair17d { display:flex; gap:4mm; margin:1mm 0 1mm 4mm; }
+.a .pair17d .fig { margin:0; }
+.a .pair17d .fig svg { width:48mm; }
+.a .cum17d .fig svg { width:84mm; }
+.a .dot17d .fig svg { width:62mm; }
+</style>
+{{ahead:Lesson 17D | Sample proportions}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> \(X\sim B\big(3,\tfrac13\big)\), and \(P(X=x)={}^3C_x\big(\tfrac13\big)^x\big(\tfrac23\big)^{3-x}\).<br>
+<b>a</b>
+<table class="t t17d"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+<tr><th>prob</th><td>\(\tfrac8{27}\)</td><td>\(\tfrac{12}{27}\)</td><td>\(\tfrac6{27}\)</td><td>\(\tfrac1{27}\)</td></tr></table>
+\(E(X)=np=1\) and \(\operatorname{Var}(X)=npq=\tfrac23\).<br>
+<b>b</b> \(\hat p=\dfrac X3\), with the same probabilities:
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>\(\tfrac13\)</td><td>\(\tfrac23\)</td><td>1</td></tr>
+<tr><th>prob</th><td>\(\tfrac8{27}\)</td><td>\(\tfrac{12}{27}\)</td><td>\(\tfrac6{27}\)</td><td>\(\tfrac1{27}\)</td></tr></table>
+\(E(\hat p)=p=\tfrac13\) and \(\operatorname{Var}(\hat p)=\dfrac{pq}n=\tfrac2{27}\).
+<div class="pair17d">{{svg:a17d_c1x}}{{svg:a17d_c1p}}</div>
+<b>Your turn.</b> \(X\sim B\big(4,\tfrac12\big)\), and \(P(X=x)={}^4C_x\big(\tfrac12\big)^4\).<br>
+<b>a</b>
+<table class="t t17d"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+<tr><th>prob</th><td>\(\tfrac1{16}\)</td><td>\(\tfrac4{16}\)</td><td>\(\tfrac6{16}\)</td><td>\(\tfrac4{16}\)</td><td>\(\tfrac1{16}\)</td></tr></table>
+\(E(X)=np=2\) and \(\operatorname{Var}(X)=npq=1\).<br>
+<b>b</b> \(\hat p=\dfrac X4\), with the same probabilities:
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>\(\tfrac14\)</td><td>\(\tfrac24\)</td><td>\(\tfrac34\)</td><td>1</td></tr>
+<tr><th>prob</th><td>\(\tfrac1{16}\)</td><td>\(\tfrac4{16}\)</td><td>\(\tfrac6{16}\)</td><td>\(\tfrac4{16}\)</td><td>\(\tfrac1{16}\)</td></tr></table>
+\(E(\hat p)=p=\tfrac12\) and \(\operatorname{Var}(\hat p)=\dfrac{pq}n=\tfrac1{16}\).
+<div class="pair17d">{{svg:a17d_y1x}}{{svg:a17d_y1p}}</div></div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b> \(X\sim B\big(12,\tfrac14\big)\) and \(\hat p=\dfrac X{12}\).<br>
+<b>a</b> Within 0.05 of 0.25 means \(0.2\le\hat p\le0.3\). Only \(\hat p=\tfrac3{12}=0.25\) lies there (\(\tfrac2{12}\doteq0.167\) and \(\tfrac4{12}\doteq0.333\) do not).<br>
+\(P\big(\hat p=\tfrac3{12}\big)={}^{12}C_3\big(\tfrac14\big)^3\big(\tfrac34\big)^9\doteq0.258\)<br>
+<b>b</b> Within 0.1 of 0.25 means \(0.15\le\hat p\le0.35\), so \(\hat p=\tfrac2{12}\), \(\tfrac3{12}\) or \(\tfrac4{12}\).<br>
+\(P={}^{12}C_2\big(\tfrac14\big)^2\big(\tfrac34\big)^{10}+{}^{12}C_3\big(\tfrac14\big)^3\big(\tfrac34\big)^9+{}^{12}C_4\big(\tfrac14\big)^4\big(\tfrac34\big)^8\doteq0.2323+0.2581+0.1936\doteq0.684\)<br>
+<b>Your turn.</b> \(X\sim B\big(15,\tfrac23\big)\) and \(\hat p=\dfrac X{15}\).<br>
+<b>a</b> Within 0.05 of \(\tfrac23\doteq0.667\): only \(\hat p=\tfrac{10}{15}\) lies there (\(\tfrac9{15}=0.6\) and \(\tfrac{11}{15}\doteq0.733\) do not).<br>
+\(P\big(\hat p=\tfrac{10}{15}\big)={}^{15}C_{10}\big(\tfrac23\big)^{10}\big(\tfrac13\big)^5\doteq0.214\)<br>
+<b>b</b> Within 0.1 of \(\tfrac23\): \(\hat p=\tfrac9{15}\), \(\tfrac{10}{15}\) or \(\tfrac{11}{15}\) (\(\tfrac8{15}\doteq0.533\) and \(\tfrac{12}{15}=0.8\) are too far away).<br>
+\(P={}^{15}C_9\big(\tfrac23\big)^9\big(\tfrac13\big)^6+{}^{15}C_{10}\big(\tfrac23\big)^{10}\big(\tfrac13\big)^5+{}^{15}C_{11}\big(\tfrac23\big)^{11}\big(\tfrac13\big)^4\doteq0.1786+0.2143+0.1948\doteq0.588\)</div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b> \(\hat p\) is approximately \(N\Big(0.4,\dfrac{0.4\times0.6}{1000}\Big)\), so \(\sigma=\sqrt{0.00024}\doteq0.01549\).<br>
+<b>a</b> \(z=\pm0.02\div0.01549\doteq\pm1.29\), so \(P(0.38\le\hat p\le0.42)\doteq0.9015-0.0985=0.8030\).<br>
+<b>b</b> \(z=\pm0.03\div0.01549\doteq\pm1.94\), so \(P(0.37\le\hat p\le0.43)\doteq0.9738-0.0262=0.9476\).<br>
+<b>c</b> \(P(\hat p&gt;0.42)\doteq P(Z&gt;1.29)=1-0.9015=0.0985\).<br>
+<b>Your turn.</b> \(\hat p\) is approximately \(N\Big(0.3,\dfrac{0.3\times0.7}{1500}\Big)\), so \(\sigma=\sqrt{0.00014}\doteq0.01183\).<br>
+<b>a</b> \(z=\pm0.01\div0.01183\doteq\pm0.85\), so \(P(0.29\le\hat p\le0.31)\doteq0.8023-0.1977=0.6046\).<br>
+<b>b</b> \(z=\pm0.02\div0.01183\doteq\pm1.69\), so \(P(0.28\le\hat p\le0.32)\doteq0.9545-0.0455=0.9090\).<br>
+<b>c</b> \(P(\hat p&lt;0.28)\doteq P(Z&lt;-1.69)=1-0.9545=0.0455\).</div></div>
+<div class="a" style="break-inside:auto"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b> Divide the values of \(x\) by 8.<br>
+<b>a</b>
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>0.125</td><td>0.25</td><td>0.375</td><td>0.5</td><td>0.625</td><td>0.75</td><td>0.875</td><td>1</td></tr>
+<tr><th>\(f_r\)</th><td>0</td><td>0.04</td><td>0.10</td><td>0.22</td><td>0.28</td><td>0.20</td><td>0.11</td><td>0.04</td><td>0.01</td></tr>
+<tr><th>\(cf_r\)</th><td>0</td><td>0.04</td><td>0.14</td><td>0.36</td><td>0.64</td><td>0.84</td><td>0.95</td><td>0.99</td><td>1.00</td></tr></table>
+From the data, \(\bar x=\dfrac{4.04}8=0.505\) and \(s\doteq\dfrac{1.462}8\doteq0.183\).<br>
+<b>b</b> \(\mu=p=0.5\) and \(\sigma=\sqrt{\dfrac{0.5\times0.5}8}\doteq0.177\).
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>0.125</td><td>0.25</td><td>0.375</td><td>0.5</td><td>0.625</td><td>0.75</td><td>0.875</td><td>1</td></tr>
+<tr><th>Cmlve</th><td>0.004</td><td>0.035</td><td>0.145</td><td>0.363</td><td>0.637</td><td>0.855</td><td>0.965</td><td>0.996</td><td>1.000</td></tr></table>
+<b>c</b> The same mean 0.5 and standard deviation 0.177. The gaps between the values of \(\hat p\) are \(\tfrac18\), so for each value we find the \(z\)-score of \(\hat p+\tfrac1{16}=\hat p+0.0625\).
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>0.125</td><td>0.25</td><td>0.375</td><td>0.5</td><td>0.625</td><td>0.75</td><td>0.875</td><td>1</td></tr>
+<tr><th>\(z\)</th><td>−2.475</td><td>−1.768</td><td>−1.061</td><td>−0.354</td><td>0.354</td><td>1.061</td><td>1.768</td><td>2.475</td><td>3.182</td></tr>
+<tr><th>\(\Phi(z)\)</th><td>0.007</td><td>0.039</td><td>0.144</td><td>0.362</td><td>0.638</td><td>0.856</td><td>0.961</td><td>0.993</td><td>0.999</td></tr></table>
+<b>d</b>
+<div class="cum17d">{{svg:a17d_c4}}</div>
+<b>Your turn.</b> Divide the values of \(x\) by 8.<br>
+<b>a</b>
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>0.125</td><td>0.25</td><td>0.375</td><td>0.5</td><td>0.625</td><td>0.75</td><td>0.875</td><td>1</td></tr>
+<tr><th>\(f_r\)</th><td>0.05</td><td>0.15</td><td>0.29</td><td>0.26</td><td>0.16</td><td>0.07</td><td>0.02</td><td>0</td><td>0</td></tr>
+<tr><th>\(cf_r\)</th><td>0.05</td><td>0.20</td><td>0.49</td><td>0.75</td><td>0.91</td><td>0.98</td><td>1.00</td><td>1.00</td><td>1.00</td></tr></table>
+From the data, \(\bar x=\dfrac{2.62}8=0.3275\) and \(s\doteq\dfrac{1.347}8\doteq0.168\).<br>
+<b>b</b> \(\mu=p=\tfrac13\doteq0.333\) and \(\sigma=\sqrt{\dfrac{\frac13\times\frac23}8}=\tfrac16\doteq0.167\).
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>0.125</td><td>0.25</td><td>0.375</td><td>0.5</td><td>0.625</td><td>0.75</td><td>0.875</td><td>1</td></tr>
+<tr><th>Cmlve</th><td>0.039</td><td>0.195</td><td>0.468</td><td>0.741</td><td>0.912</td><td>0.980</td><td>0.997</td><td>1.000</td><td>1.000</td></tr></table>
+<b>c</b> The same mean \(\tfrac13\) and standard deviation \(\tfrac16\). For each value we find the \(z\)-score of \(\hat p+0.0625\).
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>0.125</td><td>0.25</td><td>0.375</td><td>0.5</td><td>0.625</td><td>0.75</td><td>0.875</td><td>1</td></tr>
+<tr><th>\(z\)</th><td>−1.625</td><td>−0.875</td><td>−0.125</td><td>0.625</td><td>1.375</td><td>2.125</td><td>2.875</td><td>3.625</td><td>4.375</td></tr>
+<tr><th>\(\Phi(z)\)</th><td>0.052</td><td>0.191</td><td>0.450</td><td>0.734</td><td>0.915</td><td>0.983</td><td>0.998</td><td>1.000</td><td>1.000</td></tr></table>
+<b>d</b>
+<div class="cum17d">{{svg:a17d_y4}}</div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<p class="small" style="margin:0 0 1.5mm">Normal probabilities below use the standard normal table with \(z\) correct to two decimal places. Answers may vary slightly with interpolation or technology.</p>
+<div class="a"><span class="an">1</span><div class="ab"><b>a</b> \(\tfrac25\) &emsp; <b>b</b> \(\tfrac4{10}=\tfrac25\) &emsp; <b>c</b> \(\tfrac9{12}=\tfrac34\)</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><b>a</b>
+<table class="t t17d"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th>\(P(X=x)\)</th><td>\(\tfrac1{32}\)</td><td>\(\tfrac5{32}\)</td><td>\(\tfrac{10}{32}\)</td><td>\(\tfrac{10}{32}\)</td><td>\(\tfrac5{32}\)</td><td>\(\tfrac1{32}\)</td></tr></table>
+<b>b</b>
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>\(\tfrac15\)</td><td>\(\tfrac25\)</td><td>\(\tfrac35\)</td><td>\(\tfrac45\)</td><td>1</td></tr>
+<tr><th>\(P(\hat p)\)</th><td>\(\tfrac1{32}\)</td><td>\(\tfrac5{32}\)</td><td>\(\tfrac{10}{32}\)</td><td>\(\tfrac{10}{32}\)</td><td>\(\tfrac5{32}\)</td><td>\(\tfrac1{32}\)</td></tr></table>
+<b>c</b> 0.5 &emsp; <b>d</b> It is the probability \(p\) in each Bernoulli trial, that is, it is the probability of a coin landing heads.</div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>a</b>
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>\(\tfrac15\)</td><td>\(\tfrac25\)</td><td>\(\tfrac35\)</td><td>\(\tfrac45\)</td><td>1</td></tr>
+<tr><th>\(f_r\)</th><td>\(\tfrac1{20}\)</td><td>\(\tfrac1{20}\)</td><td>\(\tfrac3{20}\)</td><td>\(\tfrac2{20}\)</td><td>\(\tfrac6{20}\)</td><td>\(\tfrac7{20}\)</td></tr></table>
+<b>b</b> 0.72 &emsp; <b>c</b> It is an estimate of the probability that a shopper chosen at random lives in the suburb.</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> 8, 9 or 10 heads &emsp; <b>b</b> \(P(X\ge8)=\dfrac{{}^{10}C_8+{}^{10}C_9+{}^{10}C_{10}}{2^{10}}=\dfrac{56}{1024}\doteq5.47\%\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> \(12\div32=0.375\) &emsp; <b>b</b> 0.2 (only Dakarai buys lunch regularly)<br>
+<b>c</b> The ten samples give \(\hat p=0.2,\ 0.4,\ 0.2,\ 0.6,\ 0.6,\ 0.4,\ 0.4,\ 0.6,\ 0,\ 0.6\).
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>0.2</td><td>0.4</td><td>0.6</td><td>0.8</td><td>1.0</td></tr>
+<tr><th>Frequency</th><td>1</td><td>2</td><td>3</td><td>4</td><td>0</td><td>0</td></tr></table>
+<b>d</b><div class="dot17d">{{svg:a17d_q6d}}</div></div></div>
+<div class="a"><span class="an">7</span><div class="ab">\(\mu=0.2\), \(\sigma=\sqrt{0.2\times0.8\div500}\doteq0.01789\). \(P(\hat p&gt;0.22)\doteq P(Z&gt;1.12)=1-0.8686=0.1314\doteq13\%\)</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> Let \(X\) record the number of hearts selected, \(X\sim B(80,0.25)\), \(\mu=20\), \(\sigma=\sqrt{15}\doteq3.873\). Then \(P(15.5\le X\le24.5)\doteq P(-1.16\le Z\le1.16)=2\times0.8770-1=0.7540\doteq75\%\).<br>
+<b>b</b> Let \(\mu=0.25\), and \(\sigma=\sqrt{0.25\times0.75\div80}\doteq0.0484\). Thus \(P(0.20\le\hat p\le0.30)\doteq P(-1.03\le Z\le1.03)=2\times0.8485-1=0.6970\doteq70\%\). (The exact answer is 76%, so part <b>a</b> is more accurate.)</div></div>
+<div class="a"><span class="an">9</span><div class="ab">\(\mu=0.7\), \(\sigma=\sqrt{0.7\times0.3\div300}\doteq0.02646\).<br>
+<b>a</b> \(P(\hat p\ge0.65)\doteq P(Z\ge-1.89)=0.9706\doteq97\%\) &emsp; <b>b</b> \(P(0.65\le\hat p\le0.75)\doteq P(-1.89\le Z\le1.89)=2\times0.9706-1=0.9412\doteq94\%\)</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> (i) \(0.95^{100}\doteq0.0059\doteq0.6\%\) &emsp; (ii) Fewer than 2 people react: \(0.95^{100}+100\times0.05\times0.95^{99}\doteq0.0371\doteq3.7\%\)<br>
+<b>b</b> (i) The mean and standard deviation for \(\hat p\) are \(\mu=0.05\), and \(\sigma=\sqrt{0.05\times0.95\div1000}\doteq0.0069\). Thus \(P(\hat p&lt;0.03)\doteq P(Z&lt;-2.90)=1-0.9981=0.0019\doteq0.2\%\).<br>
+(ii) This result is significantly different from the previous claim that 5% of patients will have a reaction. They should check whether the sample was random: perhaps it consisted of patients more resistant to the side effects of the medication. They should also check whether there have been any changes to the medication to reduce patient reactions. It is also possibly just chance that this result occurred, but the likelihood of this is small.</div></div>
+<div class="a"><span class="an">11</span><div class="ab" style="line-height:1.9"><b>a</b> \(\mu=0.6\), \(\sigma^2=0.012\), so \(\sigma\doteq0.1095\).<br>
+<b>b</b> \(\hat p\) can take only the 21 separate values \(0,\ \tfrac1{20},\ \tfrac2{20},\ \dots,\ 1\), and no values in between, so its distribution is discrete.<br>
+<b>c</b> \(P(\hat p\le0.4)\doteq P(Z\le-1.83)=1-0.9664=0.0336\doteq3.4\%\)<br>
+<b>d</b> \(\dfrac{5.7-3.4}{5.7}\doteq40\%\). No, there is an error of about 40%. The sample is too small and we are not using any continuity correction.<br>
+<b>e</b> \(P(\hat p\le0.75)\doteq P(Z\le1.37)=0.9147\doteq91.5\%\)<br>
+<b>f</b> \(\dfrac{95-91.5}{95}\doteq3.7\%\). The curve is flatter at the top end and varies less with \(\hat p\). The percentage difference is also exaggerated by small values, such as at the left end of the curve.</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a, b</b> \(\sigma=\dfrac{0.5}{\sqrt n}\) and \(z=\dfrac{0.52-0.5}{\sigma}\) (\(z\doteq1.26\), 0.89, 0.40, 0.28, 0.20).
+<table class="t t17d"><tr><th>\(n\)</th><td>1000</td><td>500</td><td>100</td><td>50</td><td>25</td></tr>
+<tr><th>exact</th><td>0.9026</td><td>0.8262</td><td>0.6914</td><td>0.6641</td><td>0.6550</td></tr>
+<tr><th>approx</th><td>0.8962</td><td>0.8133</td><td>0.6554</td><td>0.6103</td><td>0.5793</td></tr>
+<tr><th>% error</th><td>0.7</td><td>1.6</td><td>5.2</td><td>8.1</td><td>11.6</td></tr></table>
+<b>c</b> The accuracy improves as \(n\) increases, and is quite good for large samples.</div></div>
+<div class="a"><span class="an">13</span><div class="ab">For the sample proportion \(\hat p\), \(\mu=0.5\), and \(\sigma=\sqrt{0.5\times0.5\div50}\doteq0.0707\). Thus \(P(\hat p&gt;0.6)\doteq P(Z&gt;1.41)=1-0.9207=0.0793\doteq8\%\). It appears that people strongly prefer the branded version, even though it is identical. There may be an expectation that the branded version is superior, or they may prefer the packaging.</div></div>
+<div class="a"><span class="an">14</span><div class="ab">In the population of those with the disease, let \(p=0.3\) be the probability of a positive response to the drug. Let \(X\) be the binomial random variable measuring how many respond positively to the drug in the trial of \(n=100\), and let \(\hat p=\dfrac Xn\) be the sample proportion. The mean and standard deviation of \(\hat p\) are \(\mu=p=0.3\) and \(\sigma=\sqrt{p(1-p)/n}\doteq0.0458\). Then \(P(\hat p\ge0.4)\doteq P(Z\ge2.18)=1-0.9854=0.0146\doteq1.5\%\). It is unlikely to be by chance.</div></div>
+<div class="a"><span class="an">15</span><div class="ab" style="line-height:1.9">We need \(\dfrac{pq}n&lt;\Big(\dfrac k{100}\Big)^2\), that is, \(n&gt;\dfrac{10\,000\,pq}{k^2}\).<br>
+<b>a</b> (i) \(n&gt;131.25\), so 132 &ensp; (ii) \(n&gt;233.3\), so 234 &ensp; (iii) \(n&gt;525\), so 526 &ensp; (iv) \(n&gt;2100\), so 2101 &ensp; (v) \(n&gt;\dfrac{2100}{k^2}\)<br>
+<b>b</b> (i) \(n&gt;100\), so 101 &ensp; (ii) \(n&gt;177.8\), so 178 &ensp; (iii) \(n&gt;400\), so 401 &ensp; (iv) \(n&gt;1600\), so 1601 &ensp; (v) \(n&gt;\dfrac{1600}{k^2}\)<br>
+<b>c</b> (i) \(n&gt;156.25\), so 157 &ensp; (ii) \(n&gt;277.8\), so 278 &ensp; (iii) \(n&gt;625\), so 626 &ensp; (iv) \(n&gt;2500\), so 2501 &ensp; (v) \(n&gt;\dfrac{2500}{k^2}\)</div></div>
+<div class="a"><span class="an">16</span><div class="ab"><b>a</b> (i) \(\dfrac{{}^{10}C_6}{2^{10}}=\dfrac{210}{1024}\doteq0.205\) &emsp; (ii) \(40\times0.205\doteq8\)</div></div>
+<div class="a"><span class="an">17</span><div class="ab" style="line-height:1.9"><b>a</b> \(p=\tfrac6{36}=\tfrac16\) (the sums 10, 11 and 12 occur in 3, 2 and 1 ways)<br>
+<b>b</b> \(X\sim B\big(20,\tfrac16\big)\): \(P(0\le X\le4)\doteq0.7687\)<br>
+<b>c</b> \(\mu=\tfrac{10}3\), \(\sigma=\sqrt{20\times\tfrac16\times\tfrac56}=\tfrac53\). \(P(X\le4)\doteq P(Z\le0.40)=0.6554\)<br>
+<b>d</b> \(P(X\le4.5)\doteq P(Z\le0.70)=0.7580\)<br>
+<b>e</b> \(\mu=\tfrac16\), \(\sigma=\sqrt{\tfrac16\times\tfrac56\div20}=\tfrac1{12}\). \(P(\hat p\le0.2)\doteq P(Z\le0.40)=0.6554\). This agrees with part <b>c</b>: since \(\hat p=\dfrac X{20}\), the event \(\hat p\le0.2\) is the event \(X\le4\), and the sample proportion distribution is just the binomial compressed horizontally by a factor \(\dfrac1n\). Its mean and standard deviation are both divided by 20, so the \(z\)-score, and the corresponding area, are the same.</div></div>
+<div class="a"><span class="an">18</span><div class="ab"><b>b</b> (i) \(\sigma=\sqrt{0.67\times0.33\div100}\doteq0.047\)<br>
+(ii) Margin of error \(=1.96\sigma\doteq0.09=9\%\), and the 95% confidence interval for the probability \(p\) is \([58\%,\ 76\%]\).<br>
+(iii) \(1.96\sqrt{\dfrac{0.67\times0.33}n}\le0.01\) gives \(n\ge8493.8\), so \(n\ge8494\).</div></div>
+
+{{ahead:Lesson 17D | Sample proportions}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Baulkham Hills High School, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q4</span></span></div>
+<p><b>Answer B.</b> The standard deviation of \(\hat p\) is \(\sqrt{\dfrac{pq}n}\), so we need</p>
+\[\sqrt{\frac{0.3\times0.7}n}\le0.07,\qquad\text{so}\qquad\frac{0.21}n\le0.0049,\qquad\text{so}\qquad n\ge\frac{0.21}{0.0049}\doteq42.86.\]
+<p>The smallest value is \(n=43\). (With \(n=42\), the standard deviation is about 0.0707, which is more than 0.07, so A is wrong.)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Killara High School, 2021, Year 12 Mathematics Extension&nbsp;1 Trial <span style="white-space:nowrap">Examination,&nbsp;Q12(a)(ii)</span></span></div>
+<p>Here \(n=150\) and \(p=0.9\).</p>
+\[E(\hat p)=p=0.9,\qquad\operatorname{Var}(\hat p)=\frac{0.9\times(1-0.9)}{150}=\frac3{5000},\qquad\text{SD}=\sqrt{\frac3{5000}}\doteq0.0245.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>James Ruse Agricultural High School, 2023, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q15(c)</span></span></div>
+<p>Using the normal approximation to \(\hat p\) without a continuity correction, as in the school solution.</p>
+<p><b>(i)</b> \(np=100\times0.2=20\) and \(nq=100\times0.8=80\). Both are greater than 5 (indeed at least 10), so the proportion of heads can be approximated using the normal distribution.</p>
+<p><b>(ii)</b> \(\mu=p=0.2\) and \(\sigma=\sqrt{\dfrac{0.2\times0.8}{100}}=0.04\).</p>
+<p><b>(iii)</b></p>
+\[\begin{aligned}P(0.1\le\hat p\le0.3)&amp;\doteq P\Big(\frac{0.1-0.2}{0.04}\le Z\le\frac{0.3-0.2}{0.04}\Big)\\&amp;=P(-2.5\le Z\le2.5)\\&amp;=0.9938-0.0062\\&amp;=0.9876.\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(c)(ii)</span></span></div>
+<p>Using the normal approximation to \(\hat p\) without a continuity correction, as in the school solution.</p>
+\[\mu=p=0.23,\qquad\sigma^2=\frac{p(1-p)}n=\frac{0.23\times0.77}{60}\doteq0.0029516,\qquad\sigma\doteq0.054329.\]
+\[z=\frac{0.3-0.23}{0.054329}\doteq1.2884\doteq1.29\]
+<p>From the extract, \(P(Z&lt;1.29)=0.9015\), so</p>
+\[P(\hat p&gt;0.3)\doteq P(Z&gt;1.29)=1-0.9015=0.0985.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension&nbsp;1 HSC Trial <span style="white-space:nowrap">Examination,&nbsp;Q14(c)</span></span></div>
+<p><b>(i)</b> The mean is \(\mu_{\hat p}=p=0.7\) (not 0.67, which is the sample result). The standard deviation is</p>
+\[\sigma_{\hat p}=\sqrt{\frac{p(1-p)}n}=\sqrt{\frac{0.7\times0.3}{1012}}\doteq0.0144052.\]
+<p><b>(ii)</b> Using the normal approximation to \(\hat p\) without a continuity correction, as in the school solution.</p>
+<p>The sample proportion is \(\hat p=0.67\). Here \(np=1012\times0.7=708.4\) and \(n(1-p)=1012\times0.3=303.6\), both greater than 5 (indeed greater than 10), so the normal approximation can be applied.</p>
+\[\begin{aligned}P(\hat p\le0.67)&amp;\doteq P\Big(Z\le\frac{0.67-0.7}{0.0144052}\Big)\\&amp;\doteq P(Z\le-2.08)\\&amp;=1-0.9812\\&amp;=0.0188\doteq1.9\%.\end{aligned}\]
+<p>This probability is less than 0.05. If 70% of adults really drink the cereal milk, a poll result of 67% or less would be very unlikely, so there is doubt about the result of this poll.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)(i)</span></span></div>
+<p>By the empirical rule, 99.7% certainty means within 3 standard deviations either side of the mean \(p\). So the maximum error of 0.001 must be at least 3 standard deviations:</p>
+\[3\sigma\le0.001,\qquad\text{so}\qquad\sigma\le\frac{0.001}3=\frac1{3000}.\]
+<p>Using the estimate \(p=0.81\),</p>
+\[\sqrt{\frac{0.81\times0.19}n}\le\frac1{3000},\qquad\text{so}\qquad\frac{0.1539}n\le\frac1{9\,000\,000},\qquad\text{so}\qquad n\ge0.1539\times9\,000\,000=1\,385\,100.\]
+<p>The mathematician needs at least 1&nbsp;385&nbsp;100 trials.</p></div>
+
+{{ahead:Chapter 17 Review | Chapter review exercise}}
+<div class="a"><span class="an">1</span><div class="ab"><b>a</b> \({}^4C_3\big(\tfrac56\big)^3\big(\tfrac16\big)=\tfrac{125}{324}\doteq0.386\) &emsp; <b>b</b> \({}^4C_2\big(\tfrac56\big)^2\big(\tfrac16\big)^2=\tfrac{25}{216}\doteq0.116\)</div></div>
+<div class="a"><span class="an">2</span><div class="ab">\(\big(\tfrac56\big)^{15}+{}^{15}C_1\big(\tfrac56\big)^{14}\big(\tfrac16\big)+{}^{15}C_2\big(\tfrac56\big)^{13}\big(\tfrac16\big)^2\doteq0.532\)</div></div>
+<div class="a"><span class="an">3</span><div class="ab">\({}^{10}C_7(0.2)^7(0.8)^3\doteq0.000786\)</div></div>
+<div class="a"><span class="an">4</span><div class="ab">We need \(1-\big(\tfrac34\big)^n&gt;0.95\). Thus \(n&gt;\dfrac{\log0.05}{\log0.75}\doteq10.4\). The experiment needs to be repeated 11 times.</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>a</b> \(\tfrac18\)<br>
+<b>b</b> \(X\sim B\big(6,\tfrac18\big)\):
+<table class="t t17d"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+<tr><th>\(P(X=x)\)</th><td>0.4488</td><td>0.3847</td><td>0.1374</td><td>0.0262</td><td>0.0028</td><td>0.0002</td><td>0.0000</td></tr></table>
+<b>c</b> \(1000\times0.0262\doteq26\) times &emsp; <b>d</b> \(1000\times(0.0262+0.0028+0.0002)\doteq29\) times</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> Yes. \(p=0.5\), \(q=0.5\) &emsp; <b>b</b> Yes, if success is interpreted as the player winning. \(p=\tfrac1{12}\) and \(q=\tfrac{11}{12}\).<br>
+<b>c</b> Yes, with experimental probability \(p=0.004\), \(q=0.996\) &emsp; <b>d</b> No, because a Bernoulli trial must have only two possible outcomes.</div></div>
+<div class="a"><span class="an">7</span><div class="ab">Mean, variance, standard deviation:<br>
+<b>a</b> 4, 3.2, 1.79 &emsp; <b>b</b> 35, 17.5, 4.18 &emsp; <b>c</b> 4.8, 0.96, 0.98 &emsp; <b>d</b> 48, 28.8, 5.37 &emsp; <b>e</b> 30, 27, 5.20 &emsp; <b>f</b> 1.25, 0.9375, 0.97</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> \(X\sim B(60,0.05)\): mean 3, variance 2.85, standard deviation \(\doteq1.69\)<br>
+<b>b</b> \(3-1.69\le X\le3+1.69\) gives \(X=2\), 3 or 4. \(P(X=2,\ 3\text{ or }4)\doteq62.8\%\)<br>
+<b>c</b> \(P(0\le X\le4)\doteq82\%\). The probability of rejection is 18%.<br>
+<b>d</b> Mean 1.2, standard deviation \(\doteq1.08\), so \(X\le2.28\). \(P(X=0,\ 1\text{ or }2)\doteq88\%\). The probability of rejection is 12%.</div></div>
+<div class="a"><span class="an">9</span><div class="ab" style="line-height:1.9"><b>a</b> \(\big(\tfrac12\big)^{80}\big({}^{80}C_{38}+{}^{80}C_{39}+{}^{80}C_{40}\big)\doteq25.62\%\) &emsp; <b>b</b> 40, \(\sqrt{20}\doteq4.47\)<br>
+<b>c</b> \(np=nq=40&gt;5\), so a normal approximation may be used.<br>
+<b>d</b> This is called a continuity correction, and occurs because we are approximating a discrete distribution by a continuous curve. The columns for 38, 39 and 40 run from 37.5 to 40.5.<br>
+<b>e</b> The \(z\)-scores are \(-0.56\) and 0.11, so \(P(37.5\le X\le40.5)\doteq0.5438-0.2877=0.2561=25.61\%\).<br>
+<b>f</b> \(\dfrac{25.62-25.61}{25.62}\times100\%\doteq0.04\%\), which is less than 0.1%<br> <b>g</b> \(P(X\ge49.5)\doteq P(Z\ge2.12)=1-0.9830=0.0170\doteq1.7\%\)</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> \(\tfrac6{36}=\tfrac16\) &emsp; <b>b</b> If \(X\sim B\big(80,\tfrac16\big)\), then \(\mu=\tfrac{40}3\), \(\sigma=\tfrac{10}3\), and \(P(X\ge15)\doteq P(X\ge14.5)\doteq P(Z\ge0.35)=1-0.6368=0.3632\doteq36\%\).</div></div>
+<div class="a"><span class="an">11</span><div class="ab"><b>a</b> 0.35 &emsp; <b>b</b> Not necessarily. The number will vary from sample to sample.<br>
+<b>c</b> The number of yes answers has a binomial distribution with \(n=100\) and \(p\) equal to the (unknown) proportion of the population intending to vote for the WTP. The sample proportions have the corresponding sample proportion distribution, with mean \(p\), and it is approximately normal.</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a</b>
+<table class="t t17d"><tr><th>\(\hat p\)</th><td>0</td><td>0.2</td><td>0.4</td><td>0.6</td><td>0.8</td><td>1</td></tr>
+<tr><th>\(P(\hat p)\)</th><td>\(\tfrac{32}{3125}\)</td><td>\(\tfrac{48}{625}\)</td><td>\(\tfrac{144}{625}\)</td><td>\(\tfrac{216}{625}\)</td><td>\(\tfrac{162}{625}\)</td><td>\(\tfrac{243}{3125}\)</td></tr></table>
+<b>b</b> (i) \(\tfrac{272}{3125}\) &emsp; (ii) \(\tfrac{992}{3125}\)<br>
+<b>c</b> Mean \(\mu_{\hat p}=\tfrac35\), variance \(\tfrac6{125}\), \(\sigma_{\hat p}=\tfrac1{25}\sqrt{30}\doteq0.219\)</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>a</b> \(\mu=p=\tfrac16\), \(\sigma=\sqrt{\tfrac16\times\tfrac56\div500}=\tfrac1{60}\)<br>
+<b>b</b> The \(z\)-score is \(\Big(\dfrac{70}{500}-\dfrac16\Big)\div\dfrac1{60}=-1.6\), so the result is 1.6 standard deviations below the mean.</div></div>
+<div class="a"><span class="an">14</span><div class="ab">\(\mu=0.53\), \(\sigma=\sqrt{0.53\times0.47\div653}\doteq0.01953\). \(P(\hat p&gt;0.54)\doteq P(Z&gt;0.51)=1-0.6950=0.3050\doteq30.5\%\)</div></div>
