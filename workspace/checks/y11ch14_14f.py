@@ -362,12 +362,12 @@ for mark in (TBSEC, PPSEC, RVSEC):
     if ANS.count(mark) != 1:
         sys.exit(f"FAIL: {mark!r} not found exactly once in a_14f.html")
 LEXA = ans_blocks(ANS.split(TBSEC)[0])
-A = ans_blocks(ANS.split(TBSEC)[1].split(RVSEC)[0])
-RA = ans_blocks(ANS.split(RVSEC)[1].split(PPSEC)[0])
-ppsec = ANS.split(PPSEC)[1]
+A = ans_blocks(ANS.split(TBSEC)[1].split(HEAD)[0])
+RA = ans_blocks(ANS.split(RVSEC)[1])
+ppsec = ANS.split(PPSEC)[1].split(RVSEC)[0]
 report(ANS.count(HEAD) == 2 and ANS.startswith(HEAD) and ANS.split(PPSEC)[0].rstrip().endswith(HEAD)
-       and ANS.index(TBSEC) < ANS.index(RVSEC) < ANS.index(PPSEC), "answers headings",
-       "ahead line opens the file; Lesson Examples, Textbook Homework, Chapter 14 Review, then the ahead line and the past-paper section")
+       and ANS.index(TBSEC) < ANS.index(PPSEC) < ANS.index(RVSEC), "answers headings",
+       "ahead line opens the file; Lesson Examples, Textbook Homework, then the ahead line, the past-paper section and the Chapter 14 Review")
 PPA = {int(n): b for n, b in re.findall(r'<div class="ppa"><div class="pp-src"><span><span class="pn">PP (\d+)</span>(.*?)(?=<div class="ppa">|$)', ppsec, re.S)}
 for mark in ("<!-- ============ Homework ============ -->", "<!-- ============ Past papers ============ -->", "<!-- ============ Chapter review ============ -->"):
     if LES.count(mark) != 1:
