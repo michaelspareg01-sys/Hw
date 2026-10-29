@@ -168,7 +168,7 @@ for mt in re.finditer(r'<div class="a"><span class="an">([^<]+)</span><div class
     if mt.group(1) in BLK:
         report(False, f"block {mt.group(1)}", "duplicate")
     BLK[mt.group(1)] = mt.group(2)
-report(list(BLK) == ["C1", "C2", "C3", "C4", "C5", "1", "2", "3", "4", "5", "6", "7", "8", "9", "12"], "answer blocks", str(list(BLK)))
+report(list(BLK) == ["C1", "C2", "C3", "C4", "C5", "1", "2", "3", "5", "6", "7", "8", "9", "12"], "answer blocks", str(list(BLK)))
 PPA = {int(k): v for k, v in re.findall(r'<div class="ppa"><div class="pp-src"><span><span class="pn">PP (\d+)</span>(.*?)(?=<div class="ppa">|$)', parts[1], re.S)}
 pps = les.split("<!-- ============ Past papers ============ -->")
 teach = les.split("<!-- ============ Homework ============ -->")[0]
@@ -184,11 +184,11 @@ for k in range(1, 6):
     report([kd for kd, _, _ in exs] == ["demo", "attempt", "worked"], f"Concept {k} blocks", "tutor demo, your turn, worked example")
 report([CON[k]["tags"] for k in range(1, 6)] == [["Worked example 11"], ["Worked example 12"], ["Worked example 13"], ["Worked example 14"], ["Worked example"]],
        "worked example tags", "Examples 11-14, then 'from the text'")
-report(sorted(TQ, key=int) == ["1", "2", "3", "4", "5", "6", "7", "8", "9", "12"], "textbook question numbers", "Q10, Q11 (technology) omitted")
+report(sorted(TQ, key=int) == ["1", "2", "3", "5", "6", "7", "8", "9", "12"], "textbook question numbers", "Q4 (doubtful), Q10, Q11 (technology) omitted")
 fb, rest = hw.split("{{band:F}}")[1].split("{{band:D}}")
 db, eb = rest.split("{{band:E}}")
-report(re.findall(r'q-num">(\d+)', fb) == ["1", "2", "3", "4", "5", "6"] and re.findall(r'q-num">(\d+)', db) == ["7", "8", "9"]
-       and re.findall(r'q-num">(\d+)', eb) == ["12"], "bands", "F: Q1-6, D: Q7-9 (Q10, Q11 omitted), E: Q12")
+report(re.findall(r'q-num">(\d+)', fb) == ["1", "2", "3", "5", "6"] and re.findall(r'q-num">(\d+)', db) == ["7", "8", "9"]
+       and re.findall(r'q-num">(\d+)', eb) == ["12"], "bands", "F: Q1-6 (Q4 omitted), D: Q7-9 (Q10, Q11 omitted), E: Q12")
 report("BINOM.DIST" not in les and "RANDBETWEEN" not in les, "no spreadsheet items", "")
 for k in ("5 Normal approximation to a binomial distribution", "6 A rule of thumb for using the normal approximation", "Continuity corrections",
           "Notation for normal distributions", "An example of approximations", "The continuity correction for large numbers",
@@ -452,18 +452,6 @@ chk(q3, "Q3e", r"(0.4)^6\doteq@\)", rnd(binom_sum(20, F(3, 5), 14, 14), 3))
 zA, zB = (13.5 - 12) / math.sqrt(4.8), (14.5 - 12) / math.sqrt(4.8)
 chk(q3, "Q3f", r"\doteq P(@&lt;Z&lt;@)\doteq@-@=@\doteq@\).", z2(zA), z2(zB), tab(z2(zB)), tab(z2(zA)), str(tabz(zB) - tabz(zA)), rnd(tabz(zB) - tabz(zA), 3))
 report(sf(tabz(zB) - tabz(zA), 2) == sf(binom_sum(20, F(3, 5), 14, 14), 2) == "0.12", "Q3f both 0.12 to 2 s.f.", "")
-q4 = BLK["4"]
-present(TQ["4"], "Q4", "In a college of 3000 pupils, 1320 are girls")
-chk(q4, "Q4a", r"\(p=\dfrac{1320}{3000}=@\)", str(F(1320, 3000).numerator / F(1320, 3000).denominator))
-sd4 = math.sqrt(15 * 0.44 * 0.56)
-chk(q4, "Q4b", r"\(\mu=np=@\), \(\sigma=\sqrt{15\times0.44\times0.56}\doteq@\)", "6.6", rnd(sd4, 2))
-ex4 = binom_sum(15, F(44, 100), 9, 10)
-chk(q4, "Q4c", r"(0.56)^5\doteq@\%\)", rnd(pct(ex4), 2))
-chk(q4, "Q4d", r"\(np=@\) and \(nq=@\), both", "6.6", "8.4")
-zA, zB = (8.5 - 6.6) / sd4, (10.5 - 6.6) / sd4
-ap4 = tabz(zB) - tabz(zA)
-chk(q4, "Q4e", r"are @ and @, so the probability is \(\doteq@-@=@\doteq@\%\)", z2(zA), z2(zB), tab(z2(zB)), tab(z2(zA)), str(ap4), rnd(ap4 * 100, 0))
-chk(q4, "Q4f", r"\(\dfrac{14.04-13.99}{14.04}\doteq@\%\)", rnd((Decimal(rnd(pct(ex4), 2)) - ap4 * 100) / Decimal(rnd(pct(ex4), 2)) * 100, 1))
 q5 = BLK["5"]
 for lab, pv in zip("abcdefgh", ("0.5", "0.25", "0.125", "0.01", "0.75", "0.875", "0.9", "0.55")):
     p = F(pv)
@@ -536,8 +524,19 @@ for k in PPQ:
     report(not sub or sum(sub) == marks[k], f"PP{k} part marks", str(sub))
     report(PPA[k].count("Using the normal approximation without a continuity correction, as in the school solution") == 1, f"PP{k} method line", "")
 report("use the standard normal table at the end of the Revision section" in pps[1].split("</div>")[0] + pps[1][:600], "PP intro table line", "")
+R = "[the standard normal table at the end of the Revision section]"
+for k, keep in ((3, "the probability that less than 5% are left-handed? [You may refer to " + R + ".]"),
+                (4, "A normal distribution table is included [at the end of the Revision section]."),
+                (5, "<i>You may use the information [in the standard normal table at the end of the Revision section] to answer this question.</i>"),
+                (6, "(A Standard Normal Distribution table is [at the end of the Revision section].")):
+    present(PPQ[k], f"PP{k} table sentence kept, location replaced", keep)
 for k, bad in ((3, "page 11"), (4, "overleaf"), (5, "page 17"), (6, "attached with this paper")):
-    report(bad not in PPQ[k], f"PP{k} table pointer line left out", bad)
+    report(bad not in PPQ[k], f"PP{k} page/location reference replaced", bad)
+for k, keep in ((1, "(iii) Use a normal approximation to find the probability that \\(X\\) is less than 8040."),
+                (2, "You must justify the use of the normal approximation."),
+                (7, "Use normal approximation to solve for \\(n\\), to the nearest integer.")):
+    present(PPQ[k], f"PP{k} method sentence verbatim", keep)
+
 
 # PP1 Kings: mu 8000, sd 40 supplied
 present(PPQ[1], "PP1", r"it was found that \(E(X)=8000\) and that \(X\) has a standard deviation of 40.")
