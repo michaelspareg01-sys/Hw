@@ -1,1 +1,386 @@
-<!-- filled by Task 3 -->
+<style>
+table.t.t17b { font-size:9.6pt; }
+table.t.t17b td, table.t.t17b th { padding:1mm 1.7mm; }
+table.t.t17b th:first-child, table.t.t17b td:first-child { white-space:nowrap; }
+.wide17b .fig svg { width:118mm; height:auto; }
+.big17b .fig svg { width:80mm; height:auto; }
+</style>
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 17B</div><h2>Binomial distributions</h2>
+<div class="focus">Now that we have dealt with individual binomial probabilities, we can look at the whole distribution. The binomial distribution is a discrete distribution, and Chapter 13 of the Year 11 book was devoted to discrete distributions. As we have done before, we will draw its graph and work with its mean and variance. For \(X\sim B(n,p)\), the mean is \(\mu=np\) and the variance is \(\sigma^2=npq\). The distribution is symmetric when \(p=\tfrac12\), and skewed otherwise.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:notation, and the Bernoulli distribution}}
+<div class="box concept"><div class="bt">Notation for binomial distributions</div>
+<p>Some notation is convenient. The binomial distribution consisting of \(n\) independent trials, each with probability \(p\) of success, is denoted by \(B(n,p)\) or \(\text{Bin}(n,p)\). In particular, a Bernoulli experiment with probability \(p\) is a special case of a binomial experiment, so is denoted by \(B(1,p)\).</p>
+<p>To say that \(X\) is a binomial random variable for the distribution \(B(n,p)\), we can use the symbolic notation</p>
+\[X\sim B(n,p)\qquad\text{OR}\qquad X\sim\text{Bin}(n,p).\]
+<p>In particular, \(X\sim B(1,p)\) means that \(X\) is a Bernoulli random variable (there is only one stage) with probability \(p\) of success.</p></div></div>
+<div class="box take"><div class="bt">2 Binomial and Bernoulli distributions</div>
+<ul><li>The binomial distribution with \(n\) independent Bernoulli stages, each with probability \(p\) of success, is denoted by \(B(n,p)\) or \(\text{Bin}(n,p)\).</li>
+<li>The Bernoulli distribution with probability \(p\) is therefore \(B(1,p)\).</li>
+<li>\(X\sim B(n,p)\) means that \(X\) is a random variable for the distribution \(B(n,p)\).</li></ul></div>
+<div class="box concept"><div class="bt">The mean and variance of a Bernoulli distribution</div>
+<p>A Bernoulli trial with probabilities \(p\) of ‘success’ and \(q=1-p\) of ‘failure’ has mean \(p\) and variance \(pq\),</p>
+\[\mu=p\qquad\text{and}\qquad\sigma^2=pq,\]
+<p>so that its standard deviation is \(\sigma=\sqrt{pq}\). These formulae are easy to prove because there are only two outcomes (see the worked example below).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Notation, and a Bernoulli variable</span></div><div class="ex-body">
+<b>a</b> Write each random variable in the form \(X\sim B(n,p)\).
+<div class="parts one" style="margin-left:5mm"><span>(i) \(X\) is the number of heads when a coin is tossed 9 times.</span><span>(ii) \(X\) is the number of times a 5 or a 6 shows when a die is thrown 12 times.</span><span>(iii) \(X\) is 1 if a card drawn from a pack of 52 cards is a club, and 0 if it is not.</span></div>
+<b>b</b> \(Y\sim B(1,0.35)\). Use \(\mu=\sum yP(Y=y)\) and \(\sigma^2=\sum y^2P(Y=y)-\mu^2\) to find the mean, the variance and the standard deviation of \(Y\), correct to three significant figures where necessary.
+{{work:64}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skill</span></div><div class="ex-body">
+<b>a</b> Write each random variable in the form \(X\sim B(n,p)\).
+<div class="parts one" style="margin-left:5mm"><span>(i) \(X\) is the number of tails when a coin is tossed 15 times.</span><span>(ii) \(X\) is the number of ones when a die is thrown 10 times.</span><span>(iii) \(X\) is 1 if a die shows a six, and 0 if it does not.</span></div>
+<b>b</b> \(Y\sim B(1,0.8)\). Use \(\mu=\sum yP(Y=y)\) and \(\sigma^2=\sum y^2P(Y=y)-\mu^2\) to find the mean, the variance and the standard deviation of \(Y\).
+{{work:64}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Prove that a Bernoulli trial with probabilities \(p\) of ‘success’ and \(q=1-p\) of ‘failure’ has mean \(\mu=p\) and variance \(\sigma^2=pq\).
+<div class="sol-label">Solution</div>
+<p>We use the formula \(\mu=\sum xP(X=x)\), where the sum is taken over the distribution, meaning for \(x=0\) and \(x=1\),</p>
+\[\begin{aligned}\text{so}\qquad\mu&amp;=0\times P(X=0)+1\times P(X=1)\\&amp;=0\times q+1\times p\\&amp;=p.\end{aligned}\]
+<p>Similarly, summing over the distribution,</p>
+\[\begin{aligned}\sigma^2&amp;=\sum x^2P(X=x)-\mu^2\\&amp;=(0^2\times q+1^2\times p)-p^2\\&amp;=p-p^2\\&amp;=p(1-p)\\&amp;=pq\quad(\text{either form is an appropriate answer}).\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:the mean and variance of a binomial distribution}}
+<div class="box concept"><div class="bt">The mean and variance of a binomial distribution</div>
+<p>The mean and variance of the binomial random variable \(X\sim B(n,p)\) with \(n\) trials and probabilities \(p\) and \(q\) of ‘success’ and ‘failure’ are</p>
+\[\mu=np\qquad\text{and}\qquad\sigma^2=npq,\]
+<p>so that the standard deviation is \(\sigma=\sqrt{npq}\).</p>
+<p>These two results \(\mu=np\) and \(\sigma^2=npq\) seem to follow immediately from the results \(\mu=p\) and \(\sigma^2=pq\) for Bernoulli trials just by multiplying by \(n\). And they do: it is true in general that if we have a number of independent random variables, then the mean of the sum is the sum of the means, and the variance of the sum is the sum of the variances.</p>
+<p>Unfortunately, however, those two very general theorems are too difficult to prove, and instead we must prove the result for binomial distributions directly. The proofs below are not conceptually difficult, but they do require a sequence of computations. We begin with a lemma about binomial coefficients.</p></div></div>
+<div class="box concept"><div class="bt">A lemma about binomial coefficients</div>
+<p><b>Lemma:</b> Let \(n\) and \(x\) be whole numbers with \(x\le n\).</p>
+<p><b>a</b> If \(x\ge1\), then \(\quad x\times{}^nC_x=n\times{}^{n-1}C_{x-1}\).<br>
+<b>b</b> If \(x\ge2\), then \(\quad x(x-1)\times{}^nC_x=n(n-1)\times{}^{n-2}C_{x-2}\).</p>
+<p><b>Proof:</b></p>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}x\times{}^nC_x&amp;=x\times\frac{n!}{x!\times(n-x)!}\\&amp;=\frac{x\times n\times(n-1)!}{x\times(x-1)!\times(n-x)!}\\&amp;=n\times\frac{(n-1)!}{(x-1)!\times(n-x)!}\\&amp;=\text{RHS}\end{aligned}\]
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}&amp;x(x-1)\times{}^nC_x\\&amp;\quad=x(x-1)\times\frac{n!}{x!\times(n-x)!}\\&amp;\quad=\frac{x(x-1)\times n(n-1)\times(n-2)!}{x(x-1)\times(x-2)!\times(n-x)!}\\&amp;\quad=n(n-1)\times\frac{(n-2)!}{(x-2)!\times(n-x)!}\\&amp;\quad=\text{RHS}\end{aligned}\]
+</div></div></div>
+<div class="box concept"><div class="bt">Proving that the mean is \(np\)</div>
+<p>This proof requires binomial expansions, together with part <b>a</b> of the lemma above.</p>
+\[\begin{aligned}\text{E}(X)&amp;=\sum xP(X=x),\ \text{summed over the distribution,}\\&amp;=0\times{}^nC_0\times p^0q^n+1\times{}^nC_1\times p^1q^{n-1}+2\times{}^nC_2\times p^2q^{n-2}+\cdots\\&amp;\qquad+n\times{}^nC_n\times p^nq^0.\end{aligned}\]
+<p>The first term is 0, then we apply part <b>a</b> of the lemma to the remaining terms,</p>
+\[\begin{aligned}\text{E}(X)&amp;=n\times{}^{n-1}C_0\,p^1q^{n-1}+n\times{}^{n-1}C_1\,p^2q^{n-2}+\cdots+n\times{}^{n-1}C_{n-1}\,p^nq^0\\&amp;=np\big({}^{n-1}C_0\,p^0q^{n-1}+{}^{n-1}C_1\,p^1q^{n-2}+\cdots+{}^{n-1}C_{n-1}\,p^{n-1}q^0\big).\end{aligned}\]
+<p>The bit in brackets is the binomial expansion of \((p+q)^{n-1}\), where \(p+q=1\), so</p>
+\[\begin{aligned}\text{E}(X)&amp;=np(p+q)^{n-1}\\&amp;=np\times1\\&amp;=np.\end{aligned}\]</div>
+<div class="box concept" style="break-inside:auto"><div class="bt">Proving that the variance is \(npq\)</div>
+<p>This proof again requires binomial expansions. First, however, we need to develop yet another formula for the variance.</p>
+\[\begin{aligned}\text{Var}(X)&amp;=\text{E}(X^2)-\big(\text{E}(X)\big)^2\\&amp;=\text{E}\big(X(X-1)\big)+\text{E}(X)-\big(\text{E}(X)\big)^2\\&amp;=\text{E}\big(X(X-1)\big)+np-n^2p^2,\quad\text{because }\text{E}(X)=np.\end{aligned}\]
+<p>We can find \(\text{E}\big(X(X-1)\big)\) using binomial expansions and part <b>b</b> of the lemma,</p>
+\[\begin{aligned}\text{E}\big(X(X-1)\big)&amp;=\sum x(x-1)P(X=x),\ \text{summed over the distribution,}\\&amp;=0\times(-1)\times{}^nC_0\times p^0q^n+1\times0\times{}^nC_1\times p^1q^{n-1}+2\times1\times{}^nC_2\times p^2q^{n-2}\\&amp;\qquad+3\times2\times{}^nC_3\times p^3q^{n-3}+\cdots+n(n-1)\times{}^nC_n\times p^nq^0.\end{aligned}\]
+<p>The first two terms are 0, then applying part <b>b</b> of the lemma,</p>
+\[\begin{aligned}&amp;=n(n-1)\times{}^{n-2}C_0\times p^2q^{n-2}+n(n-1)\times{}^{n-2}C_1\times p^3q^{n-3}\\&amp;\qquad+n(n-1)\times{}^{n-2}C_2\times p^4q^{n-4}+\cdots+n(n-1)\times{}^{n-2}C_{n-2}\times p^nq^0\\&amp;=n(n-1)p^2\big({}^{n-2}C_0\,p^0q^{n-2}+{}^{n-2}C_1\,p^1q^{n-3}+\cdots+{}^{n-2}C_{n-2}\,p^{n-2}q^0\big).\end{aligned}\]
+<p>The bit in brackets is the binomial expansion of \((p+q)^{n-2}\), where \(p+q=1\), so</p>
+\[\begin{aligned}&amp;=n(n-1)p^2(p+q)^{n-2}\\&amp;=n^2p^2-np^2.\end{aligned}\]
+<div style="break-inside:avoid">
+\[\begin{aligned}\text{Hence }\text{Var}(X)&amp;=\text{E}\big(X(X-1)\big)+np-n^2p^2\\&amp;=n^2p^2-np^2+np-n^2p^2\\&amp;=np(1-p)\\&amp;=npq.\end{aligned}\]</div></div>
+<div class="box take"><div class="bt">3 Mean and variance of a binomial distribution</div>
+<ul><li>For a binomial random variable \(X\sim B(n,p)\), where \(q=1-p\),
+\[\mu=np\qquad\text{and}\qquad\sigma^2=npq\qquad\text{and}\qquad\sigma=\sqrt{npq}.\]</li>
+<li>In particular, for a Bernoulli random variable \(X\sim B(1,p)\),
+\[\mu=p\qquad\text{and}\qquad\sigma^2=pq\qquad\text{and}\qquad\sigma=\sqrt{pq}.\]</li></ul></div>
+<div class="box concept"><div class="bt">Notation</div>
+<p>The symbols \(\text{E}(X)\) and \(\mu\) are interchangeable: \(\mu\) is more concise, but the notation \(\text{E}(X)\) indicates that when we run the experiment, there is a sense in which we are ‘expecting’ to get \(\text{E}(X)\). Similarly, \(\sigma^2\) and \(\text{Var}(X)\) are interchangeable.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">\(n=25\), \(p=0.2\)</span></div><div class="ex-body">
+A binomial random variable has parameters \(n=25\) and \(p=0.2\).<br>
+<b>a</b> Find the mean, variance and standard deviation.<br>
+<b>b</b> What is the probability of getting the mean when the experiment is run? Give your answer correct to three decimal places.<br>
+<b>c</b> What is the probability that the result is within one standard deviation of the mean? Give your answer correct to three decimal places.<br>
+<b>d</b> Give an example that this distribution could model.
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">\(n=18\), \(p=\tfrac13\)</span></div><div class="ex-body">
+A binomial random variable has parameters \(n=18\) and \(p=\tfrac13\).<br>
+<b>a</b> Find the mean, variance and standard deviation.<br>
+<b>b</b> What is the probability of getting the mean when the experiment is run? Give your answer correct to three decimal places.<br>
+<b>c</b> What is the probability that the result is within one standard deviation of the mean? Give your answer correct to three decimal places.<br>
+<b>d</b> Give an example that this distribution could model.
+{{work:62}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A binomial random variable has parameters \(n=20\) and \(p=0.1\).<br>
+<b>a</b> Find the mean, variance and standard deviation.<br>
+<b>b</b> What is the probability of getting the mean when the experiment is run?<br>
+<b>c</b> What is the probability that the result is within one standard deviation of the mean?<br>
+<b>d</b> Give an example that this distribution could model.
+<div class="sol-label">Solution</div>
+<p><b>a</b></p>
+<div style="display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:3mm;align-items:start">
+<div>\[\begin{aligned}\mu&amp;=np\\&amp;=20\times0.1\\&amp;=2\end{aligned}\]</div>
+<div>\[\begin{aligned}\sigma^2&amp;=npq\quad(\text{where }q=1-p=0.9)\\&amp;=20\times0.1\times0.9\\&amp;=1.8\end{aligned}\]</div>
+<div>\[\begin{aligned}\sigma&amp;=\sqrt{1.8}\\&amp;\doteq1.342\end{aligned}\]</div></div>
+<div style="break-inside:avoid"><p><b>b</b></p>
+\[\begin{aligned}P(X=2)&amp;={}^{20}C_2\,p^2q^{18}\\&amp;={}^{20}C_2\times(0.1)^2\times(0.9)^{18}\\&amp;\doteq0.285.\end{aligned}\]</div>
+<div style="break-inside:avoid"><p><b>c</b></p>
+\[\begin{aligned}P(\mu-\sigma\le X\le\mu+\sigma)&amp;=P(0.658\le X\le3.342)\\&amp;=P(X=1\text{ or }X=2\text{ or }X=3)\\&amp;={}^{20}C_1\,p^1q^{19}+{}^{20}C_2\,p^2q^{18}+{}^{20}C_3\,p^3q^{17}\\&amp;=20\times(0.1)\times(0.9)^{19}+190\times(0.1)^2\times(0.9)^{18}\\&amp;\qquad+1140\times(0.1)^3\times(0.9)^{17}\\&amp;\doteq0.745.\end{aligned}\]</div>
+<p><b>d</b> Choose a busy intersection with traffic lights on the way to work. On 20 mornings, when crossing at the lights, look at the number plate of the left-most front vehicle stopped at the lights, and record whether the last digit-character is a 7. In a small country town, it is just possible that the events may not be independent, but in a city, independence is virtually certain.</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:conditions on the mean and standard deviation}}
+<div class="box concept"><div class="bt">Finding \(n\) or \(p\)</div>
+<p>The formulae in Box 3 can also be used to find \(n\) or \(p\) when a condition is placed on the mean or the standard deviation. A condition on \(\sigma\) is usually easier to use after squaring, because \(\sigma^2=npq\) has no square root. Both sides are positive, so squaring keeps the inequality sign. When \(n\) is fixed and the condition is on \(p\), the result is a quadratic inequality in \(p\) (see Worked example 7).</p></div></div>
+<div class="box tip"><div class="bt">Finding \(n\) and \(p\) from \(\mu\) and \(\sigma^2\)</div>
+<p>If the mean \(\mu\) and the variance \(\sigma^2\) are both given, divide \(\sigma^2=npq\) by \(\mu=np\):</p>
+\[q=\frac{\sigma^2}{\mu},\qquad\text{then}\qquad p=1-q\qquad\text{and}\qquad n=\frac{\mu}{p}.\]
+<p>Check that \(n\) is a whole number.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">\(n=400\), \(p=0.1\)</span></div><div class="ex-body">
+A binomial random variable has parameters \(n=400\) and \(p=0.1\).<br>
+<b>a</b> Find the mean and standard deviation.<br>
+<b>b</b> Keeping \(p=0.1\), what would \(n\) need to be increased to so that the standard deviation is less than 1% of the number \(n\) of trials?<br>
+<b>c</b> Keeping \(n=400\), what must \(p\) be decreased to so that the standard deviation is less than 3? Can \(p\) be increased to give a standard deviation less than 3?<br>
+<b>d</b> A different binomial random variable has mean 10 and variance 6. Find \(p\) and \(n\).
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">\(n=225\), \(p=0.2\)</span></div><div class="ex-body">
+A binomial random variable has parameters \(n=225\) and \(p=0.2\).<br>
+<b>a</b> Find the mean and standard deviation.<br>
+<b>b</b> Keeping \(p=0.2\), what would \(n\) need to be increased to so that the standard deviation is less than 2% of the number \(n\) of trials?<br>
+<b>c</b> Keeping \(n=225\), what must \(p\) be decreased to so that the standard deviation is less than 3? Can \(p\) be increased to give a standard deviation less than 3?<br>
+<b>d</b> A different binomial random variable has mean 12 and variance 3. Find \(p\) and \(n\).
+{{work:70}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 7</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A binomial random variable has parameters \(n=100\) and \(p=\tfrac15\).<br>
+<b>a</b> Find the mean and standard deviation.<br>
+<b>b</b> Keeping \(p=\tfrac15\), what would \(n\) need to be increased to so that the standard deviation is less than 1% of the number \(n\) of trials?<br>
+<b>c</b> Keeping \(n=100\), what must \(p\) be decreased to so that the standard deviation is less than 1? Can \(p\) be increased to give a standard deviation less than 1?
+<div class="sol-label">Solution</div>
+<p><b>a</b></p>
+<div style="display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:3mm;align-items:start">
+<div>\[\begin{aligned}\mu&amp;=np\\&amp;=100\times\tfrac15\\&amp;=20,\end{aligned}\]</div>
+<div>\[\begin{aligned}\sigma^2&amp;=npq\quad(\text{where }q=1-p=\tfrac45)\\&amp;=100\times\tfrac15\times\tfrac45\\&amp;=16,\end{aligned}\]</div>
+<div>\[\begin{aligned}\sigma&amp;=\sqrt{16}\\&amp;=4.\end{aligned}\]</div></div>
+<div style="break-inside:avoid"><p><b>b</b> Put \(\sigma&lt;\dfrac{n}{100}\).</p>
+\[\begin{aligned}\text{Squaring, }\quad npq&amp;&lt;\frac{n^2}{10\,000}\\n^2&amp;&gt;10\,000\times\tfrac{4}{25}\times n,\quad\text{because }pq=\tfrac15\times\tfrac45=\tfrac{4}{25}.\\\text{Hence}\quad n&amp;&gt;1600,\quad\text{because }n\text{ is positive.}\end{aligned}\]</div>
+<div style="break-inside:avoid"><p><b>c</b> Put \(\sigma&lt;1\).</p>
+\[\begin{aligned}\text{Squaring, }\quad npq&amp;&lt;1\\100p(1-p)&amp;&lt;1\\100p^2-100p+1&amp;&gt;0.\end{aligned}\]</div>
+<p>The quadratic \(100p^2-100p+1=0\), with \(a=100\), \(b=-100\) and \(c=1\), has axis of symmetry \(p=\tfrac12\) and discriminant \(\Delta=9600=40^2\times6\),</p>
+<div style="break-inside:avoid">
+\[\begin{aligned}\text{so its roots are}\quad p&amp;=\frac{100-40\sqrt6}{200}&amp;\text{and}\quad p&amp;=\frac{100+40\sqrt6}{200}\\&amp;=\tfrac12-\tfrac15\sqrt6&amp;&amp;=\tfrac12+\tfrac15\sqrt6\\&amp;\doteq0.0101&amp;&amp;\doteq0.9899,\end{aligned}\]
+<p>so \(p\) should be decreased to less than \(\tfrac12-\tfrac15\sqrt6\) (roughly, less than 0.01), or increased to more than \(\tfrac12+\tfrac15\sqrt6\) (roughly, greater than 0.99).</p></div>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:skewed and non-skewed binomial distributions}}
+<div class="box concept"><div class="bt">Symmetric when \(p=q=\tfrac12\)</div>
+<p>If \(p=q=\tfrac12\), such as when we toss a coin a number of times, the distribution is symmetric. For example, in Section 15E (Year 11) we graphed the distribution when a coin is tossed 20 times and the number of heads is recorded.</p>
+<div class="wide17b">{{svg:c17b_coin20}}</div>
+<p>The mean is \(\mu=np=10\), and the distribution is symmetric about \(x=10\), with standard deviation \(\sigma=\sqrt{npq}=\sqrt5\doteq2.236\). This symmetry is easily seen from the symmetry of the binomial coefficient. For example, \({}^{20}C_7={}^{20}C_{13}\), so</p>
+\[P(X=7)={}^{20}C_7\times\big(\tfrac12\big)^7\times\big(\tfrac12\big)^{13}={}^{20}C_{13}\times\big(\tfrac12\big)^{13}\times\big(\tfrac12\big)^7=P(X=13).\]</div></div>
+<div class="box concept"><div class="bt">Skewed to the right, and skewed to the left</div>
+<p>When, however, we throw a die 20 times, recording ‘success’ when the result is 6, the distribution is decidedly skewed to the right (positive skewness). Here \(p=\tfrac16\) and \(q=\tfrac56\), with mean \(\mu=3\tfrac13\doteq3.333\) and standard deviation \(\sigma=\tfrac53\doteq1.667\).</p>
+<div class="wide17b">{{svg:c17b_die20}}</div>
+<p>Remember that <i>skewed to the right</i> means that there is a <i>longer tail on the right-hand side</i>, and the peak is on the left-hand side.</p>
+<p>On the other hand, when we throw the die 20 times but record ‘success’ as ‘not getting 6’, then the distribution is skewed to the left (negative skewness). Here \(p=\tfrac56\) and \(q=\tfrac16\), with mean \(\mu=16\tfrac23\doteq16.667\) and the same standard deviation \(\sigma=\tfrac53\doteq1.667\).</p>
+<div class="wide17b">{{svg:c17b_die20r}}</div>
+<p>Again, remember that <i>skewed to the left</i> means that there is a <i>longer tail on the left-hand side</i>, and the peak is on the right-hand side.</p>
+<p>The graphs are reflections of each other in \(x=10\). For example,</p>
+\[P(7\text{ sixes})={}^{20}C_7\times\big(\tfrac16\big)^7\times\big(\tfrac56\big)^{13}={}^{20}C_{13}\times\big(\tfrac56\big)^{13}\times\big(\tfrac16\big)^7=P(13\text{ non-sixes}).\]
+<p>Question 11 in Exercise 17B shows how, for a fixed number of trials, the standard deviation decreases as the distribution becomes more skewed. Worked example 8 is a simple example.</p></div>
+<div class="box take"><div class="bt">4 Skewed binomial distributions</div>
+<p>Suppose that a binomial distribution consists of \(n\) independent Bernoulli trials, each with probability \(p\) of success and probability \(q=1-p\) of failure.</p>
+<ul><li>Reversing ‘success’ and ‘failure’ reverses the probabilities \(p\) and \(q\), and reflects the graph in \(x=\tfrac12n\).</li>
+<li>If \(p=q=\tfrac12\), then the distribution is symmetric about \(x=\tfrac12n\).</li>
+<li>If \(p&lt;\tfrac12\), the distribution is skewed to the right (positive skewness).<br>If \(p&gt;\tfrac12\), the distribution is skewed to the left (negative skewness).</li>
+<li>For distributions with the same number of trials, the standard deviation gets smaller as \(p\) gets closer to 0 or 1, that is, as the skewness becomes more pronounced.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">\(p=\tfrac12\) and \(p=\tfrac15\)</span></div><div class="ex-body">
+Two binomial random variables \(X\) and \(Y\) both consist of 100 Bernoulli trials. For \(X\), \(p=q=\tfrac12\), and for \(Y\), \(p=\tfrac15\).<br>
+<b>a</b> Find the ratio of their standard deviations.<br>
+<b>b</b> Describe the shape of each distribution.<br>
+<b>c</b> \(Z\) counts the failures in the experiment for \(Y\). Find the mean and the standard deviation of \(Z\), and describe the shape of its distribution.
+{{work:44}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">\(p=\tfrac12\) and \(p=\tfrac14\)</span></div><div class="ex-body">
+Two binomial random variables \(X\) and \(Y\) both consist of 48 Bernoulli trials. For \(X\), \(p=q=\tfrac12\), and for \(Y\), \(p=\tfrac14\).<br>
+<b>a</b> Find the ratio of their standard deviations.<br>
+<b>b</b> Describe the shape of each distribution.<br>
+<b>c</b> \(Z\) counts the failures in the experiment for \(Y\). Find the mean and the standard deviation of \(Z\), and describe the shape of its distribution.
+{{work:44}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 8</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Two binomial random variables \(X\) and \(Y\) both consist of 100 Bernoulli trials. For \(X\), \(p=q=\tfrac12\), and for \(Y\), \(p=\tfrac{1}{10}\). Find the ratio of their standard deviations.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+\[\begin{aligned}\text{For }X,\quad\sigma_X^2&amp;=npq\\&amp;=100\times\tfrac12\times\tfrac12\\&amp;=25,\\\text{so}\quad\sigma_X&amp;=5.\end{aligned}\]
+</div><div>
+\[\begin{aligned}\text{For }Y,\quad\sigma_Y^2&amp;=npq\\&amp;=100\times\tfrac{1}{10}\times\tfrac{9}{10}\\&amp;=9,\\\text{so}\quad\sigma_Y&amp;=3.\end{aligned}\]
+</div></div>
+<p>Hence the ratio of the two standard deviations is \(\sigma_X:\sigma_Y=5:3\).</p>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:simulating the experiment and graphing the data}}
+<div class="box concept"><div class="bt">Simulations</div>
+<p>The probabilities in a binomial distribution are estimates of what will happen when the experiment is run. Let us see what happens in simulations of two binomial experiments (Worked examples 9 and 10). The first experiment is symmetric, the second is skewed to the right.</p>
+<p>Calculation and simulation in both worked examples should be done in a spreadsheet (the binomial function is currently <span style="font-family:'JetBrains Mono',monospace">BINOM.DIST</span> in Excel). In this lesson the results of each simulation are given, so the rest can be done with a calculator.</p>
+<ul><li>The relative frequency of each value is \(f_r=\dfrac{f}{\text{number of runs}}\).</li>
+<li>The mean \(\bar x\) and the standard deviation \(s\) of the data are found from the frequency table, as in Chapter 13 of the Year 11 book.</li>
+<li>The histogram has columns 1 unit wide, centred on the values of \(x\). The polygon joins the midpoints of the tops of the columns.</li></ul></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Eight coins</span></div><div class="ex-body">
+The experiment is, ‘toss 8 coins and count the number of heads’.<br>
+<b>a</b> Find the mean and standard deviation, and complete a table of the probability distribution (probabilities correct to three decimal places).<br>
+<b>b</b> The experiment was simulated 100 times, with these results. Complete the table of relative frequencies, and find the mean and standard deviation of the data.
+<table class="t t17b" style="margin-left:5mm"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><th>\(f\)</th><td>0</td><td>4</td><td>10</td><td>22</td><td>28</td><td>20</td><td>11</td><td>4</td><td>1</td></tr></table>
+<b>c</b> Draw the theoretical frequency histogram and polygon from part <b>a</b>. Then draw the frequency histogram and polygon of the simulation in part <b>b</b>.
+{{work:110}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Eight dice</span></div><div class="ex-body">
+The experiment is, ‘roll 8 dice and count the number of dice showing a 5 or a 6’.<br>
+<b>a</b> Find the mean and standard deviation, and complete a table of the probability distribution (probabilities correct to three decimal places).<br>
+<b>b</b> The experiment was simulated 100 times, with these results. Complete the table of relative frequencies, and find the mean and standard deviation of the data.
+<table class="t t17b" style="margin-left:5mm"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><th>\(f\)</th><td>5</td><td>15</td><td>29</td><td>26</td><td>16</td><td>7</td><td>2</td><td>0</td><td>0</td></tr></table>
+<b>c</b> Draw the theoretical frequency histogram and polygon from part <b>a</b>. Then draw the frequency histogram and polygon of the simulation in part <b>b</b>.
+{{work:150}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 9</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+The experiment is, ‘toss 10 coins and count the number of heads’.<br>
+<b>a</b> Find the mean and standard deviation, and complete a table of the probability distribution.<br>
+<b>b</b> Simulate the experiment 100 times, complete the table of relative frequencies, and find the mean and standard deviation of the data.<br>
+<b>c</b> Draw the theoretical frequency histograms and polygon from part <b>a</b>. Then draw the frequency histograms and polygon of the simulation in part <b>b</b>.
+<div class="sol-label">Solution</div>
+<p><b>a</b> Here \(p=q=\tfrac12\) and \(n=10\), so</p>
+\[\mu=np=5,\qquad\sigma^2=npq=2.5,\qquad\sigma=\sqrt{2.5}\doteq1.58.\]
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><th>\(P(X=x)\)</th><td>0.001</td><td>0.010</td><td>0.044</td><td>0.117</td><td>0.205</td><td>0.246</td><td>0.205</td><td>0.117</td><td>0.044</td><td>0.010</td><td>0.001</td></tr></table>
+<p><b>b</b> After running the experiment 100 times,</p>
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><th>\(f\)</th><td>0</td><td>2</td><td>6</td><td>15</td><td>20</td><td>23</td><td>17</td><td>13</td><td>1</td><td>3</td><td>0</td></tr>
+<tr><th>\(f_r\)</th><td>0</td><td>0.02</td><td>0.06</td><td>0.15</td><td>0.2</td><td>0.23</td><td>0.17</td><td>0.13</td><td>0.01</td><td>0.03</td><td>0</td></tr></table>
+<p>Calculation gives \(\bar x=4.82\) and \(s\doteq1.70\).</p>
+<p><b>c</b></p>
+<div class="split big17b" style="break-inside:avoid"><div>{{svg:c17b_ex9a}}</div><div>{{svg:c17b_ex9b}}</div></div>
+</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 10</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+The experiment is, ‘roll 10 dice and count the number of sixes’.<br>
+<b>a</b> Find the mean and standard deviation, and complete a table of the probability distribution.<br>
+<b>b</b> Simulate the experiment 100 times, complete the table of relative frequencies, and find the mean and standard deviation of the data.<br>
+<b>c</b> Draw the theoretical frequency histograms and polygon from part <b>a</b>. Then draw the frequency histograms and polygon of the simulation in part <b>b</b>.
+<div class="sol-label">Solution</div>
+<p><b>a</b> Here \(p=\tfrac16\) and \(q=\tfrac56\) and \(n=10\), so</p>
+\[\mu=np=1.667,\qquad\sigma^2=npq=1.389,\qquad\sigma\doteq1.179.\]
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><th>\(P(X=x)\)</th><td>0.162</td><td>0.323</td><td>0.291</td><td>0.155</td><td>0.054</td><td>0.013</td><td>0.002</td><td>0.0002</td><td>0.00002</td><td>0</td><td>0</td></tr></table>
+<p><b>b</b> After running the experiment 100 times,</p>
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><th>\(f\)</th><td>11</td><td>28</td><td>31</td><td>21</td><td>9</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>\(f_r\)</th><td>0.11</td><td>0.28</td><td>0.31</td><td>0.21</td><td>0.09</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr></table>
+<p>Calculation gives \(\bar x=1.89\) and \(s\doteq1.13\).</p>
+<p><b>c</b></p>
+<div class="split big17b" style="break-inside:avoid"><div>{{svg:c17b_ex10a}}</div><div>{{svg:c17b_ex10b}}</div></div>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 17B}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Identify which of the following experiments may be modelled using a binomial random variable. If so, identify the variable.
+<div class="parts one"><span><span class="pl">a</span>It rains four days in a row. The number of rainy days is recorded.</span><span><span class="pl">b</span>A die is thrown ten times, and after each throw it is recorded whether the result is less than five.</span><span><span class="pl">c</span>Maddy is playing a simple game of cards. She turns up a card from the top of the pack. If it is an ace of spades she wins. Otherwise the card is returned to the pack, which is shuffled. The number of plays until she wins is recorded.</span><span><span class="pl">d</span>The probability of a head on tossing an unfair coin is 0.4. A coin is tossed twenty times and the number of tails is recorded.</span><span><span class="pl">e</span>Quality control testers have been given a random sample of 20 pens from a batch. It is known that 3% of the pens in the batch are defective. The testers record the number of faulty pens in the sample.</span><span><span class="pl">f</span>A pupil records the time for his journey to school over a thirty-day period.</span><span><span class="pl">g</span>At stage \(n\) an experimenter selects one number from 1–100 and records a success if the number matches \(n\). This experiment is repeated 50 times (that is, up to \(n=50\)) and the experimenter wishes to know how many successes occur.</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">In a simple experiment, 6 fair coins are tossed and the number of heads is recorded. A student wishes to compare the results with theoretical predictions.
+<div class="parts one"><span><span class="pl">a</span>Copy and complete the table below using the formula \(P(X=x)={}^nC_x\,p^xq^{n-x}\) for binomial probability.</span></div>
+<table class="t t17b" style="margin-left:5mm"><tr><th style="text-align:left">Number of heads</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>Total</td></tr>
+<tr><th style="text-align:left">Number of ways can occur</th><td>&ensp;&ensp;&ensp;</td><td>&ensp;&ensp;&ensp;</td><td>&ensp;&ensp;&ensp;</td><td>&ensp;&ensp;&ensp;</td><td>&ensp;&ensp;&ensp;</td><td>&ensp;&ensp;&ensp;</td><td>&ensp;&ensp;&ensp;</td><td>&ensp;&ensp;&ensp;</td></tr>
+<tr><th style="text-align:left">Probability</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+<div class="parts one"><span><span class="pl">b</span>Read off the mode (the most common result).</span><span><span class="pl">c</span>Use this table to determine the expected value and variance of this discrete probability distribution.</span><span><span class="pl">d</span>Compare your results to those obtained using the two formulae \(\text{E}(X)=np\) and \(\text{Var}(X)=npq\), where \(q=1-p\).</span><span><span class="pl">e</span>Explain, in your own words, why the result for the expected value is not a surprise.</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">For each situation, construct a table for the theoretical distribution associated with the given random variable and calculate the mode, mean and standard deviation.
+<div class="parts one"><span><span class="pl">a</span>A coin is tossed five times and \(X\) is the number of heads that are face up.</span><span><span class="pl">b</span>A die is thrown five times and \(X\) is the number of times 5 or 6 occurs.</span><span><span class="pl">c</span>Five cards are drawn in turn with replacement from a standard pack of 52 cards and \(X\) is the number of court cards (jack, queen, king) that are drawn. Give your result correct to 3 decimal places.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">At the School fête, few people have entered any of the 24 meat raffles, so to support the school, Larry buys 8 of the 20 tickets in each raffle.
+<div class="parts one"><span><span class="pl">a</span>Calculate the expected value and standard deviation for the random variable of the number of Larry’s wins.</span><span><span class="pl">b</span>If Larry wins 6 raffles, calculate how many standard deviations Larry’s result is below the mean, as a measure of his poor luck.</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>If a player throws 6 dice, what is the probability of getting at least two sixes? Let the random variable \(X\) record the number of sixes. What is the expected value and standard deviation for \(X\)?</span><span><span class="pl">b</span>Repeat the question for:<br>(i) 12 dice, &emsp;&emsp;&emsp; (ii) 24 dice.</span></div>{{work:44}}</div></div>
+<div class="q" style="break-inside:avoid"><span class="q-num">6</span><div class="q-body">
+<div style="display:grid;grid-template-columns:1fr 66mm;gap:4mm;align-items:start"><div>The graph to the right shows the relative frequency polygon for the binomial distribution with \(n=48\) and \(p=0.25\).
+<div class="parts one"><span><span class="pl">a</span>Is the distribution skewed to the left (negatively) or to the right (positively) or not at all?</span><span><span class="pl">b</span>Find the mean and standard deviation for the distribution.</span><span><span class="pl">c</span>What is the mode of the distribution? Estimate the probability of this most likely outcome.</span><span><span class="pl">d</span>Copy the graph and shade the region no more than two standard deviations from the mean.</span></div></div><div>{{svg:c17b_q6}}</div></div>
+<div class="parts one"><span><span class="pl">e</span>Use the given sketch for \(p=0.25\) to assist in sketching the graph of the distribution for \(p=0.75\).</span></div>{{work:48}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body">Ms Taylor sets her class a test of 48 multiple-choice questions, each with four options A–D. Let the random variable \(X\) be the number of questions a person gets correct.
+<div class="parts one"><span><span class="pl">a</span>Calculate the expected value \(\text{E}(X)\). How can this value be understood in this context?</span><span><span class="pl">b</span>What is the standard deviation \(\sigma\) of the random variable?</span><span><span class="pl">c</span>Ms Taylor is annoyed to discover that Fayola, one of her students, claims to have got 24 just by guessing. How many standard deviations is Fayola’s score above the mean?</span></div>
+<p style="margin:1.2mm 0 0">Ms Taylor writes a new test, with 100 questions, each with five options A–E.</p>
+<div class="parts one"><span><span class="pl">d</span>What is the expected value and standard deviation of this new distribution with random variable \(Y\)?</span><span><span class="pl">e</span>Fayola gets 40 questions right this time, and again she claims to have achieved this result just by guessing. If true, would this be more or less unusual than her previous result?</span><span><span class="pl">f</span>Idette gets 75% in the first test and 60% in the second. Which is the more unusual of her results, if she is guessing?</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">A certain drug is found to be helpful for 70% of patients who take it. Two research teams are attempting to improve its effectiveness by adjusting the delivery system for the drug. Both conduct random trials to test the effectiveness of their changes. Team A runs a trial with 50 patients, of whom 45 show improvement using the drug. Team B runs a trial with 90 patients, of whom 74 show improvement. Use the mean and standard deviation of the two trials to decide which adjustment shows stronger evidence of an improvement.{{work:40}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">It is known that 15% of a large constituency voted for the Working Together Party (WTP) at the last election. A poll of 100 people is taken and they are asked whether they voted WTP.
+<div class="parts one"><span><span class="pl">a</span>What is the mean and standard deviation for this poll?</span><span><span class="pl">b</span>What is the probability that in the sample, the number of WTP voters lies within half a standard deviation of the mean?</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">In this question, take the number \(n\) of stages of a binomial variable \(X\sim B(n,p)\) to be fixed, and allow \(p\) to vary.
+<div class="parts one"><span><span class="pl">a</span>Find \(\sigma^2\) as a quadratic in \(p\), and graph it.</span><span><span class="pl">b</span>Explain the symmetry of the graph.</span><span><span class="pl">c</span>Show that \(\sigma^2&lt;np\) and \(\sigma^2&lt;nq\).</span><span><span class="pl">d</span>Show that the maximum value of \(\sigma^2\) is \(\dfrac n4\).</span><span><span class="pl">e</span>Let \(n\) be fixed. Show that \(\sigma\to0\) as \(p\to0^+\) and as \(p\to1^-\).</span></div>{{work:56}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">14</span><div class="q-body">In experimental trials, it may be useful to ensure that there is at least one positive result. For example, the trial may be difficult or expensive to run, and at least one successful result may be required. Suppose that in a certain set of \(n\) independent Bernoulli trials, the probability of success at each stage is \(p\).
+<div class="parts one"><span><span class="pl">d</span>A certain journal refuses to publish experimental studies that do not yield a positive result, meaning a result agreeing with the experimental hypothesis. Explain why this is a dangerous practice.</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">If a Bernoulli trial occurs a fixed number \(n\) of times, and if the stages are independent, then the resulting distribution is a <i>binomial distribution</i>. If instead the experiment continues until a success is obtained and the number of trials is recorded, the resulting distribution is called a <i>geometric distribution</i> (and is also called a <i>discrete waiting-time distribution</i>).
+<p style="margin:1.2mm 0 0">Suppose that at each stage the probability of success is \(p\) and the probability of failure is \(q=1-p\), and that \(X\) is the first trial producing a success. Thus the possible values of \(X\) are \(1,\ 2,\ 3,\ \ldots\,\).</p>
+<div class="parts one"><span><span class="pl">a</span>For this geometric distribution:<br>(i) Show that \(P(X=x)=pq^{x-1}\).<br>(ii) Show that \(\mu=p+2pq+3pq^2+\cdots\,\).<br>(iii) Show that \(\mu-q\mu=p+pq+pq^2+\cdots\), and hence calculate \(\mu\).</span><span><span class="pl">b</span>During the day at a certain medical practice, the waiting room is constantly at capacity, with 20 patients waiting to be seen by a doctor. Every 5 minutes, a new patient will be chosen at random to see a doctor and a new patient will arrive at the practice. What is the mean waiting time to see a doctor?</span></div>{{work:80}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>21 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q1</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The random variable \(X\) represents the number of successes in 12 independent Bernoulli trials. The probability of success is \(p=0.7\) in each trial.<br>
+Which of the following statements correctly state the mean and variance of \(X\)?
+<div class="parts one" style="margin:1.5mm 0 0 2mm"><span>A.&ensp;The mean is 8.4 and the variance is 1.59</span><span>B.&ensp;The mean is 8.4 and the variance is 2.52</span><span>C.&ensp;The mean is 12 and the variance is 1.59</span><span>D.&ensp;The mean is 12 and the variance is 2.52</span></div></div>
+<div class="hint"><b>Hint:</b> which formulae in Box 3 give the mean and the variance of \(B(n,p)\)?</div>{{work:16}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q6</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">A random variable \(X\) is defined by \(P(X=k)=\dbinom{15}{k}(0.29)^k(0.71)^{15-k}\) for \(k=0,1,2,\ldots,15\).<br>
+What is the mean of \(X\)?
+<div class="mc"><span>A.&ensp;0.29</span><span>B.&ensp;0.71</span><span>C.&ensp;4.35</span><span>D.&ensp;10.65</span></div></div>
+<div class="hint"><b>Hint:</b> \(\dbinom{15}{k}\) means \({}^{15}C_k\). Compare the formula with \({}^nC_x\,p^xq^{n-x}\).</div>{{work:16}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Blacktown Boys' High School, 2023, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q5</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The random variable \(X\) is such that \(X\sim Bin(n,p)\). The mean value of \(X\) is 225 and variance of \(X\) is 144. What is the value of \(p\)?
+<div class="mc"><span>A.&ensp;0.8</span><span>B.&ensp;0.64</span><span>C.&ensp;0.6</span><span>D.&ensp;0.36</span></div></div>
+<div class="hint"><b>Hint:</b> how are the formulae for the mean and the variance related?</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)(i)(ii)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">The probability that a certain drug cures a disease is 0.8. The drug is administered to 10&nbsp;000 patients.<br>
+Let \(X\) be the binomial random variable representing the number of patients cured.
+<div class="pp-sub"><span>(i) Find \(E(X)\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Show that \(X\) has a standard deviation of 40.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> what are \(n\) and \(p\) here?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)(ii)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Two fair six-sided dice are rolled together and the sum of the numbers on their upper faces is recorded. The result is recorded as either a 7 or not a 7.<br>
+In an earlier part of the question, it was found that the probability of a sum of 7 is \(p=\tfrac16\).
+<div class="pp-sub"><span>(ii) The two dice are rolled 30 times. Find the mean and variance of this binomial distribution.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> which binomial distribution \(B(n,p)\) is this?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(c)(i)</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">In a certain school, 23% of Year 12 students study Mathematics Extension 1.
+<div class="pp-sub"><span>(i) If \(X\) represents the number of students who study Mathematics Extension 1, describe the skewness of the binomial distribution for \(P(X=x)\).<br>You must give reasons for your answer.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> look at Box 4. What decides the direction of the skew?</div>{{work:20}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Knox Grammar School, 2022, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q6</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The random variable \(X\) is distributed binomially such that \(X\sim Bin(n,0.2)\).<br>
+If the mean of \(X\) is double the size of the standard deviation of \(X\), what is the size of \(n\)?
+<div class="mc"><span>A.&ensp;2</span><span>B.&ensp;8</span><span>C.&ensp;12</span><span>D.&ensp;16</span></div></div>
+<div class="hint"><b>Hint:</b> write the mean and the standard deviation in terms of \(n\).</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Blacktown Boys' High School, 2022, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(d)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">A coin is tossed 30 times.<br>
+Let \(X\) be the number of heads. Find the probability that the number of heads is within one standard deviation of the mean using the binomial distribution. Round off your answer to 3 decimal places.</div>
+<div class="hint"><b>Hint:</b> compare Worked example 6, part <b>c</b>.</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Sydney Technical High School, 2023, Extension&nbsp;1 Mathematics, Trial HSC,&nbsp;Q12(a)</span><span class="mk">6 marks</span></div>
+<div class="pp-q">Given that \(X\sim Bin(n,p)\), \(\mu=12\) and \(\sigma^2=4\)
+<div class="pp-sub"><span>(i) Show that \(p=\dfrac23\)</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence find \(n\)</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(iii) By considering a six-sided die or otherwise, describe a possible real-world scenario that could be represented by this binomial distribution.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(iv) Find \(P(X=4)\)</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> for (iii), which events on one throw of a die have probability \(\tfrac23\)?</div>{{work:60}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">A box contains 3 blue marbles, 5 green marbles and \(k\) yellow marbles.<br>
+A marble is chosen at random and then placed back into the box. This is repeated four times.
+<div class="pp-sub"><span>(i) What is the probability that the first marble chosen is blue?</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Let \(X\) be the number of blue marbles chosen.<br>Find the smallest value of \(k\) for which \(\text{Var}(X)&lt;0.8\)</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> for (ii), \(k\) is a number of marbles, so it is a whole number.</div>{{work:80}}</div>
+</div>

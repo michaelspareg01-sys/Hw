@@ -1,1 +1,166 @@
-<!-- filled by Task 3 -->
+<style>
+.a .pair17b { display:flex; gap:3mm; margin:1mm 0 1mm 4mm; }
+.a .pair17b .fig { margin:0; }
+.a .pair17b .fig svg { width:58mm; }
+.a .sm17b .fig svg { width:62mm; }
+.a .xs17b .fig svg { width:50mm; }
+table.t.t17b { font-size:9.4pt; margin:1mm 0; }
+table.t.t17b td, table.t.t17b th { padding:0.8mm 1.6mm; }
+</style>
+{{ahead:Lesson 17B | Binomial distributions}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> (i) \(X\sim B(9,\tfrac12)\) &emsp; (ii) A 5 or a 6 has probability \(\tfrac26=\tfrac13\), so \(X\sim B(12,\tfrac13)\). &emsp; (iii) There are 13 clubs, so \(X\sim B(1,\tfrac14)\).<br>
+<b>b</b> \(P(Y=0)=0.65\) and \(P(Y=1)=0.35\).<br>
+\(\mu=0\times0.65+1\times0.35=0.35\)<br>
+\(\sigma^2=(0^2\times0.65+1^2\times0.35)-0.35^2=0.35-0.1225=0.2275\)<br>
+\(\sigma=\sqrt{0.2275}\doteq0.477\) &emsp; (These agree with \(\mu=p\) and \(\sigma^2=pq=0.35\times0.65\).)<br>
+<b>Your turn.</b><br>
+<b>a</b> (i) \(X\sim B(15,\tfrac12)\) &emsp; (ii) \(X\sim B(10,\tfrac16)\) &emsp; (iii) \(X\sim B(1,\tfrac16)\)<br>
+<b>b</b> \(P(Y=0)=0.2\) and \(P(Y=1)=0.8\).<br>
+\(\mu=0\times0.2+1\times0.8=0.8\)<br>
+\(\sigma^2=(0^2\times0.2+1^2\times0.8)-0.8^2=0.8-0.64=0.16\)<br>
+\(\sigma=\sqrt{0.16}=0.4\)</div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b> Here \(q=1-p=0.8\).<br>
+<b>a</b> \(\mu=np=25\times0.2=5\), &ensp; \(\sigma^2=npq=25\times0.2\times0.8=4\), &ensp; \(\sigma=\sqrt4=2\)<br>
+<b>b</b> \(P(X=5)={}^{25}C_5\times(0.2)^5\times(0.8)^{20}\doteq0.196\)<br>
+<b>c</b> \(P(\mu-\sigma\le X\le\mu+\sigma)=P(3\le X\le7)={}^{25}C_3\,p^3q^{22}+{}^{25}C_4\,p^4q^{21}+{}^{25}C_5\,p^5q^{20}+{}^{25}C_6\,p^6q^{19}+{}^{25}C_7\,p^7q^{18}\doteq0.793\)<br>
+<b>d</b> For example, a student guesses every answer in a test of 25 multiple-choice questions, each with five options, and \(X\) is the number of correct answers.<br>
+<b>Your turn.</b> Here \(q=1-p=\tfrac23\).<br>
+<b>a</b> \(\mu=np=18\times\tfrac13=6\), &ensp; \(\sigma^2=npq=18\times\tfrac13\times\tfrac23=4\), &ensp; \(\sigma=\sqrt4=2\)<br>
+<b>b</b> \(P(X=6)={}^{18}C_6\times\big(\tfrac13\big)^6\times\big(\tfrac23\big)^{12}\doteq0.196\)<br>
+<b>c</b> \(P(\mu-\sigma\le X\le\mu+\sigma)=P(4\le X\le8)={}^{18}C_4\,p^4q^{14}+{}^{18}C_5\,p^5q^{13}+{}^{18}C_6\,p^6q^{12}+{}^{18}C_7\,p^7q^{11}+{}^{18}C_8\,p^8q^{10}\doteq0.791\)<br>
+<b>d</b> For example, a die is thrown 18 times, and \(X\) is the number of times it shows a 5 or a 6.</div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b> Here \(q=1-p=0.9\).<br>
+<b>a</b> \(\mu=np=400\times0.1=40\), &ensp; \(\sigma^2=npq=400\times0.1\times0.9=36\), &ensp; \(\sigma=6\)<br>
+<b>b</b> Put \(\sigma&lt;\dfrac{n}{100}\). Squaring, \(npq&lt;\dfrac{n^2}{10\,000}\), so \(n^2&gt;10\,000\times0.09\times n\). Hence \(n&gt;900\), because \(n\) is positive.<br>
+<b>c</b> Put \(\sigma&lt;3\). Squaring, \(400p(1-p)&lt;9\), so \(400p^2-400p+9&gt;0\). The roots of \(400p^2-400p+9=0\) are \(p=\dfrac{400\pm40\sqrt{91}}{800}=\tfrac12\pm\tfrac{1}{20}\sqrt{91}\), that is, \(p\doteq0.0230\) and \(p\doteq0.9770\). So \(p\) should be decreased to less than \(\tfrac12-\tfrac{1}{20}\sqrt{91}\) (roughly, less than 0.023). Yes: \(p\) can be increased to more than \(\tfrac12+\tfrac{1}{20}\sqrt{91}\) (roughly, more than 0.977).<br>
+<b>d</b> \(q=\dfrac{\sigma^2}{\mu}=\dfrac{6}{10}=0.6\), so \(p=0.4\), and \(n=\dfrac{\mu}{p}=\dfrac{10}{0.4}=25\).<br>
+<b>Your turn.</b> Here \(q=1-p=0.8\).<br>
+<b>a</b> \(\mu=np=225\times0.2=45\), &ensp; \(\sigma^2=npq=225\times0.2\times0.8=36\), &ensp; \(\sigma=6\)<br>
+<b>b</b> Put \(\sigma&lt;\dfrac{n}{50}\). Squaring, \(npq&lt;\dfrac{n^2}{2500}\), so \(n^2&gt;2500\times0.16\times n\). Hence \(n&gt;400\), because \(n\) is positive.<br>
+<b>c</b> Put \(\sigma&lt;3\). Squaring, \(225p(1-p)&lt;9\), so \(25p^2-25p+1&gt;0\). The roots of \(25p^2-25p+1=0\) are \(p=\dfrac{25\pm5\sqrt{21}}{50}=\tfrac12\pm\tfrac{1}{10}\sqrt{21}\), that is, \(p\doteq0.0417\) and \(p\doteq0.9583\). So \(p\) should be decreased to less than \(\tfrac12-\tfrac{1}{10}\sqrt{21}\) (roughly, less than 0.042). Yes: \(p\) can be increased to more than \(\tfrac12+\tfrac{1}{10}\sqrt{21}\) (roughly, more than 0.958).<br>
+<b>d</b> \(q=\dfrac{\sigma^2}{\mu}=\dfrac{3}{12}=\tfrac14\), so \(p=\tfrac34\), and \(n=\dfrac{\mu}{p}=\dfrac{12}{3/4}=16\).</div></div>
+<div class="a"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> \(\sigma_X^2=100\times\tfrac12\times\tfrac12=25\), so \(\sigma_X=5\). &ensp; \(\sigma_Y^2=100\times\tfrac15\times\tfrac45=16\), so \(\sigma_Y=4\). The ratio is \(\sigma_X:\sigma_Y=5:4\).<br>
+<b>b</b> \(X\) has \(p=\tfrac12\), so its distribution is symmetric about \(x=50\). \(Y\) has \(p&lt;\tfrac12\), so its distribution is skewed to the right (positive skewness), with its peak near \(\mu=20\).<br>
+<b>c</b> \(Z\sim B(100,\tfrac45)\), so \(\mu=100\times\tfrac45=80\) and \(\sigma=\sqrt{100\times\tfrac45\times\tfrac15}=4\). Its distribution is skewed to the left (negative skewness). Its graph is the graph for \(Y\) reflected in \(x=50\).<br>
+<b>Your turn.</b><br>
+<b>a</b> \(\sigma_X^2=48\times\tfrac12\times\tfrac12=12\), so \(\sigma_X=2\sqrt3\). &ensp; \(\sigma_Y^2=48\times\tfrac14\times\tfrac34=9\), so \(\sigma_Y=3\). The ratio is \(\sigma_X:\sigma_Y=2\sqrt3:3\) (about \(1.15:1\)).<br>
+<b>b</b> \(X\) has \(p=\tfrac12\), so its distribution is symmetric about \(x=24\). \(Y\) has \(p&lt;\tfrac12\), so its distribution is skewed to the right (positive skewness), with its peak near \(\mu=12\).<br>
+<b>c</b> \(Z\sim B(48,\tfrac34)\), so \(\mu=48\times\tfrac34=36\) and \(\sigma=\sqrt{48\times\tfrac34\times\tfrac14}=3\). Its distribution is skewed to the left (negative skewness). Its graph is the graph for \(Y\) reflected in \(x=24\).</div></div>
+<div class="a" style="break-inside:auto"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> Here \(p=q=\tfrac12\) and \(n=8\), so \(\mu=np=4\), &ensp; \(\sigma^2=npq=2\), &ensp; \(\sigma=\sqrt2\doteq1.41\).
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><th>\(P(X=x)\)</th><td>0.004</td><td>0.031</td><td>0.109</td><td>0.219</td><td>0.273</td><td>0.219</td><td>0.109</td><td>0.031</td><td>0.004</td></tr></table>
+<b>b</b> Each \(f_r=\dfrac{f}{100}\):
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><th>\(f_r\)</th><td>0</td><td>0.04</td><td>0.10</td><td>0.22</td><td>0.28</td><td>0.20</td><td>0.11</td><td>0.04</td><td>0.01</td></tr></table>
+\(\bar x=\dfrac{\sum xf}{\sum f}=\dfrac{404}{100}=4.04\) &ensp; and &ensp; \(s=\sqrt{\dfrac{\sum x^2f}{\sum f}-\bar x^2}=\sqrt{\dfrac{1846}{100}-4.04^2}\doteq1.46\)<br>
+<b>c</b><div class="pair17b">{{svg:a17b_d_th}}{{svg:a17b_d_sim}}</div>
+<b>Your turn.</b><br>
+<b>a</b> Here \(p=\tfrac26=\tfrac13\), \(q=\tfrac23\) and \(n=8\), so \(\mu=np=2.667\), &ensp; \(\sigma^2=npq=1.778\), &ensp; \(\sigma\doteq1.333\).
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><th>\(P(X=x)\)</th><td>0.039</td><td>0.156</td><td>0.273</td><td>0.273</td><td>0.171</td><td>0.068</td><td>0.017</td><td>0.002</td><td>0.000</td></tr></table>
+<b>b</b> Each \(f_r=\dfrac{f}{100}\):
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><th>\(f_r\)</th><td>0.05</td><td>0.15</td><td>0.29</td><td>0.26</td><td>0.16</td><td>0.07</td><td>0.02</td><td>0</td><td>0</td></tr></table>
+\(\bar x=\dfrac{\sum xf}{\sum f}=\dfrac{262}{100}=2.62\) &ensp; and &ensp; \(s=\sqrt{\dfrac{\sum x^2f}{\sum f}-\bar x^2}=\sqrt{\dfrac{868}{100}-2.62^2}\doteq1.35\)<br>
+<b>c</b><div class="pair17b">{{svg:a17b_y_th}}{{svg:a17b_y_sim}}</div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><b>a</b> No. The events are not independent: if it rains one day, it is more likely to rain the next day, because rainy days tend to come in groups.<br>
+<b>b</b> Yes, and \(X\) is the number of throws that were less than five (\(n=10\), \(p=\tfrac23\)).<br>
+<b>c</b> No. The possible number of trials is not fixed, and the stages are not independent, because if she wins, then the game stops.<br>
+<b>d</b> Yes. Let \(X\) be the number of tails turning up in 20 tosses. Then \(X\) is a random variable with a binomial distribution (\(n=20\), \(p=0.6\)).<br>
+<b>e</b> Strictly, the pens are not replaced, so the probability changes as each pen is removed and tested. If the population of pens is large, then \(p\) is almost constant with each selection, and it could be modelled with a binomial distribution.<br>
+<b>f</b> No. There are not two outcomes at each stage. It could be modified to ‘arrives on time’ or ‘takes less than 20 minutes’, but the events may still not be independent.<br>
+<b>g</b> Yes. Note that while the experiment is different at each stage, the stages are independent and have the same probability 0.01 of success (\(n=50\), \(p=0.01\)).</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><b>a</b>
+<table class="t t17b"><tr><th>Number of heads</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>Total</td></tr>
+<tr><th>Number of ways</th><td>1</td><td>6</td><td>15</td><td>20</td><td>15</td><td>6</td><td>1</td><td>64</td></tr>
+<tr><th>Probability</th><td>\(\tfrac{1}{64}\)</td><td>\(\tfrac{6}{64}\)</td><td>\(\tfrac{15}{64}\)</td><td>\(\tfrac{20}{64}\)</td><td>\(\tfrac{15}{64}\)</td><td>\(\tfrac{6}{64}\)</td><td>\(\tfrac{1}{64}\)</td><td>1</td></tr></table>
+<b>b</b> 3 heads<br>
+<b>c</b> \(\mu=\sum xp=3\), &ensp; variance \(=\sum x^2p-\mu^2=10.5-9=1.5\)<br>
+<b>d</b> \(np=6\times\tfrac12=3\) and \(npq=6\times\tfrac12\times\tfrac12=1.5\). The results agree.<br>
+<b>e</b> The distribution is symmetric, thus the centre of the distribution is exactly at the midpoint.</div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>a</b>
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th>\(P(X=x)\)</th><td>\(\tfrac{1}{32}\)</td><td>\(\tfrac{5}{32}\)</td><td>\(\tfrac{10}{32}\)</td><td>\(\tfrac{10}{32}\)</td><td>\(\tfrac{5}{32}\)</td><td>\(\tfrac{1}{32}\)</td></tr></table>
+mode \(=2\) or 3, &ensp; mean \(=\tfrac52\), &ensp; SD \(=\tfrac{\sqrt5}{2}\)<br>
+<b>b</b>
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th>\(P(X=x)\)</th><td>\(\tfrac{32}{243}\)</td><td>\(\tfrac{80}{243}\)</td><td>\(\tfrac{80}{243}\)</td><td>\(\tfrac{40}{243}\)</td><td>\(\tfrac{10}{243}\)</td><td>\(\tfrac{1}{243}\)</td></tr></table>
+mode \(=1\) or 2, &ensp; mean \(=\tfrac53\), &ensp; SD \(=\tfrac{\sqrt{10}}{3}\)<br>
+<b>c</b>
+<table class="t t17b"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th>\(P(X=x)\)</th><td>0.269</td><td>0.404</td><td>0.242</td><td>0.073</td><td>0.011</td><td>0.001</td></tr></table>
+mode \(=1\), &ensp; mean \(\doteq1.154\), &ensp; SD \(\doteq0.942\)</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> The expected value is 9.6 wins and the standard deviation is 2.4.<br><b>b</b> Larry’s result is 1.5 standard deviations below the mean.</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>a</b> 0.263 (about 26%); \(\text{E}(X)=1\), \(\sigma\doteq0.91\)<br><b>b</b> (i) 0.619 (about 62%); \(\text{E}(X)=2\), \(\sigma\doteq1.29\) &emsp; (ii) 0.927 (about 93%); \(\text{E}(X)=4\), \(\sigma\doteq1.83\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> right skewed (positively) &ensp; <b>b</b> mean 12, standard deviation 3<br>
+<b>c</b> The mode is 12, which has a probability of about 0.13.<br>
+<b>d</b> Shade the region bounded by \([6,18]\) on the horizontal axis.<br>
+<b>e</b> This is the graph for \(p=0.25\) reflected horizontally in \(x=24\).<div class="sm17b">{{svg:a17b_q6e}}</div></div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> \(\text{E}(X)=12\). This is the number a student might expect to get right by guessing alone.<br>
+<b>b</b> 3 &ensp; <b>c</b> 4 &ensp; <b>d</b> \(\text{E}(Y)=20\), \(\sigma=4\)<br>
+<b>e</b> This time she is five standard deviations above the mean, which is even more unusual than her previous result.<br>
+<b>f</b> 75% is 36 out of 48, which is 8 standard deviations above the mean. 60% is 60 out of 100, which is 10 standard deviations above the mean. Thus it should be harder to get 60% in the second test than 75% in the first, just by chance. Note, however, that both results are almost impossible to achieve just by guessing.</div></div>
+<div class="a"><span class="an">9</span><div class="ab">Team A: \(\mu=35\), \(\sigma\doteq3.24\), and 45 is about \(3.09\sigma\) above the mean.<br>
+Team B: \(\mu=63\), \(\sigma\doteq4.35\), and 74 is about \(2.53\sigma\) above the mean.<br>
+Thus Team A’s changes to the drug’s delivery have shown stronger evidence for an improvement. Further trials should be carried out to check the validity of this result (see Section 17D on sampling).</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> mean \(=15\), standard deviation \(\doteq3.57\)<br><b>b</b> That is, the probability of 14, 15 or 16 people voting WTP. This is about 0.325 (32.5%).</div></div>
+<div class="a"><span class="an">11</span><div class="ab"><b>a</b> \(\sigma^2=np(1-p)=-np^2+np\)
+<div class="xs17b">{{svg:a17b_q11}}</div>
+<b>b</b> It is a parabola, symmetric in its axis of symmetry \(p=\tfrac12\). Replacing \(p\) by \(1-p\) swaps \(p\) and \(q\), and leaves \(npq\) unchanged.<br>
+<b>d</b> The maximum is the vertex, occurring halfway between the roots \(p=0\) and \(p=1\), that is, at \(p=\tfrac12\), where \(\sigma^2=n\times\tfrac12\times\tfrac12=\tfrac n4\).<br>
+<b>e</b> It is clear from the quadratic graph in part <b>a</b>, and \(\sigma=\sqrt{\sigma^2}\) has the same behaviour.</div></div>
+<div class="a"><span class="an">14</span><div class="ab"><b>d</b> If an experiment testing a certain result is repeated enough times, it is to be expected that the hypothesis will be upheld eventually. If 99 times it fails and once it succeeds, then only publishing the success gives a skewed picture of the truth.</div></div>
+<div class="a"><span class="an">15</span><div class="ab"><b>a</b> (iii) \(\mu=\dfrac1p\)<br>
+<b>b</b> The probability of being chosen is \(p=\tfrac{1}{20}\), thus the mean waiting time is \(\mu=\dfrac1p=20\) time periods, or \(5\times20=100\) minutes.</div></div>
+
+{{ahead:Lesson 17B | Binomial distributions}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q1</span></span></div>
+<p>Here \(n=12\), \(p=0.7\) and \(q=0.3\). Then</p>
+\[\mu=np=12\times0.7=8.4\qquad\text{and}\qquad\sigma^2=npq=12\times0.7\times0.3=2.52.\]
+<p><b>Answer B.</b> The value 1.59 in A and C is about \(\sqrt{2.52}\), the standard deviation, not the variance, and 12 in C and D is \(n\), not the mean.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q6</span></span></div>
+<p>The formula is \({}^{15}C_k\,p^kq^{15-k}\) with \(p=0.29\) and \(q=0.71\), so \(X\sim B(15,0.29)\). Then</p>
+\[\mu=np=15\times0.29=4.35.\]
+<p><b>Answer C.</b> Options A and B are \(p\) and \(q\), and \(10.65=15\times0.71\) in D is the mean number of failures.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Blacktown Boys' High School, 2023, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q5</span></span></div>
+<p>We have \(np=225\) and \(npq=144\). Dividing the second equation by the first,</p>
+\[q=\frac{144}{225}=0.64,\qquad\text{so}\qquad p=1-0.64=0.36.\]
+<p><b>Answer D.</b> Option B is the value of \(q\), not \(p\). (Also \(n=225\div0.36=625\), a whole number.)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)(i)(ii)</span></span></div>
+<p>Here \(X\sim B(10\,000,\,0.8)\), so \(n=10\,000\), \(p=0.8\) and \(q=0.2\).</p>
+<p><b>(i)</b> \(E(X)=np=10\,000\times0.8=8000\)</p>
+<p><b>(ii)</b> \(\text{Var}(X)=npq=10\,000\times0.8\times0.2=1600\), so the standard deviation is \(\sigma=\sqrt{1600}=40\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)(ii)</span></span></div>
+<p>Each roll is a Bernoulli trial with ‘success’ a sum of 7, so the number \(X\) of 7s in 30 rolls has \(X\sim B(30,\tfrac16)\). Then</p>
+\[\text{E}(X)=np=30\times\tfrac16=5\qquad\text{and}\qquad\text{Var}(X)=np(1-p)=30\times\tfrac16\times\tfrac56=\tfrac{25}{6}\ (\doteq4.17).\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(c)(i)</span></span></div>
+<p>The probability that a student studies Mathematics Extension 1 is \(p=0.23\). Since \(p&lt;0.5\), the distribution is positively skewed (skewed to the right): the peak is on the left, near the mean \(np\), and there is a longer tail on the right-hand side.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>Knox Grammar School, 2022, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q6</span></span></div>
+<p>The mean is \(np=0.2n\) and the standard deviation is \(\sqrt{npq}=\sqrt{n\times0.2\times0.8}=0.4\sqrt n\). So</p>
+\[0.2n=2\times0.4\sqrt n,\qquad 0.2n=0.8\sqrt n,\qquad \sqrt n=4\ (\text{since }n\ne0),\qquad n=16.\]
+<p><b>Answer D.</b> (Check: the mean is 3.2 and the standard deviation is \(\sqrt{2.56}=1.6\).)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 8</span>Blacktown Boys' High School, 2022, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(d)</span></span></div>
+<p>Here \(X\sim B(30,\tfrac12)\), so \(\mu=np=15\), \(\sigma^2=npq=30\times\tfrac12\times\tfrac12=7.5\) and \(\sigma=\sqrt{7.5}\doteq2.739\).</p>
+\[\begin{aligned}P(\mu-\sigma\le X\le\mu+\sigma)&amp;=P(12.261\le X\le17.739)\\&amp;=P(X=13,\,14,\,15,\,16\text{ or }17)\\&amp;=\big({}^{30}C_{13}+{}^{30}C_{14}+{}^{30}C_{15}+{}^{30}C_{16}+{}^{30}C_{17}\big)\big(\tfrac12\big)^{30}\\&amp;\doteq0.638\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 9</span>Sydney Technical High School, 2023, Extension&nbsp;1 Mathematics, Trial HSC,&nbsp;Q12(a)</span></div>
+<p><b>(i)</b> \(\mu=np=12\) and \(\sigma^2=npq=4\), where \(q=1-p\). Dividing,</p>
+\[\frac{npq}{np}=\frac{4}{12},\qquad q=\tfrac13,\qquad\text{so}\qquad p=1-\tfrac13=\tfrac23.\]
+<p><b>(ii)</b> \(np=12\), so \(n=12\div\tfrac23=18\).</p>
+<p><b>(iii)</b> For example, a six-sided die is rolled 18 times and \(X\) is the number of times it shows a number greater than 2 (that is, 3, 4, 5 or 6, with probability \(\tfrac46=\tfrac23\) on each roll).</p>
+<p><b>(iv)</b> \(X\sim B(18,\tfrac23)\), so</p>
+\[P(X=4)={}^{18}C_4\big(\tfrac23\big)^4\big(\tfrac13\big)^{14}=\frac{3060\times2^4}{3^{18}}\doteq0.000\,126.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 10</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span></div>
+<p><b>(i)</b> There are \(8+k\) marbles, and 3 of them are blue, so \(P(\text{blue})=\dfrac{3}{8+k}\).</p>
+<p><b>(ii)</b> The marble is replaced each time, so \(X\sim B\big(4,\tfrac{3}{8+k}\big)\), with \(q=1-\dfrac{3}{8+k}=\dfrac{5+k}{8+k}\). Then</p>
+\[\text{Var}(X)=npq=4\times\frac{3}{8+k}\times\frac{5+k}{8+k}=\frac{12(5+k)}{(8+k)^2}.\]
+<p>Multiplying the inequality by \((8+k)^2&gt;0\),</p>
+\[\begin{aligned}\frac{12(5+k)}{(8+k)^2}&amp;&lt;0.8\\60+12k&amp;&lt;0.8(64+16k+k^2)\\0&amp;&lt;0.8k^2+0.8k-8.8\\k^2+k-11&amp;&gt;0.\end{aligned}\]
+<p>The roots of \(k^2+k-11=0\) are \(k=\dfrac{-1\pm\sqrt{45}}{2}\), that is, \(k\doteq-3.85\) and \(k\doteq2.85\). Since \(k\ge0\), we need \(k&gt;2.85\), and \(k\) is a whole number, so the smallest value is \(k=3\).</p>
+<p>(Check: \(k=2\) gives \(\text{Var}(X)=\tfrac{12\times7}{100}=0.84\), and \(k=3\) gives \(\text{Var}(X)=\tfrac{12\times8}{121}\doteq0.793\).)</p></div>
