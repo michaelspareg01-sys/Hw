@@ -30,7 +30,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.environ.get("Y11CH15_SRC", os.path.join(HERE, "..", "build", "y11ch15"))
 FAILS = []
 x, y, a, c, z, k = sp.symbols("x y a c z k")
-SYMS = {"x": x, "y": y, "a": a, "c": c, "z": z, "k": k, "sqrt": sp.sqrt}
+SYMS = {"x": x, "y": y, "a": a, "c": c, "z": z, "k": k, "sqrt": sp.sqrt, "binomial": sp.binomial}
 TR = standard_transformations + (implicit_multiplication_application,)
 
 
@@ -65,9 +65,18 @@ def _conv(s):
             p, i = _arg(s, i)
             q, i = _arg(s, i)
             out.append(f"(({_conv(p)})/({_conv(q)}))")
+        elif s.startswith("\\sqrt[", i):          # n-th root \sqrt[n]{...}
+            j = s.index("]", i)
+            nth = s[i + 6:j]
+            p, i = _arg(s, j + 1)
+            out.append(f"(({_conv(p)})**(1/({nth})))")
         elif s.startswith("\\sqrt", i):
             p, i = _arg(s, i + 5)
             out.append(f"sqrt({_conv(p)})")
+        elif s.startswith("\\dbinom", i):
+            p, i = _arg(s, i + 7)
+            q, i = _arg(s, i)
+            out.append(f"binomial({_conv(p)},{_conv(q)})")
         elif s.startswith("\\boxed", i):
             p, i = _arg(s, i + 6)
             out.append(f"({_conv(p)})")
@@ -297,6 +306,38 @@ for q in (r"\((1+3a)^4\)", r"<b>b</b> \((1-x)^5\)<br>", r"\(\big(1-\tfrac12x\big
           r"Expand \(\big(1+x+x^2\big)^3\)", r"Expand \(\big(1+x-x^2\big)^3\)"):
     report(les.count(q) == 1, "lesson question", f"{q} appears {les.count(q)} time(s)")
 
+# ================================================================ lesson concept 1: displayed table and column expansions
+try:
+    tbl = re.search(r'<table class="t pt"[^>]*>(.*?)</table>', les, re.S).group(1)
+    rows = re.findall(r"<tr><th>(\d+)</th>(.*?)</tr>", tbl, re.S)
+    ok = [int(n) for n, _ in rows] == list(range(9))
+    for n, cells in rows:
+        vals = [int(v) for v in re.findall(r"<td>(?:<b>)?(\d+)(?:</b>)?</td>", cells)]
+        blanks = len(re.findall(r"<td></td>", cells))
+        ok &= vals == [comb(int(n), r) for r in range(int(n) + 1)] and blanks == 8 - int(n)
+        ok &= vals == [power(1 + x, int(n)).coeff(x, r) for r in range(int(n) + 1)]
+    report(ok, "lesson Pascal table rows 0-8", f"{len(rows)} rows checked against comb and expand")
+except Exception as err:
+    report(False, "lesson Pascal table", f"ERROR {err}")
+cols = re.findall(r"\\\[\(1\+x\)\^(\d)=1\(1\+x\)(?:\^(\d))?\+x\(1\+x\)(?:\^(\d))?\\\]\s*\\\[\\begin\{alignedat\}\{\d\}(.*?)\\end\{alignedat\}\\\]", les, re.S)
+report(sorted(int(c_[0]) for c_ in cols) == [2, 3, 4], "lesson column expansions found", f"n = {[c_[0] for c_ in cols]}")
+for n, e1_, e2_, body in cols:
+    n = int(n)
+    try:
+        hdr_ok = int(e1_ or 1) == n - 1 and int(e2_ or 1) == n - 1
+        r = [re.sub(r"[&=]", "", row).replace("{}", "") for row in body.split(r"\\")]
+        top, mid, bot = (tex(v) for v in r)
+        ok = hdr_ok and same(top, power(1 + x, n - 1)) and same(mid, x * power(1 + x, n - 1)) and same(bot, power(1 + x, n)) and same(top + mid, bot)
+        report(ok, f"lesson (1+x)^{n} in columns", " | ".join(r))
+    except Exception as err:
+        report(False, f"lesson (1+x)^{n} in columns", f"ERROR {err}")
+# the boxed numbers of the addition property: boxed 1 and 3 in the x^3 column add to the boxed 4
+try:
+    boxed = [int(b) for b in re.findall(r"\\boxed\{(\d+)\}", les)]
+    report(boxed == [1, 3, 4] and power(1 + x, 3).coeff(x, 3) + power(1 + x, 3).coeff(x, 2) == power(1 + x, 4).coeff(x, 3) == 4, "lesson boxed 1 + 3 = 4", f"{boxed}")
+except Exception as err:
+    report(False, "lesson boxed", f"ERROR {err}")
+
 # ================================================================ worked examples (textbook Examples 1-5)
 try:
     w1 = WORKED[1]
@@ -448,30 +489,78 @@ try:
 except Exception as err:
     report(False, "PP structure", f"ERROR {err}")
 
-# PP1 (2x - 1)^3, MC
+def mc(pp, expected, pattern):
+    """The printed letter must be the one option whose value equals expected."""
+    try:
+        opts = dict(re.findall(pattern, PPQ[pp]))
+        good = [L for L, v in opts.items() if same(tex(v), expected)]
+        (letter,) = grab(PPA[pp], "<b>Answer (@).</b>", f"PP {pp}")
+        report(len(opts) == 4 and good == [letter], f"PP{pp} MC letter", f"printed {letter}, option(s) equal to {expected}: {good}")
+    except Exception as err:
+        report(False, f"PP{pp} MC letter", f"ERROR {err}")
+
+
+PAREN = r"<span>\(([A-D])\) \\\((.+?)\\\)</span>"
+DOT = r"<span>([A-D])\. \\\((.+?)\\\)</span>"
+
+# PP1 Kings: (2x - 1)^3
 e1 = power(2 * x - 1, 3)
 check_chain("PP", 1, r"\[(1-2x)^3=@.\]", power(1 - 2 * x, 3))
 check("PP", 1, r"Hence \((2x-1)^3=@\).", e1)
+mc(1, e1, PAREN)
+# PP2 Ascham: coefficient of the fourth term of (3x - 4)^6 (7 terms, so the 4th is the middle term from either end)
+e2 = power(3 * x - 4, 6)
+desc = [e2.coeff(x, 6 - j) for j in range(7)]
+asc = [e2.coeff(x, j) for j in range(7)]
+report(desc[3] == asc[3], "PP2 fourth term is the same from either end", f"{desc[3]}")
+check("PP", 2, r"so \((3x-4)^6=(-4)^6\Big(1-\dfrac{3x}{4}\Big)^6=@\Big(1-\dfrac{3x}{4}\Big)^6\)", sp.Integer(4) ** 6)
+check_chain("PP", 2, r"\[4096\times20\Big(-\dfrac{3x}{4}\Big)^3=@.\]", term(e2, 3))
+check("PP", 2, r"fourth term is \(@\). <b>", desc[3])
+mc(2, desc[3], DOT)
+# PP3 NSB: coefficient of x^3 in (a + x)^6 is 1280
+c3 = power(a + x, 6).coeff(x, 3)
+sol3 = [r for r in sp.solve(sp.Eq(c3, 1280), a) if r.is_real]
+check("PP", 3, r"the term in \(x^3\) is \(x^6\times\dfrac{20a^3}{x^3}=@\).</p>", term(power(a + x, 6), 3))
+check("PP", 3, r"so \(a^3=@\) and", sp.Integer(1280) / (c3 / a ** 3))
+check("PP", 3, r"and \(a=@\). <b>", sol3[0] if len(sol3) == 1 else sp.nan)
+mc(3, sol3[0], DOT)
+# PP4 Girraween 2021: coefficients of x and x^2 in (2x + k)^6 equal
+e4g = power(2 * x + k, 6)
+check("PP", 4, r"so it is \(64x^6\times\dfrac{6k^5}{32x^5}=@\).</p>", term(e4g, 1))
+check("PP", 4, r"so it is \(64x^6\times\dfrac{15k^4}{16x^4}=@\).</p>", term(e4g, 2))
+ks4 = set(sp.solve(sp.Eq(e4g.coeff(x, 1), e4g.coeff(x, 2)), k))
 try:
-    opts = dict(re.findall(r"<span>\(([A-D])\) \\\((.+?)\\\)</span>", PPQ[1]))
-    good = [L for L, v in opts.items() if same(tex(v), e1)]
-    (letter,) = grab(PPA[1], "<b>Answer (@).</b>", "PP 1")
-    report(len(opts) == 4 and good == [letter], "PP1 MC letter", f"printed {letter}, option(s) equal to the expansion {good}")
+    g = grab(PPA[4], r"so \(k=@\) or \(k=@\). None", "PP 4")
+    report({tex(v) for v in g} == ks4, "PP4 solutions", f"printed {g}, solve gives {ks4}")
 except Exception as err:
-    report(False, "PP1 MC letter", f"ERROR {err}")
-# PP2 Moriah: (1 + x)^3, coefficient of x^4 in (2x - 1)^2 (1 + x)^3
-check("PP", 2, r"so \((1+x)^3=@\).</p>", power(1 + x, 3))
-check("PP", 2, r"First \((2x-1)^2=@\), so", power(2 * x - 1, 2))
-check("PP", 2, r"coefficient of \(x^4\) is \(12-4=@\).", sp.expand(power(2 * x - 1, 2) * power(1 + x, 3)).coeff(x, 4))
-# PP3 SGS: (x - 2/x)^4
-check("PP", 3, r"\Big)^4=1+4\Big(-\dfrac{2}{x^2}\Big)+6\Big(-\dfrac{2}{x^2}\Big)^2+4\Big(-\dfrac{2}{x^2}\Big)^3+\Big(-\dfrac{2}{x^2}\Big)^4=@.\]", power(1 - 2 / x ** 2, 4))
-check("PP", 3, r"\[\Big(x-\dfrac2x\Big)^4=@.\]", power(x - 2 / x, 4))
-# PP4 Abbotsleigh: coefficient of x^6 in (3x^2 - 2a)^5
-e4p = power(3 * x ** 2 - 2 * a, 5)
-check("PP", 4, r"\[243x^{10}\times\dfrac{40a^2}{9x^4}=@,\]", term(e4p, 6))
-check("PP", 4, r"the coefficient of \(x^6\) is \(@\).", e4p.coeff(x, 6))
-check("PP", 4, r"10\Big(-\dfrac{2a}{3x^2}\Big)^2=@\). So", term(power(1 - 2 * a / (3 * x ** 2), 5), -4))
-check_chain("PP", 4, r"the term is \(@\).)</p>", term(e4p, 6))
+    report(False, "PP4 solutions", f"ERROR {err}")
+mc(4, sp.Integer(5), PAREN)
+report(sp.Integer(0) not in [tex(v) for v in re.findall(r"<span>\([A-D]\) \\\((.+?)\\\)</span>", PPQ[4])], "PP4 options", "0 is not an option, so 5 is the only listed solution")
+# PP5 Moriah: (1 + x)^3, coefficient of x^4 in (2x - 1)^2 (1 + x)^3
+check("PP", 5, r"so \((1+x)^3=@\).</p>", power(1 + x, 3))
+check("PP", 5, r"First \((2x-1)^2=@\), so", power(2 * x - 1, 2))
+check("PP", 5, r"coefficient of \(x^4\) is \(12-4=@\).", sp.expand(power(2 * x - 1, 2) * power(1 + x, 3)).coeff(x, 4))
+# PP6 SGS: (x - 2/x)^4
+check("PP", 6, r"\Big)^4=1+4\Big(-\dfrac{2}{x^2}\Big)+6\Big(-\dfrac{2}{x^2}\Big)^2+4\Big(-\dfrac{2}{x^2}\Big)^3+\Big(-\dfrac{2}{x^2}\Big)^4=@.\]", power(1 - 2 / x ** 2, 4))
+check("PP", 6, r"\[\Big(x-\dfrac2x\Big)^4=@.\]", power(x - 2 / x, 4))
+# PP7 Girraween 2023: constant term of (x + 2/x)^6
+check("PP", 7, r"fourth term, \(20\Big(\dfrac{2}{x^2}\Big)^3=@\).", term(power(1 + 2 / x ** 2, 6), -6))
+check("PP", 7, r"the constant term is \(@\).</p>", power(x + 2 / x, 6).coeff(x, 0))
+# PP8 Abbotsleigh: coefficient of x^6 in (3x^2 - 2a)^5
+e8 = power(3 * x ** 2 - 2 * a, 5)
+check("PP", 8, r"\[243x^{10}\times\dfrac{40a^2}{9x^4}=@,\]", term(e8, 6))
+check("PP", 8, r"the coefficient of \(x^6\) is \(@\).", e8.coeff(x, 6))
+check("PP", 8, r"10\Big(-\dfrac{2a}{3x^2}\Big)^2=@\). So", term(power(1 - 2 * a / (3 * x ** 2), 5), -4))
+# PP9 Normanhurst Boys 2022: constant term of (3x - 1/x^2)^6, also as C(6,2) 3^4
+e9 = power(3 * x - 1 / x ** 2, 6)
+check("PP", 9, r"third term, \(15\Big(-\dfrac{1}{3x^3}\Big)^2=@\).", term(power(1 - 1 / (3 * x ** 3), 6), -6))
+try:
+    (g,) = grab(PPA[9], r"\[729\times\dfrac{15}{9}=@.\]", "PP 9")
+    vals = [s_ for s_ in g.split("=")]
+    ok = len(vals) == 2 and same(tex(vals[0]), e9.coeff(x, 0)) and same(tex(vals[1]), e9.coeff(x, 0)) and "\\dbinom62" in vals[1] and comb(6, 2) * 3 ** 4 == e9.coeff(x, 0)
+    report(ok, "PP9 constant term", f"printed {g}, computed {e9.coeff(x, 0)}")
+except Exception as err:
+    report(False, "PP9 constant term", f"ERROR {err}")
 
 print(f"\n{len(FAILS)} problem(s)" if FAILS else "\nAll OK")
 sys.exit(1 if FAILS else 0)

@@ -84,7 +84,7 @@ class Fig:
 def fig_15a():
     from math import comb
     # Pascal's triangle in the equilateral layout, rows 0 to 8, with the addition property 3 + 1 = 4 marked
-    dx, dy, top, cx = 31, 19, 14, 186
+    dx, dy, top, cx = 31, 18, 12, 186
     f = Fig(330, top + 8 * dy + 14)
     pos = {}
     for n in range(9):
