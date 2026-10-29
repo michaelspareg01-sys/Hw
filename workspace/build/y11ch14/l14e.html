@@ -1,1 +1,388 @@
-<!-- filled by Task 6 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 14E</div><h2>Counting unordered selections</h2>
+<div class="focus">This lesson turns from the ordered selections of the previous three lessons to the counting of unordered selections. An unordered selection of distinct objects chosen from a certain set is just a subset of the set. So given a set \(S\) with \(n\) members, there are two basic questions to ask: how many subsets does \(S\) have altogether, and how many \(r\)-member subsets does \(S\) have, for \(r=0,1,\ldots,n\)?</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:counting the subsets of a set}}
+<div class="box concept"><div class="bt">An example of the result</div>
+<p>Let \(S\) be the five-member set \(S=\{\mathrm{A},\mathrm{B},\mathrm{C},\mathrm{D},\mathrm{E}\}\). Here is the list of all the subsets of \(S\), arranged by the number of members:</p>
+<table class="t subsets" style="font-size:10pt;width:100%"><colgroup><col style="width:9mm"><col style="width:36mm"><col></colgroup>
+<tr><td>1</td><td style="white-space:nowrap">0-member subset:</td><td style="text-align:left">\(\varnothing\)</td></tr>
+<tr><td>5</td><td style="white-space:nowrap">1-member subsets:</td><td style="text-align:left"><span style="white-space:nowrap">{A}</span>, <span style="white-space:nowrap">{B}</span>, <span style="white-space:nowrap">{C}</span>, <span style="white-space:nowrap">{D}</span>, <span style="white-space:nowrap">{E}</span></td></tr>
+<tr><td>10</td><td style="white-space:nowrap">2-member subsets:</td><td style="text-align:left"><span style="white-space:nowrap">{A, B}</span>, <span style="white-space:nowrap">{A, C}</span>, <span style="white-space:nowrap">{A, D}</span>, <span style="white-space:nowrap">{A, E}</span>, <span style="white-space:nowrap">{B, C}</span>, <span style="white-space:nowrap">{B, D}</span>, <span style="white-space:nowrap">{B, E}</span>, <span style="white-space:nowrap">{C, D}</span>, <span style="white-space:nowrap">{C, E}</span>, <span style="white-space:nowrap">{D, E}</span></td></tr>
+<tr><td>10</td><td style="white-space:nowrap">3-member subsets:</td><td style="text-align:left"><span style="white-space:nowrap">{A, B, C}</span>, <span style="white-space:nowrap">{A, B, D}</span>, <span style="white-space:nowrap">{A, B, E}</span>, <span style="white-space:nowrap">{A, C, D}</span>, <span style="white-space:nowrap">{A, C, E}</span>, <span style="white-space:nowrap">{A, D, E}</span>, <span style="white-space:nowrap">{B, C, D}</span>, <span style="white-space:nowrap">{B, C, E}</span>, <span style="white-space:nowrap">{B, D, E}</span>, <span style="white-space:nowrap">{C, D, E}</span></td></tr>
+<tr><td>5</td><td style="white-space:nowrap">4-member subsets:</td><td style="text-align:left"><span style="white-space:nowrap">{A, B, C, D}</span>, <span style="white-space:nowrap">{A, B, C, E}</span>, <span style="white-space:nowrap">{A, B, D, E}</span>, <span style="white-space:nowrap">{A, C, D, E}</span>, <span style="white-space:nowrap">{B, C, D, E}</span></td></tr>
+<tr><td>1</td><td style="white-space:nowrap">5-member subset:</td><td style="text-align:left"><span style="white-space:nowrap">{A, B, C, D, E}</span></td></tr>
+</table>
+<p>This makes \(1+5+10+10+5+1=32\) subsets altogether. We will now establish the general results by finding clear reasons for these results.</p></div>
+<div class="box concept"><div class="bt">How many subsets does \(S\) have altogether?</div>
+<p>Choosing a subset of \(S\) requires looking at each member of \(S\) in turn and deciding whether to include it in the subset or not. Let us write the code Y for ‘Yes’ if it is included, and N for ‘No’ if it is not included. Using this code, each subset of \(S\) corresponds to a five-letter word made up of Ys and Ns. For example,</p>
+<p style="margin-left:8mm">YYNYN \(\longleftrightarrow\) {A, B, D} &nbsp;&nbsp;and&nbsp;&nbsp; NNNNY \(\longleftrightarrow\) {E}.</p>
+<p>We can now use this code to count the total number of subsets. Thus we are counting the number of 5-letter words made up only of Ys and Ns:</p>
+\[\begin{aligned}\text{Total number of subsets}&=\text{number of 5-letter words made up of Ys and Ns}\\ &=2^5\\ &=32.\end{aligned}\]</div>
+<div class="box concept"><div class="bt">How many 3-member subsets does \(S\) have?</div>
+<p>We can also use the code to count the number of 3-member subsets, because that is the number of 5-letter words consisting of 3 Ys and 2 Ns (Box 11 of Lesson 14D):</p>
+\[\begin{aligned}\text{Number of 3-member subsets}&=\text{number of 5-letter words with 3 Ys and 2 Ns}\\ &=\dfrac{5!}{3!\times2!}\\ &=10.\end{aligned}\]</div>
+<div class="box concept"><div class="bt">The general formulae and the notation</div>
+<p>These two results are easily generalised to any finite set \(S\) with \(n\) elements:</p>
+\[\begin{aligned}\text{total number of subsets}&=2^n\\ \text{number of }r\text{-member subsets}&=\dfrac{n!}{r!\,(n-r)!},\ \text{ for }r=0,1,\ldots,n.\end{aligned}\]
+<p>The notation \({}^{n}\mathrm{C}_{r}\), or alternatively \(\dbinom{n}{r}\), is used for the number of \(r\)-member subsets of \(S\). Both are spoken as ‘\(n\) choose \(r\)’. Summarising all this:</p></div>
+<div class="box formula"><div class="bt">Box 12 &nbsp;Counting the subsets of a set</div>
+<p>Suppose that \(S\) is a finite set with \(n\) elements, and suppose that \(0\le r\le n\).</p>
+<ul><li>Total number of subsets of \(S=2^n\).</li>
+<li>Number of \(r\)-member subsets of \(S={}^{n}\mathrm{C}_{r}=\dfrac{n!}{r!\,(n-r)!}\).</li>
+<li>\({}^{n}\mathrm{C}_{0}+{}^{n}\mathrm{C}_{1}+{}^{n}\mathrm{C}_{2}+\cdots+{}^{n}\mathrm{C}_{n}=2^n\).</li></ul>
+<p>The symbol \({}^{n}\mathrm{C}_{r}\) or \(\dbinom{n}{r}\), both spoken as ‘\(n\) choose \(r\)’, denotes the number of \(r\)-subsets of an \(n\)-member set, where \(0\le r\le n\).</p></div>
+<p>The last bullet point follows because LHS and RHS are both counting the total number of subsets of \(S\).</p>
+<p>The notations \({}^{n}\mathrm{P}_{r}\) and \({}^{n}\mathrm{C}_{r}\) are intended to be similar. The letter C stands for ‘combination’ (which is an old term for ‘unordered selection’), just as the letter P stands for ‘permutation’. By a convenient, but false, etymology, the letter C also stands for ‘Choose’, which is the origin of the more recent convention of saying ‘\(n\) choose \(r\)’ for \({}^{n}\mathrm{C}_{r}\).</p>
+<p>Scientific calculators have a button labelled \({}^{n}\mathrm{C}_{r}\) which will find values of \({}^{n}\mathrm{C}_{r}\). For low values of \(n\) and \(r\), the answers are exact, but for high values they are only approximations. As with \({}^{n}\mathrm{P}_{r}\), however, you should make a practice of evaluating these numbers by hand when it is reasonable to do so, because such calculations greatly help the intuition.</p>
+<div class="box concept"><div class="bt">A proof moving from ordered selections to unordered selections</div>
+<p>There is another way to prove the formula for \({}^{n}\mathrm{C}_{r}\). In Lesson 14B we saw that the number of three-letter words formed without repetition from the five letters A, B, C, D and E is \({}^{5}\mathrm{P}_{3}=5\times4\times3=60\). When we turn to unordered selections, however, there are six distinct words which all correspond, for example, to the three-member subset {B, C, E}:</p>
+<p style="margin-left:8mm">BCE, BEC, CBE, CEB, EBC, ECB \(\longleftrightarrow\) {B, C, E}</p>
+<p>The reason for this is that there are \({}^{3}\mathrm{P}_{3}=3\times2\times1=6\) ways of ordering the subset {B, C, E}. Thus the correspondence between three-letter words and three-member subsets is many-to-one, with a six-fold overcounting. Hence the number of three-member subsets is \(60\div6=10\), as required.</p>
+<p>In general, \({}^{n}\mathrm{P}_{r}=\dfrac{n!}{(n-r)!}\) words of \(r\) letters can be formed without repetition from the members of an \(n\)-member set \(S\). But every \(r\)-member subset can be ordered in \({}^{r}\mathrm{P}_{r}=r!\) ways, so the correspondence between the ordered selections and the unordered selections is many-to-one with overcounting by a factor of \(r!\). Hence the number of (unordered) \(r\)-member subsets of the set \(S\) is</p>
+\[{}^{n}\mathrm{P}_{r}\div{}^{r}\mathrm{P}_{r}=\dfrac{n!}{(n-r)!}\div r!=\dfrac{n!}{r!\times(n-r)!}={}^{n}\mathrm{C}_{r}.\]</div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Counting subsets and calculating \({}^{n}\mathrm{C}_{r}\)</span></div><div class="ex-body">
+Let \(T=\{1,2,3,4,5,6\}\).<br>
+<b>a</b> How many subsets does \(T\) have altogether?<br>
+<b>b</b> How many 4-member subsets does \(T\) have?<br>
+Use the formula for \({}^{n}\mathrm{C}_{r}\) to evaluate:<br>
+<b>c</b> \({}^{9}\mathrm{C}_{4}\)<br>
+<b>d</b> \({}^{n}\mathrm{C}_{4}\)<br>
+<b>e</b> Find \({}^{15}\mathrm{C}_{4}\), leaving your answer factored into primes.
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Let \(U=\{\mathrm{A},\mathrm{B},\mathrm{C},\mathrm{D}\}\).<br>
+<b>a</b> How many subsets does \(U\) have altogether?<br>
+<b>b</b> List the 2-member subsets of \(U\), and check your list with the formula.<br>
+Use the formula for \({}^{n}\mathrm{C}_{r}\) to evaluate:<br>
+<b>c</b> \({}^{7}\mathrm{C}_{3}\)<br>
+<b>d</b> \({}^{n}\mathrm{C}_{2}\)<br>
+<b>e</b> Find \({}^{12}\mathrm{C}_{5}\), leaving your answer factored into primes.
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 15</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use the formula for \({}^{n}\mathrm{C}_{r}\) to evaluate:<br>
+<b>a</b> \({}^{8}\mathrm{C}_{5}\)<br>
+<b>b</b> \({}^{n}\mathrm{C}_{3}\)
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}{}^{8}\mathrm{C}_{5}&=\dfrac{8!}{3!\times5!}\\ &=\dfrac{8\times7\times6\times5!}{3\times2\times1\times5!}\\ &=56\end{aligned}\]
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}{}^{n}\mathrm{C}_{3}&=\dfrac{n(n-1)(n-2)(n-3)!}{(n-3)!\times3!}\\ &=\dfrac{n(n-1)(n-2)}{6}\end{aligned}\]
+</div></div>
+</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 16</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Find \({}^{16}\mathrm{C}_{5}\), leaving your answer factored into primes.
+<div class="sol-label">Solution</div>
+\[\begin{aligned}{}^{16}\mathrm{C}_{5}&=\dfrac{16\times15\times14\times13\times12}{1\times2\times3\times4\times5}\\ &=2\times14\times13\times12\\ &=2^4\times3\times7\times13\quad\text{(Check this on the calculator.)}\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div class="page-break"></div>
+{{sec:teal:key:Concept 2:a natural (or canonical) correspondence}}
+<div class="box concept"><div class="bt">A natural (or canonical) correspondence: \({}^{n}\mathrm{C}_{r}={}^{n}\mathrm{C}_{n-r}\)</div>
+<p>Suppose that two people are to be chosen from five to make afternoon tea. This task can be done in two ways:</p>
+<ul><li>Choose the two people out of five who will <i>make the tea</i>.</li>
+<li>Choose the three people out of five who will <i>not make the tea</i>.</li></ul>
+<p>Thus for every choice of two people out of five, the remaining three people is a corresponding choice of three people out of five. This confirms that \({}^{5}\mathrm{C}_{2}={}^{5}\mathrm{C}_{3}\).</p>
+<p>But it also gives a one-to-one correspondence between the two-member subsets and the three-member subsets of a five-member set:</p>
+<table class="t pairs"><tr><td>{A, B} \(\longleftrightarrow\) {C, D, E}</td><td>{B, D} \(\longleftrightarrow\) {A, C, E}</td></tr>
+<tr><td>{A, C} \(\longleftrightarrow\) {B, D, E}</td><td>{B, E} \(\longleftrightarrow\) {A, C, D}</td></tr>
+<tr><td>{A, D} \(\longleftrightarrow\) {B, C, E}</td><td>{C, D} \(\longleftrightarrow\) {A, B, E}</td></tr>
+<tr><td>{A, E} \(\longleftrightarrow\) {B, C, D}</td><td>{C, E} \(\longleftrightarrow\) {A, B, D}</td></tr>
+<tr><td>{B, C} \(\longleftrightarrow\) {A, D, E}</td><td>{D, E} \(\longleftrightarrow\) {A, B, C}</td></tr></table>
+<p>In this <i>natural</i> or <i>canonical correspondence</i> between the 2-member subsets and the 3-member subsets, every subset \(T\) is paired with its complement \(\overline{T}\):</p>
+\[T\longleftrightarrow\overline{T}\]
+<p>The situation is easily generalised:</p></div>
+<div class="box formula"><div class="bt">Box 13 &nbsp;A canonical correspondence</div>
+<p>Let \(n\) and \(r\) be whole numbers with \(0\le r\le n\), and let \(S\) be an \(n\)-member set.</p>
+<ul><li>\({}^{n}\mathrm{C}_{r}={}^{n}\mathrm{C}_{n-r}\)</li>
+<li>The \(r\)-member subsets of \(S\) are <i>naturally</i> or <i>canonically</i> paired up with the \((n-r)\)-subsets of \(S\) by pairing each subset with its complement.</li></ul></div>
+<p>The correspondence is by no means restricted to mathematics. In normal language, a situation can often be described just as well by saying what it is not as by saying what it is. We are all familiar with ‘days when no rain fell’ or ‘unforgivable actions’ or ‘invisible enemies’.</p>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Choose the ones that are left out</span></div><div class="ex-body">
+<b>a</b> Write \({}^{9}\mathrm{C}_{2}\) and \({}^{9}\mathrm{C}_{7}\) in factorial notation, showing that they are equal.<br>
+<b>b</b> Use the canonical correspondence to evaluate \({}^{20}\mathrm{C}_{18}\).<br>
+<b>c</b> In how many ways can seven people out of nine be chosen to make afternoon tea?
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Write \({}^{8}\mathrm{C}_{3}\) and \({}^{8}\mathrm{C}_{5}\) in factorial notation, showing that they are equal.<br>
+<b>b</b> Use the canonical correspondence to evaluate \({}^{15}\mathrm{C}_{13}\).<br>
+<b>c</b> In how many ways can five people out of seven be chosen to make afternoon tea?
+{{work:60}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 17</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Write \({}^{7}\mathrm{C}_{2}\) and \({}^{7}\mathrm{C}_{5}\) in factorial notation, showing that they are equal.
+<div class="sol-label">Solution</div>
+\[{}^{7}\mathrm{C}_{2}=\dfrac{7!}{2!\times5!}\qquad\qquad{}^{7}\mathrm{C}_{5}=\dfrac{7!}{5!\times2!}\]
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div class="page-break"></div>
+{{sec:teal:key:Concept 3:using combinations in counting problems}}
+<div class="box concept"><div class="bt">Using \({}^{n}\mathrm{C}_{r}\) in counting problems</div>
+<p>Here are a number of examples of counting problems. A committee, a team or a hand of cards is an unordered selection, so it is counted with \({}^{n}\mathrm{C}_{r}\). When the selection is made from two separate groups, such as women and men, choose from each group separately and multiply.</p></div>
+<div class="box warn"><div class="bt">Warning words</div>
+<p>As always, words such as ‘at least’, ‘at most’, ‘not’ and ‘excluding’ should always be regarded as warnings that the problem may best be solved by considering the complementary situation.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Include, exclude, and choose from two groups</span></div><div class="ex-body">
+Twelve people meet to play doubles tennis.<br>
+<b>a</b> In how many ways can four people be selected from this group to play the first game? (Ignore the subsequent organisation into pairs.)<br>
+<b>b</b> How many of these ways will include Maria and exclude Alex?<br>
+<b>c</b> If there are five women and seven men, in how many ways can two men and two women be chosen for this game?<br>
+<b>d</b> Again with five women and seven men, in how many ways will women be in the majority?
+{{work:72}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Nine people meet to play doubles tennis.<br>
+<b>a</b> In how many ways can four people be selected from this group to play the first game? (Ignore the subsequent organisation into pairs.)<br>
+<b>b</b> How many of these ways will include Maria and exclude Alex?<br>
+<b>c</b> If there are four women and five men, in how many ways can two men and two women be chosen for this game?<br>
+<b>d</b> Again with four women and five men, in how many ways will women be in the majority?
+{{work:44}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 18</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Ten people meet to play doubles tennis.<br>
+<b>a</b> In how many ways can four people be selected from this group to play the first game? (Ignore the subsequent organisation into pairs.)<br>
+<b>b</b> How many of these ways will include Maria and exclude Alex?<br>
+<b>c</b> If there are four women and six men, in how many ways can two men and two women be chosen for this game?<br>
+<b>d</b> Again with four women and six men, in how many ways will women be in the majority?
+<div class="sol-label">Solution</div>
+<p><b>a</b> \(\text{Number of ways}={}^{10}\mathrm{C}_{4}=210.\)</p>
+<p><b>b</b> Because Maria is included, three further people must be chosen, and because Alex is excluded, there are now eight people to choose these three from.</p>
+<p style="margin-left:5mm">Hence \(\text{number of ways}={}^{8}\mathrm{C}_{3}=56.\)</p>
+<p><b>c</b></p>
+\[\begin{aligned}\text{Number of ways of choosing the women}&={}^{4}\mathrm{C}_{2}=6,\\ \text{number of ways of choosing the men}&={}^{6}\mathrm{C}_{2}=15,\\ \text{so number of ways of choosing all four}&=15\times6=90.\end{aligned}\]
+<p><b>d</b></p>
+\[\begin{aligned}\text{Number of ways with one man and three women}&={}^{6}\mathrm{C}_{1}\times{}^{4}\mathrm{C}_{3}=24,\\ \text{number of ways with four women}&=1,\\ \text{so number of ways with a majority of women}&=24+1=25.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+{{sec:teal:key:Concept 4:subsets with conditions}}
+<div class="box concept"><div class="bt">Subsets with conditions</div>
+<p>‘At least two numbers’ is a warning word. Count the subsets that are <i>not</i> wanted (the 0-member and 1-member subsets) and subtract them from the total \(2^n\) of Box 12. A condition such as ‘does not contain 8’ removes 8 from the set before counting. A condition such as ‘does contain 10’ means that 10 has already been chosen, and only the rest of the subset remains to be chosen.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Subtract the unwanted subsets</span></div><div class="ex-body">
+Let \(S=\{3,6,9,12,15,18,21\}\) be the set consisting of the first seven positive multiples of 3.<br>
+<b>a</b> How many subsets of \(S\) contain at least two numbers?<br>
+<b>b</b> How many subsets with at least two numbers do not contain 9?<br>
+<b>c</b> How many subsets with at least two numbers do not contain 9 but do contain 21?
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Let \(S=\{5,10,15,20,25\}\) be the set consisting of the first five positive multiples of 5.<br>
+<b>a</b> How many subsets of \(S\) contain at least two numbers?<br>
+<b>b</b> How many subsets with at least two numbers do not contain 10?<br>
+<b>c</b> How many subsets with at least two numbers do not contain 10 but do contain 25?
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 19</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Let \(S=\{2,4,6,8,10,12\}\) be the set consisting of the first six positive even numbers.<br>
+<b>a</b> How many subsets of \(S\) contain at least two numbers?<br>
+<b>b</b> How many subsets with at least two numbers do not contain 8?<br>
+<b>c</b> How many subsets with at least two numbers do not contain 8 but do contain 10?
+<div class="sol-label">Solution</div>
+<p><b>a</b></p>
+\[\begin{aligned}\text{Number of 1-member and 0-member subsets}&={}^{6}\mathrm{C}_{1}+{}^{6}\mathrm{C}_{0}=7,\\ \text{so number with at least 2 members}&=2^6-7=57.\end{aligned}\]
+<p><b>b</b> We consider now the 5-member set \(T=\{2,4,6,10,12\}\).</p>
+\[\begin{aligned}\text{Number of 1-member and 0-member subsets}&={}^{5}\mathrm{C}_{1}+{}^{5}\mathrm{C}_{0}=6,\\ \text{so number with at least 2 members}&=2^5-6=26.\end{aligned}\]
+<p><b>c</b> Because 10 has already been chosen, we need to choose subsets with at least one member from the four-member set \(U=\{2,4,6,12\}\).</p>
+\[\begin{aligned}\text{Number of 0-member subsets}&=1\quad\text{(the empty set)},\\ \text{so number of such subsets}&=2^4-1=15.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+{{sec:teal:key:Concept 5:a harder question: points and triangles}}
+<div class="box concept"><div class="bt">Choosing points as vertices</div>
+<p>A triangle is fixed by choosing its three vertices, and the order of choosing them does not matter. So triangles drawn with given points as vertices are counted with \({}^{n}\mathrm{C}_{r}\). To form two triangles with distinct vertices, first choose all six vertices, and then decide which of them go together.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two triangles from points on a circle</span></div><div class="ex-body">
+Eight points \(A_1,A_2,\ldots,A_8\) are arranged in order around a circle.<br>
+<b>a</b> How many triangles can be drawn with these points as vertices?<br>
+<b>b</b> How many pairs of such triangles can be drawn, if the vertices of the two triangles are distinct?<br>
+<b>c</b> In how many such pairs will the triangles:<br>
+<span style="margin-left:6mm">i&nbsp; not overlap,</span><br>
+<span style="margin-left:6mm">ii&nbsp; overlap?</span>
+{{work:26}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Seven points \(A_1,A_2,\ldots,A_7\) are arranged in order around a circle.<br>
+<b>a</b> How many triangles can be drawn with these points as vertices?<br>
+<b>b</b> How many pairs of such triangles can be drawn, if the vertices of the two triangles are distinct?<br>
+<b>c</b> In how many such pairs will the triangles:<br>
+<span style="margin-left:6mm">i&nbsp; not overlap,</span><br>
+<span style="margin-left:6mm">ii&nbsp; overlap?</span>
+{{work:120}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 20</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+[A harder question]<br>
+Ten points \(A_1,A_2,\ldots,A_{10}\) are arranged in order around a circle.<br>
+<b>a</b> How many triangles can be drawn with these points as vertices?<br>
+<b>b</b> How many pairs of such triangles can be drawn, if the vertices of the two triangles are distinct?<br>
+<b>c</b> In how many such pairs will the triangles:<br>
+<span style="margin-left:6mm">i&nbsp; not overlap,</span><br>
+<span style="margin-left:6mm">ii&nbsp; overlap?</span>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:2fr 1fr"><div>
+<p><b>a</b> To form a triangle, we must choose 3 points out of 10, so</p>
+\[\text{number of triangles}={}^{10}\mathrm{C}_{3}=120.\]
+<p><b>b</b> To form two triangles, first choose 6 points out of 10, which can be done in \({}^{10}\mathrm{C}_{6}=210\) ways.</p>
+<p>Take any one of those 6 points, then choose the other 2 points in its triangle, which can be done in \({}^{5}\mathrm{C}_{2}=10\) ways.</p>
+<p>The second triangle is then drawn using the other 3 points.</p>
+</div><div>
+{{svg:circle10}}
+</div></div>
+\[\text{Hence number of pairs of triangles}=210\times10=2100.\]
+<p><b>c</b> To form two non-overlapping triangles, we first choose 6 points out of 10, which again can be done in \({}^{10}\mathrm{C}_{6}=210\) ways. These 6 points can be made into two non-overlapping triangles in 3 ways, by arranging the 6 points in cyclic order, and choosing 3 adjacent points.</p>
+<p style="margin-left:5mm"><b>i</b> Hence, \(\text{the number of non-overlapping pairs}=210\times3=630.\)</p>
+<p style="margin-left:5mm"><b>ii</b> By subtraction, \(\text{number of overlapping pairs}=2100-630=1470.\)</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 14E}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Two people are chosen from a group of five people called P, Q, R, S and T. List all possible combinations, and find how many there are.{{work:24}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Find in how many ways you can form a group of:
+<div class="parts one"><span><span class="pl">a</span>two people from a choice of seven,</span><span><span class="pl">b</span>three people from a choice of seven,</span><span><span class="pl">c</span>two people from a choice of six,</span><span><span class="pl">d</span>five people from a choice of nine.</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Find how many possible combinations there are if, from a group of ten people:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; two people are chosen,</span><span>ii&nbsp; eight people are chosen.</span></div>
+<div class="parts one"><span><span class="pl">b</span>Why are the answers identical?</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">From a party of twelve men and eight women, find how many groups can be chosen consisting of:
+<div class="parts one"><span><span class="pl">a</span>five men and three women,</span><span><span class="pl">b</span>four women and four men.</span></div>{{work:20}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Four numbers are to be selected from the set of the first eight positive integers. Find how many possible combinations there are if:
+<div class="parts one"><span><span class="pl">a</span>there are no restrictions,</span><span><span class="pl">b</span>there are two odd numbers and two even numbers,</span><span><span class="pl">c</span>there is exactly one odd number,</span><span><span class="pl">d</span>all the numbers must be even,</span><span><span class="pl">e</span>there is at least one odd number.</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">A committee of five is to be chosen from six men and eight women. Find how many committees are possible if:
+<div class="parts one"><span><span class="pl">a</span>there are no restrictions,</span><span><span class="pl">b</span>all members are to be female,</span><span><span class="pl">c</span>all members are to be male,</span><span><span class="pl">d</span>there are exactly two men,</span><span><span class="pl">e</span>there are four women and one man,</span><span><span class="pl">f</span>there is a majority of women,</span><span><span class="pl">g</span>a particular man must be included,</span><span><span class="pl">h</span>a particular man must not be included.</span></div>{{work:44}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>What is the number of combinations of the letters of the word EQUATION taken four at a time (without repetition)?</span><span><span class="pl">b</span>How many of the four-letter combinations contain four vowels?</span><span><span class="pl">c</span>How many of the four-letter combinations contain the letter Q?</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">A team of seven netballers is to be chosen from a squad of twelve players A, B, C, D, E, F, G, H, I, J, K and L. In how many ways can they be chosen:
+<div class="parts one"><span><span class="pl">a</span>with no restrictions,</span><span><span class="pl">b</span>if the captain C is to be included,</span><span><span class="pl">c</span>if J and K are both to be excluded,</span><span><span class="pl">d</span>if A is included but H is not,</span><span><span class="pl">e</span>if one of F and L is to be included and the other excluded?</span></div>{{work:32}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Consider the digits 9, 8, 7, 6, 5, 4, 3, 2, 1 and 0. Find how many five-digit numbers are possible if the digits are to be in:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; descending order,</span><span>ii&nbsp; ascending order.</span></div>
+<div class="parts one"><span><span class="pl">b</span>Why do these two questions involve unordered selections?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Twelve people arrive at a restaurant. There is one table for six, one table for four and one table for two. In how many ways can they be assigned to a table?{{work:24}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Twenty students, ten male and ten female, are to travel from school to the sports ground. Eight of them go in a minibus, six of them in cars, four of them on bikes and two walk.
+<div class="parts one"><span><span class="pl">a</span>In how many ways can they be distributed for the trip?</span><span><span class="pl">b</span>In how many ways can they be distributed if none of the boys walk?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Ten points \(P_1,P_2,\ldots,P_{10}\) are chosen in a plane, no three of the points being collinear.
+<div class="parts one"><span><span class="pl">a</span>How many lines can be drawn through pairs of the points?</span><span><span class="pl">b</span>How many triangles can be drawn using the given points as vertices?</span><span><span class="pl">c</span>How many of these triangles have \(P_1\) as one of their vertices?</span><span><span class="pl">d</span>How many of these triangles have \(P_1\) and \(P_2\) as vertices?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Ten points are chosen in a plane. Five of the points are collinear, but no other set of three of the points is collinear.
+<div class="parts one"><span><span class="pl">a</span>How many sets of three points can be selected from the five that are collinear?</span><span><span class="pl">b</span>How many triangles can be formed using three of the ten points as vertices?</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">From a standard deck of 52 playing cards, find how many five-card hands can be dealt:
+<div class="parts one"><span><span class="pl">a</span>consisting of black cards only,</span><span><span class="pl">b</span>consisting of diamonds only,</span><span><span class="pl">c</span>containing all four kings,</span><span><span class="pl">d</span>consisting of three diamonds and two clubs,</span><span><span class="pl">e</span>consisting of three twos and another pair,</span><span><span class="pl">f</span>consisting of one pair and three of a kind.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>In how many ways can a group of six people be divided into:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; two unequal groups (neither group being empty),</span><span>ii&nbsp; two equal groups?</span></div>
+<div class="parts one"><span><span class="pl">b</span>Repeat part <b>a</b> for four people.</span><span><span class="pl">c</span>Repeat part <b>a</b> for eight people.</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">Find how many diagonals there are in:
+<div class="parts one"><span><span class="pl">a</span>a quadrilateral,</span><span><span class="pl">b</span>a pentagon,</span><span><span class="pl">c</span>a decagon,</span><span><span class="pl">d</span>a polygon with \(n\) sides.</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">Twelve points are arranged in order around a circle.
+<div class="parts one"><span><span class="pl">a</span>How many triangles can be drawn with these points as vertices?</span><span><span class="pl">b</span>In how many pairs of such triangles are the vertices of the two triangles distinct?</span><span><span class="pl">c</span>In how many such pairs will the triangles:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; not overlap,</span><span>ii&nbsp; overlap?</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">Let \(S=\{1,3,5,7,9,11,13,15,17,19\}\) be the set of the first ten positive odd integers.
+<div class="parts one"><span><span class="pl">a</span>How many subsets does \(S\) have?</span><span><span class="pl">b</span>How many subsets of \(S\) contain at least three numbers?</span><span><span class="pl">c</span>How many subsets with at least three numbers do not contain 7?</span><span><span class="pl">d</span>How many subsets with at least three numbers do not contain 7 but do contain 19?</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">In how many ways can two numbers be selected from \(1,2,\ldots,8,9\) so that their sum is:
+<div class="parts one"><span><span class="pl">a</span>even,</span><span><span class="pl">b</span>odd,</span><span><span class="pl">c</span>divisible by 3,</span><span><span class="pl">d</span>divisible by 5,</span><span><span class="pl">e</span>divisible by 6?</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body">There are ten basketballers in a team. Find in how many ways:
+<div class="parts one"><span><span class="pl">a</span>the starting five can be chosen,</span><span><span class="pl">b</span>they can be split into two teams of five.</span></div>{{work:22}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body">Nine players are to be divided into two teams of four and one umpire.
+<div class="parts one"><span><span class="pl">a</span>In how many ways can the teams be formed?</span><span><span class="pl">b</span>If two particular people cannot be on the same team, how many different combinations are possible?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">23</span><div class="q-body">By considering their prime factorisations, find the number of positive divisors of:
+<div class="parts one"><span><span class="pl">a</span>\(2^3\times3^2\)</span><span><span class="pl">b</span>\(1\,000\,000\)</span><span><span class="pl">c</span>\(315\,000\)</span><span><span class="pl">d</span>\(2^a\times5^b\times13^c\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">24</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>The six faces of a number of identical cubes are painted in six distinct colours. How many different cubes can be formed?</span><span><span class="pl">b</span>A die fits perfectly into a cubical box. How many ways are there of putting the die into the box?</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">25</span><div class="q-body"><div class="split" style="grid-template-columns:3fr 1fr"><div>The diagram shows a \(6\times4\) grid. The aim is to walk from the point \(A\) in the top left-hand corner to the point \(B\) in the bottom right-hand corner by walking along the black lines either downwards or to the right. A single move is defined as walking along one side of a single small square, thus it takes you ten moves to get from \(A\) to \(B\).
+<div class="parts one"><span><span class="pl">a</span>Find how many different routes are possible:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; without restriction,</span><span>ii&nbsp; if you must pass through \(C\),</span><span>iii&nbsp; if you cannot move along the top line of the grid,</span><span>iv&nbsp; if you cannot move along the second row from the top of the grid.</span></div>
+</div><div>
+{{svg:grid25}}
+</div></div>
+<div class="parts one"><span><span class="pl">b</span>Notice that every route must pass through one and only one of the five crossed points. Hence prove that</span></div>
+\[{}^{10}\mathrm{C}_{4}={}^{4}\mathrm{C}_{0}\times{}^{6}\mathrm{C}_{4}+{}^{4}\mathrm{C}_{1}\times{}^{6}\mathrm{C}_{3}+{}^{4}\mathrm{C}_{2}\times{}^{6}\mathrm{C}_{2}+{}^{4}\mathrm{C}_{3}\times{}^{6}\mathrm{C}_{1}+{}^{4}\mathrm{C}_{4}\times{}^{6}\mathrm{C}_{0}.\]
+<div class="parts one"><span><span class="pl">c</span>Draw another suitable diagonal and, using a method similar to that in part <b>b</b>, prove that</span></div>
+\[{}^{10}\mathrm{C}_{4}={}^{5}\mathrm{C}_{0}\times{}^{5}\mathrm{C}_{4}+{}^{5}\mathrm{C}_{1}\times{}^{5}\mathrm{C}_{3}+{}^{5}\mathrm{C}_{2}\times{}^{5}\mathrm{C}_{2}+{}^{5}\mathrm{C}_{3}\times{}^{5}\mathrm{C}_{1}+{}^{5}\mathrm{C}_{4}\times{}^{5}\mathrm{C}_{0}.\]
+<div class="parts one"><span><span class="pl">d</span>Draw up a similar \(6\times6\) grid, then using the same idea as that used in parts <b>b</b> and <b>c</b>, prove that</span></div>
+\[{}^{12}\mathrm{C}_{6}=\left({}^{6}\mathrm{C}_{0}\right)^2+\left({}^{6}\mathrm{C}_{1}\right)^2+\left({}^{6}\mathrm{C}_{2}\right)^2+\left({}^{6}\mathrm{C}_{3}\right)^2+\left({}^{6}\mathrm{C}_{4}\right)^2+\left({}^{6}\mathrm{C}_{5}\right)^2+\left({}^{6}\mathrm{C}_{6}\right)^2.\]
+{{work:70}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">26</span><div class="q-body">A piece of art receives an integer mark from zero to 100 for each of the categories design, technique and originality. In how many ways is it possible to score a total mark of 200?{{work:50}}</div></div>
+<div class="q"><span class="q-num">27</span><div class="q-body">How many different combinations are there of three different integers between one and thirty inclusive such that their sum is divisible by three?{{work:44}}</div></div>
+<div class="q"><span class="q-num">28</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>How many doubles tennis games are possible, given a group of four players?</span><span><span class="pl">b</span>In how many ways can two games of doubles tennis be arranged, given a group of eight players?</span><span><span class="pl">c</span>Six men and six women are to play in three games of doubles tennis. Find how many ways the pairings can be arranged if:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; there are no restrictions,</span><span>ii&nbsp; each game is to be a game of mixed doubles.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">29</span><div class="q-body">Referring to Question 18 of Exercise 14D, Bob’s interest in shirts has matured recently: he now has \(2n\) shirts, with two identical shirts in each of \(n\) distinct styles. He still wants to hang his shirts in the wardrobe so that no two identical shirts are next to one another.
+<div class="parts one"><span><span class="pl">a</span>Show that the number of allowed arrangements is</span></div>
+\[{}^{n}\mathrm{C}_{0}\,(2n)!\,2^{-n}-{}^{n}\mathrm{C}_{1}\,(2n-1)!\,2^{1-n}+{}^{n}\mathrm{C}_{2}\,(2n-2)!\,2^{2-n}+\cdots+(-1)^n\,{}^{n}\mathrm{C}_{n}\,n!\,2^{0}.\]
+<div class="parts one"><span><span class="pl">b</span>Evaluate this number for \(n=1,2,3,4,5\) and 6, and find the corresponding ratio of the total number of arrangements to the number of allowed arrangements.</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">30</span><div class="q-body">Computing is based on <i>binary strings</i>, which are sequences of 0s and 1s, such as 00101 and 1001110. The problem in this question is to find the number \(N\) of binary strings that contain exactly \(a\) 0s and at most \(b\) 1s, where \(a\) and \(b\) are whole numbers. We will count such strings in two different ways, and hence prove an interesting identity.
+<div class="parts one"><span><span class="pl">a</span>Using \({}^{n}\mathrm{C}_{r}\) notation, find how many binary strings with exactly \(a\) 0s contain:</span></div>
+<div class="parts one" style="margin-left:6mm"><span>i&nbsp; no 1s</span><span>ii&nbsp; one 1</span><span>iii&nbsp; two 1s</span><span>iv&nbsp; three 1s</span><span>v&nbsp; \(r\) 1s.</span></div>
+<div class="parts one"><span><span class="pl">b</span>Hence prove that \(N={}^{a}\mathrm{C}_{0}+{}^{a+1}\mathrm{C}_{1}+{}^{a+2}\mathrm{C}_{2}+\cdots+{}^{a+b}\mathrm{C}_{b}\).</span><span><span class="pl">c</span>Let \(S\) be a binary string consisting of \(a\) 0s and \(r\) 1s, where \(r\) is at most \(b\). Extend \(S\) to a longer binary string \(S01\cdots1\) by adding 0 on the right, and then adding \(b-r\) 1s. How many 0s and 1s are there in the resulting string, and what is its total length?</span><span><span class="pl">d</span>Describe the inverse process by which a string of \((a+1)\) 0s and \(b\) 1s can be converted to a string of \(a\) 0s and at most \(b\) 1s, and show that the two processes are one-to-one correspondences.</span><span><span class="pl">e</span>Hence prove that \(N={}^{a+b+1}\mathrm{C}_{b}\).</span><span><span class="pl">f</span>Show that \({}^{a}\mathrm{C}_{0}+{}^{a+1}\mathrm{C}_{1}+{}^{a+2}\mathrm{C}_{2}+\cdots+{}^{a+b}\mathrm{C}_{b}={}^{a+b+1}\mathrm{C}_{b}\).</span></div>{{work:80}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>20 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension&nbsp;1,&nbsp;Q6</span><span class="mk">1 mark</span></div>
+<div class="pp-q">How many different ways can 4 people be chosen from a group of 20 people?
+<div class="mc"><span>A. 4&#8239;845</span><span>B. 160&#8239;000</span><span>C. 116&#8239;280</span><span>D. 240&#8239;000</span></div></div>
+<div class="hint"><b>Hint:</b> does the order in which the 4 people are chosen matter?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics Extension&nbsp;1,&nbsp;Q6</span><span class="mk">1 mark</span></div>
+<div class="pp-q">A school mathematics department consists of 5 male and 5 female teachers. How many different exam-writing committees comprising three teachers could be formed if there must be at least one teacher of each sex on the committee?
+<div class="mc"><span>(A) 50</span><span>(B) 100</span><span>(C) 120</span><span>(D) 600</span></div></div>
+<div class="hint"><b>Hint:</b> ‘at least’ is one of the warning words of Concept 3.</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q3</span><span class="mk">1 mark</span></div>
+<div class="pp-q">A sporting team needs 5 members, which must include at least two students from Year 11 and at least two students from Year 12.<br>
+There are ten Year 11 students and fifteen Year 12 students available for selection.<br>
+In how many distinct ways can the team be chosen?
+<div class="mc"><span>A. 10</span><span>B. 5775</span><span>C. 33&#8239;075</span><span>D. 396&#8239;900</span></div></div>
+<div class="hint"><b>Hint:</b> what are the possible numbers of Year 11 students in the team?</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension&nbsp;1 HSC Trial Examination,&nbsp;Q6</span><span class="mk">1 mark</span></div>
+<div class="pp-q">A team of \(r\) student representatives are chosen from class of \(n\) students where \(r&lt;n\).<br>
+This team should include a captain and a vice captain.<br>
+How many ways can this team be selected?
+<div class="mc" style="row-gap:2.5mm"><span>A. \(n(n-1)\dbinom{n}{r}\)</span><span>B. \(2!\times\dbinom{n}{r}\)</span><span>C. \(r(r-1)\dbinom{n-2}{r}\)</span><span>D. \(n(n-1)\dbinom{n-2}{r-2}\)</span></div></div>
+<div class="hint"><b>Hint:</b> two members of the team have special roles. Which choices are ordered, and which are not?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension&nbsp;1,&nbsp;Q12(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">In a class of 27 students, there are 14 boys and 13 girls.<br>
+The class needs to elect two boys and two girls for the student council.
+<div class="pp-sub"><span>(i) In how many ways could the representatives be chosen?</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) If the class elected Henry and Olivia for the student council, in how many ways could the representatives now be chosen?</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> think about the boys and the girls separately.</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Sydney Technical High School, 2021, Trial HSC, Extension&nbsp;1 Mathematics,&nbsp;Q11(e)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Peter and May are two of ten candidates for a committee.<br>
+How many ways can a committee of five be chosen, if Peter refuses to be on the same committee as May?</div>
+<div class="hint"><b>Hint:</b> which committees break Peter’s condition?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Abbotsleigh, 2020, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q13(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Nine points are drawn on a page as shown, with four of them lying on one line.<br>
+Other than these four points, no other set of three points is collinear.
+{{svg:abb20pts}}
+How many different triangles can be drawn using the nine points as vertices?</div>
+<div class="hint"><b>Hint:</b> which sets of three points do not make a triangle?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Sydney Girls High School, 2023, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q11(e)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">A team of 12 basketball players is selected from a pool of 8 left-handed students and 16 right-handed students. How many ways can the team be chosen if:
+<div class="pp-sub"><span>(i) There are no restrictions?</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) The team has more left-handed students than right-handed students?</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> in (ii), what does ‘more left-handed than right-handed’ mean for a team of 12?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Normanhurst Boys High School, 2023, Year 12 Course Assessment Task 4 (Trial Examination), Mathematics Extension&nbsp;1,&nbsp;Q11(e)(i)(ii)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">There are twelve people that need to be divided into groups.
+<div class="pp-sub"><span>(i) In how many ways can they be divided into two groups of six people?</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) In how many ways can they be divided into two groups of six people if two particular people must be in the same group?</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> the two groups have no names. Does it matter which group is chosen first?</div>{{work:46}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Knox Grammar School, 2023, Higher School Certificate Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q12(d)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">There are \(n\) dancers in a performing arts academy.<br>
+The trainer is to select a group of two or three of these dancers to perform in a certain concert.<br>
+The number of different groups of three dancers he can select is 3 times the number of different groups of two dancers.<br>
+Find \(n\) the number dancers in the performing arts academy.</div>
+<div class="hint"><b>Hint:</b> Worked example 15 (b) writes \({}^{n}\mathrm{C}_{3}\) in terms of \(n\).</div>{{work:46}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 11</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q12(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">You are given two rows of square tiles, 10 tiles in each row. You are asked to shade 4 tiles in the top row and 6 tiles in the bottom row so that exactly two shaded tiles in the top row are directly above a shaded tile in the bottom row, An example of one such arrangement is shown.
+{{svg:abb24tiles}}
+In how many ways is this possible?</div>
+<div class="hint"><b>Hint:</b> which choices have to be made, and in which row?</div>{{work:56}}</div>
+</div>

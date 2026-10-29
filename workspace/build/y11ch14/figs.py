@@ -151,7 +151,81 @@ def fig_14d():
     grid("stalo24c", [(0, 0, 5, 3), (5, 3, 4, 2)], {"A": (0, 0, -12, 12), "B": (9, 5, 12, -8), "C": (5, 3, -10, -9)}, cell=26)
 
 
+# ---------------------------------------------------------------- 14E
+def sub_label(f, x, y, base, sub, size=12.5):
+    """Italic letter with a numeric subscript, centred at (x, y)."""
+    f.raw(f'<text x="{x:.1f}" y="{y + size*0.35:.1f}" text-anchor="middle" font-size="{size}" fill="{INK}" font-weight="500">'
+          f'<tspan font-style="italic">{base}</tspan><tspan dy="3.5" font-size="{size*0.72:.1f}">{sub}</tspan></text>')
+
+
+def circle_points(name, n, r=70, pad=30, size=14):
+    """Points A1..An in order clockwise around a circle, A1 at the top."""
+    c = r + pad
+    f = Fig(2 * c, 2 * c)
+    f.raw(f'<circle cx="{c}" cy="{c}" r="{r}" fill="none" stroke="{INK}" stroke-width="1.4"/>')
+    for k in range(n):
+        a = radians(90 - 360 * k / n)
+        x, y = c + r * cos(a), c - r * sin(a)
+        f.dot(x, y, 3)
+        sub_label(f, c + (r + 17) * cos(a) - 2, c - (r + 17) * sin(a), "A", k + 1, size)
+    save(name, f)
+
+
+def cross_grid(name, cols, rows, crosses, cpoint, cell=24, pad=22):
+    """Grid of unit squares, A top left and B bottom right, with X marks at grid points
+    (right, down) in `crosses`; the point cpoint is also marked C."""
+    f = Fig(cols * cell + 2 * pad, rows * cell + 2 * pad)
+    P = lambda i, j: (pad + i * cell, pad + j * cell)
+    for i in range(cols + 1):
+        f.line(*P(i, 0), *P(i, rows), color="ink", width=1.2)
+    for j in range(rows + 1):
+        f.line(*P(0, j), *P(cols, j), color="ink", width=1.2)
+    for lab, (i, j, dx, dy) in {"A": (0, 0, -11, -6), "B": (cols, rows, 11, 8), "C": (cpoint[0], cpoint[1], 9, 10)}.items():
+        x, y = P(i, j)
+        f.dot(x, y, 3.2)
+        f.text(x + dx, y + dy, lab, size=12.5, italic=True, weight=600)
+    for i, j in crosses:
+        x, y = P(i, j)
+        h = 5.5
+        f.raw(f'<path class="cross" d="M{x - h:.1f},{y - h:.1f} L{x + h:.1f},{y + h:.1f} M{x - h:.1f},{y + h:.1f} L{x + h:.1f},{y - h:.1f}" '
+              f'fill="none" stroke="{INK}" stroke-width="1.3"/>')
+    save(name, f)
+
+
+def points_line(name, on, off, line, w, h):
+    """Points (dots) with one straight line drawn through some of them."""
+    f = Fig(w, h)
+    f.line(*line, color="ink", width=1.4)
+    for x, y in on + off:
+        f.dot(x, y, 5)
+    save(name, f)
+
+
+def tiles(name, top, bottom, n=10, s=30, pad=4):
+    """Two rows of n square tiles; tiles numbered 1..n from the left in `top`/`bottom` are shaded."""
+    f = Fig(n * s + 2 * pad, 2 * s + 2 * pad)
+    for row, shade in ((0, top), (1, bottom)):
+        for k in range(n):
+            fill = "#c4c8cc" if k + 1 in shade else "#ffffff"
+            f.raw(f'<rect class="tile" data-row="{row}" data-col="{k + 1}" x="{pad + k * s}" y="{pad + row * s}" width="{s}" height="{s}" '
+                  f'fill="{fill}" stroke="{INK}" stroke-width="1.1"/>')
+    save(name, f)
+
+
+def fig_14e():
+    # Example 20: ten points around a circle
+    circle_points("circle10", 10)
+    # Exercise 14E Q25: a grid 4 squares wide and 6 high; crosses after four moves; C is the middle cross
+    cross_grid("grid25", 4, 6, [(4, 0), (3, 1), (2, 2), (1, 3), (0, 4)], (2, 2))
+    # Abbotsleigh 2020 Q13(a): nine points, four of them on one line (line y = 50 + (x - 40)/10)
+    points_line("abb20pts", on=[(80, 54), (190, 65), (260, 72), (360, 82)],
+                off=[(130, 16), (300, 16), (105, 104), (225, 92), (305, 112)], line=(30, 49, 400, 86), w=430, h=125)
+    # Abbotsleigh 2024 Q12(c): the example arrangement of shaded tiles
+    tiles("abb24tiles", top={1, 3, 4, 10}, bottom={1, 4, 6, 7, 8, 9})
+
+
 if __name__ == "__main__":
     fig_14a()
     fig_14c()
     fig_14d()
+    fig_14e()
