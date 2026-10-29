@@ -1,1 +1,154 @@
-<!-- filled by Task 4 -->
+{{ahead:Lesson 13C | Variance and standard deviation}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> Each value has probability \(\tfrac18\).
+<div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{2}{8}\)</td><td>\(\tfrac{3}{8}\)</td><td>\(\tfrac{4}{8}\)</td><td>\(\tfrac{5}{8}\)</td><td>\(\tfrac{6}{8}\)</td><td>\(\tfrac{7}{8}\)</td><td>\(\tfrac{8}{8}\)</td><td>\(4\tfrac{1}{2}\)</td></tr>
+<tr><th>\((x-\mu)^2\)</th><td>\(\tfrac{49}{4}\)</td><td>\(\tfrac{25}{4}\)</td><td>\(\tfrac{9}{4}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{9}{4}\)</td><td>\(\tfrac{25}{4}\)</td><td>\(\tfrac{49}{4}\)</td><td>—</td></tr>
+<tr><th>\((x-\mu)^2p(x)\)</th><td>\(\tfrac{49}{32}\)</td><td>\(\tfrac{25}{32}\)</td><td>\(\tfrac{9}{32}\)</td><td>\(\tfrac{1}{32}\)</td><td>\(\tfrac{1}{32}\)</td><td>\(\tfrac{9}{32}\)</td><td>\(\tfrac{25}{32}\)</td><td>\(\tfrac{49}{32}\)</td><td>\(\tfrac{168}{32}\)</td></tr></table></div>
+<div style="margin:0.8mm 0">Hence the mean is \(4\tfrac12\) and the variance is \(\tfrac{168}{32}=5\tfrac14\).</div>
+<b>Your turn.</b> Each value has probability \(\tfrac14\).
+<div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{1}{4}\)</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{2}{4}\)</td><td>\(\tfrac{3}{4}\)</td><td>\(\tfrac{4}{4}\)</td><td>\(2\tfrac{1}{2}\)</td></tr>
+<tr><th>\((x-\mu)^2\)</th><td>\(\tfrac{9}{4}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{9}{4}\)</td><td>—</td></tr>
+<tr><th>\((x-\mu)^2p(x)\)</th><td>\(\tfrac{9}{16}\)</td><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{9}{16}\)</td><td>\(\tfrac{20}{16}\)</td></tr></table></div>
+<div style="margin:0.8mm 0">Hence the mean is \(2\tfrac12\) and the variance is \(\tfrac{20}{16}=1\tfrac14\).</div></div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b> The values are 1, 2 and 3, on one, two and three of the six faces.
+<div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{2}{6}\)</td><td>\(\tfrac{3}{6}\)</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{4}{6}\)</td><td>\(\tfrac{9}{6}\)</td><td>\(\tfrac{14}{6}\)</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{8}{6}\)</td><td>\(\tfrac{27}{6}\)</td><td>\(\tfrac{36}{6}\)</td></tr></table></div>
+<div style="margin:0.8mm 0">From the third row, \(\text{E}(X)=\tfrac{14}{6}=2\tfrac13\). From the last row, \(\text{E}(X^2)=\tfrac{36}{6}=6\), so</div>
+\[\text{Var}(X)=\text{E}(X^2)-\mu^2=6-\big(\tfrac73\big)^2=6-\tfrac{49}{9}=\tfrac{5}{9}.\]
+<b>Your turn.</b> The values are 1, 2 and 4, on two, three and one of the six faces.
+<div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>1</td><td>2</td><td>4</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{2}{6}\)</td><td>\(\tfrac{3}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>\(\tfrac{2}{6}\)</td><td>\(\tfrac{6}{6}\)</td><td>\(\tfrac{4}{6}\)</td><td>\(\tfrac{12}{6}\)</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>\(\tfrac{2}{6}\)</td><td>\(\tfrac{12}{6}\)</td><td>\(\tfrac{16}{6}\)</td><td>\(\tfrac{30}{6}\)</td></tr></table></div>
+<div style="margin:0.8mm 0">From the third row, \(\text{E}(X)=\tfrac{12}{6}=2\). From the last row, \(\text{E}(X^2)=\tfrac{30}{6}=5\), so \(\text{Var}(X)=\text{E}(X^2)-\mu^2=5-2^2=1\).</div></div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b> Let \(\$x\) be the amount the pickpocket takes. Each friend is chosen with probability \(\tfrac{1}{16}\).
+<div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm"><tr><th>\(x\)</th><td>0</td><td>20</td><td>40</td><td>90</td><td>120</td><td>300</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{2}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{2}{16}\)</td><td>\(\tfrac{3}{16}\)</td><td>\(\tfrac{1}{16}\)</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>0</td><td>2.5</td><td>10</td><td>11.25</td><td>22.5</td><td>18.75</td><td>65</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>0</td><td>50</td><td>400</td><td>1012.5</td><td>2700</td><td>5625</td><td>9787.5</td></tr></table></div>
+<div style="margin:0.8mm 0">From the third row, \(\mu=65\). From the last row,</div>
+\[\text{Var}(X)=\text{E}(X^2)-\mu^2=9787.5-65^2=5562.5,\qquad\sigma=\sqrt{5562.5}\doteqdot74.58.\]
+<div style="margin:0.8mm 0">The mean is <span style="white-space:nowrap">\(\$\)65</span> and the standard deviation is about <span style="white-space:nowrap">\(\$\)74.58</span>.</div>
+<b>Your turn.</b> Let \(\$x\) be the amount the thief takes. Each friend is chosen with probability \(\tfrac{1}{10}\).
+<div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>0</td><td>20</td><td>30</td><td>50</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>0.4</td><td>0.1</td><td>0.3</td><td>0.2</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>0</td><td>2</td><td>9</td><td>10</td><td>21</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>0</td><td>40</td><td>270</td><td>500</td><td>810</td></tr></table></div>
+<div style="margin:0.8mm 0">From the third row, \(\mu=21\). From the last row,</div>
+\[\text{Var}(X)=\text{E}(X^2)-\mu^2=810-21^2=369,\qquad\sigma=\sqrt{369}\doteqdot19.21.\]
+<div style="margin:0.8mm 0">The mean is <span style="white-space:nowrap">\(\$\)21</span> and the standard deviation is about <span style="white-space:nowrap">\(\$\)19.21</span>.</div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><div style="margin:0.8mm 0"><b>a</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>0.3</td><td>0.5</td><td>0.1</td><td>0.1</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>0.3</td><td>1</td><td>0.3</td><td>0.4</td><td>2</td></tr>
+<tr><th>\((x-\mu)^2\)</th><td>1</td><td>0</td><td>1</td><td>4</td><td>—</td></tr>
+<tr><th>\((x-\mu)^2p(x)\)</th><td>0.3</td><td>0</td><td>0.1</td><td>0.4</td><td>0.8</td></tr></table></div>
+<div style="margin:0.8mm 0">\(\mu=2\), \(\text{Var}(X)=0.8\)<br><b>b</b> \(\sigma=\sqrt{0.8}\doteqdot0.89\)</div></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><div style="margin:0.8mm 0"><b>a</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>0.3</td><td>0.5</td><td>0.1</td><td>0.1</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>0.3</td><td>1</td><td>0.3</td><td>0.4</td><td>2</td></tr>
+<tr><th>\(x^2\)</th><td>1</td><td>4</td><td>9</td><td>16</td><td>—</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>0.3</td><td>2</td><td>0.9</td><td>1.6</td><td>4.8</td></tr></table></div>
+<div style="margin:0.8mm 0"><b>b</b> \(\text{Var}(X)=4.8-2^2=0.8\)</div></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>a</b> \(\text{E}(X)=2\), \(\text{E}(X^2)=6\), \(\text{Var}(X)=6-2^2=2\)<br>
+<b>b</b> \(\text{E}(X)=3\), \(\text{E}(X^2)=10\), \(\text{Var}(X)=10-3^2=1\)<br>
+<b>c</b> \(\text{E}(X)=0\), \(\text{E}(X^2)=2.6\), \(\text{Var}(X)=2.6-0^2=2.6\)<br>
+<b>d</b> \(\text{E}(X)=2.8\), \(\text{E}(X^2)=9.2\), \(\text{Var}(X)=9.2-2.8^2=1.36\)<br>
+In each part the definition gives the same variance.</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> (i) \(\text{E}(Y)=2\), \(\text{Var}(Y)=1\), \(\sigma=1\)<br>
+(ii) \(\text{E}(Z)=2\), \(\text{Var}(Z)=4\), \(\sigma=2\)<br>
+(iii) \(\text{E}(V)=1\), \(\text{Var}(V)=0.8\), \(\sigma\doteqdot0.89\)<br>
+(iv) \(\text{E}(W)=3\), \(\text{Var}(W)=0.8\), \(\sigma\doteqdot0.89\)<br>
+<b>b</b> (i) Both sets of data are centred around 2 and the expected value of each is unsurprisingly 2. The second data set is more spread out. In fact, in moving from \(Y\) to \(Z\) the distances from the mean to each data point have been doubled and the standard deviation is doubled.<br>
+(ii) The data has been ‘flipped over’, but is no more spread out than before: the variance is unchanged. You may notice that \(W=4-V\).</div></div>
+<div class="a"><span class="an">5</span><div class="ab">\(\text{E}(X)=2\), \(\text{Var}(X)=(2-2)^2\times1=0\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> \(\text{E}(J)=1.55\), \(\text{E}(J^2)=4.45\), \(\text{Var}(J)=4.45-1.55^2=2.0475\doteqdot2.05\)<br>
+\(\text{E}(L)=1.4\), \(\text{E}(L^2)=2.8\), \(\text{Var}(L)=2.8-1.4^2=0.84\)<br>
+<b>b</b> Over the season John might be expected to score more baskets, because his expected value is higher.<br>
+<b>c</b> Liam is the more consistent player, with the lower variance. Coaches may prefer a more consistent player, particularly if it is more important to score <i>some</i> goals, rather than the maximum number. This may also be a sign that John needs to work on the consistency of his game.</div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>a</b> Each outcome has probability \(\tfrac13\). This is a uniform distribution.<br>
+<b>b</b> \(\text{E}(X)=2\) &emsp; <b>c</b> \(\text{Var}(X)=\tfrac{2}{3}\)</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> \(\frac{55-65}{5}=-2\): two standard deviations below the mean.<br>
+<b>b</b> \(\frac{54-72}{12}=-1.5\): one and a half standard deviations below the mean.<br>
+<b>c</b> The English score was more standard deviations below the mean than the Mathematics result, so it may be considered less impressive.</div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>a</b> Visual Arts is 1 standard deviation below the mean, Music is 1.75 standard deviations below the mean, hence the Visual Arts score is better.<br>
+<b>b</b> Earth Science is 2 standard deviations above the mean, Biology is 1.5 standard deviations above the mean, hence the Earth Science score is more impressive.<br>
+<b>c</b> Chinese is 2 standard deviations above the mean, Sanskrit is also 2 standard deviations above the mean, hence the scores are equally impressive.</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> \(\text{E}(X)=3.3\), \(\sigma\doteqdot1.45\)<br>
+<b>b</b> 8 appears to be a long way from 3.3 and well removed from the rest of the data.<br>
+<b>c</b> 8 is 3.2 standard deviations above the mean and thus would be an outlier by this definition.<br>
+<b>d</b> \(\text{E}(X)=3.15\), \(\sigma\doteqdot1.06\)<br>
+<b>e</b> The mean and standard deviation have changed significantly, especially the standard deviation.<br>
+<b>f</b> Outliers are interesting values in any distribution and should be a flag to investigate more closely. Were results recorded correctly? Was there an error in the experiment, for example, did Jasmine use a more powerful bow with greater range, or maybe she used a new set of arrows with better fletching? It may, however, be that Jasmine is inconsistent, occasionally getting much better results, but often getting fairly poor results. In this case the large standard deviation is warranted as a measure of this distribution. Over 20 trials, a probability of 0.05 only represents one set of 10 shots, so a larger set of results may give a better picture of her long-term accuracy and reduce the impact of one strong result amongst many other weaker scores.</div></div>
+<div class="a"><span class="an">11</span><div class="ab">\(k=\tfrac{1}{10}\), \(\text{E}(X)=3\), \(\sigma=1\)</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a</b> \(\tfrac1n\)<br>
+<b>b</b> \(\text{E}(X)=\tfrac1n\times\tfrac12n(n+1)=\dfrac{n+1}{2}\)<br>
+<b>c</b> \(\text{E}(X^2)=\tfrac1n\times\tfrac16n(n+1)(2n+1)=\tfrac16(n+1)(2n+1)\), so \(\text{Var}(X)=\tfrac16(n+1)(2n+1)-\tfrac14(n+1)^2=\tfrac{1}{12}(n^2-1)\)<br>
+<b>d</b> With \(n=3\), the formulas give \(\text{E}(X)=2\) and \(\text{Var}(X)=\tfrac{8}{12}=\tfrac23\), as in Question 7. With \(n=6\), they give \(\text{E}(X)=3\tfrac12\) and \(\text{Var}(X)=\tfrac{35}{12}=2\tfrac{11}{12}\), as for the die in Worked examples 5 and 6.</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><div class="split" style="grid-template-columns:1fr 1fr;gap:4mm"><div>
+<b>a</b> Because \(Z=X+a\),
+\[\begin{aligned}\text{E}(Z)&amp;=\textstyle\sum zP(Z=z)\\
+&amp;=\textstyle\sum(x+a)P(X+a=x+a)\\
+&amp;=\textstyle\sum(x+a)P(X=x)\\
+&amp;=\textstyle\sum xP(X=x)+\sum aP(X=x)\\
+&amp;=\textstyle\sum xP(X=x)+a\sum P(X=x)\\
+&amp;=\mu+a,\end{aligned}\]
+because \(\sum P(X=x)=1\).
+</div><div>
+<b>b</b> Because \(Z=kX\),
+\[\begin{aligned}\text{E}(Z)&amp;=\textstyle\sum zP(Z=z)\\
+&amp;=\textstyle\sum(kx)P(kX=kx)\\
+&amp;=\textstyle\sum(kx)P(X=x)\\
+&amp;=k\times\textstyle\sum xP(X=x)\\
+&amp;=k\mu.\end{aligned}\]
+</div></div></div></div>
+<div class="a"><span class="an">14</span><div class="ab"><div class="split" style="grid-template-columns:1fr 1fr;gap:4mm"><div>
+<b>a</b> The mean of \(Z\) is \(\mu+a\), by the previous question. Hence
+\[\begin{aligned}\text{Var}(Z)&amp;=\text{E}\big((Z-(\mu+a))^2\big)\\
+&amp;=\text{E}\big((Z-a-\mu)^2\big)\\
+&amp;=\text{E}\big((X-\mu)^2\big)\\
+&amp;=\text{Var}(X)\end{aligned}\]
+Hence the standard deviation of the new distribution remains \(\sigma\). This is to be expected, because the distribution is no more spread out than previously.
+</div><div>
+<b>b</b> The mean of \(Z\) is \(k\mu\), by the previous question. Hence
+\[\begin{aligned}\text{Var}(Z)&amp;=\text{E}\big((Z-k\mu)^2\big)\\
+&amp;=\text{E}\big((kX-k\mu)^2\big)\\
+&amp;=k^2\times\text{E}\big((X-\mu)^2\big)\\
+&amp;=k^2\,\text{Var}(X)\end{aligned}\]
+Hence the standard deviation of the new distribution is \(\sqrt{k^2\sigma^2}=k\sigma\).
+</div></div></div></div>
+
+{{ahead:Lesson 13C | Variance and standard deviation}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q1</span></span></div>
+<p>Let \(X=1\) for a success and \(X=0\) for a failure. Then \(p(1)=0.3\) and \(p(0)=0.7\).</p>
+<table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm"><tr><th>\(x\)</th><td>0</td><td>1</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>0.7</td><td>0.3</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>0</td><td>0.3</td><td>0.3</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>0</td><td>0.3</td><td>0.3</td></tr></table>
+<p>So \(\mu=0.3\) and \(\text{E}(X^2)=0.3\), and</p>
+\[\text{Var}(X)=\text{E}(X^2)-\mu^2=0.3-0.3^2=0.3-0.09=0.21.\]
+<p><b>Answer (D).</b> Option (A), 0.09, is \(\mu^2\) only. Option (B), 0.7, is the probability of failure, and option (C), 0.3, is the mean.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Baulkham Hills High School, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)(iii)</span></span></div>
+<p><b>(iii)</b> Put \(a=0.4116\) and \(b=0.2646\) into the table, and add rows for \(xp(x)\) and \(x^2p(x)\).</p>
+<table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>0.2401</td><td>0.4116</td><td>0.2646</td><td>0.0756</td><td>0.0081</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>0</td><td>0.4116</td><td>0.5292</td><td>0.2268</td><td>0.0324</td><td>1.2</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>0</td><td>0.4116</td><td>1.0584</td><td>0.6804</td><td>0.1296</td><td>2.28</td></tr></table>
+<p>From the third row, \(\mu=1.2\). From the last row, \(\text{E}(X^2)=2.28\). Hence</p>
+\[\text{Var}(X)=\text{E}(X^2)-\mu^2=2.28-1.2^2=2.28-1.44=0.84.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q8</span></span></div>
+<p>The Bernoulli variable takes the value 1 with probability \(p\) and the value 0 with probability \(1-p\). So</p>
+\[\text{E}(X)=0\times(1-p)+1\times p=p,\qquad\text{E}(X^2)=0^2\times(1-p)+1^2\times p=p,\]
+\[\text{Var}(X)=\text{E}(X^2)-\mu^2=p-p^2=p(1-p).\]
+<p>The condition \(\text{E}(X)=5\,\text{Var}(X)\) becomes \(p=5p(1-p)\). Since \(p\ne0\), divide both sides by \(p\):</p>
+\[1=5(1-p),\qquad1-p=\tfrac15,\qquad p=\tfrac45.\]
+<p>(Check: \(\text{E}(X)=\tfrac45\) and \(\text{Var}(X)=\tfrac45\times\tfrac15=\tfrac{4}{25}\), and \(5\times\tfrac{4}{25}=\tfrac45\).)</p>
+<p><b>Answer (B).</b> Option (C), \(\tfrac15\), is the value of \(1-p\), not \(p\). For options (A) and (D), \(\tfrac12\) gives \(\text{E}(X)=\tfrac12\) but \(5\,\text{Var}(X)=\tfrac54\), and \(\tfrac35\) gives \(\text{E}(X)=\tfrac35\) but \(5\,\text{Var}(X)=\tfrac65\).</p></div>

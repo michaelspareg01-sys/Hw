@@ -1,1 +1,262 @@
-<!-- filled by Task 4 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 13C</div><h2>Variance and standard deviation</h2>
+<div class="focus">The variance \(\text{Var}(X)\) of a discrete probability distribution measures how spread out its values are from the mean \(\mu\). It is the weighted mean of the squared deviations \((x-\mu)^2\), so \(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\). The alternative formula \(\text{Var}(X)=\text{E}(X^2)-\mu^2\) is usually easier to calculate. The standard deviation \(\sigma=\sqrt{\text{Var}(X)}\) has the same units as the values. This lesson sets out both formulas in tables with extra rows, proves the alternative formula, and uses the standard deviation to compare scores.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the variance, first formula}}
+<div class="box concept"><div class="bt">Measures of spread</div>
+<p>After discussing \(\text{E}(X)\), which is a measure of the central tendency of a discrete probability distribution, we now turn to variance and standard deviation, which are two measures of spread. Variance is easier to define and calculate, so we will work first with the variance. But standard deviation, which is just the square root of the variance, is important because it has the same units as the values of the distribution, and increases in proportion when all the values are increased by some factor.</p></div></div>
+<div class="box concept"><div class="bt">The variance: first formula</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin-top:0">Return again to the number of heads when four coins are tossed:</p>
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{1}{16}\)</td></tr></table>
+<p>In Lesson 13B, the expected value of this distribution, its mean, was found to be \(\mu=2\). We now want a measure of how spread out the values are from the mean. The usual measure of this is the <i>variance</i> \(\text{Var}(X)\).</p>
+</div><div>
+{{svg:c13b_coins}}
+</div></div></div>
+<div class="box concept"><div class="bt">Deviations from the mean</div>
+<p style="margin-top:0">To find the variance, take the difference \(x-\mu\) of each value from the mean \(\mu\). This difference is called the <i>deviation</i> of the value \(x\) from the mean \(\mu\). Then we square the deviation to give \((x-\mu)^2\). This squared deviation is a good measure of how far \(x\) is from the mean for two reasons:</p>
+<ul><li>The square \((x-\mu)^2\) is always a positive number or zero, whether the value \(x\) is on the left or the right of \(\mu\), because of the squaring.</li>
+<li>The square \((x-\mu)^2\) gets larger as \(x\) moves away from the mean, and the square means it gets larger very quickly. For example, doubling the distance of \(x\) from the mean has four times the effect on the square.</li></ul>
+<p>Then, as with expected value, take the weighted mean of these squared deviations \((x-\mu)^2\), weighted as before by the probabilities. Using sigma notation,</p>
+<div style="margin:1mm 0 1mm 8mm">\(\text{Var}(X)=\sum(x-\mu)^2p(x)\), &ensp;summed over the distribution.</div></div>
+<div class="box concept"><div class="bt">Setting out the calculation of variance</div>
+<p>As with expected value, the calculation is best done by adding more rows to the probability distribution table. Here are the calculations for the number of heads on four coins. The table calculates the expected value and variance together:</p>
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td><td style="border:none"></td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{1}{16}\)</td><td>1</td><td style="border:none;text-align:left">(a check)</td></tr>
+<tr><th>\(xp(x)\)</th><td>0</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>2</td><td style="border:none;text-align:left">(the mean \(\mu\))</td></tr>
+<tr><th>\((x-\mu)^2\)</th><td>4</td><td>1</td><td>0</td><td>1</td><td>4</td><td>—</td><td style="border:none"></td></tr>
+<tr><th>\((x-\mu)^2p(x)\)</th><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>0</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>1</td><td style="border:none;text-align:left">(the variance)</td></tr></table>
+<p>Thus the mean is 2 and the variance is 1.</p></div>
+<div class="box concept"><div class="bt">Using columns instead of rows</div>
+<div class="split" style="grid-template-columns:2fr 3fr"><div>
+<p style="margin-top:0">To the right is the alternative setting out that uses columns instead of rows.</p>
+<p>Take your pick: use the layout that you find more convenient.</p>
+</div><div>
+<table class="t" style="margin:0 auto"><tr><th>\(x\)</th><th>\(p(x)\)</th><th>\(xp(x)\)</th><th>\((x-\mu)^2\)</th><th>\((x-\mu)^2p(x)\)</th></tr>
+<tr><td>0</td><td>\(\tfrac{1}{16}\)</td><td>0</td><td>4</td><td>\(\tfrac{4}{16}\)</td></tr>
+<tr><td>1</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>1</td><td>\(\tfrac{4}{16}\)</td></tr>
+<tr><td>2</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>0</td><td>0</td></tr>
+<tr><td>3</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>1</td><td>\(\tfrac{4}{16}\)</td></tr>
+<tr><td>4</td><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>4</td><td>\(\tfrac{4}{16}\)</td></tr>
+<tr><th>Sum</th><td>1</td><td>2</td><td>—</td><td>1</td></tr></table>
+</div></div></div>
+<div class="box concept"><div class="bt">The variance as an expected value</div>
+<p>The variance is the weighted mean of \((x-\mu)^2\), weighted by the probabilities. Thus the variance is the expected value of \((x-\mu)^2\),</p>
+<div style="margin:1mm 0 1mm 8mm">\(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\).</div>
+<p>This is a very useful form of the variance formula, because it will apply also to the continuous probability distributions introduced in Year 12.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">An octahedral die</span></div><div class="ex-body">
+An octahedral die has its eight faces numbered 1 to 8. It is thrown, producing a uniform distribution. Find the mean and variance of the distribution using the formula \(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\).
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A tetrahedral die has its four faces numbered 1 to 4. It is thrown, producing a uniform distribution. Find the mean and variance of the distribution using the formula \(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\).
+{{work:52}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A die is thrown, producing a uniform distribution. Find the mean and variance of the distribution using the formula \(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\).
+<div class="sol-label">Solution</div>
+<table class="t"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>Sum</td><td style="border:none"></td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>1</td><td style="border:none;text-align:left">(a check)</td></tr>
+<tr><th>\(xp(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{2}{6}\)</td><td>\(\tfrac{3}{6}\)</td><td>\(\tfrac{4}{6}\)</td><td>\(\tfrac{5}{6}\)</td><td>\(\tfrac{6}{6}\)</td><td>\(3\tfrac{1}{2}\)</td><td style="border:none;text-align:left">(the mean \(\mu\))</td></tr>
+<tr><th>\((x-\mu)^2\)</th><td>\(\tfrac{25}{4}\)</td><td>\(\tfrac{9}{4}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{9}{4}\)</td><td>\(\tfrac{25}{4}\)</td><td>—</td><td style="border:none"></td></tr>
+<tr><th>\((x-\mu)^2p(x)\)</th><td>\(\tfrac{25}{24}\)</td><td>\(\tfrac{9}{24}\)</td><td>\(\tfrac{1}{24}\)</td><td>\(\tfrac{1}{24}\)</td><td>\(\tfrac{9}{24}\)</td><td>\(\tfrac{25}{24}\)</td><td>\(\tfrac{70}{24}\)</td><td style="border:none;text-align:left">(the variance)</td></tr></table>
+<p>Hence the mean is \(3\tfrac12\) and the variance is \(\tfrac{70}{24}=2\tfrac{11}{12}\).</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:the variance, alternative formula}}
+<div class="box concept"><div class="bt">The variance: alternative formula</div>
+<p>The method of calculation in the four-tossed-coins table above worked well because the mean was a whole number. Things became a little turgid in the subsequent throwing-a-die experiment in Worked example 5, because the mean \(3\tfrac12\) was a fraction. If the denominator had been a larger number such as 287 rather than 2, things would have looked a great deal messier.</p>
+<p>Fortunately, there is another formula for variance, again using weighted means, and this alternative formula makes calculations much easier:</p>
+<div style="margin:1mm 0 1mm 8mm">\(\text{Var}(X)=\sum x^2p(x)-\mu^2\).</div>
+<p>This formula uses the squares of the values, and takes the weighted mean of these squares, weighted as always by the probabilities. Thus, like the first formula, it can be written in terms of expected values, this time in terms of the expected value of \(X^2\),</p>
+<div style="margin:1mm 0 1mm 8mm">\(\text{Var}(X)=\text{E}(X^2)-\mu^2\).</div></div></div>
+<div class="box concept"><div class="bt">The four coins again, using the alternative formula</div>
+<p>The alternative formula makes the calculations more straightforward, whether or not \(\mu\) is a whole number. The following table uses this alternative formula to recalculate the variance for the distribution obtained by throwing four coins and counting the heads.</p>
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td><td style="border:none"></td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{1}{16}\)</td><td>1</td><td style="border:none;text-align:left">(a check)</td></tr>
+<tr><th>\(xp(x)\)</th><td>0</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>2</td><td style="border:none;text-align:left">(the mean \(\mu\))</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>0</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{24}{16}\)</td><td>\(\tfrac{36}{16}\)</td><td>\(\tfrac{16}{16}\)</td><td>5</td><td style="border:none;text-align:left">(this is \(\text{E}(X^2)\))</td></tr></table>
+<p>From the third row, &ensp;\(\text{E}(X)=2\), which is \(\mu\).</p>
+<p>From the last row, &ensp;\(\begin{aligned}[t]\text{Var}(X)&amp;=\text{E}(X^2)-\mu^2\\&amp;=5-2^2\\&amp;=1,\ \text{as we obtained before.}\end{aligned}\)</p></div>
+<div class="box take"><div class="bt">7 Variance of a discrete probability distribution</div>
+<ul><li>The <i>variance</i> of a discrete probability distribution with numeric data is
+<div style="margin:0.5mm 0 0.5mm 8mm">\(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\) &ensp;or equivalently&ensp; \(\text{Var}(X)=\text{E}(X^2)-\mu^2\).</div></li>
+<li>Written in terms of weighted means,
+<div style="margin:0.5mm 0 0.5mm 8mm">\(\text{Var}(X)=\sum(x-\mu)^2p(x)\) &ensp;or&ensp; \(\sum x^2p(x)-\mu^2\)</div>
+where the sums are taken over all the values in the distribution.</li>
+<li>The first of each pair gives the best intuitive understanding of the variance.</li>
+<li>The second of each pair is usually easier for calculation.</li>
+<li>Each difference \(x-\mu\) is called the <i>deviation</i> of \(x\) from the mean \(\mu\).</li></ul></div>
+<div class="box concept"><div class="bt">Extension: proof of the alternative formula</div>
+<p>The proof looks complicated only because of sigma notation. To prove the alternative formula for \(\text{Var}(X)\), start with the first formula, and move to the second.</p>
+\[\begin{aligned}\text{Var}(X)&amp;=\textstyle\sum(x-\mu)^2p(x)\\
+&amp;=\textstyle\sum(x^2-2\mu x+\mu^2)p(x)&amp;&amp;\text{(expand the square)}\\
+&amp;=\textstyle\sum x^2p(x)-\sum2\mu xp(x)+\sum\mu^2p(x)&amp;&amp;\text{(expand the brackets)}\\
+&amp;=\textstyle\sum x^2p(x)-2\mu\sum xp(x)+\mu^2\sum p(x)&amp;&amp;\text{(take out common factors)}\end{aligned}\]
+<p>Using the fact that \(\sum p(x)=1\) and \(\sum xp(x)=\mu\),</p>
+\[\begin{aligned}\text{Var}(X)&amp;=\textstyle\sum x^2p(x)-2\mu^2+\mu^2\\
+&amp;=\textstyle\sum x^2p(x)-\mu^2.\end{aligned}\]</div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A die with repeated numbers</span></div><div class="ex-body">
+A die has its six faces numbered 1, 2, 2, 3, 3, 3. It is thrown, and \(X\) is the number on the top face. Find the mean and variance of the distribution using the alternative formula \(\text{Var}(X)=\text{E}(X^2)-\mu^2\).
+{{work:64}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A die has its six faces numbered 1, 1, 2, 2, 2, 4. It is thrown, and \(X\) is the number on the top face. Find the mean and variance of the distribution using the alternative formula \(\text{Var}(X)=\text{E}(X^2)-\mu^2\).
+{{work:64}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A die is thrown, producing a uniform distribution. Find the mean and variance of the distribution using the alternative formula \(\text{Var}(X)=\text{E}(X^2)-\mu^2\).
+<div class="sol-label">Solution</div>
+<table class="t"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>Sum</td><td style="border:none"></td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>1</td><td style="border:none;text-align:left">(a check)</td></tr>
+<tr><th>\(xp(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{2}{6}\)</td><td>\(\tfrac{3}{6}\)</td><td>\(\tfrac{4}{6}\)</td><td>\(\tfrac{5}{6}\)</td><td>\(\tfrac{6}{6}\)</td><td>\(3\tfrac{1}{2}\)</td><td style="border:none;text-align:left">(the mean \(\mu\))</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{4}{6}\)</td><td>\(\tfrac{9}{6}\)</td><td>\(\tfrac{16}{6}\)</td><td>\(\tfrac{25}{6}\)</td><td>\(\tfrac{36}{6}\)</td><td>\(\tfrac{91}{6}\)</td><td style="border:none;text-align:left">(this is \(\text{E}(X^2)\))</td></tr></table>
+<p>From the third row, &ensp;\(\text{E}(X)=3\tfrac12\).</p>
+<p>From the last row, &ensp;\(\begin{aligned}[t]\text{Var}(X)&amp;=\text{E}(X^2)-\mu^2\\&amp;=\tfrac{91}{6}-\tfrac{49}{4}\\&amp;=15\tfrac16-12\tfrac14\\&amp;=2\tfrac{11}{12},\ \text{as we obtained before.}\end{aligned}\)</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:standard deviation}}
+<div class="box concept"><div class="bt">Standard deviation</div>
+<p>The units of variance are the square of whatever units the values have. The <i>standard deviation</i> is the square root of the variance, and therefore has the same units as the values. Its usual pronumeral is \(\sigma\), the lower-case Greek letter sigma (Latin ‘s’), standing for ‘standard’,</p>
+<div style="margin:1mm 0 1mm 8mm">\(\sigma=\sqrt{\text{Var}(X)}\) &ensp;or equivalently&ensp; \(\sigma^2=\text{Var}(X)\)</div>
+<p>In the four-coins example at the start of this section, the units of the values and of the standard deviation are heads, and in Worked example 7 below, their units are dollars.</p>
+<p>The term <i>standard deviation</i> implies that the deviations from the mean have been taken into account across all values of the distribution.</p>
+<p>The other nice thing about the standard deviation is its proportionality. Standard deviation, like variance, is a measure of spread. If we stretch out all the values by doubling them, then we correspondingly double the standard deviation. If we spread out all the values by a factor of \(k\), the standard deviation is multiplied by \(k\). This will be proven in the Enrichment section of Exercise 13C (Questions 13 and 14).</p></div></div>
+<div class="box take"><div class="bt">8 Standard deviation of a discrete probability distribution</div>
+<ul><li>The <i>standard deviation</i> is the square root of the variance. It is usually assigned the pronumeral \(\sigma\). The Greek letter sigma stands for ‘standard’.
+<div style="margin:0.5mm 0 0.5mm 8mm">\(\sigma=\sqrt{\text{Var}(X)}\) &ensp;or equivalently&ensp; \(\sigma^2=\text{Var}(X)\)</div></li>
+<li>The pronumeral for variance is thus \(\sigma^2\).</li>
+<li>The standard deviation has the same units as the values.</li>
+<li>The variance and the standard deviation are <i>measures of spread</i>.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The pickpocket</span></div><div class="ex-body">
+Sixteen friends meet at a café. One has <span style="white-space:nowrap">\(\$\)300</span> cash, three have <span style="white-space:nowrap">\(\$\)120</span> cash, two have <span style="white-space:nowrap">\(\$\)90</span> cash, four have <span style="white-space:nowrap">\(\$\)40</span> cash, and two have <span style="white-space:nowrap">\(\$\)20</span> cash. The other four have no cash. A pickpocket chooses one of the friends at random and takes all of his or her cash. Find the mean and the standard deviation of the amount the pickpocket takes.
+{{work:54}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Ten friends are on a bus. Two have <span style="white-space:nowrap">\(\$\)50</span> cash, three have <span style="white-space:nowrap">\(\$\)30</span> cash, and one has <span style="white-space:nowrap">\(\$\)20</span> cash. The other four have no cash. A thief chooses one of the friends at random and takes all of his or her cash. Find the mean and the standard deviation of the amount the thief takes.
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 7</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Find the standard deviation of the distribution in Worked example 3 of Lesson 13B (the restaurant robbery).
+<div class="sol-label">Solution</div>
+<p>We use the alternative formula for variance, then take the square root.</p>
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>40</td><td>50</td><td>80</td><td>180</td><td>350</td><td>560</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>\(\tfrac{5}{20}\)</td><td>\(\tfrac{1}{20}\)</td><td>\(\tfrac{4}{20}\)</td><td>\(\tfrac{3}{20}\)</td><td>\(\tfrac{2}{20}\)</td><td>\(\tfrac{4}{20}\)</td><td>\(\tfrac{1}{20}\)</td><td>1</td></tr>
+<tr><th>\(xp(x)\)</th><td>0</td><td>2</td><td>10</td><td>12</td><td>18</td><td>70</td><td>28</td><td>140</td></tr>
+<tr><th>\(x^2p(x)\)</th><td>0</td><td>80</td><td>500</td><td>960</td><td>3240</td><td>\(24\,500\)</td><td>\(15\,680\)</td><td>\(44\,960\)</td></tr></table>
+<div class="split" style="grid-template-columns:auto 1fr;gap:4mm"><div>From the last row,</div><div>\(\begin{aligned}[t]\text{Var}(X)&amp;=\text{E}(X^2)-\mu^2\\&amp;=44\,960-140^2\\&amp;=25\,360\end{aligned}\)</div>
+<div>Taking the square root,</div><div>\(\begin{aligned}[t]\sigma&amp;=\sqrt{\text{Var}(X)}\\&amp;\doteqdot159.25\end{aligned}\)</div></div>
+<p>giving a spread of <span style="white-space:nowrap">\(\$\)159.25</span> about the mean of <span style="white-space:nowrap">\(\$\)140</span>.</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 13C}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">
+<div class="split" style="grid-template-columns:1fr auto"><div>
+Consider a random variable \(X\) whose probability distribution is given in the table to the right.
+<div class="parts one"><span><span class="pl">a</span>Copy and complete the table to calculate the mean \(\text{E}(X)=\mu\) and the variance \(\text{Var}(X)\) using the definition
+<span style="display:block;margin:0.5mm 0 0 8mm">\(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\).</span></span><span><span class="pl">b</span>Calculate the standard deviation
+<span style="display:block;margin:0.5mm 0 0 8mm">\(\sigma=\sqrt{\text{Var}(X)}\).</span></span></div>
+</div><div>
+<table class="t" style="margin:0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>0.3</td><td>0.5</td><td>0.1</td><td>0.1</td><td style="width:11mm"></td></tr>
+<tr><th>\(xp(x)\)</th><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>\((x-\mu)^2\)</th><td></td><td></td><td></td><td></td><td>—</td></tr>
+<tr><th>\((x-\mu)^2p(x)\)</th><td></td><td></td><td></td><td></td><td></td></tr></table>
+</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">
+<div class="split" style="grid-template-columns:1fr auto"><div>
+This question uses the alternative formula for \(\text{Var}(X)\), rather than the definition, to calculate the variance for the random variable in the previous question.
+<div class="parts one"><span><span class="pl">a</span>Copy and complete the table.</span><span><span class="pl">b</span>Now calculate the variance using the alternative formula
+<span style="display:block;margin:0.5mm 0 0 8mm">\(\text{Var}(X)=\text{E}(X^2)-\mu^2\).</span></span></div>
+</div><div>
+<table class="t" style="margin:0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td></tr>
+<tr><th>\(p(x)\)</th><td>0.3</td><td>0.5</td><td>0.1</td><td>0.1</td><td style="width:11mm"></td></tr>
+<tr><th>\(xp(x)\)</th><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>\(x^2\)</th><td></td><td></td><td></td><td></td><td>—</td></tr>
+<tr><th>\(x^2p(x)\)</th><td></td><td></td><td></td><td></td><td></td></tr></table>
+</div></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">For each random variable, calculate \(\mu=\text{E}(X)\). Then calculate the variance \(\text{Var}(X)\) twice, first using the definition \(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\), then using the alternative formula \(\text{Var}(X)=\text{E}(X^2)-\mu^2\). Use columns instead of rows in parts <b>c</b> and <b>d</b>.
+<div class="parts one" style="row-gap:0">
+<span><span class="pl">a</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(p(x)\)</th><td>0.2</td><td>0.2</td><td>0.2</td><td>0.2</td><td>0.2</td></tr></table></span>
+<span><span class="pl">b</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(p(x)\)</th><td>0.0</td><td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td></tr></table></span>
+</div>
+<div style="display:flex;gap:16mm;margin-top:1mm">
+<div><span class="pl">c</span><table class="t" style="display:inline-table;vertical-align:top;margin:0"><tr><th>\(x\)</th><th>\(p(x)\)</th></tr><tr><td>\(-2\)</td><td>0.3</td></tr><tr><td>\(-1\)</td><td>0.1</td></tr><tr><td>0</td><td>0.2</td></tr><tr><td>1</td><td>0.1</td></tr><tr><td>2</td><td>0.3</td></tr></table></div>
+<div><span class="pl">d</span><table class="t" style="display:inline-table;vertical-align:top;margin:0"><tr><th>\(x\)</th><th>\(p(x)\)</th></tr><tr><td>1</td><td>0.1</td></tr><tr><td>2</td><td>0.4</td></tr><tr><td>3</td><td>0.2</td></tr><tr><td>4</td><td>0.2</td></tr><tr><td>5</td><td>0.1</td></tr></table></div>
+</div>{{work:110}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Calculate the expected value, variance and standard deviation for each random variable. For the variance, choose whether to use definition \(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\) or the alternative formula \(\text{Var}(X)=\text{E}(X^2)-\mu^2\).
+<span style="display:block;margin-top:1mm">(i) <table class="t" style="display:inline-table;vertical-align:middle;margin:0.5mm 0"><tr><th>\(y\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(Y=y)\)</th><td>0</td><td>0.5</td><td>0</td><td>0.5</td><td>0</td></tr></table></span>
+<span style="display:block">(ii) <table class="t" style="display:inline-table;vertical-align:middle;margin:0.5mm 0"><tr><th>\(z\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(Z=z)\)</th><td>0.5</td><td>0</td><td>0</td><td>0</td><td>0.5</td></tr></table></span>
+<span style="display:flex;gap:16mm;margin-top:0.5mm">
+<span>(iii) <table class="t" style="display:inline-table;vertical-align:top;margin:0"><tr><th>\(v\)</th><th>\(P(V=v)\)</th></tr><tr><td>0</td><td>0.3</td></tr><tr><td>1</td><td>0.5</td></tr><tr><td>2</td><td>0.1</td></tr><tr><td>3</td><td>0.1</td></tr><tr><td>4</td><td>0</td></tr></table></span>
+<span>(iv) <table class="t" style="display:inline-table;vertical-align:top;margin:0"><tr><th>\(w\)</th><th>\(P(W=w)\)</th></tr><tr><td>0</td><td>0</td></tr><tr><td>1</td><td>0.1</td></tr><tr><td>2</td><td>0.1</td></tr><tr><td>3</td><td>0.5</td></tr><tr><td>4</td><td>0.3</td></tr></table></span>
+</span></span>
+<span><span class="pl">b</span>Use the idea that the expected value measures the centre of the data, and the variance and standard deviation measure its spread, to comment on:<br>(i) how \(\text{E}(Y)\) and \(\text{Var}(Y)\) compare with \(\text{E}(Z)\) and \(\text{Var}(Z)\),<br>(ii) how \(\text{E}(V)\) and \(\text{Var}(V)\) compare with \(\text{E}(W)\) and \(\text{Var}(W)\).</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">A distribution that takes a single value is called <i>deterministic</i>, because it is no longer random. Our formulae for expected value and variance may still be calculated and the results are not a surprise, as this question demonstrates.<br>
+Calculate \(\text{E}(X)\) and \(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\) for the distribution:
+<table class="t"><tr><th>\(x\)</th><td style="width:12mm">1</td><td style="width:12mm">2</td><td style="width:12mm">3</td><td style="width:12mm">4</td><td style="width:12mm">5</td></tr><tr><th>\(P(X=x)\)</th><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr></table>{{work:26}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">John and Liam are keen basketballers and keep track of the number of baskets they score in games. Using the data from a large number of games, they have estimated the probability of scoring in any one game. Let the random variables \(J\) and \(L\) be the number of baskets scored by John and Liam respectively in a game. Their probability data is recorded in the tables below.
+<div style="display:flex;gap:8mm;flex-wrap:wrap">
+<table class="t"><tr><th>\(j\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(J=j)\)</th><td>0.35</td><td>0.2</td><td>0.1</td><td>0.25</td><td>0.1</td></tr></table>
+<table class="t"><tr><th>\(\ell\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(L=\ell)\)</th><td>0.2</td><td>0.3</td><td>0.4</td><td>0.1</td><td>0</td></tr></table></div>
+<div class="parts one"><span><span class="pl">a</span>Calculate the expected value and variance for \(J\) and \(L\) using the alternative form \(\text{Var}(X)=\text{E}(X^2)-\mu^2\).</span><span><span class="pl">b</span>With reference to expected value, comment on who is the better player.</span><span><span class="pl">c</span>With reference to variance, comment on who is the more consistent player.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">The random variable \(X\) records the number on a spinner with sectors of equal size marked 1, 2, 3.
+<div class="parts one"><span><span class="pl">a</span>What is the probability of each outcome, and what sort of distribution is this?</span><span><span class="pl">b</span>Calculate the expected value \(\text{E}(X)\).</span><span><span class="pl">c</span>Calculate the variance \(\text{Var}(X)\).</span></div>{{work:32}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">The <i>deviation of a score \(x\) from the mean</i> is often expressed in terms of how many standard deviations \(x\) lies from the mean \(\mu\). The formula for this is:
+\[\text{number of standard deviations from the mean}=\frac{x-\mu}{\sigma},\]
+where a negative sign means that the score \(x\) is below the mean.
+<div class="parts one"><span><span class="pl">a</span>Englebert's score in his English test was 55. The test mean was \(\mu=65\) and the standard deviation was \(\sigma=5\). How many standard deviations was his score below the mean?</span><span><span class="pl">b</span>Matthew's score in his Mathematics test was 54. The test mean was \(\mu=72\) and the standard deviation was \(\sigma=12\). How many standard deviations was his score below the mean?</span><span><span class="pl">c</span>Comment on which score was more impressive, by noting which score was furthest from the mean in terms of the number of standard deviations.</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Using the method of the previous question, that is, how many standard deviations a score is from the mean, decide which of each pair of test scores below is better.
+<div class="parts one"><span><span class="pl">a</span>A score of 45 for Visual Arts (mean 60, standard deviation 15) or a score of 46 for Music (mean of 67, standard deviation of 12).</span><span><span class="pl">b</span>A score of 88 for Earth Science (mean 70, standard deviation 9) or a score of 90 for Biology (mean of 75, standard deviation of 10).</span><span><span class="pl">c</span>A score of 62 for Chinese (mean 50, standard deviation 6) or a score of 63 for Sanskrit (mean of 55, standard deviation of 4).</span></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Jasmine is practising her accuracy with bow and arrow over 10 shots. The random variable \(X\) is the number of bull's-eyes obtained. She repeats this experiment twenty times and records the relative frequency as an estimate to the probability of each outcome. Her results are tabulated below.
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr><tr><th>\(p(x)\)</th><td>0</td><td>0.1</td><td>0.15</td><td>0.3</td><td>0.4</td><td>0</td><td>0</td><td>0</td><td>0.05</td></tr></table>
+<div class="parts one"><span><span class="pl">a</span>Calculate the expected value and standard deviation for the experiment.</span><span><span class="pl">b</span>An <i>outlier</i> is informally a value that is a long way away from the mean, and from the rest of the data, of the distribution. What value(s) would you think are outliers in this distribution?</span><span><span class="pl">c</span>There are various quantitative ways of defining outliers. One such definition is <i>any value three or more standard deviations from the mean</i>. Are there any outliers using this definition?</span><span><span class="pl">d</span>Jasmine realises that due to poor handwriting, her results have been wrongly interpreted. The corrected table is below. Recalculate the expected value and standard deviation for this new table.
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(p(x)\)</th><td>0</td><td>0.1</td><td>0.15</td><td>0.3</td><td>0.4</td><td>0.05</td></tr></table></span><span><span class="pl">e</span>Because of their distance from the mean, outliers can have a big influence on the value of the mean and standard deviation. Comment on the differences in the expected value and variance between the two tables above.</span><span><span class="pl">f</span>Would it be valid in general to discard or ‘correct’ any outliers?</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">For some value of \(k\), a random variable \(X\) with values 1, 2, 3, 4 is defined by
+<div style="margin:1mm 0 1mm 8mm">\(P(X=x)=kx\), &ensp;for \(x=1,2,3,4\).</div>
+Find \(k\), then find the expected value and the standard deviation.{{work:44}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">12</span><div class="q-body">A distribution is said to be <i>uniform</i> if every outcome has the same probability. Consider the random variable \(X\) of a uniform distribution with values \(1,2,\dots,n\).<br>
+To complete this question you will find these formulae useful:
+\[1+2+3+\cdots+n=\tfrac12n(n+1)\qquad1+4+9+\cdots+n^2=\tfrac16n(n+1)(2n+1)\]
+<div class="parts one"><span><span class="pl">a</span>What is the probability \(P(X=k)\) for integers \(1\le k\le n\)?</span><span><span class="pl">b</span>Calculate the expected value \(\text{E}(X)\).</span><span><span class="pl">c</span>Calculate the variance \(\text{Var}(X)\).</span><span><span class="pl">d</span>Compare your answers for expected value and variance with those for Question 7 involving a three-valued spinner, and with the example in the theory about throwing a standard six-sided die.</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">The expected value \(\text{E}(X)\) of a discrete probability distribution is \(\mu\).
+<div class="parts one"><span><span class="pl">a</span>A constant \(a\) is added to all the values in the distribution. Let the random variable of this new distribution be \(Z\), so that \(Z=X+a\). Show that the expected value \(\text{E}(Z)\) of the new distribution is \(\mu+a\).</span><span><span class="pl">b</span>Each value in the distribution is multiplied by a constant \(k\). Let the random variable of this new distribution be \(Z\), so that \(Z=kX\). Show that the expected value \(\text{E}(Z)\) of the new distribution is \(k\mu\).</span></div>
+You have now proven that for all constants \(k\) and \(a\),
+<div style="margin:1mm 0 0 8mm">\(\text{E}(kX+a)=k\text{E}(X)+a\).</div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">The mean and standard deviation of a discrete probability distribution are \(\mu\) and \(\sigma\). Use the formula \(\text{Var}(X)=\text{E}\big((X-\mu)^2\big)\) to solve these two problems.
+<div class="parts one"><span><span class="pl">a</span>A constant \(a\) is added to all the values in the distribution. Let the random variable of this new distribution be \(Z\), so that \(Z=X+a\). Show that the standard deviation \(\sqrt{\text{Var}(Z)}\) of the new distribution is also \(\sigma\).</span><span><span class="pl">b</span>Each value in the distribution is multiplied by a constant \(k&gt;0\). Let the random variable of this new distribution be \(Z\), so that \(Z=kX\). Show that the standard deviation \(\sqrt{\text{Var}(Z)}\) of the new distribution is \(k\sigma\).</span></div>
+You have now proven that for all constants \(k&gt;0\) and \(a\),
+<div style="margin:1mm 0 0 8mm">(standard deviation of \(kX+a\)) \(=k\sigma\).</div>{{work:80}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 5 minutes</b></span><span><b>3 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">These are the only school-paper items that need just this lesson's ideas. For more timed practice, do Questions 6 and 11 above in 15 minutes.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q1</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The probability of success in a Bernoulli trial is 0.3. What is the variance?
+<div class="mc"><span>(A) 0.09</span><span>(B) 0.7</span><span>(C) 0.3</span><span>(D) 0.21</span></div></div>
+<div class="hint"><b>Hint:</b> a Bernoulli trial has two outcomes. Record a success as the value 1 and a failure as the value 0.</div>{{work:16}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Baulkham Hills High School, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)(iii)</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The following table is the distribution of a random variable \(X\) where \(X\sim\text{Bin}(4,p)\).
+<table class="t" style="table-layout:fixed"><colgroup><col><col style="width:17mm"><col style="width:17mm"><col style="width:17mm"><col style="width:17mm"><col style="width:17mm"></colgroup><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>0.2401</td><td>\(a\)</td><td>\(b\)</td><td>0.0756</td><td>0.0081</td></tr></table>
+In earlier parts of the question, it was found that \(a=0.4116\) and \(b=0.2646\).
+<div class="pp-sub"><span>(iii) Calculate \(\text{Var}(X)\).</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> with \(a\) and \(b\) known, the table gives the whole distribution. Which formula for the variance keeps the decimals simplest?</div>{{work:28}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q8</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">A Bernoulli variable, \(X\), has a value of \(p\) such that \(E(X)=5Var(X)\).<br>Given that \(p\ne0\), what is the value of \(p\)?
+<div class="mc"><span>(A) \(\tfrac12\)</span><span>(B) \(\tfrac45\)</span><span>(C) \(\tfrac15\)</span><span>(D) \(\tfrac35\)</span></div></div>
+<div class="hint"><b>Hint:</b> a Bernoulli variable takes the value 1 with probability \(p\) and the value 0 otherwise, as in PP 1. Write each side of the given equation in terms of \(p\).</div>{{work:24}}</div>
+</div>
