@@ -252,7 +252,7 @@ for n_, a_, b_, v in table:
     report(ok, f"L table {n_}!", f"printed {v} (recursive form {a_ or '-'} x {b_ or '-'}!), computed {factorial(n_)}")
 we0 = les_block("<span class=\"tag\">Worked example</span>", "<!-- ============ Concept 2")
 check("L WE queue of five", we0, r"5\times4\times3\times2\times1=5!=@.\]", perm_count(5))
-check("L WE fifth derivative", we0, r"y^{(5)}&=5\times4\times3\times2\times1=5!=@.\end", dsym(x ** 5, 5, 1))
+check("L WE fifth derivative", we0, r"y^{(5)}&=5\times4\times3\times2\times1\\ &=5!=@.\end", dsym(x ** 5, 5, 1))
 c2 = les_block("Concept 2:", "<!-- ============ Concept 3")
 check("L Box 2 7!/4!", c2, r"=7\times6\times5=@.\]", Fr(factorial(7), factorial(4)))
 check("L Box 2 (n+2)!", c2, r"With pronumerals, \((n+2)!=@\) and", lambda n: fact(n + 2), ("n",))
