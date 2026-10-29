@@ -100,7 +100,7 @@ def zero(z):
 
 def normal(a=None, b=None, w=150, h=96, ticks=(), peak=True, inflect=False, lab_size=10.5, color="blue"):
     """Standard normal curve y = phi(z) on [-3.4, 3.4], shaded from a to b (None = no shading)."""
-    g = Graph(-3.4, 3.4, 0, 0.45, w=w, h=h, pad=(10, 16, 16, 18))
+    g = Graph(-3.4, 3.4, 0, 0.52 if peak else 0.45, w=w, h=h, pad=(10, 16, 16, 18))
     if a is not None or b is not None:
         lo = -3.4 if a is None else a
         hi = 3.4 if b is None else b
@@ -110,8 +110,8 @@ def normal(a=None, b=None, w=150, h=96, ticks=(), peak=True, inflect=False, lab_
     for v in ticks:
         g.xticks([(v, f"{v:g}")])
     if peak:
-        g.label(0, phi(0), "1/√2π", dx=4, dy=-2, anchor="start", size=lab_size)
-        g.label(0, phi(0), "≈ 0.4", dx=30, dy=-2, anchor="start", size=lab_size)
+        g.label(0, phi(0), "1/√2π", dx=5, dy=-14, anchor="start", size=lab_size)
+        g.label(0, phi(0), "≈ 0.4", dx=31, dy=-14, anchor="start", size=lab_size)
     if inflect:
         for s in (-1, 1):
             g.vline(s, 0, phi(1), color="faint", dash="3 3")
@@ -124,42 +124,45 @@ def normal(a=None, b=None, w=150, h=96, ticks=(), peak=True, inflect=False, lab_
 def fig_rev():
     # features of the standard normal curve (Box 7)
     save("phi_pdf", normal(w=210, h=120, ticks=(-1, 1), inflect=True, lab_size=11))
-    # Phi(z) as the area to the left of z
-    g = normal(None, 1.3, w=210, h=120, ticks=(-3, -2, -1, 1, 2, 3), peak=False)
-    g.vline(1.3, 0, phi(1.3), color="ink", dash="", width=1.2)
-    g.label(1.3, 0, "z", dy=26, italic=True, size=11)
-    g.label(-1.15, 0.12, "Φ(z)", size=12, color="blue")
-    save("phi_area", g)
-    g = normal(None, 1.3, w=190, h=104, ticks=(-3, -2, -1, 1, 2, 3), peak=False)
-    g.vline(1.3, 0, phi(1.3), color="ink", dash="", width=1.2)
-    g.label(1.3, 0, "z", dy=24, italic=True, size=11)
-    save("phi_area_small", g)
+    # Phi(z) as the area to the left of z, with a z marker on the axis
+    for name, w, h, tk in (("phi_area", 210, 120, (-3, -2, -1, 1, 3)), ("phi_area_small", 190, 104, (-3, -2, -1, 3))):
+        zz = 1.6
+        g = normal(None, zz, w=w, h=h, ticks=tk, peak=False)
+        g.vline(zz, 0, phi(zz), color="ink", dash="", width=1.2)
+        g.xticks([(zz, "")])
+        g.label(zz, 0, "z", dy=14, italic=True, size=11.5)
+        g.label(0.62, 0.11, "Φ(z)", size=11.5, color="blue")
+        save(name, g)
     # Example 10 (16D)
     save("ex10a", normal(None, 2, ticks=(2,)))
     save("ex10b1", normal(2, None, ticks=(2,)))
     save("ex10b2", normal(None, -2, ticks=(-2,)))
     save("ex10b3", normal(0, 2, ticks=(2,)))
     save("ex10b4", normal(-2, 2, ticks=(-2, 2)))
+    # symmetry worked example (pack's own values)
+    save("sym_a", normal(-2.3, -0.6, w=170, h=104, ticks=(-2.3, -0.6)))
+    save("sym_b", normal(-1.4, 0.9, w=170, h=104, ticks=(-1.4, 0.9)))
     # the empirical rule: within 1, 2 and 3 standard deviations
     for k in (1, 2, 3):
-        g = normal(-k, k, w=128, h=82, ticks=(-k, k))
+        g = normal(-k, k, w=128, h=82, ticks=(-k, k), peak=False)
         for s in (-1, 1):
             g.dot(s * k, phi(k), r=2.4)
-        g.label(0, 0.09, ["68%", "95%", "99.7%"][k - 1], size=11, color="blue")
+        g.label([2.15, 2.15, 2.55][k - 1], 0.31, ["68%", "95%", "99.7%"][k - 1], size=11, color="blue")
         save(f"emp{k}", g)
     # graph of the CDF y = Phi(z), with the horizontal lines at heights 0.75 and 0.9 (Example 13)
-    g = Graph(-3.4, 3.4, 0, 1.05, w=220, h=130, pad=(10, 16, 14, 18))
+    g = Graph(-3.4, 3.4, 0, 1.05, w=220, h=165, pad=(10, 16, 14, 18))
     g.axes("z", "y")
     g.hline(1, color="faint", dash="3 3")
     for p, q in ((0.75, 0.6745), (0.9, 1.2816)):
         g.hline(p, color="rose", dash="4 3", x0=0, x1=q)
         g.vline(q, 0, p, color="rose", dash="4 3")
     g.curve(Phi, color="blue", width=2)
-    g.yticks([(0.5, "0.5"), (0.75, "0.75"), (0.9, "0.9"), (1, "1")])
+    g.yticks([(0.5, "0.5"), (0.75, "0.75"), (0.9, "0.9"), (1, "")])
+    g.label(-3.3, 1, "y = 1", dy=-8, anchor="start", size=10.5, color="faint")
     g.xticks([(-3, "-3"), (-2, "-2"), (-1, "-1"), (2, ""), (3, "3")])
     g.label(0.6745, 0, "Q₃", dx=-5, dy=14, size=10.5, color="rose")
     g.label(1.2816, 0, "1.28", dx=9, dy=14, size=10.5, color="rose")
-    g.label(2.2, 1, "y = Φ(z)", dy=-10, size=11, color="blue")
+    g.label(2.3, 0.8, "y = Φ(z)", size=11, color="blue")
     save("Phi_cdf", g)
     # general normal N(mu, sigma^2): coordinate t = (x - mu)/sigma + 4, so the y-axis sits to the left
     g = Graph(0, 8, 0, 0.45, w=250, h=140, pad=(16, 18, 18, 20))

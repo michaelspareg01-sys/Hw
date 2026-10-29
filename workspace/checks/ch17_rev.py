@@ -222,6 +222,33 @@ check("Ex10 b iii", e10, r"\(\doteq@-@\)</span>, because exactly half the scores
 check("Ex10 b iv", e10, r"\(P(-2\le Z\le2)=\Phi(2)-\Phi(-2)\ \doteq@-@\), by part ii, \(\ \doteq@\)", [t2, T(-2), t2 - T(-2)])
 check("Ex10 b iv OR", e10, r"\(\ \doteq2\times@\), by part iii, \(\ \doteq@.\)", [t2 - T(0), 2 * (t2 - T(0))])
 
+# pack's own symmetry worked example (after Example 10): givens read from the question line
+esym = one(r'<span class="ex-title">More symmetry: intervals that are not centred on 0</span>(.*?)</div></div>\n\n', rev, "symmetry example")
+(sa_lo, sa_hi), (sb_lo, sb_hi) = [(D(a), D(b)) for a, b in re.findall(r"\\\(P\(" + NUM + r"\\le Z\\le" + NUM + r"\)\\\)</span>", esym)]
+assert sa_lo < sa_hi < 0 and sb_lo < 0 < sb_hi
+va = T(-sa_lo) - T(-sa_hi)
+check("Sym a", esym, r"P(@\le Z\le@)&=P(@\le Z\le@)\\&=\Phi(@)-\Phi(@)\\&\doteq@-@\\&\doteq@.",
+      [sa_lo, sa_hi, -sa_hi, -sa_lo, -sa_lo, -sa_hi, T(-sa_lo), T(-sa_hi), va])
+vb = T(sb_hi) + T(-sb_lo) - 1
+check("Sym b", esym, r"P(@\le Z\le@)&=\Phi(@)-\Phi(@)\\&=\Phi(@)-\big(1-\Phi(@)\big)\\&=\Phi(@)+\Phi(@)-1\\&\doteq@+@-1\\&\doteq@.",
+      [sb_lo, sb_hi, sb_hi, sb_lo, sb_hi, -sb_lo, sb_hi, -sb_lo, T(sb_hi), T(-sb_lo), vb])
+for lab, v, lo_, hi_ in (("Sym a", va, sa_lo, sa_hi), ("Sym b", vb, sb_lo, sb_hi)):
+    exact = Phi(float(hi_)) - Phi(float(lo_))          # table rounding may move the 4th d.p. by 1
+    if abs(float(v) - exact) <= 0.00011:
+        ok(f"{lab} table result {v} within table rounding of erf {exact:.6f}")
+    else:
+        fail(f"{lab} table result {v} far from erf {exact:.6f}")
+check("Sym b note", esym, r"Use \(\Phi(@)=1-\Phi(@)\)", [sb_lo, -sb_lo])
+
+
+def closest(p):
+    """z (2 d.p., 0..3.99) whose table entry is closest to p; ties fail."""
+    zs = sorted((abs(T(D(k) / 100) - p), D(k) / 100) for k in range(400))
+    if zs[0][0] == zs[1][0]:
+        fail(f"closest table entry to {p} is tied")
+    return zs[0][1]
+
+
 e13 = example(13)
 a1, a2 = T(1.2), T(1.3)
 dec9 = D("1.2") + D("0.1") * (D("0.9") - a1) / (a2 - a1)
@@ -237,6 +264,12 @@ check("Ex13 c outliers", e13, r"=2\big(1-\Phi(@)\big)\\&\doteq@,", [D("2.70"), r
 check("Ex13 c per 1000", e13, r"roughly @ in @ scores", [rnd(2 * (1 - T(2.70)) * 1000, 0), 1000])
 check("Ex13 note", e13, r"five significant figures, \(Q_3\doteq@\)", [D(f"{q3:.5g}")])
 
+z9, zq = closest(D("0.9")), closest(D("0.75"))
+check("Ex13 two-decimal line", e13, r"\(\Phi(@)\doteq@\) is the entry closest to \(@\), so the 9th decile is \(z\doteq@\), and \(\Phi(@)\doteq@\) is the entry closest to \(@\), so \(Q_3\doteq@\)",
+      [z9, T(z9), D("0.9"), z9, zq, T(zq), D("0.75"), zq])
+same("Ex13 direct read agrees with rounded interpolation (9th decile)", z9, rnd(dec9, 2))
+same("Ex13 direct read agrees with Q3 to 2 d.p.", zq, rnd(q3, 2))
+
 e15 = example(15)
 check("Ex15 a", e15, r"\(z=\dfrac{x-@}{@}\quad\text{and}\quad x=@+@z.\)", [100, 20, 100, 20])
 check("Ex15 b i", e15, r"P(X\le@)\\&\quad=P(Z\le@)\\&\quad=@", [110, D(110 - 100) / 20, rnd(T(0.5), 2)])
@@ -245,6 +278,11 @@ c1, c2 = T(2.0), T(2.1)
 zc = D("2.0") + D("0.1") * (D("0.98") - c1) / (c2 - c1)
 check("Ex15 c", e15, r"\(\Phi(2.0)=@\) and \(\Phi(2.1)=@\),<br>so by interpolation, \(\Phi(@)=@\)", [c1, c2, rnd(zc, 2), D("0.98")])
 check("Ex15 c a", e15, r"\(a=@+@\times@=@\)", [100, 20, rnd(zc, 2), rnd(100 + 20 * rnd(zc, 2), 0)])
+
+z98 = closest(D("0.98"))
+check("Ex15 two-decimal line", e15, r"\(\Phi(@)\doteq@\) is the entry closest to \(@\), so \(z\doteq@\) and \(a\doteq@+@\times@=@\)",
+      [z98, T(z98), D("0.98"), z98, 100, 20, z98, rnd(100 + 20 * z98, 0)])
+same("Ex15 direct read gives the same a", rnd(100 + 20 * z98, 0), rnd(100 + 20 * rnd(zc, 2), 0))
 
 e17 = example(17)
 check("Ex17 a i", e17, r"By the empirical rule, \(P(-1\le Z\le1)=@\%\),<br>and using the complement, \(P(Z\lt-1\text{ or }Z\gt1)=@\%\),<br>so by the even symmetry, \(P(Z\lt-1)=@\%\div2=@\%\)",

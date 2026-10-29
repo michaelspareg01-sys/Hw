@@ -39,6 +39,20 @@
 <span style="margin-left:5mm">OR \(\ P(-2\le Z\le2)=2\times P(0\le Z\le2)\), by symmetry, \(\ \doteq2\times0.4772\), by part iii, \(\ \doteq0.9544.\)</span></p>
 </div></div>
 
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">More symmetry: intervals that are not centred on 0</span></div><div class="ex-body">
+Use symmetry and the standard normal table to find:
+<div style="display:flex;gap:12mm;margin:1mm 0 0 4mm"><span><span class="pl">a</span>\(P(-2.3\le Z\le-0.6)\)</span><span><span class="pl">b</span>\(P(-1.4\le Z\le0.9)\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Both ends are negative. Reflect in the \(y\)-axis, because \(\phi(z)\) is even:</p>
+<p style="margin-left:5mm">\(\begin{aligned}[t]P(-2.3\le Z\le-0.6)&=P(0.6\le Z\le2.3)\\&=\Phi(2.3)-\Phi(0.6)\\&\doteq0.9893-0.7257\\&\doteq0.2636.\end{aligned}\)</p>
+</div><div>{{svg:sym_a}}</div></div>
+<div class="split"><div>
+<p><b>b</b> The interval straddles 0, with unequal ends. Use \(\Phi(-1.4)=1-\Phi(1.4)\):</p>
+<p style="margin-left:5mm">\(\begin{aligned}[t]P(-1.4\le Z\le0.9)&=\Phi(0.9)-\Phi(-1.4)\\&=\Phi(0.9)-\big(1-\Phi(1.4)\big)\\&=\Phi(0.9)+\Phi(1.4)-1\\&\doteq0.8159+0.9192-1\\&\doteq0.7351.\end{aligned}\)</p>
+</div><div>{{svg:sym_b}}</div></div>
+</div></div>
+
 <div class="box formula"><div class="bt">The empirical rule, and reading the table in reverse (16D)</div>
 <p>From the table, \(P(-1\le Z\le1)\doteq0.6827\doteq68\%\), \(P(-2\le Z\le2)\doteq0.9545\doteq95\%\) and \(P(-3\le Z\le3)\doteq0.9973\doteq99.7\%\). These are the <b>empirical rule</b>, or the <b>68–95–99.7 rule</b>. In a normal distribution, the proportion of scores lying:</p>
 <ul><li>within 1 standard deviation of the mean is 68%,</li>
@@ -62,6 +76,7 @@
 <p style="margin-left:6mm">\(\begin{aligned}[t]\text{Hence}\quad P(Z\text{ is an outlier})&=P(Z\gt2.70)+P(Z\lt-2.70)\\&=2\times P(Z\gt2.70)\\&=2\big(1-\Phi(2.70)\big)\\&\doteq0.007,\end{aligned}\)</p>
 <p>so roughly 7 in 1000 scores would be expected to be outliers.</p>
 <p class="small"><b>Note:</b> Correct to five significant figures, \(Q_3\doteq0.67449\). It is standard practice to round percentiles and quartiles of the normal to two decimal places, giving \(Q_1\doteq-0.67\), \(Q_3\doteq0.67\) and \(\text{IQR}\doteq1.35\). In a normal distribution, the IQR criterion makes just under 1% of scores outliers.</p>
+<p class="small">With the two-decimal table you can read these directly: \(\Phi(1.28)\doteq0.8997\) is the entry closest to \(0.9\), so the 9th decile is \(z\doteq1.28\), and \(\Phi(0.67)\doteq0.7486\) is the entry closest to \(0.75\), so \(Q_3\doteq0.67\).</p>
 </div></div>
 
 <div class="box formula"><div class="bt">General normal distributions and \(z\)-scores (16E)</div>
@@ -89,6 +104,7 @@ A normally distributed random variable \(X\) has mean 100 and standard deviation
 <p><b>ii</b> \(\begin{aligned}[t]P(X\ge90)&=P(Z\ge-0.5)\\&=P(Z\le0.5)\qquad(\phi(x)\text{ is even})\\&=0.69\end{aligned}\)</p>
 </div></div>
 <p><b>c</b> From the table, \(\Phi(2.0)=0.9772\) and \(\Phi(2.1)=0.9821\),<br>so by interpolation, \(\Phi(2.06)=0.98\).<br>Converting back to \(x\)-values, \(a=100+20\times2.06=141\).</p>
+<p class="small">With the two-decimal table you can read \(z\) directly: \(\Phi(2.05)\doteq0.9798\) is the entry closest to \(0.98\), so \(z\doteq2.05\) and \(a\doteq100+20\times2.05=141\), the same answer.</p>
 </div></div>
 
 <div class="box formula"><div class="bt">Applications of the normal distribution (16F)</div>
