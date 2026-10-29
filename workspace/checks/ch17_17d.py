@@ -19,7 +19,8 @@ computation:
 It also checks the structure (concept blocks, worked-example tags, question numbers and bands, the omitted
 items Q5, Q16b and Q17f, the review questions) and the past-paper block: marks add to the intro total
 (15-22), time is 1.5 x marks rounded to 5 minutes, part marks add to each question's marks, numbering and
-source labels match in both files, one hint per question, a method line in each normal-approximation
+source labels match in both files, one hint per question (an identification question with no numbers or
+method words, PP 2 and PP 3 as approved), a method line in each normal-approximation
 solution, and the table pointers.
 
 Exit status 1 if anything fails. Run: python3 workspace/checks/ch17_17d.py
@@ -200,7 +201,7 @@ RQ = dict(re.findall(QRX, review_q, re.S))
 CON = {}
 for k in range(1, 5):
     seg = teach.split(f"<!-- ============ Concept {k} ============ -->")[1].split("<!-- ============")[0]
-    exs = re.findall(r'<div class="ex (demo|attempt|worked)"(?: style="[^"]*")?><div class="ex-top"><span class="tag">([^<]*)</span>(.*?)(?=<div class="ex |$)', seg, re.S)
+    exs = re.findall(r'<div class="ex (demo|attempt|worked)"(?: style="[^"]*")?><div class="ex-top"(?: style="[^"]*")?><span class="tag">([^<]*)</span>(.*?)(?=<div class="ex |$)', seg, re.S)
     CON[k] = {"seg": seg, "demo": [b for kd, _, b in exs if kd == "demo"][0], "attempt": [b for kd, _, b in exs if kd == "attempt"][0],
               "worked": [b for kd, _, b in exs if kd == "worked"], "tags": [t for kd, t, _ in exs if kd == "worked"]}
     report([kd for kd, _, _ in exs][:3] == ["demo", "attempt", "worked"], f"Concept {k} blocks", "tutor demo, your turn, worked example")
@@ -530,6 +531,12 @@ for k in sorted(PPQ):
     report(PPQ[k].count('<div class="hint"><b>Hint:</b>') == 1, f"PP{k} one hint", "")
     sub = [int(x) for x in re.findall(r'<div class="pp-sub"><span>.*?</span><span class="mk">(\d+)</span></div>', PPQ[k], re.S)]
     report(not sub or sum(sub) == marks[k], f"PP{k} part marks", str(sub))
+    hint = re.search(r'<div class="hint"><b>Hint:</b> (.*?)</div>', PPQ[k]).group(1)
+    if k in (2, 3):
+        report(hint == {2: r"what are \(n\) and \(p\) here?", 3: "for (i), recall the rule of thumb from Lesson 17C."}[k], f"PP{k} hint unchanged", hint)
+    else:
+        bad = re.search(r"\d|%|standard deviation|deviation|sigma|mean|variance|formula|z-score|z\b|normal|empirical|continuity|sqrt|rule|np|nq|table|times|probabilit", hint.replace(r"\hat p", "").replace(r"\(n\)", "").replace(r"\(p\)", ""))
+        report(hint.endswith("?") and not bad, f"PP{k} hint is an identification question (no numbers or method words)", hint)
     meth = PPA[k].count("Using the normal approximation to \\(\\hat p\\) without a continuity correction, as in the school solution.")
     report(meth == (1 if k in (3, 4, 5) else 0), f"PP{k} method line", str(meth))
 labels = {1: "Baulkham Hills High School, 2020, Year 12 Trial Examination, Mathematics Extension1,Q4",
