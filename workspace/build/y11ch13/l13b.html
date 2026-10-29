@@ -1,1 +1,220 @@
-<!-- filled by Task 3 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 13B</div><h2>Expected value</h2>
+<div class="focus">The expected value \(\text{E}(X)\) of a discrete probability distribution is the weighted mean of its values, each value weighted by its probability: \(\text{E}(X)=\sum xp(x)\). It is a measure of central tendency, and is also called the mean \(\mu\) of the distribution. This lesson introduces the function notation \(p(x)\), sets out the calculation of \(\text{E}(X)\) in a table with an extra row (or column), and finds the expected value of uniform distributions. The expected value need not be one of the values of the distribution.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the notation p(x) and the centre of a distribution}}
+<div class="box concept"><div class="bt">The notation \(p(x)\)</div>
+<p>The first experiment in Lesson 13A was, ‘Toss four coins and count the number of heads’:</p>
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{1}{16}\)</td></tr></table>
+<p>The notation \(P(X=x)\) will be too unwieldy for what follows, so we will write it instead using standard function notation as \(p(x)\). For each value \(x\) in the distribution, \(p(x)\) means ‘the probability that \(X=x\)’.</p>
+<div style="margin:1mm 0 1mm 8mm">\(p(x)=P(X=x)\), for all values \(x\) in the distribution.</div>
+<p>With this more concise notation, the table becomes:</p>
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{1}{16}\)</td></tr></table></div></div>
+<div class="box concept"><div class="bt">Where is the centre of the distribution?</div>
+<p>Someone looking at this table may want to say, ‘<i>I would expect to get the result two heads.</i>’ There are two good ways to explain this, and they are completely different (see the worked example below). One is based on running the experiment a large number of times and averaging things out. The other is based solely on the symmetry of the distribution's graph.</p>
+<p>This section introduces a clearer and more general way of dealing with this ‘expected value’, which is better described as the ‘mean’ of the distribution. From now on, values must be numeric and not categorical.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The sum of two dice</span></div><div class="ex-body">
+Two dice are thrown, and \(X\) is the sum of the two numbers showing.<br>
+<b>a</b> Write out the probability distribution of \(X\) in a table, using the notation \(p(x)\).<br>
+<b>b</b> Graph the distribution.<br>
+<b>c</b> Use the symmetry of the graph to find the centre of the distribution.
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Two tetrahedral dice, each with its four faces numbered 1, 2, 3 and 4, are thrown, and \(X\) is the sum of the two numbers on the faces they land on.<br>
+<b>a</b> Write out the probability distribution of \(X\) in a table, using the notation \(p(x)\).<br>
+<b>b</b> Graph the distribution.<br>
+<b>c</b> Use the symmetry of the graph to find the centre of the distribution.
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Four coins are tossed, and \(X\) is the number of heads. Where is the centre of the distribution?
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin-top:0">Someone looking at the table of \(p(x)\) above may want to say,</p>
+<p style="margin-left:6mm"><i>‘I would expect to get the result two heads.’</i></p>
+<p>When asked, she may try to explain what she means by saying,</p>
+<p style="margin-left:6mm"><i>‘When we do the experiment a large number of times, the average number of heads will be about 2, and the more times we do it, the closer the average will be to two’.</i></p>
+</div><div>
+{{svg:c13b_coins}}
+</div></div>
+<p>This is a good explanation, because it is based on the interpretation of probability as running the experiment a large number of times and averaging things out.</p>
+<p>She may also try to explain it by symmetry:</p>
+<p style="margin-left:6mm"><i>‘If I plot the five probabilities, the pattern is symmetric about the value 2’.</i></p>
+<p>This is also a good explanation, but is completely different. It ignores the idea of running trials, and is based solely on the symmetry of the distribution's graph. It observes that each smaller number of heads on the left of \(x=2\) is balanced out by a larger number of heads on the right of \(x=2\) with the same probability, so \(x=2\) can be regarded as the centre of the distribution.</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:expected value, the weighted mean}}
+<div class="box concept"><div class="bt">Expected value</div>
+<p>Everyone is familiar with the idea of the mean or average of a set of \(n\) numbers: add them up and divide by \(n\),</p>
+\[\text{mean}=\frac{0+1+2+3+4}{5}=\frac{10}{5}=2.\]
+<p>Alternatively, multiply each number by \(\tfrac1n\) and add the results:</p>
+\[\text{mean}=0\times\tfrac15+1\times\tfrac15+2\times\tfrac15+3\times\tfrac15+4\times\tfrac15=\tfrac{10}{5}=2.\]
+</div></div>
+<div class="box concept"><div class="bt">The weighted mean</div>
+<p style="margin-top:0">But to calculate the mean of a discrete probability distribution, we need a <i>weighted mean</i> of the values, giving more <i>weight</i> to more likely values, which will occur more often, and less weight to the less likely values, which will occur less often. So instead of multiplying each value by \(\tfrac1n\), we <i>weight</i> each value by its probability,</p>
+\[\begin{aligned}\text{weighted mean}&amp;=0\times\tfrac{1}{16}+1\times\tfrac{4}{16}+2\times\tfrac{6}{16}+3\times\tfrac{4}{16}+4\times\tfrac{1}{16}\\&amp;=0+\tfrac{4}{16}+\tfrac{12}{16}+\tfrac{12}{16}+\tfrac{4}{16}\\&amp;=\tfrac{32}{16}\\&amp;=2,\ \text{which is called the }\textit{expected value }\text{E}(X).\end{aligned}\]
+<p>This process is called <i>weighting the values by their probabilities</i>, and is the way the expected value \(\text{E}(X)=2\) of this distribution is calculated. Here the result 2 happens to be the same as the ordinary mean of the five values, but this is only because of the mirror symmetry of the probabilities about \(x=2\).</p></div>
+<div class="box concept"><div class="bt">The formula for expected value</div>
+<p>The usual notation for this procedure will be completely unfamiliar. In any distribution, the weighting of a value \(x\) by its probability \(p(x)\) means that we take the product of the value \(x\) and its probability \(p(x)\), written as the product</p>
+<div style="margin:1mm 0 1mm 8mm">\(xp(x)\).</div>
+<p>Now we need to add up all these products, for all the values in the distribution. The symbol \(\sum\) is the mathematical symbol for ‘take the sum’. It is the Greek upper-case sigma corresponding to the Latin letter ‘S’ and standing for ‘sum’. Thus the formula for the expected value \(\text{E}(X)\) is written as</p>
+<div style="margin:1mm 0 1mm 8mm">\(\text{E}(X)=\sum xp(x)\), summing over all values of the distribution.</div>
+<p>The phrase, ‘summing over all values of the distribution’ means that we take all the products \(xp(x)\), for all the values of the distribution, and add them up.</p></div>
+<div class="box concept"><div class="bt">Setting out the calculation of expected value</div>
+<p>The actual calculation is best set out not as shown above, nor by substituting into the formula, but in tabular form, extending the table of values and probabilities of the distribution with an extra row and an extra column:</p>
+<div><table class="t" style="display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{1}{16}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>2</td></tr></table> &ensp;as we obtained before.</div>
+<p>The probabilities must add to 1. Summing the middle row is only a check.</p>
+<p>Question 3 of Exercise 13B is an investigation that involves throwing four coins a large number of times and seeing how close the average value is to the expected value 2 calculated above.</p></div>
+<div class="box concept"><div class="bt">An alternative setting out using columns rather than rows</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin-top:0">Many people prefer to use columns rather than rows for these calculations. There is a very good reason for this: it is easier to add up a column of numbers than to add up a row of numbers.</p>
+<p>If you use columns rather than rows, then your table will be <i>transposed</i>, meaning that the rows become columns and the columns become rows.</p>
+<p>This setting out is shown to the right.</p>
+</div><div>
+<table class="t" style="margin:0 auto"><tr><th>\(x\)</th><th>\(p(x)\)</th><th>\(xp(x)\)</th></tr>
+<tr><td>0</td><td>\(\tfrac{1}{16}\)</td><td>0</td></tr>
+<tr><td>1</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{4}{16}\)</td></tr>
+<tr><td>2</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{12}{16}\)</td></tr>
+<tr><td>3</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{12}{16}\)</td></tr>
+<tr><td>4</td><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td></tr>
+<tr><th>Sum</th><td>1</td><td>2</td></tr></table>
+</div></div></div>
+<div class="box concept"><div class="bt">Expectation is a measure of central tendency</div>
+<p>As mentioned earlier, the expected value \(\text{E}(X)\) of a distribution is also called the <i>mean</i> of the distribution, because it is obtained as the weighted mean of the values. It is a <i>measure of central tendency</i>, meaning that it is a measure of where the middle of the distribution lies.</p>
+<p>For this reason, the expected value \(\text{E}(X)\) is often assigned the pronumeral \(\mu\), a Greek lower-case letter corresponding to Latin ‘m’, and standing for ‘mean’.</p></div>
+<div class="box take"><div class="bt">6 Expected value of a discrete probability distribution</div>
+<p>The <i>expected value</i> of a discrete probability distribution with numeric data is the weighted mean of the values \(x\) weighted by the probabilities \(p(x)\),</p>
+<div style="margin:1mm 0 1mm 8mm">\(\text{E}(X)=\sum xp(x)\), summing over all values of the distribution.</div>
+<ul><li>The symbol \(\sum\) is the Greek upper-case sigma, and stands for ‘sum’.</li>
+<li>Each term in the sum is the product \(xp(x)\) of a value and its probability.</li>
+<li>Take all these products \(xp(x)\), for all the values of the distribution, and add them up.</li>
+<li>The expected value is also called the <i>mean</i> of the distribution. It is usually assigned the pronumeral \(\mu\). The Greek letter ‘mu’ stands for ‘mean’.</li>
+<li>The expected value is a <i>measure of central tendency</i>.</li></ul></div>
+<div class="box concept"><div class="bt">Unsymmetric distributions</div>
+<p>The example above is symmetric, which is why the mean of the values turned out to be the same as the expected value. Worked example 3 shows how well the idea of expected value is able to pick out the central tendency in quite unsymmetric data.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The pickpocket</span></div><div class="ex-body">
+Sixteen friends meet at a café. One has <span style="white-space:nowrap">\(\$\)300</span> cash, three have <span style="white-space:nowrap">\(\$\)120</span> cash, two have <span style="white-space:nowrap">\(\$\)90</span> cash, four have <span style="white-space:nowrap">\(\$\)40</span> cash, and two have <span style="white-space:nowrap">\(\$\)20</span> cash. The other four have no cash. A pickpocket chooses one of the friends at random and takes all of his or her cash. Graph the distribution, and find the pickpocket's expected gain.
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method, using columns</span></div><div class="ex-body">
+Ten friends are on a bus. Two have <span style="white-space:nowrap">\(\$\)50</span> cash, three have <span style="white-space:nowrap">\(\$\)30</span> cash, and one has <span style="white-space:nowrap">\(\$\)20</span> cash. The other four have no cash. A thief chooses one of the friends at random and takes all of his or her cash. Set out the calculation in columns, graph the distribution, and find the thief's expected gain.
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Twenty friends go out to dinner at a Vietnamese restaurant. One has <span style="white-space:nowrap">\(\$\)560</span> cash, four have <span style="white-space:nowrap">\(\$\)350</span> cash, two have <span style="white-space:nowrap">\(\$\)180</span> cash, three have <span style="white-space:nowrap">\(\$\)80</span> cash, four have <span style="white-space:nowrap">\(\$\)50</span> cash, and one has <span style="white-space:nowrap">\(\$\)40</span> cash. Five have no cash, and are expecting to borrow from the others. An armed robber bursts in and seizes one of the friends at random. She threatens him, grabs all his cash, and runs away. Graph the distribution, and find her expected criminal gain.
+<div class="sol-label">Solution</div>
+<p>Let \(\$x\) be the amount the criminal seizes. The probability distribution with the added row and column is</p>
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>40</td><td>50</td><td>80</td><td>180</td><td>350</td><td>560</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{5}{20}\)</td><td>\(\tfrac{1}{20}\)</td><td>\(\tfrac{4}{20}\)</td><td>\(\tfrac{3}{20}\)</td><td>\(\tfrac{2}{20}\)</td><td>\(\tfrac{4}{20}\)</td><td>\(\tfrac{1}{20}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0</td><td>2</td><td>10</td><td>12</td><td>18</td><td>70</td><td>28</td><td>140</td></tr></table>
+<p>Hence her expected criminal gain is <span style="white-space:nowrap">\(\$\)140</span>.</p>
+{{svg:c13b_rob}}
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:expected value of a uniform distribution}}
+<div class="box concept"><div class="bt">Expected value of a uniform distribution</div>
+<p>In a uniform distribution, all the values have the same probability. We could add the values and then divide by the number of values, but it is better to continue with the same setting out. There are two things to notice here:</p>
+<ul><li>The sample space of a uniform distribution consists of equally likely possible outcomes. These were the sorts of sample spaces that most of the calculations in Chapter 12 were based on.</li>
+<li>In a uniform distribution with \(n\) values, each value has probability \(\tfrac1n\). Thus to weight each value by its probability, we multiply it by \(\tfrac1n\), so that calculating the expected value is the same as calculating the mean of the values.</li></ul></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">An octahedral die</span></div><div class="ex-body">
+An octahedral die has its eight faces numbered 1 to 8. It is thrown, and the number on the face it lands on is recorded. Graph the distribution and find its expected value. Is the expected value one of the numbers on the die?
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A dodecahedral die has its twelve faces numbered 1 to 12. It is thrown, and the number on the face it lands on is recorded. Graph the distribution and find its expected value. Is the expected value one of the numbers on the die?
+{{work:62}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A die is thrown. Graph the distribution and find its expected value.
+<div class="sol-label">Solution</div>
+<p>Each value has probability \(\tfrac16\), so the table is</p>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<table class="t" style="margin:0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{2}{6}\)</td><td>\(\tfrac{3}{6}\)</td><td>\(\tfrac{4}{6}\)</td><td>\(\tfrac{5}{6}\)</td><td>\(\tfrac{6}{6}\)</td><td>\(\tfrac{21}{6}\)</td></tr></table>
+<p>Hence the expected value on the die is \(\mu=3\tfrac12\).</p>
+</div><div>
+{{svg:c13b_die}}
+</div></div>
+<p>Do you find this answer just a little unsettling? How can we ‘expect’ an answer that we will never see on the die?</p>
+<p>The same thing happened in the restaurant robbery in Worked example 3: the expected value was <span style="white-space:nowrap">\(\$\)140</span>, but no one amongst the friends had <span style="white-space:nowrap">\(\$\)140</span> cash. There is actually no problem here, because the expected value is just a fancy name (and perhaps a slightly misleading name) for the mean of the distribution, and we know from countless examples that the mean of a set of numbers is usually not one of the numbers.</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 13B}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Complete each table and find the expected value \(\text{E}(X)\) for the distribution, where the function \(p(x)\) is defined as usual by \(p(x)=P(X=x)\), for all values \(x\).
+<div class="parts one" style="row-gap:0">
+<span><span class="pl">a</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>0.4</td><td>0.1</td><td>0.2</td><td>0.3</td><td style="width:12mm"></td></tr><tr><th>\(xp(x)\)</th><td></td><td></td><td></td><td></td><td></td></tr></table></span>
+<span><span class="pl">b</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>2</td><td>4</td><td>6</td><td>8</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>0.1</td><td>0.4</td><td>0.4</td><td>0.1</td><td style="width:12mm"></td></tr><tr><th>\(xp(x)\)</th><td></td><td></td><td></td><td></td><td></td></tr></table></span>
+<span><span class="pl">c</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>\(-50\)</td><td>\(-20\)</td><td>0</td><td>30</td><td>100</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>0.1</td><td>0.35</td><td>0.4</td><td>0.1</td><td>0.05</td><td style="width:12mm"></td></tr><tr><th>\(xp(x)\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></span>
+</div>{{work:20}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">
+<div class="split" style="grid-template-columns:1fr auto"><div>
+A simple gambling game involves the throw of a die. Players are charged 40 cents if the die shows 1, 2 or 3, they are charged nothing for 4, and they receive 30 cents or 60 cents respectively for 5 or 6. Let the random variable \(X\) be the payout to the player.
+<div class="parts one"><span><span class="pl">a</span>Copy and complete the table to the right written this time in columns instead of rows.</span><span><span class="pl">b</span>Calculate the expected value by summing the third column.</span><span><span class="pl">c</span>What does this expected value represent?</span><span><span class="pl">d</span>How much profit would the casino expect to make on 100 games?</span></div>
+</div><div>
+<table class="t" style="margin:0"><tr><th>\(x\)</th><th>\(p(x)\)</th><th>\(xp(x)\)</th></tr>
+<tr><td>\(-40\)</td><td style="width:14mm"></td><td style="width:14mm"></td></tr>
+<tr><td>0</td><td></td><td></td></tr>
+<tr><td>30</td><td></td><td></td></tr>
+<tr><td>60</td><td></td><td></td></tr>
+<tr><th>Sum</th><td>1</td><td></td></tr></table>
+</div></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Four coins are tossed and the number of heads recorded. In the theory for this section, we constructed the table reproduced below. The expected value was calculated to be 2.
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{1}{16}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>\(\tfrac{12}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>2</td></tr></table>
+In this question we shall simulate the experiment and see if we have experimental agreement with these results.
+<div class="parts one"><span><span class="pl">a</span>Toss four coins and record the number of heads, using a tally row and filling in a copy of the table below. Repeat this experiment 32 times.
+<table class="t"><tr><th>\(x\)</th><td style="width:12mm">0</td><td style="width:12mm">1</td><td style="width:12mm">2</td><td style="width:12mm">3</td><td style="width:12mm">4</td><td style="width:12mm">Sum</td></tr><tr><th>Tally</th><td></td><td></td><td></td><td></td><td></td><td>—</td></tr><tr><th>Frequency \(f\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Relative frequency \(f_r=\dfrac{f}{32}\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></span><span><span class="pl">b</span>Check whether your frequencies agree reasonably with the results 2, 8, 12, 8, 2 that the theoretical distribution would predict. Check also whether the relative frequencies agree reasonably with the corresponding probabilities 0.0625, 0.25, 0.375, 0.25, 0.0625. If your results do not agree closely, you might like to repeat the experiment a further 16 or 32 times (and divide by 48 or 64 to calculate the relative frequencies.)</span><span><span class="pl">c</span>Using your calculator, or by hand using the table below, calculate the mean for this data using the values \(x\) and their frequencies.
+<table class="t"><tr><th>\(x\)</th><td style="width:12mm">0</td><td style="width:12mm">1</td><td style="width:12mm">2</td><td style="width:12mm">3</td><td style="width:12mm">4</td><td style="width:12mm">Sum</td></tr><tr><th>Frequency \(f\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>\(x\times f\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+<div style="margin:1mm 0 0 8mm">\(\begin{aligned}\text{Mean}&amp;=\frac{\text{sum of }xf}{\text{sum of frequencies}}\\&amp;=\dots\end{aligned}\)</div></span><span><span class="pl">d</span>Does your answer for the mean approximate the theoretical expected value \(\text{E}(X)=2\)?</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">[An alternative notation]<br>
+Sometimes the values of a discrete probability experiment are indexed \(x_1,x_2,x_3,\dots\), with corresponding probabilities \(p_1,p_2,p_3,\dots\). These values and probabilities can be abbreviated to \(x_i\) and \(p_i\), where \(i\) is called the <i>index</i> variable because it <i>indexes</i> the values and probabilities. The calculations then proceed as before.<br>
+Find the expected value for these distributions.
+<div class="parts one" style="row-gap:0">
+<span><span class="pl">a</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x_i\)</th><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td><td>Sum</td></tr><tr><th>\(p_i\)</th><td>\(\tfrac{1}{5}\)</td><td>\(\tfrac{1}{5}\)</td><td>\(\tfrac{1}{5}\)</td><td>\(\tfrac{1}{5}\)</td><td>\(\tfrac{1}{5}\)</td><td style="width:12mm"></td></tr><tr><th>\(x_ip_i\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></span>
+<span><span class="pl">b</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x_i\)</th><td>\(-3\)</td><td>1</td><td>2</td><td>5</td><td>6</td><td>Sum</td></tr><tr><th>\(p_i\)</th><td>0.1</td><td>0.3</td><td>0.2</td><td>0.3</td><td>0.1</td><td style="width:12mm"></td></tr><tr><th>\(x_ip_i\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></span>
+</div>{{work:20}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">5</span><div class="q-body">Fiona's mother tells her that she may buy a pencil, eraser or pen from the stationery shop. A pencil costs <span style="white-space:nowrap">\(\$\)1.50</span>, an eraser costs <span style="white-space:nowrap">\(\$\)2.10</span> and a pen costs <span style="white-space:nowrap">\(\$\)2.40</span>. There are five boxes of pencils, four boxes of erasers and three boxes of pens.
+<div class="parts one"><span><span class="pl">a</span>If she chooses a box at random and takes one item from the box, what is the expected cost?</span><span><span class="pl">b</span>If Fiona and her 99 friends each choose at random, what would be the expected total cost?</span></div>{{work:75}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">In this question we investigate what happens to the expected value if we transform the random variable, such as by doubling all the values, or increasing them all by 1. Because we are dealing with more than one random variable, we have retained the notation \(P(X=x)\), \(P(Y=y)\), and so on from Lesson 13A.
+<div class="split" style="grid-template-columns:1fr auto"><div>
+A random variable \(X\) records the outcomes of a spinner with sectors labelled 1, 2, 3, 4. The spinner is biased because it has been weighted.
+<div class="parts one"><span><span class="pl">a</span>Copy and complete the table to calculate \(\text{E}(X)\).</span><span><span class="pl">b</span>A second random variable defined by \(Y=2X\) records twice the outcome of the weighted spinner.<br>(i) Calculate \(\text{E}(Y)\) from this table.<br>(ii) Does your result agree with the result \(\text{E}(aX)=a\text{E}(X)\)?</span><span><span class="pl">c</span>A third random variable defined by \(Z=X+1\) records the outcome of the weighted spinner plus one.<br>(i) Calculate \(\text{E}(Z)\) from this table.<br>(ii) Does your result agree with the result \(\text{E}(X+b)=\text{E}(X)+b\)?</span></div>
+</div><div>
+<table class="t" style="margin:0 0 2mm"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>0.1</td><td>0.1</td><td>0.5</td><td>0.3</td></tr><tr><th>\(x\times P(X=x)\)</th><td></td><td></td><td></td><td></td></tr></table>
+<table class="t" style="margin:0 0 2mm"><tr><th>\(y\)</th><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><th>\(P(Y=y)\)</th><td>0.1</td><td>0.1</td><td>0.5</td><td>0.3</td></tr><tr><th>\(y\times P(Y=y)\)</th><td></td><td></td><td></td><td></td></tr></table>
+<table class="t" style="margin:0"><tr><th>\(z\)</th><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(P(Z=z)\)</th><td>0.1</td><td>0.1</td><td>0.5</td><td>0.3</td></tr><tr><th>\(z\times P(Z=z)\)</th><td></td><td></td><td></td><td></td></tr></table>
+</div></div>
+The general result that these examples illustrate is
+<div style="margin:1mm 0 0 8mm">\(\text{E}(aX+b)=a\text{E}(X)+b\), &ensp;for all constants \(a\) and \(b\).</div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">A random variable \(X\) is known to have the property that \(\text{E}(X)=5\). Use the formula \(\text{E}(aX+b)=a\text{E}(X)+b\) to calculate:
+<div class="parts one"><span><span class="pl">a</span>\(\text{E}(3X)\)</span><span><span class="pl">b</span>\(\text{E}(X+5)\)</span><span><span class="pl">c</span>\(\text{E}\big(\tfrac12X\big)\)</span><span><span class="pl">d</span>\(\text{E}(X-2)\)</span><span><span class="pl">e</span>\(\text{E}(10-2X)\)</span><span><span class="pl">f</span>\(\text{E}(4X-2)\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">A coin is tossed three times and the number of heads is recorded. Construct a table showing the probability distribution, and calculate the expected value.<br>
+(This is an example of a <i>binomial distribution</i>, a multi-stage experiment with identical stages, where at each stage there are two possible outcomes. Here there are three stages, because we toss the coin three times and there are two possible outcomes, heads or tails, for each throw.){{work:40}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Two cards are selected at random from a standard pack, and the number of hearts is recorded. Note that this is equivalent to selecting two cards without replacement. Construct a table showing the probability distribution and calculate the expected value.<br>
+(This is an example of a <i>hypergeometric distribution</i>, a multi-stage experiment involving two possible outcomes, where at each stage the object is selected without replacement. Here there are two stages because we select two cards.){{work:46}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">[Simulation experiment]<br>
+Two dice are thrown. Let \(X\) be the difference between the two resulting numbers, so that the sample space consists of the integers 0, 1, 2, 3, 4, 5.
+<div class="parts one"><span><span class="pl">a</span>Conduct an experiment to determine the experimental probability of the six outcomes. You should conduct the experiment 36 times and record your results in a copy of the table below.
+<table class="t"><tr><th>\(x\)</th><td style="width:11mm">0</td><td style="width:11mm">1</td><td style="width:11mm">2</td><td style="width:11mm">3</td><td style="width:11mm">4</td><td style="width:11mm">5</td><td style="width:11mm">Sum</td></tr><tr><th>Tally</th><td></td><td></td><td></td><td></td><td></td><td></td><td>—</td></tr><tr><th>Frequency \(f\)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Relative frequency \(f_r=\dfrac{f}{36}\)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>\(x\times f_r\)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></span><span><span class="pl">b</span>Use the relative frequencies as estimates for the probabilities of each outcome. Calculate the experimental expected value (the symbol for this experimental expected value is \(\bar{x}\) to distinguish it from the theoretical expected value \(\mu\)).</span><span><span class="pl">c</span>Compare your results with other members of the class.</span><span><span class="pl">d</span>(i) Calculate the theoretical probabilities, using the normal \(6\times6\) array of dots.<br>(ii) Also calculate the theoretical expected value by copying and completing the table below.
+<table class="t"><tr><th>\(x\)</th><td style="width:11mm">0</td><td style="width:11mm">1</td><td style="width:11mm">2</td><td style="width:11mm">3</td><td style="width:11mm">4</td><td style="width:11mm">5</td><td style="width:11mm">Sum</td></tr><tr><th>\(p(x)\)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>\(xp(x)\)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></span><span><span class="pl">e</span>How do your results compare?</span><span><span class="pl">f</span>If you think your results are inaccurate, consider any design faults in your experiment.</span><span><span class="pl">g</span>Do your results agree more closely with the theoretical probabilities if you increase the number of trials?</span></div>{{work:40}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">11</span><div class="q-body">The backers of the game in Question 2 have weighted the die so that it is 50% more likely to turn up each of the results 1, 2 or 3 as to turn up 4, 5 or 6. (This is illegal.)
+<div class="parts one"><span><span class="pl">a</span>What are the probabilities now of each outcome?</span><span><span class="pl">b</span>Find the expected value now.</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">A company is designing a new gambling slot machine for a casino. A player pulls a lever and the machine randomly rolls three outcomes from Orange, Strawberry and Apple, for example AOS or SSO. The probabilities of the various fruits turning up are in the ratio \(1:2:3\), so that Apple is three times as likely to occur in a given position as Orange. The machine pays out in the ratio \(11:2:1\) if it turns up three Oranges, three Strawberries or three Apples, respectively. No other combination pays the player. A player initiates a roll by feeding a <span style="white-space:nowrap">\(\$\)1</span> coin into the machine.
+<div class="parts one"><span><span class="pl">a</span>Find the probabilities that Orange, Strawberry or Apple turn up in a given position.</span><span><span class="pl">b</span>Suppose the triple AAA pays \(\$k\). Construct a probability distribution table showing the outcomes OOO, SSS, AAA and Other for the random variable \(X\) representing the payout.</span><span><span class="pl">c</span>Determine how much a player would get for the highest paying outcome OOO, if the machine is designed so that it will just break even (this is unlikely).</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">[Expected value when the sample space is infinite, but can be listed]<br>
+In Worked example 2 of Lesson 13A, Wulf tosses a coin repeatedly until it shows a head. The probability table for the number \(X\) of tosses is infinite:
+<table class="t"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>\(\cdots\)</td><td>\(n\)</td><td>\(\cdots\)</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{2}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{1}{32}\)</td><td>\(\cdots\)</td><td>\(\tfrac{1}{2^n}\)</td><td>\(\cdots\)</td></tr></table>
+Thus to calculate the expected value we need to calculate the infinite sum:
+\[\mu=1\times\tfrac12+2\times\tfrac14+3\times\tfrac18+4\times\tfrac{1}{16}+5\times\tfrac{1}{32}+6\times\tfrac{1}{64}+\cdots\]
+<div class="parts one"><span><span class="pl">a</span>Write down the sum for \(2\mu\) and by carefully subtracting like fractions, show that
+<div style="margin:1mm 0 1mm 8mm">\(2\mu-\mu=1+\tfrac12+\tfrac14+\tfrac18+\tfrac1{16}+\tfrac1{32}+\cdots\)</div>
+and hence write down a second infinite sum for \(\mu\).</span><span><span class="pl">b</span>Repeat the process of doubling and subtracting with this new infinite sum for \(\mu\), and hence calculate \(\mu\).</span><span><span class="pl">c</span>Explain what this expected value means practically and design an experiment to test your theoretical result.</span></div>
+<p style="margin:1.5mm 0 0"><b>Note:</b> The operations on infinite series used here are valid for these particular series because they are convergent (this concept is explained in Year 12, and even then the proofs are difficult). The operations are certainly not true for all infinite series.</p>{{work:100}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">[St Petersburg Paradox]<br>
+Patrons at a casino may play a game involving a single coin, which is tossed until a head turns up. A jackpot is set aside. It initially contains <span style="white-space:nowrap">\(\$\)2</span>, but its value is doubled on each toss of the coin turning up a tail. The winner receives the contents of the pot when the first head is tossed. Thus the player would win <span style="white-space:nowrap">\(\$\)2</span> if the initial toss is a head, <span style="white-space:nowrap">\(\$\)4</span> if the second toss is the first head, <span style="white-space:nowrap">\(\$\)8</span> if the third toss is the first head, and so on.<br>
+A manager at the casino suggests that a player should be charged <span style="white-space:nowrap">\(\$\)40</span> to play the game. Calculate the player's expected return, and comment on the manager's advice.{{work:120}}</div></div>
+</div>

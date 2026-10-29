@@ -1,1 +1,77 @@
-<!-- filled by Task 3 -->
+{{ahead:Lesson 13B | Expected value}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> The 36 outcomes for the two dice are equally likely. The sum 7 comes from 6 of them: \((1,6)\), \((2,5)\), \((3,4)\), \((4,3)\), \((5,2)\), \((6,1)\). Each step away from 7 loses one outcome, down to one outcome each for the sums 2 and 12.
+<div style="margin:0.8mm 0"><b>a</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{36}\)</td><td>\(\tfrac{2}{36}\)</td><td>\(\tfrac{3}{36}\)</td><td>\(\tfrac{4}{36}\)</td><td>\(\tfrac{5}{36}\)</td><td>\(\tfrac{6}{36}\)</td><td>\(\tfrac{5}{36}\)</td><td>\(\tfrac{4}{36}\)</td><td>\(\tfrac{3}{36}\)</td><td>\(\tfrac{2}{36}\)</td><td>\(\tfrac{1}{36}\)</td></tr></table></div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div><b>b</b>{{svg:a13b_sum}}</div><div>
+<div style="margin:0.8mm 0"><b>c</b> The graph is symmetric about \(x=7\): each value \(7-k\) on the left has the same probability as the value \(7+k\) on the right. So the centre of the distribution is \(x=7\).</div>
+</div></div>
+<b>Your turn.</b> The \(4\times4=16\) outcomes are equally likely. The sum 5 comes from 4 of them: \((1,4)\), \((2,3)\), \((3,2)\), \((4,1)\).
+<div style="margin:0.8mm 0"><b>a</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{2}{16}\)</td><td>\(\tfrac{3}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{3}{16}\)</td><td>\(\tfrac{2}{16}\)</td><td>\(\tfrac{1}{16}\)</td></tr></table></div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div><b>b</b>{{svg:a13b_tsum}}</div><div>
+<div style="margin:0.8mm 0"><b>c</b> The graph is symmetric about \(x=5\), so the centre of the distribution is \(x=5\).</div>
+</div></div></div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b> Let \(\$x\) be the amount the pickpocket takes. Each friend is chosen with probability \(\tfrac{1}{16}\).
+<div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>0</td><td>20</td><td>40</td><td>90</td><td>120</td><td>300</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{2}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{2}{16}\)</td><td>\(\tfrac{3}{16}\)</td><td>\(\tfrac{1}{16}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0</td><td>2.5</td><td>10</td><td>11.25</td><td>22.5</td><td>18.75</td><td>65</td></tr></table></div>
+<div style="margin:0.8mm 0">Hence the pickpocket's expected gain is <span style="white-space:nowrap">\(\$\)65</span>.</div>
+{{svg:a13b_pick}}
+<b>Your turn.</b> Let \(\$x\) be the amount the thief takes. Each friend is chosen with probability \(\tfrac{1}{10}\).
+<div class="split" style="grid-template-columns:2fr 3fr"><div>
+<table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm"><tr><th>\(x\)</th><th>\(p(x)\)</th><th>\(xp(x)\)</th></tr>
+<tr><td>0</td><td>0.4</td><td>0</td></tr>
+<tr><td>20</td><td>0.1</td><td>2</td></tr>
+<tr><td>30</td><td>0.3</td><td>9</td></tr>
+<tr><td>50</td><td>0.2</td><td>10</td></tr>
+<tr><th>Sum</th><td>1</td><td>21</td></tr></table>
+<div style="margin:0.8mm 0">Hence the thief's expected gain is <span style="white-space:nowrap">\(\$\)21</span>.</div>
+</div><div>{{svg:a13b_thief}}</div></div></div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b> Each value has probability \(\tfrac18\).
+<div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{2}{8}\)</td><td>\(\tfrac{3}{8}\)</td><td>\(\tfrac{4}{8}\)</td><td>\(\tfrac{5}{8}\)</td><td>\(\tfrac{6}{8}\)</td><td>\(\tfrac{7}{8}\)</td><td>\(\tfrac{8}{8}\)</td><td>\(\tfrac{36}{8}\)</td></tr></table></div>
+<div class="split" style="grid-template-columns:2fr 3fr"><div>
+<div style="margin:0.8mm 0">Hence \(\mu=\tfrac{36}{8}=4\tfrac12\). This is not one of the numbers on the die.</div>
+</div><div>{{svg:a13b_oct}}</div></div>
+<b>Your turn.</b> Each value has probability \(\tfrac{1}{12}\). The \(xp(x)\) row is \(\tfrac{1}{12},\tfrac{2}{12},\dots,\tfrac{12}{12}\), with sum
+\[\text{E}(X)=\tfrac{1+2+\cdots+12}{12}=\tfrac{78}{12}=6\tfrac12.\]
+<div class="split" style="grid-template-columns:2fr 3fr"><div>
+<div style="margin:0.8mm 0">So \(\mu=6\tfrac12\). This is not one of the numbers on the die.</div>
+</div><div>{{svg:a13b_dodec}}</div></div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><div style="margin:0.8mm 0"><b>a</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>0.4</td><td>0.1</td><td>0.2</td><td>0.3</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0</td><td>0.1</td><td>0.4</td><td>0.9</td><td>1.4</td></tr></table> Hence \(\text{E}(X)=1.4\).</div>
+<div style="margin:0.8mm 0"><b>b</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>2</td><td>4</td><td>6</td><td>8</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>0.1</td><td>0.4</td><td>0.4</td><td>0.1</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0.2</td><td>1.6</td><td>2.4</td><td>0.8</td><td>5</td></tr></table> Hence \(\text{E}(X)=5\).</div>
+<div style="margin:0.8mm 0"><b>c</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>\(-50\)</td><td>\(-20\)</td><td>0</td><td>30</td><td>100</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>0.1</td><td>0.35</td><td>0.4</td><td>0.1</td><td>0.05</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>\(-5\)</td><td>\(-7\)</td><td>0</td><td>3</td><td>5</td><td>\(-4\)</td></tr></table> Hence \(\text{E}(X)=-4\).</div></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><div class="split" style="grid-template-columns:2fr 5fr"><div>
+<b>a</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm"><tr><th>\(x\)</th><th>\(p(x)\)</th><th>\(xp(x)\)</th></tr>
+<tr><td>\(-40\)</td><td>\(\tfrac{1}{2}\)</td><td>\(-20\)</td></tr>
+<tr><td>0</td><td>\(\tfrac{1}{6}\)</td><td>0</td></tr>
+<tr><td>30</td><td>\(\tfrac{1}{6}\)</td><td>5</td></tr>
+<tr><td>60</td><td>\(\tfrac{1}{6}\)</td><td>10</td></tr>
+<tr><th>Sum</th><td>1</td><td>\(-5\)</td></tr></table>
+</div><div>
+<div style="margin:0.8mm 0"><b>b</b> Expected value \(=-5\)</div>
+<div style="margin:0.8mm 0"><b>c</b> The average cost to the player per game is 5 cents.</div>
+<div style="margin:0.8mm 0"><b>d</b> \(100\times(-5)=-500\) cents. Thus the player expects to lose 500 cents and the casino expects to make 500 cents profit. This is an expected average value, not guaranteed.</div>
+</div></div></div></div>
+<div class="a"><span class="an">4</span><div class="ab"><div style="margin:0.8mm 0"><b>a</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x_i\)</th><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td><td>Sum</td></tr><tr><th>\(p_i\)</th><td>\(\tfrac{1}{5}\)</td><td>\(\tfrac{1}{5}\)</td><td>\(\tfrac{1}{5}\)</td><td>\(\tfrac{1}{5}\)</td><td>\(\tfrac{1}{5}\)</td><td>1</td></tr><tr><th>\(x_ip_i\)</th><td>\(\tfrac{2}{5}\)</td><td>\(\tfrac{4}{5}\)</td><td>\(\tfrac{6}{5}\)</td><td>\(\tfrac{8}{5}\)</td><td>\(\tfrac{10}{5}\)</td><td>6</td></tr></table> So \(\text{E}(X)=6\).</div>
+<div style="margin:0.8mm 0"><b>b</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x_i\)</th><td>\(-3\)</td><td>1</td><td>2</td><td>5</td><td>6</td><td>Sum</td></tr><tr><th>\(p_i\)</th><td>0.1</td><td>0.3</td><td>0.2</td><td>0.3</td><td>0.1</td><td>1</td></tr><tr><th>\(x_ip_i\)</th><td>\(-0.3\)</td><td>0.3</td><td>0.4</td><td>1.5</td><td>0.6</td><td>2.5</td></tr></table> So \(\text{E}(X)=2.5\).</div></div></div>
+<div class="a"><span class="an">5</span><div class="ab"><div style="margin:0.8mm 0"><b>a</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>1.50</td><td>2.10</td><td>2.40</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{5}{12}\)</td><td>\(\tfrac{4}{12}\)</td><td>\(\tfrac{3}{12}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0.625</td><td>0.7</td><td>0.60</td><td>1.925</td></tr></table> The expected value is <span style="white-space:nowrap">\(\$\)1.925</span>.</div>
+<div style="margin:0.8mm 0"><b>b</b> If 100 purchases are made at random the expected cost is <span style="white-space:nowrap">\(\$\)192.50</span>.</div></div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> \(\text{E}(X)=3\)<br><b>b</b> (i) \(\text{E}(Y)=6\) &ensp; (ii) Yes<br><b>c</b> (i) \(\text{E}(Z)=4\) &ensp; (ii) Yes</div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>a</b> 15 &nbsp; <b>b</b> 10 &nbsp; <b>c</b> \(\tfrac{5}{2}\) &nbsp; <b>d</b> 3 &nbsp; <b>e</b> 0 &nbsp; <b>f</b> 18</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{3}{8}\)</td><td>\(\tfrac{3}{8}\)</td><td>\(\tfrac{1}{8}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0</td><td>\(\tfrac{3}{8}\)</td><td>\(\tfrac{6}{8}\)</td><td>\(\tfrac{3}{8}\)</td><td>\(\tfrac{12}{8}\)</td></tr></table></div>
+<div style="margin:0.8mm 0">The expected value is \(1\tfrac12\), as might be expected from the symmetry of the table of probabilities.</div></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><div style="margin:0.8mm 0"><table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{19}{34}\)</td><td>\(\tfrac{13}{34}\)</td><td>\(\tfrac{1}{17}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0</td><td>\(\tfrac{13}{34}\)</td><td>\(\tfrac{2}{17}\)</td><td>\(\tfrac{17}{34}\)</td></tr></table> The expected value is \(\tfrac{1}{2}\).</div></div></div>
+<div class="a"><span class="an">10</span><div class="ab"><div style="margin:0.8mm 0"><b>d</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>Sum</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{6}{36}\)</td><td>\(\tfrac{10}{36}\)</td><td>\(\tfrac{8}{36}\)</td><td>\(\tfrac{6}{36}\)</td><td>\(\tfrac{4}{36}\)</td><td>\(\tfrac{2}{36}\)</td><td>1</td></tr><tr><th>\(xp(x)\)</th><td>0</td><td>\(\tfrac{10}{36}\)</td><td>\(\tfrac{16}{36}\)</td><td>\(\tfrac{18}{36}\)</td><td>\(\tfrac{16}{36}\)</td><td>\(\tfrac{10}{36}\)</td><td>\(\tfrac{70}{36}\)</td></tr></table> Hence \(\text{E}(X)=\tfrac{35}{18}\).</div>
+<div style="margin:0.8mm 0"><b>f</b> In any dice experiment, it is important to check the randomness of your dice rolls. This can depend on your rolling technique. Try throwing a die 12 times and see if every outcome is equally likely. Does each outcome seem independent of the last?</div></div></div>
+<div class="a"><span class="an">11</span><div class="ab"><b>a</b> \(\tfrac{3}{15},\ \tfrac{3}{15},\ \tfrac{3}{15},\ \tfrac{2}{15},\ \tfrac{2}{15},\ \tfrac{2}{15}\)<br><b>b</b> \(-12\), so the bank expects to make 12 cents each game, on average.</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><div style="margin:0.8mm 0"><b>a</b> \(P(\text{Orange})=\tfrac{1}{6}\), \(P(\text{Strawberry})=\tfrac{2}{6}\), \(P(\text{Apple})=\tfrac{3}{6}\)</div>
+<div style="margin:0.8mm 0"><b>b</b> <table class="t" style="font-size:9.8pt;margin:0.8mm 2mm 0.8mm 1mm;display:inline-table;vertical-align:middle"><tr><th>outcome</th><td>OOO</td><td>SSS</td><td>AAA</td><td>Other</td><td>Sum</td></tr><tr><th>\(x\)</th><td>\(11k\)</td><td>\(2k\)</td><td>\(k\)</td><td>0</td><td>—</td></tr><tr><th>\(p(x)\)</th><td>\(\tfrac{1}{216}\)</td><td>\(\tfrac{8}{216}\)</td><td>\(\tfrac{27}{216}\)</td><td>\(\tfrac{180}{216}\)</td><td>1</td></tr></table></div>
+<div style="margin:0.8mm 0"><b>c</b> Breaking even means \(\text{E}(X)=1\), the <span style="white-space:nowrap">\(\$\)1</span> paid in: \(\text{E}(X)=\tfrac{11k\times1+2k\times8+k\times27}{216}=\tfrac{54k}{216}=\tfrac{k}{4}=1\), so \(k=4\) and OOO pays \(11k=44\) dollars. The payout will be <span style="white-space:nowrap">\(\$\)44</span> and their profit would be <span style="white-space:nowrap">\(\$\)43</span>, accounting for the <span style="white-space:nowrap">\(\$\)1</span> entry fee.</div></div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>b</b>
+\[\begin{aligned}\mu&amp;=1\times\tfrac12+2\times\tfrac14+3\times\tfrac18+4\times\tfrac1{16}+5\times\tfrac1{32}+6\times\tfrac1{64}+\cdots&amp;&amp;(1)\\
+\text{Doubling,}\quad2\mu&amp;=1\times1+2\times\tfrac12+3\times\tfrac14+4\times\tfrac18+5\times\tfrac1{16}+6\times\tfrac1{32}+\cdots&amp;&amp;(2)\\
+\text{Subtracting (1) from (2),}\quad\mu&amp;=1+\tfrac12+\tfrac14+\tfrac18+\tfrac1{16}+\tfrac1{32}+\cdots&amp;&amp;(3)\\
+\text{Doubling,}\quad2\mu&amp;=2+1+\tfrac12+\tfrac14+\tfrac18+\tfrac1{16}+\cdots&amp;&amp;(4)\end{aligned}\]
+Subtracting (3) from (4), \(\mu=2\).<br>
+<b>c</b> On average, we would expect to get a head on the second throw. You could test this by recording how many throws it takes over say 50 trials and averaging the results.</div></div>
+<div class="a"><span class="an">14</span><div class="ab">\(\begin{aligned}\text{E}(X)&amp;=2\times\tfrac12+4\times\tfrac14+8\times\tfrac18+16\times\tfrac1{16}+\cdots\\&amp;=1+1+1+1+\cdots\end{aligned}\)<br>
+The expected value ‘increases without bound’, that is, \(\text{E}(X)\to\infty\) as the game continues. This suggests that there is no reasonable price the casino could put on this game and expect to break even. There are various issues with this scenario in real life. Casinos would not provide a game which had no upper limit to the payout. Patrons would also be unwilling to pay a large price for a game with such low apparent probabilities for the later stages of the game. The calculation of a simple expected value may not be the best way to analyse this game.</div></div>

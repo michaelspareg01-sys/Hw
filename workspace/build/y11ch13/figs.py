@@ -85,14 +85,20 @@ class Fig:
 from fractions import Fraction as Fr
 
 
-def dist_graph(name, xs, ps, yt, w=250, h=160, xpad=0.6, ylab="P(X = x)", xlabels=None):
-    """Dot graph of a probability distribution: values on the x-axis, probabilities up."""
+def dist_graph(name, xs, ps, yt, w=250, h=160, xpad=0.6, ylab="P(X = x)", xlabels=None, lift=(), xlo=0.35):
+    """Dot graph of a probability distribution: values on the x-axis, probabilities up.
+    lift: values whose tick labels go above the axis (when two values are close together)."""
     ymax = float(max(ps)) * 1.18
     lo = min(0, min(xs))
-    g = Graph(lo - 0.35, max(xs) + xpad, 0, ymax, w=w, h=h, pad=(44, 30, 26, 30))
+    g = Graph(lo - xlo, max(xs) + xpad, 0, ymax, w=w, h=h, pad=(44, 30, 26, 30))
     g.axes("x", "")
     g.items.append(_txt(g.X(max(g.xmin, 0)) + 8, g.Y(ymax) - 10, ylab, "start", size=11.5, italic=True))
-    g.xticks([(x, str(x) if xlabels is None else xlabels[i]) for i, x in enumerate(xs)])
+    labs = [(x, str(x) if xlabels is None else xlabels[i]) for i, x in enumerate(xs)]
+    g.xticks([t for t in labs if t[0] not in lift])
+    for x, lab in labs:                     # lifted labels: above the axis, just to the right of the tick
+        if x in lift:
+            g.xticks([(x, "")])
+            g.items.append(_txt(g.X(x) + 3, g._y0 - 10, lab, "start", size=11))
     g.yticks([(float(v), lab) for v, lab in yt])
     for x, p in zip(xs, ps):
         g.dot(x, float(p), r=3.4)
@@ -173,5 +179,34 @@ def build_13a():
     ])
 
 
+def build_13b():
+    P = "p(x)"
+    # lesson: four coins in the p(x) notation (13B text)
+    dist_graph("c13b_coins", [0, 1, 2, 3, 4], [Fr(1, 16), Fr(4, 16), Fr(6, 16), Fr(4, 16), Fr(1, 16)],
+               [(Fr(1, 16), "1/16"), (Fr(4, 16), "4/16"), (Fr(6, 16), "6/16")], ylab=P, w=230)
+    # lesson: Example 3, the robbery (cash 0, 40, 50, 80, 180, 350, 560 dollars)
+    rob = [(0, 5), (40, 1), (50, 4), (80, 3), (180, 2), (350, 4), (560, 1)]
+    dist_graph("c13b_rob", [x for x, _ in rob], [Fr(c, 20) for _, c in rob],
+               [(Fr(k, 20), f"{k}/20") for k in range(1, 6)], ylab=P, w=470, h=208, xpad=35, xlo=8, lift=(50,))
+    # lesson: Example 4, a die
+    dist_graph("c13b_die", [1, 2, 3, 4, 5, 6], [Fr(1, 6)] * 6, [(Fr(1, 6), "1/6")], ylab=P, w=250, h=120)
+    # answers C1: sum of two dice; sum of two tetrahedral dice
+    dist_graph("a13b_sum", list(range(2, 13)), [Fr(6 - abs(x - 7), 36) for x in range(2, 13)],
+               [(Fr(1, 36), "1/36"), (Fr(3, 36), "3/36"), (Fr(6, 36), "6/36")], ylab=P, w=290, h=170)
+    dist_graph("a13b_tsum", list(range(2, 9)), [Fr(4 - abs(x - 5), 16) for x in range(2, 9)],
+               [(Fr(k, 16), f"{k}/16") for k in range(1, 5)], ylab=P, w=250, h=200)
+    # answers C2: the pickpocket (16 friends); the thief (10 friends)
+    pick = [(0, 4), (20, 2), (40, 4), (90, 2), (120, 3), (300, 1)]
+    dist_graph("a13b_pick", [x for x, _ in pick], [Fr(c, 16) for _, c in pick],
+               [(Fr(k, 16), f"{k}/16") for k in range(1, 5)], ylab=P, w=360, h=190, xpad=20, xlo=6)
+    thief = [(0, 4), (20, 1), (30, 3), (50, 2)]
+    dist_graph("a13b_thief", [x for x, _ in thief], [Fr(c, 10) for _, c in thief],
+               [(Fr(1, 10), "0.1"), (Fr(2, 10), "0.2"), (Fr(3, 10), "0.3"), (Fr(4, 10), "0.4")], ylab=P, w=250, h=170, xpad=5, xlo=1.5)
+    # answers C3: octahedral die 1-8; dodecahedral die 1-12
+    dist_graph("a13b_oct", list(range(1, 9)), [Fr(1, 8)] * 8, [(Fr(1, 8), "1/8")], ylab=P, w=250, h=110)
+    dist_graph("a13b_dodec", list(range(1, 13)), [Fr(1, 12)] * 12, [(Fr(1, 12), "1/12")], ylab=P, w=290, h=110)
+
+
 if __name__ == "__main__":
     build_13a()
+    build_13b()
