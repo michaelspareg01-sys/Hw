@@ -26,7 +26,8 @@ Owner rules come from `docs/HANDOVER_PROMPT.md` (owner-confirmed; overrides `doc
 
 ## Build and QA
 ```
-cd /home/user/Hw/workspace/build && python3 build.py <chdir> all && mv lesson.pdf answers.pdf <chdir>/
+cd /home/user/Hw/workspace/build && flock /tmp/claude-0/-home-user-Hw/33fce1a1-283b-5e23-bc89-9ac277c110f5/scratchpad/build.lock sh -c 'python3 build.py <chdir> all && mv lesson.pdf answers.pdf <chdir>/'
+# (the lock stops parallel chapter builds overwriting each other's lesson.pdf/answers.pdf in the shared build dir)
 python3 -I ../tools/qa.py <chdir>/lesson.pdf ; python3 -I ../tools/qa.py <chdir>/answers.pdf   # 0 problems each
 ```
 - `qa.py` does NOT catch MathJax error boxes: also scan PDF text (PyMuPDF `get_text`) for "Double subscripts", "Double superscripts", "Undefined control sequence", "Missing", "Extra }", "Misplaced", "Math input error" → must be 0.
