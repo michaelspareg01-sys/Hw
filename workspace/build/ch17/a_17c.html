@@ -1,1 +1,145 @@
-<!-- filled by Task 4 -->
+<style>
+table.t.t17c { font-size:9.4pt; margin:1mm 0; }
+table.t.t17c td, table.t.t17c th { padding:0.8mm 1.8mm; }
+.a .oc17c { display:flex; gap:4mm; margin:1mm 0 1mm 4mm; }
+.a .oc17c .fig { margin:0; }
+.a .oc17c .fig svg { width:62mm; }
+</style>
+{{ahead:Lesson 17C | Normal approximations to a binomial}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> \(X\sim B\big(16,\tfrac12\big)\).<br>
+<b>a</b> \(P(X&gt;10)=P(X\ge11)=\big(\tfrac12\big)^{16}\big({}^{16}C_{11}+{}^{16}C_{12}+\cdots+{}^{16}C_{16}\big)=\dfrac{6885}{65\,536}\doteq0.105\)<br>
+<b>b</b> \(\mu=np=8\), \(\sigma^2=npq=4\), \(\sigma=2\). With the continuity correction, \(P(X\ge11)\doteq P(X\ge10.5)\).<br>
+\(z=\dfrac{10.5-8}{2}=1.25\), so \(P(X\ge10.5)\doteq P(Z\ge1.25)=1-\Phi(1.25)\doteq1-0.8944=0.1056\doteq0.106\).<br>
+<b>Your turn.</b> \(X\sim B\big(12,\tfrac12\big)\).<br>
+<b>a</b> \(P(X&gt;8)=P(X\ge9)=\big(\tfrac12\big)^{12}\big({}^{12}C_9+{}^{12}C_{10}+{}^{12}C_{11}+{}^{12}C_{12}\big)=\dfrac{299}{4096}\doteq0.073\)<br>
+<b>b</b> \(\mu=np=6\), \(\sigma^2=npq=3\), \(\sigma=\sqrt3\doteq1.732\). With the continuity correction, \(P(X\ge9)\doteq P(X\ge8.5)\).<br>
+\(z=\dfrac{8.5-6}{\sqrt3}\doteq1.44\), so \(P(X\ge8.5)\doteq P(Z\ge1.44)=1-\Phi(1.44)\doteq1-0.9251=0.0749\doteq0.075\).</div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> (i) \(P(11.5\le X\le12.5)\) &ensp; (ii) \(P(X\le10.5)\) &ensp; (iii) \(P(X&lt;10)=P(X\le9)\doteq P(X\le9.5)\) &ensp; (iv) \(P(X\ge14.5)\)<br>
+(v) \(P(X&gt;15)=P(X\ge16)\doteq P(X\ge15.5)\) &ensp; (vi) \(P(8\le X&lt;14)=P(8\le X\le13)\doteq P(7.5\le X\le13.5)\)<br>
+<b>b</b> \(\mu=8\), \(\sigma=2\), so within one standard deviation means \(6\le X\le10\).<br>
+Binomial: \(P(6\le X\le10)=\big(\tfrac12\big)^{16}\big({}^{16}C_6+{}^{16}C_7+{}^{16}C_8+{}^{16}C_9+{}^{16}C_{10}\big)=\dfrac{51\,766}{65\,536}\doteq0.790\).<br>
+Normal: \(P(5.5\le X\le10.5)\doteq P(-1.25\le Z\le1.25)\doteq0.8944-0.1056=0.7888\doteq0.789\). The results are in excellent agreement.<br>
+<b>Your turn.</b><br>
+<b>a</b> (i) \(P(9.5\le X\le10.5)\) &ensp; (ii) \(P(X\le7.5)\) &ensp; (iii) \(P(X&lt;12)=P(X\le11)\doteq P(X\le11.5)\) &ensp; (iv) \(P(X\ge12.5)\)<br>
+(v) \(P(X&gt;6)=P(X\ge7)\doteq P(X\ge6.5)\) &ensp; (vi) \(P(5&lt;X\le9)=P(6\le X\le9)\doteq P(5.5\le X\le9.5)\)<br>
+<b>b</b> \(\mu=6\), \(\sigma=\sqrt3\doteq1.732\), so within one standard deviation means \(4.268\le X\le7.732\), that is, \(X=5\), 6 or 7.<br>
+Binomial: \(P(5\le X\le7)=\big(\tfrac12\big)^{12}\big({}^{12}C_5+{}^{12}C_6+{}^{12}C_7\big)=\dfrac{2508}{4096}\doteq0.612\).<br>
+Normal: \(P(4.5\le X\le7.5)\): \(z=\pm\dfrac{1.5}{\sqrt3}\doteq\pm0.87\), so \(P(-0.87\le Z\le0.87)\doteq0.8078-0.1922=0.6156\doteq0.616\). The results are in good agreement.</div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b> \(\mu=np=2000\), \(\sigma^2=npq=1600\), \(\sigma=40\).<br>
+<b>a</b> The \(z\)-scores are \(-1.25\) and \(1.5\), so \(P(1950\le X\le2060)\doteq\Phi(1.5)-\Phi(-1.25)\doteq0.9332-0.1056=0.8276\).<br>
+<b>b</b> \(P(1949.5\le X\le2060.5)\): the \(z\)-scores are \(-1.2625\doteq-1.26\) and \(1.5125\doteq1.51\), so the probability is \(\doteq0.9345-0.1038=0.8307\).<br>
+The two answers differ by only 0.003, so with numbers this large the continuity correction makes very little difference.<br>
+<b>Your turn.</b> \(\mu=np=1200\), \(\sigma^2=npq=900\), \(\sigma=30\).<br>
+<b>a</b> The \(z\)-scores are \(-1.67\) and \(2.00\), so \(P(1150\le X\le1260)\doteq\Phi(2.00)-\Phi(-1.67)\doteq0.9772-0.0475=0.9297\).<br>
+<b>b</b> \(P(1149.5\le X\le1260.5)\): the \(z\)-scores are \(-1.6833\doteq-1.68\) and \(2.0167\doteq2.02\), so the probability is \(\doteq0.9783-0.0465=0.9318\).<br>
+The two answers differ by only 0.002, so the continuity correction is almost negligible here.</div></div>
+<div class="a"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b> For \(B\big(36,\tfrac12\big)\), \(\mu=18\) and \(\sigma=\sqrt{36\times\tfrac12\times\tfrac12}=3\).<br>
+\({}^{36}C_{20}\times\big(\tfrac12\big)^{36}=P(X=20)\doteq P(19.5\le X\le20.5)\). The \(z\)-scores are 0.5 and \(0.8333\doteq0.83\), so<br>
+\(P(19.5\le X\le20.5)\doteq\Phi(0.83)-\Phi(0.50)\doteq0.7967-0.6915=0.1052\), and \({}^{36}C_{20}\doteq2^{36}\times0.1052\doteq7.229\times10^{9}\).<br>
+The calculator gives \({}^{36}C_{20}=7\,307\,872\,110\doteq7.308\times10^{9}\), so the error is about 1%.<br>
+<b>Your turn.</b> For \(B\big(100,\tfrac12\big)\), \(\mu=50\) and \(\sigma=5\).<br>
+\({}^{100}C_{55}\times\big(\tfrac12\big)^{100}=P(X=55)\doteq P(54.5\le X\le55.5)\). The \(z\)-scores are 0.9 and 1.1, so<br>
+\(P(54.5\le X\le55.5)\doteq\Phi(1.1)-\Phi(0.9)\doteq0.8643-0.8159=0.0484\), and \({}^{100}C_{55}\doteq2^{100}\times0.0484\doteq6.135\times10^{28}\).<br>
+The calculator gives \({}^{100}C_{55}\doteq6.145\times10^{28}\), so the error is about 0.2%.</div></div>
+<div class="a"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> (i) Not binomial: without replacement, the probability of a heart changes as each card is removed. (ii) Binomial, \(B\big(20,\tfrac14\big)\): replacing the card makes the stages identical and independent. (iii) Strictly not binomial, because the same person cannot be chosen twice, but the pool of 2 million is so large that the probabilities are virtually the same at every stage, so it is very nearly binomial.<br>
+<b>b</b> (i) \(np=4\), which is not greater than 5, so the approximation is not reasonable. (ii) \(np=15\) and \(nq=45\), both greater than 5, so it is reasonable. (iii) \(np=196\) but \(nq=4\), so it is not reasonable.<br>
+<b>c</b> \(np=0.04n&gt;5\) gives \(n&gt;125\) (and then \(nq=0.96n&gt;5\) also holds), so \(n&gt;125\).<br>
+<b>Your turn.</b><br>
+<b>a</b> (i) Not binomial: without replacement, the probability of a red marble changes at each draw, and the bag is small. (ii) Binomial, \(B\big(30,\tfrac16\big)\). (iii) Strictly not binomial, but 40 is small relative to 1500, so it is very nearly binomial.<br>
+<b>b</b> (i) \(np=7.5\) and \(nq=17.5\), so it is reasonable. (ii) \(np=3\), so it is not reasonable. (iii) \(np=27\) but \(nq=3\), so it is not reasonable.<br>
+<b>c</b> \(nq=0.05n&gt;5\) gives \(n&gt;100\) (and then \(np=0.95n&gt;5\) also holds), so \(n&gt;100\).</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<p class="small" style="margin:0 0 1.5mm">Normal probabilities below use the standard normal table with \(z\) correct to two decimal places. Answers may vary slightly with interpolation or technology.</p>
+<div class="a"><span class="an">1</span><div class="ab"><b>a</b> \(X\sim B(20,0.3)\) &emsp; <b>b</b> \(P(9\le X\le11)={}^{20}C_9(0.3)^9(0.7)^{11}+{}^{20}C_{10}(0.3)^{10}(0.7)^{10}+{}^{20}C_{11}(0.3)^{11}(0.7)^{9}\doteq10.82\%\)<br>
+<b>c</b> \(np=6&gt;5\) and \(nq=14&gt;5\).<br>
+<b>d</b> \(\mu=6\), \(\sigma^2=4.2\), \(\sigma\doteq2.049\). The \(z\)-scores are \(\dfrac{8.5-6}{\sqrt{4.2}}\doteq1.22\) and \(\dfrac{11.5-6}{\sqrt{4.2}}\doteq2.68\), so \(P(8.5\le X\le11.5)\doteq0.9963-0.8888=0.1075=10.75\%\).<br>
+<b>e</b> \(\dfrac{10.82-10.75}{10.82}\doteq0.65\%\). The result is very accurate.</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><b>a</b> \(B(50,0.5)\), \(P(18\le X\le20)\doteq8.49\%\); \(np=25\), \(nq=25\); normal approximation using \(N(25,12.5)\): \(z=-2.12\) and \(-1.27\), \(0.1020-0.0170=8.50\%\), percentage error 0.1%<br>
+<b>b</b> \(B(20,0.4)\), \(P(8\le X\le9)\doteq33.94\%\); \(np=8\), \(nq=12\); normal approximation using \(N(8,4.8)\): \(z=-0.23\) and \(0.68\), \(0.7517-0.4090=34.27\%\), percentage error 1.0%<br>
+<b>c</b> \(B(30,0.3)\), \(P(5\le X\le7)\doteq25.12\%\); \(np=9\), \(nq=21\); normal approximation using \(N(9,6.3)\): \(z=-1.79\) and \(-0.60\), \(0.2743-0.0367=23.76\%\), percentage error 5.4%<br>
+<b>d</b> \(B(40,0.2)\), \(P(9\le X\le12)\doteq36.36\%\); \(np=8\), \(nq=32\); normal approximation using \(N(8,6.4)\): \(z=0.20\) and \(1.78\), \(0.9625-0.5793=38.32\%\), percentage error 5.4%<br>
+<b>e</b> \(B(22,0.6)\), \(P(13\le X\le15)\doteq46.59\%\); \(np=13.2\), \(nq=8.8\); normal approximation using \(N(13.2,5.28)\): \(z=-0.30\) and \(1.00\), \(0.8413-0.3821=45.92\%\), percentage error 1.4%<br>
+<b>f</b> \(B(80,0.1)\), \(P(10\le X\le13)\doteq24.98\%\); \(np=8\), \(nq=72\); normal approximation using \(N(8,7.2)\): \(z=0.56\) and \(2.05\), \(0.9798-0.7123=26.75\%\), percentage error 7.1%<br>
+<b>g</b> \(B(500,0.25)\), \(P(100\le X\le103)\doteq0.84\%\); \(np=125\), \(nq=375\); normal approximation using \(N(125,93.75)\): \(z=-2.63\) and \(-2.22\), \(0.0132-0.0043=0.89\%\), percentage error 6.0%<br>
+<b>h</b> \(B(200,0.9)\), \(P(170\le X\le172)\doteq3.39\%\); \(np=180\), \(nq=20\); normal approximation using \(N(180,18)\): \(z=-2.47\) and \(-1.77\), \(0.0384-0.0068=3.16\%\), percentage error 6.8%</div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>a</b> There are two possible outcomes, pink or blue. &emsp; <b>b</b> There are 20 stages, each independent, and with the same probability of success.<br>
+<b>c</b> If the counter is not returned, the stages of the experiment will not be independent. With the large number of counters, however, the probability will not change much, and we could approximate the experiment as binomial.<br>
+<b>d</b> \(p=0.6\), \(\mu=np=12\), \(\sigma^2=np(1-p)=4.8\), so \(\sigma\doteq2.19\). &emsp; <b>e</b> \({}^{20}C_{14}(0.6)^{14}(0.4)^6\doteq0.124\)<br>
+<b>f</b> (i) The column for 14 pink counters is 1 unit wide and centred on 14, so it runs from 13.5 to 14.5, and the normal curve covers the same interval. (ii) \(P(13.5&lt;X&lt;14.5)\doteq P(0.68&lt;Z&lt;1.14)\doteq0.8729-0.7517=0.1212\doteq0.121\). Correct to two significant figures, both are 0.12, so they are in strong agreement.</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> \(p=\dfrac{1320}{3000}=0.44\) &emsp; <b>b</b> \(\mu=np=6.6\), \(\sigma=\sqrt{15\times0.44\times0.56}\doteq1.92\) &emsp; <b>c</b> \({}^{15}C_9(0.44)^9(0.56)^6+{}^{15}C_{10}(0.44)^{10}(0.56)^5\doteq14.04\%\)<br>
+<b>d</b> \(np=6.6\) and \(nq=8.4\), both greater than 5. Yes.<br>
+<b>e</b> \(P(8.5\le X\le10.5)\): the \(z\)-scores are 0.99 and 2.03, so the probability is \(\doteq0.9788-0.8389=0.1399\doteq14\%\).<br>
+<b>f</b> \(\dfrac{14.04-13.99}{14.04}\doteq0.4\%\), less than 1%.</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>a</b> \(n&gt;10\) &emsp; <b>b</b> \(n&gt;20\) &emsp; <b>c</b> \(n&gt;40\) &emsp; <b>d</b> \(n&gt;500\) &emsp; <b>e</b> \(n&gt;20\) &emsp; <b>f</b> \(n&gt;40\) &emsp; <b>g</b> \(n&gt;50\) &emsp; <b>h</b> \(n&gt;11.1\), that is, \(n\ge12\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> Very large numbers are involved. A normal calculator cannot handle numbers such as \({}^{854}C_{76}\), and other calculating devices may not be accurate with such large numbers. There are also a large number of cases to consider, from 60 to 76 successes.<br>
+<b>b</b> It is hard to get a representative sample of the whole world, because different ethnic groups will have different tendencies to colour-blindness.<br>
+<b>c</b> \(\mu=854\times0.08=68.32\), \(\sigma=\sqrt{854\times0.08\times0.92}\doteq7.93\). Here 7% of 854 is 59.78 and 9% is 76.86, so we need 60 to 76 people.<br>
+\(P(60&lt;X&lt;76)\doteq P(-1.05&lt;Z&lt;0.97)\doteq0.8340-0.1469=0.6871\doteq68.7\%\)<br>
+<b>d</b> \(P(76&lt;X&lt;76.5)\doteq P(0.97&lt;Z&lt;1.03)\doteq0.8485-0.8340=0.0145\doteq1.5\%\)</div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>a</b> \(\big(\tfrac34\big)^{15}\doteq0.0134\doteq1\%\) &emsp; <b>b</b> \(1-\big(\tfrac34\big)^{15}\doteq99\%\)<br>
+<b>c</b> Twenty per cent of 15 is 3. \(\mu=3.75\), \(\sigma^2=2.8125\), \(\sigma\doteq1.677\). \(P(X\ge3)\doteq P(X\ge2.5)\doteq P(Z\ge-0.75)\doteq0.7734\doteq77\%\)</div></div>
+<div class="a"><span class="an">8</span><div class="ab">Interpreting this as \(P(11\le X\le20)\), where \(X\sim B(20,0.45)\): \(\mu=9\), \(\sigma\doteq2.225\), and \(P(X\ge10.5)\doteq P(Z\ge0.67)\doteq1-0.7486=0.2514\), so a normal approximation gives 25%.</div></div>
+<div class="a"><span class="an">9</span><div class="ab">\(X\sim B(30,0.6)\): \(\mu=18\), \(\sigma\doteq2.683\). \(P(X&gt;20)=P(21\le X\le30)\doteq P(X\ge20.5)\doteq P(Z\ge0.93)\doteq1-0.8238=0.1762\doteq17.6\%\).<br>
+The underlying Bernoulli distribution is not applied with replacement, because the same person will not be in the park twice at the same gathering. If the population of Nashville is large, it should be reasonable to neglect this fact. It is also assumed that the visitors to the park are a random cross-section of Nashville. Groups with similar musical tastes may arrive together.</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a</b> (i) \(1-0.95^{10}\doteq0.40\)<br>
+(ii) \(P(\text{reject})=1-(1-p)^{10}\):
+<table class="t t17c"><tr><th>\(p\)</th><td>0</td><td>0.05</td><td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td></tr>
+<tr><th>\(P(\text{reject})\)</th><td>0</td><td>0.40</td><td>0.65</td><td>0.89</td><td>0.97</td><td>0.99</td></tr></table>
+(iii)<div class="oc17c">{{svg:a17c_q12a}}</div>
+<b>b</b> \(P(\text{reject})=1-(1-p)^{15}-15p(1-p)^{14}\):
+<table class="t t17c"><tr><th>\(p\)</th><td>0</td><td>0.05</td><td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td></tr>
+<tr><th>\(P(\text{reject})\)</th><td>0</td><td>0.17</td><td>0.45</td><td>0.83</td><td>0.96</td><td>0.99</td></tr></table>
+<div class="oc17c">{{svg:a17c_q12b}}</div>
+<b>c</b> The second method is more forgiving if there are a few punnets that need to be rejected. Both methods are strongly likely to reject the batch if \(p\) is high, indeed the curves approach one another closely by the time \(p\) reaches 20%.</div></div>
+
+{{ahead:Lesson 17C | Normal approximations to a binomial}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)(iii)</span></span></div>
+<p>Using the normal approximation without a continuity correction, as in the school solution.</p>
+<p>\(X\) is approximately \(N(8000,40^2)\), so</p>
+\[P(X&lt;8040)\doteq P\Big(Z&lt;\frac{8040-8000}{40}\Big)=P(Z&lt;1)\doteq0.8413\doteq0.84.\]
+<p>(The empirical rule gives the same answer: \(0.5+0.34=0.84\).)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(b)</span></span></div>
+<p>Using the normal approximation without a continuity correction, as in the school solution.</p>
+<p>Let \(X\) be the number of patients who cannot be cured. Then \(X\sim B(150,0.2)\), with \(np=30\) and \(nq=120\). Both are greater than 5 (indeed greater than 10), so the normal approximation is justified.</p>
+\[\mu=np=30,\qquad\sigma=\sqrt{npq}=\sqrt{150\times0.2\times0.8}=\sqrt{24}\doteq4.899\]
+\[P(X\le37)\doteq P\Big(Z\le\frac{37-30}{\sqrt{24}}\Big)\doteq P(Z\le1.43)\doteq0.9236.\]
+<p>(The school solution works with the number cured, \(P(X\ge113)\), and gets the same \(z\)-score, \(-1.43\).)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Ascham School, 2024, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(e)</span></span></div>
+<p>Using the normal approximation without a continuity correction, as in the school solution.</p>
+<p>Let \(X\) be the number of left-handed people. Then \(X\sim B(100,0.1)\), with \(np=10\) and \(nq=90\), both greater than 5.</p>
+\[\mu=np=10,\qquad\sigma^2=npq=9,\qquad\sigma=3.\]
+<p>5% of one hundred is 5, so we need \(P(X&lt;5)\):</p>
+\[\begin{aligned}P(X&lt;5)&amp;\doteq P\Big(Z&lt;\frac{5-10}{3}\Big)\\&amp;=P(Z&lt;-1.67)\\&amp;=1-\Phi(1.67)\\&amp;\doteq1-0.9525\\&amp;=0.0475.\end{aligned}\]
+<p>(The school solution works with the sample proportion, Lesson 17D, and gets the same \(z\)-score.)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Killara High School, 2020, Mathematics Extension&nbsp;1 Trial HSC <span style="white-space:nowrap">Examination,&nbsp;Q12(e)</span></span></div>
+<p>Using the normal approximation without a continuity correction, as in the school solution.</p>
+<p>Let \(X\) be the number who order dessert. Then \(X\sim B(288,0.27)\), with \(np=77.76\) and \(nq=210.24\), both greater than 5.</p>
+\[\mu=np=77.76,\qquad\sigma^2=npq=56.7648,\qquad\sigma\doteq7.534\]
+\[P(X&lt;100)\doteq P\Big(Z&lt;\frac{100-77.76}{7.534}\Big)\doteq P(Z&lt;2.95)\doteq0.9984\doteq0.998.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)(ii)</span></span></div>
+<p>Using the normal approximation without a continuity correction, as in the school solution.</p>
+<p>The 2 million trials estimate \(p\doteq\dfrac{1\,615\,580}{2\,000\,000}=0.80779\). In 10&nbsp;000 trials, \(X\sim B(10\,000,\,0.80779)\), so</p>
+\[\mu=np=8077.9,\qquad\sigma=\sqrt{10\,000\times0.80779\times0.19221}\doteq39.40.\]
+\[\begin{aligned}P(X&gt;8100)&amp;\doteq P\Big(Z&gt;\frac{8100-8077.9}{39.40}\Big)\\&amp;\doteq P(Z&gt;0.56)\\&amp;=1-0.7123\\&amp;=0.2877\doteq28.8\%.\end{aligned}\]
+<p>(The school solution works with the sample proportion, Lesson 17D, and gets the same \(z\)-score.)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension&nbsp;1 HSC Trial <span style="white-space:nowrap">Examination,&nbsp;Q13(d)</span></span></div>
+<p>Using the normal approximation without a continuity correction, as in the school solution’s main method.</p>
+<p>Let \(N\) be the number absent, so \(N\sim B(n,0.05)\), with \(\mu=0.05n\) and \(\sigma=\sqrt{0.05\times0.95\,n}=\sqrt{0.0475n}\).</p>
+<p>From the table, \(\Phi(1.32)\doteq0.9066\), so \(P(N\le20)=0.90658\) gives \(z=1.32\):</p>
+\[\frac{20-0.05n}{\sqrt{0.0475n}}=1.32,\qquad\text{so}\qquad0.05n+1.32\sqrt{0.0475}\,\sqrt n-20=0.\]
+<p>This is a quadratic in \(u=\sqrt n\): &ensp; \(0.05u^2+0.28769u-20=0\). Since \(u&gt;0\),</p>
+\[u=\frac{-0.28769+\sqrt{0.28769^2+4}}{0.1}\doteq17.329,\qquad n=u^2\doteq300.3,\qquad\text{so}\qquad n=300.\]
+<p>(Check: \(np=15\) and \(nq=285\), so the normal approximation is reasonable. The school solution also gives the continuity-correction version, with 20.5 in place of 20, which leads to \(n\doteq309\).)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>James Ruse Agricultural High School, 2023, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(b)(ii)</span></span></div>
+<p>Using the normal approximation without a continuity correction, as in the school solution.</p>
+<p>Let \(X\) be the number who take less than 12 minutes, so \(X\sim B(n,0.1)\), with \(\mu=0.1n\) and \(\sigma=\sqrt{0.1\times0.9\,n}=0.3\sqrt n\).</p>
+<p>From the table, \(\Phi(0.40)\doteq0.6554\), so \(\Phi(-0.40)\doteq0.3446\). Hence \(P(X&lt;9)=0.3446\) gives \(z=-0.4\):</p>
+\[\frac{9-0.1n}{0.3\sqrt n}=-0.4,\qquad\text{so}\qquad0.1n-0.12\sqrt n-9=0.\]
+<p>This is a quadratic in \(u=\sqrt n\): &ensp; \(0.1u^2-0.12u-9=0\). Since \(u&gt;0\),</p>
+\[u=\frac{0.12+\sqrt{0.0144+3.6}}{0.2}\doteq10.106,\qquad n=u^2\doteq102.13,\qquad\text{so}\qquad n=102.\]
+<p>(The school solution also squares the equation, giving \(0.01n^2-1.8144n+81=0\), with roots \(n\doteq102.13\) and \(n\doteq79.31\). It rejects \(n=79\), because then \(\mu=7.9\) is below 9, so the \(z\)-score of 9 would be positive, not \(-0.4\).)</p></div>

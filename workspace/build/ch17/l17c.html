@@ -1,1 +1,297 @@
-<!-- filled by Task 4 -->
+<style>
+table.t.t17c { font-size:9.8pt; }
+table.t.t17c td, table.t.t17c th { padding:0.9mm 2.4mm; }
+.w17c .fig svg { width:120mm; height:auto; }
+.q3c .fig svg { width:68mm; height:auto; }
+.m17c .fig svg { width:62mm; height:auto; }
+.l17c .fig svg { width:100mm; height:auto; }
+.q5g { display:grid; grid-template-columns:repeat(4, 1fr); gap:0.6mm 4mm; }
+</style>
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 17C</div><h2>Normal approximations to a binomial</h2>
+<div class="focus">Calculating binomial probabilities exactly becomes dreadful when the numbers are large. Fortunately, binomial distributions can be approximated very well by the normal distribution, and the larger the numbers are, the better the approximation. This lesson approximates \(B(n,p)\) by \(N(np,npq)\), using the continuity correction for small values of \(n\), and the rule of thumb \(np&gt;5\) and \(nq&gt;5\). Use the standard normal table at the end of the Revision section, as in Chapter 16.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the normal approximation to a binomial}}
+<div class="box concept"><div class="bt">Why approximate?</div>
+<p>A pollster asks a sample of 10&nbsp;000 people whether they intend to vote for the Working Together Party in the next election. The WTP won \(\tfrac13\) of the vote in the last election, and using the assumption that this will be the case in the next election, he wants to know the probability that his survey will give him a result within \([3300,3400]\).</p>
+<p>Using binomial probability, the calculation is</p>
+\[\begin{aligned}P(3300\le X\le3400)&amp;={}^{10\,000}C_{3300}\big(\tfrac13\big)^{3300}\big(\tfrac23\big)^{6700}+{}^{10\,000}C_{3301}\big(\tfrac13\big)^{3301}\big(\tfrac23\big)^{6699}\\&amp;\qquad+\cdots+{}^{10\,000}C_{3399}\big(\tfrac13\big)^{3399}\big(\tfrac23\big)^{6601}+{}^{10\,000}C_{3400}\big(\tfrac13\big)^{3400}\big(\tfrac23\big)^{6600}.\end{aligned}\]
+<p>This is a dreadful calculation because of all the huge factorials and massive sizes of the numbers. Even with a computer, there are serious problems about controlling all the errors in the calculation. And if the calculation involves the whole population of Australia (over 25&nbsp;000&nbsp;000), the situation is even more difficult.</p>
+<p>Fortunately, binomial distributions can be approximated very well by the normal distribution, and the larger the numbers are, the better the approximation. This section is about approximating a binomial distribution by a normal distribution.</p></div></div>
+<div class="box concept" style="break-inside:auto"><div class="bt">An example of approximations</div>
+<p>In Section 16E, we took the binomial distribution of the number of heads in 20 coin tosses, where \(n=20\) and \(p=q=\tfrac12\), so that</p>
+\[\mu=np=20\times\tfrac12=10\qquad\text{and}\qquad\sigma^2=npq=20\times\tfrac12\times\tfrac12=5,\]
+<p>and \(\sigma=\sqrt5\). We graphed the frequency polygon, then we superposed a normal curve with the same mean \(\mu=10\) and the same standard deviation \(\sigma=\sqrt5\). The result looks reasonably good,</p>
+<div class="w17c">{{svg:c17c_coin20}}</div>
+<p>Thus the normal PDF approximates the frequency polygon of the binomial, and taking cumulative frequencies, it follows that the normal CDF approximates the ogive of the binomial. We cannot in this course give theoretical arguments why such approximations work: we can only look at the pictures and confirm the results. Then we can use these results in problems.</p>
+<p>For example, the standard deviation is \(\sqrt5\doteq2.236\). Suppose that we want to find the probability that when we toss 20 coins, the number of heads will be within one standard deviation of the mean. These numbers are small enough for us to calculate it two ways, as in Worked example 12.</p></div>
+<div class="box concept"><div class="bt">Notation for normal distributions</div>
+<p>The notation \(N(\mu,\sigma^2)\) is used for the normal distribution with mean \(\mu\) and variance \(\sigma^2\). Thus in the diagram above, we are claiming that the binomial distribution \(B\big(20,\tfrac12\big)\) is approximated by the normal distribution \(N(10,5)\). In general, \(B(n,p)\) is approximated by \(N(np,npq)\), where \(q=1-p\).</p></div>
+<div class="box concept"><div class="bt">Treating \(X\) as if it were continuous (Worked example 11)</div>
+<p>To approximate the binomial by the normal distribution \(N(10,5)\), we treat the discrete random variable \(X\) <i>as if it were a continuous normal variable</i>. Because we are using a continuous density function, we need to follow the boundaries of the histograms and find the probability, not that \(X\ge13\), but that \(X\ge12.5\), which is the left-hand boundary of the first histogram. This adjustment from 13 to 12.5 is called the <i>continuity correction</i>: it is the correction needed when a discrete distribution is treated as if it were continuous.</p>
+<p>Then find the \(z\)-score \(z=\dfrac{x-\mu}{\sigma}\) and use the standard normal table at the end of the Revision section, with \(z\) correct to two decimal places, or a calculator.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A coin tossed 16 times</span></div><div class="ex-body">
+A coin is tossed 16 times, and \(X\) is the number of heads. Find the probability that the number of heads is greater than 10, correct to three decimal places:<br>
+<b>a</b> using a binomial distribution,<br>
+<b>b</b> using the normal approximation (use the standard normal table, with \(z\) correct to two decimal places).
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">A coin tossed 12 times</span></div><div class="ex-body">
+A coin is tossed 12 times, and \(X\) is the number of heads. Find the probability that the number of heads is greater than 8, correct to three decimal places:<br>
+<b>a</b> using a binomial distribution,<br>
+<b>b</b> using the normal approximation (use the standard normal table, with \(z\) correct to two decimal places).
+{{work:60}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 11</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A coin is tossed 20 times, and \(X\) is the number of heads. Find the probability that the number of heads is greater than 12:<br>
+<b>a</b> using a binomial distribution,<br>
+<b>b</b> using the normal approximation.
+<div class="sol-label">Solution</div>
+<div style="break-inside:avoid"><p><b>a</b></p>
+\[\begin{aligned}P(\text{at least 13 heads})&amp;={}^{20}C_{13}\big(\tfrac12\big)^{20}+{}^{20}C_{14}\big(\tfrac12\big)^{20}+\cdots+{}^{20}C_{20}\big(\tfrac12\big)^{20}\\&amp;=\big(\tfrac12\big)^{20}\big({}^{20}C_{13}+{}^{20}C_{14}+\cdots+{}^{20}C_{20}\big)\\&amp;=\big(\tfrac12\big)^{20}\times137\,980\\&amp;\doteq0.132.\end{aligned}\]</div>
+<p><b>b</b> To approximate the binomial by the normal distribution \(N(10,5)\), we treat the discrete random variable \(X\) <i>as if it were a continuous normal variable</i>. Because we are using a continuous density function, we need to follow the boundaries of the histograms and find the probability, not that \(X\ge13\), but that \(X\ge12.5\), which is the left-hand boundary of the first histogram.</p>
+\[P(\text{at least 13 heads})\doteq P(X\ge12.5).\]
+<div class="w17c" style="break-inside:avoid">{{svg:c17c_ex11}}</div>
+<p>This adjustment from 13 to 12.5 is called the <i>continuity correction</i>: it is the correction needed when a discrete distribution is treated as if it were continuous.</p>
+<div class="split" style="break-inside:avoid"><div>
+\[\begin{aligned}\text{Using }z\text{-scores,}\quad z&amp;=\frac{x-\mu}{\sigma}\\&amp;=\frac{12.5-10}{\sqrt5}\\&amp;\doteq1.118,\end{aligned}\]
+</div><div>
+\[\begin{aligned}\text{so }P(\text{at least 13 heads})&amp;\doteq P(Z&gt;1.118)\\&amp;\doteq1-\Phi(1.118)\\&amp;\doteq1-0.868\\&amp;\doteq0.132.\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:continuity corrections}}
+<div class="box concept"><div class="bt">Continuity corrections</div>
+<p>We are approximating a discrete binomial variable by a continuous normal variable. We thus integrate from halfway between the values of the discrete distribution. In Worked example 11, that means from 12.5.</p>
+<p>In Worked example 12, we are adding the five values at \(x=8,\ 9,\ 10,\ 11\) and 12, so we integrate over the interval \([7.5,12.5]\).</p></div></div>
+<div class="box take"><div class="bt">5 Normal approximation to a binomial distribution</div>
+<ul><li>A binomial distribution can be approximated by the normal distribution with the same mean and standard deviation.</li>
+<li>Thus the binomial distribution \(B(n,p)\) or \(\text{Bin}(n,p)\) can be approximated by the normal distribution \(N(np,npq)\), where \(q=1-p\).</li>
+<li>\(N(\mu,\sigma^2)\) means the normal distribution with mean \(\mu\) and variance \(\sigma^2\).</li>
+<li>When approximating, we treat the discrete binomial variable \(X\) as if it were a continuous normal variable.</li>
+<li>For small values of \(n\), apply the <i>continuity correction</i>. This means integrating between half-intervals, corresponding to the boundaries of the cumulative frequency histogram. For example, to approximate \(P(X=8,\ 9,\ 10,\ 11\text{ or }12)\), we treat \(X\) as a continuous normal variable and find
+\[P(7.5\le X\le12.5).\]</li></ul></div>
+<div class="box tip"><div class="bt">Writing the continuity correction</div>
+<p>First write the event with whole numbers and \(\le\) or \(\ge\), then move half a unit outwards, so that every column of the event is included in full. For a whole number \(a\):</p>
+<table class="t t17c"><tr><th>Event</th><td>\(X=a\)</td><td>\(X\le a\)</td><td>\(X&lt;a\), that is, \(X\le a-1\)</td><td>\(X\ge a\)</td><td>\(X&gt;a\), that is, \(X\ge a+1\)</td></tr>
+<tr><th>Use</th><td>\(a-0.5\le X\le a+0.5\)</td><td>\(X\le a+0.5\)</td><td>\(X\le a-0.5\)</td><td>\(X\ge a-0.5\)</td><td>\(X\ge a+0.5\)</td></tr></table></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Continuity corrections, and 16 coins</span></div><div class="ex-body">
+<b>a</b> \(X\sim B(30,0.4)\). Write each probability as the probability for a continuous normal variable, using the continuity correction.
+<div class="parts one" style="margin-left:5mm"><span>(i) \(P(X=12)\) &emsp;&emsp; (ii) \(P(X\le10)\) &emsp;&emsp; (iii) \(P(X&lt;10)\)</span><span>(iv) \(P(X\ge15)\) &emsp;&emsp; (v) \(P(X&gt;15)\) &emsp;&emsp; (vi) \(P(8\le X&lt;14)\)</span></div>
+<b>b</b> A coin is tossed 16 times, and \(X\) is the number of heads. Find the probability that the number of heads is within one standard deviation of the mean, correct to three decimal places, using a binomial distribution, and then using the normal approximation (use the standard normal table). Comment on the results.
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Continuity corrections, and 12 coins</span></div><div class="ex-body">
+<b>a</b> \(X\sim B(40,0.25)\). Write each probability as the probability for a continuous normal variable, using the continuity correction.
+<div class="parts one" style="margin-left:5mm"><span>(i) \(P(X=10)\) &emsp;&emsp; (ii) \(P(X\le7)\) &emsp;&emsp; (iii) \(P(X&lt;12)\)</span><span>(iv) \(P(X\ge13)\) &emsp;&emsp; (v) \(P(X&gt;6)\) &emsp;&emsp; (vi) \(P(5&lt;X\le9)\)</span></div>
+<b>b</b> A coin is tossed 12 times, and \(X\) is the number of heads. Find the probability that the number of heads is within one standard deviation of the mean, correct to three decimal places, using a binomial distribution, and then using the normal approximation (use the standard normal table). Comment on the results.
+{{work:100}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 12</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A coin is tossed 20 times, and \(X\) is the number of heads. Find the probability that the number of heads is within one standard deviation of the mean:<br>
+<b>a</b> using a binomial distribution,<br>
+<b>b</b> using the normal approximation.<br>
+Comment on the results of the calculations.
+<div class="sol-label">Solution</div>
+<div style="break-inside:avoid"><p><b>a</b></p>
+\[\begin{aligned}&amp;P(X\text{ is within one standard deviation of the mean})=P(7.764\le X\le12.236)\\&amp;\qquad=P(X=8,\ 9,\ 10,\ 11\text{ or }12)\\&amp;\qquad={}^{20}C_8\big(\tfrac12\big)^{20}+{}^{20}C_9\big(\tfrac12\big)^{20}+{}^{20}C_{10}\big(\tfrac12\big)^{20}+{}^{20}C_{11}\big(\tfrac12\big)^{20}+{}^{20}C_{12}\big(\tfrac12\big)^{20}\\&amp;\qquad=\frac{{}^{20}C_8+{}^{20}C_9+{}^{20}C_{10}+{}^{20}C_{11}+{}^{20}C_{12}}{2^{20}}\\&amp;\qquad=\frac{772\,616}{1024\times1024}\\&amp;\qquad\doteq0.737.\end{aligned}\]</div>
+<p><b>b</b> We are approximating the binomial distribution by the normal distribution \(N(10,5)\), so we treat the discrete random variable \(X\) as if it were a continuous normal variable, and calculate <span style="white-space:nowrap">\(P(7.5\le X\le12.5)\).</span></p>
+<div class="w17c" style="break-inside:avoid">{{svg:c17c_ex12}}</div>
+<div style="break-inside:avoid"><p>Using \(z\)-scores, the two limits of integration are</p>
+<div class="split"><div>
+\[\begin{aligned}z&amp;=\frac{x-\mu}{\sigma}\\&amp;=\frac{12.5-10}{\sqrt5}\\&amp;=1.118,\end{aligned}\]
+</div><div>
+\[\begin{aligned}z&amp;=\frac{x-\mu}{\sigma}\\&amp;=\frac{7.5-10}{\sqrt5}\\&amp;=-1.118,\end{aligned}\]
+</div></div>
+\[\begin{aligned}\text{so }P(X\text{ is within one standard deviation of the mean})&amp;\doteq P(-1.118\le Z\le1.118)\\&amp;\doteq0.736.\end{aligned}\]
+<p>The results in parts <b>a</b> and <b>b</b> are in excellent agreement.</p></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:the continuity correction for large numbers}}
+<div class="box concept"><div class="bt">The continuity correction for large numbers</div>
+<p>In the example in the introduction to this lesson (the pollster), the numbers are large enough so that the continuity correction is negligible, as Worked example 13 shows.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">\(n=10\,000\), \(p=0.2\)</span></div><div class="ex-body">
+A binomial random variable \(X\) has \(n=10\,000\) and \(p=0.2\). Use the normal approximation and the standard normal table to find \(P(1950\le X\le2060)\), correct to four decimal places:<br>
+<b>a</b> ignoring the continuity correction,<br>
+<b>b</b> using the continuity correction.<br>
+Then comment on the results of the calculations.
+{{work:80}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">\(n=4800\), \(p=0.25\)</span></div><div class="ex-body">
+A binomial random variable \(X\) has \(n=4800\) and \(p=0.25\). Use the normal approximation and the standard normal table to find \(P(1150\le X\le1260)\), correct to four decimal places:<br>
+<b>a</b> ignoring the continuity correction,<br>
+<b>b</b> using the continuity correction.<br>
+Then comment on the results of the calculations.
+{{work:80}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 13</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Compute \(P(3300\le X\le3400)\) in the example in the introduction:<br>
+<b>a</b> ignoring the continuity correction,<br>
+<b>b</b> using the continuity correction.<br>
+Then comment on the results of the calculations.
+<div class="sol-label">Solution</div>
+<p>Here \(n=10\,000\) and \(p=\tfrac13\), so \(\mu=3333\tfrac13\) and \(\sigma^2=2222\tfrac29\) and \(\sigma\doteq47.1405\).<br>
+We will treat the discrete random variable \(X\) as if it were a continuous normal variable with the same mean \(3333\tfrac13\) and standard deviation 47.1405.</p>
+<p><b>a</b> Without the continuity correction, we are finding \(P(3300\le X\le3400)\).<br>
+The \(z\) scores are \(-0.7071\) and \(1.4142\),</p>
+\[\begin{aligned}\text{so}\quad P(3300\le X\le3400)&amp;\doteq P(-0.7071\le Z\le1.4142)\\&amp;\doteq0.6816.\end{aligned}\]
+<p><b>b</b> With the continuity correction, we are finding \(P(3299.5\le X\le3400.5)\).<br>
+The \(z\) scores are \(-0.7177\) and \(1.4248\),</p>
+\[\begin{aligned}\text{so}\quad P(3299.5\le X\le3400.5)&amp;\doteq P(-0.7177\le Z\le1.4248)\\&amp;\doteq0.6864.\end{aligned}\]
+<p>No pollster would ever need the third decimal place of the probabilities, so there is no problem whatsoever ignoring the continuity correction.</p>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:using the normal approximation to calculate a binomial coefficient}}
+<div class="box concept"><div class="bt">Approximating a binomial coefficient</div>
+<p>One of the consequences of the normal approximation to the binomial is that for large parameters, an individual binomial coefficient can be approximated. These calculations demonstrate very well how vital the continuity correction can be: without it, the probability that a continuous variable takes one exact value is zero.</p>
+<p>When \(p=\tfrac12\), \(\;{}^nC_x\times\big(\tfrac12\big)^n=P(X=x)\), so \(\;{}^nC_x=2^n\times P(X=x)\doteq2^n\times P(x-0.5\le X\le x+0.5)\).</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">\({}^{36}C_{20}\)</span></div><div class="ex-body">
+Approximate \({}^{36}C_{20}\) using the normal approximation to the binomial distribution \(B\big(36,\tfrac12\big)\) and the standard normal table. Give your answer correct to four significant figures. Check how good the approximation is by finding \({}^{36}C_{20}\) on your calculator.
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">\({}^{100}C_{55}\)</span></div><div class="ex-body">
+Approximate \({}^{100}C_{55}\) using the normal approximation to the binomial distribution \(B\big(100,\tfrac12\big)\) and the standard normal table. Give your answer correct to four significant figures. Check how good the approximation is by finding \({}^{100}C_{55}\) on your calculator.
+{{work:90}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 14</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Approximate \({}^{100}C_{53}\) using the normal approximation to the binomial distribution \(B\big(100,\tfrac12\big)\). Check how good the approximation is.
+<div class="sol-label">Solution</div>
+<p>We know that \({}^{100}C_{53}\times\big(\tfrac12\big)^{100}=P(X=53)\).<br>
+We treat the discrete binomial variable \(X\) as if it were a continuous normal variable,</p>
+\[{}^{100}C_{53}\times\big(\tfrac12\big)^{100}=P(52.5\le X\le53.5).\]
+<p>The binomial distribution has mean \(\mu=np=50\) and SD \(\sigma=\sqrt{npq}=\sqrt{25}=5\).<br>
+So also does the normal approximation, and the limits have \(z\)-scores 0.5 and 0.7.</p>
+\[\begin{aligned}\text{Hence}\quad{}^{100}C_{53}\times\big(\tfrac12\big)^{100}&amp;\doteq P(0.5\le Z\le0.7)\\&amp;\doteq0.066\,574\\{}^{100}C_{53}&amp;\doteq2^{100}\times0.066\,574\\&amp;\doteq8.439\times10^{28}.\end{aligned}\]
+<p>This compares with \({}^{100}C_{53}\doteq8.441\times10^{28}\) (all according to Excel).</p>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:when is a survey binomial, and how good is the approximation?}}
+<div class="box concept"><div class="bt">Sampling with replacement: when is a survey a binomial experiment?</div>
+<p>Suppose that I choose ten cards in succession <i>without replacement</i> from a pack of 52 cards and count the number of aces. This is not a binomial experiment because the probabilities of getting an ace change as each card is removed from the pack. If <i>I replace the card each time</i>, however, then I have a binomial experiment.</p>
+<p>More generally, a survey that questions \(n\) people chosen at random from \(N\) people without replacement is not a binomial experiment. A survey that chooses each person independently of all previous choices, however, thus allowing the same person possibly to be questioned more than once, is a binomial experiment because the stages are identical and independent.</p>
+<p>Now suppose that the pool of \(N\) people from which the sample is chosen is very large. This allows us to ignore these distinctions, because whether replacement is used or not, the probabilities will be virtually the same in all stages. This is certainly the case with a sample chosen from all Australians, but in a college of say 3000 people and a sample that is small relative to 3000, the effect is also almost negligible.</p></div></div>
+<div class="box concept" style="break-inside:auto"><div class="bt">How good an approximation is the normal?</div>
+<p>This depends on how much accuracy is needed. The diagrams below show that \(n\) should be larger for a skewed distribution, meaning that \(p\) is near 0 or 1, than when the distribution is reasonably symmetric, meaning that \(p\) is near 0.5. A common rule of thumb therefore is to require</p>
+\[np&gt;5\qquad\text{and}\qquad nq&gt;5,\]
+<p>but numbers other than 5 are often stated, and there are other tests.</p>
+<p>When \(p=\tfrac12\), we have already drawn the approximation when \(n=20\). Here are the frequency polygon and the normal approximation, still for \(p=\tfrac12\), when \(n=5\) and \(n=10\).</p>
+<p><b>a</b></p>
+<div class="split" style="grid-template-columns:auto auto;justify-content:start;gap:6mm"><div class="m17c">{{svg:c17c_h5}}</div><div class="m17c">{{svg:c17c_h10}}</div></div>
+<p>When \(p=\tfrac16\), which arises when throwing a die and recording if it is a six, here are the graphs for \(n=5\), \(n=10\) and \(n=20\).</p>
+<p><b>b</b></p>
+<div class="split" style="grid-template-columns:auto auto;justify-content:start;gap:6mm"><div class="m17c">{{svg:c17c_s5}}</div><div class="m17c">{{svg:c17c_s10}}</div></div>
+<div class="l17c">{{svg:c17c_s20}}</div></div>
+<div class="box take"><div class="bt">6 A rule of thumb for using the normal approximation</div>
+<ul><li>For a fixed number \(n\) of Bernoulli trials, the normal approximation to a binomial distribution is less satisfactory when the distribution is skewed.</li>
+<li>For a fixed probability \(p\), the normal approximation to a binomial distribution is more satisfactory when the number of trials is large.</li>
+<li>A common rule of thumb (one amongst many) for using the normal approximation to a binomial distribution is to require
+\[np&gt;5\qquad\text{and}\qquad nq&gt;5.\]</li></ul></div>
+<div class="box concept"><div class="bt">The normal approximation to a binomial distribution is a special case</div>
+<p>We remarked at the start of Section 16G of the textbook, in the last chapter, that the normal approximation to a binomial distribution was one of the first examples of a very general theorem in statistics called the <i>central limit theorem</i>. This would be a good occasion to read again the short account of the central limit theorem given there.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Binomial or not? Is the approximation reasonable?</span></div><div class="ex-body">
+<b>a</b> Is each experiment binomial? If not, is it very nearly binomial?
+<div class="parts one" style="margin-left:5mm"><span>(i) Twenty cards are drawn in succession without replacement from a pack of 52 cards, and the number of hearts is counted.</span><span>(ii) Twenty cards are drawn in succession from a pack of 52 cards, each card being replaced before the next draw, and the number of hearts is counted.</span><span>(iii) A survey questions 50 people chosen at random from a city of 2 million people, and counts the number who own a dog.</span></div>
+<b>b</b> Use the rule of thumb in Box 6 to decide whether the normal approximation to each binomial distribution is reasonable.
+<div class="parts one" style="margin-left:5mm"><span>(i) \(B(40,0.1)\) &emsp;&emsp; (ii) \(B(60,0.25)\) &emsp;&emsp; (iii) \(B(200,0.98)\)</span></div>
+<b>c</b> According to the rule of thumb, how big does the sample need to be if \(p=0.04\)?
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skill</span></div><div class="ex-body">
+<b>a</b> Is each experiment binomial? If not, is it very nearly binomial?
+<div class="parts one" style="margin-left:5mm"><span>(i) Five marbles are drawn in succession without replacement from a bag with 6 red and 4 blue marbles, and the number of red marbles is counted.</span><span>(ii) A die is thrown 30 times, and the number of sixes is counted.</span><span>(iii) A survey questions 40 students chosen at random from a school of 1500 students, and counts the number who walk to school.</span></div>
+<b>b</b> Use the rule of thumb in Box 6 to decide whether the normal approximation to each binomial distribution is reasonable.
+<div class="parts one" style="margin-left:5mm"><span>(i) \(B(25,0.3)\) &emsp;&emsp; (ii) \(B(100,0.03)\) &emsp;&emsp; (iii) \(B(30,0.9)\)</span></div>
+<b>c</b> According to the rule of thumb, how big does the sample need to be if \(p=0.95\)?
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Test the rule of thumb \(np&gt;5\) and \(nq&gt;5\) on the six graphs in this lesson: \(p=\tfrac12\) with \(n=5\), 10 and 20 (Concept 1), and \(p=\tfrac16\) with \(n=5\), 10 and 20. Compare the results with the pictures.
+<div class="sol-label">Solution</div>
+<table class="t t17c"><tr><th>\(p\)</th><td>\(\tfrac12\)</td><td>\(\tfrac12\)</td><td>\(\tfrac12\)</td><td>\(\tfrac16\)</td><td>\(\tfrac16\)</td><td>\(\tfrac16\)</td></tr>
+<tr><th>\(n\)</th><td>5</td><td>10</td><td>20</td><td>5</td><td>10</td><td>20</td></tr>
+<tr><th>\(np\)</th><td>2.5</td><td>5</td><td>10</td><td>0.83</td><td>1.67</td><td>3.33</td></tr>
+<tr><th>\(nq\)</th><td>2.5</td><td>5</td><td>10</td><td>4.17</td><td>8.33</td><td>16.67</td></tr>
+<tr><th>Rule of thumb</th><td>fails</td><td>fails (just)</td><td>holds</td><td>fails</td><td>fails</td><td>fails</td></tr></table>
+<p>For \(p=\tfrac12\), the rule holds only when \(n=20\), and that graph fits very well. When \(n=10\), the fit already looks good, so the rule of thumb is a cautious one. For \(p=\tfrac16\), the distributions are skewed to the right and the rule fails even for \(n=20\), where \(np\doteq3.33\): the pictures show the poorer fit, especially near \(x=0\). By the rule of thumb, \(p=\tfrac16\) needs \(n&gt;30\).</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 17C}}
+<div class="box concept" style="break-inside:avoid"><div class="bt">The standard normal probability distribution</div>
+<div style="display:grid;grid-template-columns:1fr 58mm;gap:4mm;align-items:center"><div>
+<p>The shaded area in the graph to the right represents a value of the <i>cumulative standard normal distribution function</i></p>
+\[P(Z\le z)=\Phi(z)=\int_{-\infty}^{z}\phi(t)\,dt.\]
+<p>The standard normal table at the end of the Revision section gives values of the probabilities \(P(Z\le z)=\Phi(z)\), allowing two decimal places for \(z\). After that, use interpolation. For example,</p></div><div>{{svg:phi_area}}</div></div>
+\[P(Z\le1.627)=\Phi(1.627)=\int_{-\infty}^{1.627}\phi(z)\,dz\doteq0.9474+0.7\,(0.9484-0.9474)\doteq0.9481.\]
+<p><b>Note:</b> You may find in this exercise and the next that your answers differ slightly from the text, depending whether or not you interpolate, and whether you use the supplied tables or alternatives such as statistical calculators and spreadsheets that provide more accurate values.</p></div>
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">A certain binomial distribution for the random variable \(X\) consists of 20 independent trials, each with probability of success \(p=0.3\).
+<div class="parts one"><span><span class="pl">a</span>Write this binomial distribution in symbolic form.</span><span><span class="pl">b</span>Calculate the probability of obtaining 9, 10 or 11 successes.</span><span><span class="pl">c</span>Confirm that \(np&gt;5\) and \(nq&gt;5\), suggesting that a normal approximation to the binomial could be used to estimate this probability.</span><span><span class="pl">d</span>Calculate the normal approximation by determining \(P(8.5\le X\le11.5)\), treating \(X\) as approximately \(N(\mu,\sigma^2)\), and using the standard normal table at the end of the Revision section.</span><span><span class="pl">e</span>Find the percentage error in the normal approximation. Does the approximation seem fairly accurate for this value of \(n\) and \(p\)?</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Repeat the steps of Question 1 for these cases.
+<div class="parts" style="grid-template-columns:1fr 1fr"><span><span class="pl">a</span>\(n=50\), \(p=0.5\), find \(P(18\le X\le20)\),</span><span><span class="pl">b</span>\(n=20\), \(p=0.4\), find \(P(8\le X\le9)\),</span><span><span class="pl">c</span>\(n=30\), \(p=0.3\), find \(P(5\le X\le7)\),</span><span><span class="pl">d</span>\(n=40\), \(p=0.2\), find \(P(9\le X\le12)\),</span><span><span class="pl">e</span>\(n=22\), \(p=0.6\), find \(P(13\le X\le15)\),</span><span><span class="pl">f</span>\(n=80\), \(p=0.1\), find \(P(10\le X\le13)\),</span><span><span class="pl">g</span>\(n=500\), \(p=0.25\), find \(P(100\le X\le103)\),</span><span><span class="pl">h</span>\(n=200\), \(p=0.9\), find \(P(170\le X\le172)\).</span></div>{{work:90}}</div></div>
+<div class="q" style="break-inside:avoid"><span class="q-num">3</span><div class="q-body">A barrel contains 600 pink and 400 blue counters. At each stage of an experiment, the barrel is stirred well, then a counter is removed, its colour is noted, and it is returned to the barrel. This experiment is repeated 20 times.
+<div class="parts one"><span><span class="pl">a</span>Explain why each stage of the experiment is a Bernoulli trial.</span><span><span class="pl">b</span>Explain why the full experiment is binomial.</span><span><span class="pl">c</span>Is it necessary to return the counter after each draw?</span><span><span class="pl">d</span>Write down the probability of drawing a pink counter, and find the mean and standard deviation for this binomial distribution.</span><span><span class="pl">e</span>Find the probability of drawing exactly 14 pink counters, correct to 3 decimal places.</span></div>
+<div style="display:grid;grid-template-columns:1fr 70mm;gap:4mm;align-items:start"><div class="parts one"><span><span class="pl">f</span>A student constructs a histogram for this distribution and overlays the normal distribution with the same mean and standard deviation. He notes the strong agreement, and to test this he uses his standard normal tables to calculate the area corresponding to drawing 14 pink counters.<br>(i) Explain why the required area for the normal distribution with random variable \(X\) is \(P(13.5&lt;X&lt;14.5)\).<br>(ii) Hence find this area. Is it in strong agreement with your answer to part <b>e</b>?</span></div><div class="q3c">{{svg:c17c_q3}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">In a college of 3000 pupils, 1320 are girls. A teacher selects a group of 15 pupils at random from the college rolls, without revealing the result, and asks her students to determine the probability that the group has more than 8 girls in it.
+<div class="parts one"><span><span class="pl">a</span>Write down the probability \(p\) of selecting a girl from the population of 3000.</span><span><span class="pl">b</span>Write down the mean and standard deviation of the binomial distribution obtained by selecting 15 pupils from the population.</span><span><span class="pl">c</span>Use the exact binomial distribution to determine the probability of obtaining 9 or 10 girls.</span><span><span class="pl">d</span>Is the sample size big enough to use the normal approximation to the binomial? Use the criterion \(np&gt;5\) and \(n(1-p)&gt;5\).</span><span><span class="pl">e</span>Use the normal approximation to the binomial to estimate the probability in part <b>c</b>.</span><span><span class="pl">f</span>Find the percentage error in the estimation.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">A commonly used rule of thumb states that the normal approximation to a binomial distribution will be reasonable if \(np&gt;5\) and \(n(1-p)&gt;5\). This means that if \(p\) is further away from 0.5, the sample size needs to be bigger to get a reasonable approximation.<br>
+According to this rule, how big does the sample need to be if:
+<div class="q5g"><span><span class="pl">a</span>\(p=0.5\),</span><span><span class="pl">b</span>\(p=0.25\),</span><span><span class="pl">c</span>\(p=0.125\),</span><span><span class="pl">d</span>\(p=0.01\),</span><span><span class="pl">e</span>\(p=0.75\),</span><span><span class="pl">f</span>\(p=0.875\),</span><span><span class="pl">g</span>\(p=0.9\),</span><span><span class="pl">h</span>\(p=0.55\)?</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">According to some estimates, eight per cent of males in the world are colour-blind. A representative random sample includes 854 people, and a statistician wishes to determine the probability that between 7% and 9% of the people in the sample are colour-blind.
+<div class="parts one"><span><span class="pl">a</span>Give a reason why the researcher might want to use a normal approximation to the binomial to calculate this probability.</span><span><span class="pl">b</span>Comment on the assumption that the sample is representative and random.</span><span><span class="pl">c</span>Calculate the required probability, using a normal approximation without a continuity correction.</span><span><span class="pl">d</span>As a measure of the accuracy of ignoring any continuity correction, calculate the probability \(P(76&lt;X&lt;76.5)\) associated with the boundary of 76 successes.</span></div>{{work:50}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">7</span><div class="q-body">A horticulturalist is attempting to cross two species of flowers to strengthen certain characteristics. One of the plants has red flowers and the other’s flowers are white, but the horticulturalist wishes to retain the strong red colour in the offspring. According to Mendel’s theory of inheritance, there is a 25% chance that the flowers of the offspring will be red. The horticulturalist crosses 15 pairs of parent plants and notes the colour of their offspring plant. Find the probability that of the offspring:
+<div class="parts one"><span><span class="pl">a</span>none will have red flowers,</span><span><span class="pl">b</span>there will be at least one with red flowers,</span><span><span class="pl">c</span>at least twenty per cent will have red flowers (use a normal approximation here).</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Suppose that it is known that 45% of eighteen-year-olds in a particular city do not have a driver’s licence. If a random sample of 20 eighteen-year-olds is taken in the city, what is the probability that more than half of them will not have a driver’s licence?{{work:36}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Long-term studies show that 60% of the residents and visitors to Nashville Tennessee prefer Country music to Western. The local council provides Country music for those eating their lunch in the park to listen to. How confident can they be that in a group of thirty, more than twenty of them prefer Country? Comment on the assumption of independence in this question.{{work:40}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">12</span><div class="q-body">Berry punnets distributed by a certain grower are exported in large batches. The receiver selects 10 punnets at random from each batch and tests whether any must be rejected because of rotten berries. The fraction \(p\) of punnets that are not of acceptable standard in the entire batch is unknown. The receiver needs a reasonable method of determining the quality of the batch without testing the entire batch, because the berries are destroyed in the process.
+<div class="parts one"><span><span class="pl">a</span>One possible method is to reject the entire batch if any punnets in the sample are rejected.<br>(i) Suppose that \(p=0.05\), and determine the probability that the batch will be rejected.<br>(ii) Similarly determine and draw up a table showing the probability of rejection for \(p=0\), 0.1, 0.2, 0.3, 0.4. Include the case \(p=0.05\) in your table.<br>(iii) Plot a graph of \(p\) (on the horizontal axis) and the probability of rejecting the batch (on the vertical axis). This is called the <i>operating characteristic curve</i> (OC).</span><span><span class="pl">b</span>Repeat part <b>a</b> if samples of 15 punnets are taken, but the batch is only rejected if two or more punnets are rejected. Include both plots on the same axes.</span><span><span class="pl">c</span>Comment on whether part <b>a</b> or part <b>b</b> is the better method of ensuring the standard of the whole batch.</span></div>{{work:80}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>18 marks</b></span><span>Calculator allowed · use the standard normal table at the end of the Revision section · show working · hints are below each question if you get stuck</span></div>
+<p class="small" style="margin:0 0 2mm">Most of these questions do not say whether to use a continuity correction. The worked solutions follow each school’s own solution, and say which method is used.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)(iii)</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The probability that a certain drug cures a disease is 0.8. The drug is administered to 10&nbsp;000 patients.<br>
+Let \(X\) be the binomial random variable representing the number of patients cured.<br>
+In earlier parts of the question, it was found that \(E(X)=8000\) and that \(X\) has a standard deviation of 40.
+<div class="pp-sub"><span>(iii) Use a normal approximation to find the probability that \(X\) is less than 8040.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> how many standard deviations above the mean is 8040?</div>{{work:24}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(b)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">It is known that 80% of patients with a certain disease can be cured with a certain drug. What is the probability that amongst 150 patients with the disease, at most 37 of them cannot be cured with the drug? You must justify the use of the normal approximation.</div>
+<div class="hint"><b>Hint:</b> let \(X\) be the number of patients who cannot be cured. What are \(n\) and \(p\)?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Ascham School, 2024, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(e)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">The percentage of left-handed people in a population is 10%. If one hundred people are selected at random from the population what is the probability that less than 5% are left-handed?</div>
+<div class="hint"><b>Hint:</b> how many people is 5% of one hundred?</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Killara High School, 2020, Mathematics Extension&nbsp;1 Trial HSC <span style="white-space:nowrap">Examination,&nbsp;Q12(e)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">A restaurant knows from past experience that 27% of customers will order a dessert after the main course. For next week, the restaurant has taken 288 customer bookings.<br>
+Determine the probability that less than 100 will order dessert.</div>
+<div class="hint"><b>Hint:</b> which binomial distribution is this, and are \(np\) and \(nq\) both greater than 5?</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)(ii)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">A binomial variable, \(X\), is known to have a probability of success, \(p\), of close to 0.81, but the exact value is unknown.<br>
+In an earlier part of the question, a mathematician planned to perform \(n\) trials to find a more accurate estimate of \(p\).
+<div class="pp-sub"><span>(ii) The mathematician repeats the experiment 2 million times, recording 1&nbsp;615&nbsp;580 successes. What is the probability that in 10&nbsp;000 trials the number of successes would be greater than 8&nbsp;100, correct as a percentage to 1 decimal place?</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> first use the 2 million trials to estimate \(p\).</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension&nbsp;1 HSC Trial <span style="white-space:nowrap">Examination,&nbsp;Q13(d)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">\(n\) students have been enrolled into the Higher Mathematics 1A course at university. It is seen that in every maths lecture, 5% of the students will be absent.<br>
+The probability that no more than 20 students miss the lecture is 0.90658.<br>
+Calculate the number of the students \(n\), enrolled in the course.</div>
+<div class="hint"><b>Hint:</b> write the mean and the standard deviation in terms of \(n\).</div>{{work:56}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>James Ruse Agricultural High School, 2023, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(b)(ii)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">In a large pool of people, it is known that 10% of them take less than 12 minutes to complete a particular test.
+<div class="pp-sub"><span>(ii) A random sample of \(n\) people is taken, the probability that fewer than 9 of these \(n\) people will take less than 12 minutes to complete the test is 0.3446, to 4 decimal places. Use normal approximation to solve for \(n\), to the nearest integer.</span><span class="mk">4</span></div></div>
+<div class="hint"><b>Hint:</b> the equation for \(n\) is a quadratic equation in \(\sqrt n\).</div>{{work:170}}</div>
+</div>
