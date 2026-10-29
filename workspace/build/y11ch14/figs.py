@@ -80,5 +80,32 @@ class Fig:
                 f'height="{self.h}" font-family="Inter, Arial, sans-serif">' + "".join(self.items) + "</svg>")
 
 
+# ---------------------------------------------------------------- 14A: filling places one at a time
+def boxes(name, contents, captions, bw=64, bh=40, gap=8, fixed=()):
+    """A row of places. contents: big text in each box; captions: small text below.
+    Indices in `fixed` are drawn shaded (a letter that is placed first)."""
+    n = len(contents)
+    w = n * bw + (n - 1) * gap + 8
+    f = Fig(w, bh + 30)
+    for i, (c, cap) in enumerate(zip(contents, captions)):
+        x = 4 + i * (bw + gap)
+        fill = ACC["amber"] if i in fixed else ACC["blue"]
+        f.raw(f'<rect x="{x}" y="4" width="{bw}" height="{bh}" rx="5" fill="{fill}" fill-opacity="0.10" '
+              f'stroke="{ACC["ink"]}" stroke-width="1.4"/>')
+        f.text(x + bw / 2, 4 + bh / 2, str(c), size=17, weight=600)
+        f.text(x + bw / 2, bh + 20, cap, size=10.5, color="faint")
+    save(name, f)
+
+
+def fig_14a():
+    places = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th"]
+    # textbook: a queue of five people at a bus stop
+    boxes("queue5", [5, 4, 3, 2, 1], [p + " place" for p in places[:5]], bw=78)
+    # PP: a PIN using four of the digits 0 to 9, no repeats
+    boxes("pin4", [10, 9, 8, 7], [p + " digit" for p in places[:4]], bw=78)
+    # PP: EPSILON beginning with P and ending with S
+    boxes("epsilon", ["P", 5, 4, 3, 2, 1, "S"], places, bw=50, fixed=(0, 6))
+
+
 if __name__ == "__main__":
-    pass  # figures are added by the lesson tasks
+    fig_14a()

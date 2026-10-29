@@ -1,1 +1,201 @@
-<!-- filled by Task 2 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 14A</div><h2>Factorial notation</h2>
+<div class="focus">Counting problems keep producing products of descending whole numbers, such as \(5\times4\times3\times2\times1\). This lesson gives these products a name and a notation, \(n!\), defines them informally and recursively, explains why \(0!=1\), and shows how <b>unrolling</b> a factorial simplifies quotients, sums and differences of factorials.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:the definition of n factorial}}
+<div class="box concept"><div class="bt">Where factorials come from</div>
+<p>How many ways can five people form a queue at a bus stop? Fill the places one at a time.</p>
+<ul><li>Choose the person at the head of the queue in five ways.</li>
+<li>Four people remain, so the person in second place can be chosen in four ways.</li>
+<li>Three people remain, so the person in third place can be chosen in three ways.</li>
+<li>Two people remain, so the person in fourth place can be chosen in two ways.</li>
+<li>And there is now only one way to choose the person in the last place.</li></ul>
+{{svg:queue5}}
+<p>So the number of possible queues is \(5\times4\times3\times2\times1\). The same product appears when \(y=x^5\) is differentiated five times: \(y^{(5)}=5\times4\times3\times2\times1\). This product is written \(5!\) and is called <b>5 factorial</b>:</p>
+\[5!=5\times4\times3\times2\times1\qquad\text{(which evaluates to 120).}\]</div>
+<div class="box formula"><div class="bt">Box 1 &nbsp;The definition of \(n\) factorial</div>
+<ul><li>Informally, for each whole number \(n\), the number \(n!\) (\(n\) <i>factorial</i>) is the product of all positive whole numbers from \(n\) down to 1:
+\[n!=n\times(n-1)\times(n-2)\times\cdots\times3\times2\times1.\]</li>
+<li>The better definition of the function \(n!\) is <b>recursive</b>:
+\[\begin{cases}0!=1,\\ n!=n\times(n-1)!,\quad\text{for all whole numbers }n\ge1.\end{cases}\]</li></ul>
+<p>The recursive definition avoids the dots in the first formula, it gives \(0!\) a meaning, and it gives a better insight into how to manipulate factorial notation.</p></div>
+<div class="box concept"><div class="bt">Why \(0!=1\), and the first few factorials</div>
+<ul><li>An <b>empty product</b> is regarded as being 1. If nothing has yet been multiplied, the register remains at 1, where it was originally set in preparation for multiplication.</li>
+<li>In the same way, an <b>empty sum</b> is 0: if nothing has yet been added, the register remains at 0.</li></ul>
+<p>Using the recursive definition:</p>
+<table style="width:100%;border-collapse:collapse;margin:1mm 0"><tr>
+<td style="vertical-align:top">\(0!=1\)<br>\(1!=1\times0!=1\)<br>\(2!=2\times1!=2\)<br>\(3!=3\times2!=6\)</td>
+<td style="vertical-align:top">\(4!=4\times3!=24\)<br>\(5!=5\times4!=120\)<br>\(6!=6\times5!=720\)<br>\(7!=7\times6!=5040\)</td>
+<td style="vertical-align:top">\(8!=8\times7!=40\,320\)<br>\(9!=9\times8!=362\,880\)<br>\(10!=10\times9!=3\,628\,800\)<br>\(11!=11\times10!=39\,916\,800\)</td></tr></table>
+<p>Factorials increase very quickly indeed. Calculators have a factorial button labelled \(\boxed{x!}\) or \(\boxed{n!}\). It confirms that \(0!=1\), and it gives an error message if \(n\) is not a whole number: the domain of the function \(n!\) is the whole numbers \(0,1,2,\ldots\)</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Queues, derivatives and the recursive definition</span></div><div class="ex-body">
+<b>a</b> In how many ways can six people form a queue? Write the answer in factorial notation, then evaluate it.<br>
+<b>b</b> Differentiate \(y=x^4\) four times, and show that \(y^{(4)}=4!\).<br>
+<b>c</b> Given that \(9!=362\,880\), use the recursive definition to find \(10!\) and \(8!\).
+{{work:36}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+<b>a</b> Seven runners finish a race, with no ties. In how many orders can they finish? Give the answer in factorial notation and as a number.<br>
+<b>b</b> Differentiate \(y=x^3\) three times, and show that \(y'''=3!\).<br>
+<b>c</b> Given that \(7!=5040\), use the recursive definition to find \(8!\) and \(6!\).
+{{work:32}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<b>a</b> How many ways can five people form a queue at a bus stop?<br>
+<b>b</b> What is the fifth derivative of \(y=x^5\)?
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> The first place can be filled in 5 ways, the second in 4 ways, the third in 3 ways, the fourth in 2 ways and the last in 1 way. So</p>
+\[\text{number of queues}=5\times4\times3\times2\times1=5!=120.\]
+</div><div>
+<p><b>b</b> Differentiating five times,</p>
+\[\begin{aligned}y'&=5x^4\\ y''&=5\times4\times x^3\\ y'''&=5\times4\times3\times x^2\\ y^{(4)}&=5\times4\times3\times2\times x\\ y^{(5)}&=5\times4\times3\times2\times1=5!=120.\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:unrolling factorials}}
+<div class="box concept"><div class="bt">Unrolling</div>
+<p>The recursive definition is the key idea in many calculations. Successive applications of it can be thought of as <b>unrolling</b> the factorial further and further:</p>
+\[\begin{aligned}8!&=8\times7! &&\text{(unrolling once)}\\ &=8\times7\times6! &&\text{(unrolling twice)}\\ &=8\times7\times6\times5! &&\text{(unrolling three times)}\end{aligned}\]
+<p>and so on. This idea is vital when there are fractions involved.</p></div>
+<div class="box formula"><div class="bt">Box 2 &nbsp;Calculating by unrolling factorials</div>
+<ul><li>A factorial can be unrolled one step at a time:
+\[7!=7\times6!=7\times6\times5!=7\times6\times5\times4!=\cdots\]</li>
+<li>Cancel fractions with factorials by unrolling until the factorials cancel:
+\[\dfrac{7!}{4!}=\dfrac{7\times6\times5\times4!}{4!}=7\times6\times5=210.\]</li></ul>
+<p>Unroll the <b>larger</b> factorial down to the smaller one. With pronumerals, \((n+2)!=(n+2)(n+1)n!\) and \(n!=n(n-1)!\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Cancelling by unrolling</span></div><div class="ex-body">
+Simplify each expression using unrolling techniques.
+<div class="parts" style="row-gap:2.6mm"><span><span class="pl">a</span>\(\dfrac{9!}{6!}\)</span><span><span class="pl">b</span>\(\dfrac{(n+3)!}{n!}\)</span><span><span class="pl">c</span>\(\dfrac{n!}{(n-4)!}\)</span><span><span class="pl">d</span>\(\dfrac{8!}{5!\times3!}\)</span></div>
+{{work:54}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Simplify each expression using unrolling techniques.
+<div class="parts" style="row-gap:2.6mm"><span><span class="pl">a</span>\(\dfrac{11!}{8!}\)</span><span><span class="pl">b</span>\(\dfrac{(n+4)!}{(n+1)!}\)</span><span><span class="pl">c</span>\(\dfrac{n!}{(n-3)!}\)</span><span><span class="pl">d</span>\(\dfrac{9!}{6!\times3!}\)</span></div>
+{{work:48}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Simplify each expression using unrolling techniques:
+<div class="parts three" style="row-gap:2.6mm"><span><span class="pl">a</span>\(\dfrac{10!}{7!}\)</span><span><span class="pl">b</span>\(\dfrac{(n+2)!}{(n-1)!}\)</span><span><span class="pl">c</span>\(\dfrac{n!}{(n-r)!}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\dfrac{10!}{7!}&=\dfrac{10\times9\times8\times7!}{7!}\\ &=10\times9\times8\\ &=720\end{aligned}\]
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}\dfrac{(n+2)!}{(n-1)!}&=\dfrac{(n+2)(n+1)n(n-1)!}{(n-1)!}\\ &=(n+2)(n+1)n\end{aligned}\]
+</div></div>
+<p><b>c</b></p>
+\[\begin{aligned}\dfrac{n!}{(n-r)!}&=\dfrac{n(n-1)(n-2)\cdots(n-r+1)(n-r)!}{(n-r)!}\\ &=\underbrace{n(n-1)(n-2)\cdots(n-r+1)}_{r\text{ factors}}\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:common denominators and common factors}}
+<div class="box concept"><div class="bt">Sums and differences of factorials</div>
+<ul><li>To add or subtract fractions with factorials in the denominators, use the <b>largest factorial</b> as the common denominator. Unroll it to see what each numerator must be multiplied by:
+\[\dfrac{1}{8!}=\dfrac{10\times9}{10\times9\times8!}=\dfrac{10\times9}{10!}\qquad\text{and}\qquad\dfrac{1}{n!}=\dfrac{n+1}{(n+1)!}.\]</li>
+<li>Unrolling also lets you <b>take out a common factor</b> from a sum or difference of factorials. Unroll each term down to the smallest factorial:
+\[8!-7!=8\times7!-7!=(8-1)\times7!=7\times7!.\]</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Common denominators, then a common factor</span></div><div class="ex-body">
+Simplify each expression using a common denominator.
+<div class="parts" style="row-gap:2.6mm"><span><span class="pl">a</span>\(\dfrac{1}{7!}-\dfrac{1}{9!}\)</span><span><span class="pl">b</span>\(\dfrac{1}{(n+1)!}+\dfrac{1}{(n+2)!}\)</span></div>
+Simplify each expression by taking out a common factor.
+<div class="parts"><span><span class="pl">c</span>\(10!-9!\)</span><span><span class="pl">d</span>\((n+2)!-(n+1)!\)</span></div>
+{{work:38}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same methods</span></div><div class="ex-body">
+Simplify each expression using a common denominator.
+<div class="parts" style="row-gap:2.6mm"><span><span class="pl">a</span>\(\dfrac{1}{6!}+\dfrac{1}{8!}\)</span><span><span class="pl">b</span>\(\dfrac{1}{(n-1)!}-\dfrac{1}{n!}\)</span></div>
+Simplify each expression by taking out a common factor.
+<div class="parts"><span><span class="pl">c</span>\(7!+5!\)</span><span><span class="pl">d</span>\(n!+(n-1)!\)</span></div>
+{{work:32}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Simplify each expression using a common denominator.
+<div class="parts" style="row-gap:2.6mm"><span><span class="pl">a</span>\(\dfrac{1}{8!}-\dfrac{1}{10!}\)</span><span><span class="pl">b</span>\(\dfrac{1}{n!}+\dfrac{1}{(n+1)!}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\dfrac{1}{8!}-\dfrac{1}{10!}&=\dfrac{10\times9}{10!}-\dfrac{1}{10!}\\ &=\dfrac{89}{10!}\end{aligned}\]
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}\dfrac{1}{n!}+\dfrac{1}{(n+1)!}&=\dfrac{n+1}{(n+1)!}+\dfrac{1}{(n+1)!}\\ &=\dfrac{n+2}{(n+1)!}\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 14A}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Use arguments similar to the start of this section to express the following in factorial notation.
+<div class="parts one"><span><span class="pl">a</span>The number of ways to form a queue with 8 people.</span><span><span class="pl">b</span>The number of ways to arrange 4 distinct books on a bookshelf.</span><span><span class="pl">c</span>The number of ways 3 particular people can be placed first, second and third in a competition, assuming that each is placed in one of these three positions.</span><span><span class="pl">d</span>Sam drops his portable keyboard and all 101 keys fall off. How many ways can he put the keys back on the keyboard, assuming that they are all interchangeable?</span><span><span class="pl">e</span>When the teacher calls on students in alphabetical order, Andrzej Zywiec is upset that he is always called last. In a class of 20, how many ways could the roll be called, if the alphabetical ordering restriction were dropped?</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Use the definition of \(n!\) and methods of unrolling factorials to evaluate each expression. Do not use a calculator.
+<div class="parts" style="row-gap:2.6mm"><span><span class="pl">a</span>\(3!\)</span><span><span class="pl">b</span>\(5!\)</span><span><span class="pl">c</span>\(1!\)</span><span><span class="pl">d</span>\(\dfrac{15!}{14!}\)</span><span><span class="pl">e</span>\(\dfrac{10!}{8!\times2!}\)</span><span><span class="pl">f</span>\(\dfrac{15!}{13!\times3!}\)</span><span><span class="pl">g</span>\(\dfrac{12!}{3!\times9!}\)</span><span><span class="pl">h</span>\(\dfrac{8!}{4!\times4!}\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Use the factorial button \(\boxed{n!}\) on your calculator to evaluate each expression.
+<div class="parts" style="row-gap:2.6mm"><span><span class="pl">a</span>\(7!\)</span><span><span class="pl">b</span>\(10!\)</span><span><span class="pl">c</span>\(0!\)</span><span><span class="pl">d</span>\(\dfrac{9!}{4!}\)</span><span><span class="pl">e</span>\(\dfrac{8!}{3!}\)</span><span><span class="pl">f</span>\(\dfrac{10!}{5!\times3!\times2!}\)</span><span><span class="pl">g</span>\(\dfrac{15!}{3!\times5!\times9!}\)</span><span><span class="pl">h</span>\(\dfrac{12!}{2!\times3!\times4!\times5!}\)</span></div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">If \(f(x)=x^6\), find expressions for:
+<div class="parts three"><span><span class="pl">a</span>\(f'(x)\)</span><span><span class="pl">b</span>\(f''(x)\)</span><span><span class="pl">c</span>\(f'''(x)\)</span><span><span class="pl">d</span>\(f''''(x)\)</span><span><span class="pl">e</span>\(f^{(5)}(x)\)</span><span><span class="pl">f</span>\(f^{(6)}(x)\)</span><span><span class="pl">g</span>\(f^{(7)}(x)\)</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Simplify by unrolling factorials appropriately:
+<div class="parts" style="row-gap:2.6mm"><span><span class="pl">a</span>\(\dfrac{n!}{(n-1)!}\)</span><span><span class="pl">b</span>\(n\times(n-1)!\)</span><span><span class="pl">c</span>\(\dfrac{n(n-1)!}{n!}\)</span><span><span class="pl">d</span>\(\dfrac{(n+1)!}{(n-1)!}\)</span><span><span class="pl">e</span>\(\dfrac{(n+2)!}{n!}\)</span><span><span class="pl">f</span>\(\dfrac{(n-2)!}{n!}\)</span><span><span class="pl">g</span>\(\dfrac{(n-2)!\,(n-1)!}{n!\,(n-3)!}\)</span><span><span class="pl">h</span>\(\dfrac{n!\,(n-1)!}{(n+1)!}\)</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Simplify by taking out a common factor:
+<div class="parts"><span><span class="pl">a</span>\(8!-7!\)</span><span><span class="pl">b</span>\((n+1)!-n!\)</span><span><span class="pl">c</span>\(8!+6!\)</span><span><span class="pl">d</span>\((n+1)!+(n-1)!\)</span><span><span class="pl">e</span>\(9!+8!+7!\)</span><span><span class="pl">f</span>\((n+1)!+n!+(n-1)!\)</span></div>{{work:40}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">7</span><div class="q-body">Write each expression as a single fraction.
+<div class="parts three" style="row-gap:2.6mm"><span><span class="pl">a</span>\(\dfrac{1}{n!}+\dfrac{1}{(n-1)!}\)</span><span><span class="pl">b</span>\(\dfrac{1}{n!}-\dfrac{1}{(n+1)!}\)</span><span><span class="pl">c</span>\(\dfrac{1}{(n+1)!}-\dfrac{1}{(n-1)!}\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>If \(f(x)=x^n\), find:</span></div>
+<div class="parts" style="margin-left:6mm"><span>i&nbsp; \(f'(x)\)</span><span>ii&nbsp; \(f''(x)\)</span><span>iii&nbsp; \(f^{(n)}(x)\)</span><span>iv&nbsp; \(f^{(k)}(x)\), where \(k\le n\).</span></div>
+<div class="parts one"><span><span class="pl">b</span>If \(f(x)=\dfrac1x\), find:</span></div>
+<div class="parts" style="margin-left:6mm"><span>i&nbsp; \(f'(x)\)</span><span>ii&nbsp; \(f''(x)\)</span><span>iii&nbsp; \(f^{(5)}(x)\)</span><span>iv&nbsp; \(f^{(n)}(x)\).</span></div>{{work:58}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that \(k\times k!=(k+1)!-k!\)</span><span><span class="pl">b</span>Hence by considering each individual term as a difference of two terms, sum the series \(1\times1!+2\times2!+3\times3!+\cdots+n\times n!\)</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Find the largest power of: &nbsp;i&nbsp; 2, &nbsp;ii&nbsp; 10, &nbsp;that is a divisor of \(10!\)</span><span><span class="pl">b</span>Find the largest power of: &nbsp;i&nbsp; 2, &nbsp;ii&nbsp; 5, &nbsp;iii&nbsp; 7, &nbsp;iv&nbsp; 13, &nbsp;that is a divisor of \(100!\)</span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">[A relationship between higher derivatives of polynomials and factorials]
+<div class="parts one"><span><span class="pl">a</span>If \(f(x)=11x^3+7x^2+5x+3\), show that:</span></div>
+<div class="parts" style="margin-left:6mm"><span>i&nbsp; \(f(0)=3\times0!\)</span><span>ii&nbsp; \(f'(0)=5\times1!\)</span><span>iii&nbsp; \(f''(0)=7\times2!\)</span><span>iv&nbsp; \(f'''(0)=11\times3!\)</span><span>v&nbsp; \(f^{(k)}(0)=0\), for all \(k\ge4\).</span></div>
+<p style="margin:1mm 0 1mm 6mm">Hence explain why \(f(x)\) can be written \(f(x)=\dfrac{f(0)}{0!}+\dfrac{f'(0)\,x}{1!}+\dfrac{f''(0)\,x^2}{2!}+\dfrac{f'''(0)\,x^3}{3!}\).</p>
+<div class="parts one"><span><span class="pl">b</span>Show that if \(f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0\) is any polynomial, then
+\[f^{(k)}(0)=\begin{cases}a_k\,k!, & \text{for }k=0,1,2,\ldots,n,\\ 0, & \text{for }k>n,\end{cases}\]
+and hence explain why \(f(x)=\dfrac{f(0)}{0!}+\dfrac{f'(0)\,x}{1!}+\dfrac{f''(0)\,x^2}{2!}+\dfrac{f'''(0)\,x^3}{3!}+\cdots\).<br>Because \(f(x)\) is a polynomial, this <i>power series</i> has only finitely many terms. There are ways of generalising this to some other functions that are not polynomials.</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Evaluate \(\dfrac{k}{(k+1)!}\), for \(k=1,\ 2,\ 3,\ 4\) and 5.</span><span><span class="pl">b</span>Evaluate \(\dfrac{1}{(1+1)!}+\dfrac{2}{(2+1)!}+\cdots+\dfrac{n}{(n+1)!}\), for \(n=1,\ 2,\ 3,\ 4\) and 5.</span><span><span class="pl">c</span>Write the expression in part <b>b</b> as \(S_n\), to indicate that it is a sum whose value depends on \(n\). That is,
+\[S_n=\dfrac{1}{(1+1)!}+\dfrac{2}{(2+1)!}+\cdots+\dfrac{n}{(n+1)!}.\]
+Make a reasonable guess about the value of \(S_n\). Hence find \(\displaystyle\lim_{n\to\infty}S_n\).</span><span><span class="pl">d</span>Prove that \(\dfrac{k}{(k+1)!}=\dfrac{1}{k!}-\dfrac{1}{(k+1)!}\), and hence produce a proof of part <b>c</b> using a collapsing sum.</span></div>{{work:48}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">13</span><div class="q-body">Express using factorial notation:
+<div class="parts three" style="row-gap:2.6mm"><span><span class="pl">a</span>\(30\times28\times26\times\cdots\times2\)</span><span><span class="pl">b</span>\(29\times27\times25\times\cdots\times1\)</span><span><span class="pl">c</span>\(\dfrac{30\times28\times26\times\cdots\times2}{29\times27\times25\times\cdots\times1}\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">[Stirling’s formula] The following formula is too difficult to prove at this stage, but it is most important because it provides a continuous function that approximates \(n!\) for integer values of \(n\):
+\[n!\doteq\sqrt{2\pi}\;n^{n+\frac12}\,e^{-n},\ \text{ in the sense that the percentage error}\to0\text{ as }n\to\infty.\]
+Show that the formula has an error of approximately 2.73% for \(3!\) and 0.83% for \(10!\) Find the percentage error for \(60!\){{work:140}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 15 minutes</b></span><span><b>9 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">Trial papers rarely test factorial notation on its own, so this mini exam is shorter than usual. Questions 1 and 2 use the “fill the places one at a time” argument from the start of the lesson.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Cherrybrook Technology High School, 2020, Year 12 AP4, Mathematics Extension 1, Q1</span><span class="mk">1 mark</span></div>
+<div class="pp-q">A PIN is to be chosen using four of the digits 0 through 9. Digits cannot be repeated.<br>How many possible PINs are there?
+<div class="mc"><span>(A) 256</span><span>(B) 210</span><span>(C) 10&nbsp;000</span><span>(D) 5040</span></div></div>
+<div class="hint"><b>Hint:</b> fill the four places of the PIN one at a time, as in the queue at the start of the lesson. A digit that has been used is not available again.</div>{{work:18}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Ascham School, 2023, Year 12 Trial Examination, Mathematics Extension 1, Q12(e)(i)</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Find the number of ways in which the letters of the word EPSILON can be arranged in a straight line so that:
+<div class="pp-sub"><span>i) the arrangement begins with P and ends with S.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> put P in the first place and S in the last place. How many letters are left for the places in between?</div>{{work:18}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Normanhurst Boys High School, 2022, Year 12 Course Assessment Task 4 (Trial Examination), Mathematics Extension 1, Q11(a)(i)</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Show that
+\[\dfrac{1}{(n+1)!}-\dfrac{n+1}{(n+2)!}=\dfrac{1}{(n+2)!}\]</div>
+<div class="hint"><b>Hint:</b> use the larger factorial, \((n+2)!\), as the common denominator.</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Normanhurst Boys High School, 2021, Year 12 Course Assessment Task 4 (Trial Examination), Mathematics Extension 1, Q11(e)(i)</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Show that \(\dfrac{1}{(n+2)!}-\dfrac{n+1}{(n+3)!}=\dfrac{2}{(n+3)!}\), where \(n\) is an integer.</div>
+<div class="hint"><b>Hint:</b> the same method as PP 3. Which factorial is the larger one?</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension 1, Q12(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Solve \((n+2)!=72n!\)</div>
+<div class="hint"><b>Hint:</b> unroll \((n+2)!\) until \(n!\) appears, then cancel \(n!\). Remember what values \(n\) is allowed to take.</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics Extension 1, Q12(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Show that \((n+1)\left[n!\,n+(n-1)!\,(2n-1)+(n-2)!\,(n-1)\right]=(n+2)!\)</div>
+<div class="hint"><b>Hint:</b> write every factorial inside the square bracket in terms of \((n-1)!\).</div>{{work:66}}</div>
+</div>
