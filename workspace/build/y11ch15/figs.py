@@ -103,5 +103,31 @@ def fig_15a():
     save("pascal_tri", f)
 
 
+# ---------------- 15B ----------------
+def fig_15b():
+    # Exercise 15B Q16(a) answer: the first three stages of the Sierpinski gasket
+    side, gap, top = 104, 14, 6
+    hgt = side * sqrt(3) / 2
+    f = Fig(3 * side + 2 * gap + 4, hgt + top + 4)
+
+    def tri(x0, y0, s, depth):
+        # upright triangle with bottom-left corner (x0, y0); shade the middle (inverted) triangle
+        if depth == 0:
+            return
+        h = s * sqrt(3) / 2
+        mid = [(x0 + s / 4, y0 - h / 2), (x0 + 3 * s / 4, y0 - h / 2), (x0 + s / 2, y0)]
+        f.poly(mid, color="ink", opacity=0.55, stroke="ink", width=0.8)
+        tri(x0, y0, s / 2, depth - 1)
+        tri(x0 + s / 2, y0, s / 2, depth - 1)
+        tri(x0 + s / 4, y0 - h / 2, s / 2, depth - 1)
+
+    for i in range(3):
+        x0, y0 = 2 + i * (side + gap), top + hgt
+        f.poly([(x0, y0), (x0 + side, y0), (x0 + side / 2, y0 - hgt)], color=None, stroke="ink", width=1.2)
+        tri(x0, y0, side, i + 1)
+    save("sierpinski", f)
+
+
 if __name__ == "__main__":
     fig_15a()   # later lessons add their own figure functions here
+    fig_15b()

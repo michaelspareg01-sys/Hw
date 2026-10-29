@@ -1,1 +1,192 @@
-<!-- filled by Task 3 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 15B</div><h2>Further binomial expansions</h2>
+<div class="focus">The expansion of \((x+y)^n\) uses the same coefficients as \((1+x)^n\), and because \(x\) and \(y\) are both variables, its symmetries are easier to see. This lesson expands \((x+y)^n\) with Pascal's triangle, picks out particular terms (including terms with negative powers of \(x\)), and finds terms in a product of expansions.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:expansions of (x + y)ⁿ}}
+<div class="box concept"><div class="bt">A minor point about language</div>
+<p>The term <b>polynomial</b> now includes terms made up of powers of any number of variables. Thus \(5xy^4\) is a <b>monomial</b>, \(x+y\) is a <b>binomial</b>, and \(x^2+2xy+y^2\) and \(x+y+z\) are <b>trinomials</b>.</p></div>
+<div class="box formula"><div class="bt">Some expansions of \((x+y)^n\)</div>
+<p>As before, each expansion is found from the one before, in two rows, with like terms in columns, so that the addition property is clear. To begin, \((x+y)^0=1\) and \((x+y)^1=x+y\). Then:</p>
+<div class="split"><div>
+\[(x+y)^2=x(x+y)+y(x+y)\]
+\[\begin{alignedat}{3}&=x^2&&{}+xy&&\\&&&{}+xy&&{}+y^2\\&=x^2&&{}+2xy&&{}+y^2\end{alignedat}\]
+</div><div>
+\[(x+y)^3=x(x+y)^2+y(x+y)^2\]
+\[\begin{alignedat}{4}&=x^3&&{}+2x^2y&&{}+xy^2&&\\&&&{}+x^2y&&{}+2xy^2&&{}+y^3\\&=x^3&&{}+3x^2y&&{}+3xy^2&&{}+y^3\end{alignedat}\]
+</div></div>
+\[(x+y)^4=x(x+y)^3+y(x+y)^3\]
+\[\begin{alignedat}{5}&=x^4&&{}+3x^3y&&{}+3x^2y^2&&{}+\boxed{1}\,xy^3&&\\&&&{}+x^3y&&{}+3x^2y^2&&{}+\boxed{3}\,xy^3&&{}+y^4\\&=x^4&&{}+4x^3y&&{}+6x^2y^2&&{}+\boxed{4}\,xy^3&&{}+y^4\end{alignedat}\]
+<ul><li><b>First</b>, the coefficients are exactly the same as before, so they can be taken from Pascal's triangle.</li>
+<li><b>Secondly</b>, the pattern for the indices of \(x\) and \(y\) is straightforward. The expansion of \((x+y)^3\) has four terms, and in each term the indices of \(x\) and \(y\) are whole numbers adding to 3. The expansion of \((x+y)^4\) has five terms, and in each term the indices are whole numbers adding to 4.</li>
+<li>More generally, in each successive expansion, beginning with \((x+y)^0=1\), the terms of the previous expansion are multiplied first by \(x\), and then by \(y\). So the sum of the two indices goes up by 1.</li></ul></div>
+<div class="box take"><div class="bt">2 The expansion of \((x+y)^n\)</div>
+<ul><li>The expansion of \((x+y)^n\) has \(n+1\) terms, and in each term the indices of \(x\) and \(y\) are whole numbers adding to \(n\).</li>
+<li>The coefficients in the expansion of \((x+y)^n\) are the same as the coefficients in the expansion of \((1+x)^n\).</li></ul>
+<p>The expansion of \((x+y)^n\) is called <b>homogeneous of degree \(n\) in \(x\) and \(y\) together</b>, because in each term the sum of the indices of \(x\) and \(y\) is \(n\).</p></div>
+<div class="box tip"><div class="bt">Using the general expansion</div>
+<ul><li>The general expansion of \((x+y)^n\) is applied in the same way as the expansion of \((1+x)^n\). Take the coefficients from row \(n\). The powers of the first term go down from \(n\) to 0 while the powers of the second term go up from 0 to \(n\).</li>
+<li>Replace \(x\) and \(y\) by the two terms of the binomial, <b>in brackets</b>: \((2-3x)^4=2^4+4\times2^3\times(-3x)+\cdots\). A power applies to the number as well as to the letter.</li>
+<li>When the second term is negative, the signs alternate.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Expanding with a row of the triangle</span></div><div class="ex-body">
+Use Pascal's triangle to write out the expansions of:<br>
+<b>a</b> \((3-2x)^4\)<br>
+<b>b</b> \(\big(2x+\tfrac12a\big)^5\)
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+Use Pascal's triangle to write out the expansions of:<br>
+<b>a</b> \((2-5x)^3\)<br>
+<b>b</b> \(\big(3x+\tfrac13a\big)^4\)
+{{work:78}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use Pascal's triangle to write out the expansions of:<br>
+<b>a</b> \((2-3x)^4\)<br>
+<b>b</b> \(\big(5x+\tfrac15a\big)^5\)
+<div class="sol-label">Solution</div>
+<p><b>a</b> Row 4 is 1, 4, 6, 4, 1, so</p>
+\[\begin{aligned}(2-3x)^4&=2^4+4\times2^3\times(-3x)+6\times2^2\times(-3x)^2+4\times2\times(-3x)^3+(-3x)^4\\&=16-96x+216x^2-216x^3+81x^4.\end{aligned}\]
+<p><b>b</b> Row 5 is 1, 5, 10, 10, 5, 1, so</p>
+\[\begin{aligned}\big(5x+\tfrac15a\big)^5&=(5x)^5+5\times(5x)^4\times\tfrac15a+10\times(5x)^3\times\big(\tfrac15a\big)^2\\
+&\qquad+10\times(5x)^2\times\big(\tfrac15a\big)^3+5\times(5x)\times\big(\tfrac15a\big)^4+\big(\tfrac15a\big)^5\\
+&=3125x^5+625ax^4+50a^2x^3+2a^3x^2+\tfrac{1}{25}a^4x+\tfrac{1}{3125}a^5.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:particular terms, with negative powers}}
+<div class="box concept"><div class="bt">Finding a particular term</div>
+<ul><li>Write each term of the binomial as a power of \(x\), for example \(\dfrac{1}{x^2}=x^{-2}\). Then write out the expansion with Pascal's triangle, leaving the terms unsimplified.</li>
+<li>Use the index laws to find the power of \(x\) in each term. From one term to the next, the power of \(x\) changes by the same amount each time.</li>
+<li>Pick out the term with the power you need, and simplify only that term. The <b>constant term</b>, or <b>term independent of \(x\)</b>, is the term in \(x^0\).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Constant term and term in x⁻³</span></div><div class="ex-body">
+Use Pascal's triangle to write out the expansion of \(\big(x+3x^{-2}\big)^6\), leaving the terms unsimplified. Hence find:<br>
+<b>a</b> the term independent of \(x\),<br>
+<b>b</b> the term in \(x^{-3}\).
+{{work:73}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use Pascal's triangle to write out the expansion of \(\big(x+2x^{-1}\big)^4\), leaving the terms unsimplified. Hence find:<br>
+<b>a</b> the term independent of \(x\),<br>
+<b>b</b> the term in \(x^{-2}\).
+{{work:75}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 7</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use Pascal's triangle to write out the expansion of \(\big(2x+x^{-2}\big)^6\), leaving the terms unsimplified. Hence find:<br>
+<b>a</b> the term independent of \(x\),<br>
+<b>b</b> the term in \(x^{-3}\).
+<div class="sol-label">Solution</div>
+<p>Row 6 is 1, 6, 15, 20, 15, 6, 1, so</p>
+\[\begin{aligned}\big(2x+x^{-2}\big)^6&=(2x)^6+6\times(2x)^5\times\big(x^{-2}\big)+15\times(2x)^4\times\big(x^{-2}\big)^2+20\times(2x)^3\times\big(x^{-2}\big)^3\\
+&\qquad+15\times(2x)^2\times\big(x^{-2}\big)^4+6\times(2x)\times\big(x^{-2}\big)^5+\big(x^{-2}\big)^6\end{aligned}\]
+<div class="split"><div>
+<p><b>a</b> The constant term is</p>
+\[\begin{aligned}&15\times(2x)^4\times\big(x^{-2}\big)^2\\&=15\times2^4\times x^4\times x^{-4}\\&=240.\end{aligned}\]
+</div><div>
+<p><b>b</b> The term in \(x^{-3}\) is</p>
+\[\begin{aligned}&20\times(2x)^3\times\big(x^{-2}\big)^3\\&=20\times2^3\times x^3\times x^{-6}\\&=160x^{-3}.\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:a term in a product}}
+<div class="box concept"><div class="bt">Expanding only as far as you need</div>
+<ul><li>To find one term in a product such as \((5+x)(2-3x)^7\), expand the power only as far as the term you need.</li>
+<li>Multiply each term of the first factor by the term of the expansion that gives the required power, then add these products, as in Lesson 15A.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Term in x² of a product</span></div><div class="ex-body">
+Expand \((3-2x)^6\) as far as the term in \(x^2\), and hence find the term in \(x^2\) in the expansion of \((4+x)(3-2x)^6\).
+{{work:68}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Expand \((2-x)^5\) as far as the term in \(x^2\), and hence find the term in \(x^2\) in the expansion of \((3+x)(2-x)^5\).
+{{work:66}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 8</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Expand \((2-3x)^7\) as far as the term in \(x^2\), and hence find the term in \(x^2\) in the expansion of \((5+x)(2-3x)^7\).
+<div class="sol-label">Solution</div>
+<p>Row 7 is 1, 7, 21, 35, 35, 21, 7, 1, so</p>
+\[\begin{aligned}(2-3x)^7&=2^7+7\times2^6\times(-3x)+21\times2^5\times(-3x)^2+\cdots\\&=128-1344x+6048x^2-\cdots\end{aligned}\]
+<p>Hence the term in \(x^2\) in the expansion of \((5+x)(2-3x)^7\) is</p>
+\[\begin{aligned}&5\times6048x^2-x\times1344x\\&=28896x^2.\end{aligned}\]
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 15B}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Use Pascal's triangle to expand:
+<div class="parts one" style="row-gap:2.2mm"><span><span class="pl">a</span>\((x+y)^4\)</span><span><span class="pl">b</span>\((x-y)^4\)</span><span><span class="pl">c</span>\((r-s)^6\)</span><span><span class="pl">d</span>\((p+q)^{10}\)</span><span><span class="pl">e</span>\((a-b)^9\)</span><span><span class="pl">f</span>\((2x+y)^5\)</span><span><span class="pl">g</span>\((p-2q)^7\)</span><span><span class="pl">h</span>\((3x+2y)^4\)</span><span><span class="pl">i</span>\(\big(a-\tfrac12b\big)^3\)</span><span><span class="pl">j</span>\(\big(\tfrac12r+\tfrac13s\big)^5\)</span><span><span class="pl">k</span>\(\Big(x+\dfrac1x\Big)^6\)</span></div>{{work:150}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Use Pascal's triangle to expand:
+<div class="parts one" style="row-gap:2.2mm"><span><span class="pl">a</span>\(\big(1+x^2\big)^4\)</span><span><span class="pl">b</span>\(\big(1-3x^2\big)^3\)</span><span><span class="pl">c</span>\(\big(x^2+2y^3\big)^6\)</span><span><span class="pl">d</span>\(\Big(x-\dfrac1x\Big)^9\)</span><span><span class="pl">e</span>\(\big(\sqrt x+\sqrt y\big)^7\)</span><span><span class="pl">f</span>\(\Big(\dfrac2x+3x^2\Big)^5\)</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Simplify these expressions without expanding the brackets.
+<div class="parts one"><span><span class="pl">a</span>\(y^5+5y^4(x-y)+10y^3(x-y)^2+10y^2(x-y)^3+5y(x-y)^4+(x-y)^5\)</span><span><span class="pl">b</span>\(a^4-4a^3(a-b)+6a^2(a-b)^2-4a(a-b)^3+(a-b)^4\)</span><span><span class="pl">c</span>\(x^3+3x^2(2y-x)+3x(2y-x)^2+(2y-x)^3\)</span><span><span class="pl">d</span>\((x+y)^6-6(x+y)^5(x-y)+15(x+y)^4(x-y)^2-20(x+y)^3(x-y)^3\)<br>\(\quad{}+15(x+y)^2(x-y)^4-6(x+y)(x-y)^5+(x-y)^6\)</span></div>{{work:58}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) Expand \((4+x)^5\) as far as the term in \(x^3\).<br>(ii) Hence find the coefficient of \(x^3\) in the expansion of \((3-x)(4+x)^5\).</span><span><span class="pl">b</span>(i) Expand \((1-2x)^6\) as far as the term in \(x^4\).<br>(ii) Hence find the coefficient of \(x^4\) in the expansion of \((1-3x)(1-2x)^6\).</span><span><span class="pl">c</span>(i) Expand \((3-y)^7\) as far as the term in \(y^4\).<br>(ii) Hence find the coefficient of \(y^4\) in the expansion of \((1-y)^2(3-y)^7\).</span></div>{{work:110}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Expand and simplify \((x+y)^6+(x-y)^6\).</span><span><span class="pl">b</span>Hence (and without a calculator) prove that<br><span style="display:block;text-align:center">\(5^6+5^5\times3^3+5^3\times3^5+3^6=2^5\big(2^{12}+1\big)\).</span></span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Find the coefficient of:
+<div class="parts one"><span><span class="pl">a</span>\(x^3\) in \((2-5x)\big(x^2-3\big)^4\)</span><span><span class="pl">b</span>\(x^5\) in \(\big(x^2-3x+11\big)\big(4+x^3\big)^3\)</span><span><span class="pl">c</span>\(x^0\) in \((3-2x)^2\Big(x+\dfrac2x\Big)^5\)</span><span><span class="pl">d</span>\(x^9\) in \((x+2)^3(x-2)^7\)</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) Use Pascal's triangle to expand \((x+h)^3\).<br>(ii) If \(f(x)=x^3\), simplify \(f(x+h)-f(x)\).<br>(iii) Hence use the definition \(f'(x)=\displaystyle\lim_{h\to0}\dfrac{f(x+h)-f(x)}{h}\) to differentiate \(x^3\).</span><span><span class="pl">b</span>Similarly, differentiate \(x^5\) from first principles.</span></div>{{work:92}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Show that \(\big(3+\sqrt5\big)^6+\big(3-\sqrt5\big)^6=20608\).</span><span><span class="pl">b</span>Show that \(\big(2+\sqrt7\big)^4+\big(2-\sqrt7\big)^4\) is rational.</span><span><span class="pl">c</span>If \(\big(\sqrt6+\sqrt3\big)^3-\big(\sqrt6-\sqrt3\big)^3=a\sqrt3\), where \(a\) is an integer, find the value of \(a\).</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Show that \(\dfrac{1}{\big(\sqrt3-1\big)^4}+\dfrac{1}{\big(\sqrt3+1\big)^4}=\dfrac{\big(\sqrt3+1\big)^4+\big(\sqrt3-1\big)^4}{\big(\sqrt3-1\big)^4\big(\sqrt3+1\big)^4}\) by putting the LHS over a common denominator. Then simplify the expression using Pascal's triangle.{{work:60}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Expand \((x+2y)^5\) and hence evaluate:
+<div class="parts one"><span><span class="pl">a</span>\((1.02)^5\) correct to five decimal places,</span><span><span class="pl">b</span>\((0.98)^5\) correct to five decimal places.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Expand:<span style="display:block;padding:1.2mm 0">(i) \(\Big(x+\dfrac1x\Big)^3\)</span><span style="display:block;padding:1.2mm 0">(ii) \(\Big(x+\dfrac1x\Big)^5\)</span><span style="display:block;padding:1.2mm 0">(iii) \(\Big(x+\dfrac1x\Big)^7\)</span></span><span><span class="pl">b</span>Hence, if \(x+\dfrac1x=2\), evaluate:<span style="display:block;padding:1.2mm 0">(i) \(x^3+\dfrac{1}{x^3}\)</span><span style="display:block;padding:1.2mm 0">(ii) \(x^5+\dfrac{1}{x^5}\)</span><span style="display:block;padding:1.2mm 0">(iii) \(x^7+\dfrac{1}{x^7}\)</span></span></div>{{work:92}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Find the coefficients of \(x\) and \(x^{-3}\) in the expansion of \(\Big(3x-\dfrac ax\Big)^5\). Hence find the values of \(a\) if these coefficients are in the ratio \(2:1\).{{work:68}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">The coefficients of the terms in \(a^3\) and \(a^{-3}\) in the expansion of \(\Big(ma+\dfrac{n}{a^2}\Big)^6\) are equal, where \(m\) and \(n\) are non-zero real numbers. Prove that \(m^2:n^2=10:3\).{{work:55}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Expand \(\Big(x+\dfrac1x\Big)^6\).</span><span><span class="pl">b</span>If \(U=x+\dfrac1x\), express \(x^6+\dfrac{1}{x^6}\) in the form \(U^6+AU^4+BU^2+C\). State the values of \(A\), \(B\) and \(C\).</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>By starting with \(\big((x+y)+z\big)^3\), expand \((x+y+z)^3\).</span><span><span class="pl">b</span>Find the term independent of \(x\) in the expansion of \(\big(x+1+x^{-1}\big)^4\).</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">[The Sierpinski triangle fractal]
+<div class="parts one"><span><span class="pl">a</span>Draw an equilateral triangle of side length 1 unit on a piece of white paper. Join the midpoints of the sides of this triangle to form a smaller triangle. Colour it black. Repeat this process on all white triangles that remain. What do you notice?</span><span><span class="pl">b</span>Draw up Pascal's triangle in the shape of an equilateral triangle, then colour all the even numbers black and leave the odd numbers white. What do you notice? This pattern will be more evident if you take at least the first 16 rows — perhaps use a computer program to generate 100 rows of Pascal's triangle.</span></div>{{work:230}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>16 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Grammar School, 2021, Trial Examination, Form VI Mathematics Extension 1, Q2</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following is the coefficient of the \(x^2\) term in the expansion of \((2x+5)^6\)?
+<div class="mc"><span>(A) \(15\)</span><span>(B) \(6000\)</span><span>(C) \(37500\)</span><span>(D) \(2500\)</span></div></div>
+<div class="hint"><b>Hint:</b> use row 6 of Pascal's triangle, with \(2x\) and \(5\) in brackets.</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Hurlstone Agricultural High School, 2021, Higher School Certificate Assessment Task 4, Mathematics Extension 1, Q2</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following gives the coefficient of \(x^4\) in the expansion of \(\big(x-\sqrt2\big)^6\)?
+<div class="mc"><span>A. \(-30\)</span><span>B. \(30\)</span><span>C. \(-60\)</span><span>D. \(60\)</span></div></div>
+<div class="hint"><b>Hint:</b> keep the second term \(-\sqrt2\) in brackets, with its sign.</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics Extension 1, Q9</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the coefficient of \(x\) in the expansion of \(\Big(2x^2+\dfrac1x\Big)^5\)?
+<div class="mc"><span>(A) \(20\)</span><span>(B) \(40\)</span><span>(C) \(120\)</span><span>(D) \(240\)</span></div></div>
+<div class="hint"><b>Hint:</b> compare Worked example 7. Write \(\dfrac1x\) as a power of \(x\).</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Sydney Girls High School, 2023, Trial Higher School Certificate Examination, Mathematics Extension 1, Q11(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find the value of the constant term in the expansion of \(\Big(x-\dfrac{2}{x^2}\Big)^6\).</div>
+<div class="hint"><b>Hint:</b> how does the power of \(x\) change from one term to the next?</div>{{work:58}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Knox Grammar School, 2023, Higher School Certificate Trial Examination, Mathematics Extension 1, Q11(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find the coefficient of \(x^4\) in the expansion of \(\Big(x+\dfrac2x\Big)^{10}\).</div>
+<div class="hint"><b>Hint:</b> you built row 10 of Pascal's triangle in Exercise 15A Question 1.</div>{{work:58}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Ascham School, 2023, Year 12 Trial Examination, Mathematics Extension 1, Q12(b)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find the coefficient of \(x^2\) in the expansion of \(\big(2+x^2\big)(3-2x)^5\).</div>
+<div class="hint"><b>Hint:</b> compare Worked example 8.</div>{{work:58}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Pymble Ladies' College, 2023, Mathematics Extension 1 HSC Trial Examination Term 3, Q13(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">What is the value of the term independent of \(x\) in the expansion of
+\[\Big(2-\dfrac{3}{x^3}\Big)\Big(2x+\dfrac{5}{x^2}\Big)^6?\]</div>
+<div class="hint"><b>Hint:</b> each term of the first bracket needs a partner from the expansion of the second.</div>{{work:52}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>St Aloysius' College, 2024, Trial Higher School Certificate Examination, Mathematics Extension 1, Q14(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">In the expansion of the expression \((1+x)(a-bx)^{12}\), the coefficient of \(x^8\) is zero. Find \(\dfrac ab\) in simplest form provided neither \(a\) or \(b\) are zero.</div>
+<div class="hint"><b>Hint:</b> compare Worked example 8. Which products of terms give \(x^8\)?</div>{{work:52}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>James Ruse Agricultural High School, 2023, Year 12 Trial HSC Examination, Mathematics Extension 1, Q15(b)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Consider the expansion of \(\Big(\dfrac{x^3}{2}+\dfrac ax\Big)^8\). If the constant term is 5103, determine the possible value(s) of \(a\).</div>
+<div class="hint"><b>Hint:</b> which term of the expansion is the constant term?</div>{{work:56}}</div>
+</div>
