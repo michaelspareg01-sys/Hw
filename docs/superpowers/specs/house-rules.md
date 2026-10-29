@@ -13,7 +13,7 @@ Owner rules come from `docs/HANDOVER_PROMPT.md` (owner-confirmed; overrides `doc
 
 ## Past papers
 1. Real **school** trial papers only from `workspace/pp/Ext 1/2020`–`2024`. Never NEAP, PEM, TEC/Total Education, Bored of Studies, CSSA, Independent.
-2. Never reuse a question in `docs/PAST_PAPERS_USED.md`, and never use one twice within a pack (track in `docs/pp_selected_<chdir>.md`). Different subparts of one question may be split across lessons if the later part's needed results are supplied in its stem. Repeating a school is fine.
+2. Never reuse a question in `docs/PAST_PAPERS_USED.md` or in ANY `docs/pp_selected_*.md` file (other chapters are being built in parallel; re-read them all just before choosing and again before committing), and never use one twice within a pack (track in `docs/pp_selected_<chdir>.md`). Different subparts of one question may be split across lessons if the later part's needed results are supplied in its stem. Repeating a school is fine.
 3. About a 30-minute mini exam per lesson, **15–22 marks** (count only included parts), accessible → demanding, varied (include an MC or short item where available). Keep original marks. `.pp-intro` line: time ≈ 1.5 × marks rounded to 5 min.
 4. Source label on every question in BOTH PDFs: `School name, year, paper title as printed on the cover, Q(sub)`. One hint per question in the lesson: a starting idea, never a step of the answer. Full worked solutions in the answers; for MC explain the choice.
 5. Fidelity: original wording, values, units, conditions, marks, diagrams (recreate as SVG). Nothing included may depend on an omitted part unless its result is supplied.
@@ -36,7 +36,7 @@ python3 -I ../tools/qa.py <chdir>/lesson.pdf ; python3 -I ../tools/qa.py <chdir>
 - New prose: plain short sentences; avoid em dashes.
 
 ## Git
-Repo `/home/user/Hw`, branch `ch10-pack` (all chapters continue on it). Commit after each task; message ends with:
+Repo `/home/user/Hw`, branch `ch10-pack` (all chapters continue on it). Commit after each task, staging ONLY your own files by explicit path (other agents work in parallel; if git reports an index.lock, wait a few seconds and retry); message ends with:
 ```
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01J7zLu75CDEnMRaTDFFm2c6
