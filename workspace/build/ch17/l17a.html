@@ -1,1 +1,330 @@
-<!-- filled by Task 2 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 17A</div><h2>Binomial probability</h2>
+<div class="focus">This lesson is about individual binomial probabilities, in preparation for the later sections on binomial distributions. The experiments have a special form: the stages are independent, each stage has just two outcomes, ‘success’ and ‘failure’, with the same probabilities at each stage, and we record only the number of successes, not their order. The probability of \(x\) successes in \(n\) stages is \({}^nC_x\,p^x\,q^{n-x}\), a term of the binomial expansion of \((p+q)^n\). Complementary events and cases handle ‘at least’ and ‘at most’.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:Bernoulli trials and binomial experiments}}
+<div class="box concept"><div class="bt">Bernoulli trials</div>
+<p>It is convenient to have a name for the independent stages and to describe them carefully. A <i>Bernoulli trial</i> or <i>Bernoulli experiment</i> is a single-stage random experiment with just two outcomes, conventionally called ‘success’ and ‘failure’, to which we usually assign the probabilities \(p\) and \(q=1-p\).</p>
+<ul><li>The classic example of a Bernoulli trial is tossing a coin, where ‘success’ is heads and ‘failure’ is tails. The probability of success is then \(p=\tfrac12\), and the probability of failure is \(q=1-p=\tfrac12\).</li>
+<li>The other classic example is throwing a die, provided that we define ‘success’. If we define ‘success’ to be ‘throwing a six’, and record only that, then we have a Bernoulli trial with \(p=\tfrac16\).</li>
+<li>A Bernoulli trial is completely determined by just one parameter, the probability \(p\) of ‘success’.</li></ul></div></div>
+<div class="box concept"><div class="bt">Binomial experiments</div>
+<p>A <i>binomial experiment</i> is an \(n\)-stage experiment in which:</p>
+<ul><li>each stage is a Bernoulli trial with the same probability \(p\) of success,</li>
+<li>the stages are independent: no stage affects any other stage,</li>
+<li>the random variable \(X\) is the number of successes: order is irrelevant.</li></ul>
+<p>Think now about tossing a coin 12 times and counting the number of heads. Or think about throwing four dice and counting the number of sixes.</p>
+<p>A binomial experiment is thus completely determined by just two parameters, the number \(n\) of trials, and the probability \(p\) of success at each stage.</p>
+<p>Each stage of a binomial experiment is trivially a binomial experiment with just one stage. Thus a Bernoulli trial is a special case of a binomial experiment.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Bernoulli trial or not? Binomial or not?</span></div><div class="ex-body">
+<b>a</b> Is each experiment a Bernoulli trial? If it is, say what ‘success’ is and give \(p\).
+<div class="parts one" style="margin-left:5mm"><span>(i) A die is thrown, and it is recorded whether it shows an even number.</span><span>(ii) A die is thrown, and the number showing is recorded.</span><span>(iii) A card is drawn from a pack of 52 cards, and it is recorded whether it is a heart.</span></div>
+<b>b</b> Is \(X\) the random variable of a binomial experiment? If it is, give \(n\) and \(p\).
+<div class="parts one" style="margin-left:5mm"><span>(i) A coin is tossed 10 times, and \(X\) is the number of heads.</span><span>(ii) A die is thrown until it shows a six, and \(X\) is the number of throws.</span><span>(iii) Three cards are drawn from a pack of 52 cards without replacement, and \(X\) is the number of hearts.</span></div>
+{{work:34}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skill</span></div><div class="ex-body">
+<b>a</b> Is each experiment a Bernoulli trial? If it is, say what ‘success’ is and give \(p\).
+<div class="parts one" style="margin-left:5mm"><span>(i) A spinner with five equal sectors numbered 1 to 5 is spun, and it is recorded whether it lands on 5.</span><span>(ii) A student is chosen at random, and his or her height is recorded.</span><span>(iii) A die is thrown, and it is recorded whether it shows a number greater than 4.</span></div>
+<b>b</b> Is \(X\) the random variable of a binomial experiment? If it is, give \(n\) and \(p\).
+<div class="parts one" style="margin-left:5mm"><span>(i) A die is thrown 8 times, and \(X\) is the number of threes.</span><span>(ii) Two balls are drawn without replacement from a bag with 3 red and 2 blue balls, and \(X\) is the number of red balls.</span><span>(iii) A die is thrown 6 times, and \(X\) is the total of the numbers shown.</span></div>
+{{work:34}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Identify some further examples of Bernoulli trials.
+<div class="sol-label">Solution</div>
+<ul style="margin:0"><li>Choose an adult Australian. Did they vote in the last election?</li>
+<li>Choose a shopper in the street. Have they visited Wooldi today?</li>
+<li>Ask a whale-spotting boat returning to port: did you spot a whale?</li>
+<li>Visit your letter-box. Is there mail in it or not?</li>
+<li>Is there intelligent life elsewhere in the universe? Yes or no?</li>
+<li>Choose a person at random. Were they offered the last job they applied for?</li></ul>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:repeatedly attempting to throw a six}}
+<div class="box concept"><div class="bt">Individual probabilities in a binomial experiment</div>
+<p>Here is a classic example. A die is thrown four times. Find the probabilities of getting 0, 1, 2, 3 or 4 sixes. Let S (success) be ‘throwing a six’ and F (failure) be ‘not throwing a six’, so that \(p=\tfrac16\) and \(q=1-p=\tfrac56\).</p>
+<ul><li>A probability tree diagram shows the sixteen possible outcomes taking account of order, and their probabilities (see the worked example below).</li>
+<li>When we ignore order, these 16 outcomes collapse to five, and the resulting <b>binomial random variable</b> \(X\) has five possible values, 0, 1, 2, 3 and 4.</li>
+<li>The outcome ‘two sixes’, for example, can be obtained in \({}^4C_2=6\) different ways, because there are \(\dfrac{4!}{2!\times2!}={}^4C_2\) ways of arranging two Ss and two Fs. Each of these six outcomes has the same probability, so the probabilities add.</li>
+<li>The five probabilities are the successive terms in the binomial expansion of \(\big(\tfrac16+\tfrac56\big)^4=1^4=1\), so they add to 1.</li></ul></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Three spins of a spinner</span></div><div class="ex-body">
+A spinner lands on red with probability \(\tfrac13\). It is spun three times, and \(X\) is the number of times it lands on red.<br>
+<b>a</b> Draw a probability tree diagram showing the eight possible outcomes, taking account of order, and their probabilities.<br>
+<b>b</b> Write \(P(X=0)\), \(P(X=1)\), \(P(X=2)\) and \(P(X=3)\) using \({}^3C_x\), and find their values.<br>
+<b>c</b> Show that the four probabilities are the terms in the binomial expansion of \(\big(\tfrac13+\tfrac23\big)^3\).
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A card is drawn at random from a pack of 52 playing cards, and it is recorded whether it is a heart. The card is replaced and the pack is shuffled. This is done three times, and \(X\) is the number of hearts.<br>
+<b>a</b> Draw a probability tree diagram showing the eight possible outcomes, taking account of order, and their probabilities.<br>
+<b>b</b> Write \(P(X=0)\), \(P(X=1)\), \(P(X=2)\) and \(P(X=3)\) using \({}^3C_x\), and find their values.<br>
+<b>c</b> Show that the four probabilities are the terms in the binomial expansion of \(\big(\tfrac14+\tfrac34\big)^3\).
+{{work:62}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+A die is thrown four times. Find the probabilities of getting 0, 1, 2, 3 or 4 sixes.
+<div class="sol-label">Solution</div>
+<p>Let S (success) be ‘throwing a six’ and F (failure) be ‘not throwing a six’, so that \(p=\tfrac16\) and \(q=1-p=\tfrac56\). Here is the probability tree diagram showing the sixteen possible outcomes taking account of order, and their respective probabilities. Each branch to S has probability \(\tfrac16\) and each branch to F has probability \(\tfrac56\), so for example \(P(\text{SSFF})=\tfrac16\times\tfrac16\times\tfrac56\times\tfrac56=\tfrac{25}{1296}\).</p>
+{{svg:c17a_tree}}
+<p>When we ignore order, these 16 outcomes collapse to five, and the resulting binomial random variable \(X\) has five possible values, 0, 1, 2, 3 and 4.</p>
+<p>The outcome ‘two sixes’, for example, can be obtained in \({}^4C_2=6\) different ways: SSFF, SFSF, SFFS, FSSF, FSFS, FFSS, because there are \(\dfrac{4!}{2!\times2!}={}^4C_2\) ways of arranging two Ss and two Fs. Each of these six outcomes has the same probability \(\big(\tfrac16\big)^2\times\big(\tfrac56\big)^2\), so</p>
+\[P(X=2)={}^4C_2\times\big(\tfrac16\big)^2\times\big(\tfrac56\big)^2.\]
+<p>Similar arguments apply to the probabilities of getting 0, 1, 3 and 4 sixes:</p>
+<table class="t"><tr><th>Result</th><th>Probability</th><th>Approximation</th></tr>
+<tr><td>0 sixes</td><td>\({}^4C_0\times\big(\tfrac16\big)^0\times\big(\tfrac56\big)^4\)</td><td>0.482\(\,\)25</td></tr>
+<tr><td>1 six</td><td>\({}^4C_1\times\big(\tfrac16\big)^1\times\big(\tfrac56\big)^3\)</td><td>0.385\(\,\)80</td></tr>
+<tr><td>2 sixes</td><td>\({}^4C_2\times\big(\tfrac16\big)^2\times\big(\tfrac56\big)^2\)</td><td>0.115\(\,\)74</td></tr>
+<tr><td>3 sixes</td><td>\({}^4C_3\times\big(\tfrac16\big)^3\times\big(\tfrac56\big)^1\)</td><td>0.015\(\,\)43</td></tr>
+<tr><td>4 sixes</td><td>\({}^4C_4\times\big(\tfrac16\big)^4\times\big(\tfrac56\big)^0\)</td><td>0.000\(\,\)77</td></tr>
+<tr><td></td><td></td><td>Sum \(=1\)</td></tr></table>
+<p>The five probabilities of course add up to 1, because no other outcomes are possible. This is also clear because the five probabilities are the successive terms in the binomial expansion of \(\big(\tfrac16+\tfrac56\big)^4=1^4=1\):</p>
+\[\begin{aligned}\big(\tfrac16+\tfrac56\big)^4&amp;={}^4C_0\times\big(\tfrac16\big)^0\times\big(\tfrac56\big)^4+{}^4C_1\times\big(\tfrac16\big)^1\times\big(\tfrac56\big)^3+{}^4C_2\times\big(\tfrac16\big)^2\times\big(\tfrac56\big)^2\\&amp;\qquad+{}^4C_3\times\big(\tfrac16\big)^3\times\big(\tfrac56\big)^1+{}^4C_4\times\big(\tfrac16\big)^4\times\big(\tfrac56\big)^0.\end{aligned}\]
+<p>Remember that</p>
+\[(x+y)^4={}^4C_0\,x^0y^4+{}^4C_1\,x^1y^3+{}^4C_2\,x^2y^2+{}^4C_3\,x^3y^1+{}^4C_4\,x^4y^0.\]
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:binomial probability, the general case}}
+<div class="box concept"><div class="bt">Binomial probability: the general case</div>
+<p>Suppose that a multi-stage experiment consists of \(n\) identical stages, and at each stage the probability of ‘success’ is \(p\) and of ‘failure’ is \(q\), where \(p+q=1\). Then</p>
+\[P(x\text{ successes and }n-x\text{ failures in that order})=p^x\,q^{n-x}.\]
+<p>But there are \({}^nC_x\) ways of ordering \(x\) successes and \((n-x)\) failures, so</p>
+\[P(x\text{ successes and }n-x\text{ failures in any order})={}^nC_x\,p^x\,q^{n-x}.\]
+<p>This is the term in \(p^xq^{n-x}\) in the expansion of the binomial \((p+q)^n\).</p></div></div>
+<div class="box take"><div class="bt">1 Bernoulli trials and binomial probability</div>
+<ul><li>A <i>Bernoulli trial</i> or <i>Bernoulli experiment</i> is an experiment with two outcomes, ‘success’ and ‘failure’, usually assigned the probabilities \(p\) and \(q=1-p\).</li>
+<li>A <i>binomial random variable</i> is the outcome of an \(n\)-stage experiment in which:
+<div style="margin:0.5mm 0 0 4mm">each stage is a Bernoulli trial with the same probability \(p\) of success,<br>the stages are independent,<br>the random variable \(X\) is the number of successes, not their order.</div></li>
+<li>Suppose that the probabilities of ‘success’ and ‘failure’ in any stage of an \(n\)-stage binomial experiment are \(p\) and \(q=1-p\) respectively. Then
+\[P(x\text{ successes})={}^nC_x\,p^x\,q^{n-x}.\]</li>
+<li>This probability is the term in \(p^xq^{n-x}\) in the expansion of \((p+q)^n=1^n=1\), and the sum of the \(n+1\) binomial probabilities is 1.</li>
+<li>In particular, if \(p=q=\tfrac12\), then the formula simplifies to
+\[P(x\text{ successes})={}^nC_x\,\big(\tfrac12\big)^n.\]</li></ul></div>
+<div class="box concept"><div class="bt">Notation, and ‘at least’ questions</div>
+<ul><li>The pronumeral \(x\) is usually used for the values of a discrete random variable. In this chapter we will therefore mostly use \(x\) in place of the \(r\) that was used in Chapters 14–15 of the Year 11 book.</li>
+<li>Complementary events and cases answer ‘at least’ and ‘at most’ questions. For example, \(P(\text{at least one})=1-P(\text{none})\), and \(P(\text{at least four of six})=P(4)+P(5)+P(6)\), adding the cases because they are mutually exclusive (see Worked example 2).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Seven throws of a die</span></div><div class="ex-body">
+A die is thrown seven times. A throw is a ‘success’ if it shows a number less than 3. Find, as fractions with denominator \(3^7\), the probability that:<br>
+<b>a</b> exactly two throws are successes,<br>
+<b>b</b> exactly one throw is a success,<br>
+<b>c</b> at least one throw is a success,<br>
+<b>d</b> at least six throws are successes.
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Five cards are drawn at random from a pack of 52 playing cards. Each card is replaced and the pack is shuffled before the next card is drawn. Find, as fractions with denominator \(4^5\), the probability that:<br>
+<b>a</b> two are hearts,<br>
+<b>b</b> one is a heart,<br>
+<b>c</b> at least one is a heart,<br>
+<b>d</b> at least four are hearts.
+{{work:60}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Six cards are drawn at random from a pack of 52 playing cards. Each card is replaced and the pack is shuffled before the next card is drawn. Find, as fractions with denominator \(4^6\), the probability that:<br>
+<b>a</b> two are clubs,<br>
+<b>b</b> one is a club,<br>
+<b>c</b> at least one is a club,<br>
+<b>d</b> at least four are clubs.
+<div class="sol-label">Solution</div>
+<p>There are 13 clubs in the pack, so at each stage the probability of drawing a club is \(\tfrac14\). Applying the formula with \(p=\tfrac14\) and \(q=\tfrac34\):</p>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}P(\text{two are clubs})&amp;={}^6C_2\times\big(\tfrac14\big)^2\times\big(\tfrac34\big)^4\\&amp;=\frac{15\times3^4}{4^6}\\&amp;=\frac{1215}{4^6}\end{aligned}\]
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}P(\text{one is a club})&amp;={}^6C_1\times\big(\tfrac14\big)^1\times\big(\tfrac34\big)^5\\&amp;=\frac{6\times3^5}{4^6}\\&amp;=\frac{1458}{4^6}\end{aligned}\]
+</div></div>
+<div style="break-inside:avoid"><p><b>c</b></p>
+\[\begin{aligned}P(\text{at least one is a club})&amp;=1-P(\text{all are non-clubs})\\&amp;=1-\big(\tfrac34\big)^6\qquad\Big(\text{or }1-{}^6C_0\times\big(\tfrac14\big)^0\times\big(\tfrac34\big)^6\Big)\\&amp;=\frac{3367}{4^6}\end{aligned}\]</div>
+<div style="break-inside:avoid"><p><b>d</b></p>
+\[\begin{aligned}P(\text{at least four are clubs})&amp;=P(\text{four are clubs})+P(\text{five are clubs})+P(\text{six are clubs})\\&amp;={}^6C_4\times\big(\tfrac14\big)^4\times\big(\tfrac34\big)^2+{}^6C_5\times\big(\tfrac14\big)^5\times\big(\tfrac34\big)^1+{}^6C_6\times\big(\tfrac14\big)^6\times\big(\tfrac34\big)^0\\&amp;=\frac{15\times3^2+6\times3+1}{4^6}\\&amp;=\frac{154}{4^6}\end{aligned}\]</div>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:an example where \(p=q=\tfrac12\)}}
+<div class="box concept"><div class="bt">When \(p=q=\tfrac12\)</div>
+<p>A particular case of binomial probability is when the probabilities \(p\) and \(q\) of ‘success’ and ‘failure’ are both \(\tfrac12\). Then \(p^xq^{n-x}=\big(\tfrac12\big)^n\) for every \(x\), and as stated in Box 1,</p>
+\[P(x\text{ heads in }n\text{ tosses of a coin})={}^nC_x\times\big(\tfrac12\big)^n.\]</div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Twenty tosses</span></div><div class="ex-body">
+A coin is tossed 20 times. Find, correct to four significant figures, the probability that it comes up heads:<br>
+<b>a</b> exactly 10 times,<br>
+<b>b</b> exactly 12 times.
+{{work:30}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A coin is tossed 30 times. Find, correct to four significant figures, the probability that it comes up heads:<br>
+<b>a</b> exactly 15 times,<br>
+<b>b</b> exactly 18 times.
+{{work:30}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+If a coin is tossed 100 times, what is the probability that it comes up heads exactly 50 times (correct to four significant figures)?
+<div class="sol-label">Solution</div>
+<p>Taking \(p=q=\tfrac12\),</p>
+\[\begin{aligned}P(50\text{ heads})&amp;={}^{100}C_{50}\times\big(\tfrac12\big)^{50}\times\big(\tfrac12\big)^{50}\\&amp;={}^{100}C_{50}\times\big(\tfrac12\big)^{100}\\&amp;\doteq0.07959.\end{aligned}\]
+<p><b>Note:</b> This is a fairly low probability. Should we have expected a higher probability than this? Hardly, because any result from about 45 to 55 heads would be unlikely to surprise us. In general, as already stated in Box 1 above,</p>
+\[P(x\text{ heads in }n\text{ tosses of a coin})={}^nC_x\times\big(\tfrac12\big)^n.\]
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:experimental probabilities and binomial probability}}
+<div class="box concept"><div class="bt">Experimental probabilities</div>
+<p>Some of the most straightforward and important applications of binomial theory arise in situations where the probabilities of ‘success’ and ‘failure’ are determined experimentally. For example, a manufacturer may find by careful testing that 1% of its products are defective, and then use \(p=0.01\) for each item in a box (see Worked example 4).</p></div></div>
+<div class="box tip"><div class="bt">How many trials are needed?</div>
+<p>Some questions (for example Exercise 17A Q12) ask how many trials \(n\) are needed to make \(P(\text{at least one success})\) larger than some number \(c\). Use the complement: \(P(\text{at least one success})=1-q^n\). Then solve \(1-q^n&gt;c\), that is, \(q^n&lt;1-c\), by taking logarithms. Since \(0&lt;q&lt;1\), \(\ln q\) is negative, so the inequality sign reverses when we divide by \(\ln q\):</p>
+\[n\ln q&lt;\ln(1-c),\qquad n&gt;\frac{\ln(1-c)}{\ln q}.\]
+<p>The answer is the smallest whole number \(n\) that works. Check it, and the number before it.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Cracked eggs</span></div><div class="ex-body">
+An egg farm finds, after careful testing, that 2% of its eggs are cracked. The eggs are packed in trays of 30.<br>
+<b>a</b> Find, correct to three significant figures, the probability that a tray contains no cracked eggs.<br>
+<b>b</b> Find, correct to three significant figures, the probability that at least two eggs in a tray are cracked.<br>
+<b>c</b> How many eggs must be checked so that the probability of finding at least one cracked egg is more than 0.9?
+{{work:64}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A seed company finds, after careful testing, that 5% of its seeds fail to germinate. The seeds are sold in packets of 40.<br>
+<b>a</b> Find, correct to three significant figures, the probability that no seeds in a packet fail.<br>
+<b>b</b> Find, correct to three significant figures, the probability that at least two seeds in a packet fail.<br>
+<b>c</b> How many seeds must be planted so that the probability that at least one fails is more than 0.95?
+{{work:64}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A light bulb is classed as ‘defective’ if it burns out in under 1000 hours. A company making light bulbs finds, after careful testing, that 1% of its bulbs are defective. If it packs its bulbs in boxes of 50, find, correct to three significant figures:<br>
+<b>a</b> the probability that a box contains no defective bulbs,<br>
+<b>b</b> the probability that at least two bulbs in a box are defective.
+<div class="sol-label">Solution</div>
+<p>In this case, \(p=0.01\) and \(q=0.99\). Let \(X\) be the number of defective bulbs in the box. Then:</p>
+<p><b>a</b> \(P(X=0)=0.99^{50}\doteq0.605\)</p>
+<p><b>b</b></p>
+\[\begin{aligned}P(X\ge2)&amp;=1-\big(P(X=0)+P(X=1)\big)\\&amp;=1-\big(0.99^{50}+{}^{50}C_1\times0.01^1\times0.99^{49}\big)\\&amp;\doteq0.0894\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 6 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 6:each stage is a compound event}}
+<div class="box concept"><div class="bt">When each stage is a compound event</div>
+<p>Sometimes, when each stage of the experiment is itself a compound event, it may take some work to find the probability of success at each stage. Find \(p\) first, using the product rule and the addition rule (a tree diagram may help). Then apply the binomial formula with that \(p\).</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two machines</span></div><div class="ex-body">
+A factory has two machines. Machine A makes 60 bolts an hour, of which 3% are faulty. Machine B makes 40 bolts an hour, of which 5% are faulty. The bolts are mixed at random and packed in boxes of 20. Find, correct to three significant figures, the probability that no more than one bolt in a box is faulty.
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A bakery has two ovens. Oven 1 bakes 40 loaves an hour, of which 5% are burnt. Oven 2 bakes 60 loaves an hour, of which 10% are burnt. The loaves are mixed at random and packed in crates of 12. Find, correct to three significant figures, the probability that no more than one loaf in a crate is burnt.
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Joe King and his sister Fay make shirts for a living. Joe works more slowly, but more accurately, making 20 shirts a day, of which 2% are defective. Fay works faster, making 30 shirts a day, of which 4% are defective. If they send out their shirts in randomly mixed parcels of 30 shirts, what is the probability (correct to three significant figures) that no more than two shirts in a box are defective?
+<div class="sol-label">Solution</div>
+<p>If a shirt is chosen at random from one parcel, then using the product rule and the addition rule, the probability \(p\) that the shirt is defective is</p>
+\[\begin{aligned}p&amp;=P(\text{Joe made it, and it is defective})+P(\text{Fay made it, and it is defective})\\&amp;=\frac{20}{50}\times\frac{2}{100}+\frac{30}{50}\times\frac{4}{100}\\&amp;=\frac{4}{125},\end{aligned}\]
+<p>so \(p=\tfrac{4}{125}\) and \(q=\tfrac{121}{125}\). Let \(X\) be the number of defective shirts. Then</p>
+\[\begin{aligned}P(X\le2)&amp;=P(X=0)+P(X=1)+P(X=2)\\&amp;=\big(\tfrac{121}{125}\big)^{30}+{}^{30}C_1\times\big(\tfrac{121}{125}\big)^{29}\times\tfrac{4}{125}+{}^{30}C_2\times\big(\tfrac{121}{125}\big)^{28}\times\big(\tfrac{4}{125}\big)^2\\&amp;\doteq0.930.\end{aligned}\]
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 17A}}
+<p class="small">Unless otherwise specified, leave your answers in unsimplified form.</p>
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Assume that the probability that a child is female is \(\tfrac12\), that sex is independent from child to child, and that there are only two sexes. Giving your answers as fractions in simplest form, find the probability that in a family of five children:
+<div class="parts one"><span><span class="pl">a</span>all are boys,</span><span><span class="pl">b</span>there are two girls and three boys,</span><span><span class="pl">c</span>there are four boys and one girl,</span><span><span class="pl">d</span>at least one will be a girl.</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">In a one-day cricket game, a batsman has a chance of \(\tfrac15\) of hitting a boundary every time he faces a ball. If he faces all six balls in an over, what is the probability that he will hit exactly two boundaries, assuming that successive strikes are independent?{{work:16}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">A jury roll contains 2000 names, 700 of females and 1300 of males. Twelve jurors are randomly selected.
+<div class="parts one"><span><span class="pl">a</span>Explain why it is reasonable to make the approximation that the probability of selecting a male does not change with each selection.</span><span><span class="pl">b</span>What is the probability of ending up with an all-male jury?</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">A die is rolled twelve times. Find the probability that 5 appears on the uppermost face:
+<div class="parts one"><span><span class="pl">a</span>exactly three times,</span><span><span class="pl">b</span>exactly eight times,</span><span><span class="pl">c</span>ten or more times (that is ten, eleven or twelve times).</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">A die is rolled six times. Let \(N\) denote the number of times that the number 3 is shown on the uppermost face. Find, correct to four decimal places:
+<div class="parts one"><span><span class="pl">a</span>\(P(N=2)\)</span><span><span class="pl">b</span>\(P(N&lt;2)\)</span><span><span class="pl">c</span>\(P(N\ge2)\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">An archer finds that on average he hits the bulls-eye nine times out of ten. Assuming that successive attempts are independent, find the probability that in twenty attempts:
+<div class="parts one"><span><span class="pl">a</span>he scores at least eighteen hits,</span><span><span class="pl">b</span>he misses at least once.</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">A torch manufacturer finds that on average 9% of the bulbs are defective. What is the probability that in a randomly selected batch of ten one-bulb torches:
+<div class="parts one"><span><span class="pl">a</span>there will be no more than two with defective bulbs,</span><span><span class="pl">b</span>there will be at least two with defective bulbs.</span></div>{{work:26}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body">A coin is tossed four times and the result is recorded. Janice wins if there are exactly two heads.
+<div class="parts one"><span><span class="pl">a</span>List all the ways that this could occur, that is, in any order.</span><span><span class="pl">b</span>By counting, verify that there are exactly 6 cases where Janice wins and find the probability of this outcome.</span><span><span class="pl">c</span>Explain why this is the same as the number of ways of ordering the word HHTT, and use combinatorics to count how many such arrangements exist. Does your answer agree with part <b>b</b>?</span><span><span class="pl">d</span>Show that this is equivalent to choosing two of the coins and placing them heads up, while placing the other two coins tails up.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">A poll indicates that 55% of people support the policies of the Working Together Party. If five people are selected at random, what is the probability that a majority of them will support WTP party policies? Give your answer correct to three decimal places.{{work:24}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">The probability that a small earthquake occurs somewhere in the world on any one day is 0.95. Assuming that earthquake frequencies on successive days are independent (this assumption is probably false), what is the probability that a small earthquake occurs somewhere in the world on exactly 28 of January's 31 days? Leave your answer in index form.{{work:16}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">The probability that a jackpot prize will be won in a given lottery is 0.012.
+<div class="parts one"><span><span class="pl">a</span>Find, correct to five decimal places, the probability that the jackpot prize will be won:<br>(i) exactly once in ten independent lottery draws,<br>(ii) at least once in ten independent lottery draws.</span><span><span class="pl">b</span>The jackpot prize is initially \(\$10\,000\) and increases by \(\$10\,000\) each time the prize is not won. Find, correct to five decimal places, the probability that the jackpot prize will exceed \(\$200\,000\) when it is finally won.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>How many times must a die be rolled so that the probability of rolling at least one six is greater than 95%?</span><span><span class="pl">b</span>How many times must a coin be tossed so that the probability of tossing at least one tail is greater than 99%?</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Five families have three children each.
+<div class="parts one"><span><span class="pl">a</span>Find, correct to three decimal places, the probability that:<br>(i) at least one of these families has three boys,<br>(ii) each family has more boys than girls.</span><span><span class="pl">b</span>What assumptions have been made in arriving at your answer?</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Comment on the validity of the following arguments:
+<div class="parts one"><span><span class="pl">a</span>‘In the McLaughlin Library, 10% of the books are mathematics books. Hence if I go to a shelf and choose five books from that shelf, then the probability that all five books are mathematics books is \(10^{-5}\).’</span><span><span class="pl">b</span>‘During an election, 45% of voters voted for party A. Hence if I select a street at random, and then select a voter from each of four houses in the street, the probability that exactly two of those voters voted for party A is \({}^4C_2\times(0.45)^2\times(0.55)^2\).’</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">During winter it rains on average 18 out of 30 days. Five winter days are selected at random. Find, correct to four decimal places, the probability that:
+<div class="parts one"><span><span class="pl">a</span>the first two days chosen will be fine and the remainder wet,</span><span><span class="pl">b</span>more rainy days than fine days have been chosen.</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">A tennis player finds that, on average, he gets his serve in in eight out of every ten attempts, and that he serves an ace (a serve which is in the boundaries and not touched by his opponent) once every fifteen serves. He serves four times. Assuming that successive serves are independent events, find, correct to six decimal places, the probability that:
+<div class="parts one"><span><span class="pl">a</span>all four serves are in,</span><span><span class="pl">b</span>he hits at least three aces,</span><span><span class="pl">c</span>he hits exactly three aces and the other serve lands in.</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">A man is restoring ten old cars, six of them manufactured in 1955 and four of them manufactured in 1962. When he tries to start them, on average the 1955 models will start 65% of the time and the 1962 models will start 80% of the time. Find, correct to four decimal places, the probability that at any time:
+<div class="parts one"><span><span class="pl">a</span>exactly three of the 1955 models and one of the 1962 models will start,</span><span><span class="pl">b</span>exactly four of the cars will start. (Hint: You will need to consider five cases.)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">An apple exporter deals in two types of apples, Red Delicious and Golden Delicious. The ratio of Red Delicious to Golden Delicious is 4\(\,\):\(\,\)1. The apples are randomly mixed together before they are boxed. One in every fifty Golden Delicious and one in every one hundred Red Delicious apples will need to be discarded because they are undersized.
+<div class="parts one"><span><span class="pl">a</span>What is the probability that an apple selected from a box will need to be discarded?</span><span><span class="pl">b</span>If ten apples are randomly selected from a box, find the probability that:<br>(i) all the apples will have to be discarded,<br>(ii) half of the apples will have to be discarded,<br>(iii) less than two apples will be discarded.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">One bag contains three red and five white balls, and another bag contains four red and four white balls.
+<div class="parts one"><span><span class="pl">a</span>One bag is chosen at random, a ball is selected from that bag, its colour is noted, and then it is replaced. Find the probability that the ball chosen is red.</span><span><span class="pl">b</span>If the operation in part <b>a</b> is carried out eight times, find the probability that:<br>(i) exactly three red balls are drawn,<br>(ii) at least three red balls are drawn.</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>If six dice are rolled one hundred times, how many times would you expect the number of even numbers showing to exceed the number of odd numbers showing?</span><span><span class="pl">b</span>If eight coins are tossed sixty times, how many times would you expect the number of heads to exceed the number of tails?</span></div>{{work:40}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">21</span><div class="q-body">A game is played using a barrel containing twenty similar balls numbered 1 to 20. The game consists of drawing four balls, without replacement, from the twenty balls in the barrel. Thus the probability that any particular number is drawn in any game is 0.2.
+<div class="parts one"><span><span class="pl">a</span>Find as a decimal the probability that the number 19 is drawn in exactly two of the next five games played.</span><span><span class="pl">b</span>Find as a decimal the probability that the number 19 is drawn in at least two of the next five games played.</span><span><span class="pl">c</span>Let \(n\) be an integer, where \(4\le n\le20\).<br>(i) What is the probability that, in any one game, all four selected numbers are less than or equal to \(n\)?<br>(ii) Show that the probability that, in any one game, \(n\) is the largest of the four numbers drawn is \(\dfrac{{}^{n-1}C_3}{{}^{20}C_4}\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Expand \((a+b+c)^3\).</span><span><span class="pl">b</span>In a survey of football supporters, 65% supported Hawthorn, 24% followed Collingwood and 11% followed Sydney. Use the expansion in part <b>a</b> to find, correct to five decimal places, the probability that if three people are randomly selected:<br>(i) one supports Hawthorn, one supports Collingwood and one supports Sydney,<br>(ii) exactly two of them support Collingwood,<br>(iii) at least two of them support the same team.</span></div>{{work:56}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>21 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Northern Beaches Secondary College Manly Selective Campus, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q2</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which one of the following describes a Bernoulli random variable?
+<div class="parts one" style="margin:1.5mm 0 0 2mm"><span>A.&ensp;The times achieved by athletes in a 100-metre race</span><span>B.&ensp;The value of a card chosen from a pack of 52 playing cards</span><span>C.&ensp;Choosing a red pen from a container that contains red, black and blue pens</span><span>D.&ensp;The number of emails a doctor receives in a week</span></div></div>
+<div class="hint"><b>Hint:</b> how many outcomes does a Bernoulli trial have?</div>{{work:16}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Blacktown Boys' High School, 2024, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q6</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Mohammad hits the target on average 2 out of every 3 shots in archery competitions. During a competition he has 10 shots at the target. What is the probability that Mohammad hits the target exactly 9 times?
+<div class="mc"><span>A.&ensp;\(10\big(\tfrac23\big)\big(\tfrac13\big)^9\)</span><span>B.&ensp;\(\big(\tfrac23\big)^9\big(\tfrac13\big)\)</span><span>C.&ensp;\(10\big(\tfrac23\big)^9\)</span><span>D.&ensp;\(5\big(\tfrac23\big)^{10}\)</span></div></div>
+<div class="hint"><b>Hint:</b> the correct option may be the binomial probability written in a different form.</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Ascham School, 2024, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Five regular dice are rolled. Calculate the probability that exactly two of the dice show a 6 on the uppermost face.</div>
+<div class="hint"><b>Hint:</b> what is a ‘success’ here, and what is its probability?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(c)(i)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">A test consists of five multiple choice questions. Each question has four alternative answers. For each question only one of the alternative answers is correct. Jerry randomly selects an answer to each of the five questions.
+<div class="pp-sub"><span>(i) What is the probability that Jerry selects three correct and two incorrect answers?</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> think of each question as a Bernoulli trial.</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Blacktown Boys' High School, 2023, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(b)(i)(ii)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">A toy car factory knows that 3% of the toy cars it produces are faulty. Toy cars are supplied in boxes of 50 cars, and boxes are supplied in pallets of 80 boxes.<br>Find the probability, to 4 decimal places, that:
+<div class="pp-sub"><span>(i) A box of toy cars contains exactly 5 faulty cars.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) A box of toy cars contains at least 1 faulty car.</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> for (ii), think about the complementary event.</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">In a particular racing car, the probability that the brake pads will need replacing during a race is 0.2. The car competes in a 12 race series.
+<div class="pp-sub"><span>(i) What is the probability that the pads will need to be replaced on exactly 3 occasions? Give your answer correct to 2 decimal places.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) What is the probability that the pads will need to be replaced on 3 occasions at most? Give your answer correct to 2 decimal places.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> for (ii), list the numbers of occasions that ‘3 occasions at most’ allows.</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Blacktown Boys' High School, 2020, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Bags of lollipops are supposed to contain 50 lollipops. Production records indicate that 92% of bags contain 50 lollipops. A batch of 15 bags is sampled. If more than 2 bags do not contain exactly 50 lollipops, production is stopped.
+<div class="pp-sub"><span>(i) Find the probability, correct to four decimal places, that exactly 2 of the 15 bags selected do not contain 50 lollipops.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Find the probability, correct to four decimal places, that production is stopped.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> decide what counts as a ‘success’ here. It need not be the good outcome.</div>{{work:48}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">In a dice game, success is defined as obtaining a total of 9 when throwing two dice. Six rounds of the game are played. Find the probability of at least five successes. Give your answer to 3 significant figures.</div>
+<div class="hint"><b>Hint:</b> compare Worked example 5: each round is itself a compound event.</div>{{work:48}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Knox Grammar School, 2022, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(c)(i)(ii)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Tomatoes are considered to be either determinate or indeterminate.<br>
+Mario buys tomatoes from his local store where the tomatoes are twice as likely to be sourced from Farm A than Farm B.<br>
+It is known that 60% of Farm A's tomatoes are determinate while 70% of Farm B's tomatoes are determinate. Mario cannot tell the difference between these tomatoes from their appearance.
+<div class="pp-sub"><span>(i) Show that the probability that a randomly selected tomato is determinate is \(\dfrac{19}{30}\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Mario buys ten tomatoes. Find the probability, correct to two decimal places, that no more than eight of these are determinate.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> for (i), ‘twice as likely’ tells you the probability that a tomato comes from each farm. For (ii), which outcomes are not ‘no more than eight’?</div>{{work:56}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension&nbsp;1 HSC Trial <span style="white-space:nowrap">Examination,&nbsp;Q9</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The chance of being sunny on three consecutive days is 0.512. The probability that it is Sunny on exactly two days during a period of n days is 0.0512. What is the value of n? Assume the probability of being Sunny is the same every day.
+<div class="mc"><span>A.&ensp;4</span><span>B.&ensp;5</span><span>C.&ensp;6</span><span>D.&ensp;7</span></div></div>
+<div class="hint"><b>Hint:</b> what does the first sentence tell you about a single day?</div>{{work:34}}</div>
+</div>
