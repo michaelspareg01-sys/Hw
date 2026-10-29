@@ -121,14 +121,16 @@ def plain(t):
 ans = read("a_13b.html")
 les = read("l13b.html")
 report(ans.count("{{ahead:Lesson 13B | Expected value}}") == 1, "answers heading", "{{ahead:Lesson 13B | Expected value}} once")
-report("Past-Paper" not in ans and "Past papers" not in les and "pp-intro" not in les and 'class="pp"' not in les,
-       "no past-paper block (house rule 8 shortfall: no clean 13B school-paper item)", "")
+PPN = les.split("<!-- ============ Past papers ============ -->")
+report(len(PPN) == 2 and "{{sec:amber:clock:Past-paper homework:timed practice}}" in PPN[1] and "Questions 8, 9, 11 and 12 above in 25 minutes" in PPN[1]
+       and "Past-Paper" not in ans and "pp-intro" not in les and 'class="pp"' not in les,
+       "past-paper note only (controller ruling: no in-scope school-paper item; answers have no PP section)", "")
 BLK = {}
 for mt in re.finditer(r'<div class="a"(?: style="[^"]*")?><span class="an">([^<]+)</span><div class="ab">(.*?)(?=<div class="a"(?: style="[^"]*")?><span class="an">|<div class="ans-sec">|\{\{ahead|$)', ans, re.S):
     if mt.group(1) in BLK:
         report(False, f"block {mt.group(1)}", "duplicate answer number")
     BLK[mt.group(1)] = mt.group(2)
-hw = les.split("<!-- ============ Homework ============ -->")[1]
+hw = les.split("<!-- ============ Homework ============ -->")[1].split("<!-- ============ Past papers ============ -->")[0]
 teach = les.split("<!-- ============ Homework ============ -->")[0]
 TQ = {k: v for k, v in re.findall(r'<div class="q"><span class="q-num">(\d+)</span>(.*?)(?=<div class="q">|\{\{band|$)', hw, re.S)}
 EX = re.findall(r'<div class="ex (demo|attempt|worked)"><div class="ex-top"><span class="tag">([^<]*)</span>(.*?)(?=<div class="ex |<!-- =====|$)', teach, re.S)
@@ -567,6 +569,7 @@ try:
 except Exception as err:
     report(False, "A14", f"ERROR {err}")
 
+report(all(q in TQ and "[Simulation experiment]" not in TQ[q] for q in ("8", "9", "11", "12")), "timed-practice questions exist and are not simulations", "")
 want_blocks = ["1", "2", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "C1", "C2", "C3"]
 report(sorted(BLK, key=lambda t: (len(t), t)) == sorted(want_blocks, key=lambda t: (len(t), t)), "answer blocks (Q3 is a simulation with no answer)", str(sorted(BLK, key=lambda t: (len(t), t))))
 report(sorted(TQ, key=int) == [str(i) for i in range(1, 15)], "textbook questions 1-14", str(sorted(TQ, key=int)))

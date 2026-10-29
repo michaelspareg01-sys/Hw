@@ -11,6 +11,6 @@ Lesson order: PP 1 BHHS 2023 Q11(c)(i), PP 2 BHHS 2020 Q12(a)(i)(iv), PP 3 BHHS 
 - Ch 17 marks taken: 17A 3 (B3(iii) 2, B15(ii) 1), 17B 2 (C11(i) 1, C18/A1(iv) 1), plus A1(i) 1 (13A row, binomial content), 17C 0, 17D 0.
 
 ## 13B
-No past-paper questions selected (0 marks). **House rule 8 shortfall, no clean item exists**; sweep explained in `.superpowers/sdd/2026-10-29-y11ch13/task-3-report.md`.
+**none (controller ruling: no in-scope item).** 0 marks; the lesson ends with a past-paper heading and a note pointing to Exercise 13B Q8, 9, 11, 12 as 25 minutes of timed practice. **House rule 8 shortfall, no clean item exists**; sweep explained in `.superpowers/sdd/2026-10-29-y11ch13/task-3-report.md`.
 - Spec ruling: 13B may take 17x rows only where the part needs just E(X) of a given distribution (no binomial formula). No catalogue row or uncatalogued school-paper part does this: every E(X) or "mean" part is binomial (E(X) = np: C2 JR 2020 Q6, C6 Kings 2021 Q12(c)(i), C11 BHHS 2023 Q11(c)(ii), C14 STHS 2023 Q12(a), C16 Abbotsleigh 2024 Q1, A4 STHS 2021 Q14(a)(i); C2 also needs nCk, Ch 14) or needs Var(X) (A6 Hurlstone 2023 Q8 E(X) = 5Var(X), left for 13C; A5 JR 2020 Q1, 13C) or is p-hat/normal (17C, 17D). A7, A3 (JRAHS mock) excluded. The 13A-method leftovers (BBHS 2023 Q13(b)(ii), Moriah 2023 Q12(a)(i)) do not test 13B and are near-duplicates of 13A items.
 - Ch 17 marks taken by 13B: none.
