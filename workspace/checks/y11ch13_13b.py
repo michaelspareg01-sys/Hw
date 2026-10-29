@@ -122,7 +122,7 @@ ans = read("a_13b.html")
 les = read("l13b.html")
 report(ans.count("{{ahead:Lesson 13B | Expected value}}") == 1, "answers heading", "{{ahead:Lesson 13B | Expected value}} once")
 PPN = les.split("<!-- ============ Past papers ============ -->")
-report(len(PPN) == 2 and "{{sec:amber:clock:Past-paper homework:timed practice}}" in PPN[1] and "Questions 8, 9, 11 and 12 above in 25 minutes" in PPN[1]
+report(len(PPN) == 2 and "{{sec:amber:clock:Past-paper homework:timed practice}}" in PPN[1] and "Questions 8, 9, 11 (after Question 2) and 12 above in 25 minutes" in PPN[1]
        and "Past-Paper" not in ans and "pp-intro" not in les and 'class="pp"' not in les,
        "past-paper note only (controller ruling: no in-scope school-paper item; answers have no PP section)", "")
 BLK = {}

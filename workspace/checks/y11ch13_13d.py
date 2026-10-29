@@ -343,7 +343,7 @@ a_pp, a_rev = a_rest.split("{{ahead:Chapter 13 Review | Chapter review exercise}
 
 def blocks(part):
     out = {}
-    for mt in re.finditer(r'<div class="a"><span class="an">([^<]+)</span><div class="ab">(.*?)(?=<div class="a"><span class="an">|<div class="ans-sec">|\{\{ahead|$)', part, re.S):
+    for mt in re.finditer(r'<div class="a"(?: style="[^"]*")?><span class="an">([^<]+)</span><div class="ab">(.*?)(?=<div class="a"(?: style="[^"]*")?><span class="an">|<div class="ans-sec">|\{\{ahead|$)', part, re.S):
         if mt.group(1) in out:
             report(False, f"block {mt.group(1)}", "duplicate")
         out[mt.group(1)] = mt.group(2)
