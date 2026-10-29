@@ -82,7 +82,27 @@
 
 {{ahead:Lesson 13A | The language of probability distributions}}
 <div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
-<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Baulkham Hills High School, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)(iv)</span></span></div>
-<p>The event \(X\ge3\) happens when \(X=3\) or \(X=4\). These are different values, so the probabilities add. Both are given in the table:</p>
-\[P(X\ge3)=P(X=3)+P(X=4)=0.0756+0.0081=0.0837.\]
-<p>The unknown entries \(a\) and \(b\), and the value of \(p\), are not needed.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)(i)</span></span></div>
+<p>The two dice give \(6\times6=36\) equally likely outcomes. The outcomes with a sum of 7 are \((1,6)\), \((2,5)\), \((3,4)\), \((4,3)\), \((5,2)\) and \((6,1)\), which is 6 outcomes. So</p>
+\[p=P(\text{sum of }7)=\tfrac{6}{36}=\tfrac{1}{6}.\]
+<p>The result is a categorical distribution with two values: ‘7’ with probability \(\tfrac16\) and ‘not a 7’ with probability \(\tfrac56\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Baulkham Hills High School, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)(i)(iv)</span></span></div>
+<p><b>(i)</b> \(X\) is the number of successes in 4 independent trials, each with probability \(p\) of success. The value \(X=4\) means that all four trials succeed, so by the product rule</p>
+\[P(X=4)=p\times p\times p\times p=p^4.\]
+<p>The table gives \(P(X=4)=0.0081\), so \(p^4=0.0081=0.3^4\). Since \(p\) is a probability, \(p\ge0\), and so \(p=0.3\).</p>
+<p>(Check: \(X=0\) means all four trials fail, and \((1-0.3)^4=0.7^4=0.2401\), which is the first entry of the table.)</p>
+<p><b>(iv)</b> The event \(X\ge3\) happens when \(X=3\) or \(X=4\). These are different values, so the probabilities add. Both are given in the table:</p>
+\[P(X\ge3)=P(X=3)+P(X=4)=0.0756+0.0081=0.0837.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(c)(ii)</span></span></div>
+<p>The complement of ‘at least one incorrect answer’ is ‘all five answers correct’. Each answer is correct with probability \(\tfrac14\), and the five choices are independent, so</p>
+\[P(\text{all correct})=\big(\tfrac14\big)^5=\tfrac{1}{1024}.\]
+<p>Hence</p>
+\[P(\text{at least one incorrect})=1-\tfrac{1}{1024}=\tfrac{1023}{1024}.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Northern Beaches Secondary College Manly Selective Campus, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(a)(iii)</span></span></div>
+<p>Each shot is a bullseye with probability \(\tfrac13\), so it misses with probability \(\tfrac23\). Suppose the archer uses \(n\) shots, and the shots are independent. By the product rule,</p>
+\[P(\text{no bullseye in }n\text{ shots})=\big(\tfrac23\big)^n,\quad\text{so}\quad P(\text{at least one bullseye})=1-\big(\tfrac23\big)^n.\]
+<p>For 90% certainty we need</p>
+\[1-\big(\tfrac23\big)^n\ge0.9,\quad\text{that is,}\quad\big(\tfrac23\big)^n\le0.1.\]
+<p>Take logarithms. Since \(\ln\tfrac23&lt;0\), the inequality sign reverses when we divide by it:</p>
+\[n\ln\tfrac23\le\ln0.1,\qquad n\ge\frac{\ln0.1}{\ln\frac23}=5.678\ldots\]
+<p>So the archer should use 6 shots. (Check: \(\big(\tfrac23\big)^5=\tfrac{32}{243}\approx0.132\), which is more than 0.1, but \(\big(\tfrac23\big)^6=\tfrac{64}{729}\approx0.088\), which is less than 0.1.)</p></div>

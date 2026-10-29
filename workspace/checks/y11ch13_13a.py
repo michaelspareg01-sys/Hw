@@ -661,7 +661,7 @@ try:
     intro = re.search(r"Suggested time: (\d+) minutes</b></span><span><b>(\d+) marks?", pps[1])
     marks = [int(v) for v in re.findall(r'<span class="mk">(\d+) marks?</span>', pps[1])]
     T, M = int(intro.group(1)), int(intro.group(2))
-    report(sum(marks) == M and M >= 1, "PP marks", f"PP marks {marks} sum {sum(marks)}, intro {M} (house rule 8 shortfall: the only clean 13A school item)")
+    report(sum(marks) == M and M >= 1, "PP marks", f"PP marks {marks} sum {sum(marks)}, intro {M} (house rule 8 shortfall: every clean 13A-method part in the catalogue)")
     report(T == max(5, 5 * round(1.5 * M / 5)), "PP time", f"{T} min for {M} mark(s) (1.5 x marks rounded to 5 min, at least 5)")
     report(sorted(PPQ) == sorted(PPA) == list(range(1, len(PPQ) + 1)), "PP numbering", f"lesson {sorted(PPQ)}, answers {sorted(PPA)}")
     for k in PPQ:
@@ -669,24 +669,76 @@ try:
         sa = re.search(r"^(.*?)</span></div>", PPA[k]).group(1)
         report(re.sub(r"<[^>]+>", "", sq) == re.sub(r"<[^>]+>", "", sa), f"PP{k} source label", re.sub(r"<[^>]+>", "", sq))
         report(PPQ[k].count('<div class="hint">') == 1, f"PP{k} hint", "exactly one hint")
+        top = int(re.search(r'<span class="mk">(\d+) marks?</span>', PPQ[k]).group(1))
+        subs = [int(v) for v in re.findall(r'<span class="mk">(\d+)</span>', PPQ[k])]
+        report(sum(subs) == top, f"PP{k} part marks add to the question total", f"{subs} -> {top}")
 except Exception as err:
     report(False, "PP structure", f"ERROR {err}")
 
-# PP1 BHHS 2020 Q12(a)(iv): P(X >= 3) from the printed table
+# PP1 BHHS 2023 Q11(c)(i): p = P(sum of 7), two dice enumerated
 try:
-    hx, hp = tables(PPQ[1])[0]
-    given = {int(x): val(p) for x, p in zip(hx[1:], hp[1:]) if strip(p) not in ("a", "b")}
-    # the data are consistent with Bin(4, p): p^4 = P(X = 4) gives p = 0.3 exactly (a rational fourth root)
-    p_ = F(3, 10)
-    q_ = 1 - p_
-    bern = [True] * 3 + [False] * 7                 # one trial: success with probability 0.3, by counting
-    bin4 = dist(product(bern, repeat=4), key=sum)
-    report(p_ ** 4 == given[4] and all(bin4[k] == given[k] for k in given), "PP1 table data consistent (four trials with p = 0.3)", str({k: str(v) for k, v in given.items()}))
-    report(sorted(given) == [0, 3, 4] and [strip(p) for p in hp[2:4]] == ["a", "b"], "PP1 table: a and b unknown", "")
-    chain(PPA[1], r"\[P(X\ge3)=P(X=3)+P(X=4)=@.\]", given[3] + given[4], "PP1", 2)
-    report("(iv) Find \\(P(X\\ge3)\\)." in PPQ[1] and '<span class="mk">1</span>' in PPQ[1], "PP1 part (iv), 1 mark", "")
+    sums = dist(product(d6, repeat=2), key=lambda o: sum(o) == 7)
+    report("Two fair six-sided dice are rolled together" in PPQ[1] and "(i) If \\(p\\) is the probability of a sum of 7" in PPQ[1], "PP1 statement", "")
+    pairs7 = re.findall(r"\\\(\((\d),(\d)\)\\\)", PPA[1])
+    report(sorted((int(u), int(v)) for u, v in pairs7) == sorted(o for o in product(d6, repeat=2) if sum(o) == 7), "PP1 the six outcomes with sum 7", str(pairs7))
+    value(PPA[1], r"which is @ outcomes", F(len(pairs7)), "PP1")
+    chain(PPA[1], r"\[p=P(\text{sum of }7)=@.\]", sums[True], "PP1", 2)
+    value(PPA[1], r"‘7’ with probability \(@\) and ‘not a 7’ with probability \(@\)", (sums[True], sums[False]), "PP1")
 except Exception as err:
     report(False, "PP1", f"ERROR {err}")
+
+# PP2 BHHS 2020 Q12(a)(i)(iv): p from the table, then P(X >= 3) from the printed table
+try:
+    hx, hp = tables(PPQ[2])[0]
+    given = {int(x): val(p) for x, p in zip(hx[1:], hp[1:]) if strip(p) not in ("a", "b")}
+    # find p from P(X = 4) = p^4 by searching p = k/1000 (a rational fourth root), with four trials enumerated
+    cands = [F(k, 1000) for k in range(0, 1001) if F(k, 1000) ** 4 == given[4]]
+    report(cands == [F(3, 10)], "PP2 (i): the only p in [0, 1] with p^4 = 0.0081 is 0.3", str(cands))
+    p_ = cands[0] if cands else F(-1)
+    bern = [True] * 3 + [False] * 7                 # one trial: success with probability 0.3, by counting
+    bin4 = dist(product(bern, repeat=4), key=sum)
+    report(F(3, 10) == p_ and all(bin4[k] == given[k] for k in given), "PP2 table data consistent (four independent trials with p = 0.3, enumerated)", str({k: str(v) for k, v in given.items()}))
+    report(sorted(given) == [0, 3, 4] and [strip(p) for p in hp[2:4]] == ["a", "b"], "PP2 table: a and b unknown", "")
+    value(PPA[2], r"so \(p^4=0.0081=@^4\)", p_, "PP2 (i)")
+    value(PPA[2], r"and so \(p=@\).</p>", p_, "PP2 (i)")
+    chain(PPA[2], r"and \((1-0.3)^4=@\), which", given[0], "PP2 check", 2)
+    report(F("0.0081") == given[4], "PP2 (i) quotes the table entry 0.0081", "")
+    chain(PPA[2], r"\[P(X\ge3)=P(X=3)+P(X=4)=@.\]", given[3] + given[4], "PP2 (iv)", 2)
+    report("(iv) Find \\(P(X\\ge3)\\)." in PPQ[2] and "(i) Use the known entries in the probability distribution table to calculate the value of \\(p\\)." in PPQ[2], "PP2 parts (i) and (iv)", "")
+except Exception as err:
+    report(False, "PP2", f"ERROR {err}")
+
+# PP3 BHHS 2023 Q13(c)(ii): five guessed answers, each with 4 options; all 4^5 answer sheets enumerated
+try:
+    sheets = list(product(range(4), repeat=5))           # option 0 is the correct one
+    allc = F(sum(all(o == 0 for o in sh) for sh in sheets), len(sheets))
+    some_wrong = F(sum(any(o != 0 for o in sh) for sh in sheets), len(sheets))
+    chain(PPA[3], r"\[P(\text{all correct})=\big(\tfrac14\big)^5=@.\]", allc, "PP3", 1)
+    chain(PPA[3], r"\[P(\text{at least one incorrect})=1-\tfrac{1}{1024}=@.\]", some_wrong, "PP3", 1)
+    report(F(1) - F(1, 1024) == some_wrong and "five multiple choice questions. Each question has four alternative answers" in PPQ[3], "PP3 statement and complement", "")
+except Exception as err:
+    report(False, "PP3", f"ERROR {err}")
+
+# PP4 Manly 2020 Q11(a)(iii): least n with P(at least one bullseye in n shots) >= 0.9, by enumerating shot sequences
+try:
+    shot = [True, False, False]                         # bullseye once in every three shots
+    def p_none(n):
+        seqs = list(product(shot, repeat=n))
+        return F(sum(not any(s) for s in seqs), len(seqs))
+    nmin = next(n for n in range(1, 12) if 1 - p_none(n) >= F(9, 10))
+    report(nmin == 6 and p_none(5) == F(32, 243) and p_none(6) == F(64, 729), "PP4 enumeration: n = 6", f"P(none) for n = 5, 6: {p_none(5)}, {p_none(6)}")
+    value(PPA[4], r"So the archer should use @ shots.", F(nmin), "PP4")
+    value(PPA[4], r"(Check: \(\big(\tfrac23\big)^5=@\approx", p_none(5), "PP4")
+    value(PPA[4], r"but \(\big(\tfrac23\big)^6=@\approx", p_none(6), "PP4")
+    (a5,) = grab(PPA[4], r"\approx@\), which is more", "PP4")
+    (a6,) = grab(PPA[4], r"\approx@\), which is less", "PP4")
+    report(F(a5) == round(p_none(5), 3) and F(a6) == round(p_none(6), 3), "PP4 decimals to 3 d.p.", f"{a5}, {a6}")
+    import math
+    (q,) = grab(PPA[4], r"\ge\frac{\ln0.1}{\ln\frac23}=@\ldots", "PP4")
+    report(q == f"{math.log(0.1) / math.log(2 / 3):.6f}"[:len(q)], "PP4 ln 0.1 / ln(2/3) truncated", q)
+    report("once in every three shots" in PPQ[4] and "90% certain that at least one bullseye is hit" in PPQ[4], "PP4 statement", "")
+except Exception as err:
+    report(False, "PP4", f"ERROR {err}")
 
 print(f"\n{NCHECK[0]} checks, {len(FAILS)} problem(s)" if FAILS else f"\n{NCHECK[0]} checks, all OK")
 sys.exit(1 if FAILS else 0)
