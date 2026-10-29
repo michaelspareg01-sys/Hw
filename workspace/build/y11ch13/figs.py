@@ -85,14 +85,17 @@ class Fig:
 from fractions import Fraction as Fr
 
 
-def dist_graph(name, xs, ps, yt, w=250, h=160, xpad=0.6, ylab="P(X = x)", xlabels=None, lift=(), xlo=0.35):
+def dist_graph(name, xs, ps, yt, w=250, h=160, xpad=0.6, ylab="P(X = x)", xlabels=None, lift=(), xlo=0.35, ysub=None):
     """Dot graph of a probability distribution: values on the x-axis, probabilities up.
-    lift: values whose tick labels go above the axis (when two values are close together)."""
+    lift: values whose tick labels go above the axis (when two values are close together).
+    ysub: a subscript after the y-axis label (for the relative frequency f with subscript r)."""
     ymax = float(max(ps)) * 1.18
     lo = min(0, min(xs))
     g = Graph(lo - xlo, max(xs) + xpad, 0, ymax, w=w, h=h, pad=(44, 30, 26, 30))
     g.axes("x", "")
     g.items.append(_txt(g.X(max(g.xmin, 0)) + 8, g.Y(ymax) - 10, ylab, "start", size=11.5, italic=True))
+    if ysub:
+        g.items.append(_txt(g.X(max(g.xmin, 0)) + 8 + 4.2 * len(ylab), g.Y(ymax) - 6, ysub, "start", size=8.5, italic=True))
     labs = [(x, str(x) if xlabels is None else xlabels[i]) for i, x in enumerate(xs)]
     g.xticks([t for t in labs if t[0] not in lift])
     for x, lab in labs:                     # lifted labels: above the axis, just to the right of the tick
@@ -207,6 +210,38 @@ def build_13b():
     dist_graph("a13b_dodec", list(range(1, 13)), [Fr(1, 12)] * 12, [(Fr(1, 12), "1/12")], ylab=P, w=290, h=110)
 
 
+def tank_line(name, w=470, h=62):
+    """Exercise 13D Q14: serial numbers 1 to 12 on a line; found serials 3, 6, 9 (crosses); m = 9; N = 11; ends 1 and N (dots)."""
+    f = Fig(w, h)
+    x0, dx, y = 24, 34, 34
+    X = lambda n: x0 + dx * n
+    f.arrow(4, y, w - 6, y, color="ink", width=1.3)
+    for n in range(1, 13):
+        f.line(X(n), y - 4, X(n), y + 4, width=1.1)
+        f.text(X(n), y + 15, str(n), size=11)
+    for n in (3, 6, 9):
+        f.line(X(n) - 5, y - 5, X(n) + 5, y + 5, color="rose", width=1.6).line(X(n) - 5, y + 5, X(n) + 5, y - 5, color="rose", width=1.6)
+    for n in (1, 11):
+        f.raw(f'<circle cx="{X(n):.1f}" cy="{y:.1f}" r="5" fill="{ACC["green"]}" stroke="{INK}" stroke-width="1"/>')
+    f.text(X(9), y - 15, "m", size=12, italic=True).text(X(11), y - 15, "N", size=12, italic=True)
+    save(name, f)
+
+
+def build_13d():
+    FR = "f"
+    # lesson: the authors' 100 simulations of four coins (13D text), relative frequencies
+    dist_graph("c13d_sample", [0, 1, 2, 3, 4], [Fr(7, 100), Fr(29, 100), Fr(34, 100), Fr(21, 100), Fr(9, 100)],
+               [(Fr(1, 10), "0.1"), (Fr(2, 10), "0.2"), (Fr(3, 10), "0.3"), (Fr(4, 10), "0.4")], ylab=FR, ysub="r", w=230)
+    # lesson: Exercise 13D Q14, the German tank problem
+    tank_line("c13d_tank")
+    # answers: Exercise 13D Q1(a) the theoretical distribution, Q1(b) the relative frequencies
+    dist_graph("a13d_q1a", [0, 1, 2, 3], [Fr(8, 27), Fr(12, 27), Fr(6, 27), Fr(1, 27)],
+               [(Fr(k, 27), f"{k}/27") for k in (1, 6, 8, 12)], ylab="p(x)", w=220, h=260)
+    dist_graph("a13d_q1b", [0, 1, 2, 3], [Fr(33, 100), Fr(47, 100), Fr(16, 100), Fr(4, 100)],
+               [(Fr(k, 10), f"0.{k}") for k in range(1, 5)], ylab=FR, ysub="r", w=220, h=190)
+
+
 if __name__ == "__main__":
     build_13a()
     build_13b()
+    build_13d()
