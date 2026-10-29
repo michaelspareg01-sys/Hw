@@ -1,1 +1,110 @@
-<!-- filled by Task 5 -->
+{{ahead:Lesson 15D | Identities in Pascal's triangle}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b><br><b>a</b> Substitute \(x=3\) into \((1+x)^n={}^nC_0+{}^nC_1\,x+{}^nC_2\,x^2+\cdots+{}^nC_n\,x^n\). Because \(1+3=4\), \(4^n={}^nC_0+3\,{}^nC_1+9\,{}^nC_2+\cdots+3^n\,{}^nC_n\).<br><b>b</b> \(1+3\times4+9\times6+27\times4+81\times1=1+12+54+108+81=256=4^4\)<br><b>c</b> Choosing 3 of the 8 elements to be in a subset leaves the other 5 out. So each 3-member subset pairs with exactly one 5-member subset, and \({}^8C_3={}^8C_5=56\).<br>
+<b>Your turn.</b><br><b>a</b> Substitute \(x=4\) into the same expansion. Because \(1+4=5\), \(5^n={}^nC_0+4\,{}^nC_1+16\,{}^nC_2+\cdots+4^n\,{}^nC_n\).<br><b>b</b> \(1+4\times3+16\times3+64\times1=1+12+48+64=125=5^3\)<br><b>c</b> Choosing 2 of the 9 elements to be in a subset leaves the other 7 out. So each 2-member subset pairs with exactly one 7-member subset, and \({}^9C_2={}^9C_7=36\).</div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b> \(5(1+x)^4={}^5C_1+2\,{}^5C_2\,x+3\,{}^5C_3\,x^2+4\,{}^5C_4\,x^3+5\,{}^5C_5\,x^4\)<br><b>a</b> \(x=1\): \(5\times2^4=80\). Check: \(5+2\times10+3\times10+4\times5+5\times1=80\).<br><b>b</b> \(x=-1\): \(5\times0^4=0\). Check: \(5-2\times10+3\times10-4\times5+5\times1=0\).<br>
+<b>Your turn.</b> \(3(1+x)^2={}^3C_1+2\,{}^3C_2\,x+3\,{}^3C_3\,x^2\)<br><b>a</b> \(x=1\): \(3\times2^2=12\). Check: \(3+2\times3+3\times1=12\).<br><b>b</b> \(x=-1\): \(3\times0^2=0\). Check: \(3-2\times3+3\times1=0\).</div></div>
+<div class="a"><span class="an">C3</span><div class="ab" style="line-height:1.9"><b>Tutor demo.</b><br><b>a</b> \(r\times\dfrac{n!}{r!\,(n-r)!}=\dfrac{n!}{(r-1)!\,(n-r)!}=n\times\dfrac{(n-1)!}{(r-1)!\,(n-r)!}=n\times{}^{n-1}C_{r-1}\), because \((n-1)-(r-1)=n-r\).<br><b>b</b> \((1+x)^2=1+2x+x^2\). On the left, the coefficient of \(x^2\) is \(1\times{}^nC_2+2\times{}^nC_1+1\times{}^nC_0\). On the right it is \({}^{n+2}C_2\). Check: \(3+6+1=10={}^5C_2\).<br>
+<b>Your turn.</b><br><b>a</b> \((n-r)\times\dfrac{n!}{r!\,(n-r)!}=\dfrac{n!}{r!\,(n-r-1)!}=n\times\dfrac{(n-1)!}{r!\,(n-1-r)!}=n\times{}^{n-1}C_r\)<br><b>b</b> On the left, the coefficient of \(x^3\) is \(1\times{}^nC_3+2\times{}^nC_2+1\times{}^nC_1\). On the right it is \({}^{n+2}C_3\). Check: \(4+12+4=20={}^6C_3\).</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><b>a</b> (i) \(1+4+6+4+1=16=2^4\)<br>(ii) The sum \(1+6+1\) of the first, third and fifth terms on the row equals the sum \(4+4\) of the second and fourth terms.<br>(iii) The sum of the first, third and fifth terms on the row is half the sum of the whole row.<br>
+<b>b</b> (i) \(4(1+x)^3={}^4C_1+2\,{}^4C_2\,x+3\,{}^4C_3\,x^2+4\,{}^4C_4\,x^3\)<br>(ii) \(1\times4+2\times6+3\times4+4\times1=32=4\times2^3\)<br>(iii) \(1\times4-2\times6+3\times4-4\times1=0\)</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> There are 10: \(\{A,B\}\), \(\{A,C\}\), \(\{A,D\}\), \(\{A,E\}\), \(\{B,C\}\), \(\{B,D\}\), \(\{B,E\}\), \(\{C,D\}\), \(\{C,E\}\), \(\{D,E\}\).<br>
+<b>b</b> There are 10: \(\{A,B,C\}\), \(\{A,B,D\}\), \(\{A,B,E\}\), \(\{A,C,D\}\), \(\{A,C,E\}\), \(\{A,D,E\}\), \(\{B,C,D\}\), \(\{B,C,E\}\), \(\{B,D,E\}\), \(\{C,D,E\}\).<br>
+<b>c</b> \(C\), \(D\) and \(E\).<br>
+<b>d</b> Given 5 letters, choose 2. Those that are left form a set of 3. Thus for every set of 2, there is a corresponding set of 3. Thus \({}^5C_2={}^5C_3\).<br>
+<b>e</b> Given \(n\) people, choose \(r\). Those that are left form a set of \(n-r\). Thus for every set of \(r\), there is a corresponding set of \(n-r\). Thus \({}^nC_r={}^nC_{n-r}\).</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>a</b> The 16 subsets are:<br>\(\varnothing\)<br>\(\{A\}\), \(\{B\}\), \(\{C\}\), \(\{D\}\)<br>\(\{A,B\}\), \(\{A,C\}\), \(\{A,D\}\), \(\{B,C\}\), \(\{B,D\}\), \(\{C,D\}\)<br>\(\{A,B,C\}\), \(\{A,B,D\}\), \(\{A,C,D\}\), \(\{B,C,D\}\)<br>\(\{A,B,C,D\}\)<br>To form a subset of \(S\), take each of \(A\), \(B\), \(C\) and \(D\) in turn and decide whether it is in or out. Thus the total number of subsets of \(S\) is \(2\times2\times2\times2=2^4\).<br>
+<b>b</b> The LHS is the sum of the numbers of 0-member, 1-member, 2-member, 3-member and 4-member subsets, and so is also the number of all subsets.<br>
+<b>c</b> Generalise the previous argument to an \(n\)-member set.</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> (i) There are four of them: \(\{A,B,C\}\), \(\{A,B,D\}\), \(\{A,C,D\}\), \(\{B,C,D\}\).<br>
+<b>b</b> (i) There are six of them: \(\{A,B,E\}\), \(\{A,C,E\}\), \(\{A,D,E\}\), \(\{B,C,E\}\), \(\{B,D,E\}\), \(\{C,D,E\}\). (ii) Omit \(E\) from each set.<br>
+<b>c</b> Let \(T\) be a 3-letter subset of \(S\). If \(T\) does not contain \(E\), then \(T\) is one of the 3-letter subsets of \(U\). If \(T\) does contain \(E\), then remove \(E\), and the remaining 2-letter subset pairs with one of the 2-letter subsets of \(U\).<br>
+<b>d</b> Generalise the previous argument.</div></div>
+<div class="a"><span class="an">7</span><div class="ab" style="line-height:1.9"><b>a</b> The five sequences, and the value of both sides for each, are:<br>\(1,7,21,35\): both sides are \(\tfrac12\)<br>\(7,21,35,35\): both sides are \(\tfrac34\)<br>\(21,35,35,21\): both sides are \(1\)<br>\(35,35,21,7\): both sides are \(\tfrac54\)<br>\(35,21,7,1\): both sides are \(\tfrac32\)<br>
+<b>c</b> Using the addition property, \(\text{LHS}=\dfrac{{}^nC_{r-1}}{{}^{n+1}C_r}+\dfrac{{}^nC_{r+1}}{{}^{n+1}C_{r+2}}\) and \(\text{RHS}=\dfrac{2\times{}^nC_r}{{}^{n+1}C_{r+1}}\). Now use the formula for \({}^nC_r\): \(\dfrac{{}^nC_{r-1}}{{}^{n+1}C_r}=\dfrac{r}{n+1}\), \(\dfrac{{}^nC_{r+1}}{{}^{n+1}C_{r+2}}=\dfrac{r+2}{n+1}\) and \(\dfrac{{}^nC_r}{{}^{n+1}C_{r+1}}=\dfrac{r+1}{n+1}\), so both sides equal \(\dfrac{2r+2}{n+1}\).</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> As explained in Question 5, the LHS counts all the subsets of \(S\). We can also count the subsets by choosing whether each element in turn goes into a subset or not, giving \(2^n\) subsets.<br>
+<b>b</b> (i) First, every subset of \(S\) either contains \(A\) or does not contain \(A\). Secondly, a subset containing \(A\) is paired up with the unique subset obtained by removing \(A\) from the subset.<br>(ii) Adding \(A\) to a subset without \(A\) changes the number of members from odd to even or from even to odd.<br>(iii) The LHS is the total number of even-order subsets, and the RHS is the total number of odd-order subsets. We have seen that they are paired with each other, so the LHS and RHS are equal.</div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>a</b> (i)
+\[\begin{aligned}{}^7C_3&={}^6C_3+{}^6C_2={}^5C_3+{}^5C_2+{}^6C_2\\&={}^4C_3+{}^4C_2+{}^5C_2+{}^6C_2\\&={}^3C_3+{}^3C_2+{}^4C_2+{}^5C_2+{}^6C_2,\end{aligned}\]
+and \({}^3C_3={}^2C_2=1\).<br>
+<b>b</b> (i) There are \({}^2C_2=1\) subsets with highest element 3. There are \({}^3C_2=3\) subsets with highest element 4. There are \({}^4C_2=6\) subsets with highest element 5. There are \({}^5C_2=10\) subsets with highest element 6. There are \({}^6C_2=15\) subsets with highest element 7. This makes 35 subsets with 3 members.</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> A common denominator for the two fractions is required:
+\[\begin{aligned}\text{LHS}&=\dfrac{n!}{r\times(r-1)!\times(n-r)!}+\dfrac{n!}{(r-1)!\times(n-r+1)\times(n-r)!}\\&=\dfrac{(n-r+1)\times n!+r\times n!}{r\times(r-1)!\times(n-r+1)\times(n-r)!}\\&=\dfrac{\big((n-r+1)+r\big)\times n!}{r!\times(n-r+1)!}\\&=\dfrac{(n+1)\times n!}{r!\times(n-r+1)!}\\&=\dfrac{(n+1)!}{r!\times(n-r+1)!}\\&=\text{RHS}.\end{aligned}\]
+<b>b</b> This is the addition property of Pascal's triangle.</div></div>
+<div class="a"><span class="an">12</span><div class="ab" style="line-height:1.9"><b>a</b> Regarding this as an \((a+b)\)-letter word with \(a\) identical As and \(b\) identical Bs, the number of permutations is \(\dfrac{(a+b)!}{a!\,b!}={}^{a+b}C_a={}^{a+b}C_b\).<br>
+<b>b</b> \({}^{2n}C_n\)<br>
+<b>c</b> (i) \({}^nC_2\) (ii) \({}^nC_{n-2}={}^nC_2\) (iii) \({}^5C_2\times{}^5C_2=100\)</div></div>
+
+<div class="ans-sec">{{ahead:Chapter 15 Review | Chapter review exercise}}</div>
+<div class="a"><span class="an">1</span><div class="ab">\(1\)<br>\(1\ \ 1\)<br>\(1\ \ 2\ \ 1\)<br>\(1\ \ 3\ \ 3\ \ 1\)<br>\(1\ \ 4\ \ 6\ \ 4\ \ 1\)</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><b>a</b> \(1+5x+10x^2+10x^3+5x^4+x^5\)<br><b>b</b> \(1+10x+40x^2+80x^3+80x^4+32x^5\)<br><b>c</b> \(1-9x+27x^2-27x^3\)<br><b>d</b> \(1-4xy+6x^2y^2-4x^3y^3+x^4y^4\)</div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>a</b> \(1+35x+490x^2+\cdots\)<br><b>b</b> \((1-5x)\big(1+35x+490x^2+\cdots\big)=\cdots+(490-175)x^2+\cdots\). The coefficient of \(x^2\) is \(315\).</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> \(1+7x+21x^2+35x^3+35x^4+21x^5+7x^6+x^7\)<br><b>b</b> \((1+0.02)^7=1+7\times0.02+21\times0.0004+\cdots=1+0.14+0.0084+\cdots\), and the remaining terms are much smaller. The first decimal place will be 1.</div></div>
+<div class="a"><span class="an">5</span><div class="ab" style="line-height:1.9"><b>a</b> \(81+216x+216x^2+96x^3+16x^4\)<br><b>b</b> \(125-75x+15x^2-x^3\)<br><b>c</b> \(32x^5+320x^4y+1280x^3y^2+2560x^2y^3+2560xy^4+1024y^5\)<br><b>d</b> \(x^4-4x^2+6-\dfrac{4}{x^2}+\dfrac{1}{x^4}\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> \(10\) &nbsp; <b>b</b> \(35\) &nbsp; <b>c</b> \(56\) &nbsp; <b>d</b> \(2\)</div></div>
+<div class="a"><span class="an">7</span><div class="ab" style="line-height:1.9"><b>a</b> \(45\) &nbsp; <b>b</b> \(792\) &nbsp; <b>c</b> \(84\) &nbsp; <b>d</b> \(40\) &nbsp; <b>e</b> \(\dfrac{84}{5}\) &nbsp; <b>f</b> \(\dfrac{286}{9}\)</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> \(1\) (first entry in a row)<br><b>b</b> \(0\) (reversibility of rows)<br><b>c</b> \(2^5=32\) (sum of a row)<br><b>d</b> \(0\) (addition formula)</div></div>
+<div class="a"><span class="an">9</span><div class="ab">\(n=8\)</div></div>
+<div class="a"><span class="an">10</span><div class="ab">\((1-3x)(1+5x)^{14}=(1-3x)\big(\cdots+{}^{14}C_7\,(5x)^7+{}^{14}C_8\,(5x)^8+\cdots\big)\)<br>The coefficient of \(x^8\) will be \({}^{14}C_8\times5^8-3\times{}^{14}C_7\times5^7=368671875\).</div></div>
+<div class="a"><span class="an">11</span><div class="ab" style="line-height:1.9"><b>a</b> \((1+x)^n=\dbinom n0+\dbinom n1x+\dbinom n2x^2+\dbinom n3x^3+\cdots\)<br>
+<b>b</b> Substitute \(x=2\): \((1+2)^n=\dbinom n0+\dbinom n1\times2+\dbinom n2\times4+\dbinom n3\times8+\cdots\)<br>
+<b>c</b> When \(n=4\), \(\text{LHS}=1+4\times2+6\times4+4\times8+1\times16=1+8+24+32+16=81=3^4\).</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>b</b> It tells us that the sum of the row in Pascal's triangle indexed by \(n\), that is, containing the coefficients of \((1+x)^n\), is \(2^n\).<br>
+<b>c</b> The list of all subsets of a set of \(n\) objects may be partitioned into sets of sizes \(0,1,2,\dots,n\). The sum of the number of sets of each type will be the total number of all subsets, which is \(2^n\).</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>c</b> First identity: \(1\times5+2\times10+3\times10+4\times5+5\times1=80=5\times2^4\).<br>Second identity: \(1\times2\times10+2\times3\times10+3\times4\times5+4\times5\times1=160=4\times5\times2^3\).</div></div>
+
+{{ahead:Lesson 15D | Identities in Pascal's triangle}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>North Sydney Boys High School, 2020, Year 12 Assessment Task 3, Mathematics Extension&nbsp;1,&nbsp;Q14(a)</span></div>
+<p>By the binomial theorem,</p>
+\[(1+x)^n=\dbinom n0+\dbinom n1x+\dbinom n2x^2+\cdots+\dbinom nnx^n.\]
+<p>Substitute \(x=1\). Because \(1+1=2\),</p>
+\[2^n=\dbinom n0+\dbinom n1+\dbinom n2+\cdots+\dbinom nn.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension&nbsp;1,&nbsp;Q14(c)(i)</span></div>
+<p>Differentiate both sides of \((1+x)^n={}^nC_0+{}^nC_1\,x+{}^nC_2\,x^2+{}^nC_3\,x^3+\cdots+{}^nC_n\,x^n\) with respect to \(x\):</p>
+\[n(1+x)^{n-1}={}^nC_1+2\,{}^nC_2\,x+3\,{}^nC_3\,x^2+\cdots+n\,{}^nC_n\,x^{n-1}.\]
+<p>Substitute \(x=1\):</p>
+\[n2^{n-1}={}^nC_1+2\,{}^nC_2+3\,{}^nC_3+\cdots+n\,{}^nC_n.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Killara High School, 2021, Year 12 Mathematics Extension&nbsp;1 Trial Examination,&nbsp;Q13(e)</span></div>
+<p>By the binomial theorem,</p>
+\[\begin{aligned}(1+x)^{2n}&={}^{2n}C_0+{}^{2n}C_1\,x+{}^{2n}C_2\,x^2+{}^{2n}C_3\,x^3+\cdots+{}^{2n}C_{2n}\,x^{2n},\\ (1-x)^{2n}&={}^{2n}C_0-{}^{2n}C_1\,x+{}^{2n}C_2\,x^2-{}^{2n}C_3\,x^3+\cdots+{}^{2n}C_{2n}\,x^{2n}.\end{aligned}\]
+<p>Adding, the odd powers of \(x\) cancel:</p>
+\[(1+x)^{2n}+(1-x)^{2n}=2\big({}^{2n}C_0+{}^{2n}C_2\,x^2+{}^{2n}C_4\,x^4+\cdots+{}^{2n}C_{2n}\,x^{2n}\big).\]
+<p>Now put \(n=50\) and \(x=1\). Because \({}^{100}C_0=1\),</p>
+\[2^{100}+0^{100}=2\big(1+{}^{100}C_2+{}^{100}C_4+\cdots+{}^{100}C_{100}\big),\]
+<p>so</p>
+\[1+{}^{100}C_2+{}^{100}C_4+\cdots+{}^{100}C_{100}=\dfrac{2^{100}}{2}=2^{99}.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Blacktown Boys’ High School, 2024, HSC Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q12(d)</span></div>
+<p>The rows are reversible, and \(2026-1924=102\), so \({}^{2026}C_{1924}={}^{2026}C_{102}\). By the given identity with \(n=2025\) and \(r=101\),</p>
+\[{}^{2024}C_{100}+{}^{2024}C_{101}={}^{2025}C_{101}.\]
+<p>By the given identity again, with \(n=2026\) and \(r=102\),</p>
+\[{}^{2026}C_{102}={}^{2025}C_{101}+{}^{2025}C_{102}.\]
+<p>Hence</p>
+\[\begin{aligned}{}^{2026}C_{1924}-{}^{2024}C_{100}-{}^{2024}C_{101}&={}^{2026}C_{102}-{}^{2025}C_{101}\\&={}^{2025}C_{102}.\end{aligned}\]
+<p>So one possible set is \(p=2025\) and \(q=102\). (Another is \(p=2025\) and \(q=1923\).)</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Pymble Ladies' College, 2023, Mathematics Extension 1 HSC Trial Examination Term&nbsp;3,&nbsp;Q14(b)</span></div>
+<p>The club has \(n\) males and \(n\) females. Choosing any 3 of the \(2n\) members, there are \({}^{2n}C_3\) committees. Now count the same committees by the number of males on them:</p>
+<table class="t" style="font-size:9.8pt;margin:1mm auto"><tr><th>Males</th><th>Females</th><th>Number of committees</th></tr>
+<tr><td style="text-align:center">3</td><td style="text-align:center">0</td><td style="text-align:center">\({}^nC_3\)</td></tr>
+<tr><td style="text-align:center">2</td><td style="text-align:center">1</td><td style="text-align:center">\({}^nC_2\times n\)</td></tr>
+<tr><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">\(n\times{}^nC_2\)</td></tr>
+<tr><td style="text-align:center">0</td><td style="text-align:center">3</td><td style="text-align:center">\({}^nC_3\)</td></tr></table>
+<p>Both counts give the number of all the committees, so</p>
+\[{}^{2n}C_3=2\,{}^nC_3+2n\,{}^nC_2,\quad\text{that is,}\quad n\,{}^nC_2+{}^nC_3=\dfrac12\,{}^{2n}C_3.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Kinross Wolaroi School, 2023, Year 12 Mathematics Extension&nbsp;1 Trial HSC Examination,&nbsp;Q14(d)</span></div>
+<p>Because \((1+x)^3(1+x)^6=(1+x)^9\), the coefficients of \(x^6\) on both sides are equal. On the right, the coefficient of \(x^6\) is \(\dbinom96\). On the left,</p>
+\[(1+x)^3(1+x)^6=\Big(\dbinom30+\dbinom31x+\dbinom32x^2+\dbinom33x^3\Big)\Big(\dbinom60+\dbinom61x+\cdots+\dbinom66x^6\Big).\]
+<p>A term in \(x^6\) comes from the term in \(x^k\) in the first bracket times the term in \(x^{6-k}\) in the second bracket, for \(k=0,1,2,3\). So the coefficient of \(x^6\) on the left is</p>
+\[\dbinom30\dbinom66+\dbinom31\dbinom65+\dbinom32\dbinom64+\dbinom33\dbinom63.\]
+<p>Equating the coefficients of \(x^6\) gives the result.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>North Sydney Boys High School, 2023, Year 12, Assessment task 3, Term 2, Mathematics Extension&nbsp;1,&nbsp;Q14(c)</span></div>
+<p>By the binomial theorem, \(a_k={}^nC_k\) and \(b_k={}^{n+1}C_k\). Expand the right-hand side of \((1+x)^{n+1}=(1+x)^n(1+x)\):</p>
+\[\big(a_0+a_1x+\cdots+a_nx^n\big)(1+x)=a_0+(a_0+a_1)x+(a_1+a_2)x^2+\cdots+a_nx^{n+1}.\]
+<p>Equating the coefficients of \(x^k\), \(a_{k-1}+a_k=b_k\) for \(k=1,2,\dots,n\). Also \(a_0=1\). So the expression is</p>
+\[\dfrac{b_1b_2\cdots b_n}{a_0a_1a_2\cdots a_n}=\dfrac{b_1}{a_1}\times\dfrac{b_2}{a_2}\times\cdots\times\dfrac{b_n}{a_n}.\]
+<p>By the formula for \({}^nC_r\), for \(k=1,2,\dots,n\),</p>
+\[\dfrac{b_k}{a_k}=\dfrac{(n+1)!}{k!\,(n+1-k)!}\times\dfrac{k!\,(n-k)!}{n!}=\dfrac{n+1}{n+1-k}.\]
+<p>So the expression is</p>
+\[\dfrac{n+1}{n}\times\dfrac{n+1}{n-1}\times\cdots\times\dfrac{n+1}{1}=\dfrac{(n+1)^n}{n!}.\]</div>

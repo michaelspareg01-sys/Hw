@@ -1,1 +1,250 @@
-<!-- filled by Task 5 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 15D</div><h2>Identities in Pascal's triangle</h2>
+<div class="focus">Each pattern in Pascal's triangle is described by an identity on the binomial coefficients \({}^nC_r\). This lesson proves such identities in several ways: by counting subsets, by substituting into the binomial expansion, by the addition property, by differentiating and then substituting, by the formula for \({}^nC_r\), and by equating coefficients.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:patterns and three methods of proof}}
+<div class="box concept"><div class="bt">Identities in Pascal's triangle</div>
+<p>There are a great number of patterns in Pascal's triangle. Some are quite straightforward to recognise and to prove, others are more complicated. They are very important in all applications of the binomial theorem, and in particular they will be important in Year 12 binomial probability.</p>
+<p>Each pattern in Pascal's triangle is described by an identity on the binomial coefficients \({}^nC_r\). These identities sometimes have a rather forbidding appearance, so take the time to interpret each identity as some sort of pattern in Pascal's triangle. Use small values of \(n\) such as \(n=3\), \(n=4\) and \(n=5\) to work out what the identity is saying. Verify each identity in the triangle, either before or after the proof is completed.</p>
+<style>table.pt td,table.pt th{padding:.15mm 2.4mm;line-height:1.2;text-align:center}</style><table class="t pt" style="font-size:9.2pt;margin:1mm auto 0"><tr><th>\(n\backslash r\)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+<tr><th>0</th><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>1</th><td>1</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>2</th><td>1</td><td>2</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>3</th><td>1</td><td>3</td><td>3</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>4</th><td>1</td><td>4</td><td>6</td><td>4</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>5</th><td>1</td><td>5</td><td>10</td><td>10</td><td>5</td><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>6</th><td>1</td><td>6</td><td>15</td><td>20</td><td>15</td><td>6</td><td>1</td><td></td><td></td><td></td><td></td></tr>
+<tr><th>7</th><td>1</td><td>7</td><td>21</td><td>35</td><td>35</td><td>21</td><td>7</td><td>1</td><td></td><td></td><td></td></tr>
+<tr><th>8</th><td>1</td><td>8</td><td>28</td><td>56</td><td>70</td><td>56</td><td>28</td><td>8</td><td>1</td><td></td><td></td></tr>
+<tr><th>9</th><td>1</td><td>9</td><td>36</td><td>84</td><td>126</td><td>126</td><td>84</td><td>36</td><td>9</td><td>1</td><td></td></tr>
+<tr><th>10</th><td>1</td><td>10</td><td>45</td><td>120</td><td>210</td><td>252</td><td>210</td><td>120</td><td>45</td><td>10</td><td>1</td></tr></table></div>
+<div class="box formula"><div class="bt">Methods of proof</div>
+<p>Methods of proof, as well as the identities themselves, are the subject of this lesson. Each proof begins with some form of the binomial expansion. There are three basic approaches, and many identities can be proven using two or even all three of them.</p>
+<ul><li><b>Combinatorics.</b> Use the definition of \({}^nC_r\) as the number of \(r\)-member subsets of an \(n\)-member set.</li>
+<li><b>Algebraic substitution.</b> Substitute values into the binomial expansion
+\[(x+y)^n={}^nC_0\,x^ny^0+{}^nC_1\,x^{n-1}y^1+{}^nC_2\,x^{n-2}y^2+\cdots+{}^nC_n\,x^0y^n,\]
+or into the simpler expansion of \((1+x)^n\).</li>
+<li><b>The addition property.</b> It can be proven by both methods above, and in turn it can be used to prove some important identities.</li></ul></div>
+<div class="box take"><div class="bt">The sum of a row</div>
+<p>The row indexed by \(n\) has sum \(2^n\), that is,</p>
+\[{}^nC_0+{}^nC_1+{}^nC_2+\cdots+{}^nC_n=2^n.\]
+<p>For example, the row indexed by \(n=5\) adds to \(1+5+10+10+5+1=32=2^5\). The worked example below proves this identity by all three methods.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Substitution and counting</span></div><div class="ex-body">
+<b>a</b> By substituting \(x=3\) into the binomial expansion of \((1+x)^n\), prove that<span style="display:block;text-align:center;padding:1mm 0">\({}^nC_0+3\,{}^nC_1+9\,{}^nC_2+\cdots+3^n\,{}^nC_n=4^n\).</span>
+<b>b</b> Verify the identity in part a on the row indexed by \(n=4\).<br>
+<b>c</b> Use the definition of \({}^nC_r\) to explain why \({}^8C_3={}^8C_5\).
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+<b>a</b> By substituting \(x=4\) into the binomial expansion of \((1+x)^n\), prove that<span style="display:block;text-align:center;padding:1mm 0">\({}^nC_0+4\,{}^nC_1+16\,{}^nC_2+\cdots+4^n\,{}^nC_n=5^n\).</span>
+<b>b</b> Verify the identity in part a on the row indexed by \(n=3\).<br>
+<b>c</b> Use the definition of \({}^nC_r\) to explain why \({}^9C_2={}^9C_7\).
+{{work:60}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Keep for homework (the textbook's example)</span></div><div class="ex-body">
+Prove, in three different ways, that the row indexed by \(n\) has sum \(2^n\), that is,
+\[{}^nC_0+{}^nC_1+{}^nC_2+\cdots+{}^nC_n=2^n.\]
+<div class="sol-label">Solution</div>
+<p><b>Proving the result using combinatorics.</b> Let \(S\) be an \(n\)-member set. The left-hand side \({}^nC_0+{}^nC_1+{}^nC_2+\cdots+{}^nC_n\) is the sum of the numbers of 0-member subsets, 1-member subsets, 2-member subsets, …, \(n\)-member subsets of \(S\). That takes account of all the subsets of \(S\), so the LHS is just the number of subsets of \(S\).</p>
+<p>We can count the subsets of \(S\) a different way. To form a subset, take each element in turn and choose whether it is in or out of the subset. The multiplication principle allows us to calculate the total number of ways of doing this:</p>
+<table class="t" style="font-size:9.8pt;margin:1mm auto"><tr><th>1st element</th><th>2nd element</th><th>3rd element</th><th>…</th><th>\(n\)th element</th></tr><tr><td style="text-align:center">2</td><td style="text-align:center">2</td><td style="text-align:center">2</td><td style="text-align:center">…</td><td style="text-align:center">2</td></tr></table>
+\[\begin{aligned}\text{Hence number of subsets}&=2\times2\times2\times\cdots\times2\\&=2^n,\ \text{which proves the result.}\end{aligned}\]
+<p><b>Proving the result using algebraic substitution.</b> Start with the binomial expansion</p>
+\[(x+y)^n={}^nC_0\,x^ny^0+{}^nC_1\,x^{n-1}y^1+{}^nC_2\,x^{n-2}y^2+\cdots+{}^nC_n\,x^0y^n.\]
+<p>Now substitute \(x=y=1\). Because \(1+1=2\),</p>
+\[2^n={}^nC_0+{}^nC_1+{}^nC_2+\cdots+{}^nC_n.\]
+<p><b>Proving the result using the addition property.</b> The entries in the row indexed by \(n\) are the sum of two entries in the row above, and every entry in the row above is used in exactly two sums to calculate entries in the row below. (We can regard the 1s on the ends as being \(0+1\) and \(1+0\).) Thus the sum of the row indexed by \(n\) is double the sum of the row above.</p>
+<p>The first row is a single 1, which is \(2^0\), and the row is indexed by \(n=0\). Thus, continuing down the rows one by one, the result is clear.</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:differentiating, then substituting}}
+<div class="box concept"><div class="bt">A further approach: differentiate, then substitute</div>
+<ul><li>Differentiate both sides of the binomial expansion of \((1+x)^n\), and then substitute a value of \(x\), such as \(x=1\) or \(x=-1\). This is done in Questions 1, 2 and 3 of the homework, and in Question 13 of the Chapter review, which uses double differentiation. These results will be needed in Year 12 binomial probability.</li>
+<li>On the left, \(\dfrac{d}{dx}(1+x)^n=n(1+x)^{n-1}\). On the right, the constant term \({}^nC_0\) has derivative 0, and each term \({}^nC_r\,x^r\) has derivative \(r\times{}^nC_r\,x^{r-1}\).</li>
+<li>After substituting, each identity can be checked on a row of Pascal's triangle.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Differentiating a row</span></div><div class="ex-body">
+Differentiate both sides of the expansion
+\[(1+x)^5={}^5C_0+{}^5C_1\,x+{}^5C_2\,x^2+{}^5C_3\,x^3+{}^5C_4\,x^4+{}^5C_5\,x^5.\]
+Then substitute:<br>
+<b>a</b> \(x=1\), to show that \({}^5C_1+2\,{}^5C_2+3\,{}^5C_3+4\,{}^5C_4+5\,{}^5C_5=5\times2^4\),<br>
+<b>b</b> \(x=-1\), to show that \({}^5C_1-2\,{}^5C_2+3\,{}^5C_3-4\,{}^5C_4+5\,{}^5C_5=0\).<br>
+Check both results on the row \(1\ \,5\ \,10\ \,10\ \,5\ \,1\).
+{{work:75}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Differentiate both sides of the expansion
+\[(1+x)^3={}^3C_0+{}^3C_1\,x+{}^3C_2\,x^2+{}^3C_3\,x^3.\]
+Then substitute:<br>
+<b>a</b> \(x=1\), to show that \({}^3C_1+2\,{}^3C_2+3\,{}^3C_3=3\times2^2\),<br>
+<b>b</b> \(x=-1\), to show that \({}^3C_1-2\,{}^3C_2+3\,{}^3C_3=0\).<br>
+Check both results on the row \(1\ \,3\ \,3\ \,1\).
+{{work:70}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Differentiate both sides of the binomial expansion \((1+x)^n={}^nC_0+{}^nC_1\,x+{}^nC_2\,x^2+\cdots+{}^nC_n\,x^n\), and then substitute \(x=2\), to prove that
+\[1\times{}^nC_1+2\times2\times{}^nC_2+3\times2^2\times{}^nC_3+\cdots+n\times2^{n-1}\times{}^nC_n=n\times3^{n-1}.\]
+Then check the result on the row indexed by \(n=3\).
+<div class="sol-label">Solution</div>
+<p>Differentiating both sides of the expansion,</p>
+\[n(1+x)^{n-1}={}^nC_1+2\times{}^nC_2\,x+3\times{}^nC_3\,x^2+\cdots+n\times{}^nC_n\,x^{n-1}.\]
+<p>Now substitute \(x=2\). Because \(1+2=3\),</p>
+\[n\times3^{n-1}=1\times{}^nC_1+2\times2\times{}^nC_2+3\times2^2\times{}^nC_3+\cdots+n\times2^{n-1}\times{}^nC_n.\]
+<p><b>Check.</b> The row indexed by \(n=3\) is \(1\ \,3\ \,3\ \,1\), so</p>
+\[\begin{aligned}\text{LHS}&=1\times3+2\times2\times3+3\times4\times1=27,\\\text{RHS}&=3\times3^2=27.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:the formula for ⁿCᵣ, and equating coefficients}}
+<div class="box concept"><div class="bt">Two more approaches</div>
+<ul><li><b>Use the formula.</b> Use the formula \({}^nC_r=\dfrac{n!}{r!\,(n-r)!}\) to express the LHS and the RHS in terms of factorials, and then simplify. To find a common denominator, write a factorial in terms of a smaller one, for example \(r!=r\times(r-1)!\) and \((n-r+1)!=(n-r+1)\times(n-r)!\). This method is used in Questions 7, 10 and 14 of the homework.</li>
+<li><b>Equate coefficients.</b> Expand both sides of an algebraic identity, such as \((1+x)^n(1+x)^n=(1+x)^{2n}\), and equate the coefficients of one power of \(x\). This method is more elaborate. A couple of examples are included in the Enrichment questions, and trial papers use it too.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Factorials and coefficients</span></div><div class="ex-body">
+<b>a</b> Use the formula for \({}^nC_r\) to prove that \(r\times{}^nC_r=n\times{}^{n-1}C_{r-1}\), for \(1\le r\le n\).<br>
+<b>b</b> By equating coefficients of \(x^2\) on both sides of \((1+x)^2(1+x)^n=(1+x)^{n+2}\), prove that<span style="display:block;text-align:center;padding:1mm 0">\({}^nC_2+2\,{}^nC_1+{}^nC_0={}^{n+2}C_2\), for \(n\ge2\).</span>
+Check the result in part b for \(n=3\).
+{{work:90}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same methods</span></div><div class="ex-body">
+<b>a</b> Use the formula for \({}^nC_r\) to prove that \((n-r)\times{}^nC_r=n\times{}^{n-1}C_r\), for \(0\le r\le n-1\).<br>
+<b>b</b> By equating coefficients of \(x^3\) on both sides of \((1+x)^2(1+x)^n=(1+x)^{n+2}\), prove that<span style="display:block;text-align:center;padding:1mm 0">\({}^nC_3+2\,{}^nC_2+{}^nC_1={}^{n+2}C_3\), for \(n\ge3\).</span>
+Check the result in part b for \(n=4\).
+{{work:90}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Use the formula for \({}^nC_r\) to prove that \(\dfrac{{}^nC_{r+1}}{{}^nC_r}=\dfrac{n-r}{r+1}\), for \(0\le r\le n-1\).<br>
+<b>b</b> By equating coefficients of \(x^2\) on both sides of \((1+x)^m(1+x)^n=(1+x)^{m+n}\), prove that<span style="display:block;text-align:center;padding:1mm 0">\({}^mC_2+{}^mC_1\times{}^nC_1+{}^nC_2={}^{m+n}C_2\), for \(m\ge2\) and \(n\ge2\).</span>
+Check the result in part b for \(m=3\) and \(n=4\).
+<div class="sol-label">Solution</div>
+<p><b>a</b> Using the formula, and then \((r+1)!=(r+1)\times r!\) and \((n-r)!=(n-r)\times(n-r-1)!\),</p>
+\[\begin{aligned}\dfrac{{}^nC_{r+1}}{{}^nC_r}&=\dfrac{n!}{(r+1)!\,(n-r-1)!}\times\dfrac{r!\,(n-r)!}{n!}\\&=\dfrac{r!}{(r+1)\times r!}\times\dfrac{(n-r)\times(n-r-1)!}{(n-r-1)!}\\&=\dfrac{n-r}{r+1}.\end{aligned}\]
+<p><b>b</b> On the left, the terms in \(x^2\) come from (term in \(x^k\)) \(\times\) (term in \(x^{2-k}\)), for \(k=0,1,2\):</p>
+\[\begin{aligned}(1+x)^m(1+x)^n&=\big({}^mC_0+{}^mC_1\,x+{}^mC_2\,x^2+\cdots\big)\big({}^nC_0+{}^nC_1\,x+{}^nC_2\,x^2+\cdots\big)\\&=\cdots+\big({}^mC_0\times{}^nC_2+{}^mC_1\times{}^nC_1+{}^mC_2\times{}^nC_0\big)x^2+\cdots\end{aligned}\]
+<p>On the right, the coefficient of \(x^2\) in \((1+x)^{m+n}\) is \({}^{m+n}C_2\). Equating the coefficients of \(x^2\), and using \({}^mC_0={}^nC_0=1\),</p>
+\[{}^mC_2+{}^mC_1\times{}^nC_1+{}^nC_2={}^{m+n}C_2.\]
+<p><b>Check.</b> When \(m=3\) and \(n=4\), the LHS is \(3+3\times4+6=21\), and the RHS is \({}^7C_2=21\).</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 15D}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">[Substitution and differentiation]<br>Begin with the binomial expansion for \(n=4\),
+\[(1+x)^4={}^4C_0+{}^4C_1\,x+{}^4C_2\,x^2+{}^4C_3\,x^3+{}^4C_4\,x^4,\qquad(*)\]
+and use it to prove the following results. Explain each result in terms of the row \(1\ \,4\ \,6\ \,4\ \,1\) indexed by \(n=4\) in Pascal's triangle.
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>(i) By substituting \(x=1\), show that \({}^4C_0+{}^4C_1+{}^4C_2+{}^4C_3+{}^4C_4=2^4\).<br>(ii) By substituting \(x=-1\), show that \({}^4C_0+{}^4C_2+{}^4C_4={}^4C_1+{}^4C_3\).<br>(iii) Hence, by using the result of part (i), show that \({}^4C_0+{}^4C_2+{}^4C_4=2^3\).</span><span><span class="pl">b</span>(i) Differentiate both sides of the binomial expansion \((*)\) above.<br>(ii) By substituting \(x=1\), show that \({}^4C_1+2\,{}^4C_2+3\,{}^4C_3+4\,{}^4C_4=4\times2^3\).<br>(iii) By substituting \(x=-1\), show that \({}^4C_1-2\,{}^4C_2+3\,{}^4C_3-4\,{}^4C_4=0\).</span></div>{{work:58}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">[Substitution and differentiation]<br>Use the general binomial expansion,
+\[(1+x)^n={}^nC_0+{}^nC_1\,x+\cdots+{}^nC_n\,x^n\qquad(*)\]
+to prove the following results. Explain each result in terms of the row \(1\ \,5\ \,10\ \,10\ \,5\ \,1\) indexed by \(n=5\) in Pascal's triangle.
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>(i) By substituting \(x=1\), show that \({}^nC_0+{}^nC_1+\cdots+{}^nC_n=2^n\).<br>(ii) By substituting \(x=-1\), show that \({}^nC_0+{}^nC_2+{}^nC_4+\cdots={}^nC_1+{}^nC_3+{}^nC_5+\cdots\)<br>(iii) Hence, by using the result of part (i), show that \({}^nC_0+{}^nC_2+{}^nC_4+\cdots=2^{n-1}\).</span><span><span class="pl">b</span>(i) Differentiate both sides of the binomial expansion \((*)\) above.<br>(ii) By substituting \(x=1\), show that \(1\times{}^nC_1+2\times{}^nC_2+\cdots+n\times{}^nC_n=n2^{n-1}\).<br>(iii) By substituting \(x=-1\), show that \(1\times{}^nC_1-2\times{}^nC_2+\cdots+(-1)^{n-1}n\times{}^nC_n=0\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">[Substitution and differentiation]<br>This question follows the same steps as Question 2, and uses the expansion
+\[(1+x)^{2n}={}^{2n}C_0+{}^{2n}C_1\,x+\cdots+{}^{2n}C_{2n}\,x^{2n}.\qquad(*)\]
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>(i) Show that \({}^{2n}C_0+{}^{2n}C_1+\cdots+{}^{2n}C_{2n}=2^{2n}\).<br>(ii) Show that \({}^{2n}C_1+{}^{2n}C_3+{}^{2n}C_5+\cdots+{}^{2n}C_{2n-1}=2^{2n-1}\).<br>Check both results in Pascal's triangle, using \(n=3\) and \(n=4\).</span><span><span class="pl">b</span>By differentiating both sides of the identity, show that:<br>(i) \(1\times{}^{2n}C_1+2\times{}^{2n}C_2+\cdots+2n\times{}^{2n}C_{2n}=n2^{2n}\).<br>(ii) \(1\times{}^{2n}C_1-2\times{}^{2n}C_2+\cdots+(-1)^{2n-1}2n\times{}^{2n}C_{2n}=0\).<br>Check both results in Pascal's triangle, using \(n=3\) and \(n=4\).</span></div>{{work:70}}</div></div>
+
+{{band:D}}
+<p>For the next three questions, you should use the definition for the symbol \({}^nC_r\) as the number of ways of choosing an \(r\)-member subset from an \(n\)-member set.</p>
+<div class="q"><span class="q-num">4</span><div class="q-body">[Combinatorics]<br>Consider the set \(S=\{A,B,C,D,E\}\).
+<div class="parts one"><span><span class="pl">a</span>List all the subsets of \(\{A,B,C,D,E\}\) containing 2 letters.</span><span><span class="pl">b</span>List all the subsets of \(\{A,B,C,D,E\}\) containing 3 letters.</span><span><span class="pl">c</span>Consider the subset \(\{A,B\}\). What letters have been omitted from the subset?</span><span><span class="pl">d</span>Use the definition of \({}^nC_r\) to explain why \({}^5C_2={}^5C_3\).</span><span><span class="pl">e</span>Explain why \({}^nC_r={}^nC_{n-r}\) for any whole numbers \(n\) and \(r\) with \(r\le n\).</span></div>{{work:68}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">[Combinatorics]<br>Consider the set \(S=\{A,B,C,D\}\).
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Write down all the subsets of \(S\), then explain why there are exactly \(2^4\) of them.</span><span><span class="pl">b</span>Hence explain why \(\dbinom40+\dbinom41+\dbinom42+\dbinom43+\dbinom44=2^4\).</span><span><span class="pl">c</span>Explain why \(\dbinom n0+\dbinom n1+\cdots+\dbinom nn=2^n\), for any whole number \(n\).</span></div>{{work:78}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">[A combinatorics proof of the addition property]<br>Consider the sets
+\[S=\{A,B,C,D,E\}\quad\text{and}\quad U=\{A,B,C,D\}.\]
+<div class="parts one"><span><span class="pl">a</span>(i) Write down all the 3-letter subsets of \(S\) that do not contain \(E\).<br>(ii) Explain why this is a list of all the 3-letter subsets of \(U\).</span><span><span class="pl">b</span>(i) Write down all the 3-letter subsets of \(S\) that contain \(E\).<br>(ii) Explain how to pair them up with all the 2-letter subsets of \(U\).</span><span><span class="pl">c</span>Hence explain why \({}^4C_2+{}^4C_3={}^5C_3\).</span><span><span class="pl">d</span>Explain why \({}^nC_{r-1}+{}^nC_r={}^{n+1}C_r\), for any whole numbers \(n\) and \(r\) with \(1\le r\le n\).</span></div>{{work:85}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">[The addition property and the formula for \({}^nC_r\)]<br>In this question, you will prove that if \(a\), \(b\), \(c\) and \(d\) are any four consecutive terms in any row of Pascal's triangle, then
+\[\dfrac{a}{a+b}+\dfrac{c}{c+d}=\dfrac{2b}{b+c}.\]
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Consider the row \(1,\ 7,\ 21,\ 35,\ 35,\ 21,\ 7,\ 1\) indexed by \(n=7\). Show that the identity holds for each sequence \(a\), \(b\), \(c\), \(d\) of four consecutive terms from this row.</span><span><span class="pl">b</span>Choose four consecutive terms from any other row and show that the identity holds.</span><span><span class="pl">c</span>Prove the identity by letting \(a={}^nC_{r-1}\), \(b={}^nC_r\), \(c={}^nC_{r+1}\) and \(d={}^nC_{r+2}\). You will need to use the addition property, then the formula \({}^nC_r=\dfrac{n!}{r!\,(n-r)!}\).</span></div>{{work:68}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">[Two combinatorics proofs]<br>We have seen in Question 2a that substituting \(x=-1\) and \(x=1\) into the binomial expansion proves
+\[\begin{aligned}&{}^nC_0+{}^nC_1+{}^nC_2+{}^nC_3+\cdots=2^n.&&(1)\\&{}^nC_0-{}^nC_1+{}^nC_2-{}^nC_3+\cdots=0,\ \text{for }n\ge1.&&(2)\end{aligned}\]
+Here are combinatorics proofs of these results.
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Let \(S\) be an \(n\)-member set, and interpret each \({}^nC_r\) as the number of \(r\)-member subsets of \(S\). Hence prove the first identity (1).</span><span><span class="pl">b</span>To prove the second identity (2), choose a fixed element \(A\) in the set \(S\). Pair up each subset \(U\) not containing \(A\) with the unique subset \(U\cup\{A\}\) containing \(A\).<br>(i) Explain why the procedure arranges all the subsets of \(S\) uniquely into pairs.<br>(ii) Explain why one member of each pair has an even number of members, and the other has an odd number of members.<br>(iii) Hence prove that \({}^nC_0+{}^nC_2+\cdots={}^nC_1+{}^nC_3+\cdots\).</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">[The hockey-stick identity]<br>Look at the column indexed by \(r=2\) in Pascal's triangle:
+\[{}^2C_2+{}^3C_2+{}^4C_2+{}^5C_2+{}^6C_2=1+3+6+10+15=35={}^7C_3.\qquad(*)\]
+The general form of this well-known <i>hockey-stick identity</i> is
+\[{}^rC_r+{}^{r+1}C_r+{}^{r+2}C_r+\cdots+{}^nC_r={}^{n+1}C_{r+1}\qquad(**)\]
+where \(n\) and \(r\) are whole numbers with \(0\le r\le n\). Here are proofs of this identity using the addition property, and using a combinatorial proof.
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>[A proof using the addition property]<br>(i) To prove the particular result \((*)\), start with the right-hand side and write<span style="display:block;text-align:center;padding:1mm 0">\({}^7C_3={}^6C_3+{}^6C_2\),</span>then keep expanding the term with \(r=3\). To complete the proof, you will need to use the fact that \({}^3C_3={}^2C_2=1\).<br>(ii) Generalise this to a proof of the identity \((**)\).</span><span><span class="pl">b</span>[A combinatorics proof]<br>(i) The number \({}^7C_3\) is the number of 3-member subsets of a 7-member set \(S\). To choose a 3-member subset \(U\) of \(S=\{1,2,3,4,5,6,7\}\), make the choice in the following way:
+<ul style="margin:1mm 0"><li>First choose from \(S\) the greatest number \(k\) that will be in the subset \(U\). This must be one of the numbers 3, 4, 5, 6 or 7, because \(U\) is to have three members, so it will have two numbers smaller than \(k\).</li>
+<li>Then choose the remaining two numbers in \(U\) from the \(k-1\) possible numbers \(1,2,\dots,k-1\).</li></ul>
+Explain why this method of choosing the subset yields the identity \((*)\).<br>(ii) Generalise this to a proof of the identity \((**)\).</span></div>{{work:120}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">[The formula for \({}^nC_r\)]<br>This question involves the formula \({}^nC_r=\dfrac{n!}{r!\,(n-r)!}\).
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Prove that<span style="display:block;text-align:center;padding:1mm 0">\(\dfrac{n!}{r!\,(n-r)!}+\dfrac{n!}{(r-1)!\,(n-r+1)!}=\dfrac{(n+1)!}{r!\,(n-r+1)!}\).</span></span><span><span class="pl">b</span>What result have you proven?</span></div>{{work:70}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">11</span><div class="q-body">[Comparing coefficients]<br>By comparing coefficients of \(x^n\) on both sides of the identity \((1+x)^n(1+x)^n=(1+x)^{2n}\), show that
+\[\big({}^nC_0\big)^2+\big({}^nC_1\big)^2+\big({}^nC_2\big)^2+\big({}^nC_3\big)^2+\cdots+\big({}^nC_n\big)^2={}^{2n}C_n.\]
+Check this identity in Pascal's triangle by adding the squares of the rows indexed by \(n=1,\ 2,\ 3,\ 4,\ 5\) and \(6\).{{work:95}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">[A combinatorial approach to Question 11]<br>In this question we consider binary words consisting only of the letters A and B.
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Consider a binary word consisting of \(a+b\) letters, with A occurring \(a\) times and B occurring \(b\) times. Show that there are \({}^{a+b}C_a={}^{a+b}C_b\) permutations of such a word.</span><span><span class="pl">b</span>How many possible permutations are there of a binary word with \(2n\) letters, if A and B both occur \(n\) times?</span><span><span class="pl">c</span>A word with \(2n\) letters may be split down the middle into two words of \(n\) letters. Consider the example where two As fall in the first \(n\)-letter word.<br>(i) How many arrangements are there of the first \(n\)-letter binary word with two As?<br>(ii) How many arrangements are there of the second \(n\)-letter binary word with \(n-2\) of the As and 2 Bs?<br>(iii) How many arrangements are there of a ten-letter binary word with two As in the first half and two Bs in the second half?</span></div>{{work:78}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">[Comparing coefficients to prove the addition property]<br>Prove the addition property in Pascal's triangle by comparing coefficients of \(x^r\) on both sides of the identity
+\[(1+x)(1+x)^n=(1+x)^{n+1}.\]{{work:72}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">[An inequality proven using the formula for \({}^nC_r\)]
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Prove that \({}^{2n}C_r&lt;{}^{2n}C_{r+1}\), for all whole numbers \(n\) and \(r\) with \(r&lt;n\).</span><span><span class="pl">b</span>Prove that \({}^{2n+1}C_r&lt;{}^{2n+1}C_{r+1}\), for all whole numbers \(n\) and \(r\) with \(r&lt;n\).</span></div>{{work:215}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>16 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>North Sydney Boys High School, 2020, Year 12 Assessment Task 3, Mathematics Extension&nbsp;1,&nbsp;Q14(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Show that \(\dbinom n0+\dbinom n1+\dbinom n2+\cdots\cdots+\dbinom nn=2^n\)</div>
+<div class="hint"><b>Hint:</b> start from the binomial expansion of \((1+x)^n\).</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension&nbsp;1,&nbsp;Q14(c)(i)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">By considering \((1+x)^n={}^nC_0+{}^nC_1\,x+{}^nC_2\,x^2+\cdots+{}^nC_n\,x^n\), where \(n\in\mathbb{Z}^+\), show that
+\[n2^{n-1}={}^nC_1+2\,{}^nC_2+3\,{}^nC_3+\cdots+n\,{}^nC_n.\]</div>
+<div class="hint"><b>Hint:</b> compare the Concept 2 worked example.</div>{{work:46}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Killara High School, 2021, Year 12 Mathematics Extension&nbsp;1 Trial Examination,&nbsp;Q13(e)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Expand \((1+x)^{2n}+(1-x)^{2n}\) and hence, evaluate
+\[1+{}^{100}C_2+{}^{100}C_4+\cdots+{}^{100}C_{100}\]</div>
+<div class="hint"><b>Hint:</b> which terms cancel when the two expansions are added?</div>{{work:56}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Blacktown Boys’ High School, 2024, HSC Trial Examination, Mathematics Extension&nbsp;1,&nbsp;Q12(d)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">It is known that \({}^nC_r={}^{n-1}C_{r-1}+{}^{n-1}C_r\) for all integers such that \(1\le r\le n-1\). (Do NOT prove this.)<br>Find ONE possible set of values for \(p\) and \(q\) such that
+\[{}^{2026}C_{1924}-{}^{2024}C_{100}-{}^{2024}C_{101}={}^pC_q\]</div>
+<div class="hint"><b>Hint:</b> the rows of Pascal's triangle are reversible.</div>{{work:90}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Pymble Ladies' College, 2023, Mathematics Extension 1 HSC Trial Examination Term&nbsp;3,&nbsp;Q14(b)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">A Maths club has \(2n\) members, half of which are male and half female.<br>A Pi Day committee is made up of 3 members of this club. By considering all different combinations for this committee, show that
+\[n\,{}^nC_2+{}^nC_3=\dfrac12\,{}^{2n}C_3,\quad\text{where }n\ge3.\]</div>
+<div class="hint"><b>Hint:</b> sort the possible committees by the number of males on them.</div>{{work:100}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Kinross Wolaroi School, 2023, Year 12 Mathematics Extension&nbsp;1 Trial HSC Examination,&nbsp;Q14(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Using the expansion of \((1+x)^3(1+x)^6\) show that:
+\[\dbinom30\dbinom66+\dbinom31\dbinom65+\dbinom32\dbinom64+\dbinom33\dbinom63=\dbinom96\]</div>
+<div class="hint"><b>Hint:</b> compare the Concept 3 worked example, part b.</div>{{work:75}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>North Sydney Boys High School, 2023, Year 12, Assessment task 3, Term 2, Mathematics Extension&nbsp;1,&nbsp;Q14(c)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Given the binomial expansion of:
+\[\begin{aligned}(1+x)^n&=a_0+a_1x+a_2x^2+\cdots+a_nx^n\\ (1+x)^{n+1}&=b_0+b_1x+b_2x^2+\cdots+b_{n+1}x^{n+1}\end{aligned}\]
+and knowing \((1+x)^{n+1}=(1+x)^n(1+x)\), find the expression, <b>in terms of n only</b>, of:
+\[\dfrac{1}{a_0a_1a_2\cdots a_n}\times(a_0+a_1)(a_1+a_2)\cdots(a_{n-1}+a_n)\quad\text{for }n=1,2,3,\dots\]</div>
+<div class="hint"><b>Hint:</b> what does the given identity \((1+x)^{n+1}=(1+x)^n(1+x)\) say about each bracket \(a_{k-1}+a_k\)?</div>{{work:100}}</div>
+</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter 15 Review</div><h2>Chapter review exercise</h2>
+<div class="focus">Mixed practice from the whole chapter, Lessons 15A to 15D.</div></div>
+<div class="q"><span class="q-num">1</span><div class="q-body">Write out the first five rows of Pascal's triangle.{{work:35}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Use your answer to the previous question to expand:
+<div class="parts one"><span><span class="pl">a</span>\((1+x)^5\)</span><span><span class="pl">b</span>\((1+2x)^5\)</span><span><span class="pl">c</span>\((1-3x)^3\)</span><span><span class="pl">d</span>\((1-xy)^4\)</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Expand \((1+7x)^5\) as far as the term in \(x^2\).</span><span><span class="pl">b</span>Hence find the coefficient of \(x^2\) in the expansion of \((1-5x)(1+7x)^5\).</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Expand \((1+x)^7\).</span><span><span class="pl">b</span>Hence find the first decimal place of \(1.02^7\).</span></div>{{work:45}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Expand:
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\((3+2x)^4\)</span><span><span class="pl">b</span>\((5-x)^3\)</span><span><span class="pl">c</span>\((2x+4y)^5\)</span><span><span class="pl">d</span>\(\Big(x-\dfrac1x\Big)^4\)</span></div>{{work:75}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Use the result \({}^nC_r=\dfrac{n!}{r!\,(n-r)!}\) to evaluate the following. Do not use a calculator — you will need to unroll the factorial symbol. Check your answers against Pascal's triangle.
+<div class="parts one"><span><span class="pl">a</span>\({}^5C_3\)</span><span><span class="pl">b</span>\({}^7C_4\)</span><span><span class="pl">c</span>\({}^8C_5\)</span><span><span class="pl">d</span>\({}^{120}C_{60}\div{}^{119}C_{60}\)</span></div>{{work:55}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Use your calculator button \(\boxed{{}^nC_r}\) to evaluate the following.
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\({}^{10}C_8\)</span><span><span class="pl">b</span>\(\dbinom{12}7\)</span><span><span class="pl">c</span>\({}^9C_6\)</span><span><span class="pl">d</span>\(\dbinom{10}3\div\dbinom32\)</span><span><span class="pl">e</span>\(\dfrac{{}^{10}C_5}{{}^6C_2}\)</span><span><span class="pl">f</span>\(\dfrac{{}^{16}C_6}{{}^{10}C_5}\)</span></div>{{work:35}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Use your understanding of the patterns in Pascal's triangle to simplify the following expressions.
+<div class="parts one"><span><span class="pl">a</span>\({}^nC_0\)</span><span><span class="pl">b</span>\({}^9C_4-{}^9C_5\)</span><span><span class="pl">c</span>\({}^5C_0+{}^5C_1+{}^5C_2+{}^5C_3+{}^5C_4+{}^5C_5\)</span><span><span class="pl">d</span>\({}^{2n+1}C_n-{}^{2n}C_n-{}^{2n}C_{n-1}\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Solve \({}^nC_2=28\).{{work:45}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Find the coefficient of \(x^8\) in the expansion of \((1-3x)(1+5x)^{14}\).{{work:45}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Write out the first few terms in the expansion of \((1+x)^n\).</span><span><span class="pl">b</span>By an appropriate substitution, prove that:<span style="display:block;text-align:center;padding:1mm 0">\(\dbinom n0+2\times\dbinom n1+4\times\dbinom n2+8\times\dbinom n3+\cdots=3^n\)</span></span><span><span class="pl">c</span>Verify this result for the row indexed by \(n=4\) in Pascal's triangle.</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Prove that \({}^nC_0+{}^nC_1+{}^nC_2+{}^nC_3+\cdots=2^n\).</span><span><span class="pl">b</span>What is the significance of this result for Pascal's triangle?</span><span><span class="pl">c</span>How may this result be interpreted as a sum of combinations?</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Differentiate the identity \((1+x)^n={}^nC_0+{}^nC_1\,x+\cdots+{}^nC_n\,x^n\), then make a substitution, to prove that<span style="display:block;text-align:center;padding:1mm 0">\(1\times{}^nC_1+2\times{}^nC_2+\cdots+n\times{}^nC_n=n2^{n-1}\).</span></span><span><span class="pl">b</span>Differentiate the identity a second time, then make a substitution, to prove that<span style="display:block;text-align:center;padding:1mm 0">\(1\times2\times{}^nC_2+2\times3\times{}^nC_3+3\times4\times{}^nC_4+\cdots+(n-1)\times n\times{}^nC_n\)<br>\(=(n-1)\times n\times2^{n-2}\).</span></span><span><span class="pl">c</span>Check that the row \(1,\ 5,\ 10,\ 10,\ 5,\ 1\) indexed by \(n=5\) obeys these two identities.</span></div>{{work:205}}</div></div>
+</div>
