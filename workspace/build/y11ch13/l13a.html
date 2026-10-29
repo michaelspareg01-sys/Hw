@@ -1,1 +1,284 @@
-<!-- filled by Task 2 -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 13A</div><h2>The language of probability distributions</h2>
+<div class="focus">A probability distribution lists the possible values of a random experiment together with their probabilities. This lesson sets up the language of the chapter: random experiments and random variables, numeric and categorical distributions, uniform distributions, sample spaces that can be listed (even infinite ones), and the difference between discrete and continuous distributions. Distributions are written as tables, and graphed with the values on the horizontal axis and the probabilities on the vertical axis.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:discrete probability distributions and random variables}}
+<div class="box concept"><div class="bt">What a probability distribution is</div>
+<p>Four coins are tossed and the number of heads is recorded. There are five possible outcomes 0, 1, 2, 3 and 4, with different probabilities. Using the methods of the previous chapter, we can calculate all five probabilities and arrange them in a table (see the worked example below).</p>
+<ul><li>The set \(\{\,0,1,2,3,4\,\}\) is the <b>sample space</b> of the experiment, because each time the experiment is performed, the result will be one, and only one, of these five outcomes. It is not a uniform sample space, however, because these possible outcomes are not equally likely.</li>
+<li>The set of these possible outcomes, together with the corresponding probabilities, is a <i>probability distribution</i>. In the context of probability distributions, we usually use the word <i>values</i> for the possible outcomes in the sample space.</li>
+<li>This distribution is a <i>numeric distribution</i> because all its values are numbers, and it is a <i>discrete distribution</i> because it is numeric and its values can be <i>listed</i>, which means that they can be written down in some order (here 0, 1, 2, 3, 4).</li></ul></div></div>
+<div class="box take"><div class="bt">1 Discrete probability distributions</div>
+<p>Suppose that the sample space of an experiment can be <i>listed</i>, meaning that it can be written down in some order. Suppose also that the possible outcomes, usually called <i>values</i>, are <i>numeric</i>.</p>
+<p>Then these possible outcomes, together with their probabilities, are called a <i>discrete probability distribution</i>.</p></div>
+<div class="box concept"><div class="bt">Where the probabilities come from</div>
+<p>The five probabilities for the four coins come from dividing the results of tossing four coins into 16 equally likely possible outcomes. Many distributions, however, have probabilities that are obtained without any appeal to such a uniform finite sample space. Some probabilities may be obtained by other forms of calculation, and some may be estimates obtained empirically.</p></div>
+<div class="box concept"><div class="bt">Random experiments and random variables</div>
+<ul><li>Throwing four coins, and recording the number of heads, is a <i>random experiment</i>, because there is more than one possible outcome. Throwing four coins into an empty bucket, and counting the number of coins in the bucket, is a <i>deterministic experiment</i>, because 4 is the only possible outcome.</li>
+<li>Denote by \(X\) the number of heads when four coins are thrown. This variable \(X\) is called a <i>random variable</i>, because it is the result of a random experiment. It can take the values 0, 1, 2, 3 and 4.</li>
+<li>\(P(X=3)\) is read as ‘the probability that \(X\) takes the value 3’. Similarly we write \(P(X&gt;2)\), \(P(X\text{ is odd})\) and \(P(X\text{ is prime})\).</li>
+<li>Using \(x\) (lower case) for a value of \(X\), the table has a top row \(x\) and a bottom row \(P(X=x)\). The distribution is <b>graphed</b> with the values on the horizontal axis and the probabilities on the vertical axis.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two dice, the number of sixes</span></div><div class="ex-body">
+Two dice are thrown, and \(X\) is the number of sixes showing.<br>
+<b>a</b> Write out the probability distribution of \(X\) in a table.<br>
+<b>b</b> Find \(P(X\ge1)\) and \(P(X\text{ is even})\).<br>
+<b>c</b> Graph the distribution.
+{{work:42}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A die is thrown twice, and \(X\) is the number of throws that show a number less than 3.<br>
+<b>a</b> Write out the probability distribution of \(X\) in a table.<br>
+<b>b</b> Find \(P(X\le1)\) and \(P(X\text{ is odd})\).<br>
+<b>c</b> Graph the distribution.
+{{work:42}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Four coins are tossed, and \(X\) is the number of heads.<br>
+<b>a</b> Write out the probability distribution of \(X\) in a table.<br>
+<b>b</b> Find \(P(X=3)\), \(P(X&gt;2)\), \(P(X\text{ is odd})\) and \(P(X\text{ is prime})\).<br>
+<b>c</b> Graph the distribution.
+<div class="sol-label">Solution</div>
+<p><b>a</b> There are \(2^4=16\) equally likely outcomes, such as HTHH. One has no heads (TTTT), four have one head, six have two heads (HHTT, HTHT, HTTH, THHT, THTH, TTHH), four have three heads, and one has four heads (HHHH). So the table of probabilities is shown on the left. Using \(x\) for the number of heads, it can be written as on the right.</p>
+<div class="split" style="grid-template-columns:7fr 6fr"><div>
+<table class="t" style="margin:0"><tr><th>number of heads</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>probability</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{1}{16}\)</td></tr></table>
+</div><div>
+<table class="t" style="margin:0"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{6}{16}\)</td><td>\(\tfrac{4}{16}\)</td><td>\(\tfrac{1}{16}\)</td></tr></table>
+</div></div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p><b>b</b> \(P(X=3)=\tfrac{4}{16}\). This means that the probability that there are three heads is \(\tfrac{4}{16}\). Similarly,</p>
+\[P(X&gt;2)=\tfrac{4}{16}+\tfrac{1}{16}=\tfrac{5}{16},\]
+\[P(X\text{ is odd})=\tfrac{4}{16}+\tfrac{4}{16}=\tfrac{8}{16},\]
+\[P(X\text{ is prime})=\tfrac{6}{16}+\tfrac{4}{16}=\tfrac{10}{16}.\]
+<p>(The primes among the values are 2 and 3.)</p>
+</div><div>
+<p><b>c</b> The values go on the horizontal axis and the probabilities on the vertical axis.</p>
+{{svg:c13a_coins}}
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:categorical data}}
+<div class="box concept"><div class="bt">Categorical data</div>
+<p>The values of a probability distribution don't have to be numbers. They may be names, or objects, or any verbal description. The general word for this is ‘category’, and such data is called <i>categorical</i>. For example, if a person is chosen at random from the world's population and the continent he or she lives in is recorded, the values are the six continents (see the worked example below).</p></div></div>
+<div class="box take"><div class="bt">2 Random variable</div>
+<ul><li>A <i>deterministic experiment</i> is an experiment with one possible outcome.</li>
+<li>A <i>random experiment</i> is an experiment with more than one possible outcome.</li>
+<li>A <i>random variable</i>, usually denoted by an upper-case letter such as \(X\), is the result of running a random experiment. It may be <i>numeric</i> or <i>categorical</i>.</li></ul></div>
+<div class="box warn"><div class="bt">A word of warning</div>
+<p>The calculations in the next two sections require the values to be numeric, so distributions with categorical values will not greatly concern us. A probability distribution whose values are categorical and can be listed is usually classified as discrete, but in this course, such a distribution is definitely <b>not</b> discrete, because it is not numeric.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Sports houses</span></div><div class="ex-body">
+The table shows the number of students in each sports house of a school. A student is chosen at random, and the house is recorded as the value of a random variable \(X\).
+<table class="t"><tr><th>House</th><th>Red</th><th>Blue</th><th>Gold</th><th>Green</th><th>Total</th></tr><tr><th>Students</th><td>312</td><td>288</td><td>240</td><td>360</td><td>1200</td></tr></table>
+<b>a</b> Write out the probability distribution of \(X\) in a table.<br>
+<b>b</b> Find \(P(X=\text{Red or Gold})\).<br>
+<b>c</b> Is this distribution numeric or categorical?
+{{work:44}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A bag of 50 jelly beans has 18 red, 12 green, 15 yellow and 5 black jelly beans. One jelly bean is taken at random, and its colour is recorded as the value of a random variable \(X\).<br>
+<b>a</b> Write out the probability distribution of \(X\) in a table.<br>
+<b>b</b> Find \(P(X=\text{green or yellow})\).<br>
+<b>c</b> Is this distribution numeric or categorical?
+{{work:44}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:1fr auto"><div>
+<p style="margin-top:0">The table to the right was claimed on the web to be the world's population by continent in 2016. A person is chosen at random from the world's population, and the continent he or she lives in is recorded as the value of a random variable \(X\).</p>
+<b>a</b> Write out the probability distribution of \(X\).<br>
+<b>b</b> Find \(P(X=\text{Europe or North America})\).
+</div><div>
+<table class="t" style="font-size:9.8pt;margin:0"><tr><th>Continent</th><th>Population</th><th>Per cent</th></tr>
+<tr><td style="text-align:left">Asia</td><td style="text-align:right">4\(\,\)436\(\,\)224\(\,\)000</td><td style="text-align:right">59.7%</td></tr>
+<tr><td style="text-align:left">Africa</td><td style="text-align:right">1\(\,\)216\(\,\)130\(\,\)000</td><td style="text-align:right">16.4%</td></tr>
+<tr><td style="text-align:left">Europe</td><td style="text-align:right">738\(\,\)849\(\,\)000</td><td style="text-align:right">9.9%</td></tr>
+<tr><td style="text-align:left">North America</td><td style="text-align:right">579\(\,\)024\(\,\)000</td><td style="text-align:right">7.8%</td></tr>
+<tr><td style="text-align:left">South America</td><td style="text-align:right">422\(\,\)535\(\,\)000</td><td style="text-align:right">5.7%</td></tr>
+<tr><td style="text-align:left">Oceania</td><td style="text-align:right">39\(\,\)901\(\,\)000</td><td style="text-align:right">0.5%</td></tr>
+<tr><td style="text-align:left">Total</td><td style="text-align:right">7\(\,\)432\(\,\)663\(\,\)000</td><td style="text-align:right">100%</td></tr></table>
+</div></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b> This experiment would be very hard indeed to carry out without bias, but we can imagine it. The percentages now become probabilities, which we can arrange in a probability distribution whose values are the six continents (NA and SA stand for North America and South America):</p>
+<table class="t"><tr><th>\(x\)</th><td>Asia</td><td>Africa</td><td>Europe</td><td>NA</td><td>SA</td><td>Oceania</td></tr><tr><th>\(P(X=x)\)</th><td>0.597</td><td>0.164</td><td>0.099</td><td>0.078</td><td>0.057</td><td>0.005</td></tr></table>
+<p><b>b</b> \(P(X=\text{Europe or North America})=0.099+0.078=0.177\).</p>
+<p>The values are continents, not numbers, so this distribution is categorical. In this course it is not called discrete.</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:uniform distributions and deterministic experiments}}
+<div class="box concept"><div class="bt">Uniform probability distributions</div>
+<p>A discrete or categorical probability distribution is called <i>uniform</i> if all its values have the same probability. This means that the values are <i>equally likely possible outcomes</i>, and its sample space is a <i>uniform sample space</i>. This is what we were dealing with throughout the previous chapter.</p></div></div>
+<div class="box take"><div class="bt">3 Uniform probability distribution</div>
+<p>A discrete or categorical probability distribution is called <i>uniform</i> if the probabilities of all its values are the same. That is, the values are equally likely possible outcomes, and the sample space is a uniform sample space.</p></div>
+<div class="box concept"><div class="bt">The probability distribution of a deterministic experiment</div>
+<div class="split" style="grid-template-columns:3fr 1fr"><div>
+<p style="margin-top:0">To the right is the trivial probability distribution of the deterministic experiment, ‘Throw four coins into an empty bucket and record the number of coins in the bucket.’</p>
+<p>The sample space has one possible outcome 4, which is certain to occur, and so has probability 1. The graph is drawn underneath the table. Every deterministic experiment has a similar trivial distribution, and trivially it is a uniform distribution.</p>
+</div><div>
+<table class="t" style="margin:0 auto"><tr><th>\(x\)</th><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>1</td></tr></table>
+{{svg:c13a_det}}
+</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Five numbered cards</span></div><div class="ex-body">
+Five cards numbered 2, 4, 6, 8 and 10 are shuffled, and one card is drawn. Write out the probability distribution for the number on the card, and graph the distribution. Is the distribution uniform?
+{{work:44}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A tetrahedral die has its four faces numbered 1, 3, 5 and 7. It is thrown, and the number on the face it lands on is recorded. Write out the probability distribution for the number recorded, and graph the distribution. Is the distribution uniform?
+{{work:44}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+A die is thrown. Write out the probability distribution for the number shown on the die, and graph the distribution.
+<div class="sol-label">Solution</div>
+<p>Each value has probability \(\tfrac16\), so the table of the distribution is</p>
+<div class="split"><div>
+<table class="t"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr><tr><th>\(P(X=x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{6}\)</td></tr></table>
+</div><div>
+{{svg:c13a_die}}
+</div></div>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:what is a list?}}
+<div class="box concept"><div class="bt">What is a list?</div>
+<p>Our definition of discrete probability distribution requires that the values can be listed. Obviously any finite set can be listed, but some infinite sets can also be listed.</p>
+<ul><li>The best example is the set of whole numbers, which can be listed as \(0,1,2,3,4,5,\dots\). The list will not terminate, but every whole number will eventually appear once and once only. For this reason, an infinite set that can be listed is called <i>countably infinite</i>.</li>
+<li>The integers can be listed, for example as \(0,1,-1,2,-2,3,-3,\dots\).</li>
+<li>But the set of real numbers in an interval such as \(0\le x\le1\) cannot be listed, as the German mathematician Georg Cantor proved in the late 19th century.</li></ul></div></div>
+<div class="box take"><div class="bt">4 Listing the values of the sample space</div>
+<ul><li>Any finite set can be listed.</li>
+<li>The whole numbers, and the integers, do not form finite sets, but can be listed:
+<div style="margin:1mm 0 0 8mm">\(0,1,2,3,4,\dots\) &emsp;and&emsp; \(0,1,-1,2,-2,3,-3,\dots\)</div></li>
+<li>The real numbers in an interval such as \(0\le x\le1\) cannot be listed.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Throwing until a six</span></div><div class="ex-body">
+Ali keeps throwing a die until it shows a six, and \(X\) is the number of throws he needs.<br>
+<b>a</b> Find \(P(X=1)\), \(P(X=2)\), \(P(X=3)\) and \(P(X=4)\).<br>
+<b>b</b> Write out the probability distribution of \(X\) in a table, including the general value \(n\).<br>
+<b>c</b> Explain why the values of \(X\) can be listed, even though there is no largest value.
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+A spinner has three equal sectors, one red and two blue. Bea keeps spinning it until it lands on red, and \(X\) is the number of spins she needs.<br>
+<b>a</b> Find \(P(X=1)\), \(P(X=2)\), \(P(X=3)\) and \(P(X=4)\).<br>
+<b>b</b> Write out the probability distribution of \(X\) in a table, including the general value \(n\).<br>
+<b>c</b> Explain why the values of \(X\) can be listed, even though there is no largest value.
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+[An infinite sample space that can be listed]<br>
+Wulf is a determined person. He has decided to keep tossing a coin until it shows heads. Adolfa is counting how many times he tosses the coin. What is the probability distribution for this experiment?
+<div class="sol-label">Solution</div>
+<p>The result of this experiment is how many times Wulf tosses the coin to get a head. If he is very, very unlucky, he may have to toss the coin many, many times.</p>
+\[\begin{aligned}P(\text{Wulf requires 1 toss})&amp;=P(\text{H})=\tfrac12\\P(\text{Wulf requires 2 tosses})&amp;=P(\text{TH})=\tfrac14\\P(\text{Wulf requires 3 tosses})&amp;=P(\text{TTH})=\tfrac18\\P(\text{Wulf requires 4 tosses})&amp;=P(\text{TTTH})=\tfrac{1}{16},\end{aligned}\]
+<p>and so on, giving the table:</p>
+<table class="t"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>\(\cdots\)</td><td>\(n\)</td><td>\(\cdots\)</td></tr><tr><th>\(P(X=x)\)</th><td>\(\tfrac{1}{2}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{1}{8}\)</td><td>\(\tfrac{1}{16}\)</td><td>\(\tfrac{1}{32}\)</td><td>\(\cdots\)</td><td>\(\tfrac{1}{2^n}\)</td><td>\(\cdots\)</td></tr></table>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:continuous probability distributions}}
+<div class="box concept"><div class="bt">Continuous probability distributions</div>
+<p>In a continuous probability distribution, the sample space is typically a closed interval such as \(0\le x\le100\) on the real number line. Examples are the heights or weights of people, and speeds of cars on an expressway.</p>
+<ul><li>In a continuous probability distribution, the probability of any one particular value occurring is zero. The decimal expansion of most real numbers never terminates or repeats.</li>
+<li>So the probabilities involved in a continuous distribution must be recorded as the probabilities that the random variable lies within an interval, for example as \(P(55\le X\le60)\).</li>
+<li>The required machinery for this is <i>integration</i>, which is the other process in calculus, and is not covered until Year 12. So continuous probability distributions will not concern us in this chapter.</li></ul></div></div>
+<div class="box take"><div class="bt">5 Continuous probability distributions</div>
+<p>In a continuous probability distribution, the sample space is typically a closed interval such as \(0\le x\le100\) on the real number line.</p>
+<p>The sample space is therefore infinite and cannot even be listed.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Which kind of distribution?</span></div><div class="ex-body">
+State whether each probability distribution is numeric or categorical. If it is numeric, state whether it is discrete or continuous.<br>
+<b>a</b> The time taken by a randomly chosen student to run 100 metres.<br>
+<b>b</b> The number of goals scored in a soccer match.<br>
+<b>c</b> The make of a randomly chosen car in a car park.<br>
+<b>d</b> The time taken to run 100 metres, recorded by a stopwatch correct to 0.01 seconds.
+{{work:22}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skill</span></div><div class="ex-body">
+State whether each probability distribution is numeric or categorical. If it is numeric, state whether it is discrete or continuous.<br>
+<b>a</b> The mass of a randomly chosen apple.<br>
+<b>b</b> The number of children in a randomly chosen family.<br>
+<b>c</b> The favourite colour of a randomly chosen student.<br>
+<b>d</b> The mass of an apple, recorded by kitchen scales correct to the nearest gram.
+{{work:22}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+The police have set up a speed camera to measure the speeds of oncoming cars.<br>
+<b>a</b> Is the distribution of the speeds discrete or continuous?<br>
+<b>b</b> What is the probability that a car's speed is exactly 56.0123456789 km/h?
+<div class="sol-label">Solution</div>
+<p><b>a</b> If we regard the speed as a real number, then we are dealing with a continuous probability distribution. If, however, we take into account that the speed camera only records speeds correct to the nearest 0.01 km/h, then we are dealing with a discrete probability distribution. Such distinctions arise all the time in statistics, because any measurement, no matter how accurate, will only be correct to some number of decimal places.</p>
+<p><b>b</b> In a continuous distribution, the probability of any one particular value is zero. A speed of 56.0123456789 km/h has almost no chance of ever being recorded, even if it could be measured. Instead, we would ask for the probability that the speed lies in an interval, such as \(P(55\le X\le60)\).</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 13A}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">State whether each probability distribution is <i>numeric</i> or <i>categorical</i>. If it is numeric, state whether it is <i>discrete</i> or <i>continuous</i>.
+<div class="parts one"><span><span class="pl">a</span>The number showing when a die is thrown.</span><span><span class="pl">b</span>The weight of a randomly chosen adult male in Australia.</span><span><span class="pl">c</span>Whether it rains or not on a spring day in Sydney.</span><span><span class="pl">d</span>The daily rainfall in Sydney on a September day.</span><span><span class="pl">e</span>The colour of a ball drawn from a bag containing four red and three green balls.</span><span><span class="pl">f</span>The colours of two balls drawn together from a bag containing four red and three green balls.</span><span><span class="pl">g</span>The shoe size of a randomly chosen adult female in Australia.</span><span><span class="pl">h</span>ATAR results for a particular year.</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Complete the table for the probability distribution obtained when two coins are thrown one after the other and the successive results are recorded.
+<table class="t"><tr><th>outcome</th><td>HH</td><td>HT</td><td>TH</td><td>TT</td></tr><tr><th>probability</th><td></td><td></td><td></td><td></td></tr></table>
+Look at the probabilities you have obtained. What sort of distribution is this?</span><span><span class="pl">b</span>Complete the table for the probability distribution obtained when two coins are thrown and the numbers of heads and tails recorded.
+<table class="t"><tr><th>outcome</th><td>2 heads</td><td>1 head and 1 tail</td><td>2 tails</td></tr><tr><th>probability</th><td></td><td></td><td></td></tr></table></span></div>{{work:12}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Construct tables for these probability distributions.
+<div class="parts one"><span><span class="pl">a</span>A ball is drawn from a bag containing four red and three green balls, and its colour is noted.</span><span><span class="pl">b</span>One hundred tickets are sold in the class lottery. Three friends Jack, Kylie and Lochlan buy six, eight and four tickets respectively. The winner is the person whose ticket is drawn first. Construct the distribution table of the probability that the winner is Jack, Kylie, Lochlan, or Other.</span><span><span class="pl">c</span>A letter is chosen at random from the word ‘Parramatta’.</span><span><span class="pl">d</span>A whole number is chosen at random between 1 and 1000 inclusive, and the number of digits is recorded.</span><span><span class="pl">e</span>A whole number between 10 and 19 inclusive is selected at random. A record is made whether it is even, prime, or neither.</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Each experiment below returns a numerical result. Define a random variable \(X\) for each experiment and record its distribution in a table.
+<div class="parts one"><span><span class="pl">a</span>The word lengths in the sentence, ‘The ginger cat ran off with the meat.’</span><span><span class="pl">b</span>Two coins are thrown and the number of heads recorded.</span><span><span class="pl">c</span>A digit is chosen at random from the 12-digit number 1.41421356237.</span><span><span class="pl">d</span>Jeff has a collection of marbles with digits on them. He puts marbles numbered 1, 1, 2, 4 into one bag, then puts marbles numbered 2, 3, 3, 5 into a second bag. He randomly selects one of the bags, then randomly selects a marble from that bag and records its number.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Amy scoops up coins at random from a pile containing one 10&nbsp;c coin and two 5&nbsp;c coins.
+<div class="parts one"><span><span class="pl">a</span>Name the 10&nbsp;c coin T and the two 5&nbsp;c coins F1 and F2, and write down as sets the seven possible non-empty scoops.</span><span><span class="pl">b</span>Let the random variable \(X\) be the value of the money that she picks up. Assuming that she is equally likely to pick up any of these seven non-empty scoops, draw up a probability distribution table for \(X\).</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Which of these tables are probability distributions? Remember that the probabilities must be all non-negative and add to 1.
+<div class="parts one" style="row-gap:0">
+<span><span class="pl">a</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>0.1</td><td>0.6</td><td>0.2</td><td>0.1</td></tr></table></span>
+<span><span class="pl">b</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>0.5</td><td>0.3</td><td>\(-0.2\)</td><td>0.4</td></tr></table></span>
+<span><span class="pl">c</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>0.25</td><td>0.25</td><td>0.25</td><td>0.25</td></tr></table></span>
+<span><span class="pl">d</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>30%</td><td>20%</td><td>40%</td><td>10%</td></tr></table></span>
+<span><span class="pl">e</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>0.7</td><td>0.2</td><td>0.4</td><td>0.2</td></tr></table></span>
+<span><span class="pl">f</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>\(\tfrac{1}{6}\)</td><td>\(\tfrac{1}{3}\)</td><td>\(\tfrac{1}{4}\)</td><td>\(\tfrac{1}{4}\)</td></tr></table></span>
+</div>{{work:14}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">A discrete probability distribution is tabulated below.
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(P(X=x)\)</th><td>0.1</td><td>0.2</td><td>0.3</td><td>0.25</td><td>0.05</td><td>0.1</td></tr></table>
+Find:
+<div class="parts one"><span><span class="pl">a</span>\(P(X=1)\)</span><span><span class="pl">b</span>\(P(2\le X\le4)\)</span><span><span class="pl">c</span>\(P(1\le X&lt;4)\)</span><span><span class="pl">d</span>\(P(X=6)\)</span><span><span class="pl">e</span>\(P(X\le2)\)</span><span><span class="pl">f</span>\(P(X&lt;4)\)</span><span><span class="pl">g</span>\(P(X\ge1)\)</span><span><span class="pl">h</span>\(P(X&gt;1)\)</span><span><span class="pl">i</span>\(P(X\text{ is even})\)</span></div>{{work:78}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body">These questions all require probability tree diagrams with identical stages.
+<div class="parts one"><span><span class="pl">a</span>A pack of cards has 52 cards, of which 12 are court cards (jack, queen or king). A card is drawn at random, and it is recorded whether or not it is a court card. The card is replaced, then a second card is drawn and again it is recorded whether or not it is a court card.<br>(i) Draw up a probability tree diagram with two identical stages.<br>(ii) Let \(X\) be the number of court cards drawn. Use the results of part (i) to draw up a probability distribution table for \(X\).</span><span><span class="pl">b</span>Three dice are thrown, and the number of even numbers is recorded.<br>(i) Draw up a probability tree diagram with three identical stages, each stage being, ‘Throw a die and record whether the result is even or odd’.<br>(ii) Let \(X\) be the number of even numbers when the three dice are thrown. Use the results of part (i) to draw up a probability distribution table for \(X\).</span><span><span class="pl">c</span>A class has 10 girls and 15 boys. Three times the teacher chooses a student at random to answer a question, not caring whether he has called that name before. Use a similar method to draw up a probability distribution table for the number of girls called.</span><span><span class="pl">d</span>The Spring Hill Zoo has 20 friendly wallabies. Six are from Snake Gully, five are from Dingo Ridge, and nine are from Acacia Flat. On three days last week the zookeepers selected a wallaby at random and took it to breakfast with them, then returned it to the enclosure. Draw up a probability distribution table for the number \(X\) of Snake Gully wallabies taken to breakfast.</span></div>{{work:120}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Find the unknown constant \(a\) in these probability distributions. Use the facts that \(0\le P(X=x)\le1\) for each value \(x\), and that the sum of the probabilities is 1.
+<div class="parts one" style="row-gap:0">
+<span><span class="pl">a</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(P(X=x)\)</th><td>\(4a\)</td><td>\(2a\)</td><td>\(9a\)</td><td>\(3a\)</td><td>\(7a\)</td></tr></table></span>
+<span><span class="pl">b</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(P(X=x)\)</th><td>\(3a\)</td><td>\(a\)</td><td>\(4a\)</td><td>\(a\)</td><td>\(5a\)</td></tr></table></span>
+<span><span class="pl">c</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>\(-2\)</td><td>\(-1\)</td><td>0</td><td>1</td><td>2</td></tr><tr><th>\(P(X=x)\)</th><td>\(a\)</td><td>\(3a\)</td><td>\(5a\)</td><td>\(7a\)</td><td>\(11a\)</td></tr></table></span>
+<span><span class="pl">d</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td></tr><tr><th>\(P(X=x)\)</th><td>\(1-3a\)</td><td>\(a\)</td><td>\(1-9a\)</td><td>\(1-10a\)</td><td>\(a\)</td></tr></table></span>
+<span><span class="pl">e</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(P(X=x)\)</th><td>\(0.2a\)</td><td>\(0.1a\)</td><td>\(0.5a\)</td><td>\(0.1a\)</td><td>\(0.1a\)</td></tr></table></span>
+</div>{{work:84}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">These questions all involve probability tree diagrams in which the stages are different because the sampling has been done ‘without replacement’.
+<div class="parts one"><span><span class="pl">a</span>A bag contains six marbles numbered 1, 2, 3, 4, 5, 6. A marble is drawn, and it is recorded whether the number is odd or even. Without replacing the marble, a second marble is drawn, and it is recorded again whether the number is odd or even.<br>(i) Draw up a probability tree diagram for the four outcomes.<br>(ii) Draw up a probability distribution table for the number \(X\) of even numbers chosen.</span><span><span class="pl">b</span>Two students are chosen from a group of four boys and two girls. Use a similar method to draw up a probability distribution table for the number \(X\) of girls chosen.</span><span><span class="pl">c</span>Five tiles marked E, E, E, R, T are turned upside down, and two are selected at random one after the other.<br>(i) Draw a probability tree diagram for the seven possible selections of two tiles.<br>(ii) Draw up a probability distribution table for the number \(X\) of Es selected.</span></div>{{work:116}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">A small pack of cards consists of three 4s, two 2s and one 5 (the suit is not important for this experiment). A card is selected at random and the value recorded. It is then returned to the pack. This is repeated. Complete the probabilities for the outcomes of the categorical random variable \(X\) in the following table.
+<table class="t"><tr><th>\(x\)</th><td>22</td><td>44</td><td>55</td><td>24 or 42</td><td>25 or 52</td><td>45 or 54</td></tr><tr><th>\(P(X=x)\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+[This is an example of a <i>multinomial distribution</i>, a multi-stage experiment with identical stages, each with multiple outcomes. Here there are two stages, because we select a card twice, and the stages are identical because the card is replaced.]{{work:40}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Construct tables for the following distributions. In each case the outcome is categorical, namely a pair of colours or a pair of suits.
+<div class="parts one"><span><span class="pl">a</span>A ball is drawn from a bag containing four red and three green balls, and the colour is recorded. The ball is returned, a second ball is drawn, and the colour also recorded.</span><span><span class="pl">b</span>A ball is drawn from a bag containing four red and three green balls, and the colour is recorded. A second ball is drawn without replacement and the colour also recorded.</span><span><span class="pl">c</span>A pair of cards are drawn from a pack and the suits are noted (but not their order).</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">[Simulation experiment]<br>
+Cut five identical pieces of paper or cardboard. Label three of them <i>Red</i> and the other two <i>Green</i>. Place the pieces in a hat or bag.<br>
+In this experiment, two pieces of paper are drawn out, the number of greens is recorded, and the pieces are then returned. Let \(X\) be the random variable for the number of greens.
+<div class="parts one"><span><span class="pl">a</span>Copy the table below for recording the results of your experiment.
+<table class="t"><tr><th>\(x\)</th><td style="width:12mm">0</td><td style="width:12mm">1</td><td style="width:12mm">2</td></tr><tr><th>Tally</th><td></td><td></td><td></td></tr></table></span><span><span class="pl">b</span>Repeat the experiment 40 times, recording each outcome in the tally column.</span><span><span class="pl">c</span>Add two rows to your table, as below. Complete the table to calculate the experimental probabilities of each outcome.
+<table class="t"><tr><th>\(x\)</th><td style="width:12mm">0</td><td style="width:12mm">1</td><td style="width:12mm">2</td></tr><tr><th>Tally</th><td></td><td></td><td></td></tr><tr><th>Frequency \(f\)</th><td></td><td></td><td></td></tr><tr><th>Relative frequency \(f_r=\dfrac{f}{40}\)</th><td></td><td></td><td></td></tr></table></span><span><span class="pl">d</span>Compare your results with other members of the class. Does this suggest that the results are accurate? Can you explain any differences in the results obtained?</span><span><span class="pl">e</span>Calculate the theoretical probabilities for this experiment and add this as a further row to your table. How do your results compare?</span><span><span class="pl">f</span>Comment on any aspects of your experimental design that assist the accuracy of the results. Is there any way you could have improved the reliability and randomness of your experiment?</span></div>{{work:50}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">14</span><div class="q-body">A bag has six marbles marked 1, 2, 3, 4, 5, 6. Three marbles are drawn in succession, without being replaced, and the number of even-numbered marbles is recorded. Let \(X\) be the number of marbles with even numbers chosen. Draw up a probability distribution table for \(X\).{{work:60}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">Find the unknown constant \(a\) in these probability distributions.
+<div class="parts one" style="row-gap:0">
+<span><span class="pl">a</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(P(X=x)\)</th><td>\(a(a+1)\)</td><td>\(3a^2\)</td><td>\(1-3a\)</td><td>\(1-4a\)</td><td>\(a\)</td></tr></table></span>
+<span><span class="pl">b</span><table class="t" style="display:inline-table;vertical-align:middle;margin:1mm 0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>\(\tfrac16(a+1)\)</td><td>\(\tfrac14a^2\)</td><td>\(\tfrac18(5-3a)\)</td><td>\(\tfrac16(3-2a)\)</td></tr></table></span>
+</div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Kylie has a hand of four cards: the 7 of hearts, 7 of diamonds, 6 of clubs and 8 of spades. She takes three of the cards at random, places them on the table, and adds the cards' values. Construct a table showing the probability distribution of the sum.</span><span><span class="pl">b</span>Repeat this experiment if Kylie has a hand of five cards, including three 7s, a 6 and an 8, and still chooses three cards at random.</span></div>{{work:60}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 5 minutes</b></span><span><b>1 mark</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">School trial papers rarely test this lesson on its own, so this mini exam has one short item.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Baulkham Hills High School, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)(iv)</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The following table is the distribution of a random variable \(X\) where \(X\sim\text{Bin}(4,p)\).
+<table class="t"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(P(X=x)\)</th><td>0.2401</td><td>\(a\)</td><td>\(b\)</td><td>0.0756</td><td>0.0081</td></tr></table>
+<div class="pp-sub"><span>(iv) Find \(P(X\ge3)\).</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> which values of \(X\) are included in \(X\ge3\)? The table is all you need.</div>{{work:22}}</div>
+</div>
+</div>

@@ -82,5 +82,88 @@ class Fig:
 
 # Figures for the Chapter 13 pack are added by the lesson tasks (save(name, graph) writes svg/<name>.svg).
 
+from fractions import Fraction as Fr
+
+
+def dist_graph(name, xs, ps, yt, w=250, h=160, xpad=0.6, ylab="P(X = x)", xlabels=None):
+    """Dot graph of a probability distribution: values on the x-axis, probabilities up."""
+    ymax = float(max(ps)) * 1.18
+    lo = min(0, min(xs))
+    g = Graph(lo - 0.35, max(xs) + xpad, 0, ymax, w=w, h=h, pad=(44, 30, 26, 30))
+    g.axes("x", "")
+    g.items.append(_txt(g.X(max(g.xmin, 0)) + 8, g.Y(ymax) - 10, ylab, "start", size=11.5, italic=True))
+    g.xticks([(x, str(x) if xlabels is None else xlabels[i]) for i, x in enumerate(xs)])
+    g.yticks([(float(v), lab) for v, lab in yt])
+    for x, p in zip(xs, ps):
+        g.dot(x, float(p), r=3.4)
+    save(name, g)
+
+
+def bartext(x, y, s, size=13, anchor="middle"):
+    """Italic letters; a letter followed by ' is drawn with a bar over it (the complement)."""
+    spans, i = [], 0
+    while i < len(s):
+        ch = s[i]
+        bar = i + 1 < len(s) and s[i + 1] == "'"
+        if ch == " ":
+            spans.append('<tspan> </tspan>')
+        else:
+            if bar and i > 0 and s[i - 1] == "'":
+                spans.append('<tspan>\u2009</tspan>')      # keep two bars apart
+            st = ' style="text-decoration:overline"' if bar else ""
+            spans.append(f'<tspan{st}>{ch}</tspan>')
+        i += 2 if bar else 1
+    return (f'<text x="{x:.1f}" y="{y + size * 0.35:.1f}" text-anchor="{anchor}" font-size="{size}" '
+            f'font-style="italic" fill="{INK}">' + "".join(spans) + "</text>")
+
+
+def tree2(name, first, w=430, h=230):
+    """Two-stage tree. first/second: lists of (branch label, probability label); leaves get outcome and probability."""
+    f = Fig(w, h)
+    x0, x1, x2 = 40, 150, 260
+    f.text(x0 - 8, h / 2, "Start", anchor="end", size=11.5)
+    f.text(x1, 14, "1st draw", size=10.5, color="faint").text(x2, 14, "2nd draw", size=10.5, color="faint")
+    f.text(x2 + 70, 14, "outcome", size=10.5, color="faint").text(x2 + 140, 14, "probability", size=10.5, color="faint")
+    n1 = len(first)
+    rows = []
+    for i, (lab1, p1, outs) in enumerate(first):
+        y1 = 30 + (h - 40) * (i + 0.5) / n1
+        f.line(x0, h / 2, x1 - 14, y1, width=1.3)
+        f.raw(bartext(x1, y1, lab1))
+        f.text((x0 + x1) / 2 - (4 if y1 < h / 2 else 12), (h / 2 + y1) / 2 + (-17 if y1 < h / 2 else 15), p1, size=11, color="blue")
+        for j, (lab2, p2, outlab, prob) in enumerate(outs):
+            y2 = y1 + (j - (len(outs) - 1) / 2) * (h - 40) / (n1 * len(outs))
+            f.line(x1 + 12, y1, x2 - 14, y2, width=1.3)
+            f.raw(bartext(x2, y2, lab2))
+            f.text((x1 + x2) / 2 + 2, (y1 + y2) / 2 + (-17 if y2 < y1 else 15), p2, size=11, color="blue")
+            f.raw(bartext(x2 + 70, y2, outlab))
+            f.text(x2 + 140, y2, prob, size=12.5)
+    save(name, f)
+
+
+def build_13a():
+    # lesson: four coins, number of heads (13A text)
+    dist_graph("c13a_coins", [0, 1, 2, 3, 4], [Fr(1, 16), Fr(4, 16), Fr(6, 16), Fr(4, 16), Fr(1, 16)],
+               [(Fr(1, 16), "1/16"), (Fr(4, 16), "4/16"), (Fr(6, 16), "6/16")])
+    # lesson: Example 1, a die
+    dist_graph("c13a_die", [1, 2, 3, 4, 5, 6], [Fr(1, 6)] * 6, [(Fr(1, 6), "1/6")], h=120)
+    # lesson: the deterministic experiment
+    dist_graph("c13a_det", [4], [1], [(1, "1")], w=150, h=110)
+    # answers C1: two dice, number of sixes; die twice, number of results less than 3
+    dist_graph("a13a_sixes", [0, 1, 2], [Fr(25, 36), Fr(10, 36), Fr(1, 36)],
+               [(Fr(1, 36), "1/36"), (Fr(10, 36), "10/36"), (Fr(25, 36), "25/36")], w=210)
+    dist_graph("a13a_less3", [0, 1, 2], [Fr(4, 9), Fr(4, 9), Fr(1, 9)],
+               [(Fr(1, 9), "1/9"), (Fr(4, 9), "4/9")], w=210)
+    # answers C3: five cards 2, 4, 6, 8, 10; tetrahedral die 1, 3, 5, 7
+    dist_graph("a13a_cards", [2, 4, 6, 8, 10], [Fr(1, 5)] * 5, [(Fr(1, 5), "1/5")], w=250, h=110, xpad=1.0)
+    dist_graph("a13a_tetra", [1, 3, 5, 7], [Fr(1, 4)] * 4, [(Fr(1, 4), "1/4")], w=230, h=110, xpad=1.0)
+    # answers Exercise 13A Q8(a)(i): two draws with replacement, court card C or not
+    C, N = "C", "C'"
+    tree2("a13a_q8tree", [
+        (C, "3/13", [(C, "3/13", "CC", "9/169"), (N, "10/13", "CC'", "30/169")]),
+        (N, "10/13", [(C, "3/13", "C'C", "30/169"), (N, "10/13", "C'C'", "100/169")]),
+    ])
+
+
 if __name__ == "__main__":
-    pass
+    build_13a()
