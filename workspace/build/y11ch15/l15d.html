@@ -162,7 +162,7 @@ The general form of this well-known <i>hockey-stick identity</i> is
 where \(n\) and \(r\) are whole numbers with \(0\le r\le n\). Here are proofs of this identity using the addition property, and using a combinatorial proof.
 <div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>[A proof using the addition property]<br>(i) To prove the particular result \((*)\), start with the right-hand side and write<span style="display:block;text-align:center;padding:1mm 0">\({}^7C_3={}^6C_3+{}^6C_2\),</span>then keep expanding the term with \(r=3\). To complete the proof, you will need to use the fact that \({}^3C_3={}^2C_2=1\).<br>(ii) Generalise this to a proof of the identity \((**)\).</span><span><span class="pl">b</span>[A combinatorics proof]<br>(i) The number \({}^7C_3\) is the number of 3-member subsets of a 7-member set \(S\). To choose a 3-member subset \(U\) of \(S=\{1,2,3,4,5,6,7\}\), make the choice in the following way:
 <ul style="margin:1mm 0"><li>First choose from \(S\) the greatest number \(k\) that will be in the subset \(U\). This must be one of the numbers 3, 4, 5, 6 or 7, because \(U\) is to have three members, so it will have two numbers smaller than \(k\).</li>
-<li>Then choose the remaining two numbers in \(U\) from the \(k-1\) possible numbers \(1,2,\dots,k-1\).</li></ul>
+<li>Then choose the remaining two numbers in \(U\) from the \(k-1\) possible numbers <span style="white-space:nowrap">\(1,2,\dots,k-1\).</span></li></ul>
 Explain why this method of choosing the subset yields the identity \((*)\).<br>(ii) Generalise this to a proof of the identity \((**)\).</span></div>{{work:120}}</div></div>
 <div class="q"><span class="q-num">10</span><div class="q-body">[The formula for \({}^nC_r\)]<br>This question involves the formula \({}^nC_r=\dfrac{n!}{r!\,(n-r)!}\).
 <div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>Prove that<span style="display:block;text-align:center;padding:1mm 0">\(\dfrac{n!}{r!\,(n-r)!}+\dfrac{n!}{(r-1)!\,(n-r+1)!}=\dfrac{(n+1)!}{r!\,(n-r+1)!}\).</span></span><span><span class="pl">b</span>What result have you proven?</span></div>{{work:70}}</div></div>
@@ -190,7 +190,7 @@ Check this identity in Pascal's triangle by adding the squares of the rows index
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension&nbsp;1,&nbsp;Q14(c)(i)</span><span class="mk">2 marks</span></div>
 <div class="pp-q">By considering \((1+x)^n={}^nC_0+{}^nC_1\,x+{}^nC_2\,x^2+\cdots+{}^nC_n\,x^n\), where \(n\in\mathbb{Z}^+\), show that
 \[n2^{n-1}={}^nC_1+2\,{}^nC_2+3\,{}^nC_3+\cdots+n\,{}^nC_n.\]</div>
-<div class="hint"><b>Hint:</b> compare the Concept 2 worked example.</div>{{work:46}}</div>
+<div class="hint"><b>Hint:</b> where could the number in front of each \({}^nC_r\) on the right come from?</div>{{work:46}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Killara High School, 2021, Year 12 Mathematics Extension&nbsp;1 Trial Examination,&nbsp;Q13(e)</span><span class="mk">2 marks</span></div>
 <div class="pp-q">Expand \((1+x)^{2n}+(1-x)^{2n}\) and hence, evaluate
@@ -210,14 +210,14 @@ Check this identity in Pascal's triangle by adding the squares of the rows index
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Kinross Wolaroi School, 2023, Year 12 Mathematics Extension&nbsp;1 Trial HSC Examination,&nbsp;Q14(d)</span><span class="mk">3 marks</span></div>
 <div class="pp-q">Using the expansion of \((1+x)^3(1+x)^6\) show that:
 \[\dbinom30\dbinom66+\dbinom31\dbinom65+\dbinom32\dbinom64+\dbinom33\dbinom63=\dbinom96\]</div>
-<div class="hint"><b>Hint:</b> compare the Concept 3 worked example, part b.</div>{{work:75}}</div>
+<div class="hint"><b>Hint:</b> write \((1+x)^3(1+x)^6\) as a single power of \((1+x)\).</div>{{work:75}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>North Sydney Boys High School, 2023, Year 12, Assessment task 3, Term 2, Mathematics Extension&nbsp;1,&nbsp;Q14(c)</span><span class="mk">3 marks</span></div>
 <div class="pp-q">Given the binomial expansion of:
 \[\begin{aligned}(1+x)^n&=a_0+a_1x+a_2x^2+\cdots+a_nx^n\\ (1+x)^{n+1}&=b_0+b_1x+b_2x^2+\cdots+b_{n+1}x^{n+1}\end{aligned}\]
 and knowing \((1+x)^{n+1}=(1+x)^n(1+x)\), find the expression, <b>in terms of n only</b>, of:
 \[\dfrac{1}{a_0a_1a_2\cdots a_n}\times(a_0+a_1)(a_1+a_2)\cdots(a_{n-1}+a_n)\quad\text{for }n=1,2,3,\dots\]</div>
-<div class="hint"><b>Hint:</b> what does the given identity \((1+x)^{n+1}=(1+x)^n(1+x)\) say about each bracket \(a_{k-1}+a_k\)?</div>{{work:100}}</div>
+<div class="hint"><b>Hint:</b> start by writing each \(a_k\) and each \(b_k\) as a binomial coefficient.</div>{{work:100}}</div>
 </div>
 
 <!-- ============ Chapter review ============ -->
@@ -236,7 +236,7 @@ and knowing \((1+x)^{n+1}=(1+x)^n(1+x)\), find the expression, <b>in terms of n 
 <div class="q"><span class="q-num">6</span><div class="q-body">Use the result \({}^nC_r=\dfrac{n!}{r!\,(n-r)!}\) to evaluate the following. Do not use a calculator — you will need to unroll the factorial symbol. Check your answers against Pascal's triangle.
 <div class="parts one"><span><span class="pl">a</span>\({}^5C_3\)</span><span><span class="pl">b</span>\({}^7C_4\)</span><span><span class="pl">c</span>\({}^8C_5\)</span><span><span class="pl">d</span>\({}^{120}C_{60}\div{}^{119}C_{60}\)</span></div>{{work:55}}</div></div>
 <div class="q"><span class="q-num">7</span><div class="q-body">Use your calculator button \(\boxed{{}^nC_r}\) to evaluate the following.
-<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\({}^{10}C_8\)</span><span><span class="pl">b</span>\(\dbinom{12}7\)</span><span><span class="pl">c</span>\({}^9C_6\)</span><span><span class="pl">d</span>\(\dbinom{10}3\div\dbinom32\)</span><span><span class="pl">e</span>\(\dfrac{{}^{10}C_5}{{}^6C_2}\)</span><span><span class="pl">f</span>\(\dfrac{{}^{16}C_6}{{}^{10}C_5}\)</span></div>{{work:35}}</div></div>
+<div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\({}^{10}C_8\)</span><span><span class="pl">b</span>\(\dbinom{12}7\)</span><span><span class="pl">c</span>\({}^9C_6\)</span><span><span class="pl">d</span>\(\dbinom{10}3\div\dbinom32\)</span><span><span class="pl">e</span>\(\dfrac{{}^{10}C_5}{{}^6C_2}\)</span><span><span class="pl">f</span>\(\dfrac{{}^{16}C_6}{{}^{10}C_5}\)</span></div>{{work:55}}</div></div>
 <div class="q"><span class="q-num">8</span><div class="q-body">Use your understanding of the patterns in Pascal's triangle to simplify the following expressions.
 <div class="parts one"><span><span class="pl">a</span>\({}^nC_0\)</span><span><span class="pl">b</span>\({}^9C_4-{}^9C_5\)</span><span><span class="pl">c</span>\({}^5C_0+{}^5C_1+{}^5C_2+{}^5C_3+{}^5C_4+{}^5C_5\)</span><span><span class="pl">d</span>\({}^{2n+1}C_n-{}^{2n}C_n-{}^{2n}C_{n-1}\)</span></div>{{work:40}}</div></div>
 <div class="q"><span class="q-num">9</span><div class="q-body">Solve \({}^nC_2=28\).{{work:45}}</div></div>
