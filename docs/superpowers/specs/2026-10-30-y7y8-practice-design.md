@@ -26,3 +26,4 @@ Owner request (30 Oct): a revision pack of **practice questions only** for a **2
 
 ## Owner update (30 Oct)
 The pack may exceed 2 hours; the tutor picks questions in the lesson and extra is welcome. Target about 3 hours of questions (5–9 per topic, every distinct skill at least once, more than one level where the exercise allows). Cover shows per-section minutes, notes that the pack holds more than one lesson, and marks a suggested 2-hour core set (★).
+- Weight toward harder questions: about 1–2 warm-ups per topic, then about two-thirds harder items (later exercise parts, multi-step and reasoning items, Y8 Problem-solving/Reasoning/Enrichment, Review and Challenge exercises). Part C may hold 6–10 questions. The core set also leans hard.
