@@ -130,6 +130,7 @@ class Geo:
             self.angles.append((s, span, v, da, da + span))
         if arc:
             self.items.append(("arc", (v, r, da, span, color)))
+            self.ext += [pol(v, (r + 2) / self.s, da + span * k / 12) for k in range(13)]
             if double:
                 self.items.append(("arc", (v, r + 3, da, span, color)))
         if s:
@@ -283,19 +284,6 @@ def fig(fn):
 
 # ------------------------------------------------------------------ A1 notation
 @fig
-def a1_parallel():                       # Y7 Ex 6A Q2
-    g = Geo(48)
-    A = g.pt("A", (0, 0)); B = g.pt("B", pol(A, 2.0, 28))
-    D = g.pt("D", pol(A, 1.7, 80)); C = g.pt("C", meet(D, 28, B, 80))
-    line_through(g, A, 28, 1.6, 4.0); line_through(g, D, 28, 1.6, 4.0)
-    line_through(g, A, 80, 1.0, 3.0); line_through(g, B, 80, 1.0, 3.0)
-    g.arr(pol(A, -1.6, 28), pol(A, 4.0, 28), t=0.93).arr(pol(D, -1.6, 28), pol(D, 4.0, 28), t=0.93)
-    g.arr(A, D, 2, t=0.62).arr(B, C, 2, t=0.62)
-    g.lab(A, "A", -40, 12).lab(B, "B", -25, 13).lab(C, "C", 128, 13).lab(D, "D", 145, 13)
-    return g
-
-
-@fig
 def a1_concurrent():                     # Y7 Ex 6A Q3
     g = Geo(46)
     X = (0, 0); A = pol(X, 2.3, -100)
@@ -382,8 +370,8 @@ def a2_cls_b():
 def a2_cls_c():
     g = Geo(40)
     V = (0, 0)
-    g.ray(V, 58, 1.6).ray(V, 105, 1.6)
-    g.ang(V, 58, 105, r=10, reflex=True)
+    g.ray(V, 52, 1.8).ray(V, 110, 1.8)
+    g.ang(V, 52, 110, r=17, reflex=True)          # the book draws the reflex angle as a large circle round the vertex
     return g
 
 
@@ -872,7 +860,7 @@ def a6_9b():
     Bv = (0, 0); R = pol(Bv, 1.8, 43); TL = meet(Bv, 103, R, 138)
     g.poly([Bv, R, TL]).ray(R, 103, 1.3)
     g.arr(Bv, TL, t=0.45).arr(R, pol(R, 1.3, 103), t=0.75)
-    g.angtxt(R, 103, 138, "35°", lr=30).angtxt(R, 138, 223, "85°", lr=22)
+    g.angtxt(R, 103, 138, "35°", lr=46).angtxt(R, 138, 223, "85°", lr=26)
     g.angtxt(Bv, 43, 103, "a°", lr=20, italic=True)
     return g
 
@@ -951,32 +939,6 @@ def a7_3c():
     g.poly([BR, TR, TL, BL])
     g.arr(TR, TL, t=0.55).arr(BR, BL, t=0.55)
     g.angtxt(TR, 150, 278, "a°", lr=18, italic=True).angtxt(BR, 98, 150, "52°", lr=24)
-    return g
-
-
-@fig
-def a7_5b():
-    g = Geo(46)
-    BL = (0, 0); BR = (2.0, 0); TL = pol(BL, 2.0, 60); TR = (TL[0] + 2.0, TL[1]); M = lerp(BL, TR, 0.5)
-    g.poly([BL, BR, TR, TL])
-    g.seg(BL, TR, dash="3 2", width=1).seg(BR, TL, dash="3 2", width=1)
-    g.arr(TL, TR, 2, t=0.62).arr(BL, BR, 2, t=0.62).arr(BL, TL, t=0.45).arr(BR, TR, t=0.45)
-    g.tick(TL, TR, t=0.35).tick(BL, BR, t=0.35).tick(BL, TL, t=0.72).tick(BR, TR, t=0.72)
-    g.text(lerp(TL, TR, 0.5), "2 cm", size=11, dy=-11).text(lerp(BR, TR, 0.5), "a cm", size=11, dx=26, italic=False)
-    g.ang(M, dirn(M, TL), dirn(M, BL), "b°", r=9, lr=20, italic=True)
-    return g
-
-
-@fig
-def a7_5c():
-    g = Geo(62)
-    BL = (0, 0); BR = (1.6, 0); TL = (0.8, 2.2); TR = (2.4, 2.2); M = lerp(BL, TR, 0.5)
-    g.poly([BL, BR, TR, TL])
-    g.seg(BL, TR, dash="3 2", width=1).seg(BR, TL, dash="3 2", width=1)
-    g.arr(TL, TR, t=0.35).arr(BL, BR, t=0.35).arr(BL, TL, 2, t=0.35).arr(BR, TR, 2, t=0.35)
-    g.tick(TL, TR, t=0.7).tick(BL, BR, t=0.7).tick(BL, TL, 2, t=0.65).tick(BR, TR, 2, t=0.65)
-    g.text(lerp(BL, M, 0.5), "5 cm", size=10.5, dx=17, dy=7).text(lerp(M, TR, 0.55), "a cm", size=10.5, dx=17, dy=7)
-    g.angtxt(TL, -70, 0, "70°", lr=26).angtxt(BR, dirn(BR, TL), 180, "b°", lr=24, italic=True)
     return g
 
 
@@ -1152,8 +1114,8 @@ def b3_2f():
     pts = [(0, 0), (0, 6), (6, 6), (6, 3), (7, 3), (7, 1), (8, 1), (8, 0)]
     g.poly(pts)
     _side(g, (0, 0), (0, 6), "6 cm", -20); _side(g, (0, 6), (6, 6), "6 cm", -10)
-    g.text((6, 4.5), "3 cm", size=10.5, dx=-20).text((6.5, 3), "1 cm", size=10.5, dy=-10)
-    g.text((7, 2), "2 cm", size=10.5, dx=-20).text((7.5, 1), "1 cm", size=10.5, dx=4, dy=-10)
+    g.text((6, 4.5), "3 cm", size=10.5, dx=-20).text((7, 3), "1 cm", size=10.5, dx=18, dy=-8)
+    g.text((7, 2), "2 cm", size=10.5, dx=-20).text((8, 1), "1 cm", size=10.5, dx=18, dy=-8)
     return g
 
 
@@ -1261,36 +1223,6 @@ def b4_8d():
 
 
 @fig
-def b4_11a():
-    g = Geo(13)
-    u = (cos(radians(25)), sin(radians(25)))           # base direction
-    n = (cos(radians(-65)), sin(radians(-65)))         # height direction
-    P0 = (0, 0); P1 = (8 * u[0], 8 * u[1]); P3 = (13 * n[0] + 4 * u[0], 13 * n[1] + 4 * u[1])
-    P2 = (P3[0] + P1[0], P3[1] + P1[1])
-    g.poly([P0, P1, P2, P3])
-    g.arr(P0, P1, 2, t=0.55).arr(P3, P2, 2, t=0.55).arr(P3, P0, t=0.5).arr(P2, P1, t=0.5)
-    F = lerp(P0, P1, 0.7); G2 = (F[0] + 13 * n[0], F[1] + 13 * n[1])
-    g.seg(F, G2, color=RED, dash="3 2", width=1).right(F, dirn(F, P0), -65, 6)
-    g.dim(pol(P0, 0, 0), P1, off=10)
-    g.dim(pol(F, 0.9, 25), pol(G2, 0.9, 25))
-    g.text(lerp(P0, P1, 0.5), "8 cm", size=10.5, dx=-8, dy=-20).text(lerp(F, G2, 0.45), "13 cm", size=10.5, dx=28)
-    return g
-
-
-@fig
-def b4_11b():
-    g = Geo(11)
-    P0 = (0, 0); P1 = pol(P0, 13, 10); up = 80
-    P3 = pol(P0, 14, up); P2 = (P3[0] + P1[0] - P0[0], P3[1] + P1[1] - P0[1])
-    g.poly([P0, P1, P2, P3])
-    g.arr(P0, P1, 2, t=0.55).arr(P3, P2, 2, t=0.55).arr(P0, P3, t=0.5).arr(P1, P2, t=0.5)
-    F = pol(P1, 1.6, up); G2 = pol(F, 12, up + 90 + 0)
-    g.seg(F, G2, color=RED, dash="3 2", width=1).right(F, up + 90, up + 180, 6)
-    g.text(lerp(P1, P2, 0.5), "14 m", size=10.5, dx=20).text(lerp(F, G2, 0.5), "12 m", size=10.5, dy=-10)
-    return g
-
-
-@fig
 def b4_15():
     g = Geo(26)
     A, B, C, D = (0, 4), (8, 4), (8, 0), (0, 0)
@@ -1352,32 +1284,6 @@ def b5_3l():
     g.seg(F, G2, color=RED, dash="3 2", width=1).right(F, 112, 202, 6)
     g.text(lerp(P2, Q2, 0.45), "20 mm", size=11, dx=-8, dy=-15).text(lerp(F, G2, 0.5), "16 mm", size=11, dx=26)
     g.text(lerp(P, Q, 0.62), "50 mm", size=11, dx=10, dy=14)
-    return g
-
-
-@fig
-def b5_4b():
-    g = Geo(17)
-    # perpendicular side 5 m; parallel sides 4 m and 10 m
-    d = 45
-    P = (0, 0); Q = pol(P, 5, d)                     # the 5 m side
-    A = pol(P, 4, d + 90); B = pol(Q, 10, d + 90)
-    g.poly([P, Q, B, A])
-    g.right(P, d, d + 90, 6).right(Q, d + 180, d + 90, 6)
-    g.arr(P, A, t=0.55).arr(Q, B, t=0.55)
-    g.text(lerp(P, A, 0.5), "4 m", size=11, dx=-18, dy=6).text(lerp(P, Q, 0.5), "5 m", size=11, dx=8, dy=14)
-    g.text(lerp(Q, B, 0.5), "10 m", size=11, dx=20, dy=6)
-    return g
-
-
-@fig
-def b5_4c():
-    g = Geo(12)
-    TL = (0, 0); TR = (13, 0); L2 = (0, -3); R2 = (13, -10)
-    g.poly([TL, TR, R2, L2])
-    g.right(TL, 0, 270, 6).right(TR, 180, 270, 6)
-    g.arr(L2, TL, t=0.6).arr(R2, TR, t=0.6)
-    g.text((6.5, 0), "13 cm", size=11, dy=-10).text((0, -1.5), "3 cm", size=11, dx=-18).text((13, -5), "10 cm", size=11, dx=22)
     return g
 
 
@@ -1514,28 +1420,29 @@ def c_ch2b():                            # Y7 Ch 6 Challenge Q2b: gamma at T, x 
 
 @fig
 def c_r8a():                             # Y7 Ch 9 Review Q8a
-    g = Geo(21)
+    g = Geo(24)
     pts = [(0, 11), (6, 11), (6, 12), (9, 12), (9, 9), (8, 9), (8, 5), (6, 5), (6, 0), (3, 0), (3, 5), (0, 5)]
     g.poly(pts)
-    labs = [("6 m", 0, 1, 10), ("1 m", 1, 2, -10), ("3 m", 2, 3, -10), ("3 m", 3, 4, -12), ("1 m", 4, 5, 10),
-            ("4 m", 5, 6, 12), ("2 m", 6, 7, 10), ("3 m", 8, 9, -10), ("5 m", 9, 10, -12),
-            ("3 m", 10, 11, -10), ("6 m", 11, 0, -14)]
+    labs = [("6 m", 0, 1, 11), ("1 m", 1, 2, -16), ("3 m", 2, 3, -11), ("3 m", 3, 4, -16), 
+            ("4 m", 5, 6, 16), ("2 m", 6, 7, 11), ("3 m", 8, 9, -11), ("5 m", 9, 10, -16),
+            ("3 m", 10, 11, -11), ("6 m", 11, 0, -16)]
     for s, i, j, off in labs:
         _side(g, pts[i], pts[j], s, off)
+    g.text((9, 9), "1 m", size=10.5, dx=15, dy=9)
     return g
 
 
 @fig
 def c_r8b():                             # Y7 Ch 9 Review Q8b
-    g = Geo(16)
+    g = Geo(19)
     T = (0, 18); Q1 = (0, 12); Q2 = (0, 10); R1 = (6, 10); Q3 = (0, 6); R2 = (6, 6); B = (-2, 0); Q4 = (-2, 6); L = (-8, 6)
     g.poly([T, R1, Q2, Q3, R2, B, Q4, L, Q1])
     g.seg(Q1, Q2, color=RED, dash="2 2", width=1).seg(Q4, Q3, color=RED, dash="2 2", width=1)
-    for s, p, q, off in (("10 km", T, R1, -14), ("6 km", R1, Q2, -10), ("4 km", Q2, Q3, 16), ("6 km", Q3, R2, -10),
-                         ("10 km", R2, B, -14), ("6 km", B, Q4, -16), ("6 km", Q4, L, -10), ("10 km", L, Q1, -16),
-                         ("6 km", Q1, T, -16)):
+    for s, p, q, off in (("10 km", T, R1, -24), ("6 km", R1, Q2, -11), ("4 km", Q2, Q3, 24), ("6 km", Q3, R2, -11),
+                         ("10 km", R2, B, -24), ("6 km", B, Q4, -24), ("6 km", Q4, L, -11), ("10 km", L, Q1, -24),
+                         ("6 km", Q1, T, -24)):
         _side(g, p, q, s, off)
-    g.text((0, 11), "2 km", size=10.5, dx=17).text((-1, 6), "2 km", size=10.5, dy=10)
+    g.text((0, 11), "2 km", size=10.5, dx=18).text((-1, 6), "2 km", size=10.5, dy=-10)
     return g
 
 
@@ -1550,6 +1457,95 @@ def c_ch4():                             # Y7 Ch 9 Challenge Q4
     g.text((10, 3), "4 m", size=10.5, dy=-14).text((12, 1.5), "3 m", size=10.5, dx=14).text((4, 0), "8 m", size=10.5, dy=-10)
     g.dim((16, -0.4), (17, -0.4)).dim((15.6, 0), (15.6, -1))
     g.text((15.6, -0.5), "1 m", size=10.5, dx=-15)
+    return g
+
+
+# ------------------------------------------------------------------ fix round: new figures
+@fig
+def a1_10a():                            # Y8 Ex 6A Q10a
+    g = Geo(48)
+    B = (0, 0)
+    g.ray(B, 90, 1.6).ray(B, 0, 1.8).ray(B, 37, 1.8)
+    g.right(B, 0, 90, 7)
+    g.lab((0, 1.6), "A", 90, 9, size=12).lab((1.8, 0), "D", 0, 9, size=12).lab(pol(B, 1.8, 37), "C", 40, 9, size=12)
+    g.lab(B, "B", 200, 11, size=12)
+    g.angtxt(B, 0, 37, "x°", lr=26, italic=True)
+    return g
+
+
+@fig
+def a1_10b():                            # Y8 Ex 6A Q10b
+    g = Geo(48)
+    B = (0, 0)
+    g.seg((-1.3, 0), (1.3, 0)).ray(B, 125, 1.0)
+    g.lab((-1.3, 0), "D", -90, 10, size=12).lab(B, "B", -90, 11, size=12).lab((1.3, 0), "A", -90, 10, size=12)
+    g.lab(pol(B, 1.0, 125), "C", 110, 9, size=12)
+    g.angtxt(B, 125, 180, "x°", lr=24, italic=True)
+    return g
+
+
+@fig
+def a1_10c():                            # Y8 Ex 6A Q10c
+    g = Geo(48)
+    B = (0, 0)
+    g.seg((-1.3, 0), (1.3, 0)); line_through(g, B, 125, 1.4, 1.1)
+    g.lab((-1.3, 0), "E", 180, 9, size=12).lab((1.3, 0), "A", 0, 9, size=12).lab(B, "B", 45, 13, size=12)
+    g.lab(pol(B, 1.1, 125), "D", 120, 9, size=12).lab(pol(B, -1.4, 125), "C", -60, 9, size=12)
+    g.angtxt(B, 125, 180, "x°", lr=24, italic=True)
+    return g
+
+
+@fig
+def a1_10d():                            # Y8 Ex 6A Q10d
+    g = Geo(48)
+    B = (0, 0)
+    g.ray(B, 75, 1.6).ray(B, 40, 1.6)
+    g.ang(B, 40, 75, "x°", r=17, lr=30, reflex=True, italic=True, ldx=-4, ldy=6)
+    g.lab(pol(B, 1.6, 75), "A", 80, 9, size=12).lab(pol(B, 1.6, 40), "C", 30, 9, size=12).lab(B, "B", 235, 8, size=11)
+    return g
+
+
+@fig
+def b2_ch14():                           # Y7 Ch 9 Challenge Q14
+    g = Geo(13)
+    pts = [(0, 0), (0, 10), (3.2, 10), (3.2, 9), (6.05, 9), (6.05, 7.95), (7.9, 7.95), (7.9, 7.3), (9.4, 7.3),
+           (9.4, 6.65), (15.3, 6.65), (15.3, 1.05), (16, 1.05), (16, 0)]
+    g.poly(pts)
+    _side(g, (0, 0), (0, 10), "10 m", -20); _side(g, (0, 0), (16, 0), "16 m", 11)
+    return g
+
+
+@fig
+def b4_8c():                             # Y7 Ex 9G Q8c (not to scale in the book either)
+    g = Geo(24)
+    A, Bb, T = (0, 0), (10, 0), (7.4, 5)
+    g.poly([A, Bb, T], fill=FILL, opacity=0.95)
+    g.poly([(4.25, 2.5), (6.25, 2.5), (5.25, 0.5)], fill="#ffffff", opacity=1)
+    g.poly([(5.95, 0.5), (8.95, 0.5), (7.3, 4.5)], fill="#ffffff", opacity=1)
+    g.seg(T, (11.6, 5), color=RED, dash="3 2", width=1).seg((7.3, 4.5), (12.4, 4.5), color=RED, dash="3 2", width=1)
+    g.seg((8.95, 0.5), (12.4, 0.5), color=RED, dash="3 2", width=1).seg(Bb, (11.6, 0), color=RED, dash="3 2", width=1)
+    g.dim((11.6, 5), (11.6, 0)).dim((12.4, 4.5), (12.4, 0.5)).dim((3.85, 2.5), (3.85, 0.5))
+    g.seg((3.85, 0.5), (5.25, 0.5), color=RED, dash="2 2", width=1)
+    g.text((11.6, 2.5), "5 m", size=10.5, dx=-15).text((12.4, 2.5), "4 m", size=10.5, dx=15)
+    g.text((3.85, 1.5), "2 m", size=10.5, dx=-14).text((5.25, 2.5), "2 m", size=10.5, dy=-9)
+    g.text((7.45, 0.5), "3 m", size=10.5, dy=-9).text((5, 0), "10 m", size=10.5, dy=11)
+    return g
+
+
+@fig
+def c_ch3():                             # Y7 Ch 6 Challenge Q3: gamma at T, x at V1, alpha at V2, beta at B
+    g = Geo(42)
+    ga, x, al = 45, 143, 30
+    T = (0, 0); V1 = pol(T, 1.6, -ga)
+    d1 = 180 - ga - x                            # direction V1 -> V2
+    V2 = pol(V1, 3.6, d1)
+    d2 = d1 + 180 + al                           # direction V2 -> B
+    B = meet(V2, d2, (0, -2.4), 0)
+    be = d2 - 180                                # direction B -> V2, measured from the bottom line
+    g.seg((-3.0, 0), (3.8, 0)).seg(T, V1).seg(V1, V2).seg(V2, B).seg((-3.0, B[1]), (3.8, B[1]))
+    g.arr((-3.0, 0), (-0.2, 0), t=0.6).arr((-3.0, B[1]), (B[0], B[1]), t=0.6)
+    g.angtxt(T, -ga, 0, "γ", lr=22, size=12).angtxt(V1, d1, 180 - ga, "x", lr=16, size=11.5, italic=True)
+    g.angtxt(V2, d1 + 180, d2, "α", lr=40, size=12).angtxt(B, 0, be, "β", lr=56, size=12)
     return g
 
 

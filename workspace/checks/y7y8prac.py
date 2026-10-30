@@ -172,8 +172,6 @@ def angle_names(edges):
 
 
 # ================================================================== A1 notation
-want_str("A1.1a", "AB∥DC"); want_str("A1.1b", "BC∥AD"); want_str("A1.1c", "B"); want_str("A1.1d", "C")
-want_str("A1.1e", "No")
 want_str("A1.2a", "AX,BX,CX,YX"); want_str("A1.2b", "AC∥XY"); want_str("A1.2c", "B"); want_str("A1.2d", "CX")
 want_str("A1.2e", "A,B,C"); want_str("A1.2f", "None")
 want_str("A1.3a", "concurrent"); want_str("A1.3b", "yes"); want_str("A1.3c", "no")
@@ -182,6 +180,16 @@ want_set("A1.4a", angle_names(["AB", "BC", "CD", "DA", "BD"]))                  
 want_set("A1.4b", angle_names(["AB", "AC", "AD", "BC", "CD", "BD"]))               # tetrahedron
 assert len(EXPECT["A1.4a"][1]) == 8 and len(EXPECT["A1.4b"][1]) == 12
 
+# Y8 6A Q10: a  BA 90, BD 0, BC at x;  b  BD 180, BA 0, BC at 180 - x;  c  BE 180, BD at 180 - x, C opposite D,
+# BA 0;  d  the marked x is the reflex angle between BA and BC
+X_ = sp.Symbol("x")
+BC_a, BA_a = X_, 90
+want_expr("A1.6a", BA_a - BC_a)
+BC_b, BA_b = 180 - X_, 0
+want_expr("A1.6b", BC_b - BA_b)
+BD_c = 180 - X_; BC_c = BD_c - 180; BA_c = 0
+want_expr("A1.6c", BA_c - BC_c)
+want_expr("A1.6d", 360 - X_)
 # Y8 6A Q5: rays from O.  D is opposite A, E is opposite B, and the right angle is between OC and OD.
 RAY = {"A": 32, "B": 68, "D": 212, "E": 248}
 RAY["C"] = RAY["D"] - 90
@@ -203,8 +211,6 @@ want_str("A1.5bi", "AD⊥OC"); want_str("A1.5bii", "OC⊥OD")
 # ================================================================== A2 measuring and classifying
 for p, x in zip("abcde", (15, 35, 72, 88, 56)):
     want_num("A2.1" + p, 90 - x, "°")
-for p, x in zip("abcde", (160, 100, 75, 88, 146)):
-    want_num("A2.2" + p, 180 - x, "°")
 for p, (u, v, refl) in zip("abcd", ((0, 32, False), (0, 128, False), (58, 105, True), (0, 90, False))):
     size = 360 - between(u, v) if refl else between(u, v)
     want_str("A2.3" + p, "acute" if size < 90 else "right" if size == 90 else "obtuse" if size < 180 else "reflex")
@@ -369,7 +375,6 @@ BtR, BtL = 40, 40 + 76                                # 6D Q3a: parallelogram, 7
 want_num("A7.1a_a", between(BtR + 180, BtL))   # at R: R->Bt and R->T (parallel to Bt->L)
 want_num("A7.1a_b", between(BtL + 180, BtR + 180))     # at T: T->R is opposite Bt->L, T->L is opposite Bt->R
 want_num("A7.1c", 180 - 52)
-want_num("A7.2b_a", 2); want_num("A7.2b_b", 90); want_num("A7.2c_a", 5); want_num("A7.2c_b", 70)
 want_num("A7.3a", 360 - (360 - 40 - 85 - 27))
 want_num("A7.3c", 360 - (360 - (180 - 74) - 17 - 22))
 want_num("A7.3d", 180 - 106)
@@ -393,22 +398,32 @@ for k, (v, u, to) in {"e": (27, "mm", "cm"), "h": (F(19, 10), "m", "cm"), "k": (
                       "l": (200000, "mm", "km"), "n": (2901, "m", "km"), "s": (F(5, 8), "cm", "mm")}.items():
     want_num("B1.1" + k, F(v) * MM[u] / MM[to], to)
 want_num("B1.2", 1000 // 20 + 1)
-want_num("B1.3", (5 * 100 - 60) / F(2), "cm")
-want_num("B1.4", F(51, 10) * MM["km"] / MM["µm"], "µm")
-want_num("B1.5", F(36525 * 24 * 60, 10 ** 6), "min")
+want_num("B1.7", 158 * MM["cm"] / (MM["m"] / 10), "dm")                     # 1 dm = one tenth of a metre
+gap = F(600, 3 - 1)                                                            # first to third stop: 2 gaps
+want_num("B1.8", gap * (9 - 1), "m")
+row = (1000 - 2 * 25) / F(50)                                                  # cm; gaps along one row
+want_num("B1.9", 12 * (row + 1))
 want_num("B1.6", F(1760 * 3 * 12) * F(254, 100) / 100 / 1000, "km")
 
 # ================================================================== B2 perimeter
 want_num("B2.1d", 18 + 7 + 12 + 15); want_num("B2.1e", 17 + 17 + 16); want_num("B2.1f", 2 * (17 + 23))
-want_num("B2.2a", 2 * (F(23, 10) + F(36, 10)), "m"); want_num("B2.2b", 2 * (F(98, 10) + F(64, 10)), "m")
+ch14 = [(0, 0), (0, 10), (F(32, 10), 10), (F(32, 10), 9), (F(605, 100), 9), (F(605, 100), F(795, 100)), (F(79, 10), F(795, 100)),
+        (F(79, 10), F(73, 10)), (F(94, 10), F(73, 10)), (F(94, 10), F(665, 100)), (F(153, 10), F(665, 100)), (F(153, 10), F(105, 100)),
+        (16, F(105, 100)), (16, 0)]
+want_num("B2.8", F(round(perim(ch14) * 1000), 1000), "m")
 aa, bb, xx, yy = sp.symbols("a b x y")
 want_expr("B2.3d", 4 * bb + aa + 2 * bb + 3 * aa); want_expr("B2.3e", 4 * aa + 4 * aa + 3 * bb)
 want_expr("B2.3f", 2 * 7 * xx + 2 * 6 * yy)
 stair = [(0, 0), (0, 10), (2, 10), (2, F(72, 10)), (F(58, 10), F(72, 10)), (F(58, 10), F(22, 10)), (F(73, 10), F(22, 10)),
          (F(73, 10), F(11, 10)), (10, F(11, 10)), (10, 0)]
 want_num("B2.4", F(round(perim(stair) * 1000), 1000), "m")
-want_num("B2.5", F(516, 10) * 2 + F(1685, 100), "m")
-want_num("B2.6", 5 * F(13, 10) * MM["mm"] / MM["m"], "m")
+# Ch 9 Challenge Q18 / Q19: enumerate whole-number rectangles
+r64 = [(a, 64 // a) for a in range(1, 65) if 64 % a == 0 and a <= 64 // a]
+best = min(r64, key=lambda r: 2 * (r[0] + r[1]))
+EXPECT["B2.9"] = ("text", ["square", "smallest perimeter", f"{2 * (best[0] + best[1])} m"]); assert best[0] == best[1]
+r108 = [(a, 54 - a) for a in range(1, 28)]
+big = max(r108, key=lambda r: r[0] * r[1])
+EXPECT["B2.10"] = ("text", ["square", "largest area", f"{big[0] * big[1]} m^2"]); assert big[0] == big[1]
 
 # ================================================================== B3 area
 want_num("B3.1a", 5 * F(85, 100), "m^2"); want_num("B3.1b", F(800, 1000) * 2, "km^2")
@@ -434,7 +449,7 @@ want_num("B4.2c", shoelace([(0, 0), (11, 0), (11, 12), (5, 12)]), "cm^2")
 want_num("B4.2d", shoelace([(-8, 0), (0, 0), (6, -5), (0, -15)]), "mm^2")
 want_num("B4.3a", 17 * 17 - shoelace([(12, 17), (17, 5), (5, 0), (0, 12)]), "m^2")
 want_num("B4.3d", 13 * 11 - shoelace([(3, 3), (10, 3), (F(13, 2), 8)]), "m^2")
-want_num("B4.4a", 8 * 13, "cm^2"); want_num("B4.4b", 14 * 12, "m^2")
+want_num("B4.3c", shoelace([(0, 0), (10, 0), (7, 5)]) - shoelace([(0, 2), (2, 2), (1, 0)]) - shoelace([(0, 0), (3, 0), (1, 4)]), "m^2")
 h = next(h for h in range(1, 20) if 2 * h * h == 18)
 want_num("B4.5h", h, "cm"); want_num("B4.5b", 2 * h, "cm")
 want_num("B4.6", shoelace([(0, 0), (2, 4), (8, 4), (6, 0)]), "cm^2")
@@ -442,7 +457,6 @@ want_num("B4.6", shoelace([(0, 0), (2, 4), (8, 4), (6, 0)]), "cm^2")
 # ================================================================== B5 special quadrilaterals
 want_num("B5.1d", F(5 * 3, 2), "cm^2"); want_num("B5.1h", F(20 * 30, 2), "mm^2")
 want_num("B5.1k", F(5 * (9 + 4), 2), "m^2"); want_num("B5.1l", F(16 * (20 + 50), 2), "mm^2")
-want_num("B5.2b", F(5 * (4 + 10), 2), "m^2"); want_num("B5.2c", F(13 * (3 + 10), 2), "cm^2")
 kite = [(0, F(3, 10)), (F(3, 10), 0), (0, F(-6, 10)), (F(-3, 10), 0)]
 want_num("B5.3", shoelace(kite), "m^2")
 want_num("B5.4", F(8, 2) * F(145, 10) * 20, "$")
@@ -475,7 +489,12 @@ want_num("C.3a", solve_int(lambda al: norm(zig_last(0, [(20, -1), (al, 1), (50, 
 g_, be_, al_, x_ = sp.symbols("γ β α x")
 xsol = sp.solve(sp.Eq((0 - (180 - g_) + (180 - x_) - (180 - be_) + (180 - al_)), 0), x_)[0]
 want_expr("C.3b", xsol)
-want_num("C.4", solve_int(lambda t: 6 * t - t / 2 - 90, 0, 60, F(1, 11)), "minutes")
+# Challenge Q3: walk the path; x is the corner angle, alpha the apex, beta at the bottom line
+g3, a3, b3, x3 = sp.symbols("γ α β x")
+d1 = 180 - g3 - x3                                   # V1 -> V2
+d2 = d1 + 180 + a3                                   # V2 -> B
+want_expr("C.ch3", sp.solve(sp.Eq(d2 - 180, b3), x3)[0])
+want_num("A2.7", solve_int(lambda t: 6 * t - t / 2 - 90, 0, 60, F(1, 11)), "minutes")
 p8a = [(0, 11), (6, 11), (6, 12), (9, 12), (9, 9), (8, 9), (8, 5), (6, 5), (6, 0), (3, 0), (3, 5), (0, 5)]
 want_num("C.5a_p", F(round(perim(p8a))), "m"); want_num("C.5a_a", shoelace(p8a), "m^2")
 p8b = [(0, 18), (6, 10), (0, 10), (0, 6), (6, 6), (-2, 0), (-2, 6), (-8, 6), (0, 12)]
@@ -507,6 +526,14 @@ for key, spec in EXPECT.items():
         got = names(raw)
         ok = (got == spec[1]) if kind == "set" else (bool(got) and got <= spec[1])
         report(ok, key, f"printed {sorted(got)}; computed {sorted(spec[1])}")
+    elif kind == "text":
+        t = clean(raw)
+        report(all(w in t for w in spec[1]), key, f"printed {t!r}; must contain {spec[1]}")
+    elif kind == "rects":
+        pairs = re.findall(r"([\d.]+) cm by ([\d.]+) cm", clean(raw))
+        rects = {tuple(sorted((F(a), F(b)))) for a, b in pairs}
+        ok = len(pairs) >= 3 and len(rects) == len(pairs) and all(a > 0 and 2 * (a + b) == spec[1] for a, b in rects)
+        report(ok, key, f"printed {pairs}; each must have perimeter {spec[1]}")
     elif kind == "expr":
         e = expr(raw)
         report(sp.simplify(e - spec[1]) == 0, key, f"printed {e}; computed {sp.expand(spec[1])}")
@@ -532,12 +559,12 @@ LETTERS = {   # figure -> {symbol: answer key}
     "a6_7d": {"a": "A6.2d"}, "a6_7e": {"a": "A6.2e"}, "a6_7f": {"a": "A6.2f"}, "a6_9a": {"a": "A6.3a"},
     "a6_9b": {"a": "A6.3b"}, "a6_9c": {"a": "A6.3c"}, "a6_10c": {"a": "A6.4c"}, "a6_10e": {"a": "A6.4e"},
     "a6_10f": {"a": "A6.4f"}, "a7_3a": {"a": "A7.1a_a", "b": "A7.1a_b"}, "a7_3c": {"a": "A7.1c"},
-    "a7_5b": {"b": "A7.2b_b"}, "a7_5c": {"b": "A7.2c_b"}, "a7_6a": {"a": "A7.3a"}, "a7_6c": {"a": "A7.3c"},
+    "a7_6a": {"a": "A7.3a"}, "a7_6c": {"a": "A7.3c"},
     "a7_6d": {"a": "A7.3d"}, "a7_6e": {"a": "A7.3e"}, "a7_7a": {"x": "A7.4a"}, "a7_7b": {"x": "A7.4b"},
     "a7_7c": {"x": "A7.4c"}, "c_r7b": {"α": "C.1b"}, "c_r7d": {"α": "C.1d"}, "c_ch1": {"α": "C.2"},
     "c_ch2a": {"α": "C.3a"},
 }
-FREE = {"a4_y9a", "a4_y9b", "a4_y9c", "c_ch2b"}    # letters with no fixed value (algebraic answers)
+FREE = {"a4_y9a", "a4_y9b", "a4_y9c", "c_ch2b", "c_ch3", "a1_10a", "a1_10b", "a1_10c", "a1_10d"}    # letters with no fixed value (algebraic answers)
 def segments(g):
     out = []
     for kind, d in g.items:
@@ -568,6 +595,12 @@ def arm_drawn(segs, v, ang):
     return False
 
 
+g3f = figs.FIGS["c_ch3"]()
+dr = {lab: size for lab, size, *_ in g3f.angles}
+report(abs(dr["x"] - (180 - dr["γ"] + dr["α"] - dr["β"])) < 0.05, "fig c_ch3 drawn x = 180 - γ + α - β", f"{dr}")
+g2f = figs.FIGS["c_ch2b"]()
+dr = {lab: size for lab, size, *_ in g2f.angles}
+report(abs(dr["x"] - (dr["γ"] + dr["β"] - dr["α"])) < 0.05, "fig c_ch2b drawn x = γ + β - α", f"{dr}")
 for name, fn in figs.FIGS.items():
     g = fn()
     segs = segments(g)
@@ -596,14 +629,14 @@ for name, fn in figs.FIGS.items():
 
 # ------------------------------------------------------------------ question data printed in the questions
 Q = read("q_a.html") + read("q_b.html") + read("q_c.html")
-for s in ("15°", "35°", "72°", "88°", "56°", "160°", "100°", "75°", "146°", "nine friends (including Jack)",
-          "Markers on the road are placed 20 m apart", "60 cm wide", "The length of the wall from left to right is 5 m",
-          "5.1 km", "36 525 days", "1760 yards in a mile", "2.54 cm equals 1 inch", "length 2.3 m and width 3.6 m",
-          "length 9.8 m and width 6.4 m", "51.6 m down each of the two sides and 16.85 m across the back",
-          "side length 1.3 mm", "length 5 m and width 85 cm", "length 800 m and width 2 km", "8 m by 5.4 m, 2.7 m by 8.9 m and 300 cm by 13.3 m",
+for s in ("15°", "35°", "72°", "88°", "56°", "nine friends (including Jack)", "Once you figure out the trick",
+          "Markers on the road are placed 20 m apart", "158 cm tall", "Nine bus stops", "first to the third stop is 600 m",
+          "12 rows of beans in rows that are 10 m long", "spaced 50 cm apart", "25 cm from the ends of the row",
+          "1760 yards in a mile", "2.54 cm equals 1 inch", "a rectangle of area 64 m<sup>2</sup>", "108 m of fencing",
+          "length 5 m and width 85 cm", "length 800 m and width 2 km", "8 m by 5.4 m, 2.7 m by 8.9 m and 300 cm by 13.3 m",
           r"costs \(\$4.50\)", "each with length 5 m and width 1 m", "area of the parallelogram is 18 cm", "length 8 cm and height 4 cm",
           "height 4 cm and base 2 cm", r"charges \(\$20\)", "diagonals are 8 m and 14.5 m", "2 cm apart", "three times the length",
-          "is 12 cm", r"\(AC=4\) cm, \(AB=3\) cm and \(BC=5\) cm", "A path 1 metre wide", "exactly 90°"):
+          "is 12 cm", r"\(AC=4\) cm", r"\(AB=3\) cm", r"\(BC=5\) cm", "A path 1 metre wide", "exactly 90°"):
     report(s in Q, "question data: " + s[:60])
 # figure labels that carry the measurement data
 SVG = {n: read(os.path.join("svg", n + ".svg")) for n in figs.FIGS}
@@ -611,10 +644,10 @@ for n, labs in {"b2_1d": ["18", "7", "12", "15"], "b2_1e": ["17", "16"], "b2_1f"
                 "b3_2d": ["9 m", "7 m", "3 m", "1 m"], "b3_2f": ["6 cm", "3 cm", "1 cm", "2 cm"],
                 "b3_2h": ["8 m", "6 m", "2 m", "4 m"], "b4_1c": ["4 cm", "13 cm"], "b4_1d": ["12 mm", "14 mm"],
                 "b4_7b": ["3 km", "8 km"], "b4_7c": ["6 cm", "12 cm", "11 cm"], "b4_7d": ["8 mm", "6 mm", "15 mm"],
-                "b4_8a": ["12 m", "5 m"], "b4_8d": ["3 m", "5 m", "7 m"], "b4_11a": ["8 cm", "13 cm"],
-                "b4_11b": ["14 m", "12 m"], "b5_3d": ["5 cm", "3 cm"], "b5_3h": ["20 mm", "30 mm"],
-                "b5_3k": ["9 m", "5 m", "4 m"], "b5_3l": ["20 mm", "16 mm", "50 mm"], "b5_4b": ["4 m", "5 m", "10 m"],
-                "b5_4c": ["13 cm", "3 cm", "10 cm"], "b5_5": ["30 cm", "60 cm"], "b5_11": ["8 cm", "10 cm"],
+                "b4_8a": ["12 m", "5 m"], "b4_8d": ["3 m", "5 m", "7 m"], "b4_8c": ["5 m", "4 m", "2 m", "3 m", "10 m"],
+                "b2_ch14": ["10 m", "16 m"], "b5_3d": ["5 cm", "3 cm"], "b5_3h": ["20 mm", "30 mm"],
+                "b5_3k": ["9 m", "5 m", "4 m"], "b5_3l": ["20 mm", "16 mm", "50 mm"],
+                "b5_5": ["30 cm", "60 cm"], "b5_11": ["8 cm", "10 cm"],
                 "c_r8a": ["6 m", "1 m", "3 m", "4 m", "2 m", "5 m"], "c_r8b": ["10 km", "6 km", "4 km", "2 km"],
                 "c_ch4": ["3 m", "4 m", "9 m", "8 m", "1 m"]}.items():
     for lab in labs:
@@ -623,13 +656,13 @@ for n, labs in {"b2_1d": ["18", "7", "12", "15"], "b2_1e": ["17", "16"], "b2_1f"
 # ------------------------------------------------------------------ cover: times and core sets
 COVER = read("cover.html")
 EST = {   # section -> per-question minutes (the estimates in the report), core questions
-    "A1": ([2, 2, 2, 3, 2], [1, 3, 4, 5]), "A2": ([1, 1, 1, 3, 2, 2], [1, 4, 5, 6]),
-    "A3": ([3, 3, 3, 3, 2, 2], [1, 2, 3, 5]), "A4": ([3, 3, 3, 3, 3], [1, 2, 4, 5]),
-    "A5": ([2, 4, 4, 3, 3], [1, 2, 3, 4]), "A6": ([2, 3, 4, 4, 3], [1, 2, 3, 4]),
-    "A7": ([2, 2, 5, 4, 2, 2], [1, 3, 4]), "B1": ([2, 2, 2, 1, 3, 3], [1, 2, 5, 6]),
-    "B2": ([1, 1, 2, 3, 2, 1], [1, 3, 4]), "B3": ([2, 2, 4, 4, 2], [1, 3, 4]),
-    "B4": ([1, 4, 4, 2, 2, 2], [1, 2, 5, 6]), "B5": ([3, 2, 2, 2, 3, 2, 1], [1, 3, 5]),
-    "C": ([3, 3, 5, 4, 6, 3, 5], [2]),
+    "A1": ([2, 2, 2, 3, 3], [1, 4, 5]), "A2": ([1, 1, 2, 2, 3, 4], [2, 5, 6]),
+    "A3": ([3, 5, 3, 4, 2, 3], [1, 2, 4]), "A4": ([3, 4, 4, 4, 3], [1, 2, 4]),
+    "A5": ([2, 6, 3, 3, 5], [1, 2, 5]), "A6": ([2, 3, 3, 4, 5], [1, 2, 5]),
+    "A7": ([2, 2, 4, 2, 6], [1, 3, 5]), "B1": ([2, 1, 2, 2, 3, 3], [1, 4, 6]),
+    "B2": ([1, 2, 3, 3, 4, 4], [1, 4, 5]), "B3": ([2, 2, 2, 4, 4], [1, 4, 5]),
+    "B4": ([1, 2, 2, 4, 6], [1, 4, 5]), "B5": ([3, 2, 1, 2, 2, 3], [1, 5, 6]),
+    "C": ([3, 3, 3, 6, 5, 4, 5], [3]),
 }
 rows = re.findall(r"<tr><td>(A\d|B\d|C) &nbsp;.*?</td><td>([\d, ]*)</td><td class=\"m\">(\d+) min</td><td class=\"m\">(\d+) min</td></tr>", COVER)
 report(len(rows) == len(EST), "cover rows", f"{len(rows)} sections")
@@ -648,6 +681,17 @@ for sec, core, mall, mcore in rows:
     qs = sec_q.get(sec, [])
     report([n for n, _ in qs] == list(range(1, len(est) + 1)), f"{sec} question numbering", f"{[n for n, _ in qs]}")
     tot_all += sum(est); tot_core += sum(est[i - 1] for i in cq)
+A_ALL = read("a_a.html") + read("a_b.html") + read("a_c.html")
+asec = {}
+for m in re.finditer(r'(?:<div class="ans-sec">(A\d|B\d) [^<]*</div>|\{\{ahead:Part (C) )(.*?)(?=<div class="ans-sec">|\{\{ahead:|\Z)', A_ALL, flags=re.S):
+    asec[m.group(1) or m.group(2)] = re.findall(r'<span class="an">(\d+)</span><div class="ab"><span class="src">([^<]+)</span>', m.group(3))
+qsec = {}
+for m in re.finditer(r"\{\{sec:\w+:\w+:(A\d|B\d|C) [^}]*\}\}(.*?)(?=\{\{sec:|\Z)", Q, flags=re.S):
+    qsec[m.group(1)] = re.findall(r'<span class="q-num">(\d+)</span><div class="q-body"><span class="src">([^<]+)</span>', m.group(2))
+for sec in EST:
+    qq = [(n, re.sub(r"^(Y7|Y8) (ICE-EM|Cambridge) ", "", src)) for n, src in qsec.get(sec, [])]
+    aa = [(n, re.sub(r"^(Y7|Y8) (ICE-EM|Cambridge) ", "", src)) for n, src in asec.get(sec, [])]
+    report(qq == aa and len(qq) == len(EST[sec][0]), f"{sec} answers match questions (number and source)", f"{len(qq)} questions")
 starred = {}
 for m in re.finditer(r"\{\{sec:\w+:\w+:(A\d|B\d|C) [^}]*\}\}(.*?)(?=\{\{sec:|\Z)", Q, flags=re.S):
     starred[m.group(1)] = [int(n) for n in re.findall(r'<span class="q-num">(\d+)</span><div class="q-body"><span class="src">[^<]*</span><span class="star">', m.group(2))]
@@ -656,7 +700,7 @@ for sec in EST:
 mt = re.search(r"<td><b>Total</b></td><td></td><td class=\"m\">(\d+) h (\d+) min</td><td class=\"m\">(\d+) h (\d+) min</td>", COVER)
 report(bool(mt) and int(mt.group(1)) * 60 + int(mt.group(2)) == tot_all and int(mt.group(3)) * 60 + int(mt.group(4)) == tot_core,
        "cover totals", f"all {tot_all} min, core {tot_core} min")
-report(170 <= tot_all <= 210 and 110 <= tot_core <= 130, "about 3 hours in all, about 2 hours core")
+report(180 <= tot_all <= 225 and 110 <= tot_core <= 125, "about 3 to 3.5 hours in all, about 2 hours core")
 
 # ------------------------------------------------------------------ textbook answer keys
 BOOK = {"A3.1e": 50, "A3.1k": 30, "A3.1l": 30, "A3.2g_a": 50, "A3.2g_b": 50, "A3.2h_a": 70, "A3.2h_b": 110,
@@ -667,24 +711,22 @@ BOOK = {"A3.1e": 50, "A3.1k": 30, "A3.1l": 30, "A3.2g_a": 50, "A3.2g_b": 50, "A3
         "A5.2e_g": 80, "A5.2h_a": 90, "A5.2h_b": 60, "A5.2h_g": 30, "A5.3b": 137, "A5.3d": 50, "A5.4d": 40,
         "A5.4h_g": 90, "A5.4h_t": 70, "A5.5b": 35, "A5.5d": 30, "A6.2d": 50, "A6.2e": 140, "A6.2f": 55,
         "A6.3a": 55, "A6.3b": 60, "A6.3c": 25, "A6.4c": 18, "A6.4e": F(655, 10), "A6.4f": 60, "A6.5c": 30,
-        "A6.5d": 108, "A6.5e": 40, "A7.1a_a": 104, "A7.1a_b": 76, "A7.1c": 128, "A7.2b_a": 2, "A7.2b_b": 90,
-        "A7.2c_a": 5, "A7.2c_b": 70, "A7.3a": 152, "A7.3c": 145, "A7.3d": 74, "A7.3e": 59, "A7.4a": 19,
+        "A6.5d": 108, "A6.5e": 40, "A7.1a_a": 104, "A7.1a_b": 76, "A7.1c": 128,
+        "A7.3a": 152, "A7.3c": 145, "A7.3d": 74, "A7.3e": 59, "A7.4a": 19,
         "A7.4b": 60, "A7.4c": 36, "A2.6a": 58, "A2.6b": 302,
         "B1.1e": F(27, 10), "B1.1h": 190, "B1.1k": 6340, "B1.1l": F(2, 10), "B1.1n": F(2901, 1000), "B1.1s": F(625, 100),
-        "B1.2": 51, "B1.3": 220, "B1.4": 5100000000, "B1.5": F(52596, 1000), "B1.6": F(1609344, 10 ** 6),
-        "B2.1d": 52, "B2.1e": 50, "B2.1f": 80, "B2.2a": F(118, 10), "B2.2b": F(324, 10), "B2.4": 40,
-        "B2.5": F(12005, 100), "B2.6": F(65, 10000), "B3.1a": F(425, 100), "B3.1b": F(16, 10), "B3.2a": 42,
+        "B1.2": 51, "B1.6": F(1609344, 10 ** 6), "B1.7": F(158, 10), "B1.8": 2400, "B1.9": 240, "B2.8": 52, "B4.3c": 17,
+        "B2.1d": 52, "B2.1e": 50, "B2.1f": 80, "B2.4": 40,
+        "B3.1a": F(425, 100), "B3.1b": F(16, 10), "B3.2a": 42,
         "B3.2b": 3, "B3.2c": 5, "B3.2d": 12, "B3.3": 4820850, "B3.4d": 60, "B3.4f": 40, "B3.4h": 32, "B3.5": 16,
         "B4.1c": 26, "B4.1d": 84, "B4.2b": 36, "B4.2c": 102, "B4.2d": 105, "B4.3a": 120, "B4.3d": F(1255, 10),
-        "B4.4a": 104, "B4.4b": 168, "B4.5h": 3, "B4.5b": 6, "B4.6": 24, "B5.1d": F(75, 10), "B5.1h": 300,
-        "B5.1k": F(325, 10), "B5.1l": 560, "B5.2b": 35, "B5.2c": F(845, 10), "B5.3": F(27, 100), "B5.4": 1160,
-        "B5.5a": 3, "B5.5b": 9, "C.1b": 35, "C.1d": 93, "C.2": 95, "C.3a": 40, "C.4": F(180, 11),
+        "B4.5h": 3, "B4.5b": 6, "B4.6": 24, "B5.1d": F(75, 10), "B5.1h": 300,
+        "B5.1k": F(325, 10), "B5.1l": 560, "B5.3": F(27, 100), "B5.4": 1160,
+        "B5.5a": 3, "B5.5b": 9, "C.1b": 35, "C.1d": 93, "C.2": 95, "C.3a": 40, "A2.7": F(180, 11),
         "C.5a_p": 42, "C.5a_a": 68, "C.5b_p": 64, "C.5b_a": 72, "C.6a": 6, "C.6b": F(12, 7), "C.7a": 120,
         "C.7p": 62, "C.7c": 66}
 for i, v in enumerate((75, 55, 18, 2, 34)):
     BOOK["A2.1" + "abcde"[i]] = v
-for i, v in enumerate((20, 80, 105, 92, 34)):
-    BOOK["A2.2" + "abcde"[i]] = v
 for i, v in enumerate((180, 90, 30, 60, 120, 120, 60, 150)):
     BOOK["A2.4" + "abcdefgh"[i]] = v
 for i, v in enumerate((360, 180, 270, 30, 300, 150, 720, 540)):

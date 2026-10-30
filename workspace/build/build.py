@@ -92,8 +92,11 @@ def build(chdir, kind):
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(PAGE.format(title=spec.get("title", pack["chapter"]), css=css, mj=mj, body="\n".join(body)))
     out = spec["out"]
+    env = dict(os.environ)
+    if "header" in pack:                      # optional page-header text (print.mjs reads PACK_HEADER)
+        env["PACK_HEADER"] = pack["header"]
     subprocess.run(["node", os.path.join(HERE, "print.mjs"), html_path, out,
-                    spec.get("footer", pack["chapter"])], check=True)
+                    spec.get("footer", pack["chapter"])], check=True, env=env)
     print("wrote", out)
 
 
