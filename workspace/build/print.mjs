@@ -46,7 +46,7 @@ const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const style = "font-family:Inter,Arial,sans-serif;font-size:8px;color:#8a96a3;width:100%;padding:0 15mm;display:flex;justify-content:space-between;";
 const res = await send("Page.printToPDF", {
   printBackground: true, preferCSSPageSize: true, displayHeaderFooter: true, transferMode: "ReturnAsStream",
-  headerTemplate: `<div style="${style}color:#2563eb;letter-spacing:.06em;"><span>YEAR 12 MATHEMATICS EXTENSION 1</span><span></span></div>`,
+  headerTemplate: `<div style="${style}color:#2563eb;letter-spacing:.06em;"><span>${esc(process.env.PACK_HEADER || "YEAR 12 MATHEMATICS EXTENSION 1")}</span><span></span></div>`,
   footerTemplate: `<div style="${style}"><span>${esc(footer)}</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>`,
 });
 console.error("printed", new Date().toISOString());
