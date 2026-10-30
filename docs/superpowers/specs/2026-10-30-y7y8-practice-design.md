@@ -23,3 +23,6 @@ Owner request (30 Oct): a revision pack of **practice questions only** for a **2
 ## Correctness and QA (house rules apply)
 - `workspace/checks/y7y8prac.py` reads every printed answer from the answers HTML and recomputes independently (angle sums, perimeters, areas, unit conversions); exit 1 on failure.
 - Build with the flock command (`python3 build.py y7y8prac all`); qa.py 0/0; MathJax scan 0; look at every page; plain short sentences, no em dashes in new text.
+
+## Owner update (30 Oct)
+The pack may exceed 2 hours; the tutor picks questions in the lesson and extra is welcome. Target about 3 hours of questions (5–9 per topic, every distinct skill at least once, more than one level where the exercise allows). Cover shows per-section minutes, notes that the pack holds more than one lesson, and marks a suggested 2-hour core set (★).
