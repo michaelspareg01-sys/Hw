@@ -1087,15 +1087,6 @@ def b2_5f():
     return g
 
 
-@fig
-def b2_8():
-    g = Geo(15)
-    pts = [(0, 0), (0, 10), (2, 10), (2, 7.2), (5.8, 7.2), (5.8, 2.2), (7.3, 2.2), (7.3, 1.1), (10, 1.1), (10, 0)]
-    g.poly(pts)
-    _side(g, (0, 0), (0, 10), "10 m", -20); _side(g, (0, 0), (10, 0), "10 m", 11)
-    return g
-
-
 # ------------------------------------------------------------------ B3 area of rectangles and composite shapes (Y7 9F)
 @fig
 def b3_2d():
@@ -1408,12 +1399,12 @@ def c_ch2a():                            # Y7 Ch 6 Challenge Q2a: 20 at T, alpha
 @fig
 def c_ch2b():                            # Y7 Ch 6 Challenge Q2b: gamma at T, x at V1, beta at V2, alpha at B
     g = Geo(42)
-    ga, x, be = 14, 30, 34
+    ga, x, be = 26, 34, 34
     al = ga - x + be
     T = (1.6, 0); V1 = pol(T, 1.8, 180 + ga); V2 = pol(V1, 4.2, ga - x)
     B = meet(V2, 180 + ga - x + be, (0, -3.7), 0)
     _zig(g, 0, T, V1, V2, B, B[1], xr=V2[0] - 0.8)
-    g.angtxt(T, 180, 180 + ga, "γ", lr=50, size=12).angtxt(V1, ga - x, ga, "x", lr=40, size=11.5, italic=True)
+    g.angtxt(T, 180, 180 + ga, "γ", lr=52, size=11.5).angtxt(V1, ga - x, ga, "x", lr=40, size=11.5, italic=True)
     g.angtxt(V2, 180 + ga - x, 180 + ga - x + be, "β", lr=40, size=12).angtxt(B, 0, al, "α", lr=50, size=12)
     return g
 
@@ -1442,7 +1433,7 @@ def c_r8b():                             # Y7 Ch 9 Review Q8b
                          ("10 km", R2, B, -24), ("6 km", B, Q4, -24), ("6 km", Q4, L, -11), ("10 km", L, Q1, -24),
                          ("6 km", Q1, T, -24)):
         _side(g, p, q, s, off)
-    g.text((0, 11), "2 km", size=10.5, dx=18).text((-1, 6), "2 km", size=10.5, dy=-10)
+    g.text((0, 11), "2 km", size=10.5, dx=24).text((-1, 6), "2 km", size=10.5, dx=4, dy=12)
     return g
 
 
@@ -1512,23 +1503,6 @@ def b2_ch14():                           # Y7 Ch 9 Challenge Q14
            (9.4, 6.65), (15.3, 6.65), (15.3, 1.05), (16, 1.05), (16, 0)]
     g.poly(pts)
     _side(g, (0, 0), (0, 10), "10 m", -20); _side(g, (0, 0), (16, 0), "16 m", 11)
-    return g
-
-
-@fig
-def b4_8c():                             # Y7 Ex 9G Q8c (not to scale in the book either)
-    g = Geo(24)
-    A, Bb, T = (0, 0), (10, 0), (7.4, 5)
-    g.poly([A, Bb, T], fill=FILL, opacity=0.95)
-    g.poly([(4.25, 2.5), (6.25, 2.5), (5.25, 0.5)], fill="#ffffff", opacity=1)
-    g.poly([(5.95, 0.5), (8.95, 0.5), (7.3, 4.5)], fill="#ffffff", opacity=1)
-    g.seg(T, (11.6, 5), color=RED, dash="3 2", width=1).seg((7.3, 4.5), (12.4, 4.5), color=RED, dash="3 2", width=1)
-    g.seg((8.95, 0.5), (12.4, 0.5), color=RED, dash="3 2", width=1).seg(Bb, (11.6, 0), color=RED, dash="3 2", width=1)
-    g.dim((11.6, 5), (11.6, 0)).dim((12.4, 4.5), (12.4, 0.5)).dim((3.85, 2.5), (3.85, 0.5))
-    g.seg((3.85, 0.5), (5.25, 0.5), color=RED, dash="2 2", width=1)
-    g.text((11.6, 2.5), "5 m", size=10.5, dx=-15).text((12.4, 2.5), "4 m", size=10.5, dx=15)
-    g.text((3.85, 1.5), "2 m", size=10.5, dx=-14).text((5.25, 2.5), "2 m", size=10.5, dy=-9)
-    g.text((7.45, 0.5), "3 m", size=10.5, dy=-9).text((5, 0), "10 m", size=10.5, dy=11)
     return g
 
 
