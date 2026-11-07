@@ -1,1 +1,148 @@
-<!-- filled by Task: Int3 lesson 12A (a_12a.html) -->
+{{ahead:Lesson 12A | Inverse trigonometric functions: differentiating}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> Let \(u=x^2\) and \(v=\cos^{-1}x\). Then \(u'=2x\) and \(v'=-\dfrac{1}{\sqrt{1-x^2}}\).
+\[\begin{aligned}y'&amp;=vu'+uv'\\&amp;=\cos^{-1}x\times2x+x^2\times\Big(-\frac{1}{\sqrt{1-x^2}}\Big)\\&amp;=2x\cos^{-1}x-\frac{x^2}{\sqrt{1-x^2}}\end{aligned}\]
+<b>b</b> Let \(u=ax+b\), then \(y=\cos^{-1}u\). Hence \(\dfrac{du}{dx}=a\) and \(\dfrac{dy}{du}=-\dfrac{1}{\sqrt{1-u^2}}\).
+\[\begin{aligned}\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}=-\frac{1}{\sqrt{1-(ax+b)^2}}\times a=-\frac{a}{\sqrt{1-(ax+b)^2}}\end{aligned}\]
+<b>Your turn.</b><br>
+<b>a</b> Let \(u=x^2\) and \(v=\sin^{-1}x\). Then \(u'=2x\) and \(v'=\dfrac{1}{\sqrt{1-x^2}}\).
+\[\begin{aligned}y'&amp;=vu'+uv'\\&amp;=\sin^{-1}x\times2x+x^2\times\frac{1}{\sqrt{1-x^2}}\\&amp;=2x\sin^{-1}x+\frac{x^2}{\sqrt{1-x^2}}\end{aligned}\]
+<b>b</b> Let \(u=ax+b\), then \(y=\tan^{-1}u\). Hence \(\dfrac{du}{dx}=a\) and \(\dfrac{dy}{du}=\dfrac{1}{1+u^2}\).
+\[\begin{aligned}\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}=\frac{1}{1+(ax+b)^2}\times a=\frac{a}{1+(ax+b)^2}\end{aligned}\]</div></div>
+<div class="a" style="break-inside:auto"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<div class="split"><div>
+<p><b>a</b> Differentiating, \(y'=\dfrac{1}{\sqrt{1-(x+1)^2}}\).<br>Put \(y'=2\). Then</p>
+\[\begin{aligned}\frac{1}{\sqrt{1-(x+1)^2}}&amp;=2\\\sqrt{1-(x+1)^2}&amp;=\tfrac12\\1-(x+1)^2&amp;=\tfrac14\\ (x+1)^2&amp;=\tfrac34\\x+1&amp;=\tfrac12\sqrt3\ \text{ or }\ {-\tfrac12\sqrt3}\\x&amp;=-1+\tfrac12\sqrt3\ \text{ or }\ {-1-\tfrac12\sqrt3}\end{aligned}\]
+<p>When \(x=-1+\tfrac12\sqrt3\),<br>\(y=\sin^{-1}\tfrac12\sqrt3=\tfrac{\pi}{3}\).<br>
+When \(x=-1-\tfrac12\sqrt3\),<br>\(y=\sin^{-1}\big(-\tfrac12\sqrt3\big)=-\tfrac{\pi}{3}\).</p>
+<p>So the points are \(A\big(-1+\tfrac12\sqrt3,\tfrac{\pi}{3}\big)\) and<br>\(B\big(-1-\tfrac12\sqrt3,-\tfrac{\pi}{3}\big)\).</p>
+</div><div>
+<p><b>b</b> The domain is \(-1\le x+1\le1\), that is, \(-2\le x\le0\), and the range is \(-\tfrac{\pi}{2}\le y\le\tfrac{\pi}{2}\). The endpoints are \(\big(-2,-\tfrac{\pi}{2}\big)\) and \(\big(0,\tfrac{\pi}{2}\big)\), and the curve crosses the \(x\)-axis at \(x=-1\).</p>
+<div class="center">{{svg:a12a_c2d}}</div>
+</div></div>
+<b>Your turn.</b>
+<div class="split"><div>
+<p><b>a</b> Differentiating, \(y'=-\dfrac{1}{\sqrt{1-(x-2)^2}}\).<br>Put \(y'=-2\). Then</p>
+\[\begin{aligned}-\frac{1}{\sqrt{1-(x-2)^2}}&amp;=-2\\\sqrt{1-(x-2)^2}&amp;=\tfrac12\\1-(x-2)^2&amp;=\tfrac14\\ (x-2)^2&amp;=\tfrac34\\x-2&amp;=\tfrac12\sqrt3\ \text{ or }\ {-\tfrac12\sqrt3}\\x&amp;=2+\tfrac12\sqrt3\ \text{ or }\ 2-\tfrac12\sqrt3\end{aligned}\]
+<p>When \(x=2+\tfrac12\sqrt3\),<br>\(y=\cos^{-1}\tfrac12\sqrt3=\tfrac{\pi}{6}\).<br>
+When \(x=2-\tfrac12\sqrt3\),<br>\(y=\cos^{-1}\big(-\tfrac12\sqrt3\big)=\tfrac{5\pi}{6}\).</p>
+<p>So the points are \(A\big(2+\tfrac12\sqrt3,\tfrac{\pi}{6}\big)\) and<br>\(B\big(2-\tfrac12\sqrt3,\tfrac{5\pi}{6}\big)\).</p>
+</div><div>
+<p><b>b</b> The domain is \(-1\le x-2\le1\), that is, \(1\le x\le3\), and the range is \(0\le y\le\pi\). The endpoints are \((1,\pi)\) and \((3,0)\), and the curve passes through \(\big(2,\tfrac{\pi}{2}\big)\).</p>
+<div class="center">{{svg:a12a_c2y}}</div>
+</div></div></div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> By Box 2 with \(a=-1\) and \(b=0\), \(\dfrac{d}{dx}\sin^{-1}(-x)=\dfrac{-1}{\sqrt{1-(-x)^2}}=\dfrac{-1}{\sqrt{1-x^2}}\). So
+\[\begin{aligned}\frac{d}{dx}\big(\sin^{-1}x+\sin^{-1}(-x)\big)&amp;=\frac{1}{\sqrt{1-x^2}}+\frac{-1}{\sqrt{1-x^2}}=0\end{aligned}\]
+<b>b</b> Hence \(\sin^{-1}x+\sin^{-1}(-x)=C\), for some constant \(C\). Substitute \(x=0\), then \(0+0=C\), so \(C=0\). Thus \(\sin^{-1}x+\sin^{-1}(-x)=0\), that is, \(\sin^{-1}(-x)=-\sin^{-1}x\), as required.<br>
+<b>Your turn.</b><br>
+<b>a</b> By Box 2 with \(a=-1\) and \(b=0\), \(\dfrac{d}{dx}\tan^{-1}(-x)=\dfrac{-1}{1+(-x)^2}=\dfrac{-1}{1+x^2}\). So
+\[\begin{aligned}\frac{d}{dx}\big(\tan^{-1}x+\tan^{-1}(-x)\big)&amp;=\frac{1}{1+x^2}+\frac{-1}{1+x^2}=0\end{aligned}\]
+<b>b</b> Hence \(\tan^{-1}x+\tan^{-1}(-x)=C\), for some constant \(C\). Substitute \(x=0\), then \(0+0=C\), so \(C=0\). Thus \(\tan^{-1}(-x)=-\tan^{-1}x\), as required.</div></div>
+<div class="a" style="break-inside:auto"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b> \(\tan x\) is undefined when \(x=\tfrac{\pi}{2}+k\pi\), for every integer \(k\), so \(y\) is undefined there too. The function is periodic with the same period \(\pi\) as \(\tan x\). A table of test values:
+<table class="t" style="font-size:9.8pt;margin:1mm 0"><tr><th>\(x\)</th><td>\(-\tfrac{\pi}{4}\)</td><td>\(0\)</td><td>\(\tfrac{\pi}{4}\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\tfrac{3\pi}{4}\)</td><td>\(\pi\)</td><td>\(\tfrac{5\pi}{4}\)</td></tr>
+<tr><th>\(y\)</th><td>\(-\tfrac{\pi}{4}\)</td><td>\(0\)</td><td>\(\tfrac{\pi}{4}\)</td><td>undefined</td><td>\(-\tfrac{\pi}{4}\)</td><td>\(0\)</td><td>\(\tfrac{\pi}{4}\)</td></tr></table>
+Let \(u=\tan x\), then \(y=\tan^{-1}u\). Hence \(\dfrac{du}{dx}=\sec^2x\) and \(\dfrac{dy}{du}=\dfrac{1}{1+u^2}\).
+\[\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}=\frac{1}{1+\tan^2x}\times\sec^2x=\frac{\sec^2x}{\sec^2x}=1\]
+So the graph is a series of separate intervals, each with gradient 1. Each runs from \(\big(k\pi-\tfrac{\pi}{2},-\tfrac{\pi}{2}\big)\) to \(\big(k\pi+\tfrac{\pi}{2},\tfrac{\pi}{2}\big)\) through \((k\pi,0)\), and the endpoints are not included.
+<div class="center">{{svg:a12a_c4d}}</div>
+<b>Your turn.</b> The function is periodic with the same period \(\pi\) as \(\cos2x\). A table of test values:
+<table class="t" style="font-size:9.8pt;margin:1mm 0"><tr><th>\(x\)</th><td>\(0\)</td><td>\(\tfrac{\pi}{4}\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\tfrac{3\pi}{4}\)</td><td>\(\pi\)</td><td>\(\tfrac{5\pi}{4}\)</td><td>\(\tfrac{3\pi}{2}\)</td></tr>
+<tr><th>\(y\)</th><td>\(0\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\pi\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(0\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\pi\)</td></tr></table>
+Let \(u=\cos2x\), then \(y=\cos^{-1}u\). Hence \(\dfrac{du}{dx}=-2\sin2x\) and \(\dfrac{dy}{du}=-\dfrac{1}{\sqrt{1-u^2}}\).
+\[\begin{aligned}\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}=-\frac{1}{\sqrt{1-\cos^22x}}\times(-2\sin2x)\\&amp;=\frac{2\sin2x}{\sqrt{1-\cos^22x}}=\frac{2\sin2x}{\sqrt{\sin^22x}}\end{aligned}\]
+When \(\sin2x\) is positive, \(\sqrt{\sin^22x}=\sin2x\), so \(\dfrac{dy}{dx}=2\). When \(\sin2x\) is negative, \(\sqrt{\sin^22x}=-\sin2x\), so \(\dfrac{dy}{dx}=-2\). So \(\dfrac{dy}{dx}=2\) for \(0&lt;x&lt;\tfrac{\pi}{2}\) and \(\dfrac{dy}{dx}=-2\) for \(\tfrac{\pi}{2}&lt;x&lt;\pi\), and this repeats every \(\pi\). The graph is a zigzag of intervals with gradient 2 or \(-2\), between \(y=0\) and \(y=\pi\).
+<div class="center">{{svg:a12a_c4y}}</div></div></div>
+<div class="a"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> Here \(u=e^{-2x}\) and \(u'=-2e^{-2x}\), so
+\[\frac{d}{dx}\big(\tan^{-1}e^{-2x}\big)=\frac{u'}{1+u^2}=\frac{-2e^{-2x}}{1+e^{-4x}}.\]
+<b>b</b> Here \(u=x^2-1\) and \(u'=2x\). Also \(1-u^2=1-(x^4-2x^2+1)=2x^2-x^4\). So
+\[\frac{d}{dx}\cos^{-1}(x^2-1)=-\frac{u'}{\sqrt{1-u^2}}=-\frac{2x}{\sqrt{1-(x^2-1)^2}}=-\frac{2x}{\sqrt{2x^2-x^4}}.\]
+<b>Your turn.</b><br>
+<b>a</b> Here \(u=e^{-4x}\) and \(u'=-4e^{-4x}\), so
+\[\frac{d}{dx}\big(\tan^{-1}e^{-4x}\big)=\frac{u'}{1+u^2}=\frac{-4e^{-4x}}{1+e^{-8x}}.\]
+<b>b</b> Here \(u=1-x^2\) and \(u'=-2x\). Also \(1-u^2=1-(1-2x^2+x^4)=2x^2-x^4\). So
+\[\frac{d}{dx}\sin^{-1}(1-x^2)=\frac{u'}{\sqrt{1-u^2}}=\frac{-2x}{\sqrt{1-(1-x^2)^2}}=\frac{-2x}{\sqrt{2x^2-x^4}}.\]</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab">From \(\dfrac{dy}{dx}=\dfrac{1}{\sqrt{1-x^2}}\) (your measured values should be close to these):
+<table class="t" style="font-size:9.8pt;margin:1mm 0"><tr><th>\(x\)</th><td>\(-1\)</td><td>\(-0.7\)</td><td>\(-0.5\)</td><td>\(-0.2\)</td><td>\(0\)</td><td>\(0.3\)</td><td>\(0.6\)</td><td>\(0.8\)</td><td>\(1\)</td></tr>
+<tr><th>\(\dfrac{dy}{dx}\)</th><td>vertical</td><td>1.40</td><td>1.15</td><td>1.02</td><td>1.00</td><td>1.05</td><td>1.25</td><td>1.67</td><td>vertical</td></tr></table>
+At \(x=\pm1\) the tangent is vertical, so the gradient is undefined.</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><div class="parts three" style="row-gap:2mm;margin-top:0"><span><b>a</b> \(\dfrac{-1}{\sqrt{1-x^2}}\)</span><span><b>b</b> \(\dfrac{1}{1+x^2}\)</span><span><b>c</b> \(\dfrac{2}{\sqrt{1-4x^2}}\)</span><span><b>d</b> \(\dfrac{3}{1+9x^2}\)</span><span><b>e</b> \(\dfrac{-5}{\sqrt{1-25x^2}}\)</span><span><b>f</b> \(\dfrac{-1}{\sqrt{1-x^2}}\)</span><span><b>g</b> \(\dfrac{2x}{\sqrt{1-x^4}}\)</span><span><b>h</b> \(\dfrac{3x^2}{1+x^6}\)</span><span><b>i</b> \(\dfrac{1}{x^2+4x+5}\)</span><span><b>j</b> \(\dfrac{1}{\sqrt{2x-x^2}}\)</span><span><b>k</b> \(\sin^{-1}x+\dfrac{x}{\sqrt{1-x^2}}\)</span><span><b>l</b> \(2x\tan^{-1}x+1\)</span><span><b>m</b> \(\dfrac{1}{\sqrt{25-x^2}}\)</span><span><b>n</b> \(\dfrac{4}{16+x^2}\)</span><span><b>o</b> \(\dfrac{-1}{2\sqrt{x-x^2}}\)</span><span><b>p</b> \(\dfrac{1}{2(1+x)\sqrt{x}}\)</span><span><b>q</b> \(\dfrac{-1}{1+x^2}\)</span></div></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>a</b> 2 &nbsp; <b>b</b> 2 &nbsp; <b>c</b> 1 &nbsp; <b>d</b> \(-1\)</div></div>
+<div class="a" style="line-height:1.9"><span class="an">4</span><div class="ab"><b>a</b> Tangent is \(y=-6x+\pi\), normal is \(y=\tfrac16x+\pi\).<br>
+<b>b</b> Tangent is \(y=\tfrac{1}{\sqrt2}x+\tfrac{\pi}{4}-1\), normal is \(y=-\sqrt2\,x+\tfrac{\pi}{4}+2\).</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>b</b> \(\tfrac{\pi}{2}\)</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> \(\pi\) &nbsp; <b>b</b> \(\tfrac{\pi}{2}\)</div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>b</b> concave up</div></div>
+<div class="a"><span class="an">9</span><div class="ab"><div class="parts three" style="row-gap:2mm;margin-top:0"><span><b>a</b> \(\cos^{-1}x\)</span><span><b>b</b> \(\dfrac{3e^{3x}}{\sqrt{1-e^{6x}}}\)</span><span><b>c</b> \(\dfrac{2}{\sqrt{7+12x-4x^2}}\)</span><span><b>d</b> \(\dfrac{1}{x^2-2x+2}\)</span><span><b>e</b> \(\dfrac{e^x}{\sqrt{1-e^{2x}}}\)</span><span><b>f</b> \(\dfrac{1}{2\sqrt{1-x^2}\,\sin^{-1}x}\)</span><span><b>g</b> \(\dfrac{1}{2x\sqrt{\log_ex\,(1-\log_ex)}}\)</span><span style="grid-column:span 2"><b>h</b> \(\dfrac{\sin^{-1}\sqrt{1-x}}{2\sqrt{x}}-\dfrac{1}{2\sqrt{1-x}}\)</span><span><b>i</b> \(\dfrac{1}{1+x^2}\)</span></div></div></div>
+<div class="a" style="line-height:2.1"><span class="an">11</span><div class="ab"><b>a</b> \(-\tfrac{\pi}{2}\le y\le\tfrac{\pi}{2}\) &nbsp; <b>b</b> \(x=\tfrac12\sin y\)<br><b>c</b> \(\dfrac{dx}{dy}=\tfrac12\cos y\ge0\) for \(-\tfrac{\pi}{2}\le y\le\tfrac{\pi}{2}\) &nbsp; <b>d</b> \(\dfrac{dy}{dx}=\dfrac{2}{\sqrt{1-4x^2}}\)</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><div class="parts three" style="row-gap:2mm;margin-top:0"><span><b>a</b> \(\dfrac{1}{\sqrt{4-x^2}}\)</span><span><b>b</b> \(\dfrac{-1}{\sqrt{2x-x^2}}\)</span><span><b>c</b> \(\dfrac{1}{2(1+x)\sqrt{x}}\)</span></div></div></div>
+<div class="a"><span class="an">13</span><div class="ab"><div class="split"><div>
+<b>a</b> \(-1\le x\le1\), even<br>
+<b>b</b> The \(y\)-axis, because the function is even.<br>
+<span style="display:inline-block;height:3.2em;vertical-align:-1.2em"></span><b>c</b> \(\dfrac{-2x}{\sqrt{1-x^4}}\)<br>
+<b>e</b> The tangents at \(x=1\) and \(x=-1\) are vertical.</div><div>
+<b>f</b><div class="center">{{svg:a12a_q13f}}</div></div></div></div></div>
+<div class="a"><span class="an">15</span><div class="ab"><b>c</b> \(\tfrac{1}{45}\) rad/s</div></div>
+<div class="a"><span class="an">16</span><div class="ab"><b>a</b> \(x\ne0\), odd</div></div>
+<div class="a"><span class="an">17</span><div class="ab"><div class="split"><div>
+<b>a</b> \(x\ge1\) or \(x\le-1\)<br>
+<b>c</b> They are undefined.<br>
+<span style="display:inline-block;height:3.2em;vertical-align:-1.2em"></span><b>d</b> When \(x&gt;1\), \(f'(x)=\dfrac{1}{x\sqrt{x^2-1}}\),<br>
+<span style="display:inline-block;height:3.2em;vertical-align:-1.2em"></span>and when \(x&lt;-1\), \(f'(x)=\dfrac{-1}{x\sqrt{x^2-1}}\).<br>
+<b>e</b> \(f'(x)&gt;0\) for \(x&gt;1\) and for \(x&lt;-1\).<br>
+<b>f</b> (i) \(\tfrac{\pi}{2}\) &nbsp; (ii) \(\tfrac{\pi}{2}\)</div><div>
+<b>g</b><div class="center">{{svg:a12a_q17g}}</div></div></div></div></div>
+<div class="a"><span class="an">18</span><div class="ab"><div class="parts three" style="row-gap:2mm;margin-top:0"><span><b>a</b> \(\dfrac{3e^{3x}}{1+e^{6x}}\)</span><span><b>b</b> \(\dfrac{3x^2}{\sqrt{1-x^6}}\)</span><span><b>c</b> \(-\dfrac{1}{x\sqrt{1-(\log_ex)^2}}\)</span></div></div></div>
+<div class="a"><span class="an">19</span><div class="ab"><b>a</b> \(-1\le x\le1\) &nbsp; <b>c</b> \(g(x)=\tfrac{\pi}{2}\) for \(0\le x\le1\).</div></div>
+<div class="a" style="line-height:2.3"><span class="an">20</span><div class="ab">\(\tan^{-1}\dfrac{x+2}{1-2x}\) is \(\tan^{-1}x+\tan^{-1}2\) for \(x&lt;\tfrac12\), and is \(\tan^{-1}x+\tan^{-1}2-\pi\) for \(x&gt;\tfrac12\).</div></div>
+<div class="a"><span class="an">21</span><div class="ab"><b>a</b> domain: all real \(x\), range: \(-\tfrac{\pi}{2}\le y\le\tfrac{\pi}{2}\), odd<br>
+<b>c</b> No, because \(\tfrac00\) is undefined.<br>
+<b>d</b> \(f'(x)=1\) when \(\cos x&gt;0\), and \(f'(x)=-1\) when \(\cos x&lt;0\).<br>
+<b>e</b> The graph is a zigzag of intervals with gradient 1 or \(-1\), between \(y=-\tfrac{\pi}{2}\) and \(y=\tfrac{\pi}{2}\), through \((k\pi,0)\).
+<div class="center">{{svg:a12a_q21e}}</div></div></div>
+
+{{ahead:Lesson 12A | Inverse trigonometric functions: differentiating}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Cherrybrook Technology High School, 2020, Year 12 AP4, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q4</span></span></div>
+<p>By Box 2 with \(a=3\) and \(b=0\),</p>
+\[\frac{d}{dx}\sin^{-1}3x=\frac{3}{\sqrt{1-(3x)^2}}=\frac{3}{\sqrt{1-9x^2}}.\]
+<p><b>Answer B.</b> Options A, C and D have the minus sign of the \(\cos^{-1}\) form, A and C also leave out the factor 3 from the chain rule, and C squares only \(x\), not \(3x\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q9</span></span></div>
+<p>For \(x\cos^{-1}x\) use the product rule with \(u=x\), \(v=\cos^{-1}x\), \(u'=1\), \(v'=-\dfrac{1}{\sqrt{1-x^2}}\). For \(\sqrt{1-x^2}=(1-x^2)^{\frac12}\) use the chain rule: its derivative is \(\tfrac12(1-x^2)^{-\frac12}\times(-2x)=\dfrac{-x}{\sqrt{1-x^2}}\). So</p>
+\[\begin{aligned}\frac{d}{dx}\Big(x\cos^{-1}x-\sqrt{1-x^2}\Big)&amp;=\cos^{-1}x\times1+x\times\Big(-\frac{1}{\sqrt{1-x^2}}\Big)-\frac{-x}{\sqrt{1-x^2}}\\&amp;=\cos^{-1}x-\frac{x}{\sqrt{1-x^2}}+\frac{x}{\sqrt{1-x^2}}\\&amp;=\cos^{-1}x.\end{aligned}\]
+<p><b>Answer C.</b></p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2022, Trial Examination, Form VI Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(a)</span></span></div>
+<p>Here \(u=3x^2\) and \(u'=6x\). By Box 3,</p>
+\[\frac{d}{dx}\big(\cos^{-1}(3x^2)\big)=-\frac{u'}{\sqrt{1-u^2}}=-\frac{1}{\sqrt{1-(3x^2)^2}}\times6x=-\frac{6x}{\sqrt{1-9x^4}}.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Sydney Technical High School, 2021, Extension&nbsp;1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q11(g)</span></span></div>
+<p>Let \(u=e^{-x}\) and \(v=\sin^{-1}x\). Then \(u'=-e^{-x}\) and \(v'=\dfrac{1}{\sqrt{1-x^2}}\). By the product rule,</p>
+\[\begin{aligned}\frac{dy}{dx}&amp;=vu'+uv'\\&amp;=\sin^{-1}x\times\big(-e^{-x}\big)+e^{-x}\times\frac{1}{\sqrt{1-x^2}}\\&amp;=-e^{-x}\sin^{-1}x+\frac{e^{-x}}{\sqrt{1-x^2}}.\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(d)</span></span></div>
+<p>When \(x=-\tfrac{\pi}{2}\), \(y=\sin^{-1}\big(-\tfrac{\pi}{2}+\tfrac{\pi}{2}\big)+\tfrac{\pi}{2}=\sin^{-1}0+\tfrac{\pi}{2}=\tfrac{\pi}{2}\). So the point is \(\big(-\tfrac{\pi}{2},\tfrac{\pi}{2}\big)\).</p>
+<p>By Box 2 with \(a=1\) and \(b=\tfrac{\pi}{2}\), \(\dfrac{dy}{dx}=\dfrac{1}{\sqrt{1-\big(x+\frac{\pi}{2}\big)^2}}\). At \(x=-\tfrac{\pi}{2}\), \(\dfrac{dy}{dx}=\dfrac{1}{\sqrt{1-0^2}}=1\).</p>
+<p>So the normal has gradient \(-1\), and its equation is</p>
+\[\begin{aligned}y-\tfrac{\pi}{2}&amp;=-1\big(x+\tfrac{\pi}{2}\big)\\y&amp;=-x-\tfrac{\pi}{2}+\tfrac{\pi}{2}\\y&amp;=-x.\end{aligned}\]
+<p>When \(x=0\), \(y=0\), so the normal passes through the origin.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(a)(i)(ii)</span></span></div>
+<p><b>(i)</b> Let \(u=x\) and \(v=\tan^{-1}x\). Then \(u'=1\) and \(v'=\dfrac{1}{1+x^2}\). By the product rule,</p>
+\[\frac{d}{dx}\big(x\tan^{-1}x\big)=\tan^{-1}x\times1+x\times\frac{1}{1+x^2}=\tan^{-1}x+\frac{x}{1+x^2}.\]
+<p><b>(ii)</b> From (i), \(\tan^{-1}x=\dfrac{d}{dx}\big(x\tan^{-1}x\big)-\dfrac{x}{1+x^2}\). Integrate both sides from 0 to \(\sqrt3\). For the last term, \(\displaystyle\int\frac{x}{1+x^2}\,dx=\tfrac12\int\frac{2x}{1+x^2}\,dx=\tfrac12\ln(1+x^2)+C\), since \(2x\) is the derivative of \(1+x^2\).</p>
+\[\begin{aligned}\int_0^{\sqrt3}\tan^{-1}x\,dx&amp;=\Big[x\tan^{-1}x\Big]_0^{\sqrt3}-\int_0^{\sqrt3}\frac{x}{1+x^2}\,dx\\&amp;=\Big(\sqrt3\tan^{-1}\sqrt3-0\Big)-\Big[\tfrac12\ln(1+x^2)\Big]_0^{\sqrt3}\\&amp;=\sqrt3\times\frac{\pi}{3}-\big(\tfrac12\ln4-\tfrac12\ln1\big)\\&amp;=\frac{\pi\sqrt3}{3}-\tfrac12\ln4\\&amp;=\frac{\pi\sqrt3}{3}-\ln2.\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>Blacktown Boys' High School, 2024, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span></div>
+<p>Use the quotient rule with \(u=\sin^{-1}(3x)\) and \(v=3x\). Then \(u'=\dfrac{3}{\sqrt{1-9x^2}}\) (Box 2 with \(a=3\)) and \(v'=3\). In the third line, the top and bottom are multiplied by \(\sqrt{1-9x^2}\).</p>
+\[\begin{aligned}\frac{d}{dx}\bigg(\frac{\sin^{-1}(3x)}{3x}\bigg)&amp;=\frac{vu'-uv'}{v^2}\\&amp;=\frac{3x\times\dfrac{3}{\sqrt{1-9x^2}}-\sin^{-1}(3x)\times3}{9x^2}\\&amp;=\frac{9x-3\sin^{-1}(3x)\sqrt{1-9x^2}}{9x^2\sqrt{1-9x^2}}\\&amp;=\frac{3\big(3x-\sin^{-1}(3x)\sqrt{1-9x^2}\big)}{9x^2\sqrt{1-9x^2}}\\&amp;=\frac{3x-\sin^{-1}(3x)\sqrt{1-9x^2}}{3x^2\sqrt{1-9x^2}}.\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 8</span>Knox Grammar School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)</span></span></div>
+<p>By the chain rule, with Box 2 for \(\sin^{-1}\dfrac{x}{b}\) (here \(a=\tfrac1b\)),</p>
+\[g'(x)=2\sin^{-1}\frac{x}{b}\times\frac{d}{dx}\Big(\sin^{-1}\frac{x}{b}\Big)=2\sin^{-1}\frac{x}{b}\times\frac{\frac1b}{\sqrt{1-\frac{x^2}{b^2}}}.\]
+<p>At \(x=\tfrac{b}{2}\), \(\dfrac{x}{b}=\tfrac12\), so \(\sin^{-1}\dfrac{x}{b}=\sin^{-1}\tfrac12=\tfrac{\pi}{6}\) and \(\sqrt{1-\dfrac{x^2}{b^2}}=\sqrt{1-\tfrac14}=\dfrac{\sqrt3}{2}\). Hence</p>
+\[g'\Big(\frac{b}{2}\Big)=2\times\frac{\pi}{6}\times\frac1b\times\frac{2}{\sqrt3}=\frac{2\pi}{3\sqrt3\,b}.\]
+<p>This gradient is \(\dfrac{2\pi}{3}\), so</p>
+\[\frac{2\pi}{3\sqrt3\,b}=\frac{2\pi}{3},\quad\text{so}\quad\sqrt3\,b=1,\quad\text{and}\quad b=\frac{1}{\sqrt3}=\frac{\sqrt3}{3}.\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 9</span>Ascham School, 2020, Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)</span></span></div>
+<p>Work with \(0&lt;x&lt;1\), where both derivatives exist. By Box 2 with \(a=2\), \(\dfrac{d}{dx}\cos^{-1}(2x-1)=-\dfrac{2}{\sqrt{1-(2x-1)^2}}\). By Box 3 with \(u=\sqrt x\) and \(u'=\dfrac{1}{2\sqrt x}\), \(\dfrac{d}{dx}\cos^{-1}\sqrt x=-\dfrac{u'}{\sqrt{1-u^2}}=-\dfrac{\frac{1}{2\sqrt x}}{\sqrt{1-x}}=-\dfrac{1}{2\sqrt x\,\sqrt{1-x}}\).</p>
+<p>Also \(1-(2x-1)^2=1-(4x^2-4x+1)=4x-4x^2=4x(1-x)\), so \(\sqrt{1-(2x-1)^2}=2\sqrt x\,\sqrt{1-x}\). Hence</p>
+\[\begin{aligned}f'(x)&amp;=-\frac{2}{\sqrt{1-(2x-1)^2}}-2\times\Big(-\frac{1}{2\sqrt x\,\sqrt{1-x}}\Big)\\&amp;=-\frac{2}{2\sqrt x\,\sqrt{1-x}}+\frac{1}{\sqrt x\,\sqrt{1-x}}\\&amp;=-\frac{1}{\sqrt x\,\sqrt{1-x}}+\frac{1}{\sqrt x\,\sqrt{1-x}}\\&amp;=0.\end{aligned}\]</div>

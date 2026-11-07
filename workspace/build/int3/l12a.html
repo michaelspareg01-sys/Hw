@@ -1,1 +1,311 @@
-<!-- filled by Task: Int3 lesson 12A (l12a.html) -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 12A</div><h2>Inverse trigonometric functions: differentiating</h2>
+<div class="focus">The inverse trigonometric functions were defined in Chapter 17 of the Year 11 book. We can now apply the normal processes of calculus to them. This section develops their derivatives and applies them to curve-sketching and maximisation. The derivatives come from writing \(y=\sin^{-1}x\) as \(x=\sin y\), and so on, and the restriction on \(y\) decides which square root to take. The chain rule then extends each standard form.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the derivatives of sin<sup>−1</sup><i>x</i>, cos<sup>−1</sup><i>x</i> and tan<sup>−1</sup><i>x</i>}}
+<div class="box concept"><div class="bt">Differentiating \(\sin^{-1}x\) and \(\cos^{-1}x\)</div>
+<p>To differentiate \(y=\sin^{-1}x\) and \(y=\cos^{-1}x\), we change to the inverse functions and use the known derivatives of the sine and cosine functions. We need to keep track of the restrictions to the domain so that the choice can be made later between positive and negative square roots. Two facts from Year 11 are used: \(\cos^2y+\sin^2y=1\), and \(\dfrac{dy}{dx}=1\Big/\dfrac{dx}{dy}\).</p>
+<div class="split"><div>
+<p><b>A</b>&ensp;Let \(y=\sin^{-1}x\).<br>
+Then \(x=\sin y\), where \(-\tfrac{\pi}{2}\le y\le\tfrac{\pi}{2}\),<br>
+so \(\dfrac{dx}{dy}=\cos y\).</p>
+<p>Because \(y\) is in the first or fourth quadrant, \(\cos y\) is positive, so</p>
+\[\begin{aligned}\cos y&amp;=+\sqrt{1-\sin^2y}\\&amp;=\sqrt{1-x^2}\quad(\text{since }\sin y=x).\end{aligned}\]
+<p>Thus \(\dfrac{dx}{dy}=\sqrt{1-x^2}\), so \(\dfrac{dy}{dx}=\dfrac{1}{\sqrt{1-x^2}}\).</p>
+<p>Hence \(\dfrac{d}{dx}\sin^{-1}x=\dfrac{1}{\sqrt{1-x^2}}\).</p>
+</div><div>
+<p><b>B</b>&ensp;Let \(y=\cos^{-1}x\).<br>
+Then \(x=\cos y\), where \(0\le y\le\pi\),<br>
+so \(\dfrac{dx}{dy}=-\sin y\).</p>
+<p>Because \(y\) is in the first or second quadrant, \(\sin y\) is positive, so</p>
+\[\begin{aligned}\sin y&amp;=+\sqrt{1-\cos^2y}\\&amp;=\sqrt{1-x^2}\quad(\text{since }\cos y=x).\end{aligned}\]
+<p>Thus \(\dfrac{dx}{dy}=-\sqrt{1-x^2}\), so \(\dfrac{dy}{dx}=-\dfrac{1}{\sqrt{1-x^2}}\).</p>
+<p>Hence \(\dfrac{d}{dx}\cos^{-1}x=-\dfrac{1}{\sqrt{1-x^2}}\).</p>
+</div></div></div></div>
+<div class="box concept"><div class="bt">Differentiating \(\tan^{-1}x\)</div>
+<p>The problem of which square root to choose does not arise when differentiating \(y=\tan^{-1}x\).</p>
+<div class="split"><div>
+<p>Let \(y=\tan^{-1}x\).<br>
+Then \(x=\tan y\), where \(-\tfrac{\pi}{2}&lt;y&lt;\tfrac{\pi}{2}\),<br>so</p>
+\[\begin{aligned}\frac{dx}{dy}&amp;=\sec^2y\\&amp;=1+\tan^2y.\end{aligned}\]
+</div><div>
+<p>Hence \(\dfrac{dx}{dy}=1+x^2\) (since \(\tan y=x\)),</p>
+<p>and \(\dfrac{dy}{dx}=\dfrac{1}{1+x^2}\),</p>
+<p>giving the standard form \(\dfrac{d}{dx}\tan^{-1}x=\dfrac{1}{1+x^2}\).</p>
+</div></div></div>
+<div class="box take"><div class="bt">1 Standard forms for differentiation</div>
+<div style="display:flex;justify-content:space-around;margin:1.5mm 0 1mm">\(\displaystyle\frac{d}{dx}\sin^{-1}x=\frac{1}{\sqrt{1-x^2}}\)\(\displaystyle\frac{d}{dx}\cos^{-1}x=-\frac{1}{\sqrt{1-x^2}}\)\(\displaystyle\frac{d}{dx}\tan^{-1}x=\frac{1}{1+x^2}\)</div></div>
+<div class="box warn"><div class="bt">The endpoints of \(\sin^{-1}x\) and \(\cos^{-1}x\)</div>
+<p>The formulae for \(\sin^{-1}x\) and \(\cos^{-1}x\) hold only for \(-1&lt;x&lt;1\). At \(x=\pm1\) the denominator \(\sqrt{1-x^2}\) is zero, so the derivative is undefined. The graphs are vertical at their endpoints, as the Revision section noted. The formula for \(\tan^{-1}x\) holds for every real \(x\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Product rule and a linear inside function</span></div><div class="ex-body">
+Differentiate these functions.<br>
+<b>a</b> \(y=x^2\cos^{-1}x\)<br>
+<b>b</b> \(y=\cos^{-1}(ax+b)\)
+{{work:44}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skill</span></div><div class="ex-body">
+Differentiate these functions.<br>
+<b>a</b> \(y=x^2\sin^{-1}x\)<br>
+<b>b</b> \(y=\tan^{-1}(ax+b)\)
+{{work:44}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Differentiate these functions.<br>
+<b>a</b> \(y=x\tan^{-1}x\)<br>
+<b>b</b> \(y=\sin^{-1}(ax+b)\)
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> \(y=x\tan^{-1}x\)</p>
+\[\begin{aligned}y'&amp;=vu'+uv'\\&amp;=\tan^{-1}x\times1+x\times\frac{1}{1+x^2}\\&amp;=\tan^{-1}x+\frac{x}{1+x^2}\end{aligned}\]
+</div><div>
+<p>Let \(u=x\) and \(v=\tan^{-1}x\).<br>
+Then \(u'=1\) and \(v'=\dfrac{1}{1+x^2}\).</p>
+</div></div>
+<div class="split"><div>
+<p><b>b</b> \(y=\sin^{-1}(ax+b)\)</p>
+\[\begin{aligned}\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}\\&amp;=\frac{1}{\sqrt{1-(ax+b)^2}}\times a\\&amp;=\frac{a}{\sqrt{1-(ax+b)^2}}\end{aligned}\]
+</div><div>
+<p>Let \(u=ax+b\),<br>then \(y=\sin^{-1}u\).<br>
+Hence \(\dfrac{du}{dx}=a\)<br>
+and \(\dfrac{dy}{du}=\dfrac{1}{\sqrt{1-u^2}}\).<br>
+In the last line, \(u\) is replaced by \(ax+b\).</p>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:linear extensions, and tangents with a given gradient}}
+<div class="box concept"><div class="bt">Linear extensions</div>
+<p>The method used in part <b>b</b> above can be applied to all three inverse trigonometric functions, giving a further set of standard forms. With \(u=ax+b\) and \(\dfrac{du}{dx}=a\), the chain rule gives</p>
+\[\begin{aligned}\frac{d}{dx}\cos^{-1}(ax+b)&amp;=-\frac{1}{\sqrt{1-u^2}}\times a=-\frac{a}{\sqrt{1-(ax+b)^2}},\\\frac{d}{dx}\tan^{-1}(ax+b)&amp;=\frac{1}{1+u^2}\times a=\frac{a}{1+(ax+b)^2}.\end{aligned}\]</div></div>
+<div class="box take"><div class="bt">2 Further standard forms for differentiation</div>
+\[\begin{aligned}\frac{d}{dx}\sin^{-1}(ax+b)&amp;=\frac{a}{\sqrt{1-(ax+b)^2}}\\\frac{d}{dx}\cos^{-1}(ax+b)&amp;=-\frac{a}{\sqrt{1-(ax+b)^2}}\\\frac{d}{dx}\tan^{-1}(ax+b)&amp;=\frac{a}{1+(ax+b)^2}\end{aligned}\]</div>
+<div class="box tip"><div class="bt">Finding where the tangent has a given gradient</div>
+<p>Put \(y'\) equal to the given gradient and solve for \(x\). The square root is cleared by squaring, so check each solution in the domain. Then find each \(y\)-value from the equation of the curve.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Tangents of gradient 2</span></div><div class="ex-body">
+<b>a</b> Find the points \(A\) and \(B\) on the curve \(y=\sin^{-1}(x+1)\) where the tangent has gradient 2.<br>
+<b>b</b> Sketch the curve, showing these points.
+{{work:58}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Find the points \(A\) and \(B\) on the curve \(y=\cos^{-1}(x-2)\) where the tangent has gradient \(-2\).<br>
+<b>b</b> Sketch the curve, showing these points.
+{{work:58}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Find the points \(A\) and \(B\) on the curve \(y=\cos^{-1}(x-1)\) where the tangent has gradient \(-2\).<br>
+<b>b</b> Sketch the curve, showing these points.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Differentiating, \(y'=-\dfrac{1}{\sqrt{1-(x-1)^2}}\).</p>
+<p>Put \(y'=-2\). Then</p>
+\[\begin{aligned}-\frac{1}{\sqrt{1-(x-1)^2}}&amp;=-2\\\sqrt{1-(x-1)^2}&amp;=\tfrac12\\1-(x-1)^2&amp;=\tfrac14\\ (x-1)^2&amp;=\tfrac34\\x-1&amp;=\tfrac12\sqrt3\ \text{ or }\ {-\tfrac12\sqrt3}\\x&amp;=1+\tfrac12\sqrt3\ \text{ or }\ 1-\tfrac12\sqrt3.\end{aligned}\]
+<p>When \(x=1+\tfrac12\sqrt3\), \(y=\cos^{-1}\tfrac12\sqrt3=\tfrac{\pi}{6}\).<br>
+When \(x=1-\tfrac12\sqrt3\), \(y=\cos^{-1}\big(-\tfrac12\sqrt3\big)=\tfrac{5\pi}{6}\).</p>
+<p>So the points are \(A\big(1+\tfrac12\sqrt3,\tfrac{\pi}{6}\big)\) and \(B\big(1-\tfrac12\sqrt3,\tfrac{5\pi}{6}\big)\).</p>
+</div><div>
+<p><b>b</b> The domain is \(-1\le x-1\le1\), that is, \(0\le x\le2\), and the range is \(0\le y\le\pi\). The endpoints are \((0,\pi)\) and \((2,0)\). The short lines at \(A\) and \(B\) are the tangents of gradient \(-2\).</p>
+<div class="center">{{svg:c12a_ex2}}</div>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:functions whose derivatives are zero are constants}}
+<div class="box concept"><div class="bt">Proving identities by differentiation</div>
+<p>Several identities involving inverse trigonometric functions can be obtained by showing that some derivative is zero, and hence that the original function is a constant. The following identity is the clearest example. It has been proven already in Section 17C of the Year 11 book using symmetry arguments.</p>
+<ul><li>Show that the derivative of the function is zero for every \(x\) in its domain.</li>
+<li>Then the function is a constant \(C\) on that domain.</li>
+<li>Find \(C\) by substituting any convenient value of \(x\) in the domain.</li></ul></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">An odd function</span></div><div class="ex-body">
+<b>a</b> Differentiate \(\sin^{-1}x+\sin^{-1}(-x)\).<br>
+<b>b</b> Hence prove the identity \(\sin^{-1}(-x)=-\sin^{-1}x\).
+{{work:40}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Differentiate \(\tan^{-1}x+\tan^{-1}(-x)\).<br>
+<b>b</b> Hence prove the identity \(\tan^{-1}(-x)=-\tan^{-1}x\).
+{{work:40}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Differentiate \(\sin^{-1}x+\cos^{-1}x\).<br>
+<b>b</b> Hence prove the identity \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\).
+<div class="sol-label">Solution</div>
+<p><b>a</b></p>
+\[\begin{aligned}\frac{d}{dx}\big(\sin^{-1}x+\cos^{-1}x\big)&amp;=\frac{1}{\sqrt{1-x^2}}+\frac{-1}{\sqrt{1-x^2}}\\&amp;=0\end{aligned}\]
+<p><b>b</b> Hence \(\sin^{-1}x+\cos^{-1}x=C\), for some constant \(C\).<br>
+Substitute \(x=0\), then \(0+\tfrac{\pi}{2}=C\),<br>
+so \(C=\tfrac{\pi}{2}\), and \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\), as required.</p>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:curve sketching using calculus}}
+<div class="box concept"><div class="bt">Curve sketching using calculus</div>
+<p>The usual methods of curve sketching can now be extended to curves whose equations involve the inverse trigonometric functions. The next worked example applies calculus to sketching the curve \(y=\cos^{-1}\cos x\), which was sketched without calculus in Section 17C of the Year 11 book.</p>
+<ul><li>A simple table of test values gives some key points.</li>
+<li>The derivative gives the shape of the curve joining these points.</li>
+<li>Remember that \(\sqrt{A^2}=|A|\). So \(\sqrt{\sin^2x}=\sin x\) when \(\sin x\) is positive, and \(\sqrt{\sin^2x}=-\sin x\) when \(\sin x\) is negative.</li></ul></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A sawtooth</span></div><div class="ex-body">
+Use calculus to sketch \(y=\tan^{-1}\tan x\).
+{{work:58}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use calculus to sketch \(y=\cos^{-1}\cos2x\).
+{{work:58}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use calculus to sketch \(y=\cos^{-1}\cos x\).
+<div class="sol-label">Solution</div>
+<p>The function is periodic with the same period \(2\pi\) as \(\cos x\). A simple table of test values gives some key points. The shape of the curve joining these points can be obtained by calculus.</p>
+<table class="t"><tr><th>\(x\)</th><td>\(0\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\pi\)</td><td>\(\tfrac{3\pi}{2}\)</td><td>\(2\pi\)</td><td>\(\tfrac{5\pi}{2}\)</td><td>\(3\pi\)</td><td>\(\ldots\)</td></tr>
+<tr><th>\(y\)</th><td>\(0\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\pi\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(0\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\pi\)</td><td>\(\ldots\)</td></tr></table>
+<div class="split"><div>
+<p>Differentiating using the chain rule,</p>
+\[\begin{aligned}\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}\\&amp;=-\frac{1}{\sqrt{1-\cos^2x}}\times(-\sin x)\\&amp;=\frac{\sin x}{\sqrt{1-\cos^2x}}\\&amp;=\frac{\sin x}{\sqrt{\sin^2x}}.\end{aligned}\]
+</div><div>
+<p>Let \(u=\cos x\),<br>then \(y=\cos^{-1}u\).<br>
+Hence \(\dfrac{du}{dx}=-\sin x\)<br>
+and \(\dfrac{dy}{du}=-\dfrac{1}{\sqrt{1-u^2}}\).</p>
+</div></div>
+<p>When \(\sin x\) is positive, \(\sqrt{\sin^2x}=\sin x\), so \(\dfrac{dy}{dx}=1\).<br>
+When \(\sin x\) is negative, \(\sqrt{\sin^2x}=-\sin x\), so \(\dfrac{dy}{dx}=-1\).</p>
+\[\text{Hence}\quad\frac{dy}{dx}=\begin{cases}1,&amp;\text{for }x\text{ in quadrants 1 and 2,}\\-1,&amp;\text{for }x\text{ in quadrants 3 and 4.}\end{cases}\]
+<p>This means that the graph consists of a series of intervals, each with gradient 1 or \(-1\).</p>
+<div class="center">{{svg:c12a_ex4}}</div>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:chain-rule extensions to the standard forms}}
+<div class="box concept"><div class="bt">Chain-rule extensions</div>
+<p>The usual chain-rule extensions to the standard forms can be used with the inverse trigonometric forms. They provide an alternative to the chain-rule setting out. For example, if \(y=\sin^{-1}u\), where \(u\) is a function of \(x\), then</p>
+\[\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}=\frac{1}{\sqrt{1-u^2}}\times u'=\frac{u'}{\sqrt{1-u^2}}.\]</div></div>
+<div class="box take"><div class="bt">3 Chain-rule extensions to the standard forms</div>
+<div class="split"><div>
+\[\begin{aligned}\frac{d}{dx}\sin^{-1}u&amp;=\frac{u'}{\sqrt{1-u^2}}\\\frac{d}{dx}\cos^{-1}u&amp;=-\frac{u'}{\sqrt{1-u^2}}\\\frac{d}{dx}\tan^{-1}u&amp;=\frac{u'}{1+u^2}\end{aligned}\]
+</div><div>
+<p style="margin:0 0 1mm">OR</p>
+\[\begin{aligned}\frac{d}{dx}\sin^{-1}f(x)&amp;=\frac{f'(x)}{\sqrt{1-\big(f(x)\big)^2}}\\\frac{d}{dx}\cos^{-1}f(x)&amp;=-\frac{f'(x)}{\sqrt{1-\big(f(x)\big)^2}}\\\frac{d}{dx}\tan^{-1}f(x)&amp;=\frac{f'(x)}{1+\big(f(x)\big)^2}\end{aligned}\]
+</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Using Box 3</span></div><div class="ex-body">
+Use the chain-rule extension formulae to differentiate:<br>
+<b>a</b> \(\tan^{-1}e^{-2x}\)<br>
+<b>b</b> \(\cos^{-1}(x^2-1)\)
+{{work:48}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use the chain-rule extension formulae to differentiate:<br>
+<b>a</b> \(\tan^{-1}e^{-4x}\)<br>
+<b>b</b> \(\sin^{-1}(1-x^2)\)
+{{work:48}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use the chain-rule extension formulae to differentiate \(\tan^{-1}e^{-5x}\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p>Here \(u=e^{-5x}\) and \(u'=-5e^{-5x}\),</p>
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\big(\tan^{-1}e^{-5x}\big)&amp;=\frac{u'}{1+u^2}\\&amp;=\frac{-5e^{-5x}}{1+e^{-10x}}.\end{aligned}\]
+</div><div>
+<p>OR here \(f(x)=e^{-5x}\) and \(f'(x)=-5e^{-5x}\),</p>
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\big(\tan^{-1}e^{-5x}\big)&amp;=\frac{f'(x)}{1+\big(f(x)\big)^2}\\&amp;=\frac{-5e^{-5x}}{1+e^{-10x}}.\end{aligned}\]
+</div></div>
+<p>In the last line, \(u^2=\big(e^{-5x}\big)^2=e^{-10x}\).</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 12A}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">
+<div class="split"><div>
+<div class="parts one"><span><span class="pl">a</span>Photocopy the graph of \(y=\sin^{-1}x\) shown to the right. Then carefully draw a tangent at each \(x\) value in the table. Then, by measurement and calculation of rise/run, find the gradient of each tangent correct to two decimal places and fill in the second row of the table.</span></div>
+<table class="t" style="font-size:9.8pt"><tr><th>\(x\)</th><td>\(-1\)</td><td>\(-0.7\)</td><td>\(-0.5\)</td><td>\(-0.2\)</td><td>\(0\)</td><td>\(0.3\)</td><td>\(0.6\)</td><td>\(0.8\)</td><td>\(1\)</td></tr>
+<tr><th>\(\dfrac{dy}{dx}\)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+<div class="parts one"><span><span class="pl">b</span>Check your gradients using \(\dfrac{d}{dx}\big(\sin^{-1}x\big)=\dfrac{1}{\sqrt{1-x^2}}\).</span></div>
+</div><div class="center">{{svg:c12a_q1grid}}</div></div></div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Differentiate with respect to \(x\):
+<div class="parts three"><span><span class="pl">a</span>\(\cos^{-1}x\)</span><span><span class="pl">b</span>\(\tan^{-1}x\)</span><span><span class="pl">c</span>\(\sin^{-1}2x\)</span><span><span class="pl">d</span>\(\tan^{-1}3x\)</span><span><span class="pl">e</span>\(\cos^{-1}5x\)</span><span><span class="pl">f</span>\(\sin^{-1}(-x)\)</span><span><span class="pl">g</span>\(\sin^{-1}x^2\)</span><span><span class="pl">h</span>\(\tan^{-1}x^3\)</span><span><span class="pl">i</span>\(\tan^{-1}(x+2)\)</span><span><span class="pl">j</span>\(\cos^{-1}(1-x)\)</span><span><span class="pl">k</span>\(x\sin^{-1}x\)</span><span><span class="pl">l</span>\((1+x^2)\tan^{-1}x\)</span><span><span class="pl">m</span>\(\sin^{-1}\tfrac15x\)</span><span><span class="pl">n</span>\(\tan^{-1}\tfrac14x\)</span><span><span class="pl">o</span>\(\cos^{-1}\sqrt{x}\)</span><span><span class="pl">p</span>\(\tan^{-1}\sqrt{x}\)</span><span><span class="pl">q</span>\(\tan^{-1}\dfrac{1}{x}\)</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Find the gradient of the tangent to each curve at the point indicated:
+<div class="parts one"><span><span class="pl">a</span>\(y=2\tan^{-1}x\), at \(x=0\)</span><span><span class="pl">b</span>\(y=\sqrt3\sin^{-1}x\), at \(x=\tfrac12\)</span><span><span class="pl">c</span>\(y=\tan^{-1}2x\), at \(x=-\tfrac12\)</span><span><span class="pl">d</span>\(y=\cos^{-1}\tfrac{x}{2}\), at \(x=\sqrt3\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Find, in the form \(y=mx+b\), the equation of the tangent and the normal to each curve at the point indicated:
+<div class="parts one"><span><span class="pl">a</span>\(y=2\cos^{-1}3x\), at \(x=0\)</span><span><span class="pl">b</span>\(y=\sin^{-1}\tfrac{x}{2}\), at \(x=\sqrt2\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{d}{dx}\big(\sin^{-1}x+\cos^{-1}x\big)=0\).</span><span><span class="pl">b</span>Hence explain why \(\sin^{-1}x+\cos^{-1}x\) is a constant function, and use any convenient value of \(x\) in its domain to find the value of the constant.</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Use the method of the previous question to show that each of these functions is a constant function, and find the value of the constant.
+<div class="parts one"><span><span class="pl">a</span>\(\cos^{-1}x+\cos^{-1}(-x)\)</span><span><span class="pl">b</span>\(2\sin^{-1}\sqrt{x}-\sin^{-1}(2x-1)\)</span></div>{{work:40}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">7</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>If \(f(x)=x\tan^{-1}x-\tfrac12\ln(1+x^2)\), show that \(f''(x)=\dfrac{1}{1+x^2}\).</span><span><span class="pl">b</span>Is the graph of \(y=f(x)\) concave up or concave down at \(x=-1\)?</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Show that the gradient of the curve \(y=\dfrac{\sin^{-1}x}{x}\) at the point where \(x=\tfrac12\) is \(\tfrac23\big(2\sqrt3-\pi\big)\).{{work:30}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Find the derivative of each function in simplest form:
+<div class="parts three"><span><span class="pl">a</span>\(x\cos^{-1}x-\sqrt{1-x^2}\)</span><span><span class="pl">b</span>\(\sin^{-1}e^{3x}\)</span><span><span class="pl">c</span>\(\sin^{-1}\tfrac14(2x-3)\)</span><span><span class="pl">d</span>\(\tan^{-1}\dfrac{1}{1-x}\)</span><span><span class="pl">e</span>\(\sin^{-1}e^{x}\)</span><span><span class="pl">f</span>\(\log_e\sqrt{\sin^{-1}x}\)</span><span><span class="pl">g</span>\(\sin^{-1}\sqrt{\log_ex}\)</span><span><span class="pl">h</span>\(\sqrt{x}\,\sin^{-1}\sqrt{1-x}\)</span><span><span class="pl">i</span>\(\tan^{-1}\dfrac{x+2}{1-2x}\)</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) If \(y=\big(\sin^{-1}x\big)^2\), show that \(y''=\dfrac{2+\dfrac{2x\sin^{-1}x}{\sqrt{1-x^2}}}{1-x^2}\).<br>(ii) Hence show that \((1-x^2)y''-xy'-2=0\).</span><span><span class="pl">b</span>Show that \(y=e^{\sin^{-1}x}\) satisfies the differential equation \((1-x^2)y''-xy'-y=0\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Consider the function \(y=\sin^{-1}2x\).
+<div class="parts one"><span><span class="pl">a</span>Write down the range of the function.</span><span><span class="pl">b</span>Make \(x\) the subject of the equation.</span><span><span class="pl">c</span>Find \(\dfrac{dx}{dy}\), and explain why it is never negative.</span><span><span class="pl">d</span>Use the result that \(\dfrac{dy}{dx}\) is the reciprocal of \(\dfrac{dx}{dy}\) to find \(\dfrac{dy}{dx}\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Use the approach in the previous question to find \(\dfrac{dy}{dx}\) given:
+<div class="parts three"><span><span class="pl">a</span>\(y=\sin^{-1}\tfrac{x}{2}\)</span><span><span class="pl">b</span>\(y=\cos^{-1}(x-1)\)</span><span><span class="pl">c</span>\(y=\tan^{-1}\sqrt{x}\)</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Consider the function \(f(x)=\cos^{-1}x^2\).
+<div class="parts one"><span><span class="pl">a</span>What is the domain of \(f(x)\)?</span><span><span class="pl">b</span>About which line is the graph of \(y=f(x)\) symmetric?</span><span><span class="pl">c</span>Find \(f'(x)\).</span><span><span class="pl">d</span>Show that \(y=f(x)\) has a maximum turning point at \(x=0\).</span><span><span class="pl">e</span>Show that \(f'(x)\) is undefined at the endpoints of the domain. What is the geometrical significance of this?</span><span><span class="pl">f</span>Sketch the graph of \(y=f(x)\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="split"><div>A picture \(TB\) that is 1 metre tall is hung on a wall so that its bottom edge \(B\) is 3 metres above the eye \(E\) of a viewer. Let the distance \(EP\) be \(x\) metres, and let \(\theta\) be the angle that the picture subtends at \(E\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(\theta=\tan^{-1}\dfrac{4}{x}-\tan^{-1}\dfrac{3}{x}\).</span><span><span class="pl">b</span>Show that \(\theta\) is maximised when the viewer is \(2\sqrt3\) metres from the wall.</span><span><span class="pl">c</span>Show that the maximum angle subtended by the picture at \(E\) is \(\tan^{-1}\dfrac{\sqrt3}{12}\).</span></div></div><div class="center">{{svg:c12a_q14}}</div></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">
+<div class="split"><div>A plane \(P\) at a constant altitude of 6 km and at a constant speed of 600 km/h is flying directly away from an observer at \(O\) on the ground. The point \(A\) on the path of the plane lies directly above \(O\). Let the distance \(AP\) be \(x\) km, and let the angle of elevation of the plane from the observer be \(\theta\).</div><div class="center">{{svg:c12a_q15}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>Show that \(\theta=\tan^{-1}\dfrac{6}{x}\).</span><span><span class="pl">b</span>Show that \(\dfrac{d\theta}{dt}=\dfrac{-3600}{x^2+36}\) radians per hour.</span><span><span class="pl">c</span>Hence find, in radians per second, the rate at which \(\theta\) is decreasing at the instant when the distance \(AP\) is 3 km.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>State the domain of \(f(x)=\tan^{-1}x+\tan^{-1}\dfrac{1}{x}\), and its symmetry.</span><span><span class="pl">b</span>Show that \(f'(x)=0\) for all values of \(x\) in the domain.</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">Consider the function \(f(x)=\cos^{-1}\dfrac{1}{x}\).
+<div class="parts one"><span><span class="pl">a</span>State the domain of \(f(x)\). (Hint: Think about it rather than relying on algebra.)</span><span><span class="pl">b</span>Recalling that \(\sqrt{x^2}=|x|\), show that \(f'(x)=\dfrac{1}{|x|\sqrt{x^2-1}}\).</span><span><span class="pl">c</span>Comment on \(f'(1)\) and \(f'(-1)\).</span><span><span class="pl">d</span>Use the expression for \(f'(x)\) in part <b>b</b> to write down separate expressions for \(f'(x)\) when \(x&gt;1\) and when \(x&lt;-1\).</span><span><span class="pl">e</span>Explain why \(f(x)\) is increasing for \(x&gt;1\) and for \(x&lt;-1\).</span><span><span class="pl">f</span>Find:<br>(i) \(\displaystyle\lim_{x\to\infty}f(x)\)&emsp;&emsp;(ii) \(\displaystyle\lim_{x\to-\infty}f(x)\)</span><span><span class="pl">g</span>Sketch the graph of \(y=f(x)\).</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">Use the formulae for the chain-rule standard forms in Box 3 to differentiate:
+<div class="parts three"><span><span class="pl">a</span>\(\tan^{-1}e^{3x}\)</span><span><span class="pl">b</span>\(\sin^{-1}x^3\)</span><span><span class="pl">c</span>\(\cos^{-1}(\log_ex)\)</span></div>{{work:36}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">19</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>What is the domain of \(g(x)=\sin^{-1}x+\sin^{-1}\sqrt{1-x^2}\)?</span><span><span class="pl">b</span>Show that \(g'(x)=\dfrac{1}{\sqrt{1-x^2}}-\dfrac{x}{|x|\sqrt{1-x^2}}\).</span><span><span class="pl">c</span>Hence determine the interval over which \(g(x)\) is constant, and find this constant.</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">In question 9 i, you proved that \(\dfrac{d}{dx}\tan^{-1}\dfrac{x+2}{1-2x}\) was \(\dfrac{1}{1+x^2}\), which is also the derivative of \(\tan^{-1}x\). What is going on?{{work:40}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body">The function \(f(x)\) is defined by the rule \(f(x)=\sin^{-1}(\sin x)\).
+<div class="parts one"><span><span class="pl">a</span>State the domain and range of \(f(x)\), and whether it is even, odd or neither.</span><span><span class="pl">b</span>Show that \(f'(x)=\dfrac{\cos x}{|\cos x|}\).</span><span><span class="pl">c</span>Is \(f'(x)\) defined when \(\cos x=0\)?</span><span><span class="pl">d</span>What are the only two values that \(f'(x)\) takes if \(\cos x\ne0\), and when does each of these values occur?</span><span><span class="pl">e</span>Sketch the graph of \(f(x)\) using the above information and a table of values if necessary.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body">In Question 14, construct the circle that passes through \(T\) and \(B\) and is tangent to the horizontal line \(\ell\) through \(P\). Then the point \(E\) on \(\ell\) at which \(TB\) subtends the greatest angle is the point where the circle touches the line \(\ell\).
+<div class="parts one"><span><span class="pl">a</span>Prove this using Euclidean geometry.</span><span><span class="pl">b</span>Explain how to construct this circle, and \(E\), using straight edge and compasses.</span></div>{{work:56}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>20 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Cherrybrook Technology High School, 2020, Year 12 AP4, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q4</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the derivative of \(\sin^{-1}3x\)?
+<div class="mc"><span>A.&ensp;\(-\dfrac{1}{\sqrt{1-9x^2}}\)</span><span>B.&ensp;\(\dfrac{3}{\sqrt{1-9x^2}}\)</span><span>C.&ensp;\(-\dfrac{1}{\sqrt{1-3x^2}}\)</span><span>D.&ensp;\(-\dfrac{3}{\sqrt{1-9x^2}}\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is the inside function here?</div>{{work:20}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Baulkham Hills High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q9</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the derivative of \(x\cos^{-1}(x)-\sqrt{1-x^2}\)?
+<div class="mc"><span>A.&ensp;\(\dfrac{-1}{\sqrt{1-x^2}}\)</span><span>B.&ensp;\(\dfrac{-2}{\sqrt{1-x^2}}\)</span><span>C.&ensp;\(\cos^{-1}x\)</span><span>D.&ensp;\(\sin^{-1}x\)</span></div></div>
+<div class="hint"><b>Hint:</b> which term is a product?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2022, Trial Examination, Form VI Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(a)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find \(\dfrac{d}{dx}\big(\cos^{-1}(3x^2)\big)\).</div>
+<div class="hint"><b>Hint:</b> what is the inside function here?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Sydney Technical High School, 2021, Extension&nbsp;1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q11(g)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find \(\dfrac{dy}{dx}\) if \(y=e^{-x}\sin^{-1}x\)</div>
+<div class="hint"><b>Hint:</b> what are the two factors of \(y\)?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(d)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Show that the normal to the curve \(y=\sin^{-1}\Big(x+\dfrac{\pi}{2}\Big)+\dfrac{\pi}{2}\) at the point where \(x=-\dfrac{\pi}{2}\) passes through the origin.</div>
+<div class="hint"><b>Hint:</b> what are the coordinates of the point on the curve?</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Hurlstone Agricultural High School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(a)(i)(ii)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Show that \(\dfrac{d}{dx}\big(x\tan^{-1}x\big)=\tan^{-1}x+\dfrac{x}{1+x^2}\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Hence, find the exact value of \(\displaystyle\int_0^{\sqrt3}\tan^{-1}x\,dx\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> in (ii), how is \(\tan^{-1}x\) related to the two sides of (i)?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Blacktown Boys' High School, 2024, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Show that \(\dfrac{d}{dx}\bigg(\dfrac{\sin^{-1}(3x)}{3x}\bigg)=\dfrac{3x-\sin^{-1}(3x)\sqrt{1-9x^2}}{3x^2\sqrt{1-9x^2}}\)</div>
+<div class="hint"><b>Hint:</b> which rule differentiates a fraction?</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Knox Grammar School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">The gradient of the tangent to the curve \(g(x)=\Big(\sin^{-1}\dfrac{x}{b}\Big)^2\) at the point \(A\) with \(x\) coordinate \(\dfrac{b}{2}\) is \(\dfrac{2\pi}{3}\).<br>Find the value of \(b\).</div>
+<div class="hint"><b>Hint:</b> what is \(g'(x)\), with \(b\) still in it?</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Ascham School, 2020, Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Given that \(f(x)=\cos^{-1}(2x-1)-2\cos^{-1}\sqrt{x}\) for \(0\le x\le1\), show that \(f'(x)=0\).</div>
+<div class="hint"><b>Hint:</b> what is the derivative of each term?</div>{{work:44}}</div>
+</div>
