@@ -1,1 +1,239 @@
-<!-- filled by Task: Int3 lesson 12D (l12d.html) -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 12D</div><h2>Integration by substitution</h2>
+<div class="focus">The reverse chain rule as we have been using it so far does not cover all the situations where the chain rule can be used in integration. This section and the next develop a more general method called <i>integration by substitution</i>. The first stage, covered in this lesson, begins by translating the reverse chain rule into a slightly more flexible notation. It involves substitutions of the form &lsquo;Let \(u=\) some function of \(x\).&rsquo; The new notation then handles integrals that the reverse chain rule does only clumsily, and in a definite integral it lets the limits change from values of \(x\) to values of \(u\).</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the reverse chain rule, an example}}
+<div class="box concept"><div class="bt">The reverse chain rule: an example</div>
+<p>Here is an example of the reverse chain rule as we have been using it. The working is set out in full on the right.</p></div></div>
+<div class="box tip"><div class="bt">Tip: the reverse chain rule (Part 1, Lesson 5I)</div>
+<p>Let \(u\) be a function of \(x\), and let \(F(u)\) be a primitive of \(f(u)\), so that \(F'(u)=f(u)\). The chain rule gives</p>
+\[\frac{d}{dx}F(u)=F'(u)\,\frac{du}{dx}=f(u)\,\frac{du}{dx}.\]
+<p>Reading this backwards gives the reverse chain rule. With \(f(u)=u^n\), where \(n\ne-1\), the primitive is \(F(u)=\dfrac{u^{n+1}}{n+1}\):</p>
+\[\int f(u)\,\frac{du}{dx}\,dx=F(u)+C\qquad\text{and}\qquad\int u^n\,\frac{du}{dx}\,dx=\frac{u^{n+1}}{n+1}+C.\]
+<p>Look for a function \(u\) whose derivative \(\frac{du}{dx}\) is also a factor of the integrand, apart from a constant.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The reverse chain rule</span></div><div class="ex-body">
+Find \(\displaystyle\int x(3-x^2)^5\,dx\) using the reverse chain rule.
+{{work:36}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find \(\displaystyle\int x(5-x^2)^3\,dx\) using the reverse chain rule.
+{{work:36}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 14</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find \(\displaystyle\int x(1-x^2)^4\,dx\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x(1-x^2)^4\,dx&=-\tfrac12\int(-2x)(1-x^2)^4\,dx\\&=-\tfrac12\times\tfrac15(1-x^2)^5+C\\&=-\tfrac{1}{10}(1-x^2)^5+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=1-x^2\).<br>Then \(\dfrac{du}{dx}=-2x\),<br>and \(\displaystyle\int u^4\,\frac{du}{dx}\,dx=\tfrac15u^5\).</p>
+</div></div></div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:rewriting the example as integration by substitution}}
+<div class="box concept"><div class="bt">Rewriting this example as integration by substitution</div>
+<p>We shall now rewrite this using a new notation. The key to this new notation is that the derivative \(\dfrac{du}{dx}\) is treated as a fraction. The \(du\) and the \(dx\) are split apart, so that the statement</p>
+\[\frac{du}{dx}=-2x\qquad\text{is written instead as}\qquad du=-2x\,dx.\]
+<p>The new variable \(u\) no longer remains in the working column on the right, but is brought over into the main sequence of the solution on the left.</p></div></div>
+<div class="box tip"><div class="bt">Tip: why the new notation is valid</div>
+<p>Let \(F(u)\) be a primitive of \(f(u)\). In the variable \(u\), \(\displaystyle\int f(u)\,du=F(u)+C\). In the variable \(x\), the reverse chain rule of Concept 1 gives \(\displaystyle\int f(u)\,\frac{du}{dx}\,dx=F(u)+C\). Both integrals equal \(F(u)+C\), so</p>
+\[\int f(u)\,\frac{du}{dx}\,dx=\int f(u)\,du.\]
+<p>So \(\dfrac{du}{dx}\,dx\) may always be replaced by \(du\), exactly as if \(\dfrac{du}{dx}\) were a fraction and the two \(dx\) cancelled.</p></div>
+<div class="box tip"><div class="bt">Tip: the steps of integration by substitution</div>
+<ol style="margin:0;padding-left:5mm">
+<li>Let \(u=\) some function of \(x\). Often it is the inside function, whose derivative is also a factor of the integrand.</li>
+<li>Differentiate, and write the result with \(du\) and \(dx\) split apart, for example \(du=-2x\,dx\).</li>
+<li>Rearrange this so that it matches the rest of the integrand, for example \(x\,dx=-\tfrac12\,du\).</li>
+<li>Rewrite the whole integral in terms of \(u\) and \(du\). No \(x\) and no \(dx\) may remain.</li>
+<li>Integrate with respect to \(u\).</li>
+<li>Replace \(u\) by its expression in \(x\), and add the constant of integration.</li></ol></div>
+<div class="box tip"><div class="bt">Tip: common errors</div>
+<ul><li>Keep the constant factor. From \(du=-2x\,dx\), divide both sides by \(-2\): \(x\,dx=-\tfrac12\,du\), not \(-2\,du\).</li>
+<li>An integral such as \(\displaystyle\int x\,u^4\,du\) is meaningless: the \(x\) and the \(dx\) must both be replaced before integrating.</li>
+<li>The answer to an indefinite integral in \(x\) must be given in terms of \(x\) again.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Substitution in an indefinite integral</span></div><div class="ex-body">
+Find:<br>
+<b>a</b> \(\displaystyle\int x(3-x^2)^5\,dx\), using the substitution \(u=3-x^2\) (compare with the Concept 1 demo)<br>
+<b>b</b> \(\displaystyle\int\sin x\,\sqrt{1+\cos x}\,dx\), using the substitution \(u=1+\cos x\)
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find:<br>
+<b>a</b> \(\displaystyle\int x(5-x^2)^3\,dx\), using the substitution \(u=5-x^2\)<br>
+<b>b</b> \(\displaystyle\int\cos x\,\sqrt{3+\sin x}\,dx\), using the substitution \(u=3+\sin x\)
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 15</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find \(\displaystyle\int x(1-x^2)^4\,dx\), using the substitution \(u=1-x^2\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x(1-x^2)^4\,dx&=\int u^4\big(-\tfrac12\big)\,du\\&=-\tfrac12\times\tfrac15u^5+C\\&=-\tfrac{1}{10}(1-x^2)^5+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=1-x^2\).<br>Then \(du=-2x\,dx\),<br>and \(x\,dx=-\tfrac12\,du\).</p>
+</div></div></div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 16</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find \(\displaystyle\int\sin x\,\sqrt{1-\cos x}\,dx\), using the substitution \(u=1-\cos x\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int\sin x\,\sqrt{1-\cos x}\,dx&=\int u^{\frac12}\,du\\&=\tfrac23u^{\frac32}+C\\&=\tfrac23(1-\cos x)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=1-\cos x\).<br>Then \(du=\sin x\,dx\).</p>
+</div></div></div></div>
+<div class="box tip"><div class="bt">Tip: the primitive in Example 16</div>
+<p>The primitive of \(u^{\frac12}\) is \(\dfrac{u^{\frac32}}{\frac32}=\tfrac23u^{\frac32}\).</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:an advance on the reverse chain rule}}
+<div class="box concept"><div class="bt">An advance on the reverse chain rule</div>
+<p>Some integrals that can be done in this way could only be done by the reverse chain rule in a rather clumsy manner.</p></div></div>
+<div class="box tip"><div class="bt">Tip: writing the leftover \(x\) in terms of \(u\)</div>
+<p>In \(\displaystyle\int x\sqrt{1-x}\,dx\), the derivative of the inside function \(1-x\) is \(-1\), so the factor \(x\) is not its derivative.</p>
+<p>The substitution \(u=1-x\) deals with this. It gives \(du=-dx\), and the leftover \(x\) is written in terms of \(u\) by rearranging \(u=1-x\):</p>
+\[x=1-u.\]
+<p>The integrand then becomes \((1-u)\sqrt u\), which expands into a sum of powers of \(u\).</p></div>
+<div class="box tip"><div class="bt">Tip: expanding with the index laws</div>
+<p>Write \(\sqrt u=u^{\frac12}\). Then \(u\sqrt u=u^1\times u^{\frac12}=u^{\frac32}\), and</p>
+\[(1-u)\sqrt u=u^{\frac12}-u^{\frac32}\qquad\text{and}\qquad(u-1)\sqrt u=u^{\frac32}-u^{\frac12}.\]
+<p>Each power is then integrated with \(\displaystyle\int u^n\,du=\frac{u^{n+1}}{n+1}+C\), for example \(\displaystyle\int u^{\frac32}\,du=\frac{u^{\frac52}}{\frac52}+C=\tfrac25u^{\frac52}+C\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Writing \(x\) in terms of \(u\)</span></div><div class="ex-body">
+Find \(\displaystyle\int x\sqrt{2-x}\,dx\), using the substitution \(u=2-x\).
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find \(\displaystyle\int x\sqrt{x+3}\,dx\), using the substitution \(u=x+3\).
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 17</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find \(\displaystyle\int x\sqrt{1-x}\,dx\), using the substitution \(u=1-x\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x\sqrt{1-x}\,dx&=\int(1-u)\sqrt u\,(-du)\\&=\int\big(u^{\frac32}-u^{\frac12}\big)\,du\\&=\tfrac25u^{\frac52}-\tfrac23u^{\frac32}+C\\&=\tfrac25(1-x)^{\frac52}-\tfrac23(1-x)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=1-x\).<br>Then \(du=-dx\),<br>and \(x=1-u\).</p>
+</div></div></div></div>
+<div class="box tip"><div class="bt">Tip: the second line of Example 17</div>
+<p>The second line takes the minus sign inside: \(-(1-u)\sqrt u=(u-1)\sqrt u=u^{\frac32}-u^{\frac12}\).</p></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:substituting the limits of integration in a definite integral}}
+<div class="box concept"><div class="bt">Substituting the limits of integration in a definite integral</div>
+<p>A great advantage of this new method is that the limits of integration can be changed from values of \(x\) to values of \(u\). There is then no need ever to go back to \(x\). The first worked example below repeats the previous integrand, but this time within a definite integral.</p></div></div>
+<div class="box tip"><div class="bt">Tip: finding the new limits</div>
+<ul><li>Put each \(x\)-limit into the substitution to find the matching \(u\)-limit, and record this in the working column: &lsquo;When \(x=a\), \(u=\dots\)&rsquo;.</li>
+<li>The \(u\)-value that comes from the lower \(x\)-limit is the lower \(u\)-limit, even when it is the larger number. Example 18 below gives \(\displaystyle\int_{1}^{0}\).</li>
+<li>Evaluate the \(u\)-integral between the \(u\)-limits.</li></ul></div>
+<div class="box tip"><div class="bt">Tip: reversing the limits (Part 1, Lesson 5C)</div>
+<p>Reversing the limits of an integral changes its sign:</p>
+\[\int_{b}^{a}f(u)\,du=-\int_{a}^{b}f(u)\,du.\]
+<p>So a minus sign in front of an integral can be removed by reversing its limits, for example \(\displaystyle-\int_{1}^{0}u^5\,du=\int_{0}^{1}u^5\,du\). Either form may be used, and both give the same value.</p></div>
+<div class="box tip"><div class="bt">Tip: never mix the variables</div>
+<ul><li>The limits of an integral with \(du\) must be values of \(u\). Keeping the \(x\)-limits on a \(u\)-integral is wrong.</li>
+<li>Do not substitute back to \(x\) and then use the \(u\)-limits.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Definite integrals by substitution</span></div><div class="ex-body">
+Find:<br>
+<b>a</b> \(\displaystyle\int_{0}^{2}x\sqrt{2-x}\,dx\), using the substitution \(u=2-x\)<br>
+<b>b</b> \(\displaystyle\int_{0}^{\pi}\sin x\cos^4x\,dx\), using the substitution \(u=\cos x\)
+{{work:78}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find:<br>
+<b>a</b> \(\displaystyle\int_{-3}^{1}x\sqrt{x+3}\,dx\), using the substitution \(u=x+3\)<br>
+<b>b</b> \(\displaystyle\int_{0}^{\frac{\pi}{2}}\sin x\cos^5x\,dx\), using the substitution \(u=\cos x\)
+{{work:78}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 18</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find \(\displaystyle\int_{0}^{1}x\sqrt{1-x}\,dx\), using the substitution \(u=1-x\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int_{0}^{1}x\sqrt{1-x}\,dx&=-\int_{1}^{0}(1-u)\sqrt u\,du\\&=-\int_{1}^{0}\big(u^{\frac12}-u^{\frac32}\big)\,du\\&=-\Big[\tfrac23u^{\frac32}-\tfrac25u^{\frac52}\Big]_{1}^{0}\\&=-\Big(\big(0-0\big)-\big(\tfrac23-\tfrac25\big)\Big)\\&=-0+\big(\tfrac23-\tfrac25\big)\\&=\tfrac{4}{15}\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=1-x\).<br>Then \(du=-dx\),<br>and \(x=1-u\).<br>When \(x=0\), \(u=1\),<br>when \(x=1\), \(u=0\).</p>
+</div></div></div></div>
+<div class="box tip"><div class="bt">Tip: the arithmetic in Example 18</div>
+<p>At \(u=1\), the primitive is \(\tfrac23\times1^{\frac32}-\tfrac25\times1^{\frac52}=\tfrac23-\tfrac25\), and \(\tfrac23-\tfrac25=\tfrac{10}{15}-\tfrac{6}{15}=\tfrac{4}{15}\).</p></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 19</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find \(\displaystyle\int_{0}^{\pi}\sin x\cos^6x\,dx\), using the substitution \(u=\cos x\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int_{0}^{\pi}\sin x\cos^6x\,dx&=-\int_{1}^{-1}u^6\,du\\&=-\tfrac17\Big[u^7\Big]_{1}^{-1}\\&=-\tfrac17\big((-1)^7-1^7\big)\\&=-\tfrac17\times(-1)+\tfrac17\times1\\&=\tfrac27\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\cos x\).<br>Then \(du=-\sin x\,dx\).<br>When \(x=0\), \(u=1\),<br>when \(x=\pi\), \(u=-1\).</p>
+</div></div></div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 12D}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Consider the integral \(\displaystyle\int2x(1+x^2)^3\,dx\), and the substitution \(u=1+x^2\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(du=2x\,dx\).</span><span><span class="pl">b</span>Show that the integral can be written as \(\displaystyle\int u^3\,du\).</span><span><span class="pl">c</span>Hence find the primitive of \(2x(1+x^2)^3\).</span><span><span class="pl">d</span>Check your answer by differentiating it.</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Repeat the previous question for each indefinite integral and substitution.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int2(2x+3)^3\,dx\) &emsp;(Let \(u=2x+3\).)</span><span><span class="pl">b</span>\(\displaystyle\int3x^2(1+x^3)^4\,dx\) &emsp;(Let \(u=1+x^3\).)</span><span><span class="pl">c</span>\(\displaystyle\int\frac{2x}{(1+x^2)^2}\,dx\) &emsp;(Let \(u=1+x^2\).)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{3}{\sqrt{3x-5}}\,dx\) &emsp;(Let \(u=3x-5\).)</span><span><span class="pl">e</span>\(\displaystyle\int\sin^3x\cos x\,dx\) &emsp;(Let \(u=\sin x\).)</span><span><span class="pl">f</span>\(\displaystyle\int\frac{4x^3}{1+x^4}\,dx\) &emsp;(Let \(u=1+x^4\).)</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Consider the integral \(\displaystyle\int\frac{x}{\sqrt{1-x^2}}\,dx\), and the substitution \(u=1-x^2\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(x\,dx=-\tfrac12\,du\).</span><span><span class="pl">b</span>Show that the integral can be written as \(\displaystyle-\tfrac12\int u^{-\frac12}\,du\).</span><span><span class="pl">c</span>Hence find the primitive of \(\dfrac{x}{\sqrt{1-x^2}}\).</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Repeat the previous question for each indefinite integral and substitution.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int x^3(x^4+1)^5\,dx\) &emsp;(Let \(u=x^4+1\).)</span><span><span class="pl">b</span>\(\displaystyle\int x^2\sqrt{x^3-1}\,dx\) &emsp;(Let \(u=x^3-1\).)</span><span><span class="pl">c</span>\(\displaystyle\int x^2e^{x^3}\,dx\) &emsp;(Let \(u=x^3\).)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{\sqrt x(1+\sqrt x)^3}\,dx\) &emsp;(Let \(u=1+\sqrt x\).)</span><span><span class="pl">e</span>\(\displaystyle\int\tan^22x\sec^22x\,dx\) &emsp;(Let \(u=\tan2x\).)</span><span><span class="pl">f</span>\(\displaystyle\int\frac{e^{\frac1x}}{x^2}\,dx\) &emsp;(Let \(u=\dfrac1x\).)</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Find the exact value of each definite integral, using the given substitution.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{0}^{1}x^2(2+x^3)^3\,dx\) &emsp;(Let \(u=2+x^3\).)</span><span><span class="pl">b</span>\(\displaystyle\int_{0}^{1}\frac{2x^3}{\sqrt{1+x^4}}\,dx\) &emsp;(Let \(u=1+x^4\).)</span><span><span class="pl">c</span>\(\displaystyle\int_{0}^{\frac{\pi}{2}}\cos^2x\sin x\,dx\) &emsp;(Let \(u=\cos x\).)</span><span><span class="pl">d</span>\(\displaystyle\int_{\frac{\sqrt3}{2}}^{1}x\sqrt{1-x^2}\,dx\) &emsp;(Let \(u=1-x^2\).)</span><span><span class="pl">e</span>\(\displaystyle\int_{1}^{e^2}\frac{\ln x}{x}\,dx\) &emsp;(Let \(u=\ln x\).)</span><span><span class="pl">f</span>\(\displaystyle\int_{0}^{4}\frac{e^{\sqrt x}}{4\sqrt x}\,dx\) &emsp;(Let \(u=\sqrt x\).)</span><span><span class="pl">g</span>\(\displaystyle\int_{0}^{\frac{\pi}{4}}\sin^42x\cos2x\,dx\) &emsp;(Let \(u=\sin2x\).)</span><span><span class="pl">h</span>\(\displaystyle\int_{0}^{1}\frac{(\sin^{-1}x)^3}{\sqrt{1-x^2}}\,dx\) &emsp;(Let \(u=\sin^{-1}x\).)</span><span><span class="pl">i</span>\(\displaystyle\int_{0}^{2}\frac{x+1}{\sqrt[3]{x^2+2x}}\,dx\) &emsp;(Let \(u=x^2+2x\).)</span><span><span class="pl">j</span>\(\displaystyle\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\frac{\sec^2x}{\tan x}\,dx\) &emsp;(Let \(u=\tan x\).)</span></div>{{work:105}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">6</span><div class="q-body">Use the substitution \(u=x^3\) to find the exact area bounded by the curve \(y=\dfrac{x^2}{1+x^6}\), the \(x\)-axis and the line \(x=1\).{{work:44}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Evaluate each definite integral, using the substitution \(u=\sin x\).
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{0}^{\frac{\pi}{6}}\frac{\cos x}{1+\sin x}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{0}^{\frac{\pi}{2}}\frac{\cos x}{1+\sin^2x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{0}^{\frac{\pi}{2}}\cos^3x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{\frac{\pi}{6}}^{\frac{\pi}{2}}\frac{\cos^3x}{\sin^4x}\,dx\)</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Find each indefinite integral, using the given substitution.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int\frac{e^{2x}}{\sqrt{1+e^{2x}}}\,dx\) &emsp;(Let \(u=e^{2x}\).)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{1}{x\ln x}\,dx\) &emsp;(Let \(u=\ln x\).)</span><span><span class="pl">c</span>\(\displaystyle\int\frac{\tan x}{\ln\cos x}\,dx\) &emsp;(Let \(u=\ln\cos x\).)</span><span><span class="pl">d</span>\(\displaystyle\int\tan^3x\sec^4x\,dx\) &emsp;(Let \(u=\tan x\).)</span></div>{{work:85}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>A curve has gradient function \(\dfrac{e^{2x}}{1+e^{4x}}\) and passes through the point \(\big(0,\tfrac{\pi}{8}\big)\). Use the substitution \(u=e^{2x}\) to find its equation.</span><span><span class="pl">b</span>If \(y''=\dfrac{x}{(4-x^2)^{\frac32}}\), and when \(x=0\), \(y'=1\) and \(y=\tfrac12\), use the substitution \(u=4-x^2\) to find \(y'\) and then find \(y\) as a function of \(x\).</span></div>{{work:95}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{d}{dx}(\sec x)=\sec x\tan x\).</span><span><span class="pl">b</span>Use the substitution \(u=\sec x\), and the standard form \(\displaystyle\int a^x\,dx=\frac{a^x}{\ln a}\), to find:<br>(i) \(\displaystyle\int_{0}^{\frac{\pi}{3}}2^{\sec x}\sec x\tan x\,dx\)<br>(ii) \(\displaystyle\int_{0}^{\frac{\pi}{4}}\sec^5x\tan x\,dx\)</span></div>{{work:85}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Evaluate each integral, using the given substitution.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{0}^{\frac{\pi}{2}}\frac{\sin2x}{1+\sin^2x}\,dx\) &emsp;(Let \(u=\sin^2x\).)</span><span><span class="pl">b</span>\(\displaystyle\int_{1}^{e}\frac{\ln x+1}{(x\ln x+1)^2}\,dx\) &emsp;(Let \(u=x\ln x\).)</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Use the substitution \(u=\sqrt{x-1}\) to find \(\displaystyle\int\frac{1}{2x\sqrt{x-1}}\,dx\).{{work:44}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Use the substitution \(u=\sqrt x\) to find \(\displaystyle\int\frac{1}{\sqrt{x(1-x)}}\,dx\).</span><span><span class="pl">b</span>Evaluate the integral in part <b>a</b> again, using the substitution \(u=x-\tfrac12\).</span><span><span class="pl">c</span>Hence show that \(\sin^{-1}(2x-1)=2\sin^{-1}\sqrt x-\tfrac{\pi}{2}\), for \(0\lt x\lt1\).</span></div>{{work:95}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">14</span><div class="q-body">Use the substitution \(u=x-\dfrac1x\) to show that \(\displaystyle\int_{1}^{\frac12(\sqrt6+\sqrt2)}\frac{1+x^2}{1+x^4}\,dx=\frac{\pi}{4\sqrt2}\).{{work:80}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>20 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Blacktown Boys' High School, 2020, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q8</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">By letting \(u=\tan x\), \(\displaystyle\int_{0}^{\frac{\pi}{3}}\tan^2x\sec^2x\,dx\) can be expressed as
+<div class="mc"><span>(A)&ensp;\(\displaystyle\int_{0}^{\frac{\pi}{3}}u^2\,du\)</span><span>(B)&ensp;\(\displaystyle\int_{0}^{\sqrt3}u^2\,du\)</span><span>(C)&ensp;\(\displaystyle\int_{0}^{\sqrt3}u\,du\)</span><span>(D)&ensp;\(\displaystyle\int_{0}^{\sqrt3}(u^4+u^2)\,du\)</span></div></div>
+<div class="hint"><b>Hint:</b> what does each part of the integral become in terms of \(u\)?</div>{{work:24}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q10(a)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Use the substitution \(u=x^2+1\), or otherwise, to find
+\[\int x\sqrt{x^2+1}\,dx.\]</div>
+<div class="hint"><b>Hint:</b> how are the parts of the integrand related?</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Use the substitution \(u=2x-1\) to find \(\displaystyle\int4x\sqrt{2x-1}\,dx\).</div>
+<div class="hint"><b>Hint:</b> what does the whole integral become in terms of \(u\)?</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Use the substitution \(u=\ln3x\), to find \(\displaystyle\int\frac{dx}{x(\ln3x)^2}\)</div>
+<div class="hint"><b>Hint:</b> how is the integrand related to \(u\)?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Girraween High School, 2023, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Use the substitution \(u=6-x\) to find the exact value of \(\displaystyle\int_{1}^{6}x\sqrt{6-x}\,dx\)</div>
+<div class="hint"><b>Hint:</b> what changes when the variable changes?</div>{{work:60}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find \(\displaystyle\int\frac{\cos^2(\ln x)}{x}\,dx\) using the substitution \(u=\ln x\).</div>
+<div class="hint"><b>Hint:</b> what is the integral in terms of \(u\)?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Knox Grammar School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Use the substitution \(u=\tan x-x\) to find \(\displaystyle\int\tan^2x\sqrt{\tan x-x}\,dx\).</div>
+<div class="hint"><b>Hint:</b> how are the parts of the integrand related to \(u\)?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Sydney Technical High School, 2021, Extension&nbsp;1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q12(b)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Use the substitution \(u=2e^x\) to show that
+\[\int_{\ln\left(\frac12\right)}^{\ln\left(\frac{\sqrt3}{2}\right)}\frac{e^x}{1+4e^{2x}}\,dx=\frac{\pi}{24}\]</div>
+<div class="hint"><b>Hint:</b> how is each part of the integrand related to \(u\)?</div>{{work:60}}</div>
+</div>

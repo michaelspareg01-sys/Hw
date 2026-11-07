@@ -1,1 +1,178 @@
-<!-- filled by Task: Int3 lesson 12D (a_12d.html) -->
+{{ahead:Lesson 12D | Integration by substitution}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x(3-x^2)^5\,dx&=-\tfrac12\int(-2x)(3-x^2)^5\,dx\\&=-\tfrac12\times\tfrac16(3-x^2)^6+C\\&=-\tfrac{1}{12}(3-x^2)^6+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=3-x^2\).<br>Then \(\dfrac{du}{dx}=-2x\),<br>and \(\displaystyle\int u^5\,\frac{du}{dx}\,dx=\tfrac16u^6\).</p>
+</div></div>
+<b>Your turn.</b>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x(5-x^2)^3\,dx&=-\tfrac12\int(-2x)(5-x^2)^3\,dx\\&=-\tfrac12\times\tfrac14(5-x^2)^4+C\\&=-\tfrac18(5-x^2)^4+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=5-x^2\).<br>Then \(\dfrac{du}{dx}=-2x\),<br>and \(\displaystyle\int u^3\,\frac{du}{dx}\,dx=\tfrac14u^4\).</p>
+</div></div></div></div>
+
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<div style="break-inside:avoid"><p><b>a</b></p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x(3-x^2)^5\,dx&=\int u^5\big(-\tfrac12\big)\,du\\&=-\tfrac12\times\tfrac16u^6+C\\&=-\tfrac{1}{12}(3-x^2)^6+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=3-x^2\).<br>Then \(du=-2x\,dx\),<br>and \(x\,dx=-\tfrac12\,du\).</p>
+</div></div></div>
+<p>This is the same answer as the Concept 1 demo.</p>
+<div style="break-inside:avoid"><p><b>b</b></p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int\sin x\,\sqrt{1+\cos x}\,dx&=\int u^{\frac12}\,(-du)\\&=-\tfrac23u^{\frac32}+C\\&=-\tfrac23(1+\cos x)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=1+\cos x\).<br>Then \(du=-\sin x\,dx\),<br>and \(\sin x\,dx=-du\).</p>
+</div></div></div>
+<b>Your turn.</b>
+<div style="break-inside:avoid"><p><b>a</b></p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x(5-x^2)^3\,dx&=\int u^3\big(-\tfrac12\big)\,du\\&=-\tfrac12\times\tfrac14u^4+C\\&=-\tfrac18(5-x^2)^4+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=5-x^2\).<br>Then \(du=-2x\,dx\),<br>and \(x\,dx=-\tfrac12\,du\).</p>
+</div></div></div>
+<div style="break-inside:avoid"><p><b>b</b></p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int\cos x\,\sqrt{3+\sin x}\,dx&=\int u^{\frac12}\,du\\&=\tfrac23u^{\frac32}+C\\&=\tfrac23(3+\sin x)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=3+\sin x\).<br>Then \(du=\cos x\,dx\).</p>
+</div></div></div></div></div>
+
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x\sqrt{2-x}\,dx&=\int(2-u)\sqrt u\,(-du)\\&=\int(u-2)\sqrt u\,du\\&=\int\big(u^{\frac32}-2u^{\frac12}\big)\,du\\&=\tfrac25u^{\frac52}-2\times\tfrac23u^{\frac32}+C\\&=\tfrac25(2-x)^{\frac52}-\tfrac43(2-x)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=2-x\).<br>Then \(du=-dx\),<br>and \(x=2-u\).</p>
+</div></div>
+<b>Your turn.</b>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x\sqrt{x+3}\,dx&=\int(u-3)\sqrt u\,du\\&=\int\big(u^{\frac32}-3u^{\frac12}\big)\,du\\&=\tfrac25u^{\frac52}-3\times\tfrac23u^{\frac32}+C\\&=\tfrac25(x+3)^{\frac52}-2(x+3)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=x+3\).<br>Then \(du=dx\),<br>and \(x=u-3\).</p>
+</div></div></div></div>
+
+<div class="a"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b>
+<div style="break-inside:avoid"><p><b>a</b></p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int_{0}^{2}x\sqrt{2-x}\,dx&=-\int_{2}^{0}(2-u)\sqrt u\,du\\&=-\int_{2}^{0}\big(2u^{\frac12}-u^{\frac32}\big)\,du\\&=-\Big[\tfrac43u^{\frac32}-\tfrac25u^{\frac52}\Big]_{2}^{0}\\&=-\big(0-0\big)+\big(\tfrac43\times2\sqrt2-\tfrac25\times4\sqrt2\big)\\&=\tfrac{8\sqrt2}{3}-\tfrac{8\sqrt2}{5}\\&=\tfrac{40\sqrt2-24\sqrt2}{15}\\&=\tfrac{16\sqrt2}{15}\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=2-x\).<br>Then \(du=-dx\),<br>and \(x=2-u\).<br>When \(x=0\), \(u=2\),<br>when \(x=2\), \(u=0\).</p>
+</div></div></div>
+<p class="small">The primitive of \(2u^{\frac12}\) is \(2\times\tfrac23u^{\frac32}=\tfrac43u^{\frac32}\). Also \(2^{\frac32}=2\sqrt2\) and \(2^{\frac52}=2^2\times\sqrt2=4\sqrt2\).</p>
+<div style="break-inside:avoid"><p><b>b</b></p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int_{0}^{\pi}\sin x\cos^4x\,dx&=-\int_{1}^{-1}u^4\,du\\&=-\tfrac15\Big[u^5\Big]_{1}^{-1}\\&=-\tfrac15\big((-1)^5-1^5\big)\\&=-\tfrac15\times(-2)\\&=\tfrac25\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\cos x\).<br>Then \(du=-\sin x\,dx\).<br>When \(x=0\), \(u=1\),<br>when \(x=\pi\), \(u=-1\).</p>
+</div></div></div>
+<b>Your turn.</b>
+<div style="break-inside:avoid"><p><b>a</b></p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int_{-3}^{1}x\sqrt{x+3}\,dx&=\int_{0}^{4}(u-3)\sqrt u\,du\\&=\int_{0}^{4}\big(u^{\frac32}-3u^{\frac12}\big)\,du\\&=\Big[\tfrac25u^{\frac52}-2u^{\frac32}\Big]_{0}^{4}\\&=\big(\tfrac25\times32-2\times8\big)-\big(0-0\big)\\&=\tfrac{64}{5}-16\\&=-\tfrac{16}{5}\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=x+3\).<br>Then \(du=dx\),<br>and \(x=u-3\).<br>When \(x=-3\), \(u=0\),<br>when \(x=1\), \(u=4\).</p>
+</div></div></div>
+<p class="small">\(4^{\frac52}=\big(\sqrt4\big)^5=2^5=32\) and \(4^{\frac32}=2^3=8\). The value is negative because the integrand is negative for \(-3\lt x\lt0\).</p>
+<div style="break-inside:avoid"><p><b>b</b></p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{2}}\sin x\cos^5x\,dx&=-\int_{1}^{0}u^5\,du\\&=-\tfrac16\Big[u^6\Big]_{1}^{0}\\&=-\tfrac16\big(0^6-1^6\big)\\&=\tfrac16\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\cos x\).<br>Then \(du=-\sin x\,dx\).<br>When \(x=0\), \(u=1\),<br>when \(x=\tfrac{\pi}{2}\), \(u=0\).</p>
+</div></div></div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><b>c</b> \(\tfrac14(1+x^2)^4+C\)</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac14(2x+3)^4+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac15(1+x^3)^5+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\dfrac{-1}{1+x^2}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(2\sqrt{3x-5}+C\)</span><br><span style="white-space:nowrap;margin-right:3.5mm"><b>e</b> \(\tfrac14\sin^4x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>f</b> \(\log_e(1+x^4)+C\)</span></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>c</b> \(-\sqrt{1-x^2}+C\)</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac{1}{24}(x^4+1)^6+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac29(x^3-1)^{\frac32}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tfrac13e^{x^3}+C\)</span><br><span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\dfrac{-1}{(1+\sqrt x)^2}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>e</b> \(\tfrac16\tan^32x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>f</b> \(-e^{\frac1x}+C\)</span></div></div>
+<div class="a"><span class="an">5</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac{65}{12}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\sqrt2-1\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tfrac13\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac{1}{24}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>e</b> \(2\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>f</b> \(\tfrac12(e^2-1)\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>g</b> \(\tfrac{1}{10}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>h</b> \(\tfrac{\pi^4}{64}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>i</b> \(3\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>j</b> \(\tfrac12\ln3\)</span></div></div>
+<div class="a"><span class="an">6</span><div class="ab">\(\tfrac{\pi}{12}\) units\(^2\){{svg:a12d_q6}}</div></div>
+<div class="a"><span class="an">7</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\log_e\tfrac32\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac{\pi}{4}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tfrac23\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac43\)</span></div></div>
+<div class="a"><span class="an">8</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\sqrt{1+e^{2x}}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\ln|\ln x|+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(-\ln|\ln(\cos x)|+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac14\tan^4x+\tfrac16\tan^6x+C\)</span></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>a</b> \(y=\tfrac12\tan^{-1}e^{2x}\)<br><b>b</b> \(y'=\dfrac{1}{\sqrt{4-x^2}}+\tfrac12\) and \(y=\sin^{-1}\dfrac{x}{2}+\dfrac{x}{2}+\dfrac12\)</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>b</b> <span style="white-space:nowrap;margin-right:3.5mm">(i) \(\dfrac{2}{\ln2}\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(ii) \(\tfrac15(4\sqrt2-1)\)</span></div></div>
+<div class="a"><span class="an">11</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\ln2\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\dfrac{e}{e+1}\)</span></div></div>
+<div class="a"><span class="an">12</span><div class="ab">\(\tan^{-1}\sqrt{x-1}+C\)</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(2\sin^{-1}\sqrt x+C_1\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\sin^{-1}(2x-1)+C_2\)</span></div></div>
+
+{{ahead:Lesson 12D | Integration by substitution}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Blacktown Boys' High School, 2020, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q8</span></span></div>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\int_{0}^{\frac{\pi}{3}}\tan^2x\sec^2x\,dx=\int_{0}^{\sqrt3}u^2\,du\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\tan x\).<br>Then \(du=\sec^2x\,dx\).<br>When \(x=0\), \(u=0\),<br>when \(x=\tfrac{\pi}{3}\), \(u=\sqrt3\).</p>
+</div></div>
+<p><b>Answer (B).</b> Option (A) keeps the \(x\)-limits on a \(u\)-integral. Option (C) loses the square on \(\tan x\). Option (D) writes \(\sec^2x\) as \(1+u^2\) as well, but \(\sec^2x\,dx\) has already become \(du\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q10(a)</span></span></div>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int x\sqrt{x^2+1}\,dx&=\int u^{\frac12}\times\tfrac12\,du\\&=\tfrac12\times\tfrac23u^{\frac32}+C\\&=\tfrac13(x^2+1)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=x^2+1\).<br>Then \(du=2x\,dx\),<br>and \(x\,dx=\tfrac12\,du\).</p>
+</div></div></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span></div>
+<p>From \(u=2x-1\), \(\ 2x=u+1\), so \(4x=2(u+1)\).</p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int4x\sqrt{2x-1}\,dx&=\int2(u+1)\sqrt u\times\tfrac12\,du\\&=\int(u+1)\sqrt u\,du\\&=\int\big(u^{\frac32}+u^{\frac12}\big)\,du\\&=\tfrac25u^{\frac52}+\tfrac23u^{\frac32}+C\\&=\tfrac25(2x-1)^{\frac52}+\tfrac23(2x-1)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=2x-1\).<br>Then \(du=2\,dx\),<br>and \(dx=\tfrac12\,du\).</p>
+</div></div></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)</span></span></div>
+<p>By the chain rule, \(\dfrac{d}{dx}\ln3x=\dfrac{3}{3x}=\dfrac1x\).</p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int\frac{dx}{x(\ln3x)^2}&=\int\frac{1}{u^2}\,du\\&=\int u^{-2}\,du\\&=-u^{-1}+C\\&=-\frac{1}{\ln3x}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\ln3x\).<br>Then \(du=\dfrac1x\,dx\).</p>
+</div></div></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Girraween High School, 2023, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span></div>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int_{1}^{6}x\sqrt{6-x}\,dx&=-\int_{5}^{0}(6-u)\sqrt u\,du\\&=\int_{0}^{5}(6-u)\sqrt u\,du\\&=\int_{0}^{5}\big(6u^{\frac12}-u^{\frac32}\big)\,du\\&=\Big[4u^{\frac32}-\tfrac25u^{\frac52}\Big]_{0}^{5}\\&=\big(4\times5\sqrt5-\tfrac25\times25\sqrt5\big)-\big(0-0\big)\\&=20\sqrt5-10\sqrt5\\&=10\sqrt5\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=6-x\).<br>Then \(du=-dx\),<br>and \(x=6-u\).<br>When \(x=1\), \(u=5\),<br>when \(x=6\), \(u=0\).</p>
+</div></div>
+<p class="small">The second line reverses the limits to remove the minus sign. The primitive of \(6u^{\frac12}\) is \(6\times\tfrac23u^{\frac32}=4u^{\frac32}\). Also \(5^{\frac32}=5\sqrt5\) and \(5^{\frac52}=25\sqrt5\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span></div>
+<p>After the substitution, use \(\cos^2u=\tfrac12+\tfrac12\cos2u\) (Lesson 12C).</p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int\frac{\cos^2(\ln x)}{x}\,dx&=\int\cos^2u\,du\\&=\int\big(\tfrac12+\tfrac12\cos2u\big)\,du\\&=\tfrac12u+\tfrac14\sin2u+C\\&=\tfrac12\ln x+\tfrac14\sin(2\ln x)+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\ln x\).<br>Then \(du=\dfrac1x\,dx\).</p>
+</div></div></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>Knox Grammar School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span></div>
+<p>The derivative of \(\tan x-x\) is \(\sec^2x-1\), and \(\sec^2x-1=\tan^2x\) (Lesson 12C). So \(du=\tan^2x\,dx\).</p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int\tan^2x\sqrt{\tan x-x}\,dx&=\int u^{\frac12}\,du\\&=\tfrac23u^{\frac32}+C\\&=\tfrac23(\tan x-x)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\tan x-x\).<br>Then \(du=\tan^2x\,dx\).</p>
+</div></div></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 8</span>Sydney Technical High School, 2021, Extension&nbsp;1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q12(b)</span></span></div>
+<p>Since \(4e^{2x}=\big(2e^x\big)^2=u^2\), and \(e^x\,dx=\tfrac12\,du\):</p>
+<div class="split" style="grid-template-columns:1.55fr 1fr">
+<div>
+\[\begin{aligned}\int_{\ln\left(\frac12\right)}^{\ln\left(\frac{\sqrt3}{2}\right)}\frac{e^x}{1+4e^{2x}}\,dx&=\tfrac12\int_{1}^{\sqrt3}\frac{du}{1+u^2}\\&=\tfrac12\Big[\tan^{-1}u\Big]_{1}^{\sqrt3}\\&=\tfrac12\big(\tan^{-1}\sqrt3-\tan^{-1}1\big)\\&=\tfrac12\big(\tfrac{\pi}{3}-\tfrac{\pi}{4}\big)\\&=\tfrac12\times\tfrac{\pi}{12}\\&=\tfrac{\pi}{24}\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=2e^x\).<br>Then \(du=2e^x\,dx\),<br>and \(e^x\,dx=\tfrac12\,du\).<br>When \(x=\ln\tfrac12\), \(u=1\),<br>when \(x=\ln\tfrac{\sqrt3}{2}\), \(u=\sqrt3\).</p>
+</div></div>
+<p class="small">\(u=2e^{\ln\frac12}=2\times\tfrac12=1\) and \(u=2e^{\ln\frac{\sqrt3}{2}}=2\times\tfrac{\sqrt3}{2}=\sqrt3\).</p></div>
