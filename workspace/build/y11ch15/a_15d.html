@@ -50,7 +50,7 @@ and \({}^3C_3={}^2C_2=1\).<br>
 <div class="a"><span class="an">10</span><div class="ab">\((1-3x)(1+5x)^{14}=(1-3x)\big(\cdots+{}^{14}C_7\,(5x)^7+{}^{14}C_8\,(5x)^8+\cdots\big)\)<br>The coefficient of \(x^8\) will be \({}^{14}C_8\times5^8-3\times{}^{14}C_7\times5^7=368671875\).</div></div>
 <div class="a"><span class="an">11</span><div class="ab" style="line-height:1.9"><b>a</b> \((1+x)^n=\dbinom n0+\dbinom n1x+\dbinom n2x^2+\dbinom n3x^3+\cdots\)<br>
 <b>b</b> Substitute \(x=2\): \((1+2)^n=\dbinom n0+\dbinom n1\times2+\dbinom n2\times4+\dbinom n3\times8+\cdots\)<br>
-<b>c</b> When \(n=4\), \(\text{LHS}=1+4\times2+6\times4+4\times8+1\times16=1+8+24+32+16=81=3^4\).</div></div>
+<b>c</b> When \(n=4\), \(\text{LHS}\)\({}=1+4\times2+6\times4+4\times8+1\times16\)\({}=1+8+24+32+16\)\({}=81\)\({}=3^4\).</div></div>
 <div class="a"><span class="an">12</span><div class="ab"><b>b</b> It tells us that the sum of the row in Pascal's triangle indexed by \(n\), that is, containing the coefficients of \((1+x)^n\), is \(2^n\).<br>
 <b>c</b> The list of all subsets of a set of \(n\) objects may be partitioned into sets of sizes \(0,1,2,\dots,n\). The sum of the number of sets of each type will be the total number of all subsets, which is \(2^n\).</div></div>
 <div class="a"><span class="an">13</span><div class="ab"><b>c</b> First identity: \(1\times5+2\times10+3\times10+4\times5+5\times1=80=5\times2^4\).<br>Second identity: \(1\times2\times10+2\times3\times10+3\times4\times5+4\times5\times1=160=4\times5\times2^3\).</div></div>
@@ -95,13 +95,13 @@ and \({}^3C_3={}^2C_2=1\).<br>
 \[{}^{2n}C_3=2\,{}^nC_3+2n\,{}^nC_2,\quad\text{that is,}\quad n\,{}^nC_2+{}^nC_3=\dfrac12\,{}^{2n}C_3.\]</div>
 <div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Kinross Wolaroi School, 2023, Year 12 Mathematics Extension&nbsp;1 Trial HSC Examination,&nbsp;Q14(d)</span></div>
 <p>Because \((1+x)^3(1+x)^6=(1+x)^9\), the coefficients of \(x^6\) on both sides are equal. On the right, the coefficient of \(x^6\) is \(\dbinom96\). On the left,</p>
-\[(1+x)^3(1+x)^6=\Big(\dbinom30+\dbinom31x+\dbinom32x^2+\dbinom33x^3\Big)\Big(\dbinom60+\dbinom61x+\cdots+\dbinom66x^6\Big).\]
+\[\begin{aligned}&(1+x)^3(1+x)^6\\&\qquad=\Big(\dbinom30+\dbinom31x+\dbinom32x^2+\dbinom33x^3\Big)\Big(\dbinom60+\dbinom61x+\cdots+\dbinom66x^6\Big).\end{aligned}\]
 <p>A term in \(x^6\) comes from the term in \(x^k\) in the first bracket times the term in \(x^{6-k}\) in the second bracket, for \(k=0,1,2,3\). So the coefficient of \(x^6\) on the left is</p>
 \[\dbinom30\dbinom66+\dbinom31\dbinom65+\dbinom32\dbinom64+\dbinom33\dbinom63.\]
 <p>Equating the coefficients of \(x^6\) gives the result.</p></div>
 <div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>North Sydney Boys High School, 2023, Year 12, Assessment task 3, Term 2, Mathematics Extension&nbsp;1,&nbsp;Q14(c)</span></div>
 <p>By the binomial theorem, \(a_k={}^nC_k\) and \(b_k={}^{n+1}C_k\). Expand the right-hand side of \((1+x)^{n+1}=(1+x)^n(1+x)\):</p>
-\[\big(a_0+a_1x+\cdots+a_nx^n\big)(1+x)=a_0+(a_0+a_1)x+(a_1+a_2)x^2+\cdots+a_nx^{n+1}.\]
+\[\begin{aligned}&\big(a_0+a_1x+\cdots+a_nx^n\big)(1+x)\\&\qquad=a_0+(a_0+a_1)x+(a_1+a_2)x^2+\cdots+a_nx^{n+1}.\end{aligned}\]
 <p>Equating the coefficients of \(x^k\), \(a_{k-1}+a_k=b_k\) for \(k=1,2,\dots,n\). Also \(a_0=1\). So the expression is</p>
 \[\dfrac{b_1b_2\cdots b_n}{a_0a_1a_2\cdots a_n}=\dfrac{b_1}{a_1}\times\dfrac{b_2}{a_2}\times\cdots\times\dfrac{b_n}{a_n}.\]
 <p>By the formula for \({}^nC_r\), for \(k=1,2,\dots,n\),</p>

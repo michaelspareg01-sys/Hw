@@ -40,9 +40,14 @@ SYMS = {"x": x, "y": y, "a": a, "b": b, "n": n, "p": p, "q": q, "k": k, "r": r, 
 TR = standard_transformations + (implicit_multiplication_application,)
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as f:
-        return f.read()
+        return f.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail=""):
@@ -903,7 +908,7 @@ try:
     report(len(sd) == 2 and all(grid_ok(tex(t), lambda nn, rr, mm: Fraction(ncr(nn + 1, rr), ncr(nn, rr)), range(1, 12), lambda nn, rr, mm: 1 <= rr <= nn) for t in sd), "PP7 b_k / a_k on grid", g)
     once(PPA[7], r"\(a_{k-1}+a_k=b_k\) for \(k=1,2,\dots,n\). Also \(a_0=1\).", "PP7 a_(k-1) + a_k = b_k")
     report(all(power(1 + x, v).coeff(x, j - 1) + power(1 + x, v).coeff(x, j) == power(1 + x, v + 1).coeff(x, j) for v in range(1, 10) for j in range(1, v + 1)), "PP7 a_(k-1) + a_k = b_k, n = 1..9", "")
-    once(PPA[7], r"\[\big(a_0+a_1x+\cdots+a_nx^n\big)(1+x)=a_0+(a_0+a_1)x+(a_1+a_2)x^2+\cdots+a_nx^{n+1}.\]", "PP7 product expanded")
+    once(PPA[7], r"\[\begin{aligned}&\big(a_0+a_1x+\cdots+a_nx^n\big)(1+x)\\&\qquad=a_0+(a_0+a_1)x+(a_1+a_2)x^2+\cdots+a_nx^{n+1}.\end{aligned}\]", "PP7 product expanded")
     once(PPQ[7], r"\[\dfrac{1}{a_0a_1a_2\cdots a_n}\times(a_0+a_1)(a_1+a_2)\cdots(a_{n-1}+a_n)\quad\text{for }n=1,2,3,\dots\]", "PP7 question")
 except Exception as err:
     report(False, "PP7", f"ERROR {err}")

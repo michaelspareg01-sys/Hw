@@ -37,9 +37,14 @@ SYMS = {"x": x, "y": y, "z": z, "a": a, "b": b, "h": h, "p": p, "q": q, "r": r, 
 TR = standard_transformations + (implicit_multiplication_application,)
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as f:
-        return f.read()
+        return f.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail):
@@ -284,7 +289,7 @@ e7 = power(2 * x + x ** -2, 6)
 try:
     body = re.search(r"\\big\(2x\+x\^\{-2\}\\big\)\^6&=(.*?)\\end\{aligned\}", WORKED[7], re.S).group(1)
     rw = [re.sub(r"^&", "", t.strip()) for t in body.split("\\\\")]
-    report(len(rw) == 2 and same(tex(rw[0]) + tex(rw[1]), e7), "W7 unsimplified expansion", " | ".join(rw))
+    report(len(rw) == 3 and same(sum(tex(t) for t in rw), e7), "W7 unsimplified expansion", " | ".join(rw))
 except Exception as err:
     report(False, "W7 expansion", f"ERROR {err}")
 for lead, j in ((r"<b>a</b> The constant term is</p>", 0), (r"<b>b</b> The term in \(x^{-3}\) is</p>", -3)):

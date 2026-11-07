@@ -38,9 +38,14 @@ SYMS = {"x": x, "y": y, "a": a, "b": b, "h": h, "n": n, "p": p, "q": q, "k": k, 
 TR = standard_transformations + (implicit_multiplication_application,)
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as f:
-        return f.read()
+        return f.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail):
@@ -292,7 +297,14 @@ def nc(m, r):
 
 # ================================================================ lesson: proof by counting words
 try:
-    rows = re.search(r"\\begin\{array\}\{lll\}(.*?)\\end\{array\}", LES["proof"], re.S).group(1).split("\\\\")
+    raw = re.search(r"\\begin\{array\}\{lll\}(.*?)\\end\{array\}", LES["proof"], re.S).group(1).split("\\\\")
+    rows = []
+    for r in raw:   # a row with an empty label column continues the row above (layout-only line break)
+        c = r.split("&")
+        if rows and len(c) == 3 and not c[2].strip():
+            prev = rows[-1].split("&"); prev[1] += c[1]; rows[-1] = "&".join(prev)
+        else:
+            rows.append(r)
     words = [re.findall(r"[xy]{4}", r.split("&")[1]) for r in rows]
     allw = ["".join(w) for w in itertools.product("xy", repeat=4)]
     ok = len(rows) == 5 and sorted(sum(words, [])) == sorted(allw)

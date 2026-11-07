@@ -34,9 +34,14 @@ SYMS = {"x": x, "y": y, "a": a, "c": c, "z": z, "k": k, "sqrt": sp.sqrt, "binomi
 TR = standard_transformations + (implicit_multiplication_application,)
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as f:
-        return f.read()
+        return f.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail):
@@ -541,7 +546,7 @@ check("PP", 5, r"so \((1+x)^3=@\).</p>", power(1 + x, 3))
 check("PP", 5, r"First \((2x-1)^2=@\), so", power(2 * x - 1, 2))
 check("PP", 5, r"coefficient of \(x^4\) is \(12-4=@\).", sp.expand(power(2 * x - 1, 2) * power(1 + x, 3)).coeff(x, 4))
 # PP6 SGS: (x - 2/x)^4
-check("PP", 6, r"\Big)^4=1+4\Big(-\dfrac{2}{x^2}\Big)+6\Big(-\dfrac{2}{x^2}\Big)^2+4\Big(-\dfrac{2}{x^2}\Big)^3+\Big(-\dfrac{2}{x^2}\Big)^4=@.\]", power(1 - 2 / x ** 2, 4))
+check("PP", 6, r"\Big)^4&=1+4\Big(-\dfrac{2}{x^2}\Big)+6\Big(-\dfrac{2}{x^2}\Big)^2+4\Big(-\dfrac{2}{x^2}\Big)^3+\Big(-\dfrac{2}{x^2}\Big)^4\\&=@.\end{aligned}\]", power(1 - 2 / x ** 2, 4))
 check("PP", 6, r"\[\Big(x-\dfrac2x\Big)^4=@.\]", power(x - 2 / x, 4))
 # PP7 Girraween 2023: constant term of (x + 2/x)^6
 check("PP", 7, r"fourth term, \(20\Big(\dfrac{2}{x^2}\Big)^3=@\).", term(power(1 + 2 / x ** 2, 6), -6))
