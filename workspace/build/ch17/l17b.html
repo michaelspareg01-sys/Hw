@@ -75,7 +75,7 @@ Prove that a Bernoulli trial with probabilities \(p\) of ‘success’ and \(q=1
 <p>This proof again requires binomial expansions. First, however, we need to develop yet another formula for the variance.</p>
 \[\begin{aligned}\text{Var}(X)&amp;=\text{E}(X^2)-\big(\text{E}(X)\big)^2\\&amp;=\text{E}\big(X(X-1)\big)+\text{E}(X)-\big(\text{E}(X)\big)^2\\&amp;=\text{E}\big(X(X-1)\big)+np-n^2p^2,\quad\text{because }\text{E}(X)=np.\end{aligned}\]
 <p>We can find \(\text{E}\big(X(X-1)\big)\) using binomial expansions and part <b>b</b> of the lemma,</p>
-\[\begin{aligned}\text{E}\big(X(X-1)\big)&amp;=\sum x(x-1)P(X=x),\ \text{summed over the distribution,}\\&amp;=0\times(-1)\times{}^nC_0\times p^0q^n+1\times0\times{}^nC_1\times p^1q^{n-1}+2\times1\times{}^nC_2\times p^2q^{n-2}\\&amp;\qquad+3\times2\times{}^nC_3\times p^3q^{n-3}+\cdots+n(n-1)\times{}^nC_n\times p^nq^0.\end{aligned}\]
+\[\begin{aligned}\text{E}\big(X(X-1)\big)&amp;=\sum x(x-1)P(X=x),\ \text{summed over the distribution,}\\&amp;=0\times(-1)\times{}^nC_0\times p^0q^n+1\times0\times{}^nC_1\times p^1q^{n-1}\\&amp;\qquad+2\times1\times{}^nC_2\times p^2q^{n-2}\\&amp;\qquad+3\times2\times{}^nC_3\times p^3q^{n-3}+\cdots+n(n-1)\times{}^nC_n\times p^nq^0.\end{aligned}\]
 <p>The first two terms are 0, then applying part <b>b</b> of the lemma,</p>
 \[\begin{aligned}&amp;=n(n-1)\times{}^{n-2}C_0\times p^2q^{n-2}+n(n-1)\times{}^{n-2}C_1\times p^3q^{n-3}\\&amp;\qquad+n(n-1)\times{}^{n-2}C_2\times p^4q^{n-4}+\cdots+n(n-1)\times{}^{n-2}C_{n-2}\times p^nq^0\\&amp;=n(n-1)p^2\big({}^{n-2}C_0\,p^0q^{n-2}+{}^{n-2}C_1\,p^1q^{n-3}+\cdots+{}^{n-2}C_{n-2}\,p^{n-2}q^0\big).\end{aligned}\]
 <p>The bit in brackets is the binomial expansion of \((p+q)^{n-2}\), where \(p+q=1\), so</p>
@@ -104,7 +104,7 @@ A binomial random variable has parameters \(n=18\) and \(p=\tfrac13\).<br>
 <b>c</b> What is the probability that the result is within one standard deviation of the mean? Give your answer correct to three decimal places.<br>
 <b>d</b> Give an example that this distribution could model.
 {{work:62}}</div></div>
-<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 A binomial random variable has parameters \(n=20\) and \(p=0.1\).<br>
 <b>a</b> Find the mean, variance and standard deviation.<br>
 <b>b</b> What is the probability of getting the mean when the experiment is run?<br>
@@ -239,7 +239,7 @@ The experiment is, ‘roll 8 dice and count the number of dice showing a 5 or a 
 <tr><th>\(f\)</th><td>5</td><td>15</td><td>29</td><td>26</td><td>16</td><td>7</td><td>2</td><td>0</td><td>0</td></tr></table>
 <b>c</b> Draw the theoretical frequency histogram and polygon from part <b>a</b>. Then draw the frequency histogram and polygon of the simulation in part <b>b</b>.
 {{work:110}}</div></div>
-<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 9</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 9</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 The experiment is, ‘toss 10 coins and count the number of heads’.<br>
 <b>a</b> Find the mean and standard deviation, and complete a table of the probability distribution.<br>
 <b>b</b> Simulate the experiment 100 times, complete the table of relative frequencies, and find the mean and standard deviation of the data.<br>

@@ -40,9 +40,14 @@ FAILS = []
 NCHECK = [0]
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as fh:
-        return fh.read()
+        return fh.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail=""):
@@ -231,9 +236,9 @@ report([frac_cell(c) for c in tb[1][1][1]] == d6 and [frac_cell(c) for c in tb[1
 mX, vX = mean_var(range(7), d6)
 mP, vP = mean_var([F(k, 6) for k in range(7)], d6)
 report((mX, vX) == (3, F(3, 2)), "WE15 E(X), Var(X) from the table", f"{mX} {vX}")
-present(c1, "WE15", r"E(X)=np=3\qquad\text{and}\qquad\operatorname{Var}(X)=npq=1\tfrac12.")
+present(c1, "WE15", r"E(X)=np=3\qquad\text{and}\\&amp;\operatorname{Var}(X)=npq=1\tfrac12.")
 report((mP, vP) == (half, F(1, 24)), "WE15 E(p-hat), Var(p-hat) from the table", f"{mP} {vP}")
-present(c1, "WE15", r"\frac{pq}n=\tfrac1{24}.\]")
+present(c1, "WE15", r"\frac{pq}n=\tfrac1{24}.\end{aligned}\]")
 coin_count = [sum(1 for s in product((0, 1), repeat=6) if sum(s) == k) for k in range(7)]
 report([F(c, 64) for c in coin_count] == d6, "WE15 by enumeration of 64 sequences", "")
 
@@ -561,14 +566,14 @@ present(PPA[1], "PP1", "<b>Answer B.</b>")
 # PP2
 present(PPA[2], "PP2", r"=\frac3{5000},")
 report(F(9, 10) * F(1, 10) / 150 == F(3, 5000), "PP2 variance 3/5000", "")
-chk(PPA[2], "PP2", r"\sqrt{\frac3{5000}}\doteq@.\]", rnd(math.sqrt(3 / 5000), 4))
+chk(PPA[2], "PP2", r"\sqrt{\frac3{5000}}\doteq@.\end{aligned}\]", rnd(math.sqrt(3 / 5000), 4))
 # PP3
 chk(PPA[3], "PP3", r"\(np=100\times0.2=@\) and \(nq=100\times0.8=@\)", "20", "80")
 chk(PPA[3], "PP3", r"{100}}=@\).</p>", rnd(math.sqrt(0.2 * 0.8 / 100), 2))
 chk(PPA[3], "PP3", r"=P(-@\le Z\le@)\\&amp;=@-@\\&amp;=@.\end{aligned}", "2.5", "2.5", tab("2.50"), tab("-2.50"), str(Decimal(tab("2.50")) - Decimal(tab("-2.50"))))
 # PP4
 v4 = 0.23 * 0.77 / 60
-chk(PPA[4], "PP4", r"{60}\doteq@,\qquad\sigma\doteq@.\]", f"{v4:.7f}", rnd(math.sqrt(v4), 6))
+chk(PPA[4], "PP4", r"{60}\doteq@,\\&amp;\sigma\doteq@.\end{aligned}\]", f"{v4:.7f}", rnd(math.sqrt(v4), 6))
 z = 0.07 / math.sqrt(v4)
 chk(PPA[4], "PP4", r"\doteq@\doteq@\]", rnd(z, 4), z2(z))
 chk(PPA[4], "PP4", r"P(Z&gt;@)=1-@=@.\]", z2(z), tab(z2(z)), str(1 - T(z)))
@@ -583,7 +588,7 @@ report(T(z) < Decimal("0.05"), "PP5 below 0.05, so doubt", "")
 # PP6
 n6 = F(81 * 19, 10000) * 9_000_000
 report(n6 == 1385100 and math.sqrt(0.81 * 0.19 / 1385100) <= 1 / 3000 + 1e-15 and math.sqrt(0.81 * 0.19 / 1385099) > 1 / 3000, "PP6 minimum n = 1 385 100", str(n6))
-present(PPA[6], "PP6", r"n\ge0.1539\times9\,000\,000=1\,385\,100.\]")
+present(PPA[6], "PP6", r"n\ge0.1539\times9\,000\,000=1\,385\,100.\end{aligned}\]")
 present(PPA[6], "PP6", "at least 1&nbsp;385&nbsp;100 trials")
 report(abs(Phi(3) - Phi(-3) - 0.997) < 0.0005, "PP6 99.7% within 3 sd", "")
 

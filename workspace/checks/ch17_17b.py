@@ -45,9 +45,14 @@ SYMS = {"n": n_, "p": p_, "k": k_, "binomial": sp.binomial, "sqrt": sp.sqrt}
 TR = standard_transformations + (implicit_multiplication_application, rationalize)
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as fh:
-        return fh.read()
+        return fh.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail=""):
@@ -902,7 +907,7 @@ d = dist(30, p7)
 mu, var = moments(d)
 ex_eq(PPA[5], "PP5", r"\text{E}(X)=np=30\times\tfrac16=@\qquad", mu)
 ex_eq(PPA[5], "PP5", r"=30\times\tfrac16\times\tfrac56=@\ (", var)
-approx(PPA[5], "PP5", r"\ (\doteq@).\]", var, "dp", 2)
+approx(PPA[5], "PP5", r"\ (\doteq@).\end{aligned}\]", var, "dp", 2)
 # PP6
 pS = num_in(PPQ[6], "PP6", "In a certain school, @% of Year 12")
 report(pS / 100 < F(1, 2), "PP6 p < 1/2", str(pS / 100))

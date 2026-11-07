@@ -18,13 +18,13 @@
 <div style="margin:0.8mm 0"><b>a</b> Each R branch has probability \(\tfrac13\) and each N branch has probability \(\tfrac23\).</div>{{svg:a17a_spin}}
 <div style="margin:0.8mm 0"><b>b</b> \(P(X=0)={}^3C_0\big(\tfrac13\big)^0\big(\tfrac23\big)^3=\tfrac{8}{27}\), \(P(X=1)={}^3C_1\big(\tfrac13\big)^1\big(\tfrac23\big)^2=\tfrac{12}{27}\),</div>
 <div style="margin:0.8mm 0">\(P(X=2)={}^3C_2\big(\tfrac13\big)^2\big(\tfrac23\big)^1=\tfrac{6}{27}\), \(P(X=3)={}^3C_3\big(\tfrac13\big)^3\big(\tfrac23\big)^0=\tfrac{1}{27}\)</div>
-<div style="margin:0.8mm 0"><b>c</b> \(\big(\tfrac13+\tfrac23\big)^3={}^3C_0\big(\tfrac13\big)^0\big(\tfrac23\big)^3+{}^3C_1\big(\tfrac13\big)^1\big(\tfrac23\big)^2+{}^3C_2\big(\tfrac13\big)^2\big(\tfrac23\big)^1+{}^3C_3\big(\tfrac13\big)^3\big(\tfrac23\big)^0\)</div>
+<div style="margin:0.8mm 0"><b>c</b> \(\big(\tfrac13+\tfrac23\big)^3\)\({}={}^3C_0\big(\tfrac13\big)^0\big(\tfrac23\big)^3+{}^3C_1\big(\tfrac13\big)^1\big(\tfrac23\big)^2+{}^3C_2\big(\tfrac13\big)^2\big(\tfrac23\big)^1+{}^3C_3\big(\tfrac13\big)^3\big(\tfrac23\big)^0\)</div>
 <div style="margin:0.8mm 0 0.8mm 4mm">\(=\tfrac{8}{27}+\tfrac{12}{27}+\tfrac{6}{27}+\tfrac{1}{27}=1\). These are the four probabilities in part <b>b</b>.</div>
 <b>Your turn.</b> Let H be ‘a heart’ and N be ‘not a heart’, so \(p=\tfrac14\) and \(q=\tfrac34\).
 <div style="margin:0.8mm 0"><b>a</b> Each H branch has probability \(\tfrac14\) and each N branch has probability \(\tfrac34\).</div>{{svg:a17a_heart}}
 <div style="margin:0.8mm 0"><b>b</b> \(P(X=0)={}^3C_0\big(\tfrac14\big)^0\big(\tfrac34\big)^3=\tfrac{27}{64}\), \(P(X=1)={}^3C_1\big(\tfrac14\big)^1\big(\tfrac34\big)^2=\tfrac{27}{64}\),</div>
 <div style="margin:0.8mm 0">\(P(X=2)={}^3C_2\big(\tfrac14\big)^2\big(\tfrac34\big)^1=\tfrac{9}{64}\), \(P(X=3)={}^3C_3\big(\tfrac14\big)^3\big(\tfrac34\big)^0=\tfrac{1}{64}\)</div>
-<div style="margin:0.8mm 0"><b>c</b> \(\big(\tfrac14+\tfrac34\big)^3={}^3C_0\big(\tfrac14\big)^0\big(\tfrac34\big)^3+{}^3C_1\big(\tfrac14\big)^1\big(\tfrac34\big)^2+{}^3C_2\big(\tfrac14\big)^2\big(\tfrac34\big)^1+{}^3C_3\big(\tfrac14\big)^3\big(\tfrac34\big)^0\)</div>
+<div style="margin:0.8mm 0"><b>c</b> \(\big(\tfrac14+\tfrac34\big)^3\)\({}={}^3C_0\big(\tfrac14\big)^0\big(\tfrac34\big)^3+{}^3C_1\big(\tfrac14\big)^1\big(\tfrac34\big)^2+{}^3C_2\big(\tfrac14\big)^2\big(\tfrac34\big)^1+{}^3C_3\big(\tfrac14\big)^3\big(\tfrac34\big)^0\)</div>
 <div style="margin:0.8mm 0 0.8mm 4mm">\(=\tfrac{27}{64}+\tfrac{27}{64}+\tfrac{9}{64}+\tfrac{1}{64}=1\). These are the four probabilities in part <b>b</b>.</div></div></div>
 <div class="a" style="padding-top:1.2mm"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b> A number less than 3 is 1 or 2, so \(p=\tfrac13\) and \(q=\tfrac23\), with \(n=7\).<br>
 <b>a</b> \({}^7C_2\times\big(\tfrac13\big)^2\times\big(\tfrac23\big)^5=\dfrac{21\times2^5}{3^7}=\dfrac{672}{3^7}\)<br>
@@ -45,13 +45,13 @@
 <div class="a"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b> Let \(X\) be the number of cracked eggs in a tray, with \(p=0.02\), \(q=0.98\) and \(n=30\).<br>
 <b>a</b> \(P(X=0)=0.98^{30}\doteq0.545\)<br>
 <b>b</b> \(P(X\ge2)=1-\big(0.98^{30}+{}^{30}C_1\times0.02^1\times0.98^{29}\big)\doteq0.121\)<br>
-<b>c</b> For \(n\) eggs, \(P(\text{at least one cracked})=1-0.98^n\). We need \(1-0.98^n&gt;0.9\), so \(0.98^n&lt;0.1\). Taking logarithms and dividing by \(\ln0.98&lt;0\) reverses the sign: \(n&gt;\dfrac{\ln0.1}{\ln0.98}\doteq113.97\). So 114 eggs must be checked. (Check: \(0.98^{113}\doteq0.1020\) and \(0.98^{114}\doteq0.0999\).)<br>
+<b>c</b> For \(n\) eggs, \(P(\text{at least one cracked})=1-0.98^n\). We need \(1-0.98^n&gt;0.9\), so \(0.98^n&lt;0.1\). Taking logarithms and dividing by \(\ln0.98&lt;0\) reverses the sign: <span style="line-height:2.2">\(n&gt;\dfrac{\ln0.1}{\ln0.98}\doteq113.97\). So 114 eggs must be checked. (Check: \(0.98^{113}\doteq0.1020\) and \(0.98^{114}\doteq0.0999\).)</span><br>
 <b>Your turn.</b> Let \(X\) be the number of seeds in a packet that fail, with \(p=0.05\), \(q=0.95\) and \(n=40\).<br>
 <b>a</b> \(P(X=0)=0.95^{40}\doteq0.129\)<br>
 <b>b</b> \(P(X\ge2)=1-\big(0.95^{40}+{}^{40}C_1\times0.05^1\times0.95^{39}\big)\doteq0.601\)<br>
-<b>c</b> We need \(1-0.95^n&gt;0.95\), so \(0.95^n&lt;0.05\), and \(n&gt;\dfrac{\ln0.05}{\ln0.95}\doteq58.40\). So 59 seeds must be planted. (Check: \(0.95^{58}\doteq0.0510\) and \(0.95^{59}\doteq0.0485\).)</div></div>
+<b>c</b> We need \(1-0.95^n&gt;0.95\), so \(0.95^n&lt;0.05\), and <span style="line-height:2.2">\(n&gt;\dfrac{\ln0.05}{\ln0.95}\doteq58.40\). So 59 seeds must be planted. (Check: \(0.95^{58}\doteq0.0510\) and \(0.95^{59}\doteq0.0485\).)</span></div></div>
 <div class="a" style="line-height:1.9"><span class="an">C6</span><div class="ab"><b>Tutor demo.</b> In one hour the machines make 100 bolts, 60 by A and 40 by B. For a bolt chosen at random,<br>
-\(p=P(\text{A made it and it is faulty})+P(\text{B made it and it is faulty})=\tfrac{60}{100}\times\tfrac{3}{100}+\tfrac{40}{100}\times\tfrac{5}{100}=0.038\), so \(q=0.962\).<br>
+\(p\)\({}=P(\text{A made it and it is faulty})+P(\text{B made it and it is faulty})\)\({}=\tfrac{60}{100}\times\tfrac{3}{100}+\tfrac{40}{100}\times\tfrac{5}{100}\)\({}=0.038\), so \(q=0.962\).<br>
 Let \(X\) be the number of faulty bolts in a box of 20. Then \(P(X\le1)=0.962^{20}+{}^{20}C_1\times0.962^{19}\times0.038\doteq0.825\).<br>
 <b>Your turn.</b> In one hour the ovens bake 100 loaves, 40 in Oven 1 and 60 in Oven 2. For a loaf chosen at random,<br>
 \(p=\tfrac{40}{100}\times\tfrac{5}{100}+\tfrac{60}{100}\times\tfrac{10}{100}=0.08\), so \(q=0.92\).<br>
@@ -103,7 +103,7 @@ Let \(X\) be the number of burnt loaves in a crate of 12. Then \(P(X\le1)=0.92^{
 <p>Let \(X\) be the number of races in which the pads need replacing, so \(n=12\), \(p=0.2\) and \(q=0.8\).</p>
 <p><b>(i)</b> \(P(X=3)={}^{12}C_3\times0.2^3\times0.8^9=0.236\,22\ldots\doteq0.24\)</p>
 <p><b>(ii)</b> ‘3 occasions at most’ means 0, 1, 2 or 3 occasions:</p>
-\[\begin{aligned}P(X\le3)&amp;=0.8^{12}+{}^{12}C_1\times0.2\times0.8^{11}+{}^{12}C_2\times0.2^2\times0.8^{10}+{}^{12}C_3\times0.2^3\times0.8^9\\&amp;=0.794\,56\ldots\doteq0.79\end{aligned}\]</div>
+\[\begin{aligned}P(X\le3)&amp;=0.8^{12}+{}^{12}C_1\times0.2\times0.8^{11}\\&amp;\qquad+{}^{12}C_2\times0.2^2\times0.8^{10}+{}^{12}C_3\times0.2^3\times0.8^9\\&amp;=0.794\,56\ldots\doteq0.79\end{aligned}\]</div>
 <div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>Blacktown Boys' High School, 2020, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span></div>
 <p>Let \(X\) be the number of the 15 bags that do not contain 50 lollipops. Each bag fails with probability \(p=1-0.92=0.08\), so \(q=0.92\) and \(n=15\).</p>
 <p><b>(i)</b> \(P(X=2)={}^{15}C_2\times0.08^2\times0.92^{13}=0.227\,30\ldots\doteq0.2273\)</p>

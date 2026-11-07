@@ -8,19 +8,19 @@ table.t.t17c td, table.t.t17c th { padding:0.8mm 1.8mm; }
 {{ahead:Lesson 17C | Normal approximations to a binomial}}
 <div class="ans-sec">Lesson Examples</div>
 <div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> \(X\sim B\big(16,\tfrac12\big)\).<br>
-<b>a</b> \(P(X&gt;10)=P(X\ge11)=\big(\tfrac12\big)^{16}\big({}^{16}C_{11}+{}^{16}C_{12}+\cdots+{}^{16}C_{16}\big)=\dfrac{6885}{65\,536}\doteq0.105\)<br>
+<b>a</b> \(P(X&gt;10)\)\({}=P(X\ge11)\)\({}=\big(\tfrac12\big)^{16}\big({}^{16}C_{11}+{}^{16}C_{12}+\cdots+{}^{16}C_{16}\big)\)\({}=\dfrac{6885}{65\,536}\)\({}\doteq0.105\)<br>
 <b>b</b> \(\mu=np=8\), \(\sigma^2=npq=4\), \(\sigma=2\). With the continuity correction, \(P(X\ge11)\doteq P(X\ge10.5)\).<br>
 \(z=\dfrac{10.5-8}{2}=1.25\), so \(P(X\ge10.5)\doteq P(Z\ge1.25)=1-\Phi(1.25)\doteq1-0.8944=0.1056\doteq0.106\).<br>
 <b>Your turn.</b> \(X\sim B\big(12,\tfrac12\big)\).<br>
-<b>a</b> \(P(X&gt;8)=P(X\ge9)=\big(\tfrac12\big)^{12}\big({}^{12}C_9+{}^{12}C_{10}+{}^{12}C_{11}+{}^{12}C_{12}\big)=\dfrac{299}{4096}\doteq0.073\)<br>
+<b>a</b> \(P(X&gt;8)\)\({}=P(X\ge9)\)\({}=\big(\tfrac12\big)^{12}\big({}^{12}C_9+{}^{12}C_{10}+{}^{12}C_{11}+{}^{12}C_{12}\big)\)\({}=\dfrac{299}{4096}\)\({}\doteq0.073\)<br>
 <b>b</b> \(\mu=np=6\), \(\sigma^2=npq=3\), \(\sigma=\sqrt3\doteq1.732\). With the continuity correction, \(P(X\ge9)\doteq P(X\ge8.5)\).<br>
 \(z=\dfrac{8.5-6}{\sqrt3}\doteq1.44\), so \(P(X\ge8.5)\doteq P(Z\ge1.44)=1-\Phi(1.44)\doteq1-0.9251=0.0749\doteq0.075\).</div></div>
 <div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b><br>
 <b>a</b> (i) \(P(11.5\le X\le12.5)\) &ensp; (ii) \(P(X\le10.5)\) &ensp; (iii) \(P(X&lt;10)=P(X\le9)\doteq P(X\le9.5)\) &ensp; (iv) \(P(X\ge14.5)\)<br>
 (v) \(P(X&gt;15)=P(X\ge16)\doteq P(X\ge15.5)\) &ensp; (vi) \(P(8\le X&lt;14)=P(8\le X\le13)\doteq P(7.5\le X\le13.5)\)<br>
 <b>b</b> \(\mu=8\), \(\sigma=2\), so within one standard deviation means \(6\le X\le10\).<br>
-Binomial: \(P(6\le X\le10)=\big(\tfrac12\big)^{16}\big({}^{16}C_6+{}^{16}C_7+{}^{16}C_8+{}^{16}C_9+{}^{16}C_{10}\big)=\dfrac{51\,766}{65\,536}\doteq0.790\).<br>
-Normal: \(P(5.5\le X\le10.5)\doteq P(-1.25\le Z\le1.25)\doteq0.8944-0.1056=0.7888\doteq0.789\). The results are in excellent agreement.<br>
+Binomial: \(P(6\le X\le10)\)\({}=\big(\tfrac12\big)^{16}\big({}^{16}C_6+{}^{16}C_7+{}^{16}C_8+{}^{16}C_9+{}^{16}C_{10}\big)\)\({}=\dfrac{51\,766}{65\,536}\)\({}\doteq0.790\).<br>
+Normal: \(P(5.5\le X\le10.5)\)\({}\doteq P(-1.25\le Z\le1.25)\)\({}\doteq0.8944-0.1056\)\({}=0.7888\)\({}\doteq0.789\). The results are in excellent agreement.<br>
 <b>Your turn.</b><br>
 <b>a</b> (i) \(P(9.5\le X\le10.5)\) &ensp; (ii) \(P(X\le7.5)\) &ensp; (iii) \(P(X&lt;12)=P(X\le11)\doteq P(X\le11.5)\) &ensp; (iv) \(P(X\ge12.5)\)<br>
 (v) \(P(X&gt;6)=P(X\ge7)\doteq P(X\ge6.5)\) &ensp; (vi) \(P(5&lt;X\le9)=P(6\le X\le9)\doteq P(5.5\le X\le9.5)\)<br>
@@ -54,7 +54,7 @@ The calculator gives \({}^{100}C_{55}\doteq6.145\times10^{28}\), so the error is
 
 <div class="ans-sec">Textbook Homework</div>
 <p class="small" style="margin:0 0 1.5mm">Normal probabilities below use the standard normal table with \(z\) correct to two decimal places. Answers may vary slightly with interpolation or technology.</p>
-<div class="a"><span class="an">1</span><div class="ab"><b>a</b> \(X\sim B(20,0.3)\) &emsp; <b>b</b> \(P(9\le X\le11)={}^{20}C_9(0.3)^9(0.7)^{11}+{}^{20}C_{10}(0.3)^{10}(0.7)^{10}+{}^{20}C_{11}(0.3)^{11}(0.7)^{9}\doteq10.82\%\)<br>
+<div class="a"><span class="an">1</span><div class="ab"><b>a</b> \(X\sim B(20,0.3)\) &emsp; <b>b</b> \(P(9\le X\le11)\)\({}={}^{20}C_9(0.3)^9(0.7)^{11}+{}^{20}C_{10}(0.3)^{10}(0.7)^{10}+{}^{20}C_{11}(0.3)^{11}(0.7)^{9}\)\({}\doteq10.82\%\)<br>
 <b>c</b> \(np=6&gt;5\) and \(nq=14&gt;5\).<br>
 <b>d</b> \(\mu=6\), \(\sigma^2=4.2\), \(\sigma\doteq2.049\). The \(z\)-scores are \(\dfrac{8.5-6}{\sqrt{4.2}}\doteq1.22\) and \(\dfrac{11.5-6}{\sqrt{4.2}}\doteq2.68\), so \(P(8.5\le X\le11.5)\doteq0.9963-0.8888=0.1075=10.75\%\).<br>
 <b>e</b> \(\dfrac{10.82-10.75}{10.82}\doteq0.65\%\). The result is very accurate.</div></div>
@@ -69,17 +69,17 @@ The calculator gives \({}^{100}C_{55}\doteq6.145\times10^{28}\), so the error is
 <div class="a"><span class="an">3</span><div class="ab"><b>a</b> There are two possible outcomes, pink or blue. &emsp; <b>b</b> There are 20 stages, each independent, and with the same probability of success.<br>
 <b>c</b> If the counter is not returned, the stages of the experiment will not be independent. With the large number of counters, however, the probability will not change much, and we could approximate the experiment as binomial.<br>
 <b>d</b> \(p=0.6\), \(\mu=np=12\), \(\sigma^2=np(1-p)=4.8\), so \(\sigma\doteq2.19\). &emsp; <b>e</b> \({}^{20}C_{14}(0.6)^{14}(0.4)^6\doteq0.124\)<br>
-<b>f</b> (i) The column for 14 pink counters is 1 unit wide and centred on 14, so it runs from 13.5 to 14.5, and the normal curve covers the same interval. (ii) \(P(13.5&lt;X&lt;14.5)\doteq P(0.68&lt;Z&lt;1.14)\doteq0.8729-0.7517=0.1212\doteq0.121\). Correct to two significant figures, both are 0.12, so they are in strong agreement.</div></div>
+<b>f</b> (i) The column for 14 pink counters is 1 unit wide and centred on 14, so it runs from 13.5 to 14.5, and the normal curve covers the same interval. (ii) \(P(13.5&lt;X&lt;14.5)\)\({}\doteq P(0.68&lt;Z&lt;1.14)\)\({}\doteq0.8729-0.7517\)\({}=0.1212\)\({}\doteq0.121\). Correct to two significant figures, both are 0.12, so they are in strong agreement.</div></div>
 <div class="a"><span class="an">5</span><div class="ab"><b>a</b> \(n&gt;10\) &emsp; <b>b</b> \(n&gt;20\) &emsp; <b>c</b> \(n&gt;40\) &emsp; <b>d</b> \(n&gt;500\) &emsp; <b>e</b> \(n&gt;20\) &emsp; <b>f</b> \(n&gt;40\) &emsp; <b>g</b> \(n&gt;50\) &emsp; <b>h</b> \(n&gt;11.1\), that is, \(n\ge12\)</div></div>
 <div class="a"><span class="an">6</span><div class="ab"><b>a</b> Very large numbers are involved. A normal calculator cannot handle numbers such as \({}^{854}C_{76}\), and other calculating devices may not be accurate with such large numbers. There are also a large number of cases to consider, from 60 to 76 successes.<br>
 <b>b</b> It is hard to get a representative sample of the whole world, because different ethnic groups will have different tendencies to colour-blindness.<br>
 <b>c</b> \(\mu=854\times0.08=68.32\), \(\sigma=\sqrt{854\times0.08\times0.92}\doteq7.93\). Here 7% of 854 is 59.78 and 9% is 76.86, so we need 60 to 76 people.<br>
-\(P(60&lt;X&lt;76)\doteq P(-1.05&lt;Z&lt;0.97)\doteq0.8340-0.1469=0.6871\doteq68.7\%\)<br>
-<b>d</b> \(P(76&lt;X&lt;76.5)\doteq P(0.97&lt;Z&lt;1.03)\doteq0.8485-0.8340=0.0145\doteq1.5\%\)</div></div>
+\(P(60&lt;X&lt;76)\)\({}\doteq P(-1.05&lt;Z&lt;0.97)\)\({}\doteq0.8340-0.1469\)\({}=0.6871\)\({}\doteq68.7\%\)<br>
+<b>d</b> \(P(76&lt;X&lt;76.5)\)\({}\doteq P(0.97&lt;Z&lt;1.03)\)\({}\doteq0.8485-0.8340\)\({}=0.0145\)\({}\doteq1.5\%\)</div></div>
 <div class="a"><span class="an">7</span><div class="ab"><b>a</b> \(\big(\tfrac34\big)^{15}\doteq0.0134\doteq1\%\) &emsp; <b>b</b> \(1-\big(\tfrac34\big)^{15}\doteq99\%\)<br>
 <b>c</b> Twenty per cent of 15 is 3. \(\mu=3.75\), \(\sigma^2=2.8125\), \(\sigma\doteq1.677\). \(P(X\ge3)\doteq P(X\ge2.5)\doteq P(Z\ge-0.75)\doteq0.7734\doteq77\%\)</div></div>
 <div class="a"><span class="an">8</span><div class="ab">Interpreting this as \(P(11\le X\le20)\), where \(X\sim B(20,0.45)\): \(\mu=9\), \(\sigma\doteq2.225\), and \(P(X\ge10.5)\doteq P(Z\ge0.67)\doteq1-0.7486=0.2514\), so a normal approximation gives 25%.</div></div>
-<div class="a"><span class="an">9</span><div class="ab">\(X\sim B(30,0.6)\): \(\mu=18\), \(\sigma\doteq2.683\). \(P(X&gt;20)=P(21\le X\le30)\doteq P(X\ge20.5)\doteq P(Z\ge0.93)\doteq1-0.8238=0.1762\doteq17.6\%\).<br>
+<div class="a"><span class="an">9</span><div class="ab">\(X\sim B(30,0.6)\): \(\mu=18\), \(\sigma\doteq2.683\). \(P(X&gt;20)\)\({}=P(21\le X\le30)\)\({}\doteq P(X\ge20.5)\)\({}\doteq P(Z\ge0.93)\)\({}\doteq1-0.8238\)\({}=0.1762\)\({}\doteq17.6\%\).<br>
 The underlying Bernoulli distribution is not applied with replacement, because the same person will not be in the park twice at the same gathering. If the population of Nashville is large, it should be reasonable to neglect this fact. It is also assumed that the visitors to the park are a random cross-section of Nashville. Groups with similar musical tastes may arrive together.</div></div>
 <div class="a"><span class="an">12</span><div class="ab"><b>a</b> (i) \(1-0.95^{10}\doteq0.40\)<br>
 (ii) \(P(\text{reject})=1-(1-p)^{10}\):
@@ -129,7 +129,7 @@ The underlying Bernoulli distribution is not applied with replacement, because t
 <p>From the table, \(\Phi(1.32)\doteq0.9066\), so \(P(N\le20)=0.90658\) gives \(z=1.32\):</p>
 \[\frac{20-0.05n}{\sqrt{0.0475n}}=1.32,\qquad\text{so}\qquad0.05n+1.32\sqrt{0.0475}\,\sqrt n-20=0.\]
 <p>This is a quadratic in \(u=\sqrt n\): &ensp; \(0.05u^2+0.28769u-20=0\). Since \(u&gt;0\),</p>
-\[u=\frac{-0.28769+\sqrt{0.28769^2+4}}{0.1}\doteq17.329,\qquad n=u^2\doteq300.3,\qquad\text{so}\qquad n=300.\]
+\[\begin{aligned}&amp;u=\frac{-0.28769+\sqrt{0.28769^2+4}}{0.1}\doteq17.329,\\&amp;n=u^2\doteq300.3,\qquad\text{so}\qquad n=300.\end{aligned}\]
 <p>(Check: \(np=15\) and \(nq=285\), so the normal approximation is reasonable. The school solution also gives the continuity-correction version, with 20.5 in place of 20, which leads to \(n\doteq309\).)</p></div>
 <div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>James Ruse Agricultural High School, 2023, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(b)(ii)</span></span></div>
 <p>Using the normal approximation without a continuity correction, as in the school solution.</p>

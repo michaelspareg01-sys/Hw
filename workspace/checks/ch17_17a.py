@@ -42,9 +42,14 @@ SYMS = {"n": n_, "a": a_, "b": b_, "c": c_, "binomial": sp.binomial}
 TR = standard_transformations + (implicit_multiplication_application, rationalize)
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as fh:
-        return fh.read()
+        return fh.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail=""):
@@ -393,7 +398,7 @@ ex_eq(we, "WE2", r"P(\text{one is a club})&amp;=@\\&amp;=\frac{6\times3^5}{4^6}"
 ex_eq(we, "WE2", r"&amp;=@\\&amp;=\frac{1458}{4^6}", d6[1])
 ex_eq(we, "WE2", r"&amp;=1-@\qquad", d6[0])
 ex_eq(we, "WE2", r"\text{or }1-@\Big)", d6[0])
-ex_eq(we, "WE2", r"P(\text{six are clubs})\\&amp;=@\\&amp;=\frac{15\times3^2", d6[4] + d6[5] + d6[6])
+ex_eq(we, "WE2", r"P(\text{six are clubs})\\&amp;=@\\&amp;\qquad+@\\&amp;=\frac{15\times3^2", d6[4] + d6[5], d6[6])
 ex_eq(we, "WE2", r"\\&amp;=@\\&amp;=\frac{154}{4^6}", d6[4] + d6[5] + d6[6])
 
 dm = CON[3]["demo"]
@@ -684,7 +689,7 @@ d = dist(int(nr), pp6)
 ex_eq(PPA[6], "PP6", r"\(P(X=3)=@=0.236", d[3])
 trunc(PPA[6], "PP6", r"0.8^9=@\doteq0.24", d[3])
 approx(PPA[6], "PP6", r"\ldots\doteq@\)</p>", d[3], "dp", 2)
-ex_eq(PPA[6], "PP6", r"P(X\le3)&amp;=@\\&amp;=0.794", sum(d[:4]))
+ex_eq(PPA[6], "PP6", r"P(X\le3)&amp;=@\\&amp;\qquad+@\\&amp;=0.794", sum(d[:2]), sum(d[2:4]))
 trunc(PPA[6], "PP6", r"\\&amp;=@\doteq0.79", sum(d[:4]))
 approx(PPA[6], "PP6", r"\ldots\doteq@\end{aligned}", sum(d[:4]), "dp", 2)
 # PP7

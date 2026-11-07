@@ -37,9 +37,14 @@ FAILS = []
 NCHECK = [0]
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as fh:
-        return fh.read()
+        return fh.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail=""):
@@ -597,7 +602,7 @@ def bisect(f, lo, hi):
 n6 = bisect(lambda n: (20 - 0.05 * n) / math.sqrt(0.0475 * n) - 1.32, 10, 400)
 present(PPA[6], "PP6", r"0.05n+1.32\sqrt{0.0475}\,\sqrt n-20=0.\]")
 chk(PPA[6], "PP6", r"\(0.05u^2+@u-20=0\)", rnd(1.32 * math.sqrt(0.0475), 5))
-chk(PPA[6], "PP6", r"\doteq@,\qquad n=u^2\doteq@,\qquad\text{so}\qquad n=@.\]", rnd(math.sqrt(n6), 3), rnd(n6, 1), str(round(n6)))
+chk(PPA[6], "PP6", r"\doteq@,\\&amp;n=u^2\doteq@,\qquad\text{so}\qquad n=@.\end{aligned}\]", rnd(math.sqrt(n6), 3), rnd(n6, 1), str(round(n6)))
 n6c = bisect(lambda n: (20.5 - 0.05 * n) / math.sqrt(0.0475 * n) - 1.32, 10, 400)
 chk(PPA[6], "PP6", r"leads to \(n\doteq@\).)", str(round(n6c)))
 chk(PPA[6], "PP6", r"(Check: \(np=@\) and \(nq=@\),", f"{300 * 0.05:g}", f"{300 * 0.95:g}")
