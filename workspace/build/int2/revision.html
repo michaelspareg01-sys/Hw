@@ -1,4 +1,4 @@
-<div class="lesson">
+<div class="lesson rv">
 <div class="lesson-head"><div class="eyebrow">Revision</div><h2>Derivatives, log laws, radians and integration basics</h2>
 <div class="focus">Every integral in Part 2 is found by reversing a derivative. This section reviews the standard derivatives of \(e^x\), \(\log_e x\), \(a^x\), \(\sin x\), \(\cos x\) and \(\tan x\) (Sections 6B, 6G, 6K and 7B), the log laws, radian measure and the exact values, and the integration basics from Part 1. Keep these pages open while you work through the lessons.</div></div>
 
@@ -11,11 +11,16 @@ table.ev { border-collapse:collapse; margin:1mm 0 2mm; font-size:10pt; }
 table.ev th, table.ev td { border:1px solid var(--line-strong); padding:0.8mm 2.6mm; text-align:center; }
 table.ev th { background:#f3f5f8; }
 ul.keep > li { break-inside:avoid; }
+.rv .box.formula { break-inside:auto; }
+.rv .box.formula > *, .rv .box.formula li { break-inside:avoid; }
+.rv .box.formula > .bt { break-after:avoid; }
+.rv .box.formula > ul, .rv .box.formula > ol { break-inside:auto; }
 </style>
 {{sec:violet:loop:Summary:keep these pages open while you work}}
 <div class="box formula"><div class="bt">Three standard derivatives for exponential functions (6B)</div>
 <p>Two standard forms were established in Chapter 11 (Year 11). The second one needs the chain rule with \(u=ax+b\). For other functions of \(x\) in the index, use the chain rule, or learn it as a formula in one of its two forms.</p>
-\[\dfrac{d}{dx}\,e^x=e^x\qquad\qquad\dfrac{d}{dx}\,e^{ax+b}=a\,e^{ax+b}\qquad\qquad\dfrac{d}{dx}\,e^u=e^u\,\dfrac{du}{dx}\quad\text{OR}\quad\dfrac{d}{dx}\,e^{f(x)}=e^{f(x)}f'(x)\]
+\[\dfrac{d}{dx}\,e^x=e^x\qquad\qquad\dfrac{d}{dx}\,e^{ax+b}=a\,e^{ax+b}\]
+\[\dfrac{d}{dx}\,e^u=e^u\,\dfrac{du}{dx}\quad\text{OR}\quad\dfrac{d}{dx}\,e^{f(x)}=e^{f(x)}f'(x)\]
 <p>A function such as \((e^{2x}-3)^4\) also needs the formula for differentiating powers of functions of \(x\) (Section 5I):</p>
 \[\dfrac{d}{dx}\,u^n=nu^{n-1}\dfrac{du}{dx}\qquad\text{OR}\qquad\dfrac{d}{dx}\big(f(x)\big)^n=n\big(f(x)\big)^{n-1}f'(x).\]
 <p>Products such as \(x^3e^x\) use the product rule, and quotients such as \(\dfrac{e^{5x}}{x}\) use the quotient rule, as usual.</p></div>
@@ -33,7 +38,7 @@ Differentiate:
 </div></div>
 </div></div>
 
-<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 5 (6B)</span></div><div class="ex-body">
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 5 (6B)</span></div><div class="ex-body">
 Use the chain rule to differentiate:
 <div class="parts"><span><span class="pl">a</span>\(y=e^{1-x^2}\)</span><span><span class="pl">b</span>\(y=(e^{2x}-3)^4\)</span></div>
 <div class="sol-label">Solution</div>
@@ -60,16 +65,17 @@ Use the chain rule to differentiate:
 <li>As \(x\to\infty\), \(y\to\infty\).</li>
 <li>Throughout its whole domain, \(\log_e x\) is increasing at a decreasing rate.</li></ul>
 </div><div>{{svg:exp_log}}</div></div>
-<p><b>Proof that the derivative is the reciprocal function.</b></p>
+<div><p><b>Proof that the derivative is the reciprocal function.</b></p>
 <table class="steps">
 <tr><td>Let</td><td>\(y=\log_e x.\)</td><td class="r"></td></tr>
 <tr><td>Then</td><td>\(x=e^y,\)</td><td class="r">by the definition of logarithms.</td></tr>
 <tr><td>Differentiating,</td><td>\(\dfrac{dx}{dy}=e^y,\)</td><td class="r">because the exponential function is its own derivative,</td></tr>
 <tr><td></td><td>\(\phantom{\dfrac{dx}{dy}}=x,\)</td><td class="r">because \(e^y=x\),</td></tr>
 <tr><td>and taking reciprocals,</td><td>\(\dfrac{dy}{dx}=\dfrac1x.\)</td><td class="r"></td></tr></table>
-<p>Hence the derivative of the logarithmic function is the reciprocal function.</p>
+<p>Hence the derivative of the logarithmic function is the reciprocal function.</p></div>
 <p><b>Three standard forms for differentiating logarithmic functions</b> (the second and third come from the chain rule, as in Textbook Example 27):</p>
-\[\dfrac{d}{dx}\log_e x=\dfrac1x\qquad\quad\dfrac{d}{dx}\log_e(ax+b)=\dfrac{a}{ax+b}\qquad\quad\dfrac{d}{dx}\log_e u=\dfrac{u'}{u}\quad\text{OR}\quad\dfrac{d}{dx}\log_e f(x)=\dfrac{f'(x)}{f(x)}\]
+\[\dfrac{d}{dx}\log_e x=\dfrac1x\qquad\qquad\dfrac{d}{dx}\log_e(ax+b)=\dfrac{a}{ax+b}\]
+\[\dfrac{d}{dx}\log_e u=\dfrac{u'}{u}\quad\text{OR}\quad\dfrac{d}{dx}\log_e f(x)=\dfrac{f'(x)}{f(x)}\]
 <p>The third form will be needed later for integration (Lesson 6I).</p></div>
 
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 28 (6G)</span></div><div class="ex-body">
@@ -195,7 +201,7 @@ Simplify:
 
 <div class="box formula"><div class="bt">Exact values and angles of any size (Year 11 Advanced 5A, 5D, 5E, 9G)</div>
 <div class="split" style="grid-template-columns:1.25fr 1fr"><div>
-<p><b>Special angles</b> \(\ \frac{\pi}{6}=30^\circ,\ \frac{\pi}{4}=45^\circ,\ \frac{\pi}{3}=60^\circ\), from half a square and half an equilateral triangle:</p>
+<p><b>Special angles</b> come from half a square and half an equilateral triangle: \(\frac{\pi}{6}=30^\circ\), \(\frac{\pi}{4}=45^\circ\) and \(\frac{\pi}{3}=60^\circ\).</p>
 {{svg:special}}
 <table class="ev"><tr><th>\(\theta\)</th><th>\(\sin\theta\)</th><th>\(\cos\theta\)</th><th>\(\tan\theta\)</th></tr>
 <tr><td>\(\frac{\pi}{6}\)</td><td>\(\frac12\)</td><td>\(\frac{\sqrt3}{2}\)</td><td>\(\frac{1}{\sqrt3}\)</td></tr>
@@ -215,13 +221,14 @@ Simplify:
 Use special angles to evaluate these trigonometric functions.
 <div class="parts"><span><span class="pl">a</span>\(\sin\dfrac{5\pi}{4}\)</span><span><span class="pl">b</span>\(\sec\dfrac{11\pi}{6}\)</span></div>
 <div class="sol-label">Solution</div>
-<div class="split"><div>
+<div class="split" style="grid-template-columns:1.5fr 1fr;align-items:center"><div>
 <p><b>a</b> Because \(\frac{5\pi}{4}\) is in the third quadrant, with related angle \(\frac{\pi}{4}\),</p>
-<div style="display:flex;gap:4mm;align-items:flex-start"><p style="margin-left:5mm">\(\begin{aligned}[t]\sin\tfrac{5\pi}{4}&=-\sin\tfrac{\pi}{4}\\&=-\sin45^\circ\\&=-\dfrac{1}{\sqrt2}.\end{aligned}\)</p>{{svg:q5pi4}}</div>
-</div><div>
+<p style="margin-left:5mm">\(\begin{aligned}[t]\sin\tfrac{5\pi}{4}&=-\sin\tfrac{\pi}{4}\\&=-\sin45^\circ\\&=-\dfrac{1}{\sqrt2}.\end{aligned}\)</p>
+</div><div>{{svg:q5pi4}}</div></div>
+<div class="split" style="grid-template-columns:1.5fr 1fr;align-items:center"><div>
 <p><b>b</b> Because \(\frac{11\pi}{6}\) is in the fourth quadrant, with related angle \(\frac{\pi}{6}\),</p>
-<div style="display:flex;gap:4mm;align-items:flex-start"><p style="margin-left:5mm">\(\begin{aligned}[t]\sec\tfrac{11\pi}{6}&=+\sec\tfrac{\pi}{6}\\&=\dfrac{1}{\cos\frac{\pi}{6}}\\&=\dfrac{1}{\cos30^\circ}\\&=\dfrac{2}{\sqrt3}.\end{aligned}\)</p>{{svg:q11pi6}}</div>
-</div></div>
+<p style="margin-left:5mm">\(\begin{aligned}[t]\sec\tfrac{11\pi}{6}&=+\sec\tfrac{\pi}{6}\\&=\dfrac{1}{\cos\frac{\pi}{6}}\\&=\dfrac{1}{\cos30^\circ}\\&=\dfrac{2}{\sqrt3}.\end{aligned}\)</p>
+</div><div>{{svg:q11pi6}}</div></div>
 </div></div>
 
 <div class="box formula" style="break-inside:auto"><div class="bt">Integration basics from Part 1 (5B–5I)</div>
@@ -234,9 +241,11 @@ Use special angles to evaluate these trigonometric functions.
 Substitute the upper limit, then the lower limit, and subtract. Whenever the primitive has two or more terms, use brackets for each substitution, and never omit a substitution of 0.</li>
 <li><b>Signed areas.</b> \(\displaystyle\int_a^b f(x)\,dx\) is the sum of the signed areas: \(+\) for regions above the \(x\)-axis and \(-\) for regions below it.</li>
 <li><b>Properties.</b> Intervals of zero width, reversing the interval, and dissection of the interval:
-\[\int_a^a f(x)\,dx=0\qquad\int_b^a f(x)\,dx=-\int_a^b f(x)\,dx\qquad\int_a^b f(x)\,dx=\int_a^c f(x)\,dx+\int_c^b f(x)\,dx\]
+\[\int_a^a f(x)\,dx=0\qquad\qquad\int_b^a f(x)\,dx=-\int_a^b f(x)\,dx\]
+\[\int_a^b f(x)\,dx=\int_a^c f(x)\,dx+\int_c^b f(x)\,dx\]
 The integral of a sum and the integral of a multiple:
-\[\int_a^b\big(f(x)+g(x)\big)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx\qquad\quad\int_a^b kf(x)\,dx=k\int_a^b f(x)\,dx\]
+\[\int_a^b\big(f(x)+g(x)\big)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx\]
+\[\int_a^b kf(x)\,dx=k\int_a^b f(x)\,dx\]
 Odd and even functions: if \(f(x)\) is odd, then \(\displaystyle\int_{-a}^a f(x)\,dx=0\). If \(f(x)\) is even, then \(\displaystyle\int_{-a}^a f(x)\,dx=2\int_0^a f(x)\,dx\).</li>
 <li><b>Finding an area.</b> 1. Draw a sketch of the curves, showing relevant intercepts and intersections. 2. Create and evaluate the necessary definite integral or integrals. 3. Write a conclusion, giving the required area in square units. If \(f(x)\le g(x)\) for \(a\le x\le b\), then the area between the curves is \(\displaystyle\int_a^b\big(g(x)-f(x)\big)\,dx\): the top curve minus the bottom curve.</li>
 <li><b>The reverse chain rule.</b> Once a chain-rule differentiation has been performed, the result can be written down in reverse as an indefinite integral. As a formula,
@@ -253,7 +262,7 @@ Find the area of the region bounded by the curve \(y=4-x^2\) and the \(x\)-axis.
 </div><div>{{svg:ex22}}</div></div>
 </div></div>
 
-<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 36 (5I)</span></div><div class="ex-body">
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 36 (5I)</span></div><div class="ex-body">
 <b>a</b> Differentiate \((x^3+5)^4\) with full setting-out of the chain rule.<br>
 <b>b</b> Hence find a primitive of \(12x^2(x^3+5)^3\).<br>
 <b>c</b> Hence find the primitive of \(x^2(x^3+5)^3\).
@@ -279,12 +288,12 @@ Find the area of the region bounded by the curve \(y=4-x^2\) and the \(x\)-axis.
 <div class="parts one"><span><span class="pl">a</span>\(y=4e^{3x}\)</span><span><span class="pl">b</span>\(y=6e^{\frac13x}\)</span><span><span class="pl">c</span>\(y=-\tfrac12e^{-2x}\)</span><span><span class="pl">d</span>\(y=e^{-3x+4}\)</span><span><span class="pl">e</span>\(y=e^{-2x-7}\)</span></div>{{work:36}}</div></div>
 <div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Exercise 6G Q8</span><br>Use the standard form \(\dfrac{d}{dx}\log_e u=\dfrac{u'}{u}\ \) OR \(\ \dfrac{d}{dx}\log_e f(x)=\dfrac{f'(x)}{f(x)}\) to differentiate:
 <div class="parts one"><span><span class="pl">a</span>\(\log_e(x^2+3x+2)\)</span><span><span class="pl">b</span>\(\log_e(1+2x^3)\)</span><span><span class="pl">c</span>\(\ln(e^x-2)\)</span></div>{{work:38}}</div></div>
-<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Exercise 6G Q12</span><br>Use the log laws to simplify each function, then differentiate it.
-<div class="parts one"><span><span class="pl">a</span>\(y=\log_e5x^3\)</span><span><span class="pl">b</span>\(y=\log_e\sqrt[3]{x}\)</span><span><span class="pl">c</span>\(y=\ln\sqrt{2-x}\)</span><span><span class="pl">d</span>\(y=\log_e2^x\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Exercise 6G Q5</span><br>Use the log laws to simplify each function, then differentiate it.
+<div class="parts one"><span><span class="pl">a</span>\(y=\ln x^3\)</span><span><span class="pl">b</span>\(y=\ln x^{-3}\)</span><span><span class="pl">c</span>\(y=\ln\sqrt x\)</span><span><span class="pl">d</span>\(y=\ln\sqrt{x+1}\)</span></div>{{work:80}}</div></div>
 <div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Exercise 7B Q2</span><br>Differentiate with respect to \(x\).
-<div class="parts one"><span><span class="pl">a</span>\(\sin(2x-1)\)</span><span><span class="pl">b</span>\(2\cos(1-x)\)</span><span><span class="pl">c</span>\(7\sin(2-3x)\)</span><span><span class="pl">d</span>\(6\sin\Big(\dfrac{x+1}{2}\Big)\)</span></div>{{work:38}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>\(\sin(2x-1)\)</span><span><span class="pl">b</span>\(2\cos(1-x)\)</span><span><span class="pl">c</span>\(7\sin(2-3x)\)</span><span><span class="pl">d</span>\(6\sin\Big(\dfrac{x+1}{2}\Big)\)</span></div>{{work:80}}</div></div>
 <div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Exercise 7B Q4</span><br>If \(f(x)=\cos2x\), find \(f'(x)\) and then find:
-<div class="parts one"><span><span class="pl">a</span>\(f'(0)\)</span><span><span class="pl">b</span>\(f'\big(\tfrac{\pi}{12}\big)\)</span><span><span class="pl">c</span>\(f'\big(\tfrac{\pi}{6}\big)\)</span><span><span class="pl">d</span>\(f'\big(\tfrac{\pi}{4}\big)\)</span></div>{{work:42}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>\(f'(0)\)</span><span><span class="pl">b</span>\(f'\big(\tfrac{\pi}{12}\big)\)</span><span><span class="pl">c</span>\(f'\big(\tfrac{\pi}{6}\big)\)</span><span><span class="pl">d</span>\(f'\big(\tfrac{\pi}{4}\big)\)</span></div>{{work:56}}</div></div>
 <div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Exercise 5B Q4</span><br>Evaluate these definite integrals using the fundamental theorem. You will need to take care when finding powers of negative numbers.
-<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{-2}^{1}3x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-1}^{2}(4x^3+5)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{2}(5x^4+6x^2)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^{-1}(4x^3+12x^2-3)\,dx\)</span></div>{{work:62}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{-2}^{1}3x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-1}^{2}(4x^3+5)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{2}(5x^4+6x^2)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^{-1}(4x^3+12x^2-3)\,dx\)</span></div>{{work:84}}</div></div>
 </div>

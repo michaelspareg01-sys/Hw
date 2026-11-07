@@ -84,7 +84,6 @@ class Fig:
 
 # ---------------- Revision (Part 2 prerequisites) ----------------
 from math import exp, log
-from plots import quadrant
 
 
 def zero(x):
@@ -99,11 +98,11 @@ def fig_rev():
     g.curve(exp, color="blue", width=2, x1=log(3.4))
     g.curve(lambda x: log(x) if x > 0 else None, color="teal", width=2, x0=exp(-2.6))
     g.dot(0, 1, r=2.6).dot(1, 0, r=2.6)
-    g.label(0, 1, "1", dx=-8, dy=-2, anchor="end", size=11)
-    g.label(1, 0, "1", dy=13, size=11)
-    g.label(1.05, 2.75, "y = eˣ", anchor="end", dx=-6, color="blue", size=11)
-    g.label(1.75, 0.18, "y = logₑ x", anchor="start", dy=10, color="teal", size=11)
-    g.label(2.45, 2.2, "y = x", anchor="start", color="faint", size=10.5)
+    g.label(0, 1, "1", dx=-8, dy=-2, anchor="end", size=13)
+    g.label(1, 0, "1", dy=14, size=13)
+    g.label(0, 2.6, "y = eˣ", anchor="end", dx=-8, color="blue", size=13)
+    g.label(1.2, -0.75, "y = logₑ x", anchor="start", dy=10, color="teal", size=13)
+    g.label(2.4, 1.9, "y = x", anchor="start", color="faint", size=12.5)
     save("exp_log", g)
 
     # the two special triangles, with angles in radians (Year 11 Advanced 5A, 9G)
@@ -112,7 +111,7 @@ def fig_rev():
     f.poly([A, B, C], color="blue", opacity=0.08)
     f.right(B[0], B[1], 1, -1)
     f.text(28, 70, "1", size=13).text(90, 134, "1", size=13).text(102, 60, "√2", size=13)
-    f.text(52, 46, "π/4", size=12, anchor="start").text(108, 106, "π/4", size=12, anchor="end")
+    f.text(52, 46, "π/4", size=12, anchor="start").text(110, 100, "π/4", size=12, anchor="end")
     P, R, Q = (196, 8), (196, 124), (263, 124)
     f.poly([P, R, Q], color="teal", opacity=0.08)
     f.right(R[0], R[1], 1, -1)
@@ -131,9 +130,22 @@ def fig_rev():
     save("astc", f)
 
     # Year 11 Advanced Example 15 (9G): 5pi/4 and 11pi/6 with their related angles
-    for name, ang, lab, rel in (("q5pi4", 225, "5π/4", "π/4"), ("q11pi6", -30, "11π/6", "π/6")):
-        with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as fh:
-            fh.write(quadrant(ang, lab, w=170, h=134, arc_label=rel))
+    def quad(ang, lab, rel, w=170, h=130):
+        cx, cy, r = w / 2, h / 2, 50
+        f = Fig(w, h)
+        f.line(cx - r - 8, cy, cx + r + 8, cy, width=1.3).line(cx, cy + r + 8, cx, cy - r - 8, width=1.3)
+        t = radians(ang)
+        ex, ey = cx + r * cos(t), cy - r * sin(t)
+        f.line(cx, cy, ex, ey, color="blue", width=2.4).dot(ex, ey, r=3.4, color="blue")
+        ref = 180 if cos(t) < 0 else 0
+        a0, a1 = (ang, ref) if ang < ref else (ref, ang)
+        f.arc(cx, cy, 24, a0, a1, color="ink", width=1.3)
+        mid = radians((a0 + a1) / 2)
+        f.text(cx + 40 * cos(mid), cy - 40 * sin(mid) + 2, rel, size=13)
+        f.text(ex + (12 if cos(t) >= 0 else -12), ey + 16, lab, size=13, anchor="start" if cos(t) >= 0 else "end")
+        return f
+    save("q5pi4", quad(225, "5π/4", "π/4"))
+    save("q11pi6", quad(-30, "11π/6", "π/6"))
 
     # Textbook Example 22 (5F): the region under y = 4 - x^2
     g = Graph(-2.8, 2.8, -0.6, 4.6, w=210, h=150, pad=(14, 30, 16, 18))

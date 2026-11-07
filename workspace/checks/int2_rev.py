@@ -9,7 +9,7 @@ Reads workspace/build/int2/revision.html and a_rev.html.
      and compared with the textbook's printed results.
   3. The six warm-up questions: the givens are read from revision.html, the answers are recomputed with
      sympy, every equality chain in a_rev.html is verified piece by piece, and each final result is compared
-     with the textbook's printed answer (Y12 PDF 863, 869, 874, 881).
+     with the textbook's printed answer (Y12 book PDF pages 889, 895, 900, 907; printed pages 863, 869, 874, 881).
 Every template must match exactly once, otherwise the item FAILS.  Exit status 1 if anything fails.
 Run: python3 workspace/checks/int2_rev.py
 
@@ -701,16 +701,18 @@ def main():
             fail(f"Q2{L}: derivative line does not restate the question")
         chain(f"Q2{L} derivative", mm[2], d, skip_first=False)
 
-    # ---- Q3: Exercise 6G Q12 a, b, d, g (book: 3/x, 1/(3x), 1/(2x-4), log 2)
+    # ---- Q3: Exercise 6G Q5 a, c, e, f (book: y = 3 ln x, 3/x; -3 ln x, -3/x; 1/2 ln x, 1/(2x); 1/2 ln(x+1), 1/(2(x+1)))
     qb = qblock(3)
-    if "Exercise 6G Q12" not in qb:
+    if "Exercise 6G Q5" not in qb:
         fail("Q3 source label")
     P = wparts(qb)
-    book = ["3/x", "1/(3*x)", "1/(2*x-4)", "log(2)"]
+    book = ["3/x", "-3/x", "1/(2*x)", "1/(2*(x+1))"]
+    book_y = ["3*log(x)", "-3*log(x)", "log(x)/2", "log(x+1)/2"]
     for (L, g), bk in zip(sorted(P.items()), book):
         f = rhs(g)
         d = sp.diff(f, x)
         same(f"Q3{L} sympy = textbook answer", sp.sympify(bk), d)
+        same(f"Q3{L} simplified form = textbook", sp.sympify(book_y["abcd".index(L)]), f)
         part = apart(ans["3"], L)
         ys = [m_ for m_ in maths(part) if m_.startswith("y=")]
         yps = [m_ for m_ in maths(part) if m_.startswith("y'=")]
