@@ -1,1 +1,284 @@
-<!-- filled by Task Int1 lesson 5B -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 5B</div><h2>The fundamental theorem of calculus</h2>
+<div class="focus">There is a remarkably simple formula for evaluating definite integrals, based on taking the primitive of the function. The formula is called the <i>fundamental theorem of calculus</i>, because the whole of calculus depends on it. This lesson states the theorem and uses it: write down a primitive, substitute the upper and lower limits, and subtract. Expanding brackets, splitting fractions and negative indices prepare the integrand first. The challenging proof is delayed until Lesson 5D, when the usefulness of the theorem will have been established.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the fundamental theorem of calculus}}
+<div class="box concept"><div class="bt">Primitives</div>
+<p>Let us first review from Lesson 4J what primitives are, and the first step in finding them.</p></div>
+<div class="box take"><div class="bt">3 Primitives</div>
+<ul><li>A function \(F(x)\) is called a <i>primitive</i> or <i>anti-derivative</i> of a function \(f(x)\) if its derivative is \(f(x)\):
+\[F(x)\text{ is a primitive of }f(x)\text{ if }F'(x)=f(x).\]</li>
+<li>To find the general primitive of a power \(x^n\), where \(n\ne-1\):
+\[\text{If }\frac{dy}{dx}=x^n,\ \text{ then }y=\frac{x^{n+1}}{n+1}+C,\ \text{ for some constant }C.\]</li></ul>
+<p>‘Increase the index by 1 and divide by the new index.’</p></div></div>
+<div class="box concept"><div class="bt">Statement of the fundamental theorem</div>
+<p>The fundamental theorem says that a definite integral can be evaluated by writing down any primitive \(F(x)\) of \(f(x)\), then substituting the upper and lower limits into it and subtracting.</p></div>
+<div class="box take"><div class="bt">4 The fundamental theorem of calculus</div>
+<p>Let \(f(x)\) be a function that is continuous in a closed interval \([a,b]\). Then</p>
+\[\int_a^b f(x)\,dx=F(b)-F(a),\quad\text{where }F(x)\text{ is any primitive of }f(x).\]</div>
+<div class="box concept"><div class="bt">Areas and tangents are inverse processes</div>
+<p>This result is extraordinary because it says that taking areas and taking tangents are inverse processes, which is not obvious. The definite integral was defined in Lesson 5A as an area. Its value comes from a primitive, that is, from reversing differentiation, and differentiation is about gradients of tangents.</p></div>
+<div class="box concept"><div class="bt">Using the fundamental theorem to evaluate an integral</div>
+<p>The conventional way to set out these calculations is to enclose the primitive in square brackets, writing the lower and upper limits as subscript and superscript respectively:</p>
+\[\int_a^b f(x)\,dx=\Big[F(x)\Big]_a^b=F(b)-F(a).\]</div>
+<div class="box tip"><div class="bt">Why any primitive will do</div>
+<p>Every primitive of \(f(x)\) has the form \(F(x)+C\). With the constant included,</p>
+\[\Big[F(x)+C\Big]_a^b=\big(F(b)+C\big)-\big(F(a)+C\big)=F(b)-F(a),\]
+<p>because the two constants cancel. So the constant is left out when evaluating a definite integral.</p></div>
+<div class="box tip"><div class="bt">Setting out</div>
+<ol style="margin:0"><li>Write the primitive in square brackets, with the limits at the right-hand bracket.</li>
+<li>Substitute the upper limit, then substitute the lower limit, and subtract: (value at \(b\)) \(-\) (value at \(a\)).</li>
+<li>Simplify the arithmetic one line at a time.</li></ol></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Evaluate, then check with areas</span></div><div class="ex-body">
+Evaluate these definite integrals. Then draw diagrams to show the regions that they represent, and check the answers using area formulae.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^3 2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_2^5(2x-3)\,dx\)</span></div>
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate these definite integrals. Then draw diagrams to show the regions that they represent, and check the answers using area formulae.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^1 4x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_3^5(2x-5)\,dx\)</span></div>
+{{work:150}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Evaluate these definite integrals. Then draw diagrams to show the regions that they represent, and check the answers using area formulae.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^2 2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_2^4(2x-3)\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b> \(x^2\) is a primitive of \(2x\), because \(\dfrac{d}{dx}x^2=2x\).</p>
+\[\begin{aligned}\int_0^2 2x\,dx&amp;=\Big[x^2\Big]_0^2\\&amp;=2^2-0^2\qquad\text{(substitute 2, then substitute 0 and subtract)}\\&amp;=4-0\\&amp;=4.\end{aligned}\]
+<div class="split" style="grid-template-columns:minmax(0,1fr) 42mm;column-gap:4mm;break-inside:avoid"><div>
+<p>Using areas: the region is a triangle with base \(2-0=2\) and height \(2\times2=4\) (the value of \(2x\) at \(x=2\)).</p>
+\[\begin{aligned}\text{area of triangle}&amp;=\tfrac12\times2\times4\\&amp;=4.\end{aligned}\]
+</div><div>{{svg:c5b_e2a}}</div></div>
+<p><b>b</b> Take the primitive of each term: \(x^2\) for \(2x\), and \(-3x\) for \(-3\).</p>
+\[\begin{aligned}\int_2^4(2x-3)\,dx&amp;=\Big[x^2-3x\Big]_2^4\\&amp;=\big(4^2-3\times4\big)-\big(2^2-3\times2\big)\qquad\text{(substitute 4, then 2)}\\&amp;=(16-12)-(4-6)\\&amp;=4-(-2)\\&amp;=6.\end{aligned}\]
+<div class="split" style="grid-template-columns:minmax(0,1fr) 42mm;column-gap:4mm;break-inside:avoid"><div>
+<p>Using areas: the region is a trapezium with width \(4-2=2\) and parallel sides \(2\times2-3=1\) and \(2\times4-3=5\).</p>
+\[\begin{aligned}\text{area of trapezium}&amp;=\frac{1+5}{2}\times2\\&amp;=3\times2\\&amp;=6.\end{aligned}\]
+</div><div>{{svg:c5b_e2b}}</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:primitives with several terms}}
+<div class="box warn"><div class="bt">Brackets are needed</div>
+<p><b>Note:</b> Whenever the primitive has two or more terms, brackets are needed when substituting the upper and lower limits of integration.</p>
+<p>The minus sign between the brackets subtracts the <i>whole</i> value at the lower limit. For example, \((16-12)-(4-6)=4-(-2)=6\), whereas leaving the brackets out would give \(16-12-4-6=-6\), which is wrong.</p></div>
+<div class="box warn"><div class="bt">Never omit a substitution of 0</div>
+<p>When the lower limit is 0, still write the bracket \((0-0)\) for it. Many primitives give 0 at \(x=0\), but not all of them do. For example, using Lesson 4J, a primitive of \((x+1)^2\) is \(\tfrac13(x+1)^3\), and</p>
+\[\Big[\tfrac13(x+1)^3\Big]_0^1=\tfrac13\times2^3-\tfrac13\times1^3=\tfrac83-\tfrac13=\tfrac73,\]
+<p>where the value at 0 is \(\tfrac13\), not 0.</p></div>
+<div class="box tip"><div class="bt">Powers of negative numbers and of fractions</div>
+<p>Put each negative number in brackets before taking a power: \((-2)^2=4\), \((-2)^3=-8\), \((-1)^4=1\). For fractions, take the power of the numerator and of the denominator: \(\big(\tfrac23\big)^3=\tfrac{8}{27}\).</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Several terms, a zero and a negative limit</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int_0^1 7x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^3(16-x^2)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^2(3x^2-2x+4)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^{1}(3x^2+1)\,dx\)</span></div>
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int_0^1 4x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^2(9-x^2)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^3(3x^2+2x-1)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-1}^{2}(3x^2+2)\,dx\)</span></div>
+{{work:56}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^1 5x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^4(25-x^2)\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b> Increase the index from 2 to 3, then divide by 3.</p>
+\[\begin{aligned}\int_0^1 5x^2\,dx&amp;=\Big[\tfrac53x^3\Big]_0^1\\&amp;=\tfrac53\times1^3-\tfrac53\times0^3\qquad\text{(substitute 1, then substitute 0 and subtract)}\\&amp;=\tfrac53-0\\&amp;=\tfrac53.\end{aligned}\]
+<p><b>b</b> The primitive of \(25\) is \(25x\), and the primitive of \(x^2\) is \(\tfrac13x^3\).</p>
+\[\begin{aligned}\int_0^4(25-x^2)\,dx&amp;=\Big[25x-\tfrac13x^3\Big]_0^4\\&amp;=\big(25\times4-\tfrac13\times4^3\big)-\big(25\times0-\tfrac13\times0^3\big)\\&amp;=\big(100-\tfrac13\times64\big)-(0-0)\qquad\text{(never omit a substitution of 0)}\\&amp;=100-\tfrac{64}{3}\\&amp;=\tfrac{300}{3}-\tfrac{64}{3}\\&amp;=\tfrac{236}{3}\\&amp;=78\tfrac23.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:expanding brackets in the integrand}}
+<div class="box concept"><div class="bt">Expand first</div>
+<p>As with differentiation, it is often necessary to expand the brackets in the integrand before finding a primitive. With integration, there is no ‘product rule’ that could avoid the expansion.</p></div>
+<div class="box warn"><div class="bt">Do not integrate each factor separately</div>
+<p>The primitive of a product is <i>not</i> the product of the primitives. For example, \(x(x+1)\) is not integrated by multiplying \(\tfrac12x^2\) by \(\tfrac12x^2+x\). Expand to \(x^2+x\) first, then take the primitive of each term.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Expand, then evaluate</span></div><div class="ex-body">
+Expand the brackets in each integral, then evaluate it.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^3 x(x+2)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^3(x-5)(x-6)\,dx\)</span></div>
+{{work:100}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Expand the brackets in each integral, then evaluate it.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^2 x(x+3)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^2(x-3)(x-4)\,dx\)</span></div>
+{{work:60}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Expand the brackets in each integral, then evaluate it.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^6 x(x+1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^3(x-4)(x-6)\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div>
+<p><b>a</b> \(x(x+1)=x^2+x\).</p>
+\[\begin{aligned}&amp;\int_1^6 x(x+1)\,dx\\&amp;\quad=\int_1^6(x^2+x)\,dx\\&amp;\quad=\Big[\frac{x^3}{3}+\frac{x^2}{2}\Big]_1^6\\&amp;\quad=\Big(\frac{216}{3}+\frac{36}{2}\Big)-\Big(\frac13+\frac12\Big)\\&amp;\quad=(72+18)-\Big(\frac26+\frac36\Big)\\&amp;\quad=90-\tfrac56\qquad\text{(care with the fractions)}\\&amp;\quad=89\tfrac16\end{aligned}\]
+</div><div>
+<p><b>b</b> \((x-4)(x-6)=x^2-6x-4x+24\)<br>\(\phantom{(x-4)(x-6)}=x^2-10x+24\).</p>
+\[\begin{aligned}&amp;\int_0^3(x-4)(x-6)\,dx\\&amp;\quad=\int_0^3(x^2-10x+24)\,dx\\&amp;\quad=\Big[\frac{x^3}{3}-5x^2+24x\Big]_0^3\\&amp;\quad=\Big(\frac{27}{3}-5\times9+24\times3\Big)\\&amp;\qquad\quad-(0-0+0)\\&amp;\quad=(9-45+72)-(0-0+0)\\&amp;\quad=36\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:writing the integrand as separate fractions}}
+<div class="box concept"><div class="bt">Split the fraction first</div>
+<p>If the integrand is a fraction with two or more terms in the numerator, it should normally be written as separate fractions, as with differentiation. With integration, there is no ‘quotient rule’ that could avoid this.</p>
+\[\frac{3x^4-2x^2}{x^2}=\frac{3x^4}{x^2}-\frac{2x^2}{x^2}=3x^2-2.\]</div>
+<div class="box tip"><div class="bt">Dividing powers</div>
+<p>Divide each term of the numerator by the denominator, subtracting the indices: \(\dfrac{x^4}{x^2}=x^{4-2}=x^2\), \(\dfrac{x^3}{x^3}=x^0=1\), \(\dfrac{x^4}{x^3}=x\). Do not divide only the first term.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Split, then evaluate</span></div><div class="ex-body">
+Write each integrand as two separate fractions, then evaluate the integral.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^3\frac{4x^4-3x^2}{x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-3}^{-1}\frac{x^3-3x^4}{x^3}\,dx\)</span></div>
+{{work:100}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Write each integrand as two separate fractions, then evaluate the integral.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^2\frac{6x^4+2x^2}{x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-2}^{-1}\frac{2x^3-x^4}{x^3}\,dx\)</span></div>
+{{work:60}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Write each integrand as two separate fractions, then evaluate the integral.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^2\frac{3x^4-2x^2}{x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-3}^{-2}\frac{x^3-2x^4}{x^3}\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div>
+<p><b>a</b> \(\dfrac{3x^4}{x^2}=3x^2\) and \(\dfrac{2x^2}{x^2}=2\).</p>
+\[\begin{aligned}&amp;\int_1^2\frac{3x^4-2x^2}{x^2}\,dx\\&amp;\quad=\int_1^2(3x^2-2)\,dx\\&amp;\quad=\Big[x^3-2x\Big]_1^2\\&amp;\quad=(8-4)-(1-2)\\&amp;\quad=4-(-1)\\&amp;\quad=5\end{aligned}\]
+</div><div>
+<p><b>b</b> \(\dfrac{x^3}{x^3}=1\) and \(\dfrac{2x^4}{x^3}=2x\).</p>
+\[\begin{aligned}&amp;\int_{-3}^{-2}\frac{x^3-2x^4}{x^3}\,dx\\&amp;\quad=\int_{-3}^{-2}(1-2x)\,dx\\&amp;\quad=\Big[x-x^2\Big]_{-3}^{-2}\\&amp;\quad=\big(-2-(-2)^2\big)-\big(-3-(-3)^2\big)\\&amp;\quad=(-2-4)-(-3-9)\\&amp;\quad=-6-(-12)\\&amp;\quad=6\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:negative indices, and asymptotes}}
+<div class="box concept"><div class="bt">Negative indices</div>
+<p>The fundamental theorem also works when the indices are negative. Care is needed when converting between negative powers of \(x\) and fractions.</p>
+\[\frac{1}{x^4}=x^{-4},\qquad\frac{x^{-3}}{-3}=-\frac{1}{3x^3}\quad(\text{the 3 stays with }x^3\text{ in the denominator}).\]</div>
+<div class="box warn"><div class="bt">The index \(-1\) cannot be handled by this rule</div>
+<p><b>Note:</b> The negative index \(-1\) cannot be handled by this rule, because it would generate division by 0, which is nonsense:</p>
+\[\int_1^2\frac1x\,dx=\int_1^2x^{-1}\,dx=\Big[\frac{x^0}{0}\Big]_1^2=\text{nonsense}.\]
+<p>Chapter 6 on exponential and logarithmic functions will handle this integral.</p></div></div>
+<div class="box warn" style="break-inside:avoid"><div class="bt">Warning: do not integrate across an asymptote</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>The following calculation seems just as valid as part <b>b</b> of Worked example 5 below:</p>
+\[\begin{aligned}\int_{-1}^{1}x^{-4}\,dx&amp;=\Big[\frac{x^{-3}}{-3}\Big]_{-1}^{1}\\&amp;=-\frac{1}{3\times1^3}-\Big(-\frac{1}{3\times(-1)^3}\Big)\\&amp;=-\frac13-\frac13\\&amp;=-\frac23.\end{aligned}\]
+</div><div>{{svg:c5b_asym}}</div></div>
+<p>But in fact the calculation is nonsense. The function has an asymptote at \(x=0\), so it is not even defined there. (And the function \(y=x^{-4}\) is always positive, so how could it give a negative answer for an integral?) You cannot integrate across an asymptote, and you always need to be on the lookout for such meaningless integrals.</p>
+<p>Box 4 needs \(f(x)\) to be continuous in the <i>whole</i> closed interval \([a,b]\). Before using it, check that the denominator is never zero anywhere from \(a\) to \(b\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Negative indices</span></div><div class="ex-body">
+Use negative indices to evaluate these definite integrals.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^4 x^{-2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^2\frac{1}{x^3}\,dx\)</span></div>
+<b>c</b> Explain why \(\displaystyle\int_{-2}^{1}\frac{1}{x^2}\,dx\) is meaningless.
+{{work:75}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use negative indices to evaluate these definite integrals.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^3 x^{-2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^2\frac{1}{x^5}\,dx\)</span></div>
+<b>c</b> Explain why \(\displaystyle\int_{-1}^{2}x^{-3}\,dx\) is meaningless.
+{{work:75}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Use negative indices to evaluate these definite integrals.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^5 x^{-2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^2\frac{1}{x^4}\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div>
+<p><b>a</b> Increase the index from \(-2\) to \(-1\), and divide by \(-1\).</p>
+\[\begin{aligned}\int_1^5 x^{-2}\,dx&amp;=\Big[\frac{x^{-1}}{-1}\Big]_1^5\\&amp;=\Big[-\frac1x\Big]_1^5\\&amp;=-\frac15-\Big(-\frac11\Big)\\&amp;=-\frac15-(-1)\\&amp;=-\frac15+1\\&amp;=\frac45\end{aligned}\]
+</div><div>
+<p><b>b</b> Increase the index from \(-4\) to \(-3\), and divide by \(-3\).</p>
+\[\begin{aligned}\int_1^2\frac{1}{x^4}\,dx&amp;=\int_1^2x^{-4}\,dx\\&amp;=\Big[\frac{x^{-3}}{-3}\Big]_1^2\\&amp;=\Big[-\frac{1}{3x^3}\Big]_1^2\\&amp;=-\frac{1}{3\times8}-\Big(-\frac{1}{3\times1}\Big)\\&amp;=-\frac{1}{24}-\Big(-\frac13\Big)\\&amp;=-\frac{1}{24}+\frac{8}{24}\\&amp;=\frac{7}{24}\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 6 ============ -->
+{{sec:teal:key:Concept 6:the area of a circle}}
+<div class="box concept"><div class="bt">An old limiting argument</div>
+<p>In earlier years, the formula \(A=\pi r^2\) for the area of a circle was developed. Because the boundary is a curve, some limiting process had to be used in its proof. For comparison with the notation for the definite integral explained in Lesson 5A, here is the most common version of that argument. It is a little rough in its logic, but very quick. It involves dissecting the circle into infinitesimally thin sectors and then rearranging them into a rectangle.</p>
+<div style="text-align:center">{{svg:c5b_circle}}</div>
+<p>The height of the rectangle in the diagram is \(r\), the radius. Because the circumference \(2\pi r\) is divided equally between the top and bottom sides, the length of the rectangle is \(\pi r\). Hence the rectangle has area</p>
+\[\text{length}\times\text{height}=\pi r\times r=\pi r^2,\]
+<p>which is therefore the area of the circle.</p></div>
+<div class="box tip"><div class="bt">Where the rough logic is</div>
+<p>With finitely many sectors, the top and bottom of the shape are made of small arcs, not straight lines, and the sides slope a little. As the sectors become thinner, the shape becomes closer and closer to a rectangle. This is a limiting process, just like the strips of Lesson 5A.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Rearranging the sectors</span></div><div class="ex-body">
+A circle has radius 4. It is cut into a large number of equal thin sectors, which are rearranged into a shape close to a rectangle, as in the diagram above.<br>
+<b>a</b> Find the circumference of the circle, and hence the length of the rectangle.<br>
+<b>b</b> Write down the height of the rectangle, and hence find its area. Check your answer with \(A=\pi r^2\).
+{{work:34}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same argument</span></div><div class="ex-body">
+A circle has radius 7. It is cut into a large number of equal thin sectors, which are rearranged into a shape close to a rectangle, as in the diagram above.<br>
+<b>a</b> Find the circumference of the circle, and hence the length of the rectangle.<br>
+<b>b</b> Write down the height of the rectangle, and hence find its area. Check your answer with \(A=\pi r^2\).
+{{work:34}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div style="break-inside:avoid">{{sec:blue:pencil:Textbook homework:Exercise 5B}}
+{{band:F}}
+<p class="small"><b>Technology:</b> Many programs allow definite integrals to be calculated automatically. This allows not just quick checking of the answers, but experimentation with further definite integrals. It would be helpful to generate screen sketches of the graphs and the regions associated with the integrals.</p>
+<div class="q"><span class="q-num">1</span><div class="q-body">Evaluate these definite integrals using the fundamental theorem.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^1 2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^4 2x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^3 4x\,dx\)</span>
+<span><span class="pl">d</span>\(\displaystyle\int_2^5 8x\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_2^3 3x^2\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^3 5x^4\,dx\)</span>
+<span><span class="pl">g</span>\(\displaystyle\int_1^2 10x^4\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int_0^1 12x^5\,dx\)</span><span><span class="pl">i</span>\(\displaystyle\int_0^1 11x^{10}\,dx\)</span></div>{{work:40}}</div></div>
+</div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="pl">a</span>Evaluate these definite integrals using the fundamental theorem.
+<div class="parts three"><span><span class="pl">i</span>\(\displaystyle\int_0^1 4\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_2^7 5\,dx\)</span><span><span class="pl">iii</span>\(\displaystyle\int_4^5 dx\)</span></div>
+<span class="pl">b</span>Check your answers by sketching the graph of the region involved.{{work:54}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Evaluate these definite integrals using the fundamental theorem.
+<div class="parts three" style="grid-template-columns:1.15fr 1.25fr 1fr;column-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_3^6(2x+1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_2^4(2x-3)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^3(4x+5)\,dx\)</span>
+<span><span class="pl">d</span>\(\displaystyle\int_2^3(3x^2-1)\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_1^4(6x^2+2)\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^1(3x^2+2x)\,dx\)</span>
+<span><span class="pl">g</span>\(\displaystyle\int_1^2(4x^3+3x^2+1)\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int_0^2(2x+3x^2+8x^3)\,dx\)</span><span><span class="pl">i</span>\(\displaystyle\int_3^5(3x^2-6x+5)\,dx\)</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Evaluate these definite integrals using the fundamental theorem. You will need to take care when finding powers of negative numbers.
+<div class="parts three" style="grid-template-columns:1fr 1fr 1.35fr;column-gap:3mm"><span><span class="pl">a</span>\(\displaystyle\int_{-1}^{0}(1-2x)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-1}^{0}(2x+3)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{1}3x^2\,dx\)</span>
+<span><span class="pl">d</span>\(\displaystyle\int_{-1}^{2}(4x^3+5)\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_{-2}^{2}(5x^4+6x^2)\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-2}^{-1}(4x^3+12x^2-3)\,dx\)</span></div>{{work:76}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Evaluate these definite integrals using the fundamental theorem. You will need to take care when adding and subtracting fractions.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_1^4(x+2)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^2(x^2+x)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^3(x^3+x^2)\,dx\)</span>
+<span><span class="pl">d</span>\(\displaystyle\int_{-1}^{1}(x^3-x+1)\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_{-2}^{3}(2x^2-3x+1)\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-4}^{-2}(16-x^3-x)\,dx\)</span></div>{{work:85}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">6</span><div class="q-body">By expanding the brackets first, evaluate these definite integrals.
+<div class="parts three" style="grid-template-columns:1fr 1.3fr 1fr;column-gap:3mm"><span><span class="pl">a</span>\(\displaystyle\int_2^3 x(2+3x)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^2(x+1)(3x+1)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-1}^{1}x^2(5x^2+1)\,dx\)</span>
+<span><span class="pl">d</span>\(\displaystyle\int_{-1}^{2}(x-3)^2\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_{-1}^{0}x(x-1)(x+1)\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-1}^{0}(1-x^2)^2\,dx\)</span></div>{{work:86}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Write each integrand as separate fractions, then evaluate the integral.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_1^3\frac{3x^3+4x^2}{x}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^2\frac{4x^4-x}{x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_2^3\frac{5x^2+9x^4}{x^2}\,dx\)</span>
+<span><span class="pl">d</span>\(\displaystyle\int_1^2\frac{x^3+4x^2}{x}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_1^3\frac{x^3-x^2+x}{x}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-2}^{-1}\frac{x^3-2x^5}{x^2}\,dx\)</span></div>{{work:86}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Evaluate these definite integrals using the fundamental theorem. You will need to take care when finding powers of fractions.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^{\frac12}x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac23}(2x+3x^2)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{\frac12}^{\frac34}(6-4x)\,dx\)</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span class="pl">a</span>Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">i</span>\(\displaystyle\int_5^{10}x^{-2}\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_2^3 2x^{-3}\,dx\)</span><span><span class="pl">iii</span>\(\displaystyle\int_{\frac12}^{1}4x^{-5}\,dx\)</span></div>
+<span class="pl">b</span>By writing them with negative indices, evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">i</span>\(\displaystyle\int_1^2\frac{1}{x^2}\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_1^4\frac{1}{x^3}\,dx\)</span><span><span class="pl">iii</span>\(\displaystyle\int_{\frac12}^{1}\frac{3}{x^4}\,dx\)</span></div>{{work:97}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span> <span class="pl">i</span>Show that \(\displaystyle\int_2^k 3\,dx=3k-6\).</span>
+<span style="padding-left:4mm"><span class="pl">ii</span>Hence find the value of \(k\), given that \(\displaystyle\int_2^k 3\,dx=18\).</span>
+<span><span class="pl">b</span> <span class="pl">i</span>Show that \(\displaystyle\int_0^k x\,dx=\tfrac12k^2\).</span>
+<span style="padding-left:4mm"><span class="pl">ii</span>Hence find the positive value of \(k\), given that \(\displaystyle\int_0^k x\,dx=18\).</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Find the value of \(k\) if \(k&gt;0\) and:
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_k^3 2\,dx=4\)</span><span><span class="pl">b</span>\(\displaystyle\int_k^8 3\,dx=12\)</span><span><span class="pl">c</span>\(\displaystyle\int_2^3(k-3)\,dx=5\)</span>
+<span><span class="pl">d</span>\(\displaystyle\int_3^k(x-3)\,dx=0\)</span><span><span class="pl">e</span>\(\displaystyle\int_1^k(x+1)\,dx=6\)</span><span><span class="pl">f</span>\(\displaystyle\int_1^k(k+3x)\,dx=\frac{13}{2}\)</span></div>{{work:98}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Use area formulae to find \(\displaystyle\int_0^4 f(x)\,dx\) in each sketch of \(f(x)\).
+<div class="parts" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div><span class="pl">a</span>{{svg:q5b_12a}}</div><div><span class="pl">b</span>{{svg:q5b_12b}}</div></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Evaluate each definite integral.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_1^2\frac{1+x^2}{x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-2}^{-1}\frac{1+2x}{x^3}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-3}^{-1}\frac{1-x^3-4x^5}{2x^2}\,dx\)</span></div>{{work:105}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_1^3\Big(x+\frac1x\Big)^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^2\Big(x^2+\frac{1}{x^2}\Big)^2\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{-1}\Big(\frac{1}{x^2}+\frac1x\Big)^2\,dx\)</span></div>{{work:92}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><span class="pl">a</span>Explain why the function \(y=\dfrac{1}{x^2}\) is never negative.<br>
+<span class="pl">b</span>Sketch the integrand and explain why the argument below is invalid.
+\[\int_{-1}^{1}\frac{dx}{x^2}=\Big[-\frac1x\Big]_{-1}^{1}=-1-1=-2.\]
+<span class="pl">c</span>Without evaluating any integrals, say which of these integrals are meaningless.
+<div class="parts three"><span><span class="pl">i</span>\(\displaystyle\int_0^2\frac{1}{(3-x)^2}\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_2^4\frac{1}{(3-x)^2}\,dx\)</span><span><span class="pl">iii</span>\(\displaystyle\int_4^6\frac{1}{(3-x)^2}\,dx\)</span></div>{{work:82}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><span class="pl">a</span>Use the differential form of the fundamental theorem \(\displaystyle\frac{d}{dx}\int_a^x f(t)\,dt=f(x)\) to find:
+<div class="parts"><span><span class="pl">i</span>\(\displaystyle\frac{d}{dx}\int_1^x t^2\,dt\)</span><span><span class="pl">ii</span>\(\displaystyle\frac{d}{dx}\int_2^x(t^3+3t)\,dt\)</span><span><span class="pl">iii</span>\(\displaystyle\frac{d}{dx}\int_a^x\frac1t\,dt\)</span><span><span class="pl">iv</span>\(\displaystyle\frac{d}{dx}\int_a^x(t^3-3)^4\,dt\)</span></div>
+<span class="pl">b</span>Confirm your answers to parts (i) and (ii) above by evaluating the definite integral and then differentiating with respect to \(x\).{{work:100}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">17</span><div class="q-body">The derivative of the function \(U(x)\) is \(u(x)\).
+<div class="parts one"><span><span class="pl">a</span>Find \(V'(x)\), where \(V(x)=(a-x)\,U(x)+\displaystyle\int_0^x U(t)\,dt\) and \(a\) is a constant.</span><span><span class="pl">b</span>Hence prove that \(\displaystyle\int_0^a U(x)\,dx=aU(0)+\int_0^a(a-x)\,u(x)\,dx\).</span></div>{{work:190}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 5 minutes</b></span><span><b>1 mark</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">This is the only school-paper item that needs just this lesson’s ideas. For more timed practice, do Questions 4(f), 6(f), 7(f), 11(f), 13(c) and 14(b) above in 25 minutes.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q10</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The graph of the function \(y=f(x)\) is sketched below. The value of \(\displaystyle\int_{-1}^{1}f(x^2-1)\,dx\) equals
+<div style="margin:1mm 0 0 4mm">{{svg:p5b_nsb}}</div>
+<div class="mc"><span>A.&ensp;\(2\)</span><span>B.&ensp;\(\dfrac13\)</span><span>C.&ensp;\(\sqrt2\)</span><span>D.&ensp;\(\dfrac23\)</span></div></div>
+<div class="hint"><b>Hint:</b> what values does \(x^2-1\) take between the limits of the integral?</div>{{work:40}}</div>
+</div>
+</div>
