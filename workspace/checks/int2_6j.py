@@ -273,7 +273,9 @@ try:
     b38 = CON[2]["worked"][0][1]
     hyperbola_line("WE38", b38, b38)
     report("\\int_1^2(\\text{top curve}-\\text{bottom curve})\\,dx" in b38, "WE38 first line (top curve minus bottom curve)")
-    note = b38.split("<b>Note:</b>")[1]
+    report("Note:" not in b38 and "Finally" not in b38, "WE38 box holds only the textbook lines (no pack note)")
+    note = grab(CON[2]["all"], r'<div class="box tip"><div class="bt">Reading Worked example 38, line by line</div>\n<p>(.*?)</p>', "WE38 tip")
+    report(CON[2]["all"].index("Reading Worked example 38") > CON[2]["all"].index("Worked example 38</span>"), "WE38 tip comes after the example")
     report("\\(3x-x^2=2\\)" in note and "\\(x^2-3x+2=0\\)" in note and same(sp.expand(x * (3 - x)), 3 * x - x ** 2), "WE38 note: expansion line")
     tv = re.findall(r"at \\\(x=1\\tfrac12\\\), the line gives \\\(1\\tfrac12\\\) and the hyperbola gives \\\(1\\tfrac13\\\)", note)
     report(len(tv) == 1 and (3 - sp.Rational(3, 2)) == sp.Rational(3, 2) and 2 / sp.Rational(3, 2) == sp.Rational(4, 3), "WE38 note: test value")
@@ -336,7 +338,7 @@ def exact_and_dec(lab_, exact, txt, dp=None, sf=None):
 
 f = 1 / x
 # Q1, Q2
-has("1", "\\int_1^e\\dfrac1x\\,dx=1", "10 little divisions to 1 unit", "100 of the little squares make 1 square unit", "x=1.0\\) to \\(1.1")
+has("1", "\\int_1^e\\dfrac1x\\,dx=1", "The graph has been drawn", "10 little divisions to 1 unit", "100 of the little squares make 1 square unit", "x=1.0\\) to \\(1.1")
 try:
     report(first(aparts("1")["b"])[0] == f"e\\doteq{float(E):.1f}" and same(sp.integrate(f, (x, 1, E)), 1), "Q1b e ~ 2.7 (the integral from 1 to e is 1)")
 except Exception as err:  # noqa: BLE001
@@ -536,7 +538,7 @@ report(cnt == 6, "answers: six worked chains found", str(cnt))
 # ---------------------------------------------------------------- timed-practice note (no past-paper question exists)
 try:
     report('<div class="pp"' not in ppl and "Past-paper homework:timed practice" in ppl, "no past-paper block; timed-practice section")
-    note = grab(ppl, r"have no question that first needs this lesson: (.*?)For timed practice, do Questions (.*?) above in (\d+) minutes\.", "practice note")
+    note = grab(ppl, r"have no question that first needs this lesson: (.*?)For timed practice, do Exercise 6J Questions (.*?) above in (\d+) minutes\.", "practice note")
     refs = re.findall(r"(\d+)(?:\((\w)\))?", note[1])
     ok = refs and all(n in TQ and (not lt or f'<span class="pl">{lt}</span>' in TQ[n]) for n, lt in refs)
     report(bool(ok) and [n for n, _ in refs] == ["6", "9", "11", "16"], "timed-practice references exist", note[1])

@@ -79,7 +79,7 @@ def small(xr, yr, w=190, h=150):
 def hyp_line(name, k, s, width=None, labels=True):
     """xy = k and x + y = s (k = s - 1, meeting at x = 1 and x = k), the region between them shaded."""
     top = s + 0.6
-    g = Graph(-0.35, top, -0.35, top, w=200, h=200, pad=(18, 30, 18, 14))
+    g = Graph(-0.35, top, -0.35, top, w=210, h=200, pad=(18, 40, 18, 14))
     g.fill(lambda x: s - x, lambda x: k / x, 1, k, color="blue", opacity=0.3)
     g.axes("x", "y")
     g.curve(lambda x: k / x if x > 0 else None, color="ink", width=1.7, x0=k / top, x1=top)
@@ -97,7 +97,7 @@ def hyp_line(name, k, s, width=None, labels=True):
 def q1_grid():
     x0, x1, y0, y1 = -0.5, 3.0, -0.5, 2.1
     u = 110  # pixels per unit
-    pl, pr, pt, pb = 14, 22, 18, 10
+    pl, pr, pt, pb = 14, 30, 18, 10
     W, H = pl + pr + (x1 - x0) * u, pt + pb + (y1 - y0) * u
 
     def X(x):
