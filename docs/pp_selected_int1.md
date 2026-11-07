@@ -25,3 +25,7 @@ Method for every item: signed areas (Box 5), with dissection of the interval (Bo
 ## 5D
 None. The catalogue (`docs/pp_candidates_integration.md`) has no row tagged int1-L5 (0 items, 0 marks): no school-paper integration item has 5D (the signed area function and the two forms of the fundamental theorem) as its earliest lesson. Only rows tagged int1-L5 were considered. Re-read every `docs/pp_selected_*.md` and `docs/PAST_PAPERS_USED.md` before choosing and before committing: nothing to record.
 - **House rule 8 shortfall**: no question exists, so the section ends with the timed-practice note only: Exercise 5D Questions 2(d), 5(a), 5(c), 6 and 9 in 30 minutes.
+
+## 5E
+None. The catalogue (`docs/pp_candidates_integration.md`) has no row tagged int1-L6 (0 items, 0 marks): no school-paper integration item has 5E (the indefinite integral and the standard forms) as its earliest lesson. Only rows tagged int1-L6 were considered. Re-read every `docs/pp_selected_*.md` and `docs/PAST_PAPERS_USED.md` before choosing and before committing: nothing to record.
+- **House rule 8 shortfall**: no question exists, so the section ends with the timed-practice note only: Exercise 5E Questions 8(l), 11(l), 12(c), 13(i), 14(c), 16(c), 18(d) and 19(i) in 30 minutes.
