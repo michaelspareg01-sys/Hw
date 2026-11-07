@@ -625,6 +625,9 @@ def main():
     report(nl == [f"PP {i}" for i in range(1, 7)], f"PP numbering in lesson {nl}")
     report([p for p, _ in labA] == nl, "PP numbering in answers matches")
     report([s_ for _, s_ in labL] == [s_ for _, s_ in labA], "PP source labels identical in both files")
+    for h in re.findall(r'<div class="hint"><b>Hint:</b> (.+?)</div>', ppL):
+        bad = re.search(r"substitut|identit|limit|=|\\int|\\sin|\\cos|\\tan|\\theta|[0-9]", h)
+        report(h.rstrip().endswith("?") and not bad, f"hint is a bare starting question: {h[:60]}")
     report(ppL.count('class="hint"') == 6, f"one hint per PP: {ppL.count('class=\"hint\"')}")
 
     print(f"\n{NCHECK[0]} checks, {len(FAILS)} failures")

@@ -75,29 +75,20 @@ def sector_triangle(name, w=196, h=182):
     save(name, f)
 
 
-def triangles(name, w=340, h=120):
+def triangles(name, w=400, h=150):
     """Returning to x: right triangles for x = a sin t (sin t = x/a) and x = a tan t (tan t = x/a)."""
     f = Fig(w, h)
-    # triangle 1: angle at (20, 100); right angle at (140, 100); top (140, 30)
-    x0, y0, x1, y1 = 22, 100, 140, 34
-    f.poly([(x0, y0), (x1, y0), (x1, y1)], color="blue", opacity=0.12, stroke="ink", width=1.5)
-    f.right(x1, y0, -1, -1, 7)
-    f.arc(x0, y0, 20, 0, 29, color="ink", width=1.1)
-    f.text(x0 + 25, y0 - 4, "θ", anchor="start", size=11, italic=True)
-    f.text((x0 + x1) / 2, y0 + 15, "√(a² − x²)", size=11)
-    f.text(x1 + 6, (y0 + y1) / 2 + 4, "x", anchor="start", size=12, italic=True)
-    f.text((x0 + x1) / 2 - 8, (y0 + y1) / 2 - 6, "a", anchor="end", size=12, italic=True)
-    f.text((x0 + x1) / 2 + 12, 14, "x = a sin θ", size=11)
-    # triangle 2
-    x0, x1 = 200, 318
-    f.poly([(x0, y0), (x1, y0), (x1, y1)], color="blue", opacity=0.12, stroke="ink", width=1.5)
-    f.right(x1, y0, -1, -1, 7)
-    f.arc(x0, y0, 20, 0, 29, color="ink", width=1.1)
-    f.text(x0 + 25, y0 - 4, "θ", anchor="start", size=11, italic=True)
-    f.text((x0 + x1) / 2, y0 + 15, "a", size=12, italic=True)
-    f.text(x1 + 6, (y0 + y1) / 2 + 4, "x", anchor="start", size=12, italic=True)
-    f.text((x0 + x1) / 2 - 8, (y0 + y1) / 2 - 6, "√(a² + x²)", anchor="end", size=11)
-    f.text((x0 + x1) / 2 + 12, 14, "x = a tan θ", size=11)
+    y0, y1 = 118, 40
+    for x0, x1, hyp, adj, title in ((24, 160, "a", "√(a² − x²)", "x = a sin θ"),
+                                    (236, 372, "√(a² + x²)", "a", "x = a tan θ")):
+        f.poly([(x0, y0), (x1, y0), (x1, y1)], color="blue", opacity=0.12, stroke="ink", width=1.6)
+        f.right(x1, y0, -1, -1, 8)
+        f.arc(x0, y0, 24, 0, 30, color="ink", width=1.2)
+        f.text(x0 + 30, y0 - 5, "θ", anchor="start", size=15, italic=True)
+        f.text((x0 + x1) / 2, y0 + 20, adj, size=15, italic=(adj == "a"))
+        f.text(x1 + 7, (y0 + y1) / 2 + 5, "x", anchor="start", size=16, italic=True)
+        f.text((x0 + x1) / 2 - 8, (y0 + y1) / 2 - 8, hyp, anchor="end", size=15, italic=(hyp == "a"))
+        f.text((x0 + x1) / 2 + 14, 16, title, size=14)
     save(name, f)
 
 

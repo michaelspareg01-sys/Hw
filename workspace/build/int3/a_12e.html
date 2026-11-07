@@ -46,7 +46,7 @@
 <div class="a"><span class="an"></span><div class="ab"><b>Your turn.</b>
 <p><b>a</b></p>
 <p class="subst">Let \(x=6\sin u\). Then \(dx=6\cos u\,du\), and \(\sqrt{36-x^2}=6\cos u\). When \(x=0\), \(u=0\), when \(x=3\), \(u=\tfrac{\pi}{6}\).</p>
-\[\begin{aligned}\int_{0}^{3}\sqrt{36-x^2}\,dx&=\int_{0}^{\frac{\pi}{6}}6\cos u\times6\cos u\,du\\&=\int_{0}^{\frac{\pi}{6}}36\big(\tfrac12+\tfrac12\cos2u\big)\,du\\&=\Big[18u+9\sin2u\Big]_{0}^{\frac{\pi}{6}}\\&=\big(3\pi+9\sin\tfrac{\pi}{3}\big)-\big(0+9\sin0\big)\\&=3\pi+9\times\tfrac{\sqrt3}{2}\\&=3\pi+\tfrac{9\sqrt3}{2}\end{aligned}\]
+\[\begin{aligned}\int_{0}^{3}\sqrt{36-x^2}\,dx&=\int_{0}^{\frac{\pi}{6}}6\cos u\times6\cos u\,du\\&=\int_{0}^{\frac{\pi}{6}}36\cos^2u\,du\\&=\int_{0}^{\frac{\pi}{6}}36\big(\tfrac12+\tfrac12\cos2u\big)\,du\\&=\int_{0}^{\frac{\pi}{6}}(18+18\cos2u)\,du\\&=\Big[18u+9\sin2u\Big]_{0}^{\frac{\pi}{6}}\\&=\big(3\pi+9\sin\tfrac{\pi}{3}\big)-\big(0+9\sin0\big)\\&=3\pi+9\times\tfrac{\sqrt3}{2}\\&=3\pi+\tfrac{9\sqrt3}{2}\end{aligned}\]
 <div class="split" style="grid-template-columns:1fr 54mm"><div>
 <p><b>b</b> At \(x=3\), \(y=\sqrt{36-9}=3\sqrt3\), and the radius to \((3,3\sqrt3)\) makes the angle \(\tfrac{\pi}{3}\) with the \(x\)-axis, because \(\cos\tfrac{\pi}{3}=\tfrac36\). The region is the triangle with vertices \(O\), \((3,0)\) and \((3,3\sqrt3)\), together with the sector between that radius and the \(y\)-axis. The angle of the sector is \(\tfrac{\pi}{2}-\tfrac{\pi}{3}=\tfrac{\pi}{6}\). So</p>
 \[\begin{aligned}\int_{0}^{3}\sqrt{36-x^2}\,dx&=\tfrac12\times3\times3\sqrt3+\tfrac12\times6^2\times\tfrac{\pi}{6}\\&=\tfrac{9\sqrt3}{2}+3\pi\end{aligned}\]
@@ -80,7 +80,7 @@
 <p class="small">Here \(4-x^2=4\cos^2\theta\). To return to \(x\): \(\sin\theta=\tfrac{x}{2}\) and \(\cos\theta=\tfrac{\sqrt{4-x^2}}{2}\), so \(\tan\theta=\tfrac{x}{\sqrt{4-x^2}}\).</p>
 <p><b>b</b></p>
 <div class="split" style="grid-template-columns:1fr 62mm"><div>
-\[\begin{aligned}\int_{0}^{\sqrt3}\frac{1}{\sqrt{4-x^2}}\,dx&=\int_{\frac{\pi}{2}}^{\frac{\pi}{6}}\frac{-2\sin\theta}{2\sin\theta}\,d\theta\\&=\Big[-\theta\Big]_{\frac{\pi}{2}}^{\frac{\pi}{6}}\\&=-\tfrac{\pi}{6}+\tfrac{\pi}{2}\\&=\tfrac{\pi}{3}\end{aligned}\]
+\[\begin{aligned}\int_{0}^{\sqrt3}\frac{1}{\sqrt{4-x^2}}\,dx&=\int_{\frac{\pi}{2}}^{\frac{\pi}{6}}\frac{-2\sin\theta}{2\sin\theta}\,d\theta\\&=\int_{\frac{\pi}{2}}^{\frac{\pi}{6}}(-1)\,d\theta\\&=\Big[-\theta\Big]_{\frac{\pi}{2}}^{\frac{\pi}{6}}\\&=-\tfrac{\pi}{6}+\tfrac{\pi}{2}\\&=\tfrac{\pi}{3}\end{aligned}\]
 </div><div style="border-left:1px solid var(--line);padding-left:3mm">
 <p style="line-height:2.3">Let \(x=2\cos\theta\).<br>Then \(dx=-2\sin\theta\,d\theta\),<br>and \(\sqrt{4-x^2}=2\sin\theta\).<br>When \(x=0\), \(\theta=\tfrac{\pi}{2}\),<br>when \(x=\sqrt3\), \(\theta=\tfrac{\pi}{6}\).</p>
 </div></div>
@@ -108,7 +108,7 @@
 </div><div style="border-left:1px solid var(--line);padding-left:3mm">
 <p style="line-height:2.3">Let \(x=\tan\theta\).<br>Then \(dx=\sec^2\theta\,d\theta\),<br>and \(x^2+1=\sec^2\theta\).<br>When \(x=0\), \(\theta=0\),<br>when \(x=\sqrt3\), \(\theta=\tfrac{\pi}{3}\).</p>
 </div></div>
-<p><b>Answer (A).</b> Here \(x^2+1=\tan^2\theta+1=\sec^2\theta\), and \(\tan\theta=\sqrt3\) gives \(\theta=\tfrac{\pi}{3}\). Option (B) forgets to square \(x^2+1\). Options (C) and (D) use the upper limit \(\tfrac{\pi}{6}\), which belongs to \(x=\tfrac{1}{\sqrt3}\), not to \(x=\sqrt3\).</p></div>
+<p><b>Answer (A).</b> Here \(x^2+1=\tan^2\theta+1=\sec^2\theta\), and \(\tan\theta=\sqrt3\) gives \(\theta=\tfrac{\pi}{3}\). Option (B), with integrand \(\sec^2\theta\), keeps the \(\sec^2\theta\) from \(dx\) but drops the denominator \(\big(\sec^2\theta\big)^2\). Options (C) and (D) use the upper limit \(\tfrac{\pi}{6}\), which belongs to \(x=\tfrac{1}{\sqrt3}\), not to \(x=\sqrt3\).</p></div>
 <div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q4</span></span></div>
 <p>Let \(y=\sin\theta\), with \(0\le\theta\le\tfrac{\pi}{2}\). Then \(dy=\cos\theta\,d\theta\) and \(\sqrt{1-y^2}=\sqrt{1-\sin^2\theta}=\cos\theta\). When \(y=0\), \(\theta=0\), and when \(y=\tfrac{\sqrt3}{2}\), \(\theta=\tfrac{\pi}{3}\). So</p>
 \[\begin{aligned}\int_0^{\frac{\sqrt3}{2}}\sqrt{1-y^2}\,dy&=\int_0^{\frac{\pi}{3}}\cos\theta\times\cos\theta\,d\theta\\&=\int_0^{\frac{\pi}{3}}\big(\tfrac12+\tfrac12\cos2\theta\big)\,d\theta\\&=\Big[\tfrac12\theta+\tfrac14\sin2\theta\Big]_0^{\frac{\pi}{3}}\\&=\big(\tfrac{\pi}{6}+\tfrac14\sin\tfrac{2\pi}{3}\big)-\big(0+\tfrac14\sin0\big)\\&=\tfrac{\pi}{6}+\tfrac14\times\tfrac{\sqrt3}{2}\\&=\tfrac{\pi}{6}+\tfrac{\sqrt3}{8}\end{aligned}\]
