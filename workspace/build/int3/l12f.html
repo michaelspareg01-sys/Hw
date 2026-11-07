@@ -16,8 +16,7 @@
 <span>so</span><span>area of circular slice \(=\pi y^2\),</span><span>because it is a circle.</span>
 <span></span><span style="grid-column:2 / 4">The slice is a thin cylinder of infinitesimal thickness \(dx\),</span>
 <span>so</span><span>volume of circular slice \(=\pi y^2\,dx\)</span><span>(area \(\times\) thickness).</span></div>
-<p>To get the total volume, we add all the slices from \(x=a\) to \(x=b\), so</p>
-\[\text{volume of solid}=\int_a^b\pi y^2\,dx.\]</div>
+<p style="margin-bottom:0">To get the total volume, we add all the slices from \(x=a\) to \(x=b\), so &ensp; \(\displaystyle\text{volume of solid}=\int_a^b\pi y^2\,dx.\)</p></div>
 <div class="box take"><div class="bt">11 Volumes of revolution about the \(x\)-axis</div>
 <p>The volume of the solid generated when the region between a curve and the \(x\)-axis from \(x=a\) to \(x=b\) is rotated about the \(x\)-axis is</p>
 \[\text{volume}=\int_a^b\pi y^2\,dx\ \text{cubic units.}\]</div>
@@ -57,10 +56,10 @@ The shaded region cut off the semicircle \(y=\sqrt{16-x^2}\) by the line \(x=2\)
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Rotation about the \(y\)-axis</span></div><div class="ex-body">
 Find the volume of the solid formed by rotating the region between \(y=2x^2\) and the line \(y=8\) about the \(y\)-axis.
-{{work:38}}</div></div>
+{{work:54}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 Find the volume of the solid formed by rotating the region between \(y=x^2\) and the line \(y=9\) about the \(y\)-axis.
-{{work:38}}</div></div>
+{{work:54}}</div></div>
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example 23</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 Find the volume of the solid formed by rotating the region between \(y=x^2\) and the line \(y=4\) about the \(y\)-axis.
 <div class="sol-label">Solution</div>
@@ -88,7 +87,7 @@ Find the volume of the solid formed by rotating the region between \(y=x^2\) and
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Both axes</span></div><div class="ex-body">
 The curve \(y=9-x^2\) meets the \(y\)-axis at \(A(0,9)\) and the \(x\)-axis at \(B(3,0)\). Find the volume generated when the region between the curve and the line \(AB\) is rotated:
 <div class="parts"><span><span class="pl">a</span>about the \(x\)-axis,</span><span><span class="pl">b</span>about the \(y\)-axis.</span></div>
-{{work:80}}</div></div>
+{{work:125}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 The curve \(y=1-x^2\) meets the \(y\)-axis at \(A(0,1)\) and the \(x\)-axis at \(B(1,0)\). Find the volume generated when the region between the curve and the line \(AB\) is rotated:
 <div class="parts"><span><span class="pl">a</span>about the \(x\)-axis,</span><span><span class="pl">b</span>about the \(y\)-axis.</span></div>
@@ -98,16 +97,18 @@ The curve \(y=4-x^2\) meets the \(y\)-axis at \(A(0,4)\) and the \(x\)-axis at \
 <div class="parts"><span><span class="pl">a</span>about the \(x\)-axis,</span><span><span class="pl">b</span>about the \(y\)-axis.</span></div>
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:1fr 54mm"><div>
-<p style="margin-top:0"><b>a</b> The parabola is \(y_2=4-x^2\), and the line \(AB\) is \(y_1=4-2x\).</p>
+<p style="margin-top:0"><b>a</b> The parabola is \(y_2=4-x^2\), and the line \(AB\) is \(y_1=4-2x\),</p>
 <div class="box tip"><div class="bt">The line and the outer curve</div><p>The line \(AB\) has gradient \(\dfrac{0-4}{2-0}=-2\) and \(y\)-intercept 4. For \(0\le x\le2\), \(y_2-y_1=2x-x^2=x(2-x)\ge0\), so the parabola is the outer curve.</p></div>
 </div><div>{{svg:c12f_ex24}}</div></div>
-<p style="margin:0">Squaring both,</p>
-\[\begin{aligned}y_2^{\,2}&=\big(4-x^2\big)^2=16-8x^2+x^4,\\y_1^{\,2}&=(4-2x)^2=16-16x+4x^2,\ \text{so}\end{aligned}\]
-\[\begin{aligned}\text{volume}&=\int_0^2\pi\big(y_2^{\,2}-y_1^{\,2}\big)\,dx\\&=\pi\int_0^2\Big(\big(16-8x^2+x^4\big)-\big(16-16x+4x^2\big)\Big)\,dx\\&=\pi\int_0^2\big(x^4-12x^2+16x\big)\,dx\\&=\pi\Big[\tfrac15x^5-4x^3+8x^2\Big]_0^2\\&=\pi\Big(\big(\tfrac15\times2^5-4\times2^3+8\times2^2\big)-0\Big)\\&=\pi\big(\tfrac{32}{5}-32+32\big)\\&=\tfrac{32\pi}{5}\text{ cubic units.}\end{aligned}\]
-<div style="break-inside:avoid">
-<p style="margin-bottom:0"><b>b</b> The parabola is \(x_2^{\,2}=4-y\), and the line is \(x_1=2-\tfrac12y\).</p>
-<p style="margin-top:0.5mm">From \(y=4-x^2\), \(x^2=4-y\). From \(y=4-2x\), \(2x=4-y\), so \(x=2-\tfrac12y\), and \(x_1^{\,2}=\big(2-\tfrac12y\big)^2=4-2y+\tfrac14y^2\). The limits are \(y=0\) (at \(B\)) and \(y=4\) (at \(A\)).</p>
+\[\begin{aligned}\text{so}\quad\text{volume}&=\int_0^2\pi\big(y_2^{\,2}-y_1^{\,2}\big)\,dx\\&=\pi\int_0^2\Big(\big(16-8x^2+x^4\big)-\big(16-16x+4x^2\big)\Big)\,dx\\&=\pi\int_0^2\big(x^4-12x^2+16x\big)\,dx\\&=\pi\Big[\tfrac15x^5-4x^3+8x^2\Big]_0^2\\&=\pi\Big(\big(\tfrac15\times2^5-4\times2^3+8\times2^2\big)-0\Big)\\&=\pi\big(\tfrac{32}{5}-32+32\big)\\&=\tfrac{32\pi}{5}\text{ cubic units.}\end{aligned}\]
+<div class="box tip"><div class="bt">Squaring both</div>
+<p style="margin:0">The second line uses</p>
+\[\begin{aligned}y_2^{\,2}&=\big(4-x^2\big)^2=16-8x^2+x^4,\\y_1^{\,2}&=(4-2x)^2=16-16x+4x^2.\end{aligned}\]</div>
+<div style="break-inside:avoid;padding-top:2mm">
+<p style="margin-bottom:0"><b>b</b> The parabola is \(x_2^{\,2}=4-y\), and the line is \(x_1=2-\tfrac12y\),</p>
 \[\begin{aligned}\text{so}\quad\text{volume}&=\int_0^4\pi\big(x_2^{\,2}-x_1^{\,2}\big)\,dy\\&=\pi\int_0^4\Big((4-y)-\big(4-2y+\tfrac14y^2\big)\Big)\,dy\\&=\pi\int_0^4\big(-\tfrac14y^2+y\big)\,dy\\&=\pi\Big[-\tfrac{1}{12}y^3+\tfrac12y^2\Big]_0^4\\&=\pi\Big(\big(-\tfrac{1}{12}\times4^3+\tfrac12\times4^2\big)-0\Big)\\&=\pi\big(-\tfrac{16}{3}+8\big)\\&=\tfrac{8\pi}{3}\text{ cubic units.}\end{aligned}\]
+<div class="box tip"><div class="bt">Making \(x\) the subject</div>
+<p>From \(y=4-x^2\), \(x^2=4-y\). From \(y=4-2x\), \(2x=4-y\), so \(x=2-\tfrac12y\), and \(x_1^{\,2}=\big(2-\tfrac12y\big)^2=4-2y+\tfrac14y^2\). The limits are \(y=0\) (at \(B\)) and \(y=4\) (at \(A\)).</p></div>
 <div class="box tip"><div class="bt">Compare</div><p>The two volumes are different, as the note above says they usually will be.</p></div></div>
 </div></div>
 
@@ -127,7 +128,7 @@ The region under the line \(y=\tfrac12x\) from \(x=0\) to \(x=6\) is rotated abo
 {{work:70}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">A sphere by integration</span></div><div class="ex-body">
 The region under the semicircle \(y=\sqrt{16-x^2}\) from \(x=-4\) to \(x=4\) is rotated about the \(x\)-axis to form a sphere. Find its radius, find its volume by integration, and check the answer with Box 14.
-{{work:70}}</div></div>
+{{work:140}}</div></div>
 <div class="box tip"><div class="bt">The general proofs</div>
 <p>There is no textbook example for Box 14. The general proofs, with \(r\) and \(h\) in place of numbers, are Question 22 of the homework.</p></div>
 
@@ -135,52 +136,52 @@ The region under the semicircle \(y=\sqrt{16-x^2}\) from \(x=-4\) to \(x=4\) is 
 <div class="page-break"></div>
 {{sec:blue:pencil:Textbook homework:Exercise 12F}}
 {{band:F}}
-<div class="q"><span class="q-num">1</span><div class="q-body">
+<div class="q"><span class="q-num">1</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Sketch the region bounded by the line \(y=3x\) and the \(x\)-axis between \(x=0\) and \(x=3\).</span><span><span class="pl">b</span>When this region is rotated about the \(x\)-axis, a right circular cone is formed. Find the radius and height of the cone and hence find its volume.</span><span><span class="pl">c</span>Evaluate \(\pi\displaystyle\int_0^3y^2\,dx=\pi\int_0^39x^2\,dx\) in order to check your answer.</span></div>{{work:75}}</div></div>
-<div class="q"><span class="q-num">2</span><div class="q-body">
+<div class="q"><span class="q-num">2</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Sketch the region bounded by the curve \(y=\sqrt{9-x^2}\) and the \(x\)-axis between \(x=-3\) and \(x=3\).</span><span><span class="pl">b</span>When this region is rotated about the \(x\)-axis, a sphere is formed. Find the radius of the sphere and hence find its volume.</span><span><span class="pl">c</span>Evaluate \(\pi\displaystyle\int_{-3}^3y^2\,dx=\pi\int_{-3}^3\big(9-x^2\big)\,dx\) in order to check your answer.</span></div>{{work:75}}</div></div>
-<div class="q"><span class="q-num">3</span><div class="q-body">Calculate the volume generated when each shaded region is rotated about the \(x\)-axis.
+<div class="q"><span class="q-num">3</span><div class="q-body" style="padding-top:2mm">Calculate the volume generated when each shaded region is rotated about the \(x\)-axis.
 {{svg:q12f_q3a}}{{svg:q12f_q3b}}{{work:150}}</div></div>
-<div class="q"><span class="q-num">4</span><div class="q-body">Calculate the volume generated when each shaded region is rotated about the \(y\)-axis.
+<div class="q"><span class="q-num">4</span><div class="q-body" style="padding-top:2mm">Calculate the volume generated when each shaded region is rotated about the \(y\)-axis.
 {{svg:q12f_q4a}}{{svg:q12f_q4b}}{{work:120}}</div></div>
 
 {{band:D}}
-<div class="q"><span class="q-num">5</span><div class="q-body">The region between the curve \(y=e^x\) and the \(x\)-axis from \(x=0\) to \(x=1\) is rotated about the \(x\)-axis. Find the volume of the solid generated.{{work:26}}</div></div>
-<div class="q"><span class="q-num">6</span><div class="q-body">Find the volume generated when the region between the curve \(y=\dfrac{1}{\sqrt x}\) and the \(x\)-axis, from \(x=2\) to \(x=4\), is rotated about the \(x\)-axis.{{work:26}}</div></div>
-<div class="q"><span class="q-num">7</span><div class="q-body">The region between the curve \(y=\dfrac{1}{x^2}\) (called a <i>truncus</i>) and the \(y\)-axis from \(y=1\) to \(y=6\) is rotated about the \(y\)-axis. Calculate the exact volume of the solid formed.{{work:28}}</div></div>
-<div class="q"><span class="q-num">8</span><div class="q-body">
+<div class="q"><span class="q-num">5</span><div class="q-body" style="padding-top:2mm">The region between the curve \(y=e^x\) and the \(x\)-axis from \(x=0\) to \(x=1\) is rotated about the \(x\)-axis. Find the volume of the solid generated.{{work:26}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body" style="padding-top:2mm">Find the volume generated when the region between the curve \(y=\dfrac{1}{\sqrt x}\) and the \(x\)-axis, from \(x=2\) to \(x=4\), is rotated about the \(x\)-axis.{{work:26}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body" style="padding-top:2mm">The region between the curve \(y=\dfrac{1}{x^2}\) (called a <i>truncus</i>) and the \(y\)-axis from \(y=1\) to \(y=6\) is rotated about the \(y\)-axis. Calculate the exact volume of the solid formed.{{work:28}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Write \(\tan^2x\) in terms of \(\sec^2x\).</span><span><span class="pl">b</span>The region bounded by the curve \(y=\tan x\), the \(x\)-axis and the vertical line \(x=\tfrac{\pi}{3}\) is rotated about the \(x\)-axis. Find the volume of the solid generated.</span></div>{{work:34}}</div></div>
-<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="q"><span class="q-num">9</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Write \(\sin^2x\) in terms of \(\cos2x\).</span><span><span class="pl">b</span>The region bounded by the curve \(y=\sin x\), the \(x\)-axis and the vertical line \(x=\tfrac{\pi}{2}\) is rotated about the \(x\)-axis. Find the volume of the solid generated.</span></div>{{work:34}}</div></div>
-<div class="q"><span class="q-num">10</span><div class="q-body">Find the volume of the solid formed by rotating the region with the given boundaries about the \(x\)-axis. (A sketch of each region will be needed.)
+<div class="q"><span class="q-num">10</span><div class="q-body" style="padding-top:2mm">Find the volume of the solid formed by rotating the region with the given boundaries about the \(x\)-axis. (A sketch of each region will be needed.)
 <div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(y=x+3,\ x=3,\ x=5\) and \(y=0\)</span><span><span class="pl">b</span>\(y=1+\sqrt x,\ x=1,\ x=4\) and \(y=0\)</span><span><span class="pl">c</span>\(y=5x-x^2\) and \(y=0\)</span><span><span class="pl">d</span>\(y=x^3-x\) and \(y=0\)</span></div>{{work:80}}</div></div>
-<div class="q"><span class="q-num">11</span><div class="q-body">Find the volume of the solid formed by rotating the region with the given boundaries about the \(y\)-axis. (A sketch of each region will be needed.)
+<div class="q"><span class="q-num">11</span><div class="q-body" style="padding-top:2mm">Find the volume of the solid formed by rotating the region with the given boundaries about the \(y\)-axis. (A sketch of each region will be needed.)
 <div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(x=y-2,\ y=3,\ x=1\) and \(x=0\)</span><span><span class="pl">b</span>\(x=y^2+1,\ y=0,\ y=1\) and \(x=0\)</span><span><span class="pl">c</span>\(x=y(y-3)\) and \(x=0\)</span><span><span class="pl">d</span>\(y=1-x^2\) and \(y=0\)</span></div>{{work:80}}</div></div>
-<div class="q"><span class="q-num">12</span><div class="q-body">A vat is designed by rotating about the \(x\)-axis the region between the curve \(y=1+\dfrac1x\) and the \(x\)-axis from \(x=\tfrac12\) to \(x=3\). Show that its volume is \(\dfrac{\pi}{6}(25+12\ln6)\) u\(^3\).{{work:40}}</div></div>
-<div class="q"><span class="q-num">13</span><div class="q-body">A metal stud is created by rotating about the \(x\)-axis the region contained between the curve \(y=e^x-e^{-x}\) and the \(x\)-axis from \(x=0\) to \(x=\tfrac12\). Show that the volume of the stud is \(\tfrac{\pi}{2}\big(e-2-e^{-1}\big)\) u\(^3\).{{work:40}}</div></div>
-<div class="q"><span class="q-num">14</span><div class="q-body">A champagne flute is designed by rotating about the \(x\)-axis the region between the curve \(y=4+4\sin\tfrac x4\) and the \(x\)-axis from \(x=4\pi\) to \(x=6\pi\). Find, correct to 4 significant figures, the capacity of the flute, if 1 unit \(=\) 1 cm.{{work:46}}</div></div>
-<div class="q"><span class="q-num">15</span><div class="q-body">The region \(R\) is bounded by the parabola \(y=x^2\) and the \(x\)-axis from \(x=0\) to \(x=4\).
+<div class="q"><span class="q-num">12</span><div class="q-body" style="padding-top:2mm">A vat is designed by rotating about the \(x\)-axis the region between the curve \(y=1+\dfrac1x\) and the \(x\)-axis from \(x=\tfrac12\) to \(x=3\). Show that its volume is \(\dfrac{\pi}{6}(25+12\ln6)\) u\(^3\).{{work:40}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body" style="padding-top:2mm">A metal stud is created by rotating about the \(x\)-axis the region contained between the curve \(y=e^x-e^{-x}\) and the \(x\)-axis from \(x=0\) to \(x=\tfrac12\). Show that the volume of the stud is \(\tfrac{\pi}{2}\big(e-2-e^{-1}\big)\) u\(^3\).{{work:40}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body" style="padding-top:2mm">A champagne flute is designed by rotating about the \(x\)-axis the region between the curve \(y=4+4\sin\tfrac x4\) and the \(x\)-axis from \(x=4\pi\) to \(x=6\pi\). Find, correct to 4 significant figures, the capacity of the flute, if 1 unit \(=\) 1 cm.{{work:46}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body" style="padding-top:2mm">The region \(R\) is bounded by the parabola \(y=x^2\) and the \(x\)-axis from \(x=0\) to \(x=4\).
 <div class="parts one"><span><span class="pl">a</span>Find the volume of the cylinder formed when the region between the line \(x=4\) and the \(y\)-axis from \(y=0\) to \(y=16\) is rotated about the \(y\)-axis.</span><span><span class="pl">b</span>Find the volume of the solid formed when the region between the parabola \(y=x^2\) and the \(y\)-axis from \(y=0\) to \(y=16\) is rotated about the \(y\)-axis.</span><span><span class="pl">c</span>Hence find the volume of the solid formed when \(R\) is rotated about the \(y\)-axis.</span></div>{{work:46}}</div></div>
-<div class="q"><span class="q-num">16</span><div class="q-body">Find the volume of the solid generated by rotating each region about:
+<div class="q"><span class="q-num">16</span><div class="q-body" style="padding-top:2mm">Find the volume of the solid generated by rotating each region about:
 <div class="parts one"><span><span class="pl">i</span>the \(x\)-axis,</span><span><span class="pl">ii</span>the \(y\)-axis. (Hint: In some cases a subtraction of volumes will be necessary.)</span></div>
 {{svg:q12f_q16}}{{work:80}}</div></div>
-<div class="q"><span class="q-num">17</span><div class="q-body">
+<div class="q"><span class="q-num">17</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Sketch the region bounded by the curves \(y=x^2\) and \(y=x^3\).</span><span><span class="pl">b</span>Find the volume of the solid generated when this region is rotated about:<br>(i) the \(x\)-axis, &emsp; (ii) the \(y\)-axis.</span></div>{{work:56}}</div></div>
-<div class="q"><span class="q-num">18</span><div class="q-body">
+<div class="q"><span class="q-num">18</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>On the same number plane sketch the graphs of \(xy=5\) and \(x+y=6\), clearly indicating their points of intersection.</span><span><span class="pl">b</span>Find the volume of the solid generated when the region bounded by the two curves is rotated about the \(x\)-axis.</span></div>{{work:56}}</div></div>
-<div class="q"><span class="q-num">19</span><div class="q-body">The region bounded by the hyperbola \(y=2-\dfrac2x\), the vertical line \(x=1\) and the horizontal line \(y=1\) is rotated about the \(x\)-axis. Find the volume of the solid formed.{{work:50}}</div></div>
-<div class="q"><span class="q-num">20</span><div class="q-body">
+<div class="q"><span class="q-num">19</span><div class="q-body" style="padding-top:2mm">The region bounded by the hyperbola \(y=2-\dfrac2x\), the vertical line \(x=1\) and the horizontal line \(y=1\) is rotated about the \(x\)-axis. Find the volume of the solid formed.{{work:50}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Find the equation of the tangent to the curve \(y=x^3+2\) at the point where \(x=1\).</span><span><span class="pl">b</span>Draw a diagram showing the region bounded by the curve, the tangent and the \(y\)-axis.</span><span><span class="pl">c</span>Calculate the volume of the solid formed when this region is rotated about:<br>(i) the \(x\)-axis, &emsp; (ii) the \(y\)-axis.</span></div>{{work:80}}</div></div>
-<div class="q"><span class="q-num">21</span><div class="q-body">A rubber washer is generated by rotating the region between the curve \(y=\log_ex\), the \(x\)-axis and the line \(x=2\) about the \(y\)-axis. Find the exact volume of the washer.{{work:70}}</div></div>
-<div class="q"><span class="q-num">22</span><div class="q-body">In this question some standard volume formulae will be proven.
+<div class="q"><span class="q-num">21</span><div class="q-body" style="padding-top:2mm">A rubber washer is generated by rotating the region between the curve \(y=\log_ex\), the \(x\)-axis and the line \(x=2\) about the \(y\)-axis. Find the exact volume of the washer.{{work:70}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body" style="padding-top:2mm">In this question some standard volume formulae will be proven.
 <div class="parts one"><span><span class="pl">a</span>A right circular cone of height \(h\) and radius \(r\) is generated by rotating about the \(x\)-axis the region bounded by the line \(y=\dfrac{rx}{h}\), the \(x\)-axis and the line \(x=h\). Show that the volume of the cone is \(\tfrac13\pi r^2h\).</span><span><span class="pl">b</span>A cylinder of height \(h\) and radius \(r\) is generated by rotating about the \(x\)-axis the region bounded by the line \(y=r\), the \(x\)-axis, the \(y\)-axis and the line \(x=h\). Show that the volume of the cylinder is \(\pi r^2h\).</span><span><span class="pl">c</span>(i) A sphere of radius \(r\) is generated by rotating about the \(x\)-axis the region between the semi-circle \(y=\sqrt{r^2-x^2}\) and the \(x\)-axis. Show that the volume of the sphere is \(\tfrac43\pi r^3\).<br>(ii) A spherical cap of height \(h\) is formed by rotating about the \(x\)-axis the region between the semi-circle \(y=\sqrt{r^2-x^2}\) and the \(x\)-axis from \(x=r-h\) to \(x=r\). Show that the volume of the cap is \(\tfrac13\pi h^2(3r-h)\).</span></div>{{work:150}}</div></div>
 
 {{band:E}}
-<div class="q"><span class="q-num">23</span><div class="q-body">
+<div class="q"><span class="q-num">23</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Multiply \(\sec\theta\) by \(\dfrac{\sec\theta+\tan\theta}{\sec\theta+\tan\theta}\), and hence find \(\displaystyle\int\sec\theta\,d\theta\).</span><span><span class="pl">b</span>The region \(R\) is bounded by \(y=\dfrac{x}{\sqrt{x^2+16}}\), the \(x\)-axis and the line \(x=4\). Show that the volume generated by rotating \(R\) about the \(y\)-axis is \(16\pi\big(\sqrt2-\ln\big(\sqrt2+1\big)\big)\) units\(^3\). (Hint: Use the substitution \(y=\sin\theta\) and the result in part <b>a</b>.)</span></div>{{work:150}}</div></div>
-<div class="q"><span class="q-num">24</span><div class="q-body">Consider the curves \(f(x)=x^n\) and \(f(x)=x^{n+1}\), where \(n\) is a positive integer.
+<div class="q"><span class="q-num">24</span><div class="q-body" style="padding-top:2mm">Consider the curves \(f(x)=x^n\) and \(f(x)=x^{n+1}\), where \(n\) is a positive integer.
 <div class="parts one"><span><span class="pl">a</span>Find the points of intersection of the curves.</span><span><span class="pl">b</span>Show that the volume \(V_n\) of the solid generated when the region bounded by the two curves is rotated around the \(x\)-axis is given by \(\pi\Big(\dfrac{1}{2n+1}-\dfrac{1}{2n+3}\Big)\) cubic units.</span><span><span class="pl">c</span>Describe the solid whose volume is given by \(\displaystyle\lim_{n\to\infty}\big(V_1+V_2+V_3+\cdots+V_n\big)\).</span><span><span class="pl">d</span>Find the volume of the solid in part <b>c</b>.</span><span><span class="pl">e</span>Deduce that the series \(\dfrac{1}{3\times5}+\dfrac{1}{5\times7}+\dfrac{1}{7\times9}+\cdots\) has a limiting sum of \(\dfrac16\).</span></div>{{work:160}}</div></div>
-<div class="q"><span class="q-num">25</span><div class="q-body">
+<div class="q"><span class="q-num">25</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Sketch the region bounded by the parabola \(y=-x^2+6x-8\) and the \(x\)-axis.</span><span><span class="pl">b</span>By completing the square, or otherwise, show that the equation of the curve is \(x=3+\sqrt{1-y}\) for \(3\le x\le4\), and \(x=3-\sqrt{1-y}\) for \(2\le x\le3\).</span><span><span class="pl">c</span>The region in part <b>a</b> is rotated about the \(y\)-axis. Show that the volume of the solid formed is given by \(V=\displaystyle\int_0^1 12\pi\sqrt{1-y}\,dy\), and hence calculate the exact volume.</span></div>{{work:170}}</div></div>
 
 <!-- ============ Past papers ============ -->
@@ -197,12 +198,12 @@ The region under the semicircle \(y=\sqrt{16-x^2}\) from \(x=-4\) to \(x=4\) is 
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Caringbah High School, 2021, Year 12 Mathematics Extension&nbsp;1 HSC Course Assessment <span style="white-space:nowrap">Task&nbsp;4,&nbsp;Q12(a)</span></span><span class="mk">2 marks</span></div>
 <div class="pp-q">The region enclosed by the curve \(y=\dfrac{2}{\sqrt{x-7}}\) and the \(x\)-axis between \(x=8\) and \(x=10\) is rotated about the \(x\)-axis. Find the exact value of the volume of the solid formed.</div>
-<div class="hint"><b>Hint:</b> what are the bounds of the region?</div>{{work:48}}</div>
+<div class="hint"><b>Hint:</b> what region is being rotated?</div>{{work:48}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>North Sydney Boys High School, 2020, Year 12 Assessment Task 3, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q8</span></span><span class="mk">1 mark</span></div>
 <div class="pp-q"><div class="split" style="grid-template-columns:1fr 80mm"><div>The graph below shows the graph of \(y=(x-1)^2\) and \(y=\log_ex\). They intersect at the point \(B(1,0)\) and \(A(a,\log_ea)\). The shaded area between these two curves is rotated about the \(y\) axis. Which integral represents the volume of the solid of revolution formed?</div><div>{{svg:pp12f_nsb20}}</div></div>
 <div class="mc" style="grid-template-columns:1fr 1fr"><span>A.&ensp;\(V=\pi\displaystyle\int_0^{\ln a}\big(\sqrt y+1-e^y\big)^2\,dy\)</span><span>B.&ensp;\(V=\pi\displaystyle\int_0^{\ln a}\big(y+2\sqrt y+1-e^{2y}\big)\,dy\)</span><span>C.&ensp;\(V=\pi\displaystyle\int_1^a(\ln x)^2-(x-1)^4\,dx\)</span><span>D.&ensp;\(V=\pi\displaystyle\int_0^{\ln a}\big(\sqrt y+1-e^y\big)\,dy\)</span></div></div>
-<div class="hint"><b>Hint:</b> which curve is further from the axis of rotation?</div>{{work:24}}</div>
+<div class="hint"><b>Hint:</b> what does the diagram show?</div>{{work:24}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension&nbsp;1 HSC Trial <span style="white-space:nowrap">Examination,&nbsp;Q13(a)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">The region between the graph of \(f(x)=\sin x\cos x\) and the \(x\) – axis over the interval \(x\in\big[0,\tfrac{\pi}{2}\big]\) is revolved about the \(x\) – axis. Find the volume of the resulting solid. You may sketch a diagram first.</div>
@@ -217,7 +218,7 @@ The region under the semicircle \(y=\sqrt{16-x^2}\) from \(x=-4\) to \(x=4\) is 
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Sydney Technical High School, 2021, Extension&nbsp;1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q13(c)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q"><div class="split" style="grid-template-columns:1fr 70mm"><div>A solid of revolution is to be formed by rotating the shaded area shown between the graphs \(y=x^2\) and \(y=5-4x^2\) about the <b>y-axis</b>.<br><br>Find the exact volume of the solid formed.</div><div>{{svg:pp12f_st21}}</div></div></div>
-<div class="hint"><b>Hint:</b> which curves bound the region on the right?</div>{{work:50}}</div>
+<div class="hint"><b>Hint:</b> what does the diagram show?</div>{{work:50}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Sydney Girls High School, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(e)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">Find the volume of the solid of revolution formed when the region in the first quadrant bounded by the \(y\)-axis, \(y=\dfrac12x+3\), and \(y=x^2\) is rotated about the \(y\)-axis.</div>
@@ -227,43 +228,43 @@ The region under the semicircle \(y=\sqrt{16-x^2}\) from \(x=-4\) to \(x=4\) is 
 <div class="pp-q">Consider the parabola \(x^2=8(y-3)\).
 <div class="pp-sub"><span>(i) Sketch the parabola labelling its vertex.</span><span class="mk">1</span></div>
 <div class="pp-sub"><span>(ii) The area bounded by the parabola and the line \(y=5\) is rotated about the \(x\)-axis. Find the volume of the solid formed.</span><span class="mk">3</span></div></div>
-<div class="hint"><b>Hint:</b> which boundary of the region is further from the \(x\)-axis?</div>{{work:215}}</div>
+<div class="hint"><b>Hint:</b> what region is being rotated?</div>{{work:150}}</div>
 
 <!-- ============ Chapter review ============ -->
 <div class="page-break"></div>
 <div class="lesson-head"><div class="eyebrow">Chapter 12 Review</div><h2>Chapter review exercise</h2>
 <div class="focus">Mixed practice from the whole chapter, Lessons 12A to 12F.</div></div>
-<div class="q"><span class="q-num">1</span><div class="q-body">Find the derivative of:
+<div class="q"><span class="q-num">1</span><div class="q-body" style="padding-top:2mm">Find the derivative of:
 <div class="parts three" style="row-gap:2mm"><span><span class="pl">a</span>\(y=\sin^{-1}3x\)</span><span><span class="pl">b</span>\(y=\tan^{-1}\dfrac x3\)</span><span><span class="pl">c</span>\(y=\cos^{-1}(1-x)\)</span><span><span class="pl">d</span>\(y=x^2\tan^{-1}x\)</span><span><span class="pl">e</span>\(y=\tan^{-1}\big(\tfrac12x+1\big)\)</span><span><span class="pl">f</span>\(y=\sin^{-1}\dfrac1x\)</span></div>{{work:56}}</div></div>
-<div class="q"><span class="q-num">2</span><div class="q-body">Show that \(y=\tan^{-1}x\) satisfies the differential equation \(\big(1+x^2\big)y''+2xy'=0\).{{work:40}}</div></div>
-<div class="q"><span class="q-num">4</span><div class="q-body">Find:
+<div class="q"><span class="q-num">2</span><div class="q-body" style="padding-top:2mm">Show that \(y=\tan^{-1}x\) satisfies the differential equation \(\big(1+x^2\big)y''+2xy'=0\).{{work:40}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body" style="padding-top:2mm">Find:
 <div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\frac{1}{3+x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{1}{\sqrt{3-x^2}}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\frac{1}{9+4x^2}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{-1}{\sqrt{16-9x^2}}\,dx\)</span></div>{{work:50}}</div></div>
-<div class="q"><span class="q-num">5</span><div class="q-body">Evaluate:
+<div class="q"><span class="q-num">5</span><div class="q-body" style="padding-top:2mm">Evaluate:
 <div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_{\frac13}^{\frac{1}{\sqrt3}}\frac{1}{1+9x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-\frac34}^{\frac34}\frac{1}{\sqrt{3-4x^2}}\,dx\)</span></div>{{work:44}}</div></div>
-<div class="q"><span class="q-num">6</span><div class="q-body">Find:
+<div class="q"><span class="q-num">6</span><div class="q-body" style="padding-top:2mm">Find:
 <div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\cos^2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\sin^2x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\cos^22x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\sin^24x\,dx\)</span></div>{{work:46}}</div></div>
-<div class="q"><span class="q-num">7</span><div class="q-body">Find the exact value of:
+<div class="q"><span class="q-num">7</span><div class="q-body" style="padding-top:2mm">Find the exact value of:
 <div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_0^{\frac{\pi}{3}}\sin^23x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{6}}\cos^2\tfrac12x\,dx\)</span></div>{{work:44}}</div></div>
-<div class="q"><span class="q-num">8</span><div class="q-body">Show that \(\displaystyle\int_0^{\frac{\pi}{2}}\cos^2x\,dx=\int_0^{\frac{\pi}{2}}\cos^22x\,dx=\int_0^{\frac{\pi}{2}}\cos^24x\,dx=\frac{\pi}{4}\).{{work:50}}</div></div>
-<div class="q"><span class="q-num">9</span><div class="q-body">Find each indefinite integral using the given substitution.
+<div class="q"><span class="q-num">8</span><div class="q-body" style="padding-top:2mm">Show that \(\displaystyle\int_0^{\frac{\pi}{2}}\cos^2x\,dx=\int_0^{\frac{\pi}{2}}\cos^22x\,dx=\int_0^{\frac{\pi}{2}}\cos^24x\,dx=\frac{\pi}{4}\).{{work:50}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body" style="padding-top:2mm">Find each indefinite integral using the given substitution.
 <div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int5(5x-1)^5\,dx\) &ensp; [Let \(u=5x-1\).]</span><span><span class="pl">b</span>\(\displaystyle\int2x\big(x^2+2\big)^2\,dx\) &ensp; [Let \(u=x^2+2\).]</span><span><span class="pl">c</span>\(\displaystyle\int\frac{4x^3}{\big(x^4+1\big)^2}\,dx\) &ensp; [Let \(u=x^4+1\).]</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{\sqrt{4x+3}}\,dx\) &ensp; [Let \(u=4x+3\).]</span><span><span class="pl">e</span>\(\displaystyle\int\sin^2x\cos x\,dx\) &ensp; [Let \(u=\sin x\).]</span><span><span class="pl">f</span>\(\displaystyle\int\tan^3x\sec^2x\,dx\) &ensp; [Let \(u=\tan x\).]</span></div>{{work:70}}</div></div>
-<div class="q"><span class="q-num">10</span><div class="q-body">Evaluate each definite integral using the given substitution.
+<div class="q"><span class="q-num">10</span><div class="q-body" style="padding-top:2mm">Evaluate each definite integral using the given substitution.
 <div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_{-1}^0x^2\big(1+x^3\big)^4\,dx\) &ensp; [Let \(u=1+x^3\).]</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{2}}\cos^3x\sin x\,dx\) &ensp; [Let \(u=\cos x\).]</span><span><span class="pl">c</span>\(\displaystyle\int_1^{\sqrt2}x\sqrt{x^2-1}\,dx\) &ensp; [Let \(u=x^2-1\).]</span><span><span class="pl">d</span>\(\displaystyle\int_1^e\frac{(\ln x)^2}{x}\,dx\) &ensp; [Let \(u=\ln x\).]</span><span><span class="pl">e</span>\(\displaystyle\int_{\frac12}^1\frac{e^{\frac1x}}{x^2}\,dx\) &ensp; [Let \(u=\tfrac1x\).]</span><span><span class="pl">f</span>\(\displaystyle\int_0^{\frac{\pi}{8}}\frac{\sec^22x}{1+\tan2x}\,dx\) &ensp; [Let \(u=\tan2x\).]</span></div>{{work:80}}</div></div>
-<div class="q"><span class="q-num">11</span><div class="q-body">Find each indefinite integral using the given substitution.
+<div class="q"><span class="q-num">11</span><div class="q-body" style="padding-top:2mm">Find each indefinite integral using the given substitution.
 <div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\frac{x}{x-1}\,dx\) &ensp; [Let \(x=u+1\).]</span><span><span class="pl">b</span>\(\displaystyle\int\frac{x-1}{\sqrt{x+2}}\,dx\) &ensp; [Let \(x=u-2\).]</span><span><span class="pl">c</span>\(\displaystyle\int x\sqrt{2x+1}\,dx\) &ensp; [Let \(x=\tfrac12u^2-\tfrac12\).]</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{4+\sqrt x}\,dx\) &ensp; [Let \(x=(u-4)^2\).]</span></div>{{work:80}}</div></div>
-<div class="q"><span class="q-num">12</span><div class="q-body">Evaluate, using the given substitution:
+<div class="q"><span class="q-num">12</span><div class="q-body" style="padding-top:2mm">Evaluate, using the given substitution:
 <div class="parts one" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_1^2x(x-1)^4\,dx\) &ensp; [Let \(x=u+1\).]</span><span><span class="pl">b</span>\(\displaystyle\int_1^5\frac{x}{x+3}\,dx\) &ensp; [Let \(x=u-3\).]</span><span><span class="pl">c</span>\(\displaystyle\int_0^{15}\frac{x}{\sqrt{x+1}}\,dx\) &ensp; [Let \(x=u^2-1\).]</span><span><span class="pl">d</span>\(\displaystyle\int_2^3\tfrac12x\sqrt{x-2}\,dx\) &ensp; [Let \(x=u^2+2\).]</span></div>{{work:80}}</div></div>
-<div class="q"><span class="q-num">13</span><div class="q-body">
+<div class="q"><span class="q-num">13</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>State the domain and range of the function \(y=\sqrt{9-x}\).</span><span><span class="pl">b</span>Sketch the graph of the function.</span><span><span class="pl">c</span>Calculate the area of the region bounded by the curve and the coordinate axes.</span><span><span class="pl">d</span>Calculate the volume of the solid formed when this region is rotated about:<br>(i) the \(x\)-axis, &emsp; (ii) the \(y\)-axis.</span></div>{{work:70}}</div></div>
-<div class="q"><span class="q-num">14</span><div class="q-body">A horn is created by rotating about the \(x\)-axis the region between the curve \(y=\dfrac{1}{\sqrt{4-x}}\) and the \(x\)-axis from \(x=0\) to \(x=3\tfrac34\). Find the volume of the horn.{{work:34}}</div></div>
-<div class="q"><span class="q-num">15</span><div class="q-body">A vase is designed by rotating the parabola \(y^2=18(x-6)\) from \(y=-6\) to \(y=6\) about the \(y\)-axis. Find the exact volume of the vase.{{work:40}}</div></div>
-<div class="q"><span class="q-num">16</span><div class="q-body">
+<div class="q"><span class="q-num">14</span><div class="q-body" style="padding-top:2mm">A horn is created by rotating about the \(x\)-axis the region between the curve \(y=\dfrac{1}{\sqrt{4-x}}\) and the \(x\)-axis from \(x=0\) to \(x=3\tfrac34\). Find the volume of the horn.{{work:34}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body" style="padding-top:2mm">A vase is designed by rotating the parabola \(y^2=18(x-6)\) from \(y=-6\) to \(y=6\) about the \(y\)-axis. Find the exact volume of the vase.{{work:40}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Write \(\cos^22x\) in terms of \(\cos4x\).</span><span><span class="pl">b</span>The region bounded by the curve \(y=\cos2x\) and the \(x\)-axis from \(x=-\tfrac{\pi}{6}\) to \(x=\tfrac{\pi}{6}\) is rotated about the \(x\)-axis. Show that the solid generated has volume \(\dfrac{\pi}{24}\big(4\pi+3\sqrt3\big)\) \(u^3\).</span></div>{{work:46}}</div></div>
-<div class="q"><span class="q-num">17</span><div class="q-body">A tank is created by rotating about the \(x\)-axis the region between the curve \(y=1+e^{-x}\) and the \(x\)-axis from \(x=1\) to \(x=3\). Find its volume correct to two decimal places.{{work:40}}</div></div>
-<div class="q"><span class="q-num">18</span><div class="q-body">
+<div class="q"><span class="q-num">17</span><div class="q-body" style="padding-top:2mm">A tank is created by rotating about the \(x\)-axis the region between the curve \(y=1+e^{-x}\) and the \(x\)-axis from \(x=1\) to \(x=3\). Find its volume correct to two decimal places.{{work:40}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Sketch \(y=1-\tan x\) for \(-\tfrac{\pi}{2}&lt;x&lt;\tfrac{\pi}{2}\), and shade the region \(R\) bounded by the curve and the coordinate axes.</span><span><span class="pl">b</span>Find the volume generated when \(R\) is rotated about the \(x\)-axis.</span></div>{{work:56}}</div></div>
-<div class="q"><span class="q-num">19</span><div class="q-body">
+<div class="q"><span class="q-num">19</span><div class="q-body" style="padding-top:2mm">
 <div class="parts one"><span><span class="pl">a</span>Find the stationary points of the curve \(y=x+\dfrac1x\) and sketch its graph.</span><span><span class="pl">b</span>Show that the line \(y=\tfrac52\) intersects the curve when \(x=\tfrac12\) or \(x=2\).</span><span><span class="pl">c</span>Find the volume of the solid generated when the region between the curve and the line \(y=\tfrac52\) is rotated about the \(x\)-axis.</span></div>{{work:80}}</div></div>
-<div class="q"><span class="q-num">21</span><div class="q-body">The region under the graph \(y=2^{x+1}\) between \(x=1\) and \(x=3\) is rotated about the \(x\)-axis.
-<div class="parts one"><span><span class="pl">a</span>Write down the definite integral representing the volume of the solid that is formed.</span><span><span class="pl">b</span>Use the trapezoidal rule with five function values to approximate the volume of the solid, giving your answer as multiple of \(\pi\).</span><span><span class="pl">c</span>Find the exact value of the volume, then approximate it as an integer multiple of \(\pi\). Why is the exact answer smaller than the trapezoidal-rule approximation?</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body" style="padding-top:2mm">The region under the graph \(y=2^{x+1}\) between \(x=1\) and \(x=3\) is rotated about the \(x\)-axis.
+<div class="parts one"><span><span class="pl">a</span>Write down the definite integral representing the volume of the solid that is formed.</span><span><span class="pl">b</span>Use the trapezoidal rule with five function values to approximate the volume of the solid, giving your answer as multiple of \(\pi\).</span><span><span class="pl">c</span>Find the exact value of the volume, then approximate it as an integer multiple of \(\pi\). Why is the exact answer smaller than the trapezoidal-rule approximation?</span></div>{{work:170}}</div></div>
 </div>

@@ -333,13 +333,13 @@ for p_, (g2, a_, b_) in Q4.items():
 report(os.path.exists(os.path.join(SRC, "svg", "q12f_q3a.svg")) and os.path.exists(os.path.join(SRC, "svg", "q12f_q4b.svg")), "Q3, Q4: diagrams present")
 # Q5 - Q7
 report("\\(y=e^x\\)" in QB["5"] and "from \\(x=0\\) to \\(x=1\\)" in QB["5"], "Q5: printed data")
-check_val("Q5", one(AB["5"], r'<div class="ab">\\\((.+?)\\\)', "Q5"), vol_x(sp.exp(2 * x), 0, 1))
+check_val("Q5", one(AB["5"], r'<div class="ab"[^>]*>\\\((.+?)\\\)', "Q5"), vol_x(sp.exp(2 * x), 0, 1))
 f6 = T(one(QB["6"], r"curve \\\(y=(.+?)\\\) and", "Q6 curve"))
-check_val("Q6", one(AB["6"], r'<div class="ab">\\\((.+?)\\\)', "Q6"), vol_x(f6 ** 2, 2, 4))
+check_val("Q6", one(AB["6"], r'<div class="ab"[^>]*>\\\((.+?)\\\)', "Q6"), vol_x(f6 ** 2, 2, 4))
 f7 = T(one(QB["7"], r"curve \\\(y=(.+?)\\\) \(called", "Q7 curve"))
 report("from \\(y=1\\) to \\(y=6\\)" in QB["7"], "Q7: limits")
 xx7 = sp.solve(sp.Eq(y, f7), x)
-check_val("Q7", one(AB["7"], r'<div class="ab">\\\((.+?)\\\)', "Q7"), vol_y(xx7[-1] ** 2, 1, 6))
+check_val("Q7", one(AB["7"], r'<div class="ab"[^>]*>\\\((.+?)\\\)', "Q7"), vol_y(xx7[-1] ** 2, 1, 6))
 # Q8, Q9
 idt = A["8"]["a"].split("=")
 report(all(same(T(idt[0]).subs(x, p), T(idt[1]).subs(x, p)) for p in PTS), "Q8a identity")
@@ -397,7 +397,7 @@ ans("18", "b", vol_x((6 - x) ** 2 - 25 / x ** 2, 1, 5))
 # Q19
 f19 = T(one(QB["19"], r"hyperbola \\\(y=(.+?)\\\), the vertical", "Q19 curve"))
 report(sp.solve(sp.Eq(f19, 1), x) == [2] and f19.subs(x, 1) == 0, "Q19: hyperbola meets y = 1 at x = 2, x-axis at x = 1")
-check_val("Q19", one(AB["19"], r'<div class="ab">\\\((.+?)\\\) u', "Q19"), vol_x(1 - f19 ** 2, 1, 2))
+check_val("Q19", one(AB["19"], r'<div class="ab"[^>]*>\\\((.+?)\\\) u', "Q19"), vol_x(1 - f19 ** 2, 1, 2))
 # Q20
 cur = x ** 3 + 2
 tang = sp.expand(cur.subs(x, 1) + sp.diff(cur, x).subs(x, 1) * (x - 1))
@@ -408,7 +408,7 @@ check_val("Q20c i", q20[0], vol_x(cur ** 2 - tang ** 2, 0, 1))
 Vii = vol_y((y / 3) ** 2, 0, 3) - vol_y((y - 2) ** sp.Rational(2, 3), 2, 3)
 check_val("Q20c ii", q20[1], Vii)
 # Q21 rubber washer
-check_val("Q21", one(AB["21"], r'<div class="ab">\\\((.+?)\\\) u', "Q21"), vol_y(4 - sp.exp(2 * y), 0, sp.log(2)))
+check_val("Q21", one(AB["21"], r'<div class="ab"[^>]*>\\\((.+?)\\\) u', "Q21"), vol_y(4 - sp.exp(2 * y), 0, sp.log(2)))
 # Q22 results
 r_, h_ = sp.symbols("r h", positive=True)
 report(sp.simplify(PI * sp.integrate((r_ * x / h_) ** 2, (x, 0, h_)) - PI * r_ ** 2 * h_ / 3) == 0, "Q22a: cone")
@@ -605,9 +605,9 @@ check_val("Review Q13d ii", q13[1], vol_y((9 - y ** 2) ** 2, 0, 3))
 # Q14, Q15
 f14 = T(one(RB["14"], r"curve \\\(y=(.+?)\\\) and", "Q14 curve"))
 report("to \\(x=3\\tfrac34\\)" in RB["14"], "Review Q14: limit 3 3/4")
-check_val("Review Q14", one(RA["14"], r'<div class="ab">\\\((.+?)\\\) u', "R14"), vol_x(f14 ** 2, 0, sp.Rational(15, 4)))
+check_val("Review Q14", one(RA["14"], r'<div class="ab"[^>]*>\\\((.+?)\\\) u', "R14"), vol_x(f14 ** 2, 0, sp.Rational(15, 4)))
 report("\\(y^2=18(x-6)\\) from \\(y=-6\\) to \\(y=6\\)" in RB["15"], "Review Q15: printed data")
-check_val("Review Q15", one(RA["15"], r'<div class="ab">\\\((.+?)\\\) u', "R15"), vol_y((6 + y ** 2 / 18) ** 2, -6, 6))
+check_val("Review Q15", one(RA["15"], r'<div class="ab"[^>]*>\\\((.+?)\\\) u', "R15"), vol_y((6 + y ** 2 / 18) ** 2, -6, 6))
 # Q16
 idt = R["16"]["a"].split("=")
 report(all(same(T(idt[0]).subs(x, p), T(idt[1]).subs(x, p)) for p in PTS), "Review Q16a identity")

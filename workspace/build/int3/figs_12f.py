@@ -76,7 +76,7 @@ def fig_slice():
     f = lambda t: 0.55 + 0.05 * t + 0.045 * t * t
     a, b, xm, dxw = 1.6, 4.0, 2.9, 0.22
     # left panel: the region under y = f(x) from a to b, with one strip
-    g = new(-0.6, 5.2, -0.5, 2.0, 250, 150)
+    g = new(-0.6, 5.2, -0.5, 2.0, 250, 122)
     g.fill(f, lambda t: 0.0, a, b, color="blue")
     g.fill(f, lambda t: 0.0, xm, xm + dxw, color="blue", opacity=0.45)
     g.curve(f, color="blue", width=2.0, x0=0.2, x1=4.9)
@@ -92,8 +92,8 @@ def fig_slice():
     g.label(xm + dxw / 2, f(xm), "y = f(x)", dx=-30, dy=-30, size=11, italic=True)
     left = g.svg()
     # right panel: the solid, with the slice of width dx
-    w, hgt = 290, 165
-    X0, Y0, sx, sy = 30, 84, 52, 30
+    w, hgt = 290, 128
+    X0, Y0, sx, sy = 30, 62, 52, 22
     X = lambda t: X0 + (t - 0.0) * sx
     Yp = lambda v: Y0 - v * sy
     rx = lambda r: 0.28 * r * sy
@@ -112,7 +112,7 @@ def fig_slice():
     it.append(f'<line x1="{X(xm):.1f}" y1="{Yp(-f(xm)):.1f}" x2="{X(xm + dxw):.1f}" y2="{Yp(-f(xm + dxw)):.1f}" stroke="{ACC["amber"]}" stroke-width="1.4"/>')
     # radius of the slice
     it.append(f'<line x1="{X(xm + dxw):.1f}" y1="{Y0}" x2="{X(xm + dxw):.1f}" y2="{Yp(f(xm + dxw)):.1f}" stroke="{INK}" stroke-width="1.2"/>')
-    it.append(_txt(X(xm + dxw) + 6, Yp(f(xm + dxw) / 2), "y", "start", size=12, italic=True))
+    it.append(_txt(X(xm + dxw) + 5, Yp(f(xm + dxw)) - 9, "y", "start", size=12, italic=True))
     # axes
     it.append(f'<line x1="10" y1="{Y0}" x2="{w - 16}" y2="{Y0}" stroke="{INK}" stroke-width="1.4"/>')
     it.append(f'<path d="M{w - 16},{Y0} l-7,-3.5 v7 z" fill="{INK}"/>')
@@ -120,13 +120,13 @@ def fig_slice():
     it.append(f'<line x1="{X(0):.1f}" y1="{hgt - 8}" x2="{X(0):.1f}" y2="10" stroke="{INK}" stroke-width="1.4"/>')
     it.append(f'<path d="M{X(0):.1f},10 l-3.5,7 h7 z" fill="{INK}"/>')
     it.append(_txt(X(0) - 6, 12, "y", "end", italic=True))
-    it.append(_txt(X(a) - 9, Y0 + 14, "a", size=11, italic=True))
-    it.append(_txt(X(b) + 10, Y0 + 14, "b", size=11, italic=True))
-    it.append(_txt(X(xm + dxw / 2), Yp(-f(xm)) + 16, "dx", size=11, italic=True))
+    it.append(_txt(X(a), Yp(-f(a)) + 11, "a", size=11, italic=True))
+    it.append(_txt(X(b), Yp(-f(b)) + 11, "b", size=11, italic=True))
+    it.append(_txt(X(xm + dxw / 2), Yp(-f(xm + dxw)) + 13, "dx", size=11, italic=True))
     right = (f'<svg x="262" y="0" viewBox="0 0 {w} {hgt}" width="{w}" height="{hgt}">' + "".join(it) + "</svg>")
     W = 262 + w
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {hgt}" width="{W}" height="{hgt}" font-family="Inter, Arial, sans-serif">'
-           + left.replace('<svg xmlns="http://www.w3.org/2000/svg"', '<svg x="0" y="10"', 1) + right + "</svg>")
+           + left.replace('<svg xmlns="http://www.w3.org/2000/svg"', '<svg x="0" y="4"', 1) + right + "</svg>")
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "svg", "c12f_slice.svg"), "w", encoding="utf-8") as fh:
         fh.write(svg)
 
@@ -134,7 +134,7 @@ def fig_slice():
 # ---------------------------------------------------------------- worked examples
 def fig_ex22():
     s = lambda t: sqrt(max(0.0, 16 - t * t))
-    g = new(-5.0, 5.6, -1.4, 5.0, 210, 150)
+    g = new(-5.0, 5.6, -1.4, 5.0, 180, 125)
     g.fill(s, lambda t: 0.0, 2, 4, color="blue")
     edge(g, s, lambda t: 0.0, 2, 4)
     g.curve(s, color="blue", width=2.0, x0=-4, x1=4, n=800)
@@ -182,8 +182,8 @@ def fig_ex24():
 PW, PH = 146, 118
 
 
-def p(xmin, xmax, ymin, ymax):
-    return new(xmin, xmax, ymin, ymax, PW, PH, pad=(12, 26, 18, 12))
+def p(xmin, xmax, ymin, ymax, w=PW):
+    return new(xmin, xmax, ymin, ymax, w, PH, pad=(12, 26, 18, 12))
 
 
 def harrow(g, y, x0, x1, color="blue"):
@@ -215,7 +215,7 @@ def fig_q3():
     g.curve(lambda t: t * t, x0=-2.1, x1=2.12, width=2)
     tip(g, lambda t: t * t, 2.12, 1)
     tip(g, lambda t: t * t, -2.1, -1)
-    g.xticks([(2, "2")]).label(0.12, 3.9, "y = x²", anchor="start", size=10.5, italic=True)
+    g.xticks([(2, "2")]).label(0.25, 3.9, "y = x²", anchor="start", size=10, italic=True)
     pan.append(("c", g))
     g = p(-0.6, 5, -0.6, 2.6)        # d: y = sqrt x from 2 to 4
     g.fill(lambda t: sqrt(t), lambda t: 0.0, 2, 4)
@@ -231,7 +231,7 @@ def fig_q3():
     g.fill(s, lambda t: 0.0, 0, 2)
     edge(g, s, lambda t: 0.0, 0, 2)
     g.curve(s, x0=-2, x1=2, width=2, n=800)
-    g.xticks([(-2, "-2"), (2, "2")]).label(0, 2, "2", dx=-7, dy=-8, size=11).label(0.8, 2.2, "y = √(4 − x²)", anchor="start", size=10.5, italic=True)
+    g.xticks([(-2, "-2"), (2, "2")]).label(0, 2, "2", dx=-7, dy=-8, size=11).label(0.55, 2.4, "y = √(4 − x²)", anchor="start", size=9.5, italic=True)
     pan.append(("e", g))
     c = lambda t: t ** 3
     g = p(-1.6, 1.6, -2.2, 2.2)      # f: y = x^3 from -1 to 0
@@ -251,18 +251,15 @@ def fig_q3():
     tip(g, ln, 0.3, 1)
     tip(g, ln, -5.7, -1)
     g.vline(-5, -3, 0, color="blue", dash="", width=1.2)
-    g.label(-5, 0, "-5", dy=-10, size=11).label(-2, 0, "-2", dx=-9, dy=-10, size=11).label(-1.9, -2.7, "y = x + 2", anchor="start", size=10.5, italic=True)
+    g.label(-5, 0, "-5", dy=-10, size=11).label(-2, 0, "-2", dx=-9, dy=-10, size=11).label(-4.7, -3.45, "y = x + 2", anchor="start", size=10, italic=True)
     pan.append(("g", g))
     e = lambda t: sqrt(max(0.0, 4 - 4 * t * t / 9))
-    g = p(-3.8, 3.8, -1.4, 2.8)      # h: half ellipse
+    g = p(-3.8, 3.8, -2.0, 2.8)      # h: half ellipse
     g.fill(e, lambda t: 0.0, -3, 3)
     edge(g, e, lambda t: 0.0, -3, 3)
     g.curve(e, x0=-3, x1=3, width=2, n=800)
     g.xticks([(-3, "-3"), (3, "3")]).label(0, 2, "2", dx=-7, dy=-9, size=11)
-    yl = g.Y(-0.95)
-    g.items.append(_txt(g.X(0.15), yl, "y² = 4 −", "start", size=10.5, italic=True))
-    g.items.append(_txt(g.X(0.15) + 50, yl, "4/9", "start", size=10))
-    g.items.append(_txt(g.X(0.15) + 62, yl, "x²", "start", size=10.5, italic=True))
+    g.label(-3.3, -1.5, "y² = 4 − ⁴⁄₉x²", anchor="start", size=10.5, italic=True)
     pan.append(("h", g))
     row("q12f_q3b", pan)
 
@@ -295,26 +292,26 @@ def fig_q4():
     g.hline(5, color="blue", dash="", x0=0, x1=25, width=1.2).hline(2, color="blue", dash="", x0=0, x1=4, width=1.2)
     g.label(0, 5, "5", dx=-7, size=11).label(0, 2, "2", dx=-7, size=11).label(16, 2.6, "x = y²", anchor="start", size=11, italic=True)
     pan.append(("c", g))
-    g = p(-1.2, 2.2, -0.4, 3.4)      # d: x = sqrt y, 0 <= y <= 1
+    g = p(-1.2, 2.8, -0.4, 3.4)      # d: x = sqrt y, 0 <= y <= 1
     g.fill_y(lambda y: sqrt(y), lambda y: 0.0, 0, 1)
     edge_y(g, lambda y: sqrt(y), lambda y: 0.0, 0, 1)
     g.curve(lambda t: t * t, x0=0, x1=1.8, width=2)
     tip(g, lambda t: t * t, 1.8, 1)
     g.hline(1, color="blue", dash="", x0=0, x1=1, width=1.2)
-    g.dot(0, 0, r=2.6).label(0, 1, "1", dx=-7, size=11).label(1.25, 2.4, "x = √y", anchor="start", size=11, italic=True)
+    g.dot(0, 0, r=2.6).label(0, 1, "1", dx=-7, size=11).label(1.5, 1.05, "x = √y", anchor="start", size=11, italic=True)
     pan.append(("d", g))
     row("q12f_q4a", pan)
     pan = []
     s = lambda y: sqrt(max(0.0, 16 - y * y))
-    g = p(-3.5, 6, -5, 5)            # e: x = sqrt(16 - y^2)
+    g = p(-6.5, 6, -5, 5, w=190)     # e: x = sqrt(16 - y^2)
     g.fill_y(s, lambda y: 0.0, -4, 4)
     edge_y(g, s, lambda y: 0.0, -4, 4)
     curve_y(g, s, -4, 4, n=800)
     g.label(0, 4, "4", dx=-7, size=11).label(0, -4, "-4", dx=-9, size=11).label(4, 0, "4", dx=7, dy=-9, size=11)
-    g.label(-0.2, -1.2, "x = √(16 − y²)", anchor="end", size=10.5, italic=True)
+    g.label(-0.5, 2.6, "x =", anchor="end", size=10.5, italic=True).label(-0.5, 1.5, "√(16 − y²)", anchor="end", size=10.5, italic=True)
     pan.append(("e", g))
     q = lambda y: -y * y
-    g = p(-12, 1.2, -4, 4)           # f: x = -y^2, -3 <= y <= 0
+    g = p(-12, 1.2, -4, 4, w=130)           # f: x = -y^2, -3 <= y <= 0
     g.fill_y(lambda y: 0.0, q, -3, 0)
     edge_y(g, lambda y: 0.0, q, -3, 0)
     curve_y(g, q, -3.3, 3.3)
@@ -324,16 +321,16 @@ def fig_q4():
     g.label(0, -3, "-3", dx=8, anchor="start", size=11).label(-6, 1.8, "x = −y²", anchor="end", size=11, italic=True)
     pan.append(("f", g))
     r = lambda y: 2 * y - y * y
-    g = p(-3.2, 1.8, -1.6, 3.6)      # g: x = 2y - y^2, 0 <= y <= 2
+    g = p(-3.2, 1.8, -1.6, 3.6, w=130)      # g: x = 2y - y^2, 0 <= y <= 2
     g.fill_y(r, lambda y: 0.0, 0, 2)
     edge_y(g, r, lambda y: 0.0, 0, 2)
     curve_y(g, r, -1.3, 3.3)
     arrow_y(g, r, 3.3, 1)
     arrow_y(g, r, -1.3, -1)
-    g.label(0, 2, "2", dx=7, dy=-6, anchor="start", size=11).label(-0.4, 0.55, "x = 2y − y²", anchor="end", size=10.5, italic=True)
+    g.label(0, 2, "2", dx=7, dy=-6, anchor="start", size=11).label(-0.4, 1.0, "x = 2y − y²", anchor="end", size=10.5, italic=True)
     pan.append(("g", g))
     e = lambda y: sqrt(max(0.0, 4 - 4 * y * y))
-    g = p(-1.2, 2.8, -1.5, 1.6)      # h: x = sqrt(4 - 4y^2)
+    g = p(-1.2, 2.8, -1.5, 1.6, w=130)      # h: x = sqrt(4 - 4y^2)
     g.fill_y(e, lambda y: 0.0, -1, 1)
     edge_y(g, e, lambda y: 0.0, -1, 1)
     curve_y(g, e, -1, 1, n=800)
@@ -353,7 +350,7 @@ def fig_q16():
     tip(g, lambda t: t * t, 2.12, 1)
     tip(g, lambda t: t * t, -2.1, -1)
     g.vline(2, 0, 4, color="blue", dash="", width=1.2)
-    g.xticks([(2, "2")]).label(0.9, 3.4, "y = x²", anchor="end", size=11, italic=True)
+    g.xticks([(2, "2")]).label(0.25, 3.9, "y = x²", anchor="start", size=10, italic=True)
     pan.append(("a", g))
     g = p(-0.9, 2.2, -1.5, 6.2)      # b
     g.fill(lambda t: 5.0, lambda t: 5 * t, 0, 1)
@@ -371,7 +368,7 @@ def fig_q16():
     arrow_y(g, lambda y: y * y, 2.25, 1)
     arrow_y(g, lambda y: y * y, -1.7, -1)
     g.vline(4, 0, 2, color="blue", dash="", width=1.2)
-    g.xticks([(4, "4")]).label(1.6, 2.1, "x = y²", anchor="end", size=11, italic=True)
+    g.xticks([(4, "4")]).label(1.9, 2.55, "x = y²", anchor="start", size=10.5, italic=True)
     pan.append(("c", g))
     g = p(-1.8, 1.8, -0.5, 5.4)      # d
     g.fill(lambda t: 4.0, lambda t: t * t + 3, 0, 1)
@@ -380,7 +377,7 @@ def fig_q16():
     tip(g, lambda t: t * t + 3, 1.45, 1)
     tip(g, lambda t: t * t + 3, -1.45, -1)
     g.hline(4, color="blue", dash="", x0=0, x1=1, width=1.2)
-    g.label(0, 4, "4", dx=-7, size=11).label(0, 3, "3", dx=-7, dy=4, size=11).label(0.2, 1.6, "y = x² + 3", anchor="start", size=10.5, italic=True)
+    g.label(0, 4, "4", dx=-7, size=11).label(0, 3, "3", dx=-8, dy=11, size=11).label(0.45, 1.7, "y = x² + 3", anchor="start", size=10, italic=True)
     pan.append(("d", g))
     row("q12f_q16", pan)
 
