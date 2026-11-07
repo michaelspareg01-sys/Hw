@@ -1,0 +1,290 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Revision</div><h2>Derivatives, log laws, radians and integration basics</h2>
+<div class="focus">Every integral in Part 2 is found by reversing a derivative. This section reviews the standard derivatives of \(e^x\), \(\log_e x\), \(a^x\), \(\sin x\), \(\cos x\) and \(\tan x\) (Sections 6B, 6G, 6K and 7B), the log laws, radian measure and the exact values, and the integration basics from Part 1. Keep these pages open while you work through the lessons.</div></div>
+
+<style>
+table.steps { border-collapse:collapse; margin:1mm 0 1.5mm 5mm; }
+table.steps td { padding:0.5mm 1.6mm; vertical-align:middle; }
+table.steps td:first-child { text-align:right; white-space:nowrap; }
+table.steps td.r { color:var(--ink-soft); }
+table.ev { border-collapse:collapse; margin:1mm 0 2mm; font-size:10pt; }
+table.ev th, table.ev td { border:1px solid var(--line-strong); padding:0.8mm 2.6mm; text-align:center; }
+table.ev th { background:#f3f5f8; }
+ul.keep > li { break-inside:avoid; }
+</style>
+{{sec:violet:loop:Summary:keep these pages open while you work}}
+<div class="box formula"><div class="bt">Three standard derivatives for exponential functions (6B)</div>
+<p>Two standard forms were established in Chapter 11 (Year 11). The second one needs the chain rule with \(u=ax+b\). For other functions of \(x\) in the index, use the chain rule, or learn it as a formula in one of its two forms.</p>
+\[\dfrac{d}{dx}\,e^x=e^x\qquad\qquad\dfrac{d}{dx}\,e^{ax+b}=a\,e^{ax+b}\qquad\qquad\dfrac{d}{dx}\,e^u=e^u\,\dfrac{du}{dx}\quad\text{OR}\quad\dfrac{d}{dx}\,e^{f(x)}=e^{f(x)}f'(x)\]
+<p>A function such as \((e^{2x}-3)^4\) also needs the formula for differentiating powers of functions of \(x\) (Section 5I):</p>
+\[\dfrac{d}{dx}\,u^n=nu^{n-1}\dfrac{du}{dx}\qquad\text{OR}\qquad\dfrac{d}{dx}\big(f(x)\big)^n=n\big(f(x)\big)^{n-1}f'(x).\]
+<p>Products such as \(x^3e^x\) use the product rule, and quotients such as \(\dfrac{e^{5x}}{x}\) use the quotient rule, as usual.</p></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 4 (6B)</span></div><div class="ex-body">
+Differentiate:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(y=e^x+e^{-x}\)</span><span><span class="pl">b</span>\(y=5e^{4x-3}\)</span><span><span class="pl">c</span>\(y=e^{2-\frac12x}\)</span><span><span class="pl">d</span>\(y=\sqrt{e^x}+\dfrac{1}{\sqrt{e^x}}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Given \(y=e^x+e^{-x}\).<br>For \(e^{-x}\), \(a=-1\) and \(b=0\),<br>so \(\quad y'=e^x-e^{-x}.\)</p>
+<p><b>c</b> Given \(y=e^{2-\frac12x}\).<br>Here \(a=-\tfrac12\) and \(b=2\),<br>so \(\quad y'=-\tfrac12e^{2-\frac12x}.\)</p>
+</div><div>
+<p><b>b</b> Given \(y=5e^{4x-3}\).<br>Here \(a=4\) and \(b=-3\),<br>so \(\quad y'=20e^{4x-3}.\)</p>
+<p><b>d</b> Here \(\ y=\sqrt{e^x}+\dfrac{1}{\sqrt{e^x}}\)<br><span style="margin-left:9.5mm">\(y=e^{\frac12x}+e^{-\frac12x},\)</span><br>so \(\quad y'=\tfrac12e^{\frac12x}-\tfrac12e^{-\frac12x}.\)</p>
+</div></div>
+</div></div>
+
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 5 (6B)</span></div><div class="ex-body">
+Use the chain rule to differentiate:
+<div class="parts"><span><span class="pl">a</span>\(y=e^{1-x^2}\)</span><span><span class="pl">b</span>\(y=(e^{2x}-3)^4\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Here \(y=e^{1-x^2}\).<br>Applying the chain rule,</p>
+<p style="margin-left:5mm">\(\begin{aligned}[t]\dfrac{dy}{dx}&=\dfrac{dy}{du}\times\dfrac{du}{dx}\\&=-2x\,e^{1-x^2}.\end{aligned}\)</p>
+</div><div style="border-left:1.4px solid var(--line-strong);padding-left:4mm">
+<p>Let \(u=1-x^2\).<br>Then \(y=e^u\).<br>Hence \(\dfrac{du}{dx}=-2x\)<br>and \(\dfrac{dy}{du}=e^u\).</p>
+</div></div>
+<div class="split"><div>
+<p><b>b</b> Here \(y=(e^{2x}-3)^4\).<br>Applying the chain rule,</p>
+<p style="margin-left:5mm">\(\begin{aligned}[t]\dfrac{dy}{dx}&=\dfrac{dy}{du}\times\dfrac{du}{dx}\\&=4(e^{2x}-3)^3\times2e^{2x}\\&=8e^{2x}(e^{2x}-3)^3.\end{aligned}\)</p>
+</div><div style="border-left:1.4px solid var(--line-strong);padding-left:4mm">
+<p>Let \(u=e^{2x}-3\).<br>Then \(y=u^4\).<br>Hence \(\dfrac{du}{dx}=2e^{2x}\)<br>and \(\dfrac{dy}{du}=4u^3\).</p>
+</div></div>
+</div></div>
+
+<div class="box formula"><div class="bt">The derivative of the logarithmic function (6F, 6G)</div>
+<div class="split"><div>
+<p>The function \(y=\log_e x\) (also written \(\ln x\)) is the inverse function of \(y=e^x\), so the two graphs are reflections of each other in the line \(y=x\). The important features of \(y=\log_e x\) are:</p>
+<ul><li>The domain is \(x\gt0\) and the range is all real numbers.</li>
+<li>The \(x\)-intercept is 1, and the gradient there is 1.</li>
+<li>The \(y\)-axis is a vertical asymptote.</li>
+<li>As \(x\to\infty\), \(y\to\infty\).</li>
+<li>Throughout its whole domain, \(\log_e x\) is increasing at a decreasing rate.</li></ul>
+</div><div>{{svg:exp_log}}</div></div>
+<p><b>Proof that the derivative is the reciprocal function.</b></p>
+<table class="steps">
+<tr><td>Let</td><td>\(y=\log_e x.\)</td><td class="r"></td></tr>
+<tr><td>Then</td><td>\(x=e^y,\)</td><td class="r">by the definition of logarithms.</td></tr>
+<tr><td>Differentiating,</td><td>\(\dfrac{dx}{dy}=e^y,\)</td><td class="r">because the exponential function is its own derivative,</td></tr>
+<tr><td></td><td>\(\phantom{\dfrac{dx}{dy}}=x,\)</td><td class="r">because \(e^y=x\),</td></tr>
+<tr><td>and taking reciprocals,</td><td>\(\dfrac{dy}{dx}=\dfrac1x.\)</td><td class="r"></td></tr></table>
+<p>Hence the derivative of the logarithmic function is the reciprocal function.</p>
+<p><b>Three standard forms for differentiating logarithmic functions</b> (the second and third come from the chain rule, as in Textbook Example 27):</p>
+\[\dfrac{d}{dx}\log_e x=\dfrac1x\qquad\quad\dfrac{d}{dx}\log_e(ax+b)=\dfrac{a}{ax+b}\qquad\quad\dfrac{d}{dx}\log_e u=\dfrac{u'}{u}\quad\text{OR}\quad\dfrac{d}{dx}\log_e f(x)=\dfrac{f'(x)}{f(x)}\]
+<p>The third form will be needed later for integration (Lesson 6I).</p></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 28 (6G)</span></div><div class="ex-body">
+Using the standard forms developed above, differentiate:
+<div class="parts three"><span><span class="pl">a</span>\(y=\log_e(4x-9)\)</span><span><span class="pl">b</span>\(y=\log_e(1-\tfrac12x)\)</span><span><span class="pl">c</span>\(y=\log_e(4+x^2)\)</span></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b> For \(y=\log_e(4x-9)\), use the second standard form with \(ax+b=4x-9\).<br>Thus \(\ y'=\dfrac{4}{4x-9}.\)</p>
+<p><b>b</b> For \(y=\log_e(1-\tfrac12x)\), use the second standard form with \(ax+b=-\tfrac12x+1\).</p>
+<table class="steps">
+<tr><td>Thus</td><td>\(y'=\dfrac{-\frac12}{-\frac12x+1}\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(\phantom{y'}=\dfrac{1}{x-2},\)</td><td class="r">after multiplying top and bottom by \(-2\).</td></tr></table>
+<div class="split"><div>
+<p><b>c</b> For \(y=\log_e(4+x^2)\),</p>
+<p style="margin-left:5mm">\(y'=\dfrac{2x}{4+x^2}.\)</p>
+<p class="small">Alternatively, use the chain rule.</p>
+</div><div style="border-left:1.4px solid var(--line-strong);padding-left:4mm">
+<p>Let \(u=4+x^2\).<br>Then \(u'=2x\).<br>\(\dfrac{d}{dx}\log_e u=\dfrac{u'}{u}\)<br>OR let \(f(x)=4+x^2\), then \(f'(x)=2x\) and \(\dfrac{d}{dx}\log_e f(x)=\dfrac{f'(x)}{f(x)}\).</p>
+</div></div>
+</div></div>
+
+<div class="box formula"><div class="bt">Exponential and logarithmic functions with other bases (6K)</div>
+<p>Throughout, the base \(a\) is positive and not equal to 1. Lesson 6K teaches this in full; here are the facts you will meet first.</p>
+<ul><li>Every positive real number can be written as a power of \(e\): \(\ a=e^{\log_e a}\).</li>
+<li>Every exponential function can be written as an exponential function base \(e\): \(\ a^x=e^{x\log_e a}\).</li>
+<li>Every logarithmic function is a multiple of \(\log_e x\): \(\ \log_a x=\dfrac{\log_e x}{\log_e a}\) (the change-of-base formula).</li></ul>
+<p><b>Differentiating \(a^x\).</b> Write the function as a power of \(e\), then differentiate:</p>
+<table class="steps">
+<tr><td>First,</td><td>\(a^x=e^{x\log_e a}.\)</td><td class="r"></td></tr>
+<tr><td>Differentiating,</td><td>\(\dfrac{d}{dx}\,a^x=\dfrac{d}{dx}\,e^{x\log_e a}\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(\phantom{\dfrac{d}{dx}\,a^x}=e^{x\log_e a}\times\log_e a,\)</td><td class="r">because \(\dfrac{d}{dx}\,e^{kx}=k\,e^{kx}\),</td></tr>
+<tr><td></td><td>\(\phantom{\dfrac{d}{dx}\,a^x}=a^x\log_e a,\)</td><td class="r">because \(e^{x\log_e a}=a^x\).</td></tr></table>
+\[\dfrac{d}{dx}\,a^x=a^x\log_e a\qquad\text{and}\qquad\dfrac{d}{dx}\log_a x=\dfrac{1}{x\log_e a}\]
+<p>The constant \(\log_e a\) is 1 when \(a=e\), so the formulae are simplest when the base is \(e\).</p></div>
+
+<div class="box formula"><div class="bt">Standard derivatives of the trigonometric functions (7B)</div>
+<p>In calculus, angles are always in radians. With radian measure, the tangent to \(y=\sin x\) at the origin has gradient exactly 1, just as the tangent to \(y=e^x\) at its \(y\)-intercept has gradient exactly 1.</p>
+<div class="split"><div>
+<p><b>Standard derivatives of trigonometric functions</b></p>
+\[\begin{aligned}\dfrac{d}{dx}\sin x&=\cos x\\\dfrac{d}{dx}\cos x&=-\sin x\\\dfrac{d}{dx}\tan x&=\sec^2x\end{aligned}\]
+</div><div>
+<p><b>Standard derivatives of functions of \(ax+b\)</b><br>(the chain rule with \(u=ax+b\))</p>
+\[\begin{aligned}\dfrac{d}{dx}\sin(ax+b)&=a\cos(ax+b)\\\dfrac{d}{dx}\cos(ax+b)&=-a\sin(ax+b)\\\dfrac{d}{dx}\tan(ax+b)&=a\sec^2(ax+b)\end{aligned}\]
+</div></div>
+<p><b>Differentiation of trigonometric functions as phase shift</b></p>
+<ul><li>Differentiation of \(y=\sin x\) and \(y=\cos x\) shifts each curve left \(\frac{\pi}{2}\), advancing the phase \(\frac{\pi}{2}\):
+\[\dfrac{d}{dx}\sin x=\cos x=\sin\big(x+\tfrac{\pi}{2}\big)\qquad\text{and}\qquad\dfrac{d}{dx}\cos x=-\sin x=\cos\big(x+\tfrac{\pi}{2}\big)\]</li>
+<li>The second derivatives of \(\sin x\) and \(\cos x\) reflect each curve in the \(x\)-axis:
+\[\dfrac{d^2}{dx^2}\sin x=-\sin x\qquad\text{and}\qquad\dfrac{d^2}{dx^2}\cos x=-\cos x\]</li>
+<li>Differentiation of \(\sin x\) and \(\cos x\) has order 4:
+\[\dfrac{d^4}{dx^4}\sin x=\sin x\qquad\text{and}\qquad\dfrac{d^4}{dx^4}\cos x=\cos x\]</li></ul>
+<p>Other compound functions, products and quotients use the chain, product and quotient rules as usual.</p></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 4 (7B)</span></div><div class="ex-body">
+Differentiate these functions.
+<div class="parts"><span><span class="pl">a</span>\(y=\sin x+\cos x\)</span><span><span class="pl">b</span>\(y=x-\tan x\)</span></div>
+Hence find the gradient of each curve when \(x=\frac{\pi}{4}\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b></p><table class="steps">
+<tr><td>The function is</td><td>\(y=\sin x+\cos x.\)</td></tr>
+<tr><td>Differentiating,</td><td>\(y'=\cos x-\sin x.\)</td></tr>
+<tr><td>When \(x=\frac{\pi}{4}\),</td><td>\(y'=\cos\frac{\pi}{4}-\sin\frac{\pi}{4}\)</td></tr>
+<tr><td></td><td>\(\phantom{y'}=\dfrac{1}{\sqrt2}-\dfrac{1}{\sqrt2}\)</td></tr>
+<tr><td></td><td>\(\phantom{y'}=0.\)</td></tr></table>
+</div><div>
+<p><b>b</b></p><table class="steps">
+<tr><td>The function is</td><td>\(y=x-\tan x.\)</td></tr>
+<tr><td>Differentiating,</td><td>\(y'=1-\sec^2x.\)</td></tr>
+<tr><td>When \(x=\frac{\pi}{4}\),</td><td>\(y'=1-\sec^2\frac{\pi}{4}\)</td></tr>
+<tr><td></td><td>\(\phantom{y'}=1-\big(\sqrt2\big)^2\)</td></tr>
+<tr><td></td><td>\(\phantom{y'}=-1.\)</td></tr></table>
+</div></div>
+</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 7 (7B)</span></div><div class="ex-body">
+Use the extended standard forms given in the box above to differentiate:
+<div class="parts three"><span><span class="pl">a</span>\(y=\cos7x\)</span><span><span class="pl">b</span>\(y=4\sin\big(3x-\tfrac{\pi}{3}\big)\)</span><span><span class="pl">c</span>\(y=\tan\tfrac32x\)</span></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b> The function is \(y=\cos7x\), so \(a=7\) and \(b=0\),<br>and \(\ \dfrac{dy}{dx}=-7\sin7x.\)</p>
+<p><b>b</b> The function is \(y=4\sin\big(3x-\tfrac{\pi}{3}\big)\), so \(a=3\) and \(b=-\tfrac{\pi}{3}\),<br>and \(\ \dfrac{dy}{dx}=12\cos\big(3x-\tfrac{\pi}{3}\big).\)</p>
+<p><b>c</b> The function is \(y=\tan\tfrac32x\), so \(a=\tfrac32\) and \(b=0\),<br>and \(\ \dfrac{dy}{dx}=\tfrac32\sec^2\tfrac32x.\)</p>
+</div></div>
+
+<div class="box formula"><div class="bt">Log laws, the inverse identities and change of base (Year 11 Advanced 7D, 6F)</div>
+<p>\(\log_a x=y\) means \(x=a^y\). ‘The log is the index, when the number is written as a power of the base.’ In this course, \(\ln x\) means \(\log_e x\). On the calculator, the <b>ln</b> key means \(\log_e x\) and the <b>log</b> key means \(\log_{10}x\).</p>
+<p><b>Three laws for logarithms</b></p>
+<div class="parts three" style="margin:0 0 2mm 2mm">
+<span><b>1</b> The log of a product is the sum of the logs:<br>\(\log_a xy=\log_a x+\log_a y\)</span>
+<span><b>2</b> The log of a quotient is the difference of the logs:<br>\(\log_a\dfrac xy=\log_a x-\log_a y\)</span>
+<span><b>3</b> The log of a power is the multiple of the log:<br>\(\log_a x^n=n\log_a x\)</span></div>
+<p><b>Some particular values and identities</b></p>
+<div class="parts" style="margin:0 0 2mm 2mm">
+<span>\(\log_a1=0\), because \(1=a^0\).</span>
+<span>\(\log_a a=1\), because \(a=a^1\).</span>
+<span>\(\log_a\sqrt a=\tfrac12\), because \(\sqrt a=a^{\frac12}\).</span>
+<span>\(\log_a\tfrac1a=-1\), because \(\tfrac1a=a^{-1}\).</span>
+<span style="grid-column:1 / span 2">\(\log_a\tfrac1x=-\log_a x\), because \(\log_a\tfrac1x=\log_a x^{-1}=-\log_a x\).</span></div>
+<p><b>The inverse identities</b> (6F): the composition of \(y=e^x\) and \(y=\log_e x\), in either order, is the identity function,</p>
+\[\log_e e^x=x,\ \text{ for all real }x\qquad\text{and}\qquad e^{\log_e x}=x,\ \text{ for all }x\gt0.\]
+<p><b>The change-of-base formula</b> (6F): suppose that the new base \(b\) is a positive number not equal to 1. Then</p>
+\[\log_b x=\dfrac{\log_e x}{\log_e b}.\]
+<p>‘The log of the number over the log of the base.’</p></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 21 (6F)</span></div><div class="ex-body">
+Simplify:
+<div class="parts" style="grid-template-columns:repeat(6,1fr)"><span><span class="pl">a</span>\(\log_e e^6\)</span><span><span class="pl">b</span>\(\log_e e\)</span><span><span class="pl">c</span>\(\log_e\dfrac1e\)</span><span><span class="pl">d</span>\(\log_e\dfrac{1}{\sqrt e}\)</span><span><span class="pl">e</span>\(e^{\log_e10}\)</span><span><span class="pl">f</span>\(e^{\log_e0.1}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts three">
+<span><b>a</b> \(\log_e e^6=6\)</span>
+<span><b>b</b> \(\log_e e=\log_e e^1=1\)</span>
+<span><b>c</b> \(\log_e\dfrac1e=\log_e e^{-1}=-1\)</span>
+<span><b>d</b> \(\log_e\dfrac{1}{\sqrt e}=\log_e e^{-\frac12}=-\tfrac12\)</span>
+<span><b>e</b> \(e^{\log_e10}=10\)</span>
+<span><b>f</b> \(e^{\log_e0.1}=0.1\)</span></div>
+</div></div>
+
+<div class="box formula"><div class="bt">Radian measure (Year 11 Advanced 9G)</div>
+<p>The size of \(\angle AOB\) in radians is \(\dfrac{\text{arc length }AB}{\text{radius }OA}\), where the circle has centre \(O\). An angle in radians is a pure number, so ‘an angle of size 1.3’ means 1.3 radians.</p>
+<ul><li>Conversions: \(\ 360^\circ=2\pi,\quad180^\circ=\pi,\quad90^\circ=\tfrac{\pi}{2}\).</li>
+<li>To convert from radians to degrees, multiply by \(\dfrac{180^\circ}{\pi}\). To convert from degrees to radians, multiply by \(\dfrac{\pi}{180}\).</li>
+<li>\(1\text{ radian}=\dfrac{180^\circ}{\pi}\doteq57^\circ18'\) and \(1\text{ degree}=\dfrac{\pi}{180}\doteq0.0175\).</li>
+<li>Always decide whether the calculator should be in radians mode or degrees mode before using any trigonometric function. In calculus, use radians mode.</li></ul></div>
+
+<div class="box formula"><div class="bt">Exact values and angles of any size (Year 11 Advanced 5A, 5D, 5E, 9G)</div>
+<div class="split" style="grid-template-columns:1.25fr 1fr"><div>
+<p><b>Special angles</b> \(\ \frac{\pi}{6}=30^\circ,\ \frac{\pi}{4}=45^\circ,\ \frac{\pi}{3}=60^\circ\), from half a square and half an equilateral triangle:</p>
+{{svg:special}}
+<table class="ev"><tr><th>\(\theta\)</th><th>\(\sin\theta\)</th><th>\(\cos\theta\)</th><th>\(\tan\theta\)</th></tr>
+<tr><td>\(\frac{\pi}{6}\)</td><td>\(\frac12\)</td><td>\(\frac{\sqrt3}{2}\)</td><td>\(\frac{1}{\sqrt3}\)</td></tr>
+<tr><td>\(\frac{\pi}{4}\)</td><td>\(\frac{1}{\sqrt2}\)</td><td>\(\frac{1}{\sqrt2}\)</td><td>\(1\)</td></tr>
+<tr><td>\(\frac{\pi}{3}\)</td><td>\(\frac{\sqrt3}{2}\)</td><td>\(\frac12\)</td><td>\(\sqrt3\)</td></tr></table>
+</div><div>
+<p><b>The boundary angles</b> (read them off the graphs; * means undefined):</p>
+<table class="ev"><tr><th>\(\theta\)</th><th>\(0\)</th><th>\(\frac{\pi}{2}\)</th><th>\(\pi\)</th><th>\(\frac{3\pi}{2}\)</th></tr>
+<tr><td>\(\sin\theta\)</td><td>0</td><td>1</td><td>0</td><td>\(-1\)</td></tr>
+<tr><td>\(\cos\theta\)</td><td>1</td><td>0</td><td>\(-1\)</td><td>0</td></tr>
+<tr><td>\(\tan\theta\)</td><td>0</td><td>*</td><td>0</td><td>*</td></tr></table>
+{{svg:astc}}
+</div></div>
+<p><b>Trigonometric functions of any angle.</b> ‘All Stations To Central’: in the four quadrants, A means all six functions are positive, S means only sine (and cosecant), T means only tangent (and cotangent), C means only cosine (and secant). Draw a quadrant diagram, place the ray in the correct quadrant and use the ASTC rule for the sign. Then find the related acute angle and evaluate the function at the related angle. The reciprocal functions are \(\sec\theta=\dfrac{1}{\cos\theta}\), \(\operatorname{cosec}\theta=\dfrac{1}{\sin\theta}\) and \(\cot\theta=\dfrac{1}{\tan\theta}\).</p></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Year 11 Advanced Example 15 (9G)</span></div><div class="ex-body">
+Use special angles to evaluate these trigonometric functions.
+<div class="parts"><span><span class="pl">a</span>\(\sin\dfrac{5\pi}{4}\)</span><span><span class="pl">b</span>\(\sec\dfrac{11\pi}{6}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Because \(\frac{5\pi}{4}\) is in the third quadrant, with related angle \(\frac{\pi}{4}\),</p>
+<div style="display:flex;gap:4mm;align-items:flex-start"><p style="margin-left:5mm">\(\begin{aligned}[t]\sin\tfrac{5\pi}{4}&=-\sin\tfrac{\pi}{4}\\&=-\sin45^\circ\\&=-\dfrac{1}{\sqrt2}.\end{aligned}\)</p>{{svg:q5pi4}}</div>
+</div><div>
+<p><b>b</b> Because \(\frac{11\pi}{6}\) is in the fourth quadrant, with related angle \(\frac{\pi}{6}\),</p>
+<div style="display:flex;gap:4mm;align-items:flex-start"><p style="margin-left:5mm">\(\begin{aligned}[t]\sec\tfrac{11\pi}{6}&=+\sec\tfrac{\pi}{6}\\&=\dfrac{1}{\cos\frac{\pi}{6}}\\&=\dfrac{1}{\cos30^\circ}\\&=\dfrac{2}{\sqrt3}.\end{aligned}\)</p>{{svg:q11pi6}}</div>
+</div></div>
+</div></div>
+
+<div class="box formula" style="break-inside:auto"><div class="bt">Integration basics from Part 1 (5B–5I)</div>
+<ul class="keep"><li>A function \(F(x)\) is a <b>primitive</b> (or <b>indefinite integral</b>) of \(f(x)\) if \(F'(x)=f(x)\). The constant of integration \(C\) must always be included, except in definite integrals, where any primitive can be used.</li>
+<li><b>Standard forms for integration.</b> Suppose that \(n\ne-1\). Then, for some constant \(C\),
+\[\int x^n\,dx=\dfrac{x^{n+1}}{n+1}+C\qquad\text{and}\qquad\int(ax+b)^n\,dx=\dfrac{(ax+b)^{n+1}}{a(n+1)}+C.\]
+‘Increase the index by 1 and divide by the new index.’ The index \(-1\) is excluded, because the rule would divide by zero: \(\displaystyle\int x^{-1}\,dx\) is found in Lesson 6I.</li>
+<li><b>The fundamental theorem of calculus.</b> Let \(f(x)\) be continuous in a closed interval \([a,b]\). Then
+\[\int_a^b f(x)\,dx=\Big[F(x)\Big]_a^b=F(b)-F(a),\quad\text{where }F(x)\text{ is any primitive of }f(x).\]
+Substitute the upper limit, then the lower limit, and subtract. Whenever the primitive has two or more terms, use brackets for each substitution, and never omit a substitution of 0.</li>
+<li><b>Signed areas.</b> \(\displaystyle\int_a^b f(x)\,dx\) is the sum of the signed areas: \(+\) for regions above the \(x\)-axis and \(-\) for regions below it.</li>
+<li><b>Properties.</b> Intervals of zero width, reversing the interval, and dissection of the interval:
+\[\int_a^a f(x)\,dx=0\qquad\int_b^a f(x)\,dx=-\int_a^b f(x)\,dx\qquad\int_a^b f(x)\,dx=\int_a^c f(x)\,dx+\int_c^b f(x)\,dx\]
+The integral of a sum and the integral of a multiple:
+\[\int_a^b\big(f(x)+g(x)\big)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx\qquad\quad\int_a^b kf(x)\,dx=k\int_a^b f(x)\,dx\]
+Odd and even functions: if \(f(x)\) is odd, then \(\displaystyle\int_{-a}^a f(x)\,dx=0\). If \(f(x)\) is even, then \(\displaystyle\int_{-a}^a f(x)\,dx=2\int_0^a f(x)\,dx\).</li>
+<li><b>Finding an area.</b> 1. Draw a sketch of the curves, showing relevant intercepts and intersections. 2. Create and evaluate the necessary definite integral or integrals. 3. Write a conclusion, giving the required area in square units. If \(f(x)\le g(x)\) for \(a\le x\le b\), then the area between the curves is \(\displaystyle\int_a^b\big(g(x)-f(x)\big)\,dx\): the top curve minus the bottom curve.</li>
+<li><b>The reverse chain rule.</b> Once a chain-rule differentiation has been performed, the result can be written down in reverse as an indefinite integral. As a formula,
+\[\int u^n\,\dfrac{du}{dx}\,dx=\dfrac{u^{n+1}}{n+1}+C\qquad\text{OR}\qquad\int\big(f(x)\big)^nf'(x)\,dx=\dfrac{\big(f(x)\big)^{n+1}}{n+1}+C.\]
+The vital step is to identify \(u\) or \(f(x)\) and its derivative.</li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 22 (5F)</span></div><div class="ex-body">
+Find the area of the region bounded by the curve \(y=4-x^2\) and the \(x\)-axis.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.5fr 1fr"><div>
+<p>The curve meets the \(x\)-axis at \((2,0)\) and \((-2,0)\).<br>The region lies entirely above the \(x\)-axis and the relevant integral is</p>
+<p style="margin-left:5mm">\(\begin{aligned}[t]\int_{-2}^{2}(4-x^2)\,dx&=\Big[4x-\dfrac{x^3}{3}\Big]_{-2}^{2}\\&=\big(8-\tfrac83\big)-\big(-8+\tfrac83\big)\\&=5\tfrac13-\big(-5\tfrac13\big)\\&=10\tfrac23,\end{aligned}\)</p>
+<p>which is positive because the curve lies entirely above the \(x\)-axis.<br>Hence the required area is \(10\tfrac23\) square units.</p>
+</div><div>{{svg:ex22}}</div></div>
+</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 36 (5I)</span></div><div class="ex-body">
+<b>a</b> Differentiate \((x^3+5)^4\) with full setting-out of the chain rule.<br>
+<b>b</b> Hence find a primitive of \(12x^2(x^3+5)^3\).<br>
+<b>c</b> Hence find the primitive of \(x^2(x^3+5)^3\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b></p><table class="steps">
+<tr><td>Let</td><td>\(y=(x^3+5)^4.\)</td></tr>
+<tr><td>Then</td><td>\(\dfrac{dy}{dx}=\dfrac{dy}{du}\times\dfrac{du}{dx}\)</td></tr>
+<tr><td></td><td>\(\phantom{\dfrac{dy}{dx}}=4(x^3+5)^3\times3x^2\)</td></tr>
+<tr><td></td><td>\(\phantom{\dfrac{dy}{dx}}=12x^2(x^3+5)^3.\)</td></tr></table>
+</div><div style="border-left:1.4px solid var(--line-strong);padding-left:4mm">
+<p>Let \(u=x^3+5\).<br>Then \(y=u^4\).<br>Hence \(\dfrac{du}{dx}=3x^2\)<br>and \(\dfrac{dy}{du}=4u^3\).</p>
+</div></div>
+<p><b>b</b> By part <b>a</b>, \(\ \dfrac{d}{dx}(x^3+5)^4=12x^2(x^3+5)^3\).<br>Reversing this, \(\ \displaystyle\int12x^2(x^3+5)^3\,dx=(x^3+5)^4\).</p>
+<p><b>c</b> Dividing by 12, \(\ \displaystyle\int x^2(x^3+5)^3\,dx=\tfrac{1}{12}(x^3+5)^4+C\), for some constant \(C\).</p>
+<p class="small"><b>Note:</b> It is best not to add the arbitrary constant until the last line, because it would be pointless to divide \(C\) by 12 as well.</p>
+</div></div>
+
+<div class="page-break"></div>
+{{sec:violet:spark:Warm-up:answers are in the answers booklet}}
+<p class="small">Each question is from the textbook exercise named, with some parts left out. Show the standard form or the chain-rule working in each part.</p>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Exercise 6B Q1</span><br>Use the standard form \(\dfrac{d}{dx}\,e^{ax+b}=a\,e^{ax+b}\) to differentiate:
+<div class="parts one"><span><span class="pl">a</span>\(y=4e^{3x}\)</span><span><span class="pl">b</span>\(y=6e^{\frac13x}\)</span><span><span class="pl">c</span>\(y=-\tfrac12e^{-2x}\)</span><span><span class="pl">d</span>\(y=e^{-3x+4}\)</span><span><span class="pl">e</span>\(y=e^{-2x-7}\)</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Exercise 6G Q8</span><br>Use the standard form \(\dfrac{d}{dx}\log_e u=\dfrac{u'}{u}\ \) OR \(\ \dfrac{d}{dx}\log_e f(x)=\dfrac{f'(x)}{f(x)}\) to differentiate:
+<div class="parts one"><span><span class="pl">a</span>\(\log_e(x^2+3x+2)\)</span><span><span class="pl">b</span>\(\log_e(1+2x^3)\)</span><span><span class="pl">c</span>\(\ln(e^x-2)\)</span></div>{{work:38}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Exercise 6G Q12</span><br>Use the log laws to simplify each function, then differentiate it.
+<div class="parts one"><span><span class="pl">a</span>\(y=\log_e5x^3\)</span><span><span class="pl">b</span>\(y=\log_e\sqrt[3]{x}\)</span><span><span class="pl">c</span>\(y=\ln\sqrt{2-x}\)</span><span><span class="pl">d</span>\(y=\log_e2^x\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Exercise 7B Q2</span><br>Differentiate with respect to \(x\).
+<div class="parts one"><span><span class="pl">a</span>\(\sin(2x-1)\)</span><span><span class="pl">b</span>\(2\cos(1-x)\)</span><span><span class="pl">c</span>\(7\sin(2-3x)\)</span><span><span class="pl">d</span>\(6\sin\Big(\dfrac{x+1}{2}\Big)\)</span></div>{{work:38}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Exercise 7B Q4</span><br>If \(f(x)=\cos2x\), find \(f'(x)\) and then find:
+<div class="parts one"><span><span class="pl">a</span>\(f'(0)\)</span><span><span class="pl">b</span>\(f'\big(\tfrac{\pi}{12}\big)\)</span><span><span class="pl">c</span>\(f'\big(\tfrac{\pi}{6}\big)\)</span><span><span class="pl">d</span>\(f'\big(\tfrac{\pi}{4}\big)\)</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Exercise 5B Q4</span><br>Evaluate these definite integrals using the fundamental theorem. You will need to take care when finding powers of negative numbers.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{-2}^{1}3x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-1}^{2}(4x^3+5)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{2}(5x^4+6x^2)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^{-1}(4x^3+12x^2-3)\,dx\)</span></div>{{work:62}}</div></div>
+</div>
