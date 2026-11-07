@@ -31,7 +31,7 @@ cd /home/user/Hw/workspace/build && flock /tmp/claude-0/-home-user-Hw/33fce1a1-2
 python3 -I ../tools/qa.py <chdir>/lesson.pdf ; python3 -I ../tools/qa.py <chdir>/answers.pdf   # 0 problems each
 ```
 - `qa.py` does NOT catch MathJax error boxes: also scan PDF text (PyMuPDF `get_text`) for "Double subscripts", "Double superscripts", "Undefined control sequence", "Missing", "Extra }", "Misplaced", "Math input error" → must be 0.
-- An over-wide table or display makes Chrome shrink the whole PDF (check: the most common body-text span size in BOTH PDFs must be 11.3 pt, measured with PyMuPDF `get_text('dict')`; anything smaller means an element overflows — find it and fix it); keep tables within the box (font-size ≈ 9.8pt if needed) and break long displays.
+- An over-wide table or display makes Chrome shrink the whole PDF (Chrome scales the whole PDF uniformly. Check BOTH PDFs with PyMuPDF `get_text('dict')`: body paragraphs must measure exactly 11.3 pt (box text 9.8 pt). If no span measures 11.3 pt, the PDF is shrunk: find the overflowing element (render the HTML at print width and list elements whose scrollWidth exceeds their box, or bisect by building parts) and fix it); keep tables within the box (font-size ≈ 9.8pt if needed) and break long displays.
 - Look at every page you add (`../tools/sheet.py pdf prefix 0.62 first last`, PNGs into the scratchpad `img/` folder, view with Read). No clipped/overflowing maths, no figure overlap, no stranded heading. Size `{{work:NN}}` to the working needed (avoid half-empty pages, but never cramp).
 - Put each question's parts on separate lines (`.parts one` or `<br>`); example question parts a/b/c on separate lines.
 - New prose: plain short sentences; avoid em dashes.
