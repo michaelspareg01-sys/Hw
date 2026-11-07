@@ -290,7 +290,7 @@ def check_identity(ps, label):
     if any(re.search(r"(?<![a-z\\])d[xu]", p) for p in ps):
         return True
     try:
-        es = [tex(p) for p in ps]
+        es = [tex(brackets(clean(p))) for p in ps]
     except Exception as e:  # noqa: BLE001
         return report(False, f"{label}: parse identity {ps[0][:50]}", e)
     fs = set().union(*[e.free_symbols for e in es])
@@ -459,6 +459,19 @@ def main():
     report(n >= 8, f"lesson chains checked: {n}")
     for k in range(14, 20):
         once(teach, f"Worked example {k}</span>", f"Worked example {k}")
+    # Examples 18 and 19 keep the book's lines; the bracket evaluation is in a titled tip after each
+    once(teach, "Tip: the arithmetic in Example 18</div>", "tip after Example 18")
+    once(teach, "Tip: the bracket in Example 19</div>", "tip after Example 19")
+    ex18 = teach[teach.index("Worked example 18</span>"):teach.index("Tip: the arithmetic in Example 18")]
+    ex19 = teach[teach.index("Worked example 19</span>"):teach.index("Tip: the bracket in Example 19")]
+    report("\\big(0-0\\big)" not in ex18 and ex18.count("\\\\&=") == 4, "Example 18 has the book's 6 pieces only")
+    report("(-1)^7-1^7" not in ex19 and ex19.count("\\\\&=") == 3, "Example 19 has the book's 5 pieces only")
+    ntip = 0
+    for d in displays(teach):
+        if "\\Big[" in d and "\\int" not in d:
+            for ps in chains_of(d):
+                ntip += check_identity(ps, "tip bracket") is True
+    report(ntip == 2, f"two tip bracket evaluations checked: {ntip}")
 
     print("== Lesson Examples C1-C4 (each question printed in its concept's demo / your turn)")
     cons = concept_blocks(teach)

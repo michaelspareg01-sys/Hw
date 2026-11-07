@@ -21,7 +21,7 @@ def fig_q6():
     g.dot(1, 0.5, r=2.6)
     g.xticks([(1, "1"), (2, "2")])
     g.yticks([(0.5, "1/2")])
-    g.label(1.45, f(1.45), "y = x²/(1 + x⁶)", dx=6, dy=-10, anchor="start", size=10, color="blue")
+    g.label(1.75, f(1.75), "y = x²/(1 + x⁶)", dx=4, dy=-24, anchor="start", size=10, color="blue")
     save("a12d_q6", g)
 
 

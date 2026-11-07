@@ -1,6 +1,6 @@
 <div class="lesson">
 <div class="lesson-head"><div class="eyebrow">Lesson 12D</div><h2>Integration by substitution</h2>
-<div class="focus">The reverse chain rule as we have been using it so far does not cover all the situations where the chain rule can be used in integration. This section and the next develop a more general method called <i>integration by substitution</i>. The first stage, covered in this lesson, begins by translating the reverse chain rule into a slightly more flexible notation. It involves substitutions of the form &lsquo;Let \(u=\) some function of \(x\).&rsquo; The new notation then handles integrals that the reverse chain rule does only clumsily, and in a definite integral it lets the limits change from values of \(x\) to values of \(u\).</div></div>
+<div class="focus">The reverse chain rule as we have been using it so far does not cover all the situations where the chain rule can be used in integration. This section and the next develop a more general method called <i>integration by substitution</i>. The first stage, covered in this lesson, begins by translating the reverse chain rule into a slightly more flexible notation. It involves substitutions of the form &lsquo;Let \(u=\) some function of \(x\).&rsquo;</div></div>
 
 <!-- ============ Concept 1 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 1:the reverse chain rule, an example}}
@@ -146,21 +146,26 @@ Find \(\displaystyle\int_{0}^{1}x\sqrt{1-x}\,dx\), using the substitution \(u=1-
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:1.55fr 1fr">
 <div>
-\[\begin{aligned}\int_{0}^{1}x\sqrt{1-x}\,dx&=-\int_{1}^{0}(1-u)\sqrt u\,du\\&=-\int_{1}^{0}\big(u^{\frac12}-u^{\frac32}\big)\,du\\&=-\Big[\tfrac23u^{\frac32}-\tfrac25u^{\frac52}\Big]_{1}^{0}\\&=-\Big(\big(0-0\big)-\big(\tfrac23-\tfrac25\big)\Big)\\&=-0+\big(\tfrac23-\tfrac25\big)\\&=\tfrac{4}{15}\end{aligned}\]
+\[\begin{aligned}\int_{0}^{1}x\sqrt{1-x}\,dx&=-\int_{1}^{0}(1-u)\sqrt u\,du\\&=-\int_{1}^{0}\big(u^{\frac12}-u^{\frac32}\big)\,du\\&=-\Big[\tfrac23u^{\frac32}-\tfrac25u^{\frac52}\Big]_{1}^{0}\\&=-0+\big(\tfrac23-\tfrac25\big)\\&=\tfrac{4}{15}\end{aligned}\]
 </div><div style="border-left:1px solid var(--line);padding-left:3mm">
 <p style="line-height:2.3">Let \(u=1-x\).<br>Then \(du=-dx\),<br>and \(x=1-u\).<br>When \(x=0\), \(u=1\),<br>when \(x=1\), \(u=0\).</p>
 </div></div></div></div>
 <div class="box tip"><div class="bt">Tip: the arithmetic in Example 18</div>
+<p>The bracket is the value at the upper limit minus the value at the lower limit:</p>
+\[-\Big[\tfrac23u^{\frac32}-\tfrac25u^{\frac52}\Big]_{1}^{0}=-\Big(\big(0-0\big)-\big(\tfrac23-\tfrac25\big)\Big)=-0+\big(\tfrac23-\tfrac25\big)\]
 <p>At \(u=1\), the primitive is \(\tfrac23\times1^{\frac32}-\tfrac25\times1^{\frac52}=\tfrac23-\tfrac25\), and \(\tfrac23-\tfrac25=\tfrac{10}{15}-\tfrac{6}{15}=\tfrac{4}{15}\).</p></div>
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example 19</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 Find \(\displaystyle\int_{0}^{\pi}\sin x\cos^6x\,dx\), using the substitution \(u=\cos x\).
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:1.55fr 1fr">
 <div>
-\[\begin{aligned}\int_{0}^{\pi}\sin x\cos^6x\,dx&=-\int_{1}^{-1}u^6\,du\\&=-\tfrac17\Big[u^7\Big]_{1}^{-1}\\&=-\tfrac17\big((-1)^7-1^7\big)\\&=-\tfrac17\times(-1)+\tfrac17\times1\\&=\tfrac27\end{aligned}\]
+\[\begin{aligned}\int_{0}^{\pi}\sin x\cos^6x\,dx&=-\int_{1}^{-1}u^6\,du\\&=-\tfrac17\Big[u^7\Big]_{1}^{-1}\\&=-\tfrac17\times(-1)+\tfrac17\times1\\&=\tfrac27\end{aligned}\]
 </div><div style="border-left:1px solid var(--line);padding-left:3mm">
 <p style="line-height:2.3">Let \(u=\cos x\).<br>Then \(du=-\sin x\,dx\).<br>When \(x=0\), \(u=1\),<br>when \(x=\pi\), \(u=-1\).</p>
 </div></div></div></div>
+<div class="box tip"><div class="bt">Tip: the bracket in Example 19</div>
+<p>The bracket is the value at the upper limit minus the value at the lower limit:</p>
+\[-\tfrac17\Big[u^7\Big]_{1}^{-1}=-\tfrac17\big((-1)^7-1^7\big)=-\tfrac17\times(-1)+\tfrac17\times1\]</div>
 
 <!-- ============ Homework ============ -->
 <div class="page-break"></div>
@@ -188,7 +193,7 @@ Find \(\displaystyle\int_{0}^{\pi}\sin x\cos^6x\,dx\), using the substitution \(
 <div class="q"><span class="q-num">10</span><div class="q-body">
 <div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{d}{dx}(\sec x)=\sec x\tan x\).</span><span><span class="pl">b</span>Use the substitution \(u=\sec x\), and the standard form \(\displaystyle\int a^x\,dx=\frac{a^x}{\ln a}\), to find:<br>(i) \(\displaystyle\int_{0}^{\frac{\pi}{3}}2^{\sec x}\sec x\tan x\,dx\)<br>(ii) \(\displaystyle\int_{0}^{\frac{\pi}{4}}\sec^5x\tan x\,dx\)</span></div>{{work:85}}</div></div>
 <div class="q"><span class="q-num">11</span><div class="q-body">Evaluate each integral, using the given substitution.
-<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{0}^{\frac{\pi}{2}}\frac{\sin2x}{1+\sin^2x}\,dx\) &emsp;(Let \(u=\sin^2x\).)</span><span><span class="pl">b</span>\(\displaystyle\int_{1}^{e}\frac{\ln x+1}{(x\ln x+1)^2}\,dx\) &emsp;(Let \(u=x\ln x\).)</span></div>{{work:70}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{0}^{\frac{\pi}{2}}\frac{\sin2x}{1+\sin^2x}\,dx\) &emsp;(Let \(u=\sin^2x\).)</span><span style="margin-top:2.5mm"><span class="pl">b</span>\(\displaystyle\int_{1}^{e}\frac{\ln x+1}{(x\ln x+1)^2}\,dx\) &emsp;(Let \(u=x\ln x\).)</span></div>{{work:70}}</div></div>
 <div class="q"><span class="q-num">12</span><div class="q-body">Use the substitution \(u=\sqrt{x-1}\) to find \(\displaystyle\int\frac{1}{2x\sqrt{x-1}}\,dx\).{{work:44}}</div></div>
 <div class="q"><span class="q-num">13</span><div class="q-body">
 <div class="parts one"><span><span class="pl">a</span>Use the substitution \(u=\sqrt x\) to find \(\displaystyle\int\frac{1}{\sqrt{x(1-x)}}\,dx\).</span><span><span class="pl">b</span>Evaluate the integral in part <b>a</b> again, using the substitution \(u=x-\tfrac12\).</span><span><span class="pl">c</span>Hence show that \(\sin^{-1}(2x-1)=2\sin^{-1}\sqrt x-\tfrac{\pi}{2}\), for \(0\lt x\lt1\).</span></div>{{work:95}}</div></div>
@@ -204,7 +209,7 @@ Find \(\displaystyle\int_{0}^{\pi}\sin x\cos^6x\,dx\), using the substitution \(
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Blacktown Boys' High School, 2020, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q8</span></span><span class="mk">1 mark</span></div>
 <div class="pp-q">By letting \(u=\tan x\), \(\displaystyle\int_{0}^{\frac{\pi}{3}}\tan^2x\sec^2x\,dx\) can be expressed as
 <div class="mc"><span>(A)&ensp;\(\displaystyle\int_{0}^{\frac{\pi}{3}}u^2\,du\)</span><span>(B)&ensp;\(\displaystyle\int_{0}^{\sqrt3}u^2\,du\)</span><span>(C)&ensp;\(\displaystyle\int_{0}^{\sqrt3}u\,du\)</span><span>(D)&ensp;\(\displaystyle\int_{0}^{\sqrt3}(u^4+u^2)\,du\)</span></div></div>
-<div class="hint"><b>Hint:</b> what does each part of the integral become in terms of \(u\)?</div>{{work:24}}</div>
+<div class="hint"><b>Hint:</b> what does each part of the integral look like?</div>{{work:24}}</div>
 </div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q10(a)</span></span><span class="mk">2 marks</span></div>
@@ -214,7 +219,7 @@ Find \(\displaystyle\int_{0}^{\pi}\sin x\cos^6x\,dx\), using the substitution \(
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span><span class="mk">2 marks</span></div>
 <div class="pp-q">Use the substitution \(u=2x-1\) to find \(\displaystyle\int4x\sqrt{2x-1}\,dx\).</div>
-<div class="hint"><b>Hint:</b> what does the whole integral become in terms of \(u\)?</div>{{work:44}}</div>
+<div class="hint"><b>Hint:</b> what does the integral look like?</div>{{work:44}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">Use the substitution \(u=\ln3x\), to find \(\displaystyle\int\frac{dx}{x(\ln3x)^2}\)</div>
@@ -222,11 +227,11 @@ Find \(\displaystyle\int_{0}^{\pi}\sin x\cos^6x\,dx\), using the substitution \(
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Girraween High School, 2023, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">Use the substitution \(u=6-x\) to find the exact value of \(\displaystyle\int_{1}^{6}x\sqrt{6-x}\,dx\)</div>
-<div class="hint"><b>Hint:</b> what changes when the variable changes?</div>{{work:60}}</div>
+<div class="hint"><b>Hint:</b> what does each part of the integral look like?</div>{{work:60}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">Find \(\displaystyle\int\frac{\cos^2(\ln x)}{x}\,dx\) using the substitution \(u=\ln x\).</div>
-<div class="hint"><b>Hint:</b> what is the integral in terms of \(u\)?</div>{{work:50}}</div>
+<div class="hint"><b>Hint:</b> what does the integrand contain?</div>{{work:50}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Knox Grammar School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">Use the substitution \(u=\tan x-x\) to find \(\displaystyle\int\tan^2x\sqrt{\tan x-x}\,dx\).</div>
