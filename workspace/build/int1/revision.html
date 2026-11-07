@@ -1,0 +1,188 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Revision</div><h2>Indices, derivatives, sigma notation and areas</h2>
+<div class="focus">A short review of the Year 11 work on indices (7A–7B), differentiating powers of \(x\) (8C, 8E, 8F), the chain rule (8G) and semicircles (3G), and of sigma notation (Year 12, 1E) and the area formulae. Every lesson in this pack uses the power rule and the index laws.</div></div>
+
+{{sec:violet:loop:Summary:keep these pages open while you work}}
+<div class="box formula"><div class="bt">Index laws, zero and negative indices (Year 11, 7A)</div>
+<p>In the power \(a^n\), the number \(a\) is the <b>base</b> and \(n\) is the <b>index</b> (or exponent). For positive integers \(n\), \(a^n=a\times a\times\cdots\times a\) with \(n\) factors.</p>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p><b>Combining powers with the same base</b></p>
+<ul><li>Multiply: add the indices, \(a^m\times a^n=a^{m+n}\).</li>
+<li>Divide: subtract the indices, \(a^m\div a^n=a^{m-n}\).</li>
+<li>Power of a power: multiply, \((a^m)^n=a^{mn}\).</li></ul>
+</div><div>
+<p><b>Powers of products and quotients</b></p>
+<ul><li>\((ab)^n=a^n\times b^n\)</li>
+<li>\(\Big(\dfrac ab\Big)^n=\dfrac{a^n}{b^n}\)</li></ul>
+</div></div>
+<p><b>Zero and negative indices</b> (\(a\ne0\)) are defined so that the index laws still work. We know \(a^3\div a^3=1\), and the laws give \(a^{3-3}=a^0\), so we define \(a^0=1\). We know \(a^2\div a^3=\frac1a\), and the laws give \(a^{2-3}=a^{-1}\), so we define \(a^{-1}=\frac1a\). In general,</p>
+\[a^0=1\qquad a^{-1}=\dfrac1a\qquad a^{-2}=\dfrac{1}{a^2}\qquad a^{-n}=\dfrac{1}{a^n}.\]
+<ul><li>The negative sign in the index says, ‘Take the reciprocal’. Always do this first. The reciprocal of \(\tfrac23\) is \(\tfrac32\), so \(\Big(\dfrac23\Big)^{-3}=\Big(\dfrac32\Big)^3=\dfrac{27}{8}\).</li>
+<li>A constant factor stays where it is: \(\frac{5}{x^2}=5\times\frac{1}{x^2}=5x^{-2}\) and \(\frac{1}{3x^5}=\frac13\times\frac{1}{x^5}=\tfrac13x^{-5}\).</li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Year 11 Example 5 (7A)</span></div><div class="ex-body">
+Use the index laws, extended to negative indices, to simplify these expressions, giving answers in fraction form without negative indices.
+<div class="parts three" style="margin-left:4mm;grid-template-columns:1.1fr 1.75fr 1.15fr"><span><span class="pl">a</span>\(x^4\times x^{-10}\)</span><span><span class="pl">b</span>\(12a^2b^4\div6a^3b^4\)</span><span><span class="pl">c</span>\((2^n)^{-3}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts three" style="grid-template-columns:1.1fr 1.75fr 1.15fr"><span><b>a</b> \(\begin{aligned}[t]x^4\times x^{-10}&=x^{4-10}\\&=x^{-6}\\&=\dfrac{1}{x^6}\end{aligned}\)</span>
+<span><b>b</b> \(\begin{aligned}[t]12a^2b^4\div6a^3b^4&=\tfrac{12}{6}a^{2-3}b^{4-4}\\&=2a^{-1}b^0\\&=2a^{-1}\\&=\dfrac2a\end{aligned}\)</span>
+<span><b>c</b> \(\begin{aligned}[t](2^n)^{-3}&=2^{n\times(-3)}\\&=2^{-3n}\\&=\dfrac{1}{2^{3n}}\end{aligned}\)</span></div>
+<p class="small">In part <b>b</b>, \(b^0=1\), which is why the factor \(b^0\) disappears in the next line.</p>
+</div></div>
+
+<div class="box formula"><div class="bt">Fractional indices (Year 11, 7B)</div>
+<p>Let \(a\ge0\). Because \(\big(\sqrt a\big)^2=a\) and the index laws give \(\big(a^{\frac12}\big)^2=a^1=a\), we define \(a^{\frac12}=\sqrt a\). In the same way \(a^{\frac13}=\sqrt[3]a\), and in general</p>
+\[a^{\frac1n}=\sqrt[n]a\qquad a^{\frac mn}=\big(\sqrt[n]a\big)^m=\sqrt[n]{a^m}\qquad a^{-\frac mn}=\dfrac{1}{a^{\frac mn}},\]
+<p>where the non-negative root is always taken (for \(a^{\frac mn}\) and \(a^{-\frac mn}\), take \(a\gt0\)).</p>
+<p><b>Deal with a complicated index in this order:</b> (1) if the index is negative, take the reciprocal; (2) if the index has a denominator, take that root; (3) finally, take the power given by the numerator. For example, \(\Big(\dfrac{8}{27}\Big)^{-\frac43}=\Big(\dfrac{27}{8}\Big)^{\frac43}=\Big(\dfrac32\Big)^4=\dfrac{81}{16}\).</p>
+<p><b>Conversions used all the time in calculus</b> (here \(x\gt0\)):</p>
+\[\sqrt x=x^{\frac12}\qquad\dfrac{1}{\sqrt x}=x^{-\frac12}\qquad\sqrt[3]{x^2}=x^{\frac23}\]
+\[x\sqrt x=x^1\times x^{\frac12}=x^{\frac32}\qquad\dfrac{1}{x\sqrt x}=x^{-\frac32}\]
+<ul><li>The textbook often writes these indices as mixed numbers: \(x^{1\frac12}=x^{\frac32}\) and \(x^{-1\frac12}=x^{-\frac32}\).</li>
+<li>\(\sqrt9=9^{\frac12}=3\) (not \(-3\)), and \(\sqrt{-9}\) and \((-9)^{\frac12}\) are undefined. So \(\sqrt x\) and \(x^{\frac12}\) are defined only for \(x\ge0\).</li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Year 11 Example 10 (7B)</span></div><div class="ex-body">
+Write each expression using a fractional index.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);margin-left:4mm"><span><span class="pl">a</span>\(\sqrt{x^3}\)</span><span><span class="pl">b</span>\(\dfrac{1}{\sqrt{x^3}}\)</span><span><span class="pl">c</span>\(\sqrt[3]{x^2}\)</span><span><span class="pl">d</span>\(\dfrac{1}{\sqrt[3]{x^2}}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><b>a</b> \(\sqrt{x^3}=x^{\frac32}\)</span><span><b>b</b> \(\dfrac{1}{\sqrt{x^3}}=x^{-\frac32}\)</span><span><b>c</b> \(\sqrt[3]{x^2}=x^{\frac23}\)</span><span><b>d</b> \(\dfrac{1}{\sqrt[3]{x^2}}=x^{-\frac23}\)</span></div>
+<p class="small">The root becomes the denominator of the index, the power inside becomes the numerator, and a power in the denominator of a fraction makes the index negative.</p>
+</div></div>
+
+<div class="box formula"><div class="bt">Area formulae</div>
+<p>All area formulae are based on two principles: the area of a rectangle is length \(\times\) breadth, and when a region is dissected (cut up and rearranged), its area is unchanged.</p>
+{{svg:shapes}}
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<ul><li>Rectangle: \(A=lb\)</li>
+<li>Triangle: \(A=\tfrac12bh=\tfrac12\times\text{base}\times\text{height}\)</li>
+<li>Trapezium: \(A=\tfrac12(a+b)h\), the average of the parallel sides \(\times\) the width</li></ul>
+</div><div>
+<ul><li>Circle: \(A=\pi r^2\)</li>
+<li>Semicircle: \(A=\tfrac12\pi r^2\)</li>
+<li>Quadrant (quarter circle): \(A=\tfrac14\pi r^2\)</li></ul>
+</div></div>
+<p>The height \(h\) of a triangle and the width \(h\) of a trapezium are <b>perpendicular</b> distances. For a trapezium, \(h\) is the distance between the parallel sides.</p>
+</div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Using the area formulae</span></div><div class="ex-body">
+Find the area of:
+<div class="parts one" style="margin-left:4mm"><span><span class="pl">a</span>a trapezium with parallel sides 3 cm and 7 cm, at a perpendicular distance of 4 cm apart,</span><span><span class="pl">b</span>a quadrant of radius 6 cm,</span><span><span class="pl">c</span>a triangle with base 5 cm and perpendicular height 9 cm.</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts three"><span><b>a</b> \(\begin{aligned}[t]A&=\tfrac12(a+b)h\\&=\tfrac12\times(3+7)\times4\\&=20\text{ cm}^2\end{aligned}\)</span>
+<span><b>b</b> \(\begin{aligned}[t]A&=\tfrac14\pi r^2\\&=\tfrac14\times\pi\times6^2\\&=9\pi\text{ cm}^2\end{aligned}\)</span>
+<span><b>c</b> \(\begin{aligned}[t]A&=\tfrac12bh\\&=\tfrac12\times5\times9\\&=22\tfrac12\text{ cm}^2\end{aligned}\)</span></div>
+<p class="small">Leave \(\pi\) in an exact answer, as in part <b>b</b>, unless the question asks for a decimal.</p>
+</div></div>
+
+<div class="box formula"><div class="bt">Circles and semicircles (Year 11, 3G), and the graph of \(y=|x|\) (4D)</div>
+<div class="split"><div>
+<p>By Pythagoras’ theorem, the circle with centre the origin and radius \(a\) is \(x^2+y^2=a^2\). It is not a function. Solving for \(y\) gives two functions:</p>
+<ul><li>\(y=\sqrt{a^2-x^2}\) is the <b>upper semicircle</b>,</li>
+<li>\(y=-\sqrt{a^2-x^2}\) is the <b>lower semicircle</b>.</li></ul>
+<p>The graph of \(y=|x|\) is two half-lines meeting at the origin, \(y=x\) for \(x\ge0\) and \(y=-x\) for \(x\lt0\).</p>
+</div><div><div style="display:flex;justify-content:space-around;align-items:center">{{svg:semi_up}}{{svg:semi_down}}</div><div style="display:flex;justify-content:center">{{svg:abs_v}}</div></div></div></div>
+
+<div class="box formula"><div class="bt">Sums of terms and sigma notation (Year 12, 1E)</div>
+<p>For a sequence \(T_1,\ T_2,\ T_3,\ \dots\), the <b>sum of the first \(n\) terms</b> (the <b>\(n\)th partial sum</b>) is \(S_n=T_1+T_2+T_3+\cdots+T_n\). The terms can be recovered from the partial sums: \(T_1=S_1\) and \(T_n=S_n-S_{n-1}\) for \(n\ge2\).</p>
+<p><b>Sigma notation</b> is a concise notation for these sums. The symbol \(\Sigma\) is the Greek capital letter sigma and stands for ‘sum’:</p>
+\[\sum_{n=5}^{20}T_n=T_5+T_6+T_7+T_8+\cdots+T_{20},\]
+<p>and any two integers can be used in place of 5 and 20. For example,</p>
+\[\sum_{n=2}^{5}n^2=2^2+3^2+4^2+5^2=4+9+16+25=54.\]
+<ul><li>This says ‘evaluate the function \(n^2\) for all the integers from \(n=2\) to \(n=5\), then add up the resulting values’. There are \(5-2+1=4\) terms.</li>
+<li>The letter under the sigma is only a counter. Other letters such as \(k\), \(r\) and \(\ell\) are also used.</li>
+<li>A <b>series</b> is the sequence of partial sums: \(S_1=T_1\), \(S_2=T_1+T_2\), \(S_3=T_1+T_2+T_3\), and so on.</li>
+<li>In Lesson 5A, the area under a curve is approximated by adding up the areas \(f(x)\,\delta x\) of thin strips, written as \(\displaystyle\sum_{x=a}^{b}f(x)\,\delta x\).</li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 21 (1E)</span></div><div class="ex-body">
+Evaluate these sums.
+<div class="parts" style="margin-left:4mm"><span><span class="pl">a</span>\(\displaystyle\sum_{n=4}^{7}(5n+1)\)</span><span><span class="pl">b</span>\(\displaystyle\sum_{n=1}^{5}(-2)^n\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts"><span><b>a</b> \(\begin{aligned}[t]\sum_{n=4}^{7}(5n+1)&=21+26+31+36\\&=114\end{aligned}\)</span>
+<span><b>b</b> \(\begin{aligned}[t]\sum_{n=1}^{5}(-2)^n&=-2+4-8+16-32\\&=-22\end{aligned}\)</span></div>
+<p class="small">The terms in <b>a</b> are \(5\times4+1=21\), \(5\times5+1=26\), \(5\times6+1=31\) and \(5\times7+1=36\). In <b>b</b>, odd powers of \(-2\) are negative and even powers are positive.</p>
+</div></div>
+
+<div class="box formula"><div class="bt">Differentiating powers of \(x\) (Year 11, 8C, 8E, 8F)</div>
+<p><b>The derivative of any power of \(x\).</b> Let \(f(x)=x^n\), where \(n\) is any real number. Then \(f'(x)=nx^{n-1}\). This rule is usually memorised as: ‘Take the index as a factor, and reduce the index by 1.’</p>
+<ul><li>It applies unchanged when \(n\) is negative or a fraction. For example, if \(y=x^{-4}\), then \(\frac{dy}{dx}=-4x^{-5}\), and if \(y=x^{\frac52}\), then \(\frac{dy}{dx}=\tfrac52x^{\frac32}\).</li>
+<li>The derivative of a constant is zero.</li></ul>
+<p><b>Linear combinations.</b> Sums and multiples are differentiated one term at a time. If \(f(x)=g(x)+k(x)\), then \(f'(x)=g'(x)+k'(x)\). If \(f(x)=ag(x)\), then \(f'(x)=ag'(x)\).</p>
+<p><b>Get the function into powers of \(x\) first.</b></p>
+<ul><li>Expand a product of brackets first: \(x^3(x-10)=x^4-10x^3\).</li>
+<li>Convert reciprocals of powers to negative indices, and surds to fractional indices.</li>
+<li>If the denominator of a fraction is a single term, divide it into each term of the numerator.</li>
+<li>Then apply the rule. Convert the answer back to fraction or surd form when the question asks.</li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Year 11 Example 17 (8E)</span></div><div class="ex-body">
+Differentiate each function, giving your answer without negative indices.
+<div class="parts three" style="margin-left:4mm"><span><span class="pl">a</span>\(f(x)=\dfrac1x\)</span><span><span class="pl">b</span>\(f(x)=\dfrac{5}{x^2}\)</span><span><span class="pl">c</span>\(f(x)=\dfrac{1}{3x^5}\)</span></div>
+<div class="sol-label">Solution</div>
+<p>In each example, first convert the expression to negative indices, then apply the rule, then convert back to fraction notation.</p>
+<div class="parts three"><span><b>a</b> \(\begin{aligned}[t]f(x)&=\dfrac1x\\&=x^{-1}\\f'(x)&=-x^{-2}\\&=-\dfrac{1}{x^2}\end{aligned}\)</span>
+<span><b>b</b> \(\begin{aligned}[t]f(x)&=\dfrac{5}{x^2}\\&=5x^{-2}\\f'(x)&=-10x^{-3}\\&=-\dfrac{10}{x^3}\end{aligned}\)</span>
+<span><b>c</b> \(\begin{aligned}[t]f(x)&=\dfrac{1}{3x^5}\\&=\tfrac13x^{-5}\\f'(x)&=-\tfrac53x^{-6}\\&=-\dfrac{5}{3x^6}\end{aligned}\)</span></div>
+<p class="small">The missing middle steps: in <b>b</b>, \(5\times(-2)x^{-2-1}=-10x^{-3}\); in <b>c</b>, \(\tfrac13\times(-5)x^{-5-1}=-\tfrac53x^{-6}\).</p>
+</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Year 11 Example 21 (8F)</span></div><div class="ex-body">
+Write each function using a fractional index, then differentiate it, then convert the answer back to surd form.
+<div class="parts three" style="margin-left:4mm"><span><span class="pl">a</span>\(y=12\sqrt x\)</span><span><span class="pl">b</span>\(y=\sqrt{16x}\)</span><span><span class="pl">c</span>\(y=\dfrac{3}{\sqrt x}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts three"><span><b>a</b> \(\begin{aligned}[t]y&=12\sqrt x\\&=12x^{\frac12}\\\dfrac{dy}{dx}&=12\times\tfrac12\times x^{-\frac12}\\&=\dfrac{6}{\sqrt x}\end{aligned}\)</span>
+<span><b>b</b> \(\begin{aligned}[t]y&=\sqrt{16x}\\&=4x^{\frac12}\\\dfrac{dy}{dx}&=4\times\tfrac12\times x^{-\frac12}\\&=\dfrac{2}{\sqrt x}\end{aligned}\)</span>
+<span><b>c</b> \(\begin{aligned}[t]y&=\dfrac{3}{\sqrt x}\\&=3x^{-\frac12}\\\dfrac{dy}{dx}&=-\tfrac12\times3\times x^{-1\frac12}\\&=-\dfrac{3}{2x\sqrt x}\end{aligned}\)</span></div>
+<p class="small">In <b>b</b>, \(\sqrt{16x}=\sqrt{16}\times\sqrt x=4x^{\frac12}\). In <b>c</b>, \(x^{-1\frac12}=x^{-\frac32}=\dfrac{1}{x^{\frac32}}=\dfrac{1}{x\sqrt x}\), so \(-\tfrac32x^{-1\frac12}=-\dfrac{3}{2x\sqrt x}\).</p>
+</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Year 11 Example 23 (8F)</span></div><div class="ex-body">
+Divide through by the denominator, then differentiate.
+<div class="parts" style="margin-left:4mm"><span><span class="pl">a</span>\(y=\dfrac{10x-6}{\sqrt x}\)</span><span><span class="pl">b</span>\(y=\dfrac{3x+4\sqrt x}{x}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts"><span><b>a</b> \(\begin{aligned}[t]y&=\dfrac{10x^1}{x^{\frac12}}-\dfrac{6}{x^{\frac12}}\\&=10x^{\frac12}-6x^{-\frac12}\\\dfrac{dy}{dx}&=5x^{-\frac12}+3x^{-1\frac12}\end{aligned}\)</span>
+<span><b>b</b> \(\begin{aligned}[t]y&=\dfrac{3x}{x}+\dfrac{4x^{\frac12}}{x^1}\\&=3+4x^{-\frac12}\\\dfrac{dy}{dx}&=-2x^{-1\frac12}\end{aligned}\)</span></div>
+<p class="small">The index steps: in <b>a</b>, \(x^1\div x^{\frac12}=x^{1-\frac12}=x^{\frac12}\), then \(10\times\tfrac12=5\) and \(-6\times(-\tfrac12)=3\). In <b>b</b>, \(x^{\frac12}\div x^1=x^{-\frac12}\), the constant 3 has derivative 0, and \(4\times(-\tfrac12)=-2\).</p>
+</div></div>
+
+<div class="box formula"><div class="bt">The chain rule (Year 11, 8G)</div>
+<p>A <b>composite function</b> is a chain of two functions. For example, \(y=\sqrt{25-x^2}\) is ‘square and subtract from 25’, followed by ‘take the positive square root’: let \(u=25-x^2\), then \(y=\sqrt u\).</p>
+<p><b>The chain rule.</b> Suppose that \(y\) is a function of \(u\), where \(u\) is a function of \(x\). Then</p>
+\[\dfrac{dy}{dx}=\dfrac{dy}{du}\times\dfrac{du}{dx}.\]
+<ul><li>Recommended setting-out: work on the right first. Write \(u\) as a function of \(x\) and \(y\) as a function of \(u\), find \(\dfrac{du}{dx}\) and \(\dfrac{dy}{du}\), then multiply them on the left.</li>
+<li><b>Powers of a linear function.</b> With \(u=ax+b\) and \(y=u^n\), \(\dfrac{du}{dx}=a\) and \(\dfrac{dy}{du}=nu^{n-1}\), so
+\[\dfrac{d}{dx}(ax+b)^n=an(ax+b)^{n-1}.\]</li>
+<li><b>A shorter setting-out</b> uses the standard form \(\dfrac{d}{dx}\big(f(x)\big)^n=n\big(f(x)\big)^{n-1}f'(x)\). It is safer to write \(f(x)\) or \(u\) on the right and keep at least one middle step.</li>
+<li>Lesson 5I reverses this process, so the full setting-out must be clearly understood.</li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Year 11 Example 24 (8G)</span></div><div class="ex-body">
+Use the chain rule to differentiate each function.
+<div class="parts" style="margin-left:4mm"><span><span class="pl">a</span>\((x^2+1)^6\)</span><span><span class="pl">b</span>\(7(3x+4)^5\)</span></div>
+<div class="sol-label">Solution</div>
+<div><div style="display:flex;gap:10mm;margin:1mm 0 2mm 0"><div><b>a</b> \(\begin{aligned}[t]\text{Let }y&=(x^2+1)^6.\\\text{Then }\dfrac{dy}{dx}&=\dfrac{dy}{du}\times\dfrac{du}{dx}\\&=6(x^2+1)^5\times2x\\&=12x(x^2+1)^5.\end{aligned}\)</div>
+<div style="border-left:1.4px solid var(--line-strong);padding-left:3mm">\(\begin{aligned}[t]\text{Let }u&=x^2+1.\\\text{Then }y&=u^6.\\\text{Hence }\dfrac{du}{dx}&=2x\\\text{and }\dfrac{dy}{du}&=6u^5.\end{aligned}\)</div></div>
+<div style="display:flex;gap:10mm;margin:1mm 0 2mm 0"><div><b>b</b> \(\begin{aligned}[t]\text{Let }y&=7(3x+4)^5.\\\text{Then }\dfrac{dy}{dx}&=\dfrac{dy}{du}\times\dfrac{du}{dx}\\&=35(3x+4)^4\times3\\&=105(3x+4)^4.\end{aligned}\)</div>
+<div style="border-left:1.4px solid var(--line-strong);padding-left:3mm">\(\begin{aligned}[t]\text{Let }u&=3x+4.\\\text{Then }y&=7u^5.\\\text{Hence }\dfrac{du}{dx}&=3\\\text{and }\dfrac{dy}{du}&=35u^4.\end{aligned}\)</div></div></div>
+<p class="small">In each line \(\dfrac{dy}{du}\) is written in terms of \(x\) by putting \(u\) back: in <b>a</b>, \(6u^5=6(x^2+1)^5\); in <b>b</b>, \(35u^4=35(3x+4)^4\).</p>
+</div></div>
+
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Year 11 Example 25 (8G)</span></div><div class="ex-body">
+Use the formula \(\dfrac{d}{dx}(ax+b)^n=an(ax+b)^{n-1}\) to differentiate each function. Convert the answers to parts <b>b</b> and <b>c</b> back to fraction or surd form.
+<div class="parts three" style="margin-left:4mm"><span><span class="pl">a</span>\(y=(4x-1)^7\)</span><span><span class="pl">b</span>\(y=\dfrac{1}{3x-8}\)</span><span><span class="pl">c</span>\(y=\sqrt{5x+3}\)</span></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b> \(\begin{aligned}[t]y&=(4x-1)^7\\\dfrac{dy}{dx}&=4\times7\times(4x-1)^6\qquad\text{(here }a=4,\ b=-1\text{ and }n=7)\\&=28(4x-1)^6\end{aligned}\)</p>
+<p><b>b</b> \(\begin{aligned}[t]y&=(3x-8)^{-1}\qquad\text{(convert to index form)}\\\dfrac{dy}{dx}&=3\times(-1)\times(3x-8)^{-2}\qquad\text{(here }a=3,\ b=-8\text{ and }n=-1)\\&=-\dfrac{3}{(3x-8)^2}\end{aligned}\)</p>
+<p><b>c</b> \(\begin{aligned}[t]y&=(5x+3)^{\frac12}\qquad\text{(convert to index form)}\\\dfrac{dy}{dx}&=5\times\tfrac12\times(5x+3)^{-\frac12}\qquad\text{(here }a=5,\ b=3\text{ and }n=\tfrac12)\\&=\dfrac{5}{2\sqrt{5x+3}}\end{aligned}\)</p>
+</div></div>
+
+{{sec:violet:spark:Warm-up:answers are in the answers booklet}}
+<p class="small">Each question is from the textbook exercise named, with some parts left out. Do not use a calculator.</p>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Year 11 Exercise 7B Q13</span><br>Rewrite these expressions, using fractional and negative indices.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\dfrac{1}{\sqrt x}\)</span><span><span class="pl">b</span>\(\dfrac{12}{\sqrt x}\)</span><span><span class="pl">c</span>\(-\dfrac{5}{\sqrt x}\)</span><span><span class="pl">d</span>\(\dfrac{15}{\sqrt[3]x}\)</span><span><span class="pl">e</span>\(-\dfrac{4}{\sqrt[3]{x^2}}\)</span><span><span class="pl">f</span>\(x\sqrt x\)</span><span><span class="pl">g</span>\(\dfrac{5}{x\sqrt x}\)</span><span><span class="pl">h</span>\(8x^2\sqrt x\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Year 11 Exercise 8E Q5</span><br>For each function, first divide through by the denominator. Then find the derivative. Leave your answer with negative indices where appropriate.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(y=\dfrac{x^3+x^2}{x}\)</span><span><span class="pl">b</span>\(y=\dfrac{x^3+x^2}{x^5}\)</span><span><span class="pl">c</span>\(y=\dfrac{4x-5x^4}{x^2}\)</span><span><span class="pl">d</span>\(y=\dfrac{6x^2+6x^6}{2x^6}\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Year 11 Exercise 8G Q4</span><br>Use the standard form \(\dfrac{d}{dx}(ax+b)^n=an(ax+b)^{n-1}\) to differentiate these functions.
+<div class="parts three"><span><span class="pl">a</span>\(y=(5x-7)^5\)</span><span><span class="pl">b</span>\(y=9(5x+3)^4\)</span><span><span class="pl">c</span>\(y=(4-3x)^7\)</span><span><span class="pl">d</span>\(y=(4x-5)^{-7}\)</span><span><span class="pl">e</span>\(y=2(3x+7)^{-5}\)</span><span><span class="pl">f</span>\(y=3(5-7x)^{-4}\)</span></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Year 11 Exercise 8G Q8</span><br>Differentiate these functions.
+<div class="parts"><span><span class="pl">a</span>\(y=(5-x^2)^3\)</span><span><span class="pl">b</span>\(y=(3x^2+7)^7\)</span><span><span class="pl">c</span>\(y=(3x^3-7)^5\)</span><span><span class="pl">d</span>\(y=(x^3-x^2)^{-5}\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Exercise 1E Q4</span><br>Rewrite each partial sum without sigma notation, then evaluate it.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\sum_{n=1}^{6}2n\)</span><span><span class="pl">b</span>\(\displaystyle\sum_{n=1}^{6}(3n+2)\)</span><span><span class="pl">c</span>\(\displaystyle\sum_{n=5}^{8}n^2\)</span><span><span class="pl">d</span>\(\displaystyle\sum_{n=0}^{5}2^n\)</span><span><span class="pl">e</span>\(\displaystyle\sum_{n=2}^{4}3^n\)</span><span><span class="pl">f</span>\(\displaystyle\sum_{n=5}^{105}4\)</span><span style="grid-column:span 2"><span class="pl">g</span>\(\displaystyle\sum_{n=0}^{4}(-1)^n(n+5)\)</span></div>{{work:46}}</div></div>
+</div>
