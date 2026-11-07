@@ -1,1 +1,284 @@
-<!-- filled by Task Int1 lesson 5C -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 5C</div><h2>The definite integral and its properties</h2>
+<div class="focus">This lesson first extends the definite integral to functions with negative values: areas below the \(x\)-axis count as negative, so a definite integral is a sum of signed areas. Then some simple properties of the definite integral are established using arguments about the dissection of regions: odd and even functions, dissecting the interval, intervals of zero width, running an integral backwards, sums and multiples of functions, and inequalities. Each property is checked with the fundamental theorem from Lesson 5B.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:integrating functions with negative values}}
+<div class="box concept"><div class="bt">Areas below the \(x\)-axis count as negative</div>
+<p>When a function has negative values, its graph is below the \(x\)-axis, so the ‘heights’ of the little rectangles in the dissection are negative numbers. This means that any areas below the \(x\)-axis should contribute negative values to the value of the final integral.</p>
+<div class="fig">{{svg:c5c_signed}}</div>
+<p>For example, in the diagram above, where \(a&lt;h&lt;k&lt;b\), the region \(B\) is below the \(x\)-axis because the function \(f(x)\) is negative in \([h,k]\). So the heights of all the infinitesimal strips making up \(B\) are negative, and \(B\) therefore contributes a negative number to the definite integral,</p>
+\[\int_a^b f(x)\,dx=+\,\text{area }A-\text{area }B+\text{area }C.\]
+<p>Thus we attach the sign \(+\) or \(-\) to each area, depending on whether the curve, and therefore the region, is above or below the \(x\)-axis. For this reason, the three terms in the sum above are often referred to as <i>signed areas under the curve</i>, because a sign has been attached to the area of each region.</p></div></div>
+<div class="box take"><div class="bt">5 The definite integral as the sum of signed areas</div>
+<p>Let \(f(x)\) be a function continuous in the closed interval \([a,b]\), where \(a\le b\), and suppose that we are taking the definite integral over \([a,b]\).</p>
+<ul><li>For regions where the curve is above the \(x\)-axis, we attach \(+\) to the area.<br>For regions where the curve is below the \(x\)-axis, we attach \(-\) to the area.<br>These areas, with signs attached, are called <i>signed areas under the curve</i>.</li>
+<li>The <i>definite integral</i> \(\displaystyle\int_a^b f(x)\,dx\) is the sum of these signed areas under the curve in the interval \([a,b]\).</li></ul></div>
+<p>The whole definite integral \(\displaystyle\int_a^b f(x)\,dx\) is often also referred to as <i>the signed area under the curve</i>.</p>
+<div class="box tip"><div class="bt">Reading the sign of an answer</div>
+<ul><li>The fundamental theorem (Lesson 5B) attaches the signs automatically. You do not need to split the interval to evaluate the integral.</li>
+<li>A negative answer means that there is more area below the \(x\)-axis than above it. A zero answer means that the areas above and below are equal, so they cancel out.</li>
+<li>To find a signed area from a sketch, find the area of each region with an area formula, then attach \(+\) above the axis and \(-\) below it.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Signed areas of a line</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^3(x-3)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_3^5(x-3)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^5(x-3)\,dx\)</span></div>
+Sketch the graph of \(y=x-3\) and shade the regions associated with these integrals. Then explain how each result is related to the shaded regions.
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^2(x-2)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_2^5(x-2)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^5(x-2)\,dx\)</span></div>
+Sketch the graph of \(y=x-2\) and shade the regions associated with these integrals. Then explain how each result is related to the shaded regions.
+{{work:170}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^4(x-4)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_4^6(x-4)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^6(x-4)\,dx\)</span></div>
+Sketch the graph of \(y=x-4\) and shade the regions associated with these integrals. Then explain how each result is related to the shaded regions.
+<div class="sol-label">Solution</div>
+\[\begin{aligned}\textbf{a}\quad\int_0^4(x-4)\,dx&amp;=\Big[\tfrac12x^2-4x\Big]_0^4\\&amp;=\big(\tfrac12\times4^2-4\times4\big)-\big(\tfrac12\times0^2-4\times0\big)\\&amp;=(8-16)-(0-0)\\&amp;=-8\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\int_4^6(x-4)\,dx&amp;=\Big[\tfrac12x^2-4x\Big]_4^6\\&amp;=\big(\tfrac12\times6^2-4\times6\big)-\big(\tfrac12\times4^2-4\times4\big)\\&amp;=(18-24)-(8-16)\\&amp;=-6-(-8)\\&amp;=2\end{aligned}\]
+\[\begin{aligned}\textbf{c}\quad\int_0^6(x-4)\,dx&amp;=\Big[\tfrac12x^2-4x\Big]_0^6\\&amp;=\big(\tfrac12\times6^2-4\times6\big)-\big(\tfrac12\times0^2-4\times0\big)\\&amp;=(18-24)-(0-0)\\&amp;=-6\end{aligned}\]
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p>Triangle \(OAB\) is below the \(x\)-axis and has area \(\tfrac12\times4\times4=8\), and triangle \(BMC\) is above the \(x\)-axis and has area \(\tfrac12\times2\times2=2\), so the answers \(-8\) in part <b>a</b> and \(+2\) in part <b>b</b> are expected. This integral in part <b>c</b> represents the area of \(\triangle BMC\) minus the area of \(\triangle OAB\), so the value of the integral is \(2-8=-6\) is expected.</p>
+</div><div>{{svg:c5c_e7}}</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:odd and even functions}}
+<div class="box concept"><div class="bt">Odd and even functions (Year 11)</div>
+<ul><li>A function \(f(x)\) is <i>odd</i> if \(f(-x)=-f(x)\) for all \(x\) in its domain. Its graph has <i>point symmetry in the origin</i>: a rotation of \(180^\circ\) about \(O\) leaves it unchanged.</li>
+<li>A function \(f(x)\) is <i>even</i> if \(f(-x)=f(x)\) for all \(x\) in its domain. Its graph has <i>line symmetry in the \(y\)-axis</i>: a reflection in the \(y\)-axis leaves it unchanged.</li></ul></div></div>
+<div class="box concept"><div class="bt">Integrating odd and even functions</div>
+<p>In Worked example 2a below, the function \(y=x^3-4x\) is an odd function, with point symmetry in the origin. Thus the area of each shaded hump is the same. Hence the whole integral from \(x=-2\) to \(x=2\) is zero, because the equal humps above and below the \(x\)-axis cancel out.</p>
+<p>In the second diagram, in Worked example 2b, the function \(y=x^2+1\) is even, with line symmetry in the \(y\)-axis. Thus the areas to the left and right of the \(y\)-axis are equal, so there is a doubling instead of a cancelling.</p></div>
+<div class="box take"><div class="bt">6 Integrating odd and even functions</div>
+<ul><li>If \(f(x)\) is odd, then \(\displaystyle\int_{-a}^{a}f(x)\,dx=0\).</li>
+<li>If \(f(x)\) is even, then \(\displaystyle\int_{-a}^{a}f(x)\,dx=2\int_0^a f(x)\,dx\).</li></ul></div>
+<div class="box tip"><div class="bt">Testing for odd and even</div>
+<ul><li>Substitute \(-x\) for \(x\) and simplify. For example, \((-x)^3-4(-x)=-x^3+4x=-(x^3-4x)\), so \(x^3-4x\) is odd. Also \((-x)^2+1=x^2+1\), so \(x^2+1\) is even.</li>
+<li>A polynomial with only odd powers of \(x\) is odd. A polynomial with only even powers of \(x\) is even (a constant term counts as an even power, \(x^0\)). A polynomial with both odd and even powers, such as \(x^2+x\), is neither odd nor even.</li>
+<li>Box 6 needs the limits to be opposites, \(-a\) and \(a\). It says nothing about \(\displaystyle\int_{-1}^{3}x^3\,dx\), for example.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Using symmetry</span></div><div class="ex-body">
+Sketch these integrals, then evaluate them using symmetry.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_{-3}^{3}(x^3-9x)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-3}^{3}(x^2+1)\,dx\)</span></div>
+In part <b>a</b>, also do the calculation without using symmetry.
+{{work:80}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Sketch these integrals, then evaluate them using symmetry.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_{-1}^{1}(x^3-x)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-1}^{1}(3x^2+1)\,dx\)</span></div>
+In part <b>a</b>, also do the calculation without using symmetry.
+{{work:80}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Sketch these integrals, then evaluate them using symmetry.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_{-2}^{2}(x^3-4x)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-2}^{2}(x^2+1)\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:2fr 1fr"><div>
+<p><b>a</b> \(\displaystyle\int_{-2}^{2}(x^3-4x)\,dx=0\), because the integrand is odd.<br>
+(Check: \((-x)^3-4(-x)=-x^3+4x=-(x^3-4x)\).)</p>
+<p>Without this simplification, the calculation is:</p>
+</div><div>{{svg:c5c_odd}}</div></div>
+\[\begin{aligned}\int_{-2}^{2}(x^3-4x)\,dx&amp;=\Big[\tfrac14x^4-2x^2\Big]_{-2}^{2}\\&amp;=\big(\tfrac14\times2^4-2\times2^2\big)-\big(\tfrac14\times(-2)^4-2\times(-2)^2\big)\\&amp;=(4-8)-(4-8)\\&amp;=0,\ \text{as before.}\end{aligned}\]
+<div class="split" style="grid-template-columns:2fr 1fr"><div>
+<p><b>b</b> Because the integrand is even (\((-x)^2+1=x^2+1\)),</p>
+\[\begin{aligned}\int_{-2}^{2}(x^2+1)\,dx&amp;=2\int_0^2(x^2+1)\,dx\\&amp;=2\Big[\tfrac13x^3+x\Big]_0^2\\&amp;=2\Big(\big(\tfrac13\times2^3+2\big)-\big(\tfrac13\times0^3+0\big)\Big)\\&amp;=2\Big(\big(2\tfrac23+2\big)-(0+0)\Big)\\&amp;=2\times4\tfrac23\\&amp;=9\tfrac13.\end{aligned}\]
+</div><div>{{svg:c5c_even}}</div></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:dissecting the interval, zero width, running backwards}}
+<div class="box concept"><div class="bt">Dissection of the interval</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>When a region is dissected, its area remains the same. In particular, we can always dissect the region by dissecting the interval \(a\le x\le b\) over which we are integrating.</p>
+<p>Thus if \(f(x)\) is being integrated over the closed interval \([a,b]\) and the number \(c\) lies in this interval, then:</p></div><div>{{svg:c5c_dissect}}</div></div></div>
+<div class="box take"><div class="bt">7 Dissection of the interval</div>
+\[\int_a^b f(x)\,dx=\int_a^c f(x)\,dx+\int_c^b f(x)\,dx\]</div></div>
+<div class="box concept"><div class="bt">Intervals of zero width</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Suppose that a function is integrated over an interval \(a\le x\le a\) of width zero, and that the function is defined at \(x=a\). In this situation, the region also has width zero, so the integral is zero.</p></div><div>{{svg:c5c_zero}}</div></div></div>
+<div class="box take"><div class="bt">8 Intervals of zero width</div>
+\[\int_a^a f(x)\,dx=0\]</div>
+<div class="box concept"><div class="bt">Running an integral backwards from right to left</div>
+<p>A further small qualification must be made to the definition of the definite integral. Suppose that the limits of the integral are reversed, so that the integral ‘runs backwards’ from right to left over the interval. Then its value reverses in sign:</p></div>
+<div style="break-inside:avoid"><div class="box take"><div class="bt">9 Reversing the interval</div>
+<p>Let \(f(x)\) be continuous in the closed interval \([a,b]\), where \(a\le b\). Then we define</p>
+\[\int_b^a f(x)\,dx=-\int_a^b f(x)\,dx.\]</div>
+<p>This agrees perfectly with calculations using the fundamental theorem, because</p>
+\[F(a)-F(b)=-\big(F(b)-F(a)\big).\]</div>
+<div class="box tip"><div class="bt">The fundamental theorem agrees with Boxes 7, 8 and 9</div>
+<p>Let \(F(x)\) be a primitive of \(f(x)\), so that \(\displaystyle\int_a^b f(x)\,dx=F(b)-F(a)\).</p>
+<ul><li><b>Box 7:</b> \(\big(F(c)-F(a)\big)+\big(F(b)-F(c)\big)=F(b)-F(a)\), because the two \(F(c)\) terms cancel.</li>
+<li><b>Box 8:</b> \(\displaystyle\int_a^a f(x)\,dx=F(a)-F(a)=0\).</li>
+<li><b>Box 9:</b> \(\displaystyle\int_b^a f(x)\,dx=F(a)-F(b)=-\big(F(b)-F(a)\big)=-\int_a^b f(x)\,dx\).</li>
+<li>Box 7 also holds when the limits are not in increasing order. For example, going from \(a\) to \(b\) and then back to \(a\) gives \(\displaystyle\int_a^b f(x)\,dx+\int_b^a f(x)\,dx=\int_a^a f(x)\,dx=0\), which is Box 9 again.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Dissecting, zero width and reversing</span></div><div class="ex-body">
+<div class="parts one" style="row-gap:2.5mm;margin-top:0"><span><span class="pl">a</span>By evaluating both sides, show that \(\displaystyle\int_0^3x^2\,dx=\int_0^1x^2\,dx+\int_1^3x^2\,dx\).</span><span><span class="pl">b</span>Write down the value of \(\displaystyle\int_2^2(x^3+5)\,dx\), giving a reason.</span><span><span class="pl">c</span>Evaluate and compare \(\displaystyle\int_1^3(x+1)\,dx\) and \(\displaystyle\int_3^1(x+1)\,dx\) using the fundamental theorem.</span></div>
+{{work:170}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one" style="row-gap:2.5mm;margin-top:0"><span><span class="pl">a</span>By evaluating both sides, show that \(\displaystyle\int_0^4x\,dx=\int_0^1x\,dx+\int_1^4x\,dx\).</span><span><span class="pl">b</span>Write down the value of \(\displaystyle\int_{-3}^{-3}(x^2-4x)\,dx\), giving a reason.</span><span><span class="pl">c</span>Evaluate and compare \(\displaystyle\int_2^5(x-2)\,dx\) and \(\displaystyle\int_5^2(x-2)\,dx\) using the fundamental theorem.</span></div>
+{{work:180}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Evaluate and compare these two definite integrals using the fundamental theorem.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_2^4(x-1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_4^2(x-1)\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:2fr 1fr"><div>
+\[\begin{aligned}\textbf{a}\quad\int_2^4(x-1)\,dx&amp;=\Big[\frac{x^2}{2}-x\Big]_2^4\\&amp;=\Big(\frac{4^2}{2}-4\Big)-\Big(\frac{2^2}{2}-2\Big)\\&amp;=(8-4)-(2-2)\\&amp;=4,\end{aligned}\]
+<p>which is positive, because the region is above the \(x\)-axis.</p>
+\[\begin{aligned}\textbf{b}\quad\int_4^2(x-1)\,dx&amp;=\Big[\frac{x^2}{2}-x\Big]_4^2\\&amp;=\Big(\frac{2^2}{2}-2\Big)-\Big(\frac{4^2}{2}-4\Big)\\&amp;=(2-2)-(8-4)\\&amp;=-4,\end{aligned}\]
+<p>which is the opposite of part <b>a</b>, because the integral runs backwards from right to left, from \(x=4\) to \(x=2\).</p>
+</div><div>{{svg:c5c_e9}}</div></div>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:sums and multiples of functions}}
+<div class="box concept"><div class="bt">Sums of functions</div>
+<p>When two functions are added, the two regions are piled on top of each other, so that:</p></div></div>
+<div class="box take"><div class="bt">10 Integral of a sum</div>
+\[\int_a^b\big(f(x)+g(x)\big)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx\]</div>
+<div style="break-inside:avoid"><div class="box concept"><div class="bt">Multiples of functions</div>
+<p>Similarly, when a function is multiplied by a constant, the region is stretched vertically by that constant, so that:</p></div>
+<div class="box take"><div class="bt">11 Integral of a multiple</div>
+\[\int_a^b kf(x)\,dx=k\int_a^b f(x)\,dx\]</div></div>
+<div class="box tip"><div class="bt">The fundamental theorem agrees with Boxes 10 and 11</div>
+<ul><li>If \(F'(x)=f(x)\) and \(G'(x)=g(x)\), then \(F(x)+G(x)\) is a primitive of \(f(x)+g(x)\), so
+\[\begin{aligned}\int_a^b\big(f(x)+g(x)\big)\,dx&amp;=\big(F(b)+G(b)\big)-\big(F(a)+G(a)\big)\\&amp;=\big(F(b)-F(a)\big)+\big(G(b)-G(a)\big).\end{aligned}\]</li>
+<li>Similarly, \(kF(x)\) is a primitive of \(kf(x)\), so \(\displaystyle\int_a^b kf(x)\,dx=kF(b)-kF(a)=k\big(F(b)-F(a)\big)\).</li>
+<li>Use Box 10 to split an integrand into simpler pieces, and Box 11 to take a constant factor outside the integral.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Sums and multiples</span></div><div class="ex-body">
+Evaluate each pair of expressions and show that they are equal.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^2(x^2+x+1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^2x^2\,dx+\int_0^2x\,dx+\int_0^2 1\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^2 6x^3\,dx\)</span><span><span class="pl">d</span>\(\displaystyle6\int_1^2x^3\,dx\)</span></div>
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate each pair of expressions and show that they are equal.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^3(x^2+1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^3x^2\,dx+\int_0^3 1\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^2 4x^3\,dx\)</span><span><span class="pl">d</span>\(\displaystyle4\int_1^2x^3\,dx\)</span></div>
+{{work:66}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Evaluate these two expressions and show that they are equal.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^1(x^2+x+1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^1x^2\,dx+\int_0^1x\,dx+\int_0^1 1\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+\[\begin{aligned}\textbf{a}\quad\int_0^1(x^2+x+1)\,dx&amp;=\Big[\frac{x^3}{3}+\frac{x^2}{2}+x\Big]_0^1\\&amp;=\big(\tfrac13+\tfrac12+1\big)-(0+0+0)\\&amp;=\tfrac26+\tfrac36+\tfrac66\\&amp;=1\tfrac56.\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\int_0^1x^2\,dx+\int_0^1x\,dx+\int_0^1 1\,dx&amp;=\Big[\frac{x^3}{3}\Big]_0^1+\Big[\frac{x^2}{2}\Big]_0^1+\Big[x\Big]_0^1\\&amp;=\big(\tfrac13-0\big)+\big(\tfrac12-0\big)+(1-0)\\&amp;=1\tfrac56,\ \text{the same as in part }\textbf{a}.\end{aligned}\]
+</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Evaluate these two expressions and show that they are equal.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^3 10x^3\,dx\)</span><span><span class="pl">b</span>\(\displaystyle10\int_1^3x^3\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+\[\begin{aligned}\textbf{a}\quad\int_1^3 10x^3\,dx&amp;=\Big[\frac{10x^4}{4}\Big]_1^3\\&amp;=\frac{10\times3^4}{4}-\frac{10\times1^4}{4}\\&amp;=\frac{810}{4}-\frac{10}{4}\\&amp;=\frac{800}{4}\\&amp;=200\end{aligned}\]
+</div><div>
+\[\begin{aligned}\textbf{b}\quad10\int_1^3x^3\,dx&amp;=10\times\Big[\frac{x^4}{4}\Big]_1^3\\&amp;=10\times\Big(\frac{81}{4}-\frac14\Big)\\&amp;=10\times\frac{80}{4}\\&amp;=10\times20\\&amp;=200\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:inequalities with definite integrals}}
+<div class="box concept"><div class="bt">A lower curve has a smaller integral</div>
+<p>Suppose that a curve \(y=f(x)\) is always underneath another curve \(y=g(x)\) in an interval \(a\le x\le b\). Then the area under the curve \(y=f(x)\) from \(x=a\) to \(x=b\) is less than the area under the curve \(y=g(x)\).</p>
+<p>In the language of definite integrals:</p></div></div>
+<div class="box take"><div class="bt">12 Inequality</div>
+<p>If \(f(x)\le g(x)\) in the closed interval \([a,b]\), then</p>
+\[\int_a^b f(x)\,dx\le\int_a^b g(x)\,dx.\]</div>
+<div class="box tip"><div class="bt">Bounds from a rectangle</div>
+<p>Use Box 12 with constant functions. If \(m\le f(x)\le M\) for \(a\le x\le b\), then</p>
+\[\int_a^b m\,dx\le\int_a^b f(x)\,dx\le\int_a^b M\,dx,\]
+<p>that is,</p>
+\[m(b-a)\le\int_a^b f(x)\,dx\le M(b-a),\]
+<p>because \(\displaystyle\int_a^b M\,dx\) is the area of a rectangle with width \(b-a\) and height \(M\). In a sketch, the region lies inside that rectangle.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Trapping an integral in a rectangle</span></div><div class="ex-body">
+<b>a</b> Sketch the graph of \(f(x)=9-x^2\), for \(-3\le x\le3\).<br>
+<b>b</b> Explain why \(\displaystyle0\le\int_{-3}^{3}(9-x^2)\,dx\le54\).<br>
+<b>c</b> Evaluate the integral, and check that its value lies between these bounds.
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Sketch the graph of \(f(x)=1-x^2\), for \(-1\le x\le1\).<br>
+<b>b</b> Explain why \(\displaystyle0\le\int_{-1}^{1}(1-x^2)\,dx\le2\).<br>
+<b>c</b> Evaluate the integral, and check that its value lies between these bounds.
+{{work:62}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<b>a</b> Sketch the graph of \(f(x)=4-x^2\), for \(-2\le x\le2\).<br>
+<b>b</b> Explain why \(\displaystyle0\le\int_{-2}^{2}(4-x^2)\,dx\le16\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:2fr 1fr"><div>
+<p><b>a</b> The parabola and line are sketched opposite. The parabola \(y=4-x^2\) has \(y\)-intercept 4 and \(x\)-intercepts \(-2\) and 2, and the line is \(y=4\).</p>
+<p><b>b</b> Clearly \(0\le4-x^2\le4\) over the interval \(-2\le x\le2\), because \(x^2\ge0\), so \(4-x^2\le4\), and \(x^2\le4\) in the interval, so \(4-x^2\ge0\).<br>
+Hence the region associated with the integral is inside the square of side length 4 in the diagram opposite, which has area \(4\times4=16\). In the language of Box 12,</p>
+\[\int_{-2}^{2}0\,dx\le\int_{-2}^{2}(4-x^2)\,dx\le\int_{-2}^{2}4\,dx,\]
+<p>that is,</p>
+\[0\le\int_{-2}^{2}(4-x^2)\,dx\le16.\]
+</div><div>{{svg:c5c_e12}}</div></div>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+<div style="break-inside:avoid">{{sec:blue:pencil:Textbook homework:Exercise 5C}}
+{{band:F}}
+<p><b>Technology:</b> All the properties of the definite integral discussed in this section have been justified visually from sketches of the graphs. Computer sketches of the graphs in this exercise would be helpful in reinforcing these explanations. The simplification of integrals of even and odd functions is particularly important and is easily demonstrated visually by graphing programs.</p>
+<div class="q"><span class="q-num">1</span><div class="q-body">Evaluate \(\displaystyle\int_4^5(2x-3)\,dx\) and \(\displaystyle\int_5^4(2x-3)\,dx\). What do you notice?{{work:22}}</div></div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Show, by evaluating the definite integrals, that:
+<div class="parts one" style="row-gap:2.5mm"><span><span class="pl">a</span>\(\displaystyle\int_0^1 6x^2\,dx=6\int_0^1x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-1}^{2}(x^3+x^2)\,dx=\int_{-1}^{2}x^3\,dx+\int_{-1}^{2}x^2\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^3(x^2-4x+3)\,dx=\int_0^2(x^2-4x+3)\,dx+\int_2^3(x^2-4x+3)\,dx\)</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Without evaluating the definite integrals, explain why:
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_2^2(x^2-3x)\,dx=0\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-2}^{2}x\,dx=0\)</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><div class="split" style="grid-template-columns:2fr 1fr"><div>The diagram to the right shows the line \(y=x-1\). Without evaluating the definite integrals, explain why:
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^1(x-1)\,dx\) is negative,</span><span><span class="pl">b</span>\(\displaystyle\int_1^2(x-1)\,dx\) is positive,</span><span><span class="pl">c</span>\(\displaystyle\int_0^2(x-1)\,dx\) is zero,</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^{2}(x-1)\,dx\) is negative.</span></div></div><div>{{svg:q5c_4}}</div></div>{{work:18}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><div class="split" style="grid-template-columns:2fr 1fr"><div>The diagram to the right shows the parabola \(y=1-x^2\). Without evaluating the definite integrals, explain why:
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{-1}^{1}(1-x^2)\,dx\) is positive,</span><span><span class="pl">b</span>\(\displaystyle\int_1^3(1-x^2)\,dx\) is negative,</span><span><span class="pl">c</span>\(\displaystyle\int_{-1}^{0}(1-x^2)\,dx=\int_0^1(1-x^2)\,dx\),</span><span><span class="pl">d</span>\(\displaystyle\int_0^{\frac12}(1-x^2)\,dx&gt;\int_{\frac12}^{1}(1-x^2)\,dx\).</span></div></div><div>{{svg:q5c_5}}</div></div>{{work:18}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>If \(\displaystyle\int_1^3f(x)\,dx=7\), then what is the value of \(\displaystyle\int_3^1f(x)\,dx\)?</span><span><span class="pl">b</span>If \(\displaystyle\int_2^1g(x)\,dx=-5\), then what is the value of \(\displaystyle\int_1^2g(x)\,dx\)?</span></div>{{work:12}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Use a diagram to explain why \(\displaystyle\int_0^1 2x\,dx&gt;\int_0^1x\,dx\).{{work:80}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Write \(\displaystyle\int_{-2}^{0}x^3\,dx+\int_0^1x^3\,dx\) as a single integral, and then use a diagram to explain why this definite integral is negative.{{work:95}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">9</span><div class="q-body">In each part, evaluate the definite integrals. Then use the properties of the definite integral to explain the relationships amongst the integrals within that part.
+<div class="parts three" style="row-gap:2mm">
+<span><span class="pl">a</span>i&ensp;\(\displaystyle\int_0^2(3x^2-1)\,dx\)</span><span>ii&ensp;\(\displaystyle\int_2^0(3x^2-1)\,dx\)</span><span></span>
+<span><span class="pl">b</span>i&ensp;\(\displaystyle\int_0^1 20x^3\,dx\)</span><span>ii&ensp;\(\displaystyle20\int_0^1x^3\,dx\)</span><span></span>
+<span><span class="pl">c</span>i&ensp;\(\displaystyle\int_1^4(4x+5)\,dx\)</span><span>ii&ensp;\(\displaystyle\int_1^4 4x\,dx\)</span><span>iii&ensp;\(\displaystyle\int_1^4 5\,dx\)</span>
+<span><span class="pl">d</span>i&ensp;\(\displaystyle\int_0^2 12x^3\,dx\)</span><span>ii&ensp;\(\displaystyle\int_0^1 12x^3\,dx\)</span><span>iii&ensp;\(\displaystyle\int_1^2 12x^3\,dx\)</span>
+<span><span class="pl">e</span>i&ensp;\(\displaystyle\int_3^3(4-3x^2)\,dx\)</span><span>ii&ensp;\(\displaystyle\int_{-2}^{-2}(4-3x^2)\,dx\)</span><span></span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Use the properties of the definite integral to evaluate each integral without using a primitive function. Give reasons.
+<div class="parts" style="grid-template-columns:1fr 1.5fr 1fr;row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_3^3\sqrt{9-x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_4^4(x^3-3x^2+5x-7)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-1}^{1}x^3\,dx\)</span>
+<span><span class="pl">d</span>\(\displaystyle\int_{-5}^{5}(x^3-25x)\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\sin x\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-2}^{2}\frac{x}{1+x^2}\,dx\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>On one set of axes sketch \(y=x^2\) and \(y=x^3\), clearly showing the points of intersection.</span><span><span class="pl">b</span>Hence explain why \(\displaystyle0&lt;\int_0^1x^3\,dx&lt;\int_0^1x^2\,dx&lt;1\).</span><span><span class="pl">c</span>Check the inequality in part <b>b</b> by evaluating each integral.</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Use area formulae to find \(\displaystyle\int_0^4f(x)\,dx\), given the following sketches of \(f(x)\).
+<div class="parts" style="column-gap:4mm"><div><span class="pl">a</span>{{svg:q5c_12a}}</div><div><span class="pl">b</span>{{svg:q5c_12b}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Calculate using a graph and an area formula.<br>i&ensp;\(\displaystyle\int_0^5 1\,dx\) &emsp;&emsp;&emsp; ii&ensp;\(\displaystyle\int_0^5x\,dx\)</span><span><span class="pl">b</span>Using these results, and the properties of integrals of sums and multiples, evaluate:<br>i&ensp;\(\displaystyle\int_0^5 2x\,dx\) &emsp;&emsp;&emsp; ii&ensp;\(\displaystyle\int_0^5(x+1)\,dx\) &emsp;&emsp;&emsp; iii&ensp;\(\displaystyle\int_0^5(3x-2)\,dx\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Calculate these definite integrals using graphs and area formulae.<br>i&ensp;\(\displaystyle\int_{-\frac14}^{\frac14}(1-4x)\,dx\) &emsp;&emsp;&emsp; ii&ensp;\(\displaystyle\int_{-5}^{1}|x+5|\,dx\) &emsp;&emsp;&emsp; iii&ensp;\(\displaystyle\int_0^2(|x|+3)\,dx\)</span><span><span class="pl">b</span>Hence write down the value of:<br>i&ensp;\(\displaystyle\int_{\frac14}^{-\frac14}(1-4x)\,dx\) &emsp;&emsp;&emsp; ii&ensp;\(\displaystyle\int_1^{-5}|x+5|\,dx\) &emsp;&emsp;&emsp; iii&ensp;\(\displaystyle\int_2^0(|x|+3)\,dx\)</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">Using the properties of the definite integral, explain why:
+<div class="parts one"><span><span class="pl">b</span>\(\displaystyle\int_{-k}^{k}(bx^4+dx^2+f)\,dx=2\int_0^k(bx^4+dx^2+f)\,dx\)</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">Sketch a graph of each integral and hence determine whether each statement is true or false.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_{-1}^{1}2^x\,dx=0\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{-1}\frac1x\,dx&gt;0\)</span><span><span class="pl">d</span>\(\displaystyle\int_2^1\frac1x\,dx&gt;0\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>i&ensp;Show that \(\displaystyle\int_3^4dx=\int_2^3dx=\int_1^2dx=1\).<br>ii&ensp;Show that \(\displaystyle\tfrac27\int_3^4x\,dx=\tfrac25\int_2^3x\,dx=\tfrac23\int_1^2x\,dx=1\).<br>iii&ensp;Show that \(\displaystyle\tfrac{3}{37}\int_3^4x^2\,dx=\tfrac{3}{19}\int_2^3x^2\,dx=\tfrac37\int_1^2x^2\,dx=1\).</span><span><span class="pl">b</span>Use the results above and the theorems on the definite integral to calculate:
+<div class="parts three" style="row-gap:2mm"><span>i&ensp;\(\displaystyle\int_1^4dx\)</span><span>ii&ensp;\(\displaystyle\int_1^3x\,dx\)</span><span>iii&ensp;\(\displaystyle\int_2^1x^2\,dx\)</span><span>iv&ensp;\(\displaystyle\int_1^2(x^2+1)\,dx\)</span><span>v&ensp;\(\displaystyle\int_1^3 7x^2\,dx\)</span><span>vi&ensp;\(\displaystyle\int_1^4(3x^2-6x+5)\,dx\)</span></div></span></div>{{work:150}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">18</span><div class="q-body">State with reasons whether each statement is true or false.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_{-90}^{90}\sin^3x^\circ\,dx=0\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-30}^{30}\sin4x^\circ\cos2x^\circ\,dx=0\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-1}^{1}2^{-x^2}\,dx=0\)</span><span><span class="pl">d</span>\(\displaystyle\int_0^1 2^x\,dx&lt;\int_0^1 3^x\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_{-1}^{0}2^x\,dx&lt;\int_{-1}^{0}3^x\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^1\frac{dt}{1+t^n}\le\int_0^1\frac{dt}{1+t^{n+1}}\), where \(n=1,2,3,\ldots\).</span></div>{{work:150}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">Evaluate each definite integral, then establish the result that follows. Provide a sketch of each situation.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_1^N\frac{1}{x^2}\,dx\) converges to 1 as \(N\to\infty\).</span><span><span class="pl">b</span>\(\displaystyle\int_\varepsilon^1\frac{1}{x^2}\,dx\) diverges to \(\infty\) as \(\varepsilon\to0^+\).</span><span><span class="pl">c</span>\(\displaystyle\int_1^N\frac{1}{\sqrt x}\,dx\) diverges to \(\infty\) as \(N\to\infty\).</span><span><span class="pl">d</span>\(\displaystyle\int_\varepsilon^1\frac{1}{\sqrt x}\,dx\) converges to 2 as \(\varepsilon\to0^+\).</span></div>{{work:170}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 5 minutes</b></span><span><b>3 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">These are the only school-paper items that need just this lesson’s ideas. For more timed practice, do Questions 9(d), 10(f), 12(b), 14, 17(b) and 18(b) above in 25 minutes.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Technical High School, 2021, Extension&nbsp;1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q6</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The graph of \(y=f(x)\) has been drawn to scale for \(0\le x\le8\).
+<div class="fig">{{svg:p5c_st}}</div>
+Which of the following integrals has the greatest value?
+<div class="mc"><span>(A)&ensp;\(\displaystyle\int_0^1f(x)\,dx\)</span><span>(B)&ensp;\(\displaystyle\int_0^2f(x)\,dx\)</span><span>(C)&ensp;\(\displaystyle\int_0^7f(x)\,dx\)</span><span>(D)&ensp;\(\displaystyle\int_0^8f(x)\,dx\)</span></div></div>
+<div class="hint"><b>Hint:</b> where is the graph above the \(x\)-axis, and where is it below?</div>{{work:20}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q10</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following is equal to \(\displaystyle\int_{-1}^{1}\cos^{-1}x\,dx\)?
+<div class="mc" style="grid-template-columns:repeat(4,1fr)"><span>(A)&ensp;\(\dfrac{\pi}{3}\)</span><span>(B)&ensp;\(\dfrac{\pi}{2}\)</span><span>(C)&ensp;\(\pi\)</span><span>(D)&ensp;\(2\pi\)</span></div></div>
+<div class="hint"><b>Hint:</b> what does the graph of \(y=\cos^{-1}x\) look like between \(x=-1\) and \(x=1\)?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Epping Boys High School, 2024, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)(ii)</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 1fr"><div>Part (i), not included here, asks for a sketch of the graph of \(f(x)=2\cos^{-1}(x-1)\). The graph is shown to the right.
+<div class="pp-sub"><span>(ii) Hence, explain why \(\displaystyle\int_0^2\big[2\cos^{-1}(x-1)-\pi\big]\,dx=0\)</span><span class="mk">1</span></div></div><div>{{svg:p5c_ep}}</div></div></div>
+<div class="hint"><b>Hint:</b> what does the graph of \(y=2\cos^{-1}(x-1)-\pi\) look like?</div>{{work:100}}</div>
+</div>

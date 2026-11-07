@@ -1,1 +1,128 @@
-<!-- filled by Task Int1 lesson 5C -->
+{{ahead:Lesson 5C | The definite integral and its properties}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a" style="break-inside:auto"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> The line \(y=x-3\) crosses the \(x\)-axis at \(x=3\). It is below the axis for \(0\le x&lt;3\) and above it for \(3&lt;x\le5\).
+\[\begin{aligned}\textbf{a}\quad\int_0^3(x-3)\,dx&amp;=\Big[\tfrac12x^2-3x\Big]_0^3\\&amp;=\big(\tfrac12\times3^2-3\times3\big)-\big(\tfrac12\times0^2-3\times0\big)\\&amp;=\big(4\tfrac12-9\big)-(0-0)\\&amp;=-4\tfrac12\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\int_3^5(x-3)\,dx&amp;=\Big[\tfrac12x^2-3x\Big]_3^5\\&amp;=\big(\tfrac12\times5^2-3\times5\big)-\big(\tfrac12\times3^2-3\times3\big)\\&amp;=\big(12\tfrac12-15\big)-\big(4\tfrac12-9\big)\\&amp;=-2\tfrac12-\big(-4\tfrac12\big)\\&amp;=2\end{aligned}\]
+\[\begin{aligned}\textbf{c}\quad\int_0^5(x-3)\,dx&amp;=\Big[\tfrac12x^2-3x\Big]_0^5\\&amp;=\big(\tfrac12\times5^2-3\times5\big)-\big(\tfrac12\times0^2-3\times0\big)\\&amp;=\big(12\tfrac12-15\big)-(0-0)\\&amp;=-2\tfrac12\end{aligned}\]
+The triangle from \(x=0\) to \(x=3\) is below the \(x\)-axis and has area \(\tfrac12\times3\times3=4\tfrac12\), so the answer \(-4\tfrac12\) in part <b>a</b> is expected. The triangle from \(x=3\) to \(x=5\) is above the axis and has area \(\tfrac12\times2\times2=2\), as in part <b>b</b>. Part <b>c</b> is the upper area minus the lower area, \(2-4\tfrac12=-2\tfrac12\).<br>
+<b>Your turn.</b> The line \(y=x-2\) is below the \(x\)-axis for \(0\le x&lt;2\) and above it for \(2&lt;x\le5\).
+\[\begin{aligned}\textbf{a}\quad\int_0^2(x-2)\,dx&amp;=\Big[\tfrac12x^2-2x\Big]_0^2\\&amp;=\big(\tfrac12\times2^2-2\times2\big)-\big(\tfrac12\times0^2-2\times0\big)\\&amp;=(2-4)-(0-0)\\&amp;=-2\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\int_2^5(x-2)\,dx&amp;=\Big[\tfrac12x^2-2x\Big]_2^5\\&amp;=\big(\tfrac12\times5^2-2\times5\big)-\big(\tfrac12\times2^2-2\times2\big)\\&amp;=\big(12\tfrac12-10\big)-(2-4)\\&amp;=2\tfrac12-(-2)\\&amp;=4\tfrac12\end{aligned}\]
+\[\begin{aligned}\textbf{c}\quad\int_0^5(x-2)\,dx&amp;=\Big[\tfrac12x^2-2x\Big]_0^5\\&amp;=\big(\tfrac12\times5^2-2\times5\big)-\big(\tfrac12\times0^2-2\times0\big)\\&amp;=\big(12\tfrac12-10\big)-(0-0)\\&amp;=2\tfrac12\end{aligned}\]
+The lower triangle has area \(\tfrac12\times2\times2=2\) (part <b>a</b> is \(-2\)), the upper triangle has area \(\tfrac12\times3\times3=4\tfrac12\) (part <b>b</b>), and part <b>c</b> is \(4\tfrac12-2=2\tfrac12\).</div></div>
+
+<div class="a" style="break-inside:auto"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<b>a</b> \(y=x^3-9x=x(x-3)(x+3)\) has zeroes \(-3\), 0 and 3, with a hump above the axis from \(-3\) to 0 and an equal hump below it from 0 to 3. Since \((-x)^3-9(-x)=-x^3+9x=-(x^3-9x)\), the integrand is odd, so \(\displaystyle\int_{-3}^{3}(x^3-9x)\,dx=0\). Without symmetry:
+\[\begin{aligned}\int_{-3}^{3}(x^3-9x)\,dx&amp;=\Big[\tfrac14x^4-\tfrac92x^2\Big]_{-3}^{3}\\&amp;=\big(\tfrac14\times3^4-\tfrac92\times3^2\big)-\big(\tfrac14\times(-3)^4-\tfrac92\times(-3)^2\big)\\&amp;=\big(\tfrac{81}{4}-\tfrac{81}{2}\big)-\big(\tfrac{81}{4}-\tfrac{81}{2}\big)\\&amp;=0\end{aligned}\]
+<b>b</b> \(y=x^2+1\) is a parabola with vertex \((0,1)\). Since \((-x)^2+1=x^2+1\), the integrand is even, so
+\[\begin{aligned}\int_{-3}^{3}(x^2+1)\,dx&amp;=2\int_0^3(x^2+1)\,dx\\&amp;=2\Big[\tfrac13x^3+x\Big]_0^3\\&amp;=2\Big(\big(\tfrac13\times3^3+3\big)-\big(\tfrac13\times0^3+0\big)\Big)\\&amp;=2\big((9+3)-(0+0)\big)\\&amp;=2\times12\\&amp;=24\end{aligned}\]
+<b>Your turn.</b>
+<b>a</b> \(y=x^3-x=x(x-1)(x+1)\) has zeroes \(-1\), 0 and 1. Since \((-x)^3-(-x)=-x^3+x=-(x^3-x)\), the integrand is odd, so \(\displaystyle\int_{-1}^{1}(x^3-x)\,dx=0\). Without symmetry:
+\[\begin{aligned}\int_{-1}^{1}(x^3-x)\,dx&amp;=\Big[\tfrac14x^4-\tfrac12x^2\Big]_{-1}^{1}\\&amp;=\big(\tfrac14\times1^4-\tfrac12\times1^2\big)-\big(\tfrac14\times(-1)^4-\tfrac12\times(-1)^2\big)\\&amp;=\big(\tfrac14-\tfrac12\big)-\big(\tfrac14-\tfrac12\big)\\&amp;=0\end{aligned}\]
+<b>b</b> \(y=3x^2+1\) is a parabola with vertex \((0,1)\). Since \(3(-x)^2+1=3x^2+1\), the integrand is even, so
+\[\begin{aligned}\int_{-1}^{1}(3x^2+1)\,dx&amp;=2\int_0^1(3x^2+1)\,dx\\&amp;=2\Big[x^3+x\Big]_0^1\\&amp;=2\big((1^3+1)-(0^3+0)\big)\\&amp;=2\times2\\&amp;=4\end{aligned}\]</div></div>
+
+<div class="a" style="break-inside:auto"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b>
+<b>a</b> Left-hand side: \(\displaystyle\int_0^3x^2\,dx=\Big[\tfrac13x^3\Big]_0^3=\tfrac13\times3^3-\tfrac13\times0^3=9-0=9\).<br>
+Right-hand side: \(\displaystyle\int_0^1x^2\,dx+\int_1^3x^2\,dx=\Big[\tfrac13x^3\Big]_0^1+\Big[\tfrac13x^3\Big]_1^3=\big(\tfrac13-0\big)+\big(9-\tfrac13\big)=9\), the same (Box 7 with \(c=1\)).<br>
+<b>b</b> \(\displaystyle\int_2^2(x^3+5)\,dx=0\), because the interval has zero width (Box 8).<br>
+<b>c</b>
+\[\begin{aligned}\int_1^3(x+1)\,dx&amp;=\Big[\tfrac12x^2+x\Big]_1^3\\&amp;=\big(\tfrac12\times3^2+3\big)-\big(\tfrac12\times1^2+1\big)\\&amp;=\big(4\tfrac12+3\big)-\big(\tfrac12+1\big)\\&amp;=7\tfrac12-1\tfrac12\\&amp;=6\end{aligned}\]
+\[\begin{aligned}\int_3^1(x+1)\,dx&amp;=\Big[\tfrac12x^2+x\Big]_3^1\\&amp;=\big(\tfrac12\times1^2+1\big)-\big(\tfrac12\times3^2+3\big)\\&amp;=\big(\tfrac12+1\big)-\big(4\tfrac12+3\big)\\&amp;=1\tfrac12-7\tfrac12\\&amp;=-6\end{aligned}\]
+The two integrals are opposites, because the second runs backwards from \(x=3\) to \(x=1\) (Box 9).<br>
+<b>Your turn.</b>
+<b>a</b> Left-hand side: \(\displaystyle\int_0^4x\,dx=\Big[\tfrac12x^2\Big]_0^4=\tfrac12\times4^2-\tfrac12\times0^2=8-0=8\).<br>
+Right-hand side: \(\displaystyle\int_0^1x\,dx+\int_1^4x\,dx=\Big[\tfrac12x^2\Big]_0^1+\Big[\tfrac12x^2\Big]_1^4=\big(\tfrac12-0\big)+\big(8-\tfrac12\big)=8\), the same (Box 7 with \(c=1\)).<br>
+<b>b</b> \(\displaystyle\int_{-3}^{-3}(x^2-4x)\,dx=0\), because the interval has zero width (Box 8).<br>
+<b>c</b>
+\[\begin{aligned}\int_2^5(x-2)\,dx&amp;=\Big[\tfrac12x^2-2x\Big]_2^5\\&amp;=\big(\tfrac12\times5^2-2\times5\big)-\big(\tfrac12\times2^2-2\times2\big)\\&amp;=\big(12\tfrac12-10\big)-(2-4)\\&amp;=2\tfrac12+2\\&amp;=4\tfrac12\end{aligned}\]
+\[\begin{aligned}\int_5^2(x-2)\,dx&amp;=\Big[\tfrac12x^2-2x\Big]_5^2\\&amp;=\big(\tfrac12\times2^2-2\times2\big)-\big(\tfrac12\times5^2-2\times5\big)\\&amp;=(2-4)-\big(12\tfrac12-10\big)\\&amp;=-2-2\tfrac12\\&amp;=-4\tfrac12\end{aligned}\]
+The two integrals are opposites, because the second runs backwards from \(x=5\) to \(x=2\) (Box 9).</div></div>
+
+<div class="a" style="break-inside:auto"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b>
+\[\begin{aligned}\textbf{a}\quad\int_0^2(x^2+x+1)\,dx&amp;=\Big[\frac{x^3}{3}+\frac{x^2}{2}+x\Big]_0^2\\&amp;=\Big(\frac{2^3}{3}+\frac{2^2}{2}+2\Big)-(0+0+0)\\&amp;=2\tfrac23+2+2\\&amp;=6\tfrac23\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\int_0^2x^2\,dx+\int_0^2x\,dx+\int_0^2 1\,dx&amp;=\Big[\frac{x^3}{3}\Big]_0^2+\Big[\frac{x^2}{2}\Big]_0^2+\Big[x\Big]_0^2\\&amp;=\big(2\tfrac23-0\big)+(2-0)+(2-0)\\&amp;=6\tfrac23,\ \text{the same as in part }\textbf{a}\end{aligned}\]
+\[\begin{aligned}\textbf{c}\quad\int_1^2 6x^3\,dx&amp;=\Big[\frac{6x^4}{4}\Big]_1^2\\&amp;=\frac{6\times2^4}{4}-\frac{6\times1^4}{4}\\&amp;=\frac{96}{4}-\frac{6}{4}\\&amp;=\frac{90}{4}\\&amp;=22\tfrac12\end{aligned}\]
+\[\begin{aligned}\textbf{d}\quad6\int_1^2x^3\,dx&amp;=6\times\Big[\frac{x^4}{4}\Big]_1^2\\&amp;=6\times\Big(\frac{16}{4}-\frac14\Big)\\&amp;=6\times\frac{15}{4}\\&amp;=\frac{90}{4}\\&amp;=22\tfrac12\end{aligned}\]
+<b>Your turn.</b>
+\[\begin{aligned}\textbf{a}\quad\int_0^3(x^2+1)\,dx&amp;=\Big[\frac{x^3}{3}+x\Big]_0^3\\&amp;=\Big(\frac{3^3}{3}+3\Big)-(0+0)\\&amp;=9+3\\&amp;=12\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\int_0^3x^2\,dx+\int_0^3 1\,dx&amp;=\Big[\frac{x^3}{3}\Big]_0^3+\Big[x\Big]_0^3\\&amp;=(9-0)+(3-0)\\&amp;=12,\ \text{the same}\end{aligned}\]
+\[\begin{aligned}\textbf{c}\quad\int_1^2 4x^3\,dx&amp;=\Big[\frac{4x^4}{4}\Big]_1^2\\&amp;=\Big[x^4\Big]_1^2\\&amp;=2^4-1^4\\&amp;=16-1\\&amp;=15\end{aligned}\]
+\[\begin{aligned}\textbf{d}\quad4\int_1^2x^3\,dx&amp;=4\times\Big[\frac{x^4}{4}\Big]_1^2\\&amp;=4\times\Big(\frac{16}{4}-\frac14\Big)\\&amp;=4\times\frac{15}{4}\\&amp;=15,\ \text{the same}\end{aligned}\]</div></div>
+
+<div class="a" style="break-inside:auto"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b>
+<b>a</b> \(y=9-x^2\) is a parabola with vertex \((0,9)\) and \(x\)-intercepts \(-3\) and 3, concave down.<br>
+<b>b</b> Since \(x^2\ge0\), \(9-x^2\le9\). For \(-3\le x\le3\), \(x^2\le9\), so \(9-x^2\ge0\). Hence \(0\le9-x^2\le9\), and the region lies inside the rectangle with width \(3-(-3)=6\) and height 9, which has area \(6\times9=54\). By Box 12, \(\displaystyle\int_{-3}^{3}0\,dx\le\int_{-3}^{3}(9-x^2)\,dx\le\int_{-3}^{3}9\,dx\), that is, \(\displaystyle0\le\int_{-3}^{3}(9-x^2)\,dx\le54\).<br>
+<b>c</b> The integrand is even, so
+\[\begin{aligned}\int_{-3}^{3}(9-x^2)\,dx&amp;=2\int_0^3(9-x^2)\,dx\\&amp;=2\Big[9x-\tfrac13x^3\Big]_0^3\\&amp;=2\Big(\big(9\times3-\tfrac13\times3^3\big)-\big(9\times0-\tfrac13\times0^3\big)\Big)\\&amp;=2\big((27-9)-0\big)\\&amp;=2\times18\\&amp;=36,\end{aligned}\]
+and \(0\le36\le54\).<br>
+<b>Your turn.</b>
+<b>a</b> \(y=1-x^2\) is a parabola with vertex \((0,1)\) and \(x\)-intercepts \(-1\) and 1, concave down.<br>
+<b>b</b> Since \(x^2\ge0\), \(1-x^2\le1\). For \(-1\le x\le1\), \(x^2\le1\), so \(1-x^2\ge0\). Hence the region lies inside the rectangle with width \(1-(-1)=2\) and height 1, which has area \(2\times1=2\). By Box 12, \(\displaystyle0\le\int_{-1}^{1}(1-x^2)\,dx\le2\).<br>
+<b>c</b> The integrand is even, so
+\[\begin{aligned}\int_{-1}^{1}(1-x^2)\,dx&amp;=2\int_0^1(1-x^2)\,dx\\&amp;=2\Big[x-\tfrac13x^3\Big]_0^1\\&amp;=2\Big(\big(1-\tfrac13\big)-(0-0)\Big)\\&amp;=2\times\tfrac23\\&amp;=\tfrac43,\end{aligned}\]
+and \(0\le\tfrac43\le2\).</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab">\(\displaystyle\int_4^5(2x-3)\,dx=\Big[x^2-3x\Big]_4^5=(25-15)-(16-12)=6\) and \(\displaystyle\int_5^4(2x-3)\,dx=\Big[x^2-3x\Big]_5^4=(16-12)-(25-15)=-6\).<br>The values are 6 and \(-6\), which differ by a factor of \(-1\).</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><b>a</b> \(LHS=RHS=2\) &nbsp; <b>b</b> \(LHS=RHS=6\tfrac34\) &nbsp; <b>c</b> \(LHS=RHS=0\)</div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>a</b> The interval has width zero. &nbsp; <b>b</b> \(y=x\) is an odd function.</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> The area is below the \(x\)-axis. &nbsp; <b>b</b> The area is above the \(x\)-axis.<br><b>c</b> The areas above and below the \(x\)-axis are equal.<br><b>d</b> The area below the \(x\)-axis is greater than the area above.</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>a</b> The area is above the \(x\)-axis. &nbsp; <b>b</b> The area is below the \(x\)-axis.<br><b>c</b> \(y=1-x^2\) is an even function and so is symmetrical about the \(y\)-axis.<br><b>d</b> The area under the parabola from 0 to \(\tfrac12\) is greater than the area from \(\tfrac12\) to 1.</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>a</b> \(-7\) &nbsp; <b>b</b> 5</div></div>
+<div class="a"><span class="an">7</span><div class="ab">The area under the line \(y=2x\) from \(x=0\) to \(x=1\) is greater than the area under \(y=x\).</div></div>
+<div class="a"><span class="an">8</span><div class="ab">\(\displaystyle\int_{-2}^{1}x^3\,dx\). The area below the \(x\)-axis is greater than the area above.</div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>a</b> i 6 &nbsp; ii \(-6\). The integrals are opposites because the limits have been reversed.<br>
+<b>b</b> i 5 &nbsp; ii 5. The factor 20 can be taken out of the integral.<br>
+<b>c</b> i 45 &nbsp; ii 30 &nbsp; iii 15. An integral of a sum is the sum of the integrals.<br>
+<b>d</b> i 48 &nbsp; ii 3 &nbsp; iii 45. The interval \(0\le x\le2\) can be dissected into the intervals \(0\le x\le1\) and \(1\le x\le2\).<br>
+<b>e</b> i 0 &nbsp; ii 0. An integral over an interval of zero width is zero.</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> 0. The interval has zero width. &nbsp; <b>b</b> 0. The interval has zero width.<br>
+<b>c</b> 0. The integrand is odd. &nbsp; <b>d</b> 0. The integrand is odd.<br>
+<b>e</b> 0. The integrand is odd. &nbsp; <b>f</b> 0. The integrand is odd.</div></div>
+<div class="a"><span class="an">11</span><div class="ab"><b>a</b> The curves meet at \((0,0)\) and at \((1,1)\).<br>
+<b>b</b> In the interval \(0\le x\le1\), the curve \(y=x^3\) is below the curve \(y=x^2\).<br>
+<b>c</b> \(\tfrac14\) and \(\tfrac13\)</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a</b> \(\tfrac{\pi}{4}-\tfrac12-\tfrac14+\tfrac14+\tfrac{\pi}{4}=\tfrac{\pi}{2}-\tfrac12\) &nbsp; <b>b</b> \(\big(1-\tfrac{\pi}{4}\big)+\tfrac12-\tfrac12-\tfrac{\pi}{4}=1-\tfrac{\pi}{2}\)</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>a</b> i 5 &nbsp; ii \(\tfrac{25}{2}\)<br><b>b</b> i 25 &nbsp; ii \(17\tfrac12\) &nbsp; iii \(27\tfrac12\)</div></div>
+<div class="a"><span class="an">14</span><div class="ab"><b>a</b> i \(\tfrac12\) &nbsp; ii 18 &nbsp; iii 8<br><b>b</b> i \(-\tfrac12\) &nbsp; ii \(-18\) &nbsp; iii \(-8\)</div></div>
+<div class="a"><span class="an">15</span><div class="ab"><b>b</b> The function is even, so its graph is symmetrical about the \(y\)-axis.</div></div>
+<div class="a"><span class="an">16</span><div class="ab"><b>a</b> false &nbsp; <b>c</b> false &nbsp; <b>d</b> false</div></div>
+<div class="a"><span class="an">17</span><div class="ab"><b>b</b> i 3 &nbsp; ii 4 &nbsp; iii \(-\tfrac73\) &nbsp; iv \(\tfrac{10}{3}\) &nbsp; v \(60\tfrac23\) &nbsp; vi 33</div></div>
+<div class="a"><span class="an">18</span><div class="ab"><b>a</b> True, as the function is odd.<br>
+<b>b</b> True, as \(\sin4x^\circ\) is odd and \(\cos2x^\circ\) is even.<br>
+<b>c</b> False, as \(2^{-x^2}&gt;0\) for all \(x\).<br>
+<b>d</b> True, as \(2^x&lt;3^x\) for \(0&lt;x&lt;1\).<br>
+<b>e</b> False, as \(2^x&gt;3^x\) for \(-1&lt;x&lt;0\).<br>
+<b>f</b> True, as \(t^n\ge t^{n+1}\) for \(0\le t\le1\) and hence \(\dfrac{1}{1+t^n}\le\dfrac{1}{1+t^{n+1}}\).</div></div>
+<div class="a"><span class="an">19</span><div class="ab"><b>a</b> The integral is \(-\dfrac1N+1\), which converges to 1 as \(N\to\infty\).<br>
+<b>b</b> The integral is \(-1+\dfrac1\varepsilon\), which diverges to \(\infty\) as \(\varepsilon\to0^+\).<br>
+<b>c</b> The integral is \(2\sqrt N-2\), which diverges to \(\infty\) as \(N\to\infty\).<br>
+<b>d</b> The integral is \(2-2\sqrt\varepsilon\), which converges to 2 as \(\varepsilon\to0^+\).</div></div>
+
+{{ahead:Lesson 5C | The definite integral and its properties}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Technical High School, 2021, Extension&nbsp;1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q6</span></span></div>
+<p>The graph is above the \(x\)-axis for \(0\le x&lt;2\), below it for \(2&lt;x&lt;6\), and above it again for \(6&lt;x&lt;8\). Each integral is a sum of signed areas.</p>
+<ul style="margin:0.5mm 0 1mm"><li>\(\displaystyle\int_0^2f(x)\,dx=\int_0^1f(x)\,dx+\int_1^2f(x)\,dx\) (dissection at \(x=1\)), and \(\displaystyle\int_1^2f(x)\,dx&gt;0\) because the curve is above the axis there. So (B) is greater than (A).</li>
+<li>\(\displaystyle\int_0^8f(x)\,dx=\int_0^2f(x)\,dx-(\text{area from 2 to 6})+(\text{area from 6 to 8})\). The region below the axis from 2 to 6 is wider (4 units) and deeper (about twice the height) than the small hump from 6 to 8, so the area from 2 to 6 is greater, and (D) is less than (B).</li>
+<li>\(\displaystyle\int_0^7f(x)\,dx=\int_0^8f(x)\,dx-\int_7^8f(x)\,dx\), and \(\displaystyle\int_7^8f(x)\,dx&gt;0\), so (C) is less than (D), and so less than (B).</li></ul>
+<p>Adding any area below the axis makes the integral smaller, so the greatest value is reached at \(x=2\), where the curve crosses from above to below the axis. <b>Answer (B).</b></p></div>
+
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q10</span></span></div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p>The graph of \(y=\cos^{-1}x\) falls from \((-1,\pi)\) through \(\big(0,\tfrac{\pi}{2}\big)\) to \((1,0)\), and \(\cos^{-1}(-x)=\pi-\cos^{-1}x\). Let \(g(x)=\cos^{-1}x-\tfrac{\pi}{2}\). Then</p>
+</div><div class="fig" style="margin:0">{{svg:p5c_abs}}</div></div>
+\[\begin{aligned}g(-x)&amp;=\cos^{-1}(-x)-\tfrac{\pi}{2}\\&amp;=\pi-\cos^{-1}x-\tfrac{\pi}{2}\\&amp;=\tfrac{\pi}{2}-\cos^{-1}x\\&amp;=-g(x),\end{aligned}\]
+<p>so \(g(x)\) is odd, and \(\cos^{-1}x=\tfrac{\pi}{2}+g(x)\).</p>
+\[\begin{aligned}\int_{-1}^{1}\cos^{-1}x\,dx&amp;=\int_{-1}^{1}\tfrac{\pi}{2}\,dx+\int_{-1}^{1}g(x)\,dx\qquad\text{(integral of a sum)}\\&amp;=\tfrac{\pi}{2}\times2+0\qquad\text{(a rectangle, and }g\text{ is odd)}\\&amp;=\pi.\end{aligned}\]
+<p>Geometrically: the curve cuts the rectangle \(-1\le x\le1\), \(0\le y\le\pi\) (area \(2\times\pi=2\pi\)) into the region \(S\) under the curve and the region \(T\) above it. A rotation of \(180^\circ\) about \(\big(0,\tfrac{\pi}{2}\big)\) maps \(S\) onto \(T\), so each has area \(\tfrac12\times2\pi=\pi\). <b>Answer (C).</b> Option (D) is the area of the whole rectangle.</p></div>
+
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Epping Boys High School, 2024, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)(ii)</span></span></div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p>Let \(g(x)=2\cos^{-1}(x-1)-\pi\). Its graph is the graph of \(y=f(x)\) in part (i) moved down by \(\pi\): it runs from \((0,\pi)\) through \((1,0)\) to \((2,-\pi)\).</p>
+<p>The graph of \(y=g(x)\) has point symmetry about \((1,0)\), because for \(0\le t\le1\), using \(\cos^{-1}(-t)=\pi-\cos^{-1}t\),</p>
+</div><div class="fig" style="margin:0">{{svg:p5c_eps}}</div></div>
+\[\begin{aligned}g(1-t)&amp;=2\cos^{-1}(-t)-\pi\\&amp;=2\big(\pi-\cos^{-1}t\big)-\pi\\&amp;=\pi-2\cos^{-1}t\\&amp;=-\big(2\cos^{-1}t-\pi\big)\\&amp;=-g(1+t).\end{aligned}\]
+<p>(Equivalently, the graph of \(y=f(x)\) has point symmetry about \((1,\pi)\).) The region \(P\) above the \(x\)-axis from \(x=0\) to \(x=1\) and the region \(Q\) below the axis from \(x=1\) to \(x=2\) are congruent (a rotation of \(180^\circ\) about \((1,0)\) maps one onto the other), so they have equal areas. Hence, dissecting the interval at \(x=1\),</p>
+\[\int_0^2\big[2\cos^{-1}(x-1)-\pi\big]\,dx=\int_0^1g(x)\,dx+\int_1^2g(x)\,dx=\text{area }P-\text{area }Q=0.\]</div>
