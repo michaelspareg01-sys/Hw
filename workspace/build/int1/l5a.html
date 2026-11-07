@@ -1,1 +1,243 @@
-<!-- filled by Task Int1 lesson 5A -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 5A</div><h2>Areas and the definite integral</h2>
+<div class="focus">This lesson extends the study of areas to regions bounded by curves. Cutting a curved region into thin strips, adding up the strips, and taking a limit leads to a new symbol, the definite integral \(\displaystyle\int_a^b f(x)\,dx\), which is defined to be an area. When the graph is made of straight lines or parts of circles, the integral is found with the area formulae. For other curves, upper and lower rectangles trap the integral, and a limiting process gives its exact value.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:a new symbol, the definite integral}}
+<div class="box concept"><div class="bt">The two principles of area</div>
+<p>All area formulae and calculations of area are based on two principles:</p>
+<ol style="margin:0.5mm 0 1mm"><li>Area of a rectangle \(=\) length \(\times\) breadth.</li>
+<li>When a region is dissected, the area is unchanged.</li></ol>
+<p>A region bounded by straight lines, such as a triangle or a trapezium, can be cut up and rearranged into rectangles with a few well-chosen cuts. Dissecting a curved region into rectangles, however, requires an infinite number of rectangles, and so must be a limiting process, just as differentiation is.</p></div></div>
+<div class="box concept" style="break-inside:auto"><div class="bt">A new symbol: the definite integral</div>
+<p>Some new notation is needed to reflect this process of infinite dissection as it applies to functions and their graphs.</p>
+<p>The diagram on the left below shows the region contained between a given curve \(y=f(x)\) and the \(x\)-axis, from \(x=a\) to \(x=b\), where \(a\le b\). The curve must be continuous and, for the moment, never go below the \(x\)-axis.</p>
+<div style="display:flex;justify-content:space-between;gap:2mm">{{svg:c5a_reg}}{{svg:c5a_strips}}{{svg:c5a_strip}}</div>
+<p>In the middle diagram, the region has been dissected into a number of thin strips. Each strip is approximately a rectangle, but only roughly so, because the upper boundary is curved. The area of the region is the sum of the areas of all the strips.</p>
+<p>The third diagram shows just one of the strips, above the value \(x\) on the \(x\)-axis. Its height at the left-hand end is \(f(x)\), and provided the strip is very thin, the height is still about \(f(x)\) at the right-hand end. Let the width of the strip be \(\delta x\), where \(\delta x\) is, as usual in calculus, thought of as being very small. Then, roughly,</p>
+\[\begin{aligned}\text{area of strip}&amp;\doteq\text{height}\times\text{width}\\&amp;\doteq f(x)\,\delta x.\end{aligned}\]
+<p>Adding up all the strips, using sigma notation for the sum,</p>
+\[\begin{aligned}\text{area of shaded region}&amp;\doteq\sum_{x=a}^{b}(\text{area of each strip})\\&amp;\doteq\sum_{x=a}^{b}f(x)\,\delta x.\end{aligned}\]
+<p>Now imagine that there are infinitely many of these strips, each infinitesimally thin, so that the inaccuracy disappears. This involves taking the limit, and we might expect to see something like this</p>
+\[\text{area of shaded region}=\lim_{\delta x\to0}\sum_{x=a}^{b}f(x)\,\delta x,\]
+<p>but instead, we use the brilliant and flexible notation introduced by Leibniz.</p>
+<p>The width \(\delta x\) is replaced by the symbol \(dx\), which suggests an infinitesimal width, and an old form \(\displaystyle\int\) of the letter S is used to suggest an infinite sum under a smooth curve. The result is the strange-looking symbol \(\displaystyle\int_a^b f(x)\,dx\). We now <i>define</i> this symbol to be the shaded area,</p>
+\[\int_a^b f(x)\,dx=\text{area of shaded region}.\]
+<p>This new object \(\displaystyle\int_a^b f(x)\,dx\) is called a <i>definite integral</i>. The rest of the chapter is concerned with evaluating definite integrals and applying them.</p></div>
+<div class="box take"><div class="bt">1 The definite integral</div>
+<p>Let \(f(x)\) be a function that is continuous in a closed interval \([a,b]\), where \(a\le b\). For the moment, suppose that \(f(x)\) is never negative in the interval.</p>
+<ul><li>The <i>definite integral</i> \(\displaystyle\int_a^b f(x)\,dx\) is defined to be the area of the region between the curve and the \(x\)-axis, from \(x=a\) to \(x=b\).</li>
+<li>The function \(f(x)\) is called the <i>integrand</i>, and the values \(x=a\) and \(x=b\) are called the <i>lower</i> and <i>upper limits</i> (or <i>bounds</i>) of the integral.</li></ul></div>
+<div class="box concept"><div class="bt">Why the name ‘integration’</div>
+<p>The name ‘integration’ suggests putting many parts together to make a whole. The notation arises from building up the region from an infinitely large number of infinitesimally thin strips. Integration is ‘making a whole’ from these thin slices.</p></div>
+<div class="box tip"><div class="bt">Reading the symbol</div>
+<p>Read \(\displaystyle\int_1^4 x^3\,dx\) as ‘the integral from 1 to 4 of \(x^3\) \(dx\)’. The lower limit is written at the bottom of the integral sign and the upper limit at the top. The \(dx\) at the end says that \(x\) is the variable along the horizontal axis, and it closes the integral. Before using Box 1, check that the integrand is never negative between the limits.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Integrand and limits</span></div><div class="ex-body">
+<b>a</b> Write the area of the region between the curve \(y=x^3\) and the \(x\)-axis, from \(x=1\) to \(x=4\), as a definite integral. Name the integrand and the lower and upper limits.<br>
+<b>b</b> Describe the region whose area is \(\displaystyle\int_0^3(9-x^2)\,dx\). Check that the integrand is never negative in the interval.<br>
+<b>c</b> Explain why Box 1 cannot yet be used to give a meaning to \(\displaystyle\int_{-2}^{1}(x+1)\,dx\).
+{{work:40}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skill</span></div><div class="ex-body">
+<b>a</b> Write the area of the region between the curve \(y=\sqrt x\) and the \(x\)-axis, from \(x=4\) to \(x=9\), as a definite integral. Name the integrand and the lower and upper limits.<br>
+<b>b</b> Describe the region whose area is \(\displaystyle\int_{-2}^{2}(4-x^2)\,dx\). Check that the integrand is never negative in the interval.<br>
+<b>c</b> Explain why Box 1 cannot yet be used to give a meaning to \(\displaystyle\int_0^3(x-1)\,dx\).
+{{work:40}}</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:evaluating definite integrals using area formulae}}
+<div class="box concept"><div class="bt">When the graph is made of lines or circles</div>
+<p>When the function is linear or circular, the definite integral can be calculated from the graph using well-known area formulae, although a quicker method will be developed later for linear functions.</p>
+<p>Here are the relevant area formulae:</p></div></div>
+<div class="box take"><div class="bt">2 Area formulae for triangle, trapezium and circle</div>
+<table class="t" style="margin:0"><tr><td><b>Triangle:</b></td><td>\(\text{Area}=\tfrac12bh\)</td><td>\(=\tfrac12\times\text{base}\times\text{height}\)</td></tr>
+<tr><td><b>Trapezium:</b></td><td>\(\text{Area}=\tfrac12(a+b)h\)</td><td>\(=\text{average of parallel sides}\times\text{width}\)</td></tr>
+<tr><td><b>Circle:</b></td><td>\(\text{Area}=\pi r^2\)</td><td>\(=\pi\times\text{square of the radius}\)</td></tr></table></div>
+<div class="box concept"><div class="bt">Notes on the formulae</div>
+<p>For a trapezium, \(h\) is the perpendicular distance between the parallel sides. Depending on the orientation, the word ‘height’ or ‘width’ may be more appropriate. Similarly, any side of a triangle may be taken as its ‘base’.</p>
+<p>A semicircle is half a circle, with area \(\tfrac12\pi r^2\), and a quadrant is a quarter of a circle, with area \(\tfrac14\pi r^2\). The graph of \(y=\sqrt{r^2-x^2}\) is the upper semicircle with centre the origin and radius \(r\), because squaring gives \(y^2=r^2-x^2\), that is, \(x^2+y^2=r^2\), with \(y\ge0\) (see the Revision page).</p></div>
+<div class="box tip"><div class="bt">Method</div>
+<ol style="margin:0"><li>Sketch the graph of \(y=f(x)\) and shade the region from \(x=a\) to \(x=b\).</li>
+<li>Name the shape: a rectangle, triangle, trapezium, semicircle or quadrant, or several of these together.</li>
+<li>Read the lengths from the graph. Widths are differences of \(x\)-values, such as \(b-a\). Heights are values of the function, such as \(f(a)\) and \(f(b)\).</li>
+<li>Apply the area formula, and add the pieces if there are several.</li></ol></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Lines, absolute value and a semicircle</span></div><div class="ex-body">
+Evaluate using a graph and area formulae:
+<div class="parts" style="grid-template-columns:0.9fr 0.9fr 0.9fr 1.3fr;column-gap:4mm;margin-left:4mm"><span><span class="pl">a</span>\(\displaystyle\int_2^5(x-2)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_3^5(x-2)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-4}^{2}|x|\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-6}^{6}\sqrt{36-x^2}\,dx\)</span></div>
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate using a graph and area formulae:
+<div class="parts" style="grid-template-columns:0.9fr 0.9fr 0.9fr 1.3fr;column-gap:4mm;margin-left:4mm"><span><span class="pl">a</span>\(\displaystyle\int_2^6(x-2)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_4^6(x-2)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{3}|x|\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^{2}\sqrt{4-x^2}\,dx\)</span></div>
+{{work:56}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Evaluate using a graph and area formulae:
+<div class="parts" style="grid-template-columns:0.9fr 0.9fr 0.9fr 1.3fr;column-gap:4mm;margin-left:4mm"><span><span class="pl">a</span>\(\displaystyle\int_1^4(x-1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_2^4(x-1)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{2}|x|\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-5}^{5}\sqrt{25-x^2}\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:5fr 2fr;break-inside:avoid"><div>
+<p><b>a</b> The area represented by the integral is the shaded triangle, with base \(4-1=3\) and height \(3\) (the height is the value of \(x-1\) at \(x=4\), which is \(4-1=3\)).</p>
+\[\begin{aligned}\text{Hence }\int_1^4(x-1)\,dx&amp;=\tfrac12\times\text{base}\times\text{height}\\&amp;=\tfrac12\times3\times3\\&amp;=4\tfrac12.\end{aligned}\]
+</div><div>{{svg:c5a_e1a}}</div></div>
+<div class="split" style="grid-template-columns:5fr 2fr;break-inside:avoid"><div>
+<p><b>b</b> The area represented by the integral is the shaded trapezium, with width \(4-2=2\) and parallel sides of length 1 and 3 (the values of \(x-1\) at \(x=2\) and at \(x=4\)).</p>
+\[\begin{aligned}\text{Hence }\int_2^4(x-1)\,dx&amp;=\text{average of parallel sides}\times\text{width}\\&amp;=\frac{1+3}{2}\times2\\&amp;=2\times2\\&amp;=4.\end{aligned}\]
+</div><div>{{svg:c5a_e1b}}</div></div>
+<div class="split" style="grid-template-columns:5fr 2fr;break-inside:avoid"><div>
+<p><b>c</b> Each shaded triangle has base 2 and height 2 (the value of \(|x|\) at \(x=-2\) and at \(x=2\) is 2).</p>
+\[\begin{aligned}\text{Hence }\int_{-2}^{2}|x|\,dx&amp;=2\times\big(\tfrac12\times\text{base}\times\text{height}\big)\\&amp;=2\times\big(\tfrac12\times2\times2\big)\\&amp;=2\times2\\&amp;=4.\end{aligned}\]
+</div><div>{{svg:c5a_e1c}}</div></div>
+<div class="split" style="grid-template-columns:5fr 2fr;break-inside:avoid"><div>
+<p><b>d</b> The shaded region is a semicircle with radius 5. (Squaring \(y=\sqrt{25-x^2}\) gives \(x^2+y^2=25\) with \(y\ge0\), the upper half of the circle with centre the origin and radius 5.)</p>
+\[\begin{aligned}\text{Hence }\int_{-5}^{5}\sqrt{25-x^2}\,dx&amp;=\frac12\times\pi r^2\\&amp;=\frac12\times5^2\times\pi\\&amp;=\frac{25\pi}{2}.\end{aligned}\]
+</div><div>{{svg:c5a_e1d}}</div></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:using upper and lower rectangles to trap an integral}}
+<div class="box concept"><div class="bt">Upper and lower rectangles</div>
+<div class="split" style="grid-template-columns:3fr 1fr"><div>
+<p>First-principles integration calculations are more elaborate than those in first-principles differentiation. But they are used when proving the fundamental theorem of calculus, which will soon make calculations of integrals straightforward. One should therefore carry out a very few such calculations in order to understand what is happening. The technique, in geometric forms, was already highly developed by the Greeks.</p>
+<p>We shall find the integral \(A=\displaystyle\int_0^1 x^2\,dx\) sketched on the right.</p>
+</div><div>{{svg:c5a_sq}}</div></div>
+<p>The first step in the process is to trap the integral using <i>upper rectangles</i> (or <i>outer rectangles</i>) that the shaded region lies inside, and <i>lower rectangles</i> (or <i>inner rectangles</i>) that lie inside the shaded region. To begin the process, notice that the shaded area is completely contained within the unit square, so</p>
+\[0&lt;A&lt;1.\]
+<p>In the four pictures below, the region has been sliced successively into two, three, four and five strips, then upper and lower rectangles have been constructed so that the region is trapped, or sandwiched, between the upper and lower rectangles. Calculating the areas of these upper and lower rectangles provides tighter and tighter bounds on the area \(A\). (In the pictures, the lower rectangles are grey and the upper rectangles are hatched; each upper rectangle covers the lower rectangle below it.)</p>
+<div style="display:flex;justify-content:space-between;gap:1mm">{{svg:c5a_tr2}}{{svg:c5a_tr3}}{{svg:c5a_tr4}}{{svg:c5a_tr5}}</div></div></div>
+<div class="box tip"><div class="bt">Finding the heights</div>
+<p>Because \(y=x^2\) is increasing for \(x\ge0\), the lowest point of the curve over each strip is at its left-hand end, and the highest point is at its right-hand end. So each <b>lower</b> rectangle has the height of the curve at the <b>left</b> end of its strip, and each <b>upper</b> rectangle has the height at the <b>right</b> end. The first lower rectangle has height \(0^2=0\), so it has zero area. Every rectangle has the same width, \(\tfrac1n\) for \(n\) strips, so that width can be taken out as a common factor.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Trapping \(\int_0^1x^3\,dx\)</span></div><div class="ex-body">
+Let \(A=\displaystyle\int_0^1x^3\,dx\).<br>
+<b>a</b> Sketch the region and explain why \(0&lt;A&lt;1\).<br>
+<b>b</b> Divide the interval \(0\le x\le1\) into 2 strips of equal width. Find the sums of the lower rectangles and of the upper rectangles, and hence write down bounds for \(A\).<br>
+<b>c</b> Repeat part <b>b</b> with 4 strips of equal width.
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Let \(A=\displaystyle\int_0^2x^2\,dx\).<br>
+<b>a</b> Sketch the region and explain why \(0&lt;A&lt;8\).<br>
+<b>b</b> Divide the interval \(0\le x\le2\) into 2 strips of equal width. Find the sums of the lower rectangles and of the upper rectangles, and hence write down bounds for \(A\).<br>
+<b>c</b> Repeat part <b>b</b> with 4 strips of equal width.
+{{work:60}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Let \(A=\displaystyle\int_0^1x^2\,dx\). Use two, three, four and then five strips of equal width to trap \(A\) between the sums of the lower rectangles and the sums of the upper rectangles.
+<div class="sol-label">Solution</div>
+<p>In the first picture, there are two strips of width \(\tfrac12\). The lower rectangles have heights \(0^2=0\) and \(\big(\tfrac12\big)^2\), and the upper rectangles have heights \(\big(\tfrac12\big)^2\) and \(1^2\).</p>
+\[\begin{aligned}\tfrac12\times\big(\tfrac12\big)^2&amp;&lt;A&lt;\tfrac12\times\big(\tfrac12\big)^2+\tfrac12\times1^2\\\tfrac12\times\tfrac14&amp;&lt;A&lt;\tfrac12\times\tfrac14+\tfrac12\times1\\\tfrac18&amp;&lt;A&lt;\tfrac18+\tfrac48\\\tfrac18&amp;&lt;A&lt;\tfrac58.\end{aligned}\]
+<p>In the second picture, there are three strips of width \(\tfrac13\).</p>
+\[\begin{aligned}\tfrac13\times\big(\tfrac13\big)^2+\tfrac13\times\big(\tfrac23\big)^2&amp;&lt;A&lt;\tfrac13\times\big(\tfrac13\big)^2+\tfrac13\times\big(\tfrac23\big)^2+\tfrac13\times1^2\\\tfrac13\times\tfrac19+\tfrac13\times\tfrac49&amp;&lt;A&lt;\tfrac13\times\tfrac19+\tfrac13\times\tfrac49+\tfrac13\times1\\\tfrac{1}{27}+\tfrac{4}{27}&amp;&lt;A&lt;\tfrac{1}{27}+\tfrac{4}{27}+\tfrac{9}{27}\\\tfrac{5}{27}&amp;&lt;A&lt;\tfrac{14}{27}.\end{aligned}\]
+<p>In the third picture, there are four strips of width \(\tfrac14\). Taking out the common factor \(\tfrac14\), the lower and upper sums are</p>
+\[\begin{aligned}\tfrac14\Big(\big(\tfrac14\big)^2+\big(\tfrac24\big)^2+\big(\tfrac34\big)^2\Big)&amp;=\tfrac14\times\tfrac{1+4+9}{16}=\tfrac{14}{64},\\\tfrac14\Big(\big(\tfrac14\big)^2+\big(\tfrac24\big)^2+\big(\tfrac34\big)^2+\big(\tfrac44\big)^2\Big)&amp;=\tfrac14\times\tfrac{1+4+9+16}{16}=\tfrac{30}{64},\end{aligned}\]
+<p>so \(\tfrac{14}{64}&lt;A&lt;\tfrac{30}{64}\).</p>
+<p>In the fourth picture, there are five strips of width \(\tfrac15\). The lower and upper sums are</p>
+\[\begin{aligned}\tfrac15\Big(\big(\tfrac15\big)^2+\big(\tfrac25\big)^2+\big(\tfrac35\big)^2+\big(\tfrac45\big)^2\Big)&amp;=\tfrac15\times\tfrac{1+4+9+16}{25}=\tfrac{30}{125},\\\tfrac15\Big(\big(\tfrac15\big)^2+\big(\tfrac25\big)^2+\big(\tfrac35\big)^2+\big(\tfrac45\big)^2+\big(\tfrac55\big)^2\Big)&amp;=\tfrac15\times\tfrac{1+4+9+16+25}{25}=\tfrac{55}{125},\end{aligned}\]
+<p>so \(\tfrac{30}{125}&lt;A&lt;\tfrac{55}{125}\).</p>
+<p>As decimals, the four sandwiches are \(0.125&lt;A&lt;0.625\), \(0.185\ldots&lt;A&lt;0.518\ldots\), \(0.21875&lt;A&lt;0.46875\) and \(0.24&lt;A&lt;0.44\): the bounds are getting tighter.</p>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:the limiting process}}
+<div class="box concept"><div class="bt">Turning the sandwich into a limit</div>
+<p>The bounds on the area are getting tighter, but the exact value of the area can only be obtained if this sandwiching process can be turned into a limiting process. The calculations below will need the formula for the sum of the first \(n\) squares, proven in Question 2f of Exercise 2A by induction:</p>
+\[1^2+2^2+\cdots+n^2=\tfrac16n(n+1)(2n+1).\]
+<p>The calculation has four steps.</p>
+<ul><li><b>A</b> Divide the interval into \(n\) subintervals of equal width. Then (sum of lower rectangles) \(\le A\le\) (sum of upper rectangles), however many strips there are.</li>
+<li><b>B</b> Write the sum of the upper rectangles in terms of \(n\), using the formula, and find its limit as \(n\to\infty\).</li>
+<li><b>C</b> Do the same for the sum of the lower rectangles. The formula is used with \(n-1\) in place of \(n\).</li>
+<li><b>D</b> Both sums have the same limit, and \(A\) is trapped between them, so \(A\) equals that limit.</li></ul></div></div>
+<div class="box tip"><div class="bt">The algebra and the limits</div>
+<ul><li>Write \(n^3\) in the denominator as \(n\times n\times n\), and split the fraction into factors that each have a limit: for example \(\dfrac{n+1}{n}=1+\dfrac1n\).</li>
+<li>As \(n\to\infty\), \(\dfrac1n\to0\) and \(\dfrac{1}{2n}\to0\), so \(1+\dfrac1n\to1\) and \(1-\dfrac{1}{2n}\to1\).</li>
+<li>Substituting \(n-1\) for \(n\) in \(\tfrac16n(n+1)(2n+1)\) gives \(\tfrac16(n-1)\big((n-1)+1\big)\big(2(n-1)+1\big)=\tfrac16(n-1)n(2n-1)\).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Proving \(\int_0^2x^2\,dx=\frac83\)</span></div><div class="ex-body">
+Let \(A=\displaystyle\int_0^2x^2\,dx\). Divide the interval \(0\le x\le2\) into \(n\) subintervals, each of width \(\dfrac2n\). Use the formula \(1^2+2^2+\cdots+n^2=\tfrac16n(n+1)(2n+1)\) to find the sums of the upper and lower rectangles in terms of \(n\). Take the limit as \(n\to\infty\), and hence prove that \(A=\tfrac83\).
+{{work:80}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Let \(A=\displaystyle\int_0^1x\,dx\). Divide the interval \(0\le x\le1\) into \(n\) subintervals, each of width \(\dfrac1n\). Use the formula \(1+2+\cdots+n=\tfrac12n(n+1)\) to find the sums of the upper and lower rectangles in terms of \(n\). Take the limit as \(n\to\infty\), and hence prove that \(A=\tfrac12\). Check your answer with the area of a triangle.
+{{work:80}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Use upper and lower rectangles, and take the limit as the number of strips approaches infinity, to prove that \(\displaystyle\int_0^1x^2\,dx=\tfrac13\).
+<div class="sol-label">Solution</div>
+{{svg:c5a_trn}}
+<p><b>A</b> Divide the interval \(0\le x\le1\) into \(n\) subintervals, each of width \(\dfrac1n\).<br>
+On each subinterval form the upper rectangle and the lower rectangle.<br>
+Then the required region is entirely contained within the upper rectangles, and, in turn, the lower rectangles are entirely contained within the required region. Thus however many strips the region has been dissected into,</p>
+\[(\text{sum of lower rectangles})\le A\le(\text{sum of upper rectangles}).\]
+<p><b>B</b> The heights of the successive upper rectangles are \(\dfrac{1^2}{n^2},\ \dfrac{2^2}{n^2},\ \dots,\ \dfrac{n^2}{n^2}\), and so, using the formula quoted above,</p>
+\[\begin{aligned}\text{sum of upper rectangles}&amp;=\frac1n\Big(\frac{1^2}{n^2}+\frac{2^2}{n^2}+\cdots+\frac{n^2}{n^2}\Big)\\&amp;=\frac1n\times\frac{1}{n^2}\times(1^2+2^2+\cdots+n^2)\\&amp;=\frac{1}{n^3}(1^2+2^2+\cdots+n^2)\\&amp;=\frac{1}{n^3}\times\frac{n(n+1)(2n+1)}{6}\qquad\text{(the formula)}\\&amp;=\frac{n(n+1)(2n+1)}{3\times n\times n\times2n}\qquad(6n^3=3\times n\times n\times2n)\\&amp;=\frac13\times\frac nn\times\frac{n+1}{n}\times\frac{2n+1}{2n}\\&amp;=\frac13\times\Big(1+\frac1n\Big)\times\Big(1+\frac{1}{2n}\Big),\end{aligned}\]
+<p>hence the sum of the upper rectangles has limit \(\tfrac13\times1\times1=\tfrac13\) as \(n\to\infty\), because \(\dfrac1n\to0\) and \(\dfrac{1}{2n}\to0\).</p>
+<p><b>C</b> The heights of the successive lower rectangles are \(0,\ \dfrac{1^2}{n^2},\ \dfrac{2^2}{n^2},\ \dots,\ \dfrac{(n-1)^2}{n^2}\), so substituting \(n-1\) for \(n\) into the quoted formula,</p>
+\[\begin{aligned}\text{sum of lower rectangles}&amp;=\frac1n\Big(0+\frac{1^2}{n^2}+\frac{2^2}{n^2}+\cdots+\frac{(n-1)^2}{n^2}\Big)\\&amp;=\frac{1}{n^3}\big(1^2+2^2+\cdots+(n-1)^2\big)\\&amp;=\frac{1}{n^3}\times\frac{(n-1)n(2n-1)}{6}\\&amp;=\frac13\times\frac nn\times\frac{n-1}{n}\times\frac{2n-1}{2n}\\&amp;=\frac13\times\Big(1-\frac1n\Big)\times\Big(1-\frac{1}{2n}\Big),\end{aligned}\]
+<p>hence the sum of the lower rectangles also has limit \(\tfrac13\) as \(n\to\infty\).</p>
+<p><b>D</b> Finally, (sum of lower rectangles) \(\le A\le\) (sum of upper rectangles), and both these sums have the same limit \(\tfrac13\), so it follows that \(A=\tfrac13\).</p>
+<p>The conclusion of all this heavy machinery of limits is simply that \(\displaystyle\int_0^1x^2\,dx=\tfrac13\). You will be relieved to know that we will soon have much quicker methods.</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+<div style="break-inside:avoid">{{sec:blue:pencil:Textbook homework:Exercise 5A}}
+{{band:F}}
+<div class="parts three" style="column-gap:4mm">
+<div class="q" style="margin:0"><span class="q-num">1</span><div class="q-body">{{svg:q5a_1}}
+<div class="parts one"><span><span class="pl">a</span>Find the area of \(\triangle OAB\) in the diagram above.</span><span><span class="pl">b</span>Hence explain why \(\displaystyle\int_0^1x^2\,dx&lt;\tfrac12\).</span></div></div></div>
+<div class="q" style="margin:0"><span class="q-num">2</span><div class="q-body">{{svg:q5a_2}}
+<div class="parts one"><span><span class="pl">a</span>Find the area of \(\triangle OCD\) in the diagram above.</span><span><span class="pl">b</span>Find the area of the trapezium \(CABD\).</span><span><span class="pl">c</span>Hence explain why \(\displaystyle\int_0^1x^2\,dx&lt;\tfrac38\).</span></div></div></div>
+<div class="q" style="margin:0"><span class="q-num">3</span><div class="q-body">{{svg:q5a_3}}
+<div class="parts one"><span><span class="pl">a</span>Use the diagram above to show that \(\displaystyle\int_0^1x^2\,dx&lt;\tfrac{11}{32}\).</span><span><span class="pl">b</span>Explain why \(\tfrac{11}{32}\) is a better approximation to \(\displaystyle\int_0^1x^2\,dx\) than \(\tfrac38\) is.</span></div></div></div>
+</div>{{work:30}}</div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Use area formulae to calculate these definite integrals (sketches are given below).
+<div class="parts" style="grid-template-columns:repeat(4,1fr);column-gap:3mm;row-gap:2mm">
+<div><span class="pl">a</span>\(\displaystyle\int_0^2 3\,dx\){{svg:q5a_4a}}</div><div><span class="pl">b</span>\(\displaystyle\int_0^3 4\,dx\){{svg:q5a_4b}}</div><div><span class="pl">c</span>\(\displaystyle\int_0^4 x\,dx\){{svg:q5a_4c}}</div><div><span class="pl">d</span>\(\displaystyle\int_0^3 2x\,dx\){{svg:q5a_4d}}</div>
+<div><span class="pl">e</span>\(\displaystyle\int_0^2(2-x)\,dx\){{svg:q5a_4e}}</div><div><span class="pl">f</span>\(\displaystyle\int_0^5(5-x)\,dx\){{svg:q5a_4f}}</div><div><span class="pl">g</span>\(\displaystyle\int_0^2(x+2)\,dx\){{svg:q5a_4g}}</div><div><span class="pl">h</span>\(\displaystyle\int_0^4(x+3)\,dx\){{svg:q5a_4h}}</div></div>{{work:22}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Use area formulae to calculate the sketched definite integrals.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);column-gap:3mm;row-gap:2mm">
+<div><span class="pl">a</span>\(\displaystyle\int_{-1}^{3}2\,dx\){{svg:q5a_5a}}</div><div><span class="pl">b</span>\(\displaystyle\int_{-3}^{2}5\,dx\){{svg:q5a_5b}}</div><div><span class="pl">c</span>\(\displaystyle\int_{-2}^{1}(2x+4)\,dx\){{svg:q5a_5c}}</div><div><span class="pl">d</span>\(\displaystyle\int_{-1}^{3}(3x+3)\,dx\){{svg:q5a_5d}}</div>
+<div><span class="pl">e</span>\(\displaystyle\int_{-1}^{5}(x+4)\,dx\){{svg:q5a_5e}}</div><div><span class="pl">f</span>\(\displaystyle\int_{-2}^{2}(x+6)\,dx\){{svg:q5a_5f}}</div><div><span class="pl">g</span>\(\displaystyle\int_{-3}^{3}|x|\,dx\){{svg:q5a_5g}}</div><div><span class="pl">h</span>\(\displaystyle\int_{-2}^{2}|2x|\,dx\){{svg:q5a_5h}}</div></div>{{work:18}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Sketch a graph of each definite integral, then use an area formula to calculate it.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);row-gap:2mm">
+<span><span class="pl">a</span>\(\displaystyle\int_0^3 5\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-3}^{0}5\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-1}^{4}5\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^{6}5\,dx\)</span>
+<span><span class="pl">e</span>\(\displaystyle\int_{-5}^{0}(x+5)\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^2(x+5)\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int_2^4(x+5)\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int_{-1}^{3}(x+5)\,dx\)</span>
+<span><span class="pl">i</span>\(\displaystyle\int_4^8(x-4)\,dx\)</span><span><span class="pl">j</span>\(\displaystyle\int_4^{10}(x-4)\,dx\)</span><span><span class="pl">k</span>\(\displaystyle\int_5^7(x-4)\,dx\)</span><span><span class="pl">l</span>\(\displaystyle\int_6^{10}(x-4)\,dx\)</span>
+<span><span class="pl">m</span>\(\displaystyle\int_{-2}^{2}|x|\,dx\)</span><span><span class="pl">n</span>\(\displaystyle\int_{-4}^{4}|x|\,dx\)</span><span><span class="pl">o</span>\(\displaystyle\int_0^5|x-5|\,dx\)</span><span><span class="pl">p</span>\(\displaystyle\int_5^{10}|x-5|\,dx\)</span></div>{{work:76}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Sketch a graph of each definite integral, then use an area formula to calculate it.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_{-4}^{4}\sqrt{16-x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-5}^{0}\sqrt{25-x^2}\,dx\)</span></div>{{work:80}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body"><div class="split" style="grid-template-columns:3fr 2fr"><div>
+<div class="parts one" style="margin-top:0"><span><span class="pl">a</span>In the diagram to the right, add the areas of the lower rectangles. (For example, \(PQRU\) is a lower rectangle.)</span><span><span class="pl">b</span>Add the areas of the upper rectangles. (For example, \(PQST\) is an upper rectangle.)</span><span><span class="pl">c</span>Hence explain why \(\tfrac{7}{32}&lt;\int_0^1x^2\,dx&lt;\tfrac{15}{32}\).</span></div></div><div>{{svg:q5a_8}}</div></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><div class="split" style="grid-template-columns:3fr 1fr"><div>The area of the region in the diagram to the right is given by \(\int_0^1 2^x\,dx\).
+<div class="parts one"><span><span class="pl">a</span>Use one lower and one upper rectangle to show that \(1&lt;\int_0^1 2^x\,dx&lt;2\).</span><span><span class="pl">b</span>Use 2 lower and 2 upper rectangles of equal width to show that (with decimals rounded to one place) \(1.2&lt;\int_0^1 2^x\,dx&lt;1.7\).</span><span><span class="pl">c</span>Use 4 lower and 4 upper rectangles of equal width to show that \(1.3&lt;\int_0^1 2^x\,dx&lt;1.6\).</span><span><span class="pl">d</span>What trend can be identified in the parts above?</span></div></div><div>{{svg:q5a_9}}</div></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><div class="split" style="grid-template-columns:3fr 1fr"><div>The area of the region in the diagram to the right is given by \(\int_2^4\ln x\,dx\).
+<div class="parts one"><span><span class="pl">a</span>Use 2 lower and 2 upper rectangles to show that (with decimals rounded to 2 places) \(1.79&lt;\int_2^4\ln x\,dx&lt;2.48\).</span><span><span class="pl">b</span>Use 4 lower and 4 upper rectangles of equal width to show that \(1.98&lt;\int_2^4\ln x\,dx&lt;2.33\).</span><span><span class="pl">c</span>Use 8 lower and 8 upper rectangles of equal width to show that \(2.07&lt;\int_2^4\ln x\,dx&lt;2.24\).</span><span><span class="pl">d</span>What trend can be identified in the parts above?</span></div></div><div>{{svg:q5a_10}}</div></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><div class="split" style="grid-template-columns:3fr 1fr"><div>Let \(A=\int_0^1\frac{1}{x+1}\,dx\).
+<div class="parts one"><span><span class="pl">a</span>Use the areas of the lower and upper rectangles in the top diagram to show that \(\dfrac12&lt;A&lt;1\).</span><span><span class="pl">b</span>Use the areas of the 2 lower and 2 upper rectangles in the bottom diagram to show that \(\tfrac{7}{12}&lt;A&lt;\tfrac56\). (That is, \(0.58&lt;A&lt;0.83\), correct to 2 decimal places.)</span><span><span class="pl">c</span>Use 3 lower and 3 upper rectangles of equal width to show that \(\tfrac{37}{60}&lt;A&lt;\tfrac{47}{60}\). (That is, \(0.62&lt;A&lt;0.78\), correct to 2 decimal places.)</span><span><span class="pl">d</span>Finally, use 4 lower and 4 upper rectangles of equal width to show that \(\tfrac{533}{840}&lt;A&lt;\tfrac{319}{420}\). (That is, correct to 2 decimal places, \(0.63&lt;A&lt;0.76\).)</span><span><span class="pl">e</span>As the number of rectangles increases, is the interval within which \(A\) lies getting bigger or smaller?</span><span><span class="pl">f</span>The exact value of \(A\) is \(\ln2=0.693\,147\ldots\). Do the lower and upper limits of the intervals in parts <b>a</b> to <b>d</b> seem to be approaching the exact value?</span></div></div><div>{{svg:q5a_11a}}{{svg:q5a_11b}}</div></div>{{work:42}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">[Technology] Some of the previous questions involve summing the areas of lower and upper rectangles to approximate a definite integral. Many software programs can do this automatically, using any prescribed number of rectangles. Steadily increasing the number of rectangles will show the sums of the lower and upper rectangles converging to the exact area, which can be checked either using area formulae or using the exact value of the definite integral as calculated later in the course.<br>
+Investigate some of the definite integrals from Questions 1–3 and 8–13 in this way.</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><div class="split" style="grid-template-columns:1fr 78mm"><div>The diagram to the right shows the graph of \(y=x^2\) from \(x=0\) to \(x=1\), drawn on graph paper.<br>
+The scale is 20 little divisions to 1 unit. This means that 400 little squares make up 1 square unit.
+<div class="parts one"><span><span class="pl">a</span>Count how many little squares there are under the graph from \(x=0\) to \(x=1\) (keeping reasonable track of fragments of squares), then divide by 400 to approximate \(\int_0^1x^2\,dx\).<br>Write your answer correct to 2 decimal places.</span><span><span class="pl">b</span>By counting the appropriate squares, approximate:<br>(i) \(\int_0^{\frac12}x^2\,dx\) &emsp; (ii) \(\int_{\frac12}^1x^2\,dx\)<br>Confirm that the sum of the answers to parts (i) and (ii) is the answer to part <b>a</b>.</span></div></div><div>{{svg:q5a_13}}</div></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><div class="split" style="grid-template-columns:1fr 78mm"><div>The diagram to the right shows the quadrant
+\[y=\sqrt{1-x^2},\ \text{from }x=0\text{ to }x=1.\]
+As before, the scale is 20 little divisions to 1 unit.
+<div class="parts one"><span><span class="pl">a</span>Count how many little squares there are under the graph from \(x=0\) to \(x=1\).</span><span><span class="pl">b</span>Divide by 400 to approximate \(\int_0^1\sqrt{1-x^2}\,dx\).<br>Write your answer correct to 2 decimal places.</span><span><span class="pl">c</span>Hence, using the fact that a quadrant has area \(\tfrac14\pi r^2\), find an approximation for \(\pi\). Give your answer correct to 2 decimal places.</span></div></div><div>{{svg:q5a_14}}</div></div>{{work:26}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">15</span><div class="q-body">Using exactly the same setting out as in the example in the notes above this exercise, prove from first principles that \(\displaystyle\int_0^1x^3\,dx=\tfrac14\). Use upper and lower rectangles, and take the limit as the number of rectangular strips approaches infinity.<br>
+<b>Note:</b> This calculation will need the formula \(1^3+2^3+3^3+\cdots+n^3=\tfrac14n^2(n+1)^2\) for the sum of the first \(n\) cubes, which was proven by mathematical induction in worked Example 1 of Section 2A.{{work:205}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">Prove the following two definite integrals from first principles. Use upper and lower rectangles, and take the limit as the number of rectangular strips approaches infinity.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^a x^2\,dx=\frac{a^3}{3}\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^a x^3\,dx=\frac{a^4}{4}\)</span></div>{{work:215}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">Draw a large sketch of \(y=x^2\) for \(0\le x\le1\), and let \(U\) be the point \((1,0)\). For some positive integer \(n\), let \(P_0\,(=O),\ P_1,\ P_2,\ \dots,\ P_n\) be the points on the curve with \(x\)-coordinates \(x=0,\ x=\dfrac1n,\ x=\dfrac2n,\ \dots,\ x=\dfrac nn=1\). Join the chords \(P_0P_1,\ P_1P_2,\ \dots,\ P_{n-1}P_n\), and join \(P_nU\).
+<div class="parts one"><span><span class="pl">a</span>Use the area formula for a trapezium to find the area of the polygon \(P_0P_1P_2\cdots P_nU\).</span><span><span class="pl">b</span>Explain geometrically why this area is always greater than \(\int_0^1x^2\,dx\).</span><span><span class="pl">c</span>Show that its limit as \(n\to\infty\) is \(\tfrac13\). This is half of the proof that \(\int_0^1x^2\,dx=\tfrac13\).</span></div>{{work:190}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 5 minutes</b></span><span><b>1 mark</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">This is the only school-paper item that needs just this lesson’s ideas. For more timed practice, do Questions 5(d), 6(h), 6(o), 7(a), 8 and 11(c) above in 25 minutes.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>James Ruse Agricultural High School, 2023, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q4</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">A function is defined by \(f(x)=\begin{cases}2, &amp; x&lt;3\\ x-1, &amp; x\ge3\end{cases}\). The value of \(\displaystyle\int_1^5 f(x)\,dx\) is
+<div class="mc"><span>A.&ensp;2</span><span>B.&ensp;6</span><span>C.&ensp;8</span><span>D.&ensp;10</span></div></div>
+<div class="hint"><b>Hint:</b> what does the graph of \(y=f(x)\) look like between \(x=1\) and \(x=5\)?</div>{{work:34}}</div>
+</div>
+</div>
