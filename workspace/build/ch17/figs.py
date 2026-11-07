@@ -100,7 +100,7 @@ def zero(z):
 
 def normal(a=None, b=None, w=150, h=96, ticks=(), peak=True, inflect=False, lab_size=10.5, color="blue"):
     """Standard normal curve y = phi(z) on [-3.4, 3.4], shaded from a to b (None = no shading)."""
-    g = Graph(-3.4, 3.4, 0, 0.52 if peak else 0.45, w=w, h=h, pad=(10, 16, 16, 18))
+    g = Graph(-3.4, 3.4, 0, 0.52 if peak else 0.45, w=w + 12, h=h, pad=(10, 28, 16, 18))  # +12 right: room for the axis label z
     if a is not None or b is not None:
         lo = -3.4 if a is None else a
         hi = 3.4 if b is None else b
@@ -150,7 +150,7 @@ def fig_rev():
         g.label([2.15, 2.15, 2.55][k - 1], 0.31, ["68%", "95%", "99.7%"][k - 1], size=11, color="blue")
         save(f"emp{k}", g)
     # graph of the CDF y = Phi(z), with the horizontal lines at heights 0.75 and 0.9 (Example 13)
-    g = Graph(-3.4, 3.4, 0, 1.05, w=220, h=165, pad=(10, 16, 14, 18))
+    g = Graph(-3.4, 3.4, 0, 1.05, w=232, h=165, pad=(10, 28, 14, 18))  # +12 right: room for the axis label z
     g.axes("z", "y")
     g.hline(1, color="faint", dash="3 3")
     for p, q in ((0.75, 0.6745), (0.9, 1.2816)):
@@ -165,7 +165,7 @@ def fig_rev():
     g.label(2.3, 0.8, "y = Φ(z)", size=11, color="blue")
     save("Phi_cdf", g)
     # general normal N(mu, sigma^2): coordinate t = (x - mu)/sigma + 4, so the y-axis sits to the left
-    g = Graph(0, 8, 0, 0.45, w=250, h=140, pad=(16, 18, 18, 20))
+    g = Graph(0, 8, 0, 0.45, w=262, h=140, pad=(16, 30, 18, 20))  # +12 right: room for the axis label x
 
     def f(t):
         return phi(t - 4)
