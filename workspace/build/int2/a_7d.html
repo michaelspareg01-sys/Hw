@@ -1,1 +1,173 @@
-<!-- filled by Task: lesson 7d -->
+{{ahead:Lesson 7D | Integrating the trigonometric functions}}
+<div class="ans-sec">Lesson Examples</div>
+<style>.ab .ap7d { display:inline-block; margin-right:4.5mm; } .ab .sd7d { border-left:1.4px solid var(--line-strong); padding-left:4mm; }</style>
+<div class="a"><span class="an">C1</span><div class="ab"><div class="split"><div>
+<b>Tutor demo.</b> The region is entirely above the \(x\)-axis, so
+\[\begin{aligned}\text{area}&amp;=\int_0^{\frac{\pi}{2}}\cos x\,dx\\&amp;=\Big[\sin x\Big]_0^{\frac{\pi}{2}}\\&amp;=\sin\tfrac{\pi}{2}-\sin0\\&amp;=1-0\\&amp;=1\end{aligned}\]
+<p>The area is \(1\) square unit.</p>
+</div><div>
+<b>Your turn.</b> The region is entirely above the \(x\)-axis, so
+\[\begin{aligned}\text{area}&amp;=\int_0^{\frac{\pi}{2}}\sin x\,dx\\&amp;=\Big[-\cos x\Big]_0^{\frac{\pi}{2}}\\&amp;=-\cos\tfrac{\pi}{2}+\cos0\\&amp;=0+1\\&amp;=1\end{aligned}\]
+<p>The area is \(1\) square unit.</p>
+</div></div></div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\int_0^{2\pi}\cos x\,dx&amp;=\Big[\sin x\Big]_0^{2\pi}\\&amp;=\sin2\pi-\sin0\\&amp;=0-0\\&amp;=0\end{aligned}\]
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}\int_0^{\frac{\pi}{4}}\sec^2x\,dx&amp;=\Big[\tan x\Big]_0^{\frac{\pi}{4}}\\&amp;=\tan\tfrac{\pi}{4}-\tan0\\&amp;=1-0\\&amp;=1\end{aligned}\]
+</div></div>
+<p><b>c</b> This integral is meaningless because it crosses the asymptote at \(x=\frac{\pi}{2}\), which lies between \(\frac{\pi}{3}\) and \(\frac{2\pi}{3}\).</p>
+<b>Your turn.</b>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}}\cos x\,dx&amp;=\Big[\sin x\Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}}\\&amp;=\sin\tfrac{3\pi}{2}-\sin\tfrac{\pi}{2}\\&amp;=-1-1\\&amp;=-2\end{aligned}\]
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}\int_0^{\frac{\pi}{6}}\sec^2x\,dx&amp;=\Big[\tan x\Big]_0^{\frac{\pi}{6}}\\&amp;=\tan\tfrac{\pi}{6}-\tan0\\&amp;=\tfrac{1}{\sqrt3}-0\\&amp;=\tfrac{1}{\sqrt3}\end{aligned}\]
+</div></div>
+<p><b>c</b> This integral is meaningless because it crosses the asymptote at \(x=\frac{\pi}{2}\), which lies between \(\frac{\pi}{6}\) and \(\frac{5\pi}{6}\).</p></div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b>
+<div class="split" style="grid-template-columns:1fr 1fr 1.1fr"><div>
+<p><b>a</b> \((a=2)\)</p>
+\[\begin{aligned}&amp;\int_0^{\frac{\pi}{4}}\cos2x\,dx\\&amp;\quad=\tfrac12\Big[\sin2x\Big]_0^{\frac{\pi}{4}}\\&amp;\quad=\tfrac12\big(\sin\tfrac{\pi}{2}-\sin0\big)\\&amp;\quad=\tfrac12(1-0)\\&amp;\quad=\tfrac12\end{aligned}\]
+</div><div>
+<p><b>b</b> \((a=\tfrac13)\)</p>
+\[\begin{aligned}&amp;\int_0^\pi\sin\tfrac13x\,dx\\&amp;\quad=-3\Big[\cos\tfrac13x\Big]_0^\pi\\&amp;\quad=-3\big(\cos\tfrac{\pi}{3}-\cos0\big)\\&amp;\quad=-3\big(\tfrac12-1\big)\\&amp;\quad=\tfrac32\end{aligned}\]
+</div><div>
+<p><b>c</b> \((a=2,\ b=\pi)\)</p>
+\[\begin{aligned}&amp;\int_0^{\frac{\pi}{6}}\sec^2(2x+\pi)\,dx\\&amp;\quad=\tfrac12\Big[\tan(2x+\pi)\Big]_0^{\frac{\pi}{6}}\\&amp;\quad=\tfrac12\big(\tan\tfrac{4\pi}{3}-\tan\pi\big)\\&amp;\quad=\tfrac12\big(\sqrt3-0\big)\\&amp;\quad=\tfrac{\sqrt3}{2}\end{aligned}\]
+</div></div>
+<p class="small">In <b>c</b>, \(2\times\frac{\pi}{6}+\pi=\frac{4\pi}{3}\), which is in quadrant 3 with related angle \(\frac{\pi}{3}\), so \(\tan\frac{4\pi}{3}=\tan\frac{\pi}{3}=\sqrt3\).</p>
+<b>Your turn.</b>
+<div class="split" style="grid-template-columns:1fr 1fr 1.1fr"><div>
+<p><b>a</b> \((a=4)\)</p>
+\[\begin{aligned}&amp;\int_0^{\frac{\pi}{8}}\cos4x\,dx\\&amp;\quad=\tfrac14\Big[\sin4x\Big]_0^{\frac{\pi}{8}}\\&amp;\quad=\tfrac14\big(\sin\tfrac{\pi}{2}-\sin0\big)\\&amp;\quad=\tfrac14(1-0)\\&amp;\quad=\tfrac14\end{aligned}\]
+</div><div>
+<p><b>b</b> \((a=\tfrac13)\)</p>
+\[\begin{aligned}&amp;\int_0^{\frac{3\pi}{2}}\sin\tfrac13x\,dx\\&amp;\quad=-3\Big[\cos\tfrac13x\Big]_0^{\frac{3\pi}{2}}\\&amp;\quad=-3\big(\cos\tfrac{\pi}{2}-\cos0\big)\\&amp;\quad=-3(0-1)\\&amp;\quad=3\end{aligned}\]
+</div><div>
+<p><b>c</b> \((a=3,\ b=\pi)\)</p>
+\[\begin{aligned}&amp;\int_0^{\frac{\pi}{12}}\sec^2(3x+\pi)\,dx\\&amp;\quad=\tfrac13\Big[\tan(3x+\pi)\Big]_0^{\frac{\pi}{12}}\\&amp;\quad=\tfrac13\big(\tan\tfrac{5\pi}{4}-\tan\pi\big)\\&amp;\quad=\tfrac13(1-0)\\&amp;\quad=\tfrac13\end{aligned}\]
+</div></div></div></div>
+<div class="a"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b>
+<div class="split"><div>
+<p><b>a</b> Let \(u=\sin2x\). Then \(u'=2\cos2x\).</p>
+\[\begin{aligned}\int\cot2x\,dx&amp;=\int\dfrac{\cos2x}{\sin2x}\,dx\\&amp;=\tfrac12\int\dfrac{2\cos2x}{\sin2x}\,dx\\&amp;=\tfrac12\log_e|\sin2x|+C\end{aligned}\]
+</div><div>
+<p><b>b</b> Let \(u=\cos2x\). Then \(u'=-2\sin2x\).</p>
+\[\begin{aligned}\int\tan2x\,dx&amp;=\int\dfrac{\sin2x}{\cos2x}\,dx\\&amp;=-\tfrac12\int\dfrac{-2\sin2x}{\cos2x}\,dx\\&amp;=-\tfrac12\log_e|\cos2x|+C\end{aligned}\]
+</div></div>
+<b>Your turn.</b>
+<div class="split"><div>
+<p><b>a</b> Let \(u=\sin3x\). Then \(u'=3\cos3x\).</p>
+\[\begin{aligned}\int\cot3x\,dx&amp;=\int\dfrac{\cos3x}{\sin3x}\,dx\\&amp;=\tfrac13\int\dfrac{3\cos3x}{\sin3x}\,dx\\&amp;=\tfrac13\log_e|\sin3x|+C\end{aligned}\]
+</div><div>
+<p><b>b</b> Let \(u=\cos3x\). Then \(u'=-3\sin3x\).</p>
+\[\begin{aligned}\int\tan3x\,dx&amp;=\int\dfrac{\sin3x}{\cos3x}\,dx\\&amp;=-\tfrac13\int\dfrac{-3\sin3x}{\cos3x}\,dx\\&amp;=-\tfrac13\log_e|\cos3x|+C\end{aligned}\]
+</div></div></div></div>
+<div class="a"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b>
+<div class="split"><div>
+<p><b>1</b> Taking the primitive, \(y=-\cos x+C\).<br>When \(x=0\), \(y=2\), so<br>\(2=-\cos0+C\),<br>so \(2=-1+C\) and \(C=3\).<br>Hence \(f(x)=3-\cos x\).<br>Then \(f\big(\frac{\pi}{2}\big)=3-\cos\frac{\pi}{2}=3-0=3\).</p>
+</div><div>
+<p><b>2a</b> Taking the primitive, \(f(x)=\tfrac12\sin2x+C\).<br>Substituting \(x=\frac{\pi}{4}\), \(1=\tfrac12\sin\frac{\pi}{2}+C\),<br>so \(1=\tfrac12+C\) and \(C=\tfrac12\).<br>Hence \(f(x)=\tfrac12\sin2x+\tfrac12\).</p>
+<p><b>2b</b> \(f\big(\frac{\pi}{12}\big)=\tfrac12\sin\frac{\pi}{6}+\tfrac12=\tfrac12\times\tfrac12+\tfrac12=\tfrac34\)</p>
+</div></div>
+<b>Your turn.</b>
+<div class="split"><div>
+<p><b>1</b> Taking the primitive, \(y=\cos x+C\).<br>When \(x=0\), \(y=4\), so<br>\(4=\cos0+C\),<br>so \(4=1+C\) and \(C=3\).<br>Hence \(f(x)=\cos x+3\).<br>Then \(f(\pi)=\cos\pi+3=-1+3=2\).</p>
+</div><div>
+<p><b>2a</b> Taking the primitive, \(f(x)=\tfrac12\sin2x+C\).<br>Substituting \(x=\frac{\pi}{2}\), \(2=\tfrac12\sin\pi+C\),<br>so \(2=0+C\) and \(C=2\).<br>Hence \(f(x)=\tfrac12\sin2x+2\).</p>
+<p><b>2b</b> \(f\big(\frac{\pi}{4}\big)=\tfrac12\sin\frac{\pi}{2}+2=\tfrac12\times1+2=2\tfrac12\)</p>
+</div></div></div></div>
+<div class="a" style="break-inside:auto"><span class="an">C6</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> Let \(y=\cos^7x\) and \(u=\cos x\). Then \(y=u^7\), \(\dfrac{du}{dx}=-\sin x\) and \(\dfrac{dy}{du}=7u^6\). By the chain rule, \(\dfrac{dy}{dx}=\dfrac{dy}{du}\times\dfrac{du}{dx}=7u^6\times(-\sin x)=-7\sin x\cos^6x\).<br>
+<b>b</b> Reversing part <b>a</b>, \(\displaystyle\int(-7\sin x\cos^6x)\,dx=\cos^7x\), and dividing by \(-7\), \(\displaystyle\int\sin x\cos^6x\,dx=-\tfrac17\cos^7x\). Hence
+\[\int_0^\pi\sin x\cos^6x\,dx=-\tfrac17\Big[\cos^7x\Big]_0^\pi=-\tfrac17(-1-1)=\tfrac27,\]
+because \(\cos^7\pi=(-1)^7=-1\) and \(\cos^70=1\).<br>
+<b>Your turn.</b><br>
+<b>a</b> Let \(y=\cos^3x\) and \(u=\cos x\). Then \(y=u^3\), \(\dfrac{du}{dx}=-\sin x\) and \(\dfrac{dy}{du}=3u^2\). By the chain rule, \(\dfrac{dy}{dx}=\dfrac{dy}{du}\times\dfrac{du}{dx}=3u^2\times(-\sin x)=-3\sin x\cos^2x\).<br>
+<b>b</b> Reversing part <b>a</b>, \(\displaystyle\int(-3\sin x\cos^2x)\,dx=\cos^3x\), and dividing by \(-3\), \(\displaystyle\int\sin x\cos^2x\,dx=-\tfrac13\cos^3x\). Hence
+\[\int_0^{\frac{\pi}{3}}\sin x\cos^2x\,dx=-\tfrac13\Big[\cos^3x\Big]_0^{\frac{\pi}{3}}=-\tfrac13\big(\tfrac18-1\big)=\tfrac{7}{24},\]
+because \(\cos^3\frac{\pi}{3}=\big(\tfrac12\big)^3=\tfrac18\) and \(\cos^30=1\).</div></div>
+<div class="a"><span class="an">C7</span><div class="ab"><div>
+<b>Tutor demo.</b> Let \(u=\sin x\). Then \(u'=\cos x\), and with \(n=6\), \(\displaystyle\int u^6\,\dfrac{du}{dx}\,dx=\dfrac{u^7}{7}\).
+\[\begin{aligned}\int\cos x\sin^6x\,dx&amp;=\int(\sin x)^6\cos x\,dx\\&amp;=\tfrac17\sin^7x+C\end{aligned}\]
+<b>Your turn.</b> Let \(u=\cos x\). Then \(u'=-\sin x\), and with \(n=6\), \(\displaystyle\int u^6\,\dfrac{du}{dx}\,dx=\dfrac{u^7}{7}\).
+\[\begin{aligned}\int\sin x\cos^6x\,dx&amp;=-\int(-\sin x)\cos^6x\,dx\\&amp;=-\tfrac17\cos^7x+C\end{aligned}\]
+</div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><span class="ap7d"><b>a</b> \(\tan x+C\)</span> <span class="ap7d"><b>b</b> \(\sin x+C\)</span> <span class="ap7d"><b>c</b> \(-\cos x+C\)</span> <span class="ap7d"><b>d</b> \(\cos x+C\)</span> <span class="ap7d"><b>e</b> \(2\sin x+C\)</span> <span class="ap7d"><b>f</b> \(\tfrac12\sin2x+C\)</span> <span class="ap7d"><b>g</b> \(\tfrac12\sin x+C\)</span> <span class="ap7d"><b>h</b> \(2\sin\tfrac12x+C\)</span> <span class="ap7d"><b>i</b> \(-\tfrac12\cos2x+C\)</span> <span class="ap7d"><b>j</b> \(\tfrac15\tan5x+C\)</span> <span class="ap7d"><b>k</b> \(\tfrac13\sin3x+C\)</span> <span class="ap7d"><b>l</b> \(3\tan\tfrac13x+C\)</span> <span class="ap7d"><b>m</b> \(-2\cos\tfrac{x}{2}+C\)</span> <span class="ap7d"><b>n</b> \(-5\sin\tfrac15x+C\)</span> <span class="ap7d"><b>o</b> \(2\cos2x+C\)</span> <span class="ap7d"><b>p</b> \(-\cos\tfrac14x+C\)</span> <span class="ap7d"><b>q</b> \(36\tan\tfrac13x+C\)</span> <span class="ap7d"><b>r</b> \(6\sin\tfrac{x}{3}+C\)</span></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><span class="ap7d"><b>a</b> \(1\)</span> <span class="ap7d"><b>b</b> \(\tfrac12\)</span> <span class="ap7d"><b>c</b> \(\tfrac{1}{\sqrt2}\)</span> <span class="ap7d"><b>d</b> \(\sqrt3\)</span> <span class="ap7d"><b>e</b> \(1\)</span> <span class="ap7d"><b>f</b> \(\tfrac34\)</span> <span class="ap7d"><b>g</b> \(2\)</span> <span class="ap7d"><b>h</b> \(1\)</span> <span class="ap7d"><b>i</b> \(4\)</span></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><span class="ap7d"><b>a</b> \(y=1-\cos x\)</span> <span class="ap7d"><b>b</b> \(y=\sin x+\cos2x-1\)</span> <span class="ap7d"><b>c</b> \(y=-\cos x+\sin x-3\)</span></div></div>
+<div class="a"><span class="an">4</span><div class="ab"><span class="ap7d"><b>a</b> about 200 little squares, that is, about 2 square units</span><br><span class="ap7d"><b>b</b> about 29, 100, 171, 171, 100 and 29 little squares: <b>i</b> \(\doteq0.29\) &nbsp;<b>ii</b> \(1\) &nbsp;<b>iii</b> \(\doteq1.71\) &nbsp;<b>iv</b> \(\doteq1.71\) &nbsp;<b>v</b> \(1\) &nbsp;<b>vi</b> \(\doteq0.29\)</span><br><span class="ap7d"><b>c</b> <b>i</b> \(1-\tfrac{1}{\sqrt2}\) &nbsp;<b>ii</b> \(1\) &nbsp;<b>iii</b> \(1+\tfrac{1}{\sqrt2}\) &nbsp;<b>iv</b> \(1+\tfrac{1}{\sqrt2}\) &nbsp;<b>v</b> \(1\) &nbsp;<b>vi</b> \(1-\tfrac{1}{\sqrt2}\)</span></div></div>
+<div class="a"><span class="an">6</span><div class="ab"><span class="ap7d"><b>a</b> \(\sin(x+2)+C\)</span> <span class="ap7d"><b>b</b> \(\tfrac12\sin(2x+1)+C\)</span> <span class="ap7d"><b>c</b> \(-\cos(x+2)+C\)</span> <span class="ap7d"><b>d</b> \(-\tfrac12\cos(2x+1)+C\)</span> <span class="ap7d"><b>e</b> \(\tfrac13\sin(3x-2)+C\)</span> <span class="ap7d"><b>f</b> \(\tfrac15\cos(7-5x)+C\)</span> <span class="ap7d"><b>g</b> \(-\tan(4-x)+C\)</span> <span class="ap7d"><b>h</b> \(-3\tan\Big(\dfrac{1-x}{3}\Big)+C\)</span> <span class="ap7d"><b>i</b> \(3\cos\Big(\dfrac{1-x}{3}\Big)+C\)</span></div></div>
+<div class="a"><span class="an">7</span><div class="ab"><span class="ap7d"><b>a</b> \(2\sin3x+8\cos\tfrac12x+C\)</span> <span class="ap7d"><b>b</b> \(4\tan2x-40\sin\tfrac14x-36\cos\tfrac13x+C\)</span></div></div>
+<div class="a"><span class="an">8</span><div class="ab"><span class="ap7d"><b>a</b> \(f(x)=\sin\pi x\), \(f\big(\tfrac13\big)=\tfrac12\sqrt3\)</span> <span class="ap7d"><b>b</b> \(f(x)=\dfrac{1}{2\pi}+\dfrac1\pi\sin\pi x\), \(f\big(\tfrac16\big)=\dfrac1\pi\)</span> <span class="ap7d"><b>c</b> \(f(x)=-2\cos3x+x+\big(1-\tfrac{\pi}{2}\big)\)</span></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><span class="ap7d"><b>a</b> \(-\cos(ax+b)+C\)</span> <span class="ap7d"><b>b</b> \(\pi\sin\pi x+C\)</span> <span class="ap7d"><b>c</b> \(\dfrac{1}{u^2}\tan(v+ux)+C\)</span> <span class="ap7d"><b>d</b> \(\tan ax+C\)</span></div></div>
+<div class="a"><span class="an">10</span><div class="ab"><span class="ap7d"><b>a</b> \(1+\tan^2x=\sec^2x\), \(\ \tan x-x+C\)</span> <span class="ap7d"><b>b</b> \(1-\sin^2x=\cos^2x\), \(\ 2\sqrt3\)</span></div></div>
+<div class="a"><span class="an">11</span><div class="ab"><span class="ap7d"><b>a</b> \(\log_e|f(x)|+C\)</span></div></div>
+<div class="a"><span class="an">12</span><div class="ab"><span class="ap7d"><b>a</b> \(\displaystyle\int\tan x\,dx=-\ln|\cos x|+C\)</span> <span class="ap7d"><b>b</b> \(\displaystyle\int_{\frac{\pi}{6}}^{\frac{\pi}{2}}\cot x\,dx=\Big[\ln|\sin x|\Big]_{\frac{\pi}{6}}^{\frac{\pi}{2}}=\ln2\)</span></div></div>
+<div class="a"><span class="an">13</span><div class="ab"><span class="ap7d"><b>a</b> \(5\sin^4x\cos x\), \(\ \tfrac15\sin^5x+C\)</span> <span class="ap7d"><b>b</b> \(3\tan^2x\sec^2x\), \(\ \tfrac13\tan^3x+C\)</span></div></div>
+<div class="a"><span class="an">14</span><div class="ab"><span class="ap7d"><b>a</b> \(\cos x\,e^{\sin x}\), \(\ e-1\)</span> <span class="ap7d"><b>b</b> \(\sec^2x\,e^{\tan x}\), \(\ e-1\)</span></div></div>
+<div class="a"><span class="an">15</span><div class="ab"><span class="ap7d"><b>a</b> \(1\)</span> <span class="ap7d"><b>b</b> \(\tfrac{5}{24}\)</span></div></div>
+<div class="a"><span class="an">16</span><div class="ab"><span class="ap7d"><b>a</b> \(\tfrac29\)</span> <span class="ap7d"><b>b</b> \(\dfrac{1}{n+1}\)</span> <span class="ap7d"><b>c</b> \(0\)</span> <span class="ap7d"><b>d</b> \(\dfrac{1}{2^{n+1}(n+1)}\)</span> <span class="ap7d"><b>e</b> \(10\tfrac18\)</span> <span class="ap7d"><b>f</b> \(\dfrac{1}{n+1}\)</span></div></div>
+<div class="a"><span class="an">17</span><div class="ab"><b>b</b> \(\sin^2x=\tfrac12(1-\cos2x)\), so \(\tfrac12\sin^2x+C=\tfrac14-\tfrac14\cos2x+C=-\tfrac14\cos2x+\big(C+\tfrac14\big)=-\tfrac14\cos2x+D\), where \(D=C+\tfrac14\).</div></div>
+<div class="a"><span class="an">18</span><div class="ab">\(\sin2x+2x\cos2x\), \(\ \dfrac{\pi-2}{8}\)</div></div>
+<div class="a"><span class="an">19</span><div class="ab"><span class="ap7d"><b>b</b> \(\tfrac43\)</span></div></div>
+<div class="a"><span class="an">20</span><div class="ab"><span class="ap7d"><b>b</b> <b>i</b> \(\tfrac65\) &nbsp; <b>ii</b> \(-\tfrac67\)</span></div></div>
+<div class="a"><span class="an">21</span><div class="ab"><span class="ap7d"><b>a</b> \(A=5\), \(B=3\)</span></div></div>
+
+{{ahead:Lesson 7D | Integrating the trigonometric functions}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics Extension&nbsp;1,&nbsp;Q7</span></div>
+<p>Write \(\tan x=\dfrac{\sin x}{\cos x}\). With \(u=\cos x\), \(u'=-\sin x\), so the top becomes the derivative of the bottom after balancing with \(-1\):</p>
+\[\begin{aligned}\int\tan x\,dx&amp;=-\int\dfrac{-\sin x}{\cos x}\,dx\\&amp;=-\ln|\cos x|+c.\end{aligned}\]
+<p>Write the constant as \(c=-\ln A\), where \(A\gt0\). Then \(-\ln|\cos x|-\ln A=-\big(\ln|\cos x|+\ln A\big)=-\ln|A\cos x|\).</p>
+<p>The answer is <b>(D)</b>. Option (A) is wrong because \(\sec^2x\) is the derivative of \(\tan x\), not a primitive. Option (B) is a primitive of \(\cot x\). Option (C) is the derivative of \(\tan^{-1}x\), and has nothing to do with \(\tan x\).</p></div>
+
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Caringbah High School, 2021, Year 12 Mathematics Extension 1 HSC Course Assessment Task&nbsp;4,&nbsp;Q6</span></div>
+<p>Let \(u=\tan\theta\). Then \(\dfrac{du}{d\theta}=\sec^2\theta\), and with \(n=2\), \(\displaystyle\int u^2\,\dfrac{du}{d\theta}\,d\theta=\dfrac{u^3}{3}\). So</p>
+\[\begin{aligned}\int\sec^2\theta\tan^2\theta\,d\theta&amp;=\int(\tan\theta)^2\sec^2\theta\,d\theta\\&amp;=\tfrac13\tan^3\theta+C.\end{aligned}\]
+<p>Check: \(\dfrac{d}{d\theta}\big(\tfrac13\tan^3\theta\big)=\tfrac13\times3\tan^2\theta\times\sec^2\theta=\sec^2\theta\tan^2\theta\). The answer is <b>(B)</b>. Differentiating (C) gives the extra term \(\tan^4\theta\sec^2\theta\), and (A) and (D) do not differentiate back to the integrand either.</p></div>
+
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Cherrybrook Technology High School, 2020, Year 12 AP4, Mathematics Extension&nbsp;1,&nbsp;Q5</span></div>
+<p>Let \(u=\cos x\). Then \(u'=-\sin x\), and with \(n=3\), \(\displaystyle\int u^3\,\dfrac{du}{dx}\,dx=\dfrac{u^4}{4}\). So</p>
+\[\begin{aligned}y&amp;=\int\sin x\cos^3x\,dx\\&amp;=-\int(-\sin x)\cos^3x\,dx\\&amp;=-\tfrac14\cos^4x+C.\end{aligned}\]
+<p>Check: \(\dfrac{d}{dx}\big(-\tfrac14\cos^4x\big)=-\tfrac14\times4\cos^3x\times(-\sin x)=\sin x\cos^3x\). The answer is <b>B</b>. Option A has the wrong sign, and C and D do not differentiate back to \(\sin x\cos^3x\).</p></div>
+
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Caringbah High School, 2020, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span></div>
+<p>Let \(u=\sin x\). Then \(u'=\cos x\), and with \(n=1\), \(\displaystyle\int u\,\dfrac{du}{dx}\,dx=\dfrac{u^2}{2}\). So</p>
+\[\begin{aligned}\int_0^{\frac{\pi}{6}}\sin x\cos x\,dx&amp;=\Big[\tfrac12\sin^2x\Big]_0^{\frac{\pi}{6}}\\&amp;=\tfrac12\sin^2\tfrac{\pi}{6}-\tfrac12\sin^20\\&amp;=\tfrac12\times\big(\tfrac12\big)^2-0\\&amp;=\tfrac12\times\tfrac14\\&amp;=\tfrac18.\end{aligned}\]</div>
+
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Fort Street High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q12(e)</span></div>
+<p>Integrate \(y''=-\sec^2(2x)\), using \(\displaystyle\int\sec^2(ax+b)\,dx=\dfrac1a\tan(ax+b)+C\) with \(a=2\):</p>
+\[y'=-\tfrac12\tan2x+C.\]
+<p>The gradient is \(-1\) at \(x=\dfrac{\pi}{8}\), and \(2\times\dfrac{\pi}{8}=\dfrac{\pi}{4}\), so</p>
+\[\begin{aligned}-1&amp;=-\tfrac12\tan\tfrac{\pi}{4}+C\\-1&amp;=-\tfrac12\times1+C\\C&amp;=-\tfrac12.\end{aligned}\]
+<p>Hence \(y'=-\tfrac12\tan2x-\tfrac12\). At \(x=\dfrac{\pi}{12}\), \(2\times\dfrac{\pi}{12}=\dfrac{\pi}{6}\), so</p>
+\[\begin{aligned}y'&amp;=-\tfrac12\tan\tfrac{\pi}{6}-\tfrac12\\&amp;=-\tfrac12\times\tfrac{1}{\sqrt3}-\tfrac12\\&amp;=-\tfrac{\sqrt3}{6}-\tfrac36\\&amp;=-\dfrac{3+\sqrt3}{6}.\end{aligned}\]
+<p>The exact gradient at \(x=\dfrac{\pi}{12}\) is \(-\dfrac{3+\sqrt3}{6}\). (The \(y\)-value \(2\) at the point is not needed for the gradient. It would be needed to find \(y\) itself.)</p></div>
+
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Hornsby Girls High School, 2022, Mathematics Extension 1, Year 12 Higher School Certificate Trial Examination Term&nbsp;3,&nbsp;Q14(a)</span></div>
+<p>Write \(\cot x=\dfrac{\cos x}{\sin x}\). The top is the derivative of the bottom, so</p>
+\[\begin{aligned}f(x)&amp;=\int\Big(\dfrac{\cos x}{\sin x}+x\Big)\,dx\\&amp;=\ln|\sin x|+\dfrac{x^2}{2}+C.\end{aligned}\]
+<p>Substituting \(f\Big(\dfrac{\pi}{2}\Big)=0\),</p>
+\[\begin{aligned}\ln\Big|\sin\tfrac{\pi}{2}\Big|+\dfrac{\big(\frac{\pi}{2}\big)^2}{2}+C&amp;=0\\\ln1+\dfrac{\pi^2}{8}+C&amp;=0\\C&amp;=-\dfrac{\pi^2}{8},\end{aligned}\]
+<p>because \(\sin\frac{\pi}{2}=1\), \(\ln1=0\) and \(\big(\frac{\pi}{2}\big)^2\div2=\frac{\pi^2}{4}\div2=\frac{\pi^2}{8}\). Hence</p>
+\[f(x)=\ln|\sin x|+\dfrac{x^2}{2}-\dfrac{\pi^2}{8}.\]</div>
+
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)(ii)</span></span></div>
+<p>A primitive of \(2\sqrt3\cos x-2\sin x\) is \(2\sqrt3\sin x+2\cos x\), so</p>
+\[\begin{aligned}\int_0^k\big(2\sqrt3\cos x-2\sin x\big)\,dx&amp;=\Big[2\sqrt3\sin x+2\cos x\Big]_0^k\\&amp;=\big(2\sqrt3\sin k+2\cos k\big)-\big(2\sqrt3\sin0+2\cos0\big)\\&amp;=2\sqrt3\sin k+2\cos k-2.\end{aligned}\]
+<p>Setting this equal to \(2\),</p>
+\[\begin{aligned}2\sqrt3\sin k+2\cos k-2&amp;=2\\2\sqrt3\sin k+2\cos k&amp;=4\\4\sin\big(k+\tfrac{\pi}{6}\big)&amp;=4\qquad\text{(using part (i))}\\\sin\big(k+\tfrac{\pi}{6}\big)&amp;=1.\end{aligned}\]
+<p>Since \(0\le k\le2\pi\), the angle \(k+\frac{\pi}{6}\) lies between \(\frac{\pi}{6}\) and \(\frac{13\pi}{6}\). In this interval, \(\sin\theta=1\) only at \(\theta=\frac{\pi}{2}\) (the next solution, \(\frac{5\pi}{2}\), is too large). So</p>
+\[k+\tfrac{\pi}{6}=\tfrac{\pi}{2},\qquad k=\tfrac{\pi}{2}-\tfrac{\pi}{6}=\tfrac{\pi}{3}.\]</div>
+
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 8</span>Killara High School, 2020, Mathematics Extension&nbsp;1 Trial HSC <span style="white-space:nowrap">Examination,&nbsp;Q12(d)(ii)</span></span></div>
+<p>By part (i), \(\operatorname{cosec}x+\cot x=\cot\dfrac{x}{2}=\dfrac{\cos\frac{x}{2}}{\sin\frac{x}{2}}\). Let \(u=\sin\dfrac{x}{2}\). Then \(u'=\dfrac12\cos\dfrac{x}{2}\), so balance with \(2\) outside:</p>
+\[\begin{aligned}\int_{\frac{\pi}{3}}^{\frac{\pi}{2}}(\operatorname{cosec}x+\cot x)\,dx&amp;=\int_{\frac{\pi}{3}}^{\frac{\pi}{2}}\cot\tfrac{x}{2}\,dx\\&amp;=2\int_{\frac{\pi}{3}}^{\frac{\pi}{2}}\dfrac{\frac12\cos\frac{x}{2}}{\sin\frac{x}{2}}\,dx\\&amp;=2\Big[\ln\Big|\sin\tfrac{x}{2}\Big|\Big]_{\frac{\pi}{3}}^{\frac{\pi}{2}}\\&amp;=2\Big(\ln\sin\tfrac{\pi}{4}-\ln\sin\tfrac{\pi}{6}\Big)\\&amp;=2\Big(\ln\tfrac{1}{\sqrt2}-\ln\tfrac12\Big)\\&amp;=2\ln\Big(\tfrac{1}{\sqrt2}\div\tfrac12\Big)\\&amp;=2\ln\tfrac{2}{\sqrt2}\\&amp;=2\ln\sqrt2\\&amp;=\ln2.\end{aligned}\]
+<p>Here \(\frac{2}{\sqrt2}=\sqrt2\) and \(2\ln\sqrt2=\ln(\sqrt2)^2=\ln2\). The interval \(\frac{\pi}{3}\le x\le\frac{\pi}{2}\) does not contain a zero of \(\sin\frac{x}{2}\), so no asymptote is crossed.</p></div>

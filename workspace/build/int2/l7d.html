@@ -1,1 +1,406 @@
-<!-- filled by Task: lesson 7d -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 7D</div><h2>Integrating the trigonometric functions</h2>
+<div class="focus">Reversing the standard derivatives of \(\sin x\), \(\cos x\) and \(\tan x\) gives three new standard integrals, and replacing \(x\) by \(ax+b\) extends them. With these we find areas and definite integrals, find the primitives of \(\tan x\) and \(\cot x\), find a function from its derivative and one known value, and reverse chain-rule derivatives to find new primitives.</div></div>
+
+<style>
+table.st7d { border-collapse:collapse; margin:1mm 0 1.5mm 3mm; }
+table.st7d td { padding:0.6mm 1.6mm; vertical-align:middle; }
+table.st7d td:first-child { text-align:left; white-space:nowrap; }
+table.st7d td.r { color:var(--ink-soft); }
+.side7d { border-left:1.4px solid var(--line-strong); padding-left:4mm; }
+.f7d .fig { justify-content:flex-start; margin:1mm 0; }
+.bx7d { display:inline-block; border:1px solid var(--ink); padding:0 1.5mm; }
+</style>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the standard forms for integrating the trigonometric functions}}
+<div class="box concept"><div class="bt">The standard forms for integrating the trigonometric functions</div>
+<p>As always, the standard forms for differentiation can be reversed to give standard forms for integration.</p>
+<p>When the standard forms for differentiating \(\sin x\), \(\cos x\) and \(\tan x\) are reversed, they give three new standard integrals.</p>
+<table class="st7d">
+<tr><td>First,</td><td>\(\dfrac{d}{dx}\sin x=\cos x,\)</td><td>and reversing this,</td><td>\(\displaystyle\int\cos x\,dx=\sin x.\)</td></tr>
+<tr><td>Secondly,</td><td>\(\dfrac{d}{dx}\cos x=-\sin x,\)</td><td>and reversing this,</td><td>\(\displaystyle\int(-\sin x)\,dx=\cos x\)</td></tr>
+<tr><td></td><td></td><td style="text-align:center"><span class="bx7d">\(\times(-1)\)</span></td><td>\(\displaystyle\int\sin x\,dx=-\cos x.\)</td></tr>
+<tr><td>Thirdly,</td><td>\(\dfrac{d}{dx}\tan x=\sec^2x,\)</td><td>and reversing this,</td><td>\(\displaystyle\int\sec^2x\,dx=\tan x.\)</td></tr></table>
+<p>This gives three new standard integrals. These three standard forms should be carefully memorised &mdash; pay attention to the signs in the first two standard forms.</p></div></div>
+<div class="box take"><div class="bt">8 Standard trigonometric integrals</div>
+<ul><li>\(\displaystyle\int\cos x\,dx=\sin x+C\), for some constant \(C\)</li>
+<li>\(\displaystyle\int\sin x\,dx=-\cos x+C\), for some constant \(C\)</li>
+<li>\(\displaystyle\int\sec^2x\,dx=\tan x+C\), for some constant \(C\)</li></ul>
+<p>No calculation involving a primitive may cross an asymptote.</p></div>
+<div class="box tip"><div class="bt">Where the minus sign comes from</div>
+<p>The box \(\times(-1)\) means: multiply both sides of \(\displaystyle\int(-\sin x)\,dx=\cos x\) by \(-1\). This gives \(\displaystyle\int\sin x\,dx=-\cos x\). Check it by differentiating: \(\tfrac{d}{dx}(-\cos x)=-(-\sin x)=\sin x\).</p>
+<p>The asymptotes in this lesson belong to \(\tan x\) and to \(\sec^2x\), the reciprocal of \(\cos^2x\). They are the lines \(x=\tfrac{\pi}{2}\), \(x=\tfrac{3\pi}{2}\), \(x=-\tfrac{\pi}{2}\), and so on, where \(\cos x=0\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">An area under \(y=\cos x\)</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:1fr 1.05fr"><div>The curve \(y=\cos x\) is sketched to the right. Show that the region shaded in the diagram, from \(x=0\) to \(x=\dfrac{\pi}{2}\), has area \(1\) square unit.</div>
+<div class="f7d"><div class="fig">{{svg:c7d_demo}}</div></div></div>
+{{work:36}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:1fr 1.05fr"><div>The curve \(y=\sin x\) is sketched to the right. Show that the region shaded in the diagram, from \(x=0\) to \(x=\dfrac{\pi}{2}\), has area \(1\) square unit.</div>
+<div class="f7d"><div class="fig">{{svg:c7d_turn}}</div></div></div>
+{{work:36}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 16</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+The curve \(y=\sin x\) is sketched below. Show that the first arch of the curve, as shaded in the diagram, has area 2 square units.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 1.05fr"><div>
+<p>Because the region is entirely above the \(x\)-axis,</p>
+\[\begin{aligned}\text{area}&amp;=\int_0^\pi\sin x\,dx\\&amp;=\Big[-\cos x\Big]_0^\pi\\&amp;=-\cos\pi+\cos0\\&amp;=-(-1)+1\end{aligned}\]
+<p>(the graph of \(y=\cos x\) shows that \(\cos\pi=-1\))<br>\(\phantom{(}=2\) square units.</p>
+</div><div class="f7d"><div class="fig">{{svg:c7d_ex16}}</div></div></div>
+</div></div>
+<div class="box tip"><div class="bt">The substitution in Worked example 16</div>
+<p>Substituting the upper limit and then the lower limit into \(-\cos x\), and subtracting,</p>
+\[\Big[-\cos x\Big]_0^\pi=(-\cos\pi)-(-\cos0)=-\cos\pi+\cos0.\]
+<p>Then \(\cos\pi=-1\) and \(\cos0=1\), so the area is \(-(-1)+1=1+1=2\) square units.</p></div>
+<div class="box concept"><div class="bt">Note</div>
+<p>This simple answer confirms again that radians are the right units to use for calculus with trigonometric functions. Similar simple results were obtained earlier when \(e\) was used as the base for powers. For example, Question 39c of the Chapter 6 Review gathered together three remarkably simple results:</p>
+\[\int_1^e\dfrac1x\,dx=\int_1^e\log_ex\,dx=\int_0^1xe^x\,dx=1\]</div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Definite integrals</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^{2\pi}\cos x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{4}}\sec^2x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{\frac{\pi}{3}}^{\frac{2\pi}{3}}\sec^2x\,dx\)</span></div>
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}}\cos x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{6}}\sec^2x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{\frac{\pi}{6}}^{\frac{5\pi}{6}}\sec^2x\,dx\)</span></div>
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 17</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^\pi\cos x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{3}}\sec^2x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{\frac{\pi}{4}}^{\frac{3\pi}{4}}\sec^2x\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\int_0^\pi\cos x\,dx&amp;=\Big[\sin x\Big]_0^\pi\\&amp;=\sin\pi-\sin0\\&amp;=0\end{aligned}\]
+<p>(Use the graph of \(y=\sin x\) to see that \(\sin\pi=0\) and \(\sin0=0\).)</p>
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}\int_0^{\frac{\pi}{3}}\sec^2x\,dx&amp;=\Big[\tan x\Big]_0^{\frac{\pi}{3}}\\&amp;=\tan\tfrac{\pi}{3}-\tan0\\&amp;=\sqrt3\end{aligned}\]
+<p>(Here \(\tan\frac{\pi}{3}=\sqrt3\) and \(\tan0=0\).)</p>
+</div></div>
+<p><b>c</b> This integral is meaningless because it crosses the asymptote at \(x=\frac{\pi}{2}\).</p>
+</div></div>
+<div class="box tip"><div class="bt">Why part c is meaningless</div>
+<p>The integrand \(\sec^2x\) is the reciprocal of \(\cos^2x\), so it is undefined at \(x=\tfrac{\pi}{2}\), because \(\cos\tfrac{\pi}{2}=0\), and \(\tfrac{\pi}{2}\) lies between the limits \(\tfrac{\pi}{4}\) and \(\tfrac{3\pi}{4}\). The primitive \(\tan x\) has an asymptote there. If the asymptote were ignored, the calculation would give \(\tan\tfrac{3\pi}{4}-\tan\tfrac{\pi}{4}=-1-1=-2\), a negative number from a function \(\sec^2x\) that is never negative. This shows that such a calculation cannot be trusted.</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:replacing x by ax + b}}
+<div class="box concept"><div class="bt">Replacing \(x\) by \(ax+b\)</div>
+<p>Reversing the standard forms for derivatives in Section 7B gives a further set of standard forms. Again, the constants of integration have been ignored until the boxed statement of the standard forms.</p>
+<table class="st7d">
+<tr><td>First,</td><td>\(\dfrac{d}{dx}\sin(ax+b)=a\cos(ax+b),\)</td></tr>
+<tr><td>so</td><td>\(\displaystyle\int a\cos(ax+b)\,dx=\sin(ax+b)\)</td></tr>
+<tr><td>and dividing by \(a\),</td><td>\(\displaystyle\int\cos(ax+b)\,dx=\dfrac1a\sin(ax+b).\)</td></tr>
+<tr><td>Secondly,</td><td>\(\dfrac{d}{dx}\cos(ax+b)=-a\sin(ax+b),\)</td></tr>
+<tr><td>so</td><td>\(\displaystyle\int-a\sin(ax+b)\,dx=\cos(ax+b)\)</td></tr>
+<tr><td>and dividing by \(-a\),</td><td>\(\displaystyle\int\sin(ax+b)\,dx=-\dfrac1a\cos(ax+b).\)</td></tr>
+<tr><td>Thirdly,</td><td>\(\dfrac{d}{dx}\tan(ax+b)=a\sec^2(ax+b),\)</td></tr>
+<tr><td>so</td><td>\(\displaystyle\int a\sec^2(ax+b)\,dx=\tan(ax+b).\)</td></tr>
+<tr><td>and dividing by \(a\),</td><td>\(\displaystyle\int\sec^2(ax+b)\,dx=\dfrac1a\tan(ax+b).\)</td></tr></table>
+<p>The result is extended forms of the three standard integrals. These extended standard forms should also be carefully memorised.</p></div></div>
+<div class="box take"><div class="bt">9 Standard integrals for functions of \(ax+b\)</div>
+<ul><li>\(\displaystyle\int\cos(ax+b)\,dx=\dfrac1a\sin(ax+b)+C\), for some constant \(C\)</li>
+<li>\(\displaystyle\int\sin(ax+b)\,dx=-\dfrac1a\cos(ax+b)+C\), for some constant \(C\)</li>
+<li>\(\displaystyle\int\sec^2(ax+b)\,dx=\dfrac1a\tan(ax+b)+C\), for some constant \(C\)</li></ul></div>
+<div class="box tip"><div class="bt">Reading off \(a\) and \(b\)</div>
+<p>Compare the angle with \(ax+b\). For \(\sin\tfrac14x\), the angle is \(\tfrac14x+0\), so \(a=\tfrac14\), \(b=0\) and \(-\tfrac1a=-4\). For \(\sec^2(2x+\pi)\), \(a=2\) and \(b=\pi\), so \(\tfrac1a=\tfrac12\). For \(\cos(7-5x)\), the angle is \(-5x+7\), so \(a=-5\). The \(\tfrac1a\) can be checked by differentiating the answer.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Functions of \(ax+b\)</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^{\frac{\pi}{4}}\cos2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^\pi\sin\tfrac13x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^{\frac{\pi}{6}}\sec^2(2x+\pi)\,dx\)</span></div>
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^{\frac{\pi}{8}}\cos4x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{3\pi}{2}}\sin\tfrac13x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^{\frac{\pi}{12}}\sec^2(3x+\pi)\,dx\)</span></div>
+{{work:62}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 18</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_\pi^{2\pi}\sin\tfrac14x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{8}}\sec^2(2x+\pi)\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b></p>
+\[\begin{aligned}\int_\pi^{2\pi}\sin\tfrac14x\,dx&amp;=-4\Big[\cos\tfrac14x\Big]_\pi^{2\pi}\qquad\text{(because the reciprocal of }\tfrac14\text{ is }4\text{)}\\&amp;=-4\cos\tfrac{\pi}{2}+4\cos\tfrac{\pi}{4}\\&amp;=0+4\times\dfrac{\sqrt2}{2}\\&amp;=2\sqrt2\end{aligned}\]
+<p><b>b</b></p>
+\[\begin{aligned}\int_0^{\frac{\pi}{8}}\sec^2(2x+\pi)\,dx&amp;=\tfrac12\Big[\tan(2x+\pi)\Big]_0^{\frac{\pi}{8}}\\&amp;=\tfrac12\Big(\tan\tfrac{5\pi}{4}-\tan\pi\Big)\\&amp;=\tfrac12(1-0)\qquad\Big(\tfrac{5\pi}{4}\text{ is in quadrant 3 with related angle }\tfrac{\pi}{4}\Big)\\&amp;=\tfrac12\end{aligned}\]
+</div></div>
+<div class="box tip"><div class="bt">The values in Worked example 18</div>
+<p>In part <b>a</b>, \(-4\Big[\cos\tfrac14x\Big]_\pi^{2\pi}=-4\big(\cos\tfrac{2\pi}{4}-\cos\tfrac{\pi}{4}\big)=-4\cos\tfrac{\pi}{2}+4\cos\tfrac{\pi}{4}\). Then \(\cos\tfrac{\pi}{2}=0\) and \(\cos\tfrac{\pi}{4}=\tfrac{\sqrt2}{2}\), and \(4\times\tfrac{\sqrt2}{2}=2\sqrt2\).</p>
+<p>In part <b>b</b>, the upper limit gives \(2\times\tfrac{\pi}{8}+\pi=\tfrac{\pi}{4}+\pi=\tfrac{5\pi}{4}\), and the lower limit gives \(2\times0+\pi=\pi\). The tangent is positive in quadrant 3, so \(\tan\tfrac{5\pi}{4}=\tan\tfrac{\pi}{4}=1\), and \(\tan\pi=0\).</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:the primitives of tan x and cot x}}
+<div class="box concept"><div class="bt">The primitives of \(\tan x\) and \(\cot x\)</div>
+<p>The primitives of \(\tan x\) and \(\cot x\) can be found by using the ratio formulae \(\tan x=\dfrac{\sin x}{\cos x}\) and \(\cot x=\dfrac{\cos x}{\sin x}\) and then applying the standard form from the previous chapter, in either one of its two versions,</p>
+\[\int\dfrac{u'}{u}\,dx=\log_e|u|+C\qquad\text{or}\qquad\int\dfrac{f'(x)}{f(x)}\,dx=\log_e|f(x)|+C.\]</div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The angle is \(2x\)</span></div><div class="ex-body">
+Find primitives of these functions.
+<div class="parts"><span><span class="pl">a</span>\(\cot2x\)</span><span><span class="pl">b</span>\(\tan2x\)</span></div>
+{{work:66}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find primitives of these functions.
+<div class="parts"><span><span class="pl">a</span>\(\cot3x\)</span><span><span class="pl">b</span>\(\tan3x\)</span></div>
+{{work:66}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 19</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Find primitives of these functions.
+<div class="parts"><span><span class="pl">a</span>\(\cot x\)</span><span><span class="pl">b</span>\(\tan x\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:0.9fr 1.3fr"><div>
+<p><b>a</b></p>
+\[\begin{aligned}&amp;\int\cot x\,dx\\&amp;\quad=\int\dfrac{\cos x}{\sin x}\,dx\\&amp;\quad=\log_e|\sin x|+C.\end{aligned}\]
+</div><div class="side7d">
+<table class="st7d">
+<tr><td>Let \(u=\sin x.\)</td><td rowspan="2">OR</td><td>Let \(f(x)=\sin x.\)</td></tr>
+<tr><td>Then \(u'=\cos x.\)</td><td>Then \(f'(x)=\cos x.\)</td></tr>
+<tr><td>\(\displaystyle\int\dfrac{u'}{u}\,dx=\log_e|u|\)</td><td></td><td>\(\displaystyle\int\dfrac{f'(x)}{f(x)}\,dx=\log_e|f(x)|\)</td></tr></table>
+</div></div>
+<div class="split" style="grid-template-columns:0.9fr 1.3fr"><div>
+<p><b>b</b></p>
+\[\begin{aligned}&amp;\int\tan x\,dx\\&amp;\quad=\int\dfrac{\sin x}{\cos x}\,dx\\&amp;\quad=-\int\dfrac{-\sin x}{\cos x}\,dx\\&amp;\quad=-\log_e|\cos x|+C.\end{aligned}\]
+</div><div class="side7d">
+<table class="st7d">
+<tr><td>Let \(u=\cos x.\)</td><td rowspan="2">OR</td><td>Let \(f(x)=\cos x.\)</td></tr>
+<tr><td>Then \(u'=-\sin x.\)</td><td>Then \(f'(x)=-\sin x.\)</td></tr>
+<tr><td>\(\displaystyle\int\dfrac{u'}{u}\,dx=\log_e|u|\)</td><td></td><td>\(\displaystyle\int\dfrac{f'(x)}{f(x)}\,dx=\log_e|f(x)|\)</td></tr></table>
+</div></div>
+<p>(This can also be written as \(\log_e|\sec x|\).)</p>
+</div></div>
+<div class="box warn"><div class="bt">Note</div>
+<p>Do not run across a zero of \(\sin x\) when using part <b>a</b>, or a zero of \(\cos x\) when using part <b>b</b>.</p></div>
+<div class="box tip"><div class="bt">The steps in Worked example 19</div>
+<p>In part <b>b</b>, the top \(\sin x\) is not yet the derivative of the bottom \(\cos x\), which is \(-\sin x\). Multiplying the top by \(-1\) and the outside by \(-1\) balances it:</p>
+\[\dfrac{\sin x}{\cos x}=-\dfrac{-\sin x}{\cos x}.\]
+<p>The last form uses a log law:</p>
+\[-\log_e|\cos x|=\log_e|\cos x|^{-1}=\log_e\Big|\dfrac{1}{\cos x}\Big|=\log_e|\sec x|.\]
+<p>When the angle is \(ax\), balance the constant in the same way. For example, the derivative of \(\sin2x\) is \(2\cos2x\), so</p>
+\[\cot2x=\dfrac{\cos2x}{\sin2x}=\dfrac12\times\dfrac{2\cos2x}{\sin2x}.\]</div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:finding a function whose derivative is known}}
+<div class="box concept"><div class="bt">Finding a function whose derivative is known</div>
+<p>If the derivative of a function is known, and the value of the function at one point is also known, then the whole function can be found.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Find the constant</span></div><div class="ex-body">
+<b>1</b> The derivative of a certain function is \(y'=\sin x\), and the graph of the function has \(y\)-intercept \((0,2)\). Find the original function \(f(x)\) and then find \(f\big(\frac{\pi}{2}\big)\).<br>
+<b>2</b> Given that \(f'(x)=\cos2x\) and \(f\big(\frac{\pi}{4}\big)=1\):<br>
+<span style="margin-left:4mm"><b>a</b> find the function \(f(x)\),</span><br>
+<span style="margin-left:4mm"><b>b</b> find \(f\big(\frac{\pi}{12}\big)\).</span>
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>1</b> The derivative of a certain function is \(y'=-\sin x\), and the graph of the function has \(y\)-intercept \((0,4)\). Find the original function \(f(x)\) and then find \(f(\pi)\).<br>
+<b>2</b> Given that \(f'(x)=\cos2x\) and \(f\big(\frac{\pi}{2}\big)=2\):<br>
+<span style="margin-left:4mm"><b>a</b> find the function \(f(x)\),</span><br>
+<span style="margin-left:4mm"><b>b</b> find \(f\big(\frac{\pi}{4}\big)\).</span>
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 20</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+The derivative of a certain function is \(y'=\cos x\), and the graph of the function has \(y\)-intercept \((0,3)\). Find the original function \(f(x)\) and then find \(f\big(\frac{\pi}{2}\big)\).
+<div class="sol-label">Solution</div>
+<table class="st7d">
+<tr><td>Here</td><td>\(y'=\cos x,\)</td><td class="r"></td></tr>
+<tr><td>and taking the primitive,</td><td>\(y=\sin x+C,\)</td><td class="r">for some constant \(C\).</td></tr>
+<tr><td colspan="3">When \(x=0\), \(y=3\), so substituting \(x=0\),</td></tr>
+<tr><td></td><td>\(3=\sin0+C\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(C=3.\)</td><td class="r"></td></tr>
+<tr><td>Hence</td><td>\(y=\sin x+3.\)</td><td class="r"></td></tr>
+<tr><td>When \(x=\frac{\pi}{2}\),</td><td>\(y=\sin\frac{\pi}{2}+3\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(\phantom{y}=4,\)</td><td class="r">because \(\sin\frac{\pi}{2}=1\).</td></tr></table>
+</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 21</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Given that \(f'(x)=\sin2x\) and \(f(\pi)=1\):<br>
+<b>a</b> find the function \(f(x)\),<br>
+<b>b</b> find \(f\big(\frac{\pi}{4}\big)\).
+<div class="sol-label">Solution</div>
+<p><b>a</b></p>
+<table class="st7d">
+<tr><td>Here</td><td>\(f'(x)=\sin2x,\)</td><td class="r"></td></tr>
+<tr><td>and taking the primitive,</td><td>\(f(x)=-\tfrac12\cos2x+C,\)</td><td class="r">for some constant \(C\).</td></tr>
+<tr><td colspan="3">It is known that \(f(\pi)=1\), so substituting \(x=\pi\),</td></tr>
+<tr><td></td><td>\(1=-\tfrac12\cos2\pi+C\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(1=-\tfrac12\times1+C\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(C=1\tfrac12.\)</td><td class="r"></td></tr>
+<tr><td>Hence</td><td>\(f(x)=-\tfrac12\cos2x+1\tfrac12.\)</td><td class="r"></td></tr></table>
+<p><b>b</b></p>
+<table class="st7d">
+<tr><td>Substituting \(x=\frac{\pi}{4}\),</td><td>\(f\big(\frac{\pi}{4}\big)=-\tfrac12\times\cos\tfrac{\pi}{2}+1\tfrac12\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(\phantom{f\big(\frac{\pi}{4}\big)}=1\tfrac12,\)</td><td class="r">because \(\cos\frac{\pi}{2}=0\).</td></tr></table>
+</div></div>
+<div class="box tip"><div class="bt">The values in Worked example 21</div>
+<p>In part <b>a</b>, \(\displaystyle\int\sin2x\,dx=-\tfrac12\cos2x\), because \(a=2\). Substituting \(x=\pi\) makes the angle \(2\pi\), and \(\cos2\pi=1\). Then \(1=-\tfrac12+C\) gives \(C=1+\tfrac12=1\tfrac12\).</p>
+<p>In part <b>b</b>, substituting \(x=\frac{\pi}{4}\) makes the angle \(2\times\frac{\pi}{4}=\frac{\pi}{2}\), and \(\cos\frac{\pi}{2}=0\), so \(f\big(\frac{\pi}{4}\big)=0+1\tfrac12=1\tfrac12\).</p></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:given a chain-rule derivative, find an integral}}
+<div class="box concept"><div class="bt">Given a chain-rule derivative, find an integral</div>
+<p>As always, the results of a chain-rule differentiation can be reversed to give a primitive.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Reverse a chain-rule result</span></div><div class="ex-body">
+<b>a</b> Use the chain rule to differentiate \(\cos^7x\).<br>
+<b>b</b> Hence find \(\displaystyle\int_0^\pi\sin x\cos^6x\,dx\).
+{{work:110}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Use the chain rule to differentiate \(\cos^3x\).<br>
+<b>b</b> Hence find \(\displaystyle\int_0^{\frac{\pi}{3}}\sin x\cos^2x\,dx\).
+{{work:116}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 22</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Use the chain rule to differentiate \(\cos^5x\).<br>
+<b>b</b> Hence find \(\displaystyle\int_0^\pi\sin x\cos^4x\,dx\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.4fr 1fr"><div>
+<p><b>a</b></p>
+<table class="st7d">
+<tr><td>Let</td><td>\(y=\cos^5x.\)</td></tr>
+<tr><td>By the chain rule,</td><td>\(\dfrac{dy}{dx}=\dfrac{dy}{du}\times\dfrac{du}{dx}\)</td></tr>
+<tr><td></td><td>\(\phantom{\dfrac{dy}{dx}}=-5\sin x\cos^4x.\)</td></tr></table>
+</div><div class="side7d">
+<p>Let \(u=\cos x\).<br>Then \(y=u^5\).<br>Hence \(\dfrac{du}{dx}=-\sin x\)<br>and \(\dfrac{dy}{du}=5u^4\).</p>
+</div></div>
+<p><b>b</b></p>
+<table class="st7d">
+<tr><td>From part <b>a</b>,</td><td>\(\dfrac{d}{dx}(\cos^5x)=-5\sin x\cos^4x.\)</td></tr>
+<tr><td>Reversing this,</td><td>\(\displaystyle\int(-5\sin x\cos^4x)\,dx=\cos^5x.\)</td></tr>
+<tr><td><span class="bx7d">\(\div(-5)\)</span></td><td>\(\displaystyle\int\sin x\cos^4x\,dx=-\tfrac15\cos^5x.\)</td></tr></table>
+<p>Hence</p>
+\[\begin{aligned}\int_0^\pi\sin x\cos^4x\,dx&amp;=-\tfrac15\Big[\cos^5x\Big]_0^\pi\\&amp;=-\tfrac15(-1-1)\\&amp;=\tfrac25\end{aligned}\]
+</div></div>
+<div class="box tip"><div class="bt">The steps in Worked example 22</div>
+<p>In part <b>a</b>, \(\tfrac{dy}{du}\times\tfrac{du}{dx}=5u^4\times(-\sin x)=-5\sin x\cos^4x\), after putting back \(u=\cos x\).</p>
+<p>In part <b>b</b>, the box \(\div(-5)\) means: divide both sides by \(-5\). For the limits, \(\cos\pi=-1\), so \(\cos^5\pi=(-1)^5=-1\), and \(\cos0=1\), so \(\cos^50=1^5=1\). Hence \(-\tfrac15\Big[\cos^5x\Big]_0^\pi=-\tfrac15(-1-1)=-\tfrac15\times(-2)=\tfrac25\).</p></div>
+
+<!-- ============ Concept 6 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 6:using a formula for the reverse chain rule}}
+<div class="box concept"><div class="bt">Using a formula for the reverse chain rule</div>
+<p>The integral in the worked example above could have been done using the reverse chain rule for powers of \(u\) or \(f(x)\).</p></div></div>
+<div class="box tip"><div class="bt">The formula from Section 5I</div>
+<p>The reverse chain rule for powers has two forms:</p>
+\[\int u^n\,\dfrac{du}{dx}\,dx=\dfrac{u^{n+1}}{n+1}+C\qquad\text{OR}\qquad\int\big(f(x)\big)^n\,f'(x)\,dx=\dfrac{\big(f(x)\big)^{n+1}}{n+1}+C,\]
+<p>where \(n\ne-1\). Let \(u\) be the function that is raised to the power, such as \(u=\cos x\) in \(\sin x\cos^4x\). Its derivative \(u'\) must appear in the integrand, apart from a constant factor. Insert that constant inside the integral and balance it with its reciprocal outside.</p></div>
+
+<div class="box tip"><div class="bt">Worked example 22 by the formula</div>
+<div class="split" style="grid-template-columns:1.25fr 1fr"><div>
+\[\begin{aligned}&amp;\int_0^\pi\sin x\cos^4x\,dx\\&amp;\quad=-\int_0^\pi(-\sin x)\cos^4x\,dx\\&amp;\quad=-\Big[\tfrac15\cos^5x\Big]_0^\pi\\&amp;\quad=-\tfrac15\big(\cos^5\pi-\cos^50\big)\\&amp;\quad=-\tfrac15(-1-1)\\&amp;\quad=\tfrac25\end{aligned}\]
+</div><div class="side7d">
+<p>Let \(u=\cos x\).<br>Then \(u'=-\sin x\).</p>
+\[\int u^4\,\dfrac{du}{dx}\,dx=\dfrac{u^5}{5}\]
+<p>The second line inserts the factor \(-1\) to make \(u'=-\sin x\), and balances it with \(-1\) outside.</p>
+</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A power of \(\sin x\)</span></div><div class="ex-body">
+Use the reverse chain rule to find \(\displaystyle\int\cos x\sin^6x\,dx\).
+{{work:28}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use the reverse chain rule to find \(\displaystyle\int\sin x\cos^6x\,dx\).
+{{work:28}}</div></div>
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 7D}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Find the following indefinite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int\sec^2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\cos x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\sin x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int-\sin x\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int2\cos x\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int\cos2x\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int\tfrac12\cos x\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int\cos\tfrac12x\,dx\)</span><span><span class="pl">i</span>\(\displaystyle\int\sin2x\,dx\)</span><span><span class="pl">j</span>\(\displaystyle\int\sec^25x\,dx\)</span><span><span class="pl">k</span>\(\displaystyle\int\cos3x\,dx\)</span><span><span class="pl">l</span>\(\displaystyle\int\sec^2\tfrac13x\,dx\)</span><span><span class="pl">m</span>\(\displaystyle\int\sin\tfrac{x}{2}\,dx\)</span><span><span class="pl">n</span>\(\displaystyle\int-\cos\tfrac15x\,dx\)</span><span><span class="pl">o</span>\(\displaystyle\int-4\sin2x\,dx\)</span><span><span class="pl">p</span>\(\displaystyle\int\tfrac14\sin\tfrac14x\,dx\)</span><span><span class="pl">q</span>\(\displaystyle\int12\sec^2\tfrac13x\,dx\)</span><span><span class="pl">r</span>\(\displaystyle\int2\cos\tfrac{x}{3}\,dx\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Find the value of:
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^{\frac{\pi}{2}}\cos x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{6}}\cos x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\sin x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_0^{\frac{\pi}{3}}\sec^2x\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_0^{\frac{\pi}{4}}2\cos2x\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^{\frac{\pi}{3}}\sin2x\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int_0^{\frac{\pi}{2}}\sec^2\big(\tfrac12x\big)\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int_{\frac{\pi}{3}}^\pi\cos\big(\tfrac12x\big)\,dx\)</span><span><span class="pl">i</span>\(\displaystyle\int_0^\pi(2\sin x-\sin2x)\,dx\)</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>The gradient function of a certain curve is given by \(\dfrac{dy}{dx}=\sin x\). If the curve passes through the origin, find its equation.</span><span><span class="pl">b</span>Another curve passing through the origin has gradient function \(y'=\cos x-2\sin2x\). Find its equation.</span><span><span class="pl">c</span>If \(\dfrac{dy}{dx}=\sin x+\cos x\), and \(y=-2\) when \(x=\pi\), find \(y\) as a function of \(x\).</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="fig">{{svg:q7d_q4}}</div>
+<p>The graph of \(y=\sin x\) is sketched above.</p>
+<div class="parts one"><span><span class="pl">a</span>The first worked exercise in the notes for this section proved that \(\displaystyle\int_0^\pi\sin x\,dx=2\). Count squares on the graph of \(y=\sin x\) above to confirm this result.</span>
+<span><span class="pl">b</span>On the same graph of \(y=\sin x\), count squares and use symmetry to find:
+<div class="parts three"><span><span class="pl">i</span>\(\displaystyle\int_0^{\frac{\pi}{4}}\sin x\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_0^{\frac{\pi}{2}}\sin x\,dx\)</span><span><span class="pl">iii</span>\(\displaystyle\int_0^{\frac{3\pi}{4}}\sin x\,dx\)</span><span><span class="pl">iv</span>\(\displaystyle\int_0^{\frac{5\pi}{4}}\sin x\,dx\)</span><span><span class="pl">v</span>\(\displaystyle\int_0^{\frac{3\pi}{2}}\sin x\,dx\)</span><span><span class="pl">vi</span>\(\displaystyle\int_0^{\frac{7\pi}{4}}\sin x\,dx\)</span></div></span>
+<span><span class="pl">c</span>Evaluate these integrals using the fact that \(-\cos x\) is a primitive of \(\sin x\), and confirm the results of part <b>b</b>.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">[Technology]<br>Programs that sketch the graph and then approximate definite integrals would help reinforce the previous very important investigation. The investigation could then be continued past \(x=\pi\), after which the definite integral decreases again.
+<p>Similar investigation with the graphs of \(\cos x\) and \(\sec^2x\) would also be helpful, comparing the results of computer integration with the exact results obtained by integration using the standard primitives.</p></div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Find the following indefinite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int\cos(x+2)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\cos(2x+1)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\sin(x+2)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\sin(2x+1)\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int\cos(3x-2)\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int\sin(7-5x)\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int\sec^2(4-x)\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int\sec^2\Big(\dfrac{1-x}{3}\Big)\,dx\)</span><span><span class="pl">i</span>\(\displaystyle\int\sin\Big(\dfrac{1-x}{3}\Big)\,dx\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find \(\displaystyle\int\Big(6\cos3x-4\sin\tfrac12x\Big)\,dx\).</span><span><span class="pl">b</span>Find \(\displaystyle\int\Big(8\sec^22x-10\cos\tfrac14x+12\sin\tfrac13x\Big)\,dx\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>If \(f'(x)=\pi\cos\pi x\) and \(f(0)=0\), find \(f(x)\) and \(f\big(\frac13\big)\).</span><span><span class="pl">b</span>If \(f'(x)=\cos\pi x\) and \(f(0)=\frac{1}{2\pi}\), find \(f(x)\) and \(f\big(\frac16\big)\).</span><span><span class="pl">c</span>If \(f''(x)=18\cos3x\) and \(f'(0)=f\big(\frac{\pi}{2}\big)=1\), find \(f(x)\).</span></div>{{work:76}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">9</span><div class="q-body">Find the following indefinite integrals, where \(a\), \(b\), \(u\) and \(v\) are constants.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int a\sin(ax+b)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\pi^2\cos\pi x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\dfrac1u\sec^2(v+ux)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\dfrac{a}{\cos^2ax}\,dx\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Copy and complete \(1+\tan^2x=\ldots\), and hence find \(\displaystyle\int\tan^2x\,dx\).</span><span><span class="pl">b</span>Simplify \(1-\sin^2x\), and hence find the value of \(\displaystyle\int_0^{\frac{\pi}{3}}\dfrac{2}{1-\sin^2x}\,dx\).</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Copy and complete \(\displaystyle\int\dfrac{f'(x)}{f(x)}\,dx=\ldots.\)</span><span><span class="pl">b</span>Hence show that \(\displaystyle\int_0^{\frac{\pi}{6}}\dfrac{\cos x}{1+\sin x}\,dx\doteqdot0.4\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Use the fact that \(\tan x=\dfrac{\sin x}{\cos x}\) to show that \(\displaystyle\int_0^{\frac{\pi}{4}}\tan x\,dx=\tfrac12\ln2\).</span><span><span class="pl">b</span>Use the fact that \(\cot x=\dfrac{\cos x}{\sin x}\) to find \(\displaystyle\int_{\frac{\pi}{6}}^{\frac{\pi}{2}}\cot x\,dx\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find \(\dfrac{d}{dx}(\sin^5x)\), and hence find \(\displaystyle\int\sin^4x\cos x\,dx\).</span><span><span class="pl">b</span>Find \(\dfrac{d}{dx}(\tan^3x)\), and hence find \(\displaystyle\int\tan^2x\sec^2x\,dx\).</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(e^{\sin x}\), and hence find the value of \(\displaystyle\int_0^{\frac{\pi}{2}}\cos x\,e^{\sin x}\,dx\).</span><span><span class="pl">b</span>Differentiate \(e^{\tan x}\), and hence find the value of \(\displaystyle\int_0^{\frac{\pi}{4}}\sec^2x\,e^{\tan x}\,dx\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{d}{dx}(\sin x-x\cos x)=x\sin x\), and hence find \(\displaystyle\int_0^{\frac{\pi}{2}}x\sin x\,dx\).</span><span><span class="pl">b</span>Show that \(\dfrac{d}{dx}\big(\tfrac13\cos^3x-\cos x\big)=\sin^3x\), and hence find \(\displaystyle\int_0^{\frac{\pi}{3}}\sin^3x\,dx\).</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">Use the reverse chain rule \(\displaystyle\int f'(x)\big(f(x)\big)^n\,dx=\dfrac{\big(f(x)\big)^{n+1}}{n+1}\), to evaluate:
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^\pi\sin x\cos^8x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{2}}\sin x\cos^nx\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos x\sin^7x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_0^{\frac{\pi}{6}}\cos x\sin^nx\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_0^{\frac{\pi}{3}}\sec^2x\tan^7x\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^{\frac{\pi}{4}}\sec^2x\tan^nx\,dx\)</span></div>{{work:72}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show, by finding the integral in two different ways, that for constants \(C\) and \(D\),
+\[\int\sin x\cos x\,dx=\tfrac12\sin^2x+C=-\tfrac14\cos2x+D.\]</span><span><span class="pl">b</span>How may the two answers be reconciled?</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">Find \(\dfrac{d}{dx}\big(x\sin2x\big)\), and hence find \(\displaystyle\int_0^{\frac{\pi}{4}}x\cos2x\,dx\).{{work:56}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{d}{dx}(\tan^3x)=3(\sec^4x-\sec^2x)\).</span><span><span class="pl">b</span>Hence find \(\displaystyle\int_0^{\frac{\pi}{4}}\sec^4x\,dx\).</span></div>{{work:56}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">20</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\sin(A+B)+\sin(A-B)=2\sin A\cos B\).</span>
+<span><span class="pl">b</span>Hence find:
+<div class="parts"><span><span class="pl">i</span>\(\displaystyle\int_0^{\frac{\pi}{2}}2\sin3x\cos2x\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_0^\pi\sin3x\cos4x\,dx\)</span></div></span>
+<span><span class="pl">c</span>Show that \(\displaystyle\int_{-\pi}^\pi\sin mx\cos nx\,dx=0\) for positive integers \(m\) and \(n\):
+<div class="parts"><span><span class="pl">i</span>using the primitive,</span><span><span class="pl">ii</span>using symmetry arguments.</span></div></span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find the values of \(A\) and \(B\) in the identity
+\[A(2\sin x+\cos x)+B(2\cos x-\sin x)=7\sin x+11\cos x.\]</span><span><span class="pl">b</span>Hence show that \(\displaystyle\int_0^{\frac{\pi}{2}}\dfrac{7\sin x+11\cos x}{2\sin x+\cos x}\,dx=\dfrac12(5\pi+6\ln2)\).</span></div>{{work:76}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body">[The power series for \(\sin x\) and \(\cos x\)
+\[\begin{aligned}&amp;\sin x=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\dfrac{x^7}{7!}+\cdots\qquad\text{and}\\&amp;\cos x=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}-\dfrac{x^6}{6!}+\cdots.]\end{aligned}\]
+<div class="parts one"><span><span class="pl">a</span>We know that \(\cos t\le1\), for \(t\) positive. Integrate this inequality over the interval \(0\le t\le x\), where \(x\) is positive, and hence show that \(\sin x\le x\).</span>
+<span><span class="pl">b</span>Change the variable to \(t\), integrate the inequality \(\sin t\le t\) over \(0\le t\le x\), and hence show that \(\cos x\ge1-\dfrac{x^2}{2!}\).</span>
+<span><span class="pl">c</span>Do it twice more, and show that:
+<div class="parts"><span><span class="pl">i</span>\(\sin x\ge x-\dfrac{x^3}{3!}\)</span><span><span class="pl">ii</span>\(\cos x\le1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}\)</span></div></span>
+<span><span class="pl">d</span>Now use induction (informally) to show that for all positive integers \(n\),
+\[\sin x\le x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\dfrac{x^7}{7!}+\cdots+\dfrac{x^{4n+1}}{(4n+1)!}\le\sin x+\dfrac{x^{4n+3}}{(4n+3)!},\]
+and use this inequality to conclude that \(x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\cdots\) converges, with limit \(\sin x\).</span>
+<span><span class="pl">e</span>Proceeding similarly, prove that \(1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}+\cdots\) converges, with limit \(\cos x\).</span>
+<span><span class="pl">f</span>Use evenness and oddness to extend the results of (d) and (e) to negative values of \(x\).</span></div>{{work:90}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>16 marks</b></span><span>Calculator allowed · show working · each hint is below its question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics Extension&nbsp;1,&nbsp;Q7</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following is a correct primitive of \(\tan x\)?
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">(A)</span>\(\sec^2x+c\)</span><span><span class="pl">(B)</span>\(\ln|A\sin x|\)</span><span><span class="pl">(C)</span>\(\dfrac{1}{1+x^2}+c\)</span><span><span class="pl">(D)</span>\(-\ln|A\cos x|\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is being integrated here?</div>{{work:18}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Caringbah High School, 2021, Year 12 Mathematics Extension 1 HSC Course Assessment Task&nbsp;4,&nbsp;Q6</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Find \(\displaystyle\int\sec^2\theta\tan^2\theta\,d\theta\)
+<div class="parts"><span><span class="pl">(A)</span>\(\sec^2\theta+\dfrac12\tan^2\theta+C\)</span><span><span class="pl">(B)</span>\(\dfrac13\tan^3\theta+C\)</span><span><span class="pl">(C)</span>\(\dfrac13\tan^3\theta+\dfrac15\tan^5\theta+C\)</span><span><span class="pl">(D)</span>\(\tan^4\theta-\ln\big|\cos^4\theta\big|+C\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is being integrated here?</div>{{work:18}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Cherrybrook Technology High School, 2020, Year 12 AP4, Mathematics Extension&nbsp;1,&nbsp;Q5</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Find the primitive function of \(\dfrac{dy}{dx}=\sin x\cos^3x\).
+<div class="parts"><span><span class="pl">A.</span>\(y=\dfrac14\cos^4x+C\)</span><span><span class="pl">B.</span>\(y=-\dfrac14\cos^4x+C\)</span><span><span class="pl">C.</span>\(y=\dfrac18\sin^2x\cos^4x+C\)</span><span><span class="pl">D.</span>\(y=-\dfrac18\sin^2x\cos^4x+C\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is being integrated here?</div>{{work:18}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Caringbah High School, 2020, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find \(\displaystyle\int_0^{\frac{\pi}{6}}\sin x\cos x\,dx\)</div>
+<div class="hint"><b>Hint:</b> what is being integrated here?</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Fort Street High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q12(e)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">The curve with equation \(y=f(x)\) passes through the point \(\Big(\dfrac{\pi}{8},2\Big)\) and has a gradient of \(-1\) at this point. Find the exact gradient of the curve at \(x=\tfrac{\pi}{12}\) given that \(y''=-\sec^2(2x)\).</div>
+<div class="hint"><b>Hint:</b> what does the information at the point tell you?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Hornsby Girls High School, 2022, Mathematics Extension 1, Year 12 Higher School Certificate Trial Examination Term&nbsp;3,&nbsp;Q14(a)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">If \(f'(x)=\cot x+x\) and \(f\Big(\dfrac{\pi}{2}\Big)=0\), find an expression for \(f(x)\).</div>
+<div class="hint"><b>Hint:</b> what information are you given about \(f\)?</div>{{work:60}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)(ii)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Part (i), not included here, shows that \(2\sqrt3\sin x+2\cos x=4\sin\Big(x+\dfrac{\pi}{6}\Big)\).
+<div class="pp-sub"><span>(ii) Hence find the value of \(k\), where \(0\le k\le2\pi\), for which
+\[\int_0^k\big(2\sqrt3\cos x-2\sin x\big)\,dx=2.\]</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> what does the result of part (i) give you?</div>{{work:66}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Killara High School, 2020, Mathematics Extension&nbsp;1 Trial HSC <span style="white-space:nowrap">Examination,&nbsp;Q12(d)(ii)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Part (i), not included here, uses the substitution \(t=\tan\dfrac{x}{2}\) to show that \(\operatorname{cosec}x+\cot x=\cot\dfrac{x}{2}\).
+<div class="pp-sub"><span>(ii) Hence, evaluate \(\displaystyle\int_{\frac{\pi}{3}}^{\frac{\pi}{2}}(\operatorname{cosec}x+\cot x)\,dx\).<br>(Answer in simplest form)</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> what does part (i) give you?</div>{{work:66}}</div>
+</div>
