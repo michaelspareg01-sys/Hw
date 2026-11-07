@@ -1,1 +1,152 @@
-<!-- filled by Task: Int3 lesson 12C (a_12c.html) -->
+{{ahead:Lesson 12C | Further trigonometric integrals}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b>
+<p><b>a</b></p>
+\[\begin{aligned}\int(2\cos x-\sin x)\,dx&=2\sin x-(-\cos x)+C\\&=2\sin x+\cos x+C\end{aligned}\]
+<p><b>b</b> The angle is \(3x\), so divide by 3:</p>
+\[\int\sec^23x\,dx=\tfrac13\tan3x+C\]
+<p><b>c</b> The angle is \(\tfrac12x\), so divide by \(\tfrac12\), that is, multiply by 2:</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{3}}\sin\tfrac12x\,dx&=\Big[-2\cos\tfrac12x\Big]_{0}^{\frac{\pi}{3}}\\&=\big(-2\cos\tfrac{\pi}{6}\big)-\big(-2\cos0\big)\\&=-2\times\tfrac{\sqrt3}{2}+2\\&=2-\sqrt3\end{aligned}\]
+
+<b>Your turn.</b>
+<p><b>a</b></p>
+\[\begin{aligned}\int(3\sin x+\cos x)\,dx&=3(-\cos x)+\sin x+C\\&=-3\cos x+\sin x+C\end{aligned}\]
+<p><b>b</b></p>
+\[\int\sec^2\tfrac12x\,dx=2\tan\tfrac12x+C\]
+<p><b>c</b></p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{2}}\cos\tfrac13x\,dx&=\Big[3\sin\tfrac13x\Big]_{0}^{\frac{\pi}{2}}\\&=3\sin\tfrac{\pi}{6}-3\sin0\\&=3\times\tfrac12-0\\&=\tfrac32\end{aligned}\]
+</div></div>
+
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<p><b>a</b> Using \(\sin^2x=\tfrac12-\tfrac12\cos2x\),</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{4}}\sin^2x\,dx&=\int_{0}^{\frac{\pi}{4}}\big(\tfrac12-\tfrac12\cos2x\big)\,dx\\&=\Big[\tfrac12x-\tfrac14\sin2x\Big]_{0}^{\frac{\pi}{4}}\\&=\big(\tfrac{\pi}{8}-\tfrac14\sin\tfrac{\pi}{2}\big)-\big(0-\tfrac14\sin0\big)\\&=\big(\tfrac{\pi}{8}-\tfrac14\big)-\big(0-0\big)\\&=\tfrac{\pi}{8}-\tfrac14\end{aligned}\]
+<p><b>b</b> Using \(\cos^2\tfrac12x=\tfrac12+\tfrac12\cos x\),</p>
+\[\begin{aligned}\int_{0}^{\frac{2\pi}{3}}\cos^2\tfrac12x\,dx&=\int_{0}^{\frac{2\pi}{3}}\big(\tfrac12+\tfrac12\cos x\big)\,dx\\&=\Big[\tfrac12x+\tfrac12\sin x\Big]_{0}^{\frac{2\pi}{3}}\\&=\big(\tfrac{\pi}{3}+\tfrac12\sin\tfrac{2\pi}{3}\big)-\big(0+\tfrac12\sin0\big)\\&=\big(\tfrac{\pi}{3}+\tfrac12\times\tfrac{\sqrt3}{2}\big)-\big(0+0\big)\\&=\tfrac{\pi}{3}+\tfrac{\sqrt3}{4}\end{aligned}\]
+
+<b>Your turn.</b>
+<p><b>a</b> Using \(\cos^2x=\tfrac12+\tfrac12\cos2x\),</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{2}}\cos^2x\,dx&=\int_{0}^{\frac{\pi}{2}}\big(\tfrac12+\tfrac12\cos2x\big)\,dx\\&=\Big[\tfrac12x+\tfrac14\sin2x\Big]_{0}^{\frac{\pi}{2}}\\&=\big(\tfrac{\pi}{4}+\tfrac14\sin\pi\big)-\big(0+\tfrac14\sin0\big)\\&=\big(\tfrac{\pi}{4}+0\big)-\big(0+0\big)\\&=\tfrac{\pi}{4}\end{aligned}\]
+<p><b>b</b> Using \(\sin^2\tfrac13x=\tfrac12-\tfrac12\cos\tfrac23x\),</p>
+\[\begin{aligned}\int_{0}^{\pi}\sin^2\tfrac13x\,dx&=\int_{0}^{\pi}\big(\tfrac12-\tfrac12\cos\tfrac23x\big)\,dx\\&=\Big[\tfrac12x-\tfrac34\sin\tfrac23x\Big]_{0}^{\pi}\\&=\big(\tfrac{\pi}{2}-\tfrac34\sin\tfrac{2\pi}{3}\big)-\big(0-\tfrac34\sin0\big)\\&=\big(\tfrac{\pi}{2}-\tfrac34\times\tfrac{\sqrt3}{2}\big)-\big(0-0\big)\\&=\tfrac{\pi}{2}-\tfrac{3\sqrt3}{8}\end{aligned}\]
+<p class="small">The primitive of \(-\tfrac12\cos\tfrac23x\) is \(-\tfrac12\times\tfrac32\sin\tfrac23x=-\tfrac34\sin\tfrac23x\).</p>
+</div></div>
+
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b>
+<p><b>a</b> Using \(\tan^23x=\sec^23x-1\),</p>
+\[\begin{aligned}\int\tan^23x\,dx&=\int\big(\sec^23x-1\big)\,dx\\&=\tfrac13\tan3x-x+C\end{aligned}\]
+<p><b>b</b> Using \(\cot^2x=\operatorname{cosec}^2x-1\),</p>
+\[\begin{aligned}\int_{\frac{\pi}{6}}^{\frac{\pi}{4}}\cot^2x\,dx&=\int_{\frac{\pi}{6}}^{\frac{\pi}{4}}\big(\operatorname{cosec}^2x-1\big)\,dx\\&=\Big[-\cot x-x\Big]_{\frac{\pi}{6}}^{\frac{\pi}{4}}\\&=\big(-\cot\tfrac{\pi}{4}-\tfrac{\pi}{4}\big)-\big(-\cot\tfrac{\pi}{6}-\tfrac{\pi}{6}\big)\\&=\big(-1-\tfrac{\pi}{4}\big)-\big(-\sqrt3-\tfrac{\pi}{6}\big)\\&=\sqrt3-1-\tfrac{\pi}{12}\end{aligned}\]
+
+<b>Your turn.</b>
+<p><b>a</b> Using \(\tan^2\tfrac12x=\sec^2\tfrac12x-1\),</p>
+\[\begin{aligned}\int\tan^2\tfrac12x\,dx&=\int\big(\sec^2\tfrac12x-1\big)\,dx\\&=2\tan\tfrac12x-x+C\end{aligned}\]
+<p><b>b</b> Using \(\tan^2x=\sec^2x-1\),</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{3}}\tan^2x\,dx&=\int_{0}^{\frac{\pi}{3}}\big(\sec^2x-1\big)\,dx\\&=\Big[\tan x-x\Big]_{0}^{\frac{\pi}{3}}\\&=\big(\tan\tfrac{\pi}{3}-\tfrac{\pi}{3}\big)-\big(\tan0-0\big)\\&=\sqrt3-\tfrac{\pi}{3}\end{aligned}\]
+</div></div>
+
+<div class="a"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b>
+<p><b>a</b> Using \(2\sin A\cos B=\sin(A+B)+\sin(A-B)\) with \(A=4x\) and \(B=x\), \(\ \sin4x\cos x=\tfrac12(\sin5x+\sin3x)\). So</p>
+\[\begin{aligned}\int\sin4x\cos x\,dx&=\tfrac12\int(\sin5x+\sin3x)\,dx\\&=\tfrac12\big(-\tfrac15\cos5x-\tfrac13\cos3x\big)+C\\&=-\tfrac{1}{10}\cos5x-\tfrac16\cos3x+C\end{aligned}\]
+<p><b>b</b> Using \(-2\sin A\sin B=\cos(A+B)-\cos(A-B)\) with \(A=3x\) and \(B=x\), \(\ 2\sin3x\sin x=-(\cos4x-\cos2x)=\cos2x-\cos4x\). So</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{6}}2\sin3x\sin x\,dx&=\int_{0}^{\frac{\pi}{6}}(\cos2x-\cos4x)\,dx\\&=\Big[\tfrac12\sin2x-\tfrac14\sin4x\Big]_{0}^{\frac{\pi}{6}}\\&=\big(\tfrac12\sin\tfrac{\pi}{3}-\tfrac14\sin\tfrac{2\pi}{3}\big)-\big(\tfrac12\sin0-\tfrac14\sin0\big)\\&=\big(\tfrac12\times\tfrac{\sqrt3}{2}-\tfrac14\times\tfrac{\sqrt3}{2}\big)-0\\&=\tfrac{\sqrt3}{4}-\tfrac{\sqrt3}{8}\\&=\tfrac{\sqrt3}{8}\end{aligned}\]
+<b>Your turn.</b>
+<p><b>a</b> Using \(2\cos A\sin B=\sin(A+B)-\sin(A-B)\) with \(A=4x\) and \(B=2x\), \(\ \cos4x\sin2x=\tfrac12(\sin6x-\sin2x)\). So</p>
+\[\begin{aligned}\int\cos4x\sin2x\,dx&=\tfrac12\int(\sin6x-\sin2x)\,dx\\&=\tfrac12\big(-\tfrac16\cos6x+\tfrac12\cos2x\big)+C\\&=-\tfrac{1}{12}\cos6x+\tfrac14\cos2x+C\end{aligned}\]
+<p><b>b</b> Using \(2\cos A\cos B=\cos(A+B)+\cos(A-B)\) with \(A=3x\) and \(B=x\), \(\ 2\cos3x\cos x=\cos4x+\cos2x\). So</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{4}}2\cos3x\cos x\,dx&=\int_{0}^{\frac{\pi}{4}}(\cos4x+\cos2x)\,dx\\&=\Big[\tfrac14\sin4x+\tfrac12\sin2x\Big]_{0}^{\frac{\pi}{4}}\\&=\big(\tfrac14\sin\pi+\tfrac12\sin\tfrac{\pi}{2}\big)-\big(\tfrac14\sin0+\tfrac12\sin0\big)\\&=\big(0+\tfrac12\big)-0\\&=\tfrac12\end{aligned}\]
+</div></div>
+
+<div class="a"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b>
+<div class="split"><div>
+\[\begin{aligned}\int\tan2x\,dx&=\int\frac{\sin2x}{\cos2x}\,dx\\&=-\tfrac12\int\frac{-2\sin2x}{\cos2x}\,dx\\&=-\tfrac12\log_e|\cos2x|+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\cos2x\).<br>Then \(u'=-2\sin2x\),<br>and \(\displaystyle\int\frac{u'}{u}\,dx=\log_e|u|\).</p>
+</div></div>
+<b>Your turn.</b>
+<div class="split"><div>
+\[\begin{aligned}\int\cot\tfrac12x\,dx&=\int\frac{\cos\frac12x}{\sin\frac12x}\,dx\\&=2\int\frac{\frac12\cos\frac12x}{\sin\frac12x}\,dx\\&=2\log_e\big|\sin\tfrac12x\big|+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\sin\tfrac12x\).<br>Then \(u'=\tfrac12\cos\tfrac12x\),<br>and \(\displaystyle\int\frac{u'}{u}\,dx=\log_e|u|\).</p>
+</div></div></div></div>
+
+<div class="a"><span class="an">C6</span><div class="ab"><b>Tutor demo.</b>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\int\sin x\cos^6x\,dx&=-\int(-\sin x)\cos^6x\,dx\\&=-\tfrac17\cos^7x+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\cos x\).<br>Then \(\frac{du}{dx}=-\sin x\),<br>and \(\displaystyle\int u^6\,\frac{du}{dx}\,dx=\tfrac17u^7\).</p>
+</div></div>
+<div class="split"><div>
+<p><b>b</b></p>
+\[\int\sec^2x\tan^nx\,dx=\frac{\tan^{n+1}x}{n+1}+C\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\tan x\).<br>Then \(\frac{du}{dx}=\sec^2x\),<br>and \(\displaystyle\int u^n\,\frac{du}{dx}\,dx=\frac{u^{n+1}}{n+1}\).</p>
+</div></div>
+<b>Your turn.</b>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\int\cos x\sin^5x\,dx=\tfrac16\sin^6x+C\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\sin x\).<br>Then \(\frac{du}{dx}=\cos x\),<br>and \(\displaystyle\int u^5\,\frac{du}{dx}\,dx=\tfrac16u^6\).</p>
+</div></div>
+<div class="split"><div>
+<p><b>b</b></p>
+\[\begin{aligned}\int\sin x\cos^nx\,dx&=-\int(-\sin x)\cos^nx\,dx\\&=-\frac{\cos^{n+1}x}{n+1}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\cos x\).<br>Then \(\frac{du}{dx}=-\sin x\),<br>and \(\displaystyle\int u^n\,\frac{du}{dx}\,dx=\frac{u^{n+1}}{n+1}\).</p>
+</div></div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">2</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac{2+\sqrt3}{4}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac{2+\sqrt3}{4}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(-\tfrac14\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac{2-\sqrt2}{4}\)</span></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac12x-\tfrac14\sin2x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac12x-\tfrac18\sin4x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tfrac12x-\sin\tfrac12x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac12x-\tfrac{1}{12}\sin6x+C\)</span></div></div>
+<div class="a"><span class="an">4</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac12x+\tfrac14\sin2x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac12x+\tfrac{1}{24}\sin12x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tfrac12x+\tfrac12\sin x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac12x+\tfrac{1}{40}\sin20x+C\)</span></div></div>
+<div class="a"><span class="an">5</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac{\pi}{2}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac18(\pi+2)\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tfrac{1}{12}(\pi-3)\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac{1}{32}(\pi+2\sqrt2)\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>e</b> \(\tfrac{1}{24}(4\pi+9)\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>f</b> \(\tfrac{1}{24}(2\pi-3\sqrt3)\)</span></div></div>
+<div class="a"><span class="an">6</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(-\tfrac{1}{10}\cos5x-\tfrac12\cos x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac14\cos2x-\tfrac18\cos4x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tfrac{2\sqrt2}{3}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(-\tfrac{\sqrt3}{28}\)</span></div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>a, b</b> \(y=\cos2x\) is dashed, \(y=\tfrac12(1+\cos2x)\) is blue and \(y=\tfrac12(1-\cos2x)\) is red.{{svg:a12c_q7}}</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac14\sin^4x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac17\sin^7x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(-\tfrac16\cos^6x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(-\tfrac19\cos^9x+C\)</span><br><span style="white-space:nowrap;margin-right:3.5mm"><b>e</b> \(-\cos e^x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>f</b> \(\tfrac15\sin5e^x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>g</b> \(-\log_e|\cos x|+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>h</b> \(\tfrac17\log_e|\sin7x|+C\)</span></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>a</b> \(\cos x\sin x=\tfrac12\sin2x\), so \(-\tfrac12\le y\le\tfrac12\).<br>
+<b>b</b> (i) \(-\tfrac14\cos2x+C\)<br>(ii) \(\tfrac12\sin^2x+D\) using \(u=\sin x\), and \(-\tfrac12\cos^2x+E\) using \(u=\cos x\).<br>
+<b>c</b> The three constants \(C\), \(D\) and \(E\) are different. The answers in part (ii) can be reconciled with each other using the Pythagorean identity, and they can be reconciled with part (i) using the \(\cos2x\) formulae.</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\cos^4x=\tfrac38+\tfrac12\cos2x+\tfrac18\cos4x\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> (i) \(\tfrac{3\pi}{8}\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(ii) \(\tfrac{1}{32}(3\pi+8)\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac{5}{24}\)</span></div></div>
+<div class="a"><span class="an">11</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac12\tan2x-x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(-2\cot\tfrac12x-x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\sqrt3-1-\tfrac{\pi}{12}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac14\sqrt3-\tfrac{\pi}{12}\)</span></div></div>
+<div class="a"><span class="an">12</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac12\tan^2x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(x-\sin x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tan x+\sin x+C\)</span></div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>b</b> (i) \(x=0\), \(\pi\) or \(2\pi\) &nbsp; (ii) \(0\lt x\lt\pi\) or \(\pi\lt x\lt2\pi\) &nbsp; (iii) no values of \(x\)<br>
+<b>c</b> It is because \(-\tfrac14\le\tfrac14\sin2x\le\tfrac14\).<br>
+<b>d</b> \(\big(\tfrac{\pi}{2},\tfrac{\pi}{4}\big)\) and \(\big(\tfrac{3\pi}{2},\tfrac{3\pi}{4}\big)\) are points of inflection, and \(\big(\pi,\tfrac{\pi}{2}\big)\) is a stationary (or horizontal) point of inflection.<br>
+<b>e</b> \(y=F(x)\) is blue and \(y=F'(x)\) is red. \(F(x)\) is steepest where \(F'(x)\) has its maximum, and flat where \(F'(x)=0\).{{svg:a12c_q13}}
+<b>f</b> (i) \(k=3\pi\) &nbsp; (ii) \(k=n\pi\), where \(n\) is an integer.</div></div>
+<div class="a"><span class="an">14</span><div class="ab">\(\tfrac12\)</div></div>
+
+{{ahead:Lesson 12C | Further trigonometric integrals}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q8</span></span></div>
+<p>Using \(\sin^2\theta=\tfrac12-\tfrac12\cos2\theta\) with \(\theta=3x\), the angle doubles to \(6x\):</p>
+\[\begin{aligned}\int\sin^23x\,dx&=\int\big(\tfrac12-\tfrac12\cos6x\big)\,dx\\&=\tfrac12x-\tfrac12\times\tfrac16\sin6x+C\\&=\frac{x}{2}-\frac{\sin6x}{12}+C\end{aligned}\]
+<p><b>Answer (D).</b> Options (A), (B) and (C) divide \(\sin6x\) by 3, 6 and 9 instead of \(2\times6=12\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Normanhurst Boys High School, 2020, Mathematics Extension&nbsp;1, Year 12 Course Assessment Task 4 (Trial <span style="white-space:nowrap">Examination),&nbsp;Q7</span></span></div>
+<p>Using \(2\cos A\cos B=\cos(A+B)+\cos(A-B)\) with \(A=3x\) and \(B=2x\), \(\ \cos3x\cos2x=\tfrac12(\cos5x+\cos x)\). So</p>
+\[\begin{aligned}\int\cos3x\,\cos2x\,dx&=\tfrac12\int(\cos5x+\cos x)\,dx\\&=\tfrac12\big(\tfrac15\sin5x+\sin x\big)+c\\&=\frac{1}{10}\sin5x+\frac12\sin x+c\end{aligned}\]
+<p><b>Answer (A).</b> Option (B) is the integrand rewritten, not its primitive. Option (C) has cosines where the primitive has sines, and option (D) forgets to divide \(\sin5x\) by 5.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2022, Trial Examination, Form VI Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span></div>
+<p>Using \(\sin^2\theta=\tfrac12(1-\cos2\theta)\) with \(\theta=5x\),</p>
+\[\begin{aligned}\int\sin^25x\,dx&=\int\tfrac12\big(1-\cos10x\big)\,dx\\&=\tfrac12\big(x-\tfrac{1}{10}\sin10x\big)+C\\&=\frac{x}{2}-\frac{\sin10x}{20}+C\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Caringbah High School, 2021, Year 12 Mathematics Extension&nbsp;1 HSC Course Assessment Task&nbsp;4,&nbsp;Q11(a)</span></div>
+<p>Using \(\sin^2\theta=\tfrac12-\tfrac12\cos2\theta\) with \(\theta=2x\),</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{6}}\sin^22x\,dx&=\int_{0}^{\frac{\pi}{6}}\big(\tfrac12-\tfrac12\cos4x\big)\,dx\\&=\Big[\tfrac12x-\tfrac18\sin4x\Big]_{0}^{\frac{\pi}{6}}\\&=\big(\tfrac12\times\tfrac{\pi}{6}-\tfrac18\sin\tfrac{2\pi}{3}\big)-\big(0-\tfrac18\sin0\big)\\&=\tfrac{\pi}{12}-\tfrac18\times\tfrac{\sqrt3}{2}-0\\&=\tfrac{\pi}{12}-\tfrac{\sqrt3}{16}\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Hornsby Girls High School, 2022, Year 12 Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)</span></span></div>
+<p>A square is never negative, so \(y=\cos^2(3x)\ge0\) and the area is the integral. Using \(\cos^2\theta=\tfrac12+\tfrac12\cos2\theta\) with \(\theta=3x\),</p>
+\[\begin{aligned}A&=\int_{\frac{\pi}{6}}^{\frac{\pi}{3}}\cos^2(3x)\,dx\\&=\int_{\frac{\pi}{6}}^{\frac{\pi}{3}}\big(\tfrac12+\tfrac12\cos6x\big)\,dx\\&=\Big[\tfrac12x+\tfrac{1}{12}\sin6x\Big]_{\frac{\pi}{6}}^{\frac{\pi}{3}}\\&=\big(\tfrac{\pi}{6}+\tfrac{1}{12}\sin2\pi\big)-\big(\tfrac{\pi}{12}+\tfrac{1}{12}\sin\pi\big)\\&=\big(\tfrac{\pi}{6}+0\big)-\big(\tfrac{\pi}{12}+0\big)\\&=\tfrac{\pi}{12}\end{aligned}\]
+<p>The area is \(\tfrac{\pi}{12}\) square units.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>North Sydney Girls High School, 2023, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span></div>
+<p>Expand the square, then use \(\cos^2\theta=\tfrac12(1+\cos2\theta)\):</p>
+\[\begin{aligned}\int\big(1+\cos\theta\big)^2\,d\theta&=\int\big(1+2\cos\theta+\cos^2\theta\big)\,d\theta\\&=\int\Big(1+2\cos\theta+\tfrac12\big(1+\cos2\theta\big)\Big)\,d\theta\\&=\int\big(\tfrac32+2\cos\theta+\tfrac12\cos2\theta\big)\,d\theta\\&=\tfrac32\theta+2\sin\theta+\tfrac14\sin2\theta+C\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 7</span>Cherrybrook Technology High School, 2020, Year 12 AP4, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span></div>
+<p><b>(i)</b> Using the compound-angle formulae for \(\sin(A+B)\) and \(\sin(A-B)\),</p>
+\[\begin{aligned}\text{LHS}&=\big(\sin A\cos B+\cos A\sin B\big)+\big(\sin A\cos B-\cos A\sin B\big)\\&=2\sin A\cos B\\&=\text{RHS}.\end{aligned}\]
+<p><b>(ii)</b> By part (i) with \(A=4x\) and \(B=2x\), \(\ \sin4x\cos2x=\tfrac12\big(\sin6x+\sin2x\big)\). So</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{2}}\sin4x\cos2x\,dx&=\int_{0}^{\frac{\pi}{2}}\tfrac12\big(\sin6x+\sin2x\big)\,dx\\&=\tfrac12\Big[-\tfrac16\cos6x-\tfrac12\cos2x\Big]_{0}^{\frac{\pi}{2}}\\&=\tfrac12\Big(\big(-\tfrac16\cos3\pi-\tfrac12\cos\pi\big)-\big(-\tfrac16\cos0-\tfrac12\cos0\big)\Big)\\&=\tfrac12\Big(\big(\tfrac16+\tfrac12\big)-\big(-\tfrac16-\tfrac12\big)\Big)\\&=\tfrac12\times\tfrac43\\&=\tfrac23\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 8</span>Ascham School, 2020, Mathematics Extension&nbsp;1 Trial HSC <span style="white-space:nowrap">Examination,&nbsp;Q14(b)</span></span></div>
+<p>Write \(\cos^4x=(\cos^2x)^2\) and use \(\cos^2\theta=\tfrac12+\tfrac12\cos2\theta\) twice, first with \(\theta=x\), then with \(\theta=2x\):</p>
+\[\begin{aligned}\cos^4x&=\big(\tfrac12+\tfrac12\cos2x\big)^2\\&=\tfrac14+\tfrac12\cos2x+\tfrac14\cos^22x\\&=\tfrac14+\tfrac12\cos2x+\tfrac14\big(\tfrac12+\tfrac12\cos4x\big)\\&=\tfrac38+\tfrac12\cos2x+\tfrac18\cos4x\end{aligned}\]
+<p>So</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{8}}\cos^4x\,dx&=\int_{0}^{\frac{\pi}{8}}\big(\tfrac38+\tfrac12\cos2x+\tfrac18\cos4x\big)\,dx\\&=\Big[\tfrac38x+\tfrac14\sin2x+\tfrac{1}{32}\sin4x\Big]_{0}^{\frac{\pi}{8}}\\&=\big(\tfrac{3\pi}{64}+\tfrac14\sin\tfrac{\pi}{4}+\tfrac{1}{32}\sin\tfrac{\pi}{2}\big)-\big(0+\tfrac14\sin0+\tfrac{1}{32}\sin0\big)\\&=\tfrac{3\pi}{64}+\tfrac14\times\tfrac{1}{\sqrt2}+\tfrac{1}{32}\\&=\tfrac{3\pi}{64}+\tfrac{\sqrt2}{8}+\tfrac{1}{32}\\&=\dfrac{3\pi+8\sqrt2+2}{64}\end{aligned}\]</div>

@@ -1,1 +1,264 @@
-<!-- filled by Task: Int3 lesson 12C (l12c.html) -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 12C</div><h2>Further trigonometric integrals</h2>
+<div class="focus">The principal purpose of this section is the integration of \(\sin^2x\) and \(\cos^2x\). The keys are two forms of the \(\cos2\theta\) formulae: \(\sin^2\theta=\tfrac12-\tfrac12\cos2\theta\) and \(\cos^2\theta=\tfrac12+\tfrac12\cos2\theta\). Trigonometric integrals in general are quickly reviewed, the squares of the other trigonometric functions are integrated using the Pythagorean identities, and the products-to-sums formulae turn products such as \(\sin3x\cos2x\) into sums. Last, reverse-chain-rule integrations prepare for the next two sections on substitution.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:six standard forms for integration}}
+<div class="box concept"><div class="bt">8 Six standard integrals</div>
+<p>Reversing the derivatives of the six standard forms gives six standard integrals:</p>
+<div class="split"><div>
+\[\begin{aligned}\int\cos x\,dx&=\sin x+C\\\int\sec^2x\,dx&=\tan x+C\\{}^*\!\!\int\sec x\tan x\,dx&=\sec x+C\end{aligned}\]
+</div><div>
+\[\begin{aligned}\int\sin x\,dx&=-\cos x+C\\{}^*\!\!\int\operatorname{cosec}^2x\,dx&=-\cot x+C\\{}^*\!\!\int\operatorname{cosec}x\cot x\,dx&=-\operatorname{cosec}x+C\end{aligned}\]
+</div></div>
+<p>The full list is there only for completeness, and so that the patterns can be seen. The three integrals marked * need not be memorised. They are the reversals of derivatives in Question 19 of Exercise 7B.</p></div></div>
+<div class="box formula"><div class="bt">Where the three starred integrals come from</div>
+<p>Write each reciprocal function in terms of \(\sin x\) and \(\cos x\), and differentiate with the chain rule or the quotient rule.</p>
+<div class="split"><div>
+\[\begin{aligned}\frac{d}{dx}\sec x&=\frac{d}{dx}(\cos x)^{-1}\\&=-(\cos x)^{-2}\times(-\sin x)\\&=\frac{1}{\cos x}\times\frac{\sin x}{\cos x}\\&=\sec x\tan x\end{aligned}\]
+</div><div>
+\[\begin{aligned}\frac{d}{dx}(-\operatorname{cosec}x)&=\frac{d}{dx}\big(-(\sin x)^{-1}\big)\\&=(\sin x)^{-2}\times\cos x\\&=\frac{1}{\sin x}\times\frac{\cos x}{\sin x}\\&=\operatorname{cosec}x\cot x\end{aligned}\]
+</div></div>
+\[\begin{aligned}\frac{d}{dx}(-\cot x)=\frac{d}{dx}\Big(-\frac{\cos x}{\sin x}\Big)&=-\frac{(-\sin x)\sin x-\cos x\cos x}{\sin^2x}\\&=\frac{\sin^2x+\cos^2x}{\sin^2x}\\&=\frac{1}{\sin^2x}=\operatorname{cosec}^2x\end{aligned}\]
+<p>Reading each line backwards gives the three starred integrals.</p></div>
+<div class="box concept"><div class="bt">A linear function of \(x\) inside (Part 2, Lesson 7D)</div>
+<p>When the angle is \(ax+b\), divide the standard primitive by \(a\), the derivative of \(ax+b\):</p>
+\[\begin{aligned}\int\cos(ax+b)\,dx&=\tfrac1a\sin(ax+b)+C\\\int\sin(ax+b)\,dx&=-\tfrac1a\cos(ax+b)+C\\\int\sec^2(ax+b)\,dx&=\tfrac1a\tan(ax+b)+C\end{aligned}\]
+<p>Check by differentiating: for example \(\dfrac{d}{dx}\big(\tfrac1a\sin(ax+b)\big)=\tfrac1a\times a\cos(ax+b)=\cos(ax+b)\). Every integral in this lesson uses this rule.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Standard forms</span></div><div class="ex-body">
+Find:<br>
+<b>a</b> \(\displaystyle\int(2\cos x-\sin x)\,dx\)<br>
+<b>b</b> \(\displaystyle\int\sec^23x\,dx\)<br>
+<b>c</b> \(\displaystyle\int_{0}^{\frac{\pi}{3}}\sin\tfrac12x\,dx\)
+{{work:40}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skill</span></div><div class="ex-body">
+Find:<br>
+<b>a</b> \(\displaystyle\int(3\sin x+\cos x)\,dx\)<br>
+<b>b</b> \(\displaystyle\int\sec^2\tfrac12x\,dx\)<br>
+<b>c</b> \(\displaystyle\int_{0}^{\frac{\pi}{2}}\cos\tfrac13x\,dx\)
+{{work:40}}</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:the primitives of \(\sin^2x\) and \(\cos^2x\)}}
+<div class="box concept"><div class="bt">Expressing \(\sin^2\theta\) and \(\cos^2\theta\) in terms of \(\cos2\theta\) (Section 11A)</div>
+<p>These two integrals are very important. The keys to finding them are two further forms of the \(\cos2\theta\) formulae. Start from \(\cos2\theta=\cos^2\theta-\sin^2\theta\). Using \(\sin^2\theta=1-\cos^2\theta\), then \(\cos^2\theta=1-\sin^2\theta\),</p>
+\[\cos2\theta=2\cos^2\theta-1\qquad\text{and}\qquad\cos2\theta=1-2\sin^2\theta.\]
+<div class="split"><div>
+<p>From \(\cos2\theta=2\cos^2\theta-1\),</p>
+\[\begin{aligned}2\cos^2\theta&=1+\cos2\theta\\\cos^2\theta&=\tfrac12+\tfrac12\cos2\theta.\end{aligned}\]
+</div><div>
+<p>From \(\cos2\theta=1-2\sin^2\theta\),</p>
+\[\begin{aligned}2\sin^2\theta&=1-\cos2\theta\\\sin^2\theta&=\tfrac12-\tfrac12\cos2\theta.\end{aligned}\]
+</div></div></div></div>
+<div class="box take"><div class="bt">The two identities to remember</div>
+\[\sin^2\theta=\tfrac12-\tfrac12\cos2\theta\qquad\qquad\cos^2\theta=\tfrac12+\tfrac12\cos2\theta\]
+<p>It is better to remember these identities rather than the actual integrals. The square on the left becomes a cosine of the double angle on the right, and that can be integrated with the standard forms.</p></div>
+<div class="box warn"><div class="bt">The angle doubles</div>
+<ul><li>Replacing \(\theta\) by \(3x\) gives \(\sin^23x=\tfrac12-\tfrac12\cos6x\), with \(6x\), not \(3x\). Replacing \(\theta\) by \(\tfrac12x\) gives \(\cos^2\tfrac12x=\tfrac12+\tfrac12\cos x\).</li>
+<li>Then divide by the coefficient of \(x\) in the new angle: \(\displaystyle\int\cos6x\,dx=\tfrac16\sin6x+C\).</li>
+<li>\(\displaystyle\int\sin^2x\,dx\) is not \(\tfrac13\sin^3x+C\). Differentiating \(\tfrac13\sin^3x\) gives \(\sin^2x\cos x\), not \(\sin^2x\).</li></ul></div>
+<div class="box tip"><div class="bt">Higher even powers</div>
+<p>For \(\sin^4x\) or \(\cos^4x\), write the power as a square of a square, for example \(\cos^4x=(\cos^2x)^2\). Replace \(\cos^2x\) using the identity, expand, and use the identity again on the \(\cos^22x\) term that appears (see Exercise 12C Question 10).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Squares of sine and cosine</span></div><div class="ex-body">
+Evaluate:<br>
+<b>a</b> \(\displaystyle\int_{0}^{\frac{\pi}{4}}\sin^2x\,dx\)<br>
+<b>b</b> \(\displaystyle\int_{0}^{\frac{2\pi}{3}}\cos^2\tfrac12x\,dx\)
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate:<br>
+<b>a</b> \(\displaystyle\int_{0}^{\frac{\pi}{2}}\cos^2x\,dx\)<br>
+<b>b</b> \(\displaystyle\int_{0}^{\pi}\sin^2\tfrac13x\,dx\)
+{{work:62}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 11</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Evaluate \(\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^2x\,dx\).
+<div class="sol-label">Solution</div>
+<p>Using \(\sin^2x=\tfrac12-\tfrac12\cos2x\),</p>
+\[\begin{aligned}\int_{0}^{\frac{\pi}{2}}\sin^2x\,dx&=\int_{0}^{\frac{\pi}{2}}\big(\tfrac12-\tfrac12\cos2x\big)\,dx\\&=\Big[\tfrac12x-\tfrac14\sin2x\Big]_{0}^{\frac{\pi}{2}}\\&=\big(\tfrac{\pi}{4}-\tfrac14\sin\pi\big)-\big(0-\tfrac14\sin0\big)\\&=\big(\tfrac{\pi}{4}-0\big)-\big(0-0\big)\\&=\tfrac{\pi}{4}\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:the squares of all six trigonometric functions}}
+<div class="box concept"><div class="bt">The Pythagorean identities for \(\tan^2x\) and \(\cot^2x\)</div>
+<p>Here are the primitives of the squares of all six trigonometric functions. Two are given as standard forms. The other four are given only in terms of the identities that are needed to obtain them. For \(\tan^2x\) and \(\cot^2x\), divide \(\sin^2x+\cos^2x=1\) by \(\cos^2x\), then by \(\sin^2x\):</p>
+<div class="split"><div>
+\[\begin{aligned}\frac{\sin^2x}{\cos^2x}+\frac{\cos^2x}{\cos^2x}&=\frac{1}{\cos^2x}\\\tan^2x+1&=\sec^2x\\\tan^2x&=\sec^2x-1\end{aligned}\]
+</div><div>
+\[\begin{aligned}\frac{\sin^2x}{\sin^2x}+\frac{\cos^2x}{\sin^2x}&=\frac{1}{\sin^2x}\\1+\cot^2x&=\operatorname{cosec}^2x\\\cot^2x&=\operatorname{cosec}^2x-1\end{aligned}\]
+</div></div></div></div>
+<div class="box take"><div class="bt">9 Integrating the squares of the trigonometric functions</div>
+<div class="split"><div>
+\[\begin{aligned}\int\sin^2x\,dx&=\int\big(\tfrac12-\tfrac12\cos2x\big)\,dx\\\int\sec^2x\,dx&=\tan x+C\\\int\tan^2x\,dx&=\int\big(\sec^2x-1\big)\,dx\end{aligned}\]
+</div><div>
+\[\begin{aligned}\int\cos^2x\,dx&=\int\big(\tfrac12+\tfrac12\cos2x\big)\,dx\\{}^*\!\!\int\operatorname{cosec}^2x\,dx&=-\cot x+C\\{}^*\!\!\int\cot^2x\,dx&=\int\big(\operatorname{cosec}^2x-1\big)\,dx\end{aligned}\]
+</div></div>
+<p>The forms marked * are there for completeness.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">\(\tan^2\) and \(\cot^2\)</span></div><div class="ex-body">
+<b>a</b> Find \(\displaystyle\int\tan^23x\,dx\).<br>
+<b>b</b> Evaluate \(\displaystyle\int_{\frac{\pi}{6}}^{\frac{\pi}{4}}\cot^2x\,dx\).
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Find \(\displaystyle\int\tan^2\tfrac12x\,dx\).<br>
+<b>b</b> Evaluate \(\displaystyle\int_{0}^{\frac{\pi}{3}}\tan^2x\,dx\).
+{{work:56}}</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:products to sums (reviewed from Section 11A)}}
+<div class="box concept"><div class="bt">The products-to-sums formulae</div>
+<p>Exercise 12C Question 6 uses these formulae from Section 11A. They come from the compound-angle formulae</p>
+<div class="split"><div>
+\[\begin{aligned}\sin(A+B)&=\sin A\cos B+\cos A\sin B\\\sin(A-B)&=\sin A\cos B-\cos A\sin B\end{aligned}\]
+</div><div>
+\[\begin{aligned}\cos(A+B)&=\cos A\cos B-\sin A\sin B\\\cos(A-B)&=\cos A\cos B+\sin A\sin B\end{aligned}\]
+</div></div>
+<p>Adding and subtracting each pair, the other terms cancel:</p>
+\[\begin{aligned}\sin(A+B)+\sin(A-B)&=2\sin A\cos B\\\sin(A+B)-\sin(A-B)&=2\cos A\sin B\\\cos(A+B)+\cos(A-B)&=2\cos A\cos B\\\cos(A+B)-\cos(A-B)&=-2\sin A\sin B\end{aligned}\]</div></div>
+<div class="box take"><div class="bt">Products to sums</div>
+\[\begin{aligned}2\sin A\cos B&=\sin(A+B)+\sin(A-B)\\2\cos A\sin B&=\sin(A+B)-\sin(A-B)\\2\cos A\cos B&=\cos(A+B)+\cos(A-B)\\-2\sin A\sin B&=\cos(A+B)-\cos(A-B)\end{aligned}\]
+<p>A product of a sine and a cosine, two cosines, or two sines cannot be integrated directly. Rewritten as a sum, each term is a standard form with a linear angle.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Products to sums</span></div><div class="ex-body">
+<b>a</b> Find \(\displaystyle\int\sin4x\cos x\,dx\).<br>
+<b>b</b> Evaluate \(\displaystyle\int_{0}^{\frac{\pi}{6}}2\sin3x\sin x\,dx\).
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Find \(\displaystyle\int\cos4x\sin2x\,dx\).<br>
+<b>b</b> Evaluate \(\displaystyle\int_{0}^{\frac{\pi}{4}}2\cos3x\cos x\,dx\).
+{{work:60}}</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:trigonometric integrals using the reverse chain rule}}
+<div class="box concept"><div class="bt">The reverse chain rule (Parts 1 and 2)</div>
+<p>It remains to demonstrate the use of the reverse chain rule in trigonometric integrals, in preparation for the next two sections on substitution. Let \(u\) be a function of \(x\). The chain rule gives \(\dfrac{d}{dx}\dfrac{u^{n+1}}{n+1}=u^n\,\dfrac{du}{dx}\) and \(\dfrac{d}{dx}\log_e|u|=\dfrac{1}{u}\,\dfrac{du}{dx}\), so</p>
+\[\int u^n\,\frac{du}{dx}\,dx=\frac{u^{n+1}}{n+1}+C\quad(n\ne-1)\qquad\text{and}\qquad\int\frac{u'}{u}\,dx=\log_e|u|+C.\]
+<p>Look for a function \(u\) whose derivative \(u'\) is also a factor of the integrand, apart from a constant. With trigonometric functions, \(u=\sin x\) has \(u'=\cos x\), and \(u=\cos x\) has \(u'=-\sin x\). Set out the working for \(u\) in a column on the right.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Reverse chain rule with \(\log_e\)</span></div><div class="ex-body">
+Integrate \(\tan2x\) using the reverse chain rule.
+{{work:36}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Integrate \(\cot\tfrac12x\) using the reverse chain rule.
+{{work:36}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 12</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Integrate \(\cot x\) using the reverse chain rule.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+\[\begin{aligned}\int\cot x\,dx&=\int\frac{\cos x}{\sin x}\,dx\\&=\log_e|\sin x|+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\sin x\).<br>Then \(u'=\cos x\),<br>and \(\displaystyle\int\frac{u'}{u}\,dx=\log_e|u|\).</p>
+</div></div></div></div>
+
+<!-- ============ Concept 6 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 6:the reverse chain rule with powers of \(\sin x\) and \(\cos x\)}}
+<div class="box concept"><div class="bt">Powers of \(\sin x\) times \(\cos x\), and powers of \(\cos x\) times \(\sin x\)</div>
+<ul><li>In \(\cos x\sin^nx\), take \(u=\sin x\). Then \(\frac{du}{dx}=\cos x\) is already a factor, and the primitive is \(\dfrac{u^{n+1}}{n+1}\).</li>
+<li>In \(\sin x\cos^nx\), take \(u=\cos x\). Then \(\frac{du}{dx}=-\sin x\). Write \(\sin x=-(-\sin x)\), so that the minus sign goes outside the integral.</li></ul></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Reverse chain rule with powers</span></div><div class="ex-body">
+Use the reverse chain rule to find primitives of:<br>
+<b>a</b> \(y=\sin x\cos^6x\)<br>
+<b>b</b> \(y=\sec^2x\tan^nx\)
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use the reverse chain rule to find primitives of:<br>
+<b>a</b> \(y=\cos x\sin^5x\)<br>
+<b>b</b> \(y=\sin x\cos^nx\)
+{{work:52}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 13</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Use the reverse chain rule to find primitives of:<br>
+<b>a</b> \(y=\sin x\cos^4x\)<br>
+<b>b</b> \(y=\cos x\sin^nx\)
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\int\sin x\cos^4x\,dx&=-\int(-\sin x)\cos^4x\,dx\\&=-\tfrac15\cos^5x+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\cos x\).<br>Then \(\frac{du}{dx}=-\sin x\),<br>and \(\displaystyle\int u^4\,\frac{du}{dx}\,dx=\tfrac15u^5\).</p>
+</div></div>
+<div class="split"><div>
+<p><b>b</b></p>
+\[\int\cos x\sin^nx\,dx=\frac{\sin^{n+1}x}{n+1}+C\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(u=\sin x\).<br>Then \(\frac{du}{dx}=\cos x\),<br>and \(\displaystyle\int u^n\,\frac{du}{dx}\,dx=\frac{u^{n+1}}{n+1}\).</p>
+</div></div></div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 12C}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Use double-angle results to show that:
+<div class="parts one"><span><span class="pl">a</span>\(\sin^2x=\tfrac12-\tfrac12\cos2x\)</span><span><span class="pl">b</span>\(\cos^22x=\tfrac12+\tfrac12\cos4x\)</span><span><span class="pl">c</span>\(\sin3x\cos3x=\tfrac12\sin6x\)</span><span><span class="pl">d</span>\(2\sin^2\tfrac{x}{2}=1-\cos x\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Without a calculator, find the value of:
+<div class="parts one"><span><span class="pl">a</span>\(\cos^215^\circ\)</span><span><span class="pl">b</span>\(\sin^2\tfrac{5\pi}{12}\)</span><span><span class="pl">c</span>\(\sin105^\circ\cos105^\circ\)</span><span><span class="pl">d</span>\(\sin^2\tfrac{7\pi}{8}\)</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Express \(\sin^2\theta\) in terms of \(\cos2\theta\), and hence find:
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int\sin^2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\sin^22x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\sin^2\tfrac14x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\sin^23x\,dx\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Express \(\cos^2\theta\) in terms of \(\cos2\theta\), and hence find:
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int\cos^2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\cos^26x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\cos^2\tfrac12x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\cos^210x\,dx\)</span></div>{{work:56}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">5</span><div class="q-body">Use the results \(\sin^2\theta=\tfrac12-\tfrac12\cos2\theta\) and \(\cos^2\theta=\tfrac12+\tfrac12\cos2\theta\) to evaluate:
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{0}^{\pi}\sin^2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{0}^{\frac{\pi}{4}}\cos^2x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{0}^{\frac{\pi}{6}}\sin^2\tfrac12x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{0}^{\frac{\pi}{16}}\cos^22x\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_{-\frac{\pi}{6}}^{\frac{\pi}{6}}\cos^2\big(x+\tfrac{\pi}{12}\big)\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{\frac{\pi}{6}}^{\frac{\pi}{3}}\sin^2\big(x-\tfrac{\pi}{6}\big)\,dx\)</span></div>{{work:125}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Use the products-to-sums formulae reviewed in Section 11A to find:
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int\sin3x\cos2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\cos3x\sin x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{0}^{\frac{\pi}{4}}2\cos2x\cos x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{0}^{\frac{\pi}{3}}\sin5x\sin2x\,dx\)</span></div>{{work:85}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Sketch the graph of \(y=\cos2x\), for \(0\le x\le2\pi\).</span><span><span class="pl">b</span>Hence sketch, on the same diagram, \(y=\tfrac12(1+\cos2x)\) and \(y=\tfrac12(1-\cos2x)\).</span><span><span class="pl">c</span>Deduce graphically that \(\cos^2x+\sin^2x=1\).</span></div>{{work:85}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Use the reverse chain rule to find:
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int\sin^3x\cos x\,dx\) (Let \(u=\sin x\).)</span><span><span class="pl">b</span>\(\displaystyle\int\sin^6x\cos x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\cos^5x\sin x\,dx\) (Let \(u=\cos x\).)</span><span><span class="pl">d</span>\(\displaystyle\int\cos^8x\sin x\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int e^x\sin e^x\,dx\) (Let \(u=e^x\).)</span><span><span class="pl">f</span>\(\displaystyle\int e^x\cos5e^x\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int\tan x\,dx\) (Let \(u=\cos x\).)</span><span><span class="pl">h</span>\(\displaystyle\int\cot7x\,dx\)</span></div>{{work:150}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find the range of the function \(y=\cos x\sin x\).</span><span><span class="pl">b</span>Integrate \(y=\cos x\sin x\) in three ways:<br>(i) using the \(\sin2x\) formula,<br>(ii) using the reverse chain rule in two different ways.</span><span><span class="pl">c</span>Reconcile the three results.</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>By writing \(\sin^4x\) as \((\sin^2x)^2\), show that \(\sin^4x=\tfrac38-\tfrac12\cos2x+\tfrac18\cos4x\).</span><span><span class="pl">b</span>Find a similar result for \(\cos^4x\).</span><span><span class="pl">c</span>Hence find:<br>(i) \(\displaystyle\int_{0}^{\pi}\sin^4x\,dx\)<br>(ii) \(\displaystyle\int_{0}^{\frac{\pi}{4}}\cos^4x\,dx\)</span><span><span class="pl">d</span>Use the Pythagorean identity to find \(\displaystyle\int_{0}^{\frac{\pi}{3}}\sin^3x\,dx\).</span></div>{{work:140}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Evaluate using the standard forms \(\displaystyle\int\sec^2x\,dx=\tan x\) and \(\displaystyle\int\operatorname{cosec}^2x\,dx=-\cot x\):
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int\tan^22x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\cot^2\tfrac12x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{\frac{\pi}{12}}^{\frac{\pi}{9}}3\tan^23x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{\frac{\pi}{24}}^{\frac{\pi}{8}}\cot^24x\,dx\)</span></div>{{work:75}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Integrate these functions, using the reverse chain rule or otherwise.
+<div class="parts one"><span><span class="pl">a</span>\(\tan x\sec^2x\)</span><span><span class="pl">b</span>\(\dfrac{\sin^2x}{1+\cos x}\)</span><span><span class="pl">c</span>\(\dfrac{1+\cos^3x}{\cos^2x}\)</span></div>{{work:62}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">13</span><div class="q-body">Define \(F(x)=\displaystyle\int_{0}^{x}\sin^2t\,dt\), where \(0\le x\le2\pi\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(F(x)=\tfrac12x-\tfrac14\sin2x\).</span><span><span class="pl">b</span>Explain why \(F'(x)=\sin^2x\). Hence state the values of \(x\) in the given domain for which \(F(x)\) is:<br>(i) stationary, &emsp;(ii) increasing, &emsp;(iii) decreasing.</span><span><span class="pl">c</span>Explain why \(F(x)\) never differs from \(\tfrac12x\) by more than \(\tfrac14\).</span><span><span class="pl">d</span>Find any points of inflection of \(F(x)\) in the given domain.</span><span><span class="pl">e</span>Sketch, on the same diagram, the graphs of \(y=F(x)\) and \(y=F'(x)\) over the given domain, and observe how they are related.</span><span><span class="pl">f</span>(i) For what value of \(k\) is \(\displaystyle\int_{0}^{k}\sin^2x\,dx=\tfrac{3\pi}{2}\)?<br>(ii) For what values of \(k\) is \(\displaystyle\int_{0}^{k}\sin^2x\,dx=\tfrac{n\pi}{2}\), where \(n\) is an integer?</span></div>{{work:175}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Find the value of \(\displaystyle\lim_{R\to\infty}\bigg(\frac1R\int_{0}^{R}\sin^2t\,dt\bigg)\), explaining your reasoning carefully.{{work:40}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>20 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q8</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">\(\displaystyle\int\sin^23x\,dx\) is equal to which of the following?
+<div class="mc"><span>(A)&ensp;\(\dfrac{x}{2}-\dfrac{\sin6x}{3}+C\)</span><span>(B)&ensp;\(\dfrac{x}{2}-\dfrac{\sin6x}{6}+C\)</span><span>(C)&ensp;\(\dfrac{x}{2}-\dfrac{\sin6x}{9}+C\)</span><span>(D)&ensp;\(\dfrac{x}{2}-\dfrac{\sin6x}{12}+C\)</span></div></div>
+<div class="hint"><b>Hint:</b> how can \(\sin^23x\) be written without a square?</div>{{work:24}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Normanhurst Boys High School, 2020, Mathematics Extension&nbsp;1, Year 12 Course Assessment Task 4 (Trial <span style="white-space:nowrap">Examination),&nbsp;Q7</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which expression is equal to \(\displaystyle\int\cos3x\,\cos2x\,dx\)?
+<div class="mc"><span>(A)&ensp;\(\dfrac{1}{10}\sin5x+\dfrac12\sin x+c\)</span><span>(B)&ensp;\(\dfrac12(\cos5x+\cos x)+c\)</span><span>(C)&ensp;\(\dfrac{1}{10}\cos5x+\dfrac12\cos x+c\)</span><span>(D)&ensp;\(\dfrac12(\sin5x+\sin x)+c\)</span></div></div>
+<div class="hint"><b>Hint:</b> how can a product of two cosines be written as a sum?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Grammar School, 2022, Trial Examination, Form VI Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find \(\displaystyle\int\sin^25x\,dx\).</div>
+<div class="hint"><b>Hint:</b> what is \(\sin^25x\) in terms of a cosine?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Caringbah High School, 2021, Year 12 Mathematics Extension&nbsp;1 HSC Course Assessment Task&nbsp;4,&nbsp;Q11(a)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Evaluate \(\displaystyle\int_{0}^{\frac{\pi}{6}}\sin^22x\,dx\)</div>
+<div class="hint"><b>Hint:</b> what does the angle become when the square is removed?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Hornsby Girls High School, 2022, Year 12 Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find the area bounded by the \(y=\cos^2(3x)\), the x-axis and the ordinates at <span style="white-space:nowrap">\(x=\dfrac{\pi}{6}\) and \(x=\dfrac{\pi}{3}\).</span></div>
+<div class="hint"><b>Hint:</b> is the curve ever below the \(x\)-axis?</div>{{work:64}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>North Sydney Girls High School, 2023, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find \(\displaystyle\int\big(1+\cos\theta\big)^2\,d\theta\).</div>
+<div class="hint"><b>Hint:</b> what do you get when you expand the square?</div>{{work:62}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Cherrybrook Technology High School, 2020, Year 12 AP4, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Show that \(\sin(A+B)+\sin(A-B)=2\sin A\cos B\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Hence, find \(\displaystyle\int_{0}^{\frac{\pi}{2}}\sin4x\cos2x\,dx\)</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> which compound-angle formulae appear on the left side?</div>{{work:72}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Ascham School, 2020, Mathematics Extension&nbsp;1 Trial HSC <span style="white-space:nowrap">Examination,&nbsp;Q14(b)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find \(\displaystyle\int_{0}^{\frac{\pi}{8}}\cos^4x\,dx\).</div>
+<div class="hint"><b>Hint:</b> how is \(\cos^4x\) related to \(\cos^2x\)?</div>{{work:84}}</div>
+</div>
