@@ -214,7 +214,7 @@ TQ = {k: v for k, v in re.findall(r'<div class="q"><span class="q-num">(\d+)</sp
 CON = {}
 for k in range(1, 7):
     seg = teach.split(f"<!-- ============ Concept {k} ============ -->")[1].split("<!-- ============")[0]
-    exs = re.findall(r'<div class="ex (demo|attempt|worked)"(?: style="[^"]*")?><div class="ex-top"><span class="tag">([^<]*)</span>(.*?)(?=<div class="ex |$)', seg, re.S)
+    exs = re.findall(r'<div class="ex (demo|attempt|worked)"(?: style="[^"]*")?><div class="ex-top"(?: style="[^"]*")?><span class="tag">([^<]*)</span>(.*?)(?=<div class="ex |$)', seg, re.S)
     CON[k] = {kind: body for kind, _, body in exs}
     CON[k]["tag"] = [t for kind, t, _ in exs if kind == "worked"][0]
     report([kind for kind, _, _ in exs] == ["demo", "attempt", "worked"], f"Concept {k} blocks", "tutor demo, your turn, worked example")
