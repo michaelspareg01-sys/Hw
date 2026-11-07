@@ -268,7 +268,7 @@ No school-paper item has this as its earliest lesson.
 | # | Tag | File, question page → solution page | Title as printed, school, year | Q, marks | What it asks | Flags |
 |---|---|---|---|---|---|---|
 | 3.2-01 | int3-L2 | `2020/2020 Cherrybrook Tech.pdf` p9 → p24 | "Cherrybrook Technology High School 2020 Year 12 AP4, Mathematics Extension 1", Cherrybrook 2020 | Q12(b) (2) | ∫_0^{5/2} 1/(25+4x^2) dx exact | — |
-| 3.2-02 | int3-L2 | `2020/2020 Hornsby Girls.pdf` p8 → p18 | "Hornsby Girls High School Mathematics Extension 1 Year 12 Higher School Certificate Trial Examination Term 3 2020", Hornsby Girls 2020 | Q12(a) (3) | ∫_0^{1/3} 1/√(4-9x^2) dx | — |
+| 3.2-02 | int3-L2 | `2020/2020 Hornsby Girls.pdf` p8 → p18 | "Hornsby Girls High School Mathematics Extension 1 Year 12 Higher School Certificate Trial Examination Term 3 2020", Hornsby Girls 2020 | Q12(a) (3) | ∫_0^{1/3} 1/√(4-9x^2) dx | — **Doubtful (12B task): true limit 2/3 gives an unbounded integrand** |
 | 3.2-03 | int3-L2 | `2020/James Ruse 2020 3U Trials & Solutions.pdf` p5 → p11 | "James Ruse Agricultural High School 2020 Year 12 Trial HSC Examination, Mathematics Extension 1", JR 2020 | Q11(a) (2) | ∫ 5/(2+x^2) dx | — |
 | 3.2-04 | int3-L2 | `2020/2020 Manly.pdf` p4 → p13 | "Northern Beaches Secondary College, Manly Selective Campus, Year 12 Trial Examination 2020, Mathematics Extension 1", Manly 2020 | Q7 (1, MC) | k such that ∫_0^k 1/√(4-x^2) dx = π/3 | — |
 | 3.2-05 | int3-L2 | `2020/2020 NSB.pdf` p9 → p19 | "North Sydney Boys High School 2020 Year 12 Assessment Task 3, Mathematics Extension 1", NSB 2020 | Q12(d) (2) | ∫ 1/(1+4t^2) dt | — |
@@ -301,7 +301,7 @@ No school-paper item has this as its earliest lesson.
 | 3.2-32 | int3-L2 | `2023/Ruse 2023 3U.pdf` p3 → p13 | "James Ruse Agricultural High School 2023 Year 12 Trial HSC Examination, Mathematics Extension 1", JR 2023 | Q3 (1, MC) | ∫ 1/(25+16x^2) dx | key only |
 | 3.2-33 | int3-L2 | `2023/Ruse 2023 3U.pdf` p7 → p20 | "James Ruse Agricultural High School 2023 Year 12 Trial HSC Examination, Mathematics Extension 1", JR 2023 | Q13(a) (2) | find k such that ∫_0^k 1/√(9-x^2) dx = π/2 | — |
 | 3.2-34 | int3-L2 | `2023/2023 Kinross-Wolaroi Ext 1.pdf` p8 → none | "Kinross Wolaroi School 2023 Year 12 Mathematics Extension 1 Trial HSC Examination", KWS 2023 | Q12(f)(i)(ii) (1,2 = 3) | show x^2+2x+2 = (x+1)^2+1; hence ∫ 1/(x^2+2x+2) dx | No solutions in the file |
-| 3.2-35 | int3-L2 | `2023/Moriah 3U 2023 Paper w_ Solutions.pdf` p7 → p18 | "Moriah College 2023 Trial Higher School Certificate Examination, Mathematics Extension 1", Moriah 2023 | Q9(b) (2) | evaluate ∫_0^{√3} dx/√(4-x^2) | — |
+| 3.2-35 | int3-L2 | `2023/Moriah 3U 2023 Paper w_ Solutions.pdf` p7 → p18 | "Moriah College 2023 Trial Higher School Certificate Examination, Mathematics Extension 1", Moriah 2023 | Q9(b) (2) | evaluate ∫_0^{√3} dx/√(4-x^2) | — **Note (12B task): limit is really √2** |
 | 3.2-36 | int3-L2 | `2023/NSB 2023 3U.pdf` p3 → p10 | "Mathematics Extension 1, Year 12, Assessment task 3, Term 2 2023" (North Sydney Boys), NSB 2023 | Q1 (1, MC) | correct expression for ∫ dx/√(36-x^2) | — |
 | 3.2-37 | int3-L2 | `2023/PLC 2023 3U.pdf` p7 → none | "Pymble Ladies' College Mathematics Extension 1 HSC Trial Examination Term 3 2023", PLC 2023 | Q11(b) (2) | ∫ 1/(4x^2+9) dx | No solutions in the file |
 | 3.2-38 | int3-L2 | `2023/SGHS 2023 3U.pdf` p8 → p22 | "Sydney Girls High School 2023 Trial Higher School Certificate Examination, Mathematics Extension 1", SGHS 2023 | Q11(a) (2) | evaluate ∫_0^{3/√2} dx/√(9-x^2) | — |
