@@ -1,1 +1,268 @@
-<!-- filled by Task: lesson 6d -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 6D</div><h2>Integration of exponential functions</h2>
+<div class="focus">Finding primitives is the reverse of differentiation. Reversing the standard forms for differentiating \(e^x\) and \(e^{ax+b}\) gives the standard forms for integrating them: \(\int e^x\,dx=e^x+C\) and \(\int e^{ax+b}\,dx=\tfrac1a\,e^{ax+b}+C\). With these we evaluate definite integrals, find a function from its derivative and one known value, reverse a known derivative to find a new primitive, and use the reverse chain rule formula from Section 5I.</div></div>
+
+<style>
+table.st6d { border-collapse:collapse; margin:1mm 0 1.5mm 5mm; }
+table.st6d td { padding:0.5mm 1.6mm; vertical-align:middle; }
+table.st6d td:first-child { text-align:left; white-space:nowrap; }
+table.st6d td.r { color:var(--ink-soft); }
+.side6d { border-left:1.4px solid var(--line-strong); padding-left:4mm; }
+</style>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:standard forms for integration}}
+<div class="box concept"><div class="bt">Reversing the standard forms for differentiation</div>
+<p>Reversing the standard forms for differentiating exponential functions gives the standard forms for integrating them.</p>
+<table class="st6d">
+<tr><td>Reversing</td><td>\(\dfrac{d}{dx}\,e^x=e^x\)</td><td>gives</td><td>\(\displaystyle\int e^x\,dx=e^x+C,\)</td></tr>
+<tr><td>Reversing</td><td>\(\dfrac{d}{dx}\,e^{ax+b}=a\,e^{ax+b}\)</td><td>gives</td><td>\(\displaystyle\int a\,e^{ax+b}\,dx=e^{ax+b},\)</td></tr>
+<tr><td colspan="3">and dividing through by \(a\),</td><td>\(\displaystyle\int e^{ax+b}\,dx=\dfrac1a\,e^{ax+b}+C.\)</td></tr></table>
+<p>In the first and last lines, \(C\) is some constant. The constant \(C\) is added in the last line only, because it would be pointless to divide \(C\) by \(a\) as well.</p></div></div>
+<div class="box take"><div class="bt">4 Standard forms for integration</div>
+<ul><li>\(\displaystyle\int e^x\,dx=e^x+C\), for some constant \(C\)</li>
+<li>\(\displaystyle\int e^{ax+b}\,dx=\dfrac1a\,e^{ax+b}+C\), for some constant \(C\)</li></ul></div>
+<div class="box concept"><div class="bt">The reverse chain rule for exponential functions (for reference)</div>
+<p>There is also an associated formula for the reverse chain rule, but it is not included in the course. For reference, this formula has the usual two forms:</p>
+\[\int e^u\,\dfrac{du}{dx}\,dx=e^u+C\qquad\text{OR}\qquad\int e^{f(x)}f'(x)\,dx=e^{f(x)}+C.\]
+<p>It is the reverse of the chain-rule result \(\dfrac{d}{dx}\,e^{f(x)}=e^{f(x)}f'(x)\). Exercise 6D Q17 uses it.</p></div>
+<div class="box warn"><div class="bt">When the index is not linear</div>
+<p>The standard form \(\int e^{ax+b}\,dx=\tfrac1a\,e^{ax+b}+C\) needs an index of the form \(ax+b\), so that its derivative \(a\) is a constant. Check every answer by differentiating it. For an index such as \(x^2\), first differentiate \(e^{x^2}\) with the chain rule and then reverse the result (Concept 4).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Indefinite integrals</span></div><div class="ex-body">
+Find these indefinite integrals.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int e^{5x-1}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int(2+3x-e^x)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int e^{4-2x}\,dx\)</span></div>
+{{work:42}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find these indefinite integrals.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int e^{2x+7}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int(4-x+e^x)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int e^{1-3x}\,dx\)</span></div>
+{{work:42}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 11</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Find these indefinite integrals.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int e^{3x+2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int(1-x+e^x)\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b> \(\displaystyle\int e^{3x+2}\,dx=\tfrac13e^{3x+2}+C\) &emsp; (\(a=3\) and \(b=2\))</p>
+<p><b>b</b> \(\displaystyle\int(1-x+e^x)\,dx=x-\tfrac12x^2+e^x+C\) &emsp; (integrating each term separately)</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:definite integrals}}
+<div class="box concept"><div class="bt">Definite integrals</div>
+<p>Definite integrals are evaluated in the usual way by finding the primitive and substituting. Substitute the upper limit, then the lower limit, and subtract. Remember that \(e^0=1\) and \(e^{-1}=\tfrac1e\). Answers are usually left in exact form, and a negative index is often rewritten as a fraction.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Exact values</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_0^3e^x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_2^3e^{7-3x}\,dx\)</span></div>
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_{-1}^1e^x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^1e^{2-4x}\,dx\)</span></div>
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 12</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_0^2e^x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_2^3e^{5-2x}\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 1.5fr"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\int_0^2e^x\,dx&amp;=\Big[e^x\Big]_0^2\\&amp;=e^2-e^0\\&amp;=e^2-1\end{aligned}\]
+</div><div>
+<p><b>b</b> \((a=-2\text{ and }b=5)\)</p>
+\[\begin{aligned}\int_2^3e^{5-2x}\,dx&amp;=-\tfrac12\Big[e^{5-2x}\Big]_2^3\\&amp;=-\tfrac12\,(e^{-1}-e)\\&amp;=-\dfrac12\Big(\dfrac1e-e\Big)\\&amp;=\dfrac{e^2-1}{2e}\end{aligned}\]
+</div></div>
+<p class="small"><b>Note:</b> In part <b>b</b>, \(5-2\times3=-1\) and \(5-2\times2=1\). The last line multiplies top and bottom by \(e\): \(\ -\dfrac12\Big(\dfrac1e-e\Big)=\dfrac12\Big(e-\dfrac1e\Big)=\dfrac{e^2-1}{2e}\).</p>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:given the derivative, find the function}}
+<div class="box concept"><div class="bt">Given the derivative, find the function</div>
+<p>As before, if the derivative of a function is known, and the value of the function at one point is also known, then the whole function can be determined.</p>
+<ul><li>Take the primitive of the derivative, including the constant \(C\).</li>
+<li>Substitute the known value to find \(C\).</li>
+<li>Write the function with the value of \(C\) in it, then use it.</li></ul></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Find the constant</span></div><div class="ex-body">
+<b>1</b> It is known that \(f'(x)=e^x\) and that \(f(2)=0\).<br>
+<span style="margin-left:4mm"><b>a</b> Find the original function \(f(x)\).</span><br>
+<span style="margin-left:4mm"><b>b</b> Hence find \(f(0)\).</span><br>
+<b>2</b> <b>a</b> If \(y'=2+3e^{-x}\) and \(y(0)=1\), find \(y\).<br>
+<span style="margin-left:4mm"><b>b</b> Hence find \(y(1)\).</span>
+{{work:66}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>1</b> It is known that \(f'(x)=e^x\) and that \(f(-1)=0\).<br>
+<span style="margin-left:4mm"><b>a</b> Find the original function \(f(x)\).</span><br>
+<span style="margin-left:4mm"><b>b</b> Hence find \(f(0)\).</span><br>
+<b>2</b> <b>a</b> If \(y'=3-e^{-x}\) and \(y(0)=2\), find \(y\).<br>
+<span style="margin-left:4mm"><b>b</b> Hence find \(y(1)\).</span>
+{{work:66}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 13</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+It is known that \(f'(x)=e^x\) and that \(f(1)=0\).<br>
+<b>a</b> Find the original function \(f(x)\).<br>
+<b>b</b> Hence find \(f(0)\).
+<div class="sol-label">Solution</div>
+<p><b>a</b></p>
+<table class="st6d">
+<tr><td>It is given that</td><td>\(f'(x)=e^x.\)</td><td class="r"></td></tr>
+<tr><td>Taking the primitive,</td><td>\(f(x)=e^x+C,\)</td><td class="r">for some constant \(C\).</td></tr>
+<tr><td>Substituting \(f(1)=0\),</td><td>\(0=e^1+C\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(C=-e.\)</td><td class="r"></td></tr>
+<tr><td>Hence</td><td>\(f(x)=e^x-e.\)</td><td class="r"></td></tr></table>
+<p><b>b</b></p>
+<table class="st6d">
+<tr><td>Substituting \(x=0\),</td><td>\(f(0)=e^0-e\)</td></tr>
+<tr><td></td><td>\(\phantom{f(0)}=1-e.\)</td></tr></table>
+</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 14</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> If \(y'=1+2e^{-x}\) and \(y(0)=1\), find \(y\).<br>
+<b>b</b> Hence find \(y(1)\).
+<div class="sol-label">Solution</div>
+<p><b>a</b></p>
+<table class="st6d">
+<tr><td>It is given that</td><td>\(y'=1+2e^{-x}.\)</td><td class="r"></td></tr>
+<tr><td>Taking the primitive,</td><td>\(y=x-2e^{-x}+C,\)</td><td class="r">for some constant \(C\).</td></tr>
+<tr><td>Substituting \(y(0)=1\),</td><td>\(1=0-2e^0+C\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(1=0-2+C\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(C=3.\)</td><td class="r"></td></tr>
+<tr><td>Hence</td><td>\(y=x-2e^{-x}+3.\)</td><td class="r"></td></tr></table>
+<p class="small"><b>Note:</b> For \(e^{-x}\), \(a=-1\), so \(\displaystyle\int2e^{-x}\,dx=2\times\dfrac{1}{-1}\,e^{-x}=-2e^{-x}\).</p>
+<p><b>b</b></p>
+<table class="st6d">
+<tr><td>Substituting \(x=1\),</td><td>\(y(1)=1-2e^{-1}+3\)</td></tr>
+<tr><td></td><td>\(\phantom{y(1)}=4-2e^{-1}.\)</td></tr></table>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:given a derivative, find an integral}}
+<div class="box concept"><div class="bt">Given a derivative, find an integral</div>
+<p>The result of any differentiation can be reversed. This often allows a new primitive to be found. If \(F'(x)=f(x)\), then \(\int f(x)\,dx=F(x)+C\) and \(\int_a^bf(x)\,dx=\big[F(x)\big]_a^b\).</p></div></div>
+<div class="box tip"><div class="bt">Reversing a product-rule derivative</div>
+<p>Sometimes the derivative has two terms and only one of them is the integrand we want (Exercise 6D Q14). For example, by the product rule with \(u=x\) and \(v=e^{2x}\),</p>
+\[\dfrac{d}{dx}\big(xe^{2x}\big)=1\times e^{2x}+x\times2e^{2x}=e^{2x}+2xe^{2x}.\]
+<p>Reversing this, \(\ \displaystyle\int_0^1\big(e^{2x}+2xe^{2x}\big)\,dx=\Big[xe^{2x}\Big]_0^1\). Split the left-hand side into two integrals and move the known one across:</p>
+\[\begin{aligned}\int_0^12xe^{2x}\,dx&amp;=\Big[xe^{2x}\Big]_0^1-\int_0^1e^{2x}\,dx\\&amp;=\big(1\times e^2-0\times e^0\big)-\tfrac12\Big[e^{2x}\Big]_0^1\\&amp;=e^2-\tfrac12\big(e^2-1\big)\\&amp;=\tfrac12\big(e^2+1\big),\end{aligned}\]
+<p>so, dividing by 2, \(\ \displaystyle\int_0^1xe^{2x}\,dx=\tfrac14\big(e^2+1\big)\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Reverse a chain-rule result</span></div><div class="ex-body">
+<b>a</b> Use the chain rule to differentiate \(e^{x^4}\).<br>
+<b>b</b> Hence find \(\displaystyle\int_{-1}^14x^3e^{x^4}\,dx\).<br>
+<b>c</b> Why is this result obvious without any calculation?
+{{work:72}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Use the chain rule to differentiate \(e^{2x^2}\).<br>
+<b>b</b> Hence find \(\displaystyle\int_{-1}^14xe^{2x^2}\,dx\).<br>
+<b>c</b> Why is this result obvious without any calculation?
+{{work:72}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 15</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Use the chain rule to differentiate \(e^{x^2}\).<br>
+<b>b</b> Hence find \(\displaystyle\int_{-1}^12xe^{x^2}\,dx\).<br>
+<b>c</b> Why is this result obvious without any calculation?
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Let \(y=e^{x^2}\).<br>Applying the chain rule,</p>
+\[\begin{aligned}\dfrac{dy}{dx}&amp;=\dfrac{dy}{du}\times\dfrac{du}{dx}\\&amp;=2x\,e^{x^2}.\end{aligned}\]
+</div><div class="side6d">
+<p>Let \(u=x^2\).<br>Then \(y=e^u\).<br>Hence \(\dfrac{du}{dx}=2x\)<br>and \(\dfrac{dy}{du}=e^u\).</p>
+</div></div>
+<p><b>b</b> Reversing part <b>a</b>, \(\ \displaystyle\int2xe^{x^2}\,dx=e^{x^2}\).</p>
+<p>Hence</p>
+\[\begin{aligned}\int_{-1}^12xe^{x^2}\,dx&amp;=\Big[e^{x^2}\Big]_{-1}^1\\&amp;=e^1-e^1\\&amp;=0.\end{aligned}\]
+<p><b>c</b> The function \(2xe^{x^2}\) is odd, and the interval \([-1,1]\) in the definite integral is symmetric in the \(y\)-axis, so the integral is zero.</p>
+<p class="small"><b>Note:</b> Here \((-1)^2=1\), so the lower limit also gives \(e^1\). The function is odd because \(2(-x)e^{(-x)^2}=-2xe^{x^2}\).</p>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:using a formula for the reverse chain rule}}
+<div class="box concept"><div class="bt">Using a formula for the reverse chain rule</div>
+<p>There are some situations where the reverse chain rule formula from Section 5I can be used:</p>
+\[\int u^n\,\dfrac{du}{dx}\,dx=\dfrac{u^{n+1}}{n+1}+C\qquad\text{OR}\qquad\int\big(f(x)\big)^nf'(x)\,dx=\dfrac{\big(f(x)\big)^{n+1}}{n+1}+C,\]
+<p>where \(n\ne-1\). Choose \(u\) (or \(f(x)\)) to be the bracket that is raised to a power. Its derivative \(u'\) must appear in the integrand, apart from a constant factor. Insert that constant inside the integral and balance it with its reciprocal outside.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A power of a bracket</span></div><div class="ex-body">
+Use the reverse chain rule formula to find \(\displaystyle\int\dfrac{e^{2x}}{(1+e^{2x})^3}\,dx\).
+{{work:84}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use the reverse chain rule formula to find \(\displaystyle\int\dfrac{e^{3x}}{(1-e^{3x})^2}\,dx\).
+{{work:84}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 16</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use the reverse chain rule formula to find \(\displaystyle\int\dfrac{e^{2x}}{(1-e^{2x})^3}\,dx\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.1fr 1fr"><div>
+\[\begin{aligned}&amp;\int\dfrac{e^{2x}}{(1-e^{2x})^3}\,dx\\&amp;\quad=-\tfrac12\int\dfrac{-2e^{2x}}{(1-e^{2x})^3}\,dx\\&amp;\quad=-\tfrac12\times\big(-\tfrac12\big)\times(1-e^{2x})^{-2}\\&amp;\quad=\dfrac{1}{4(1-e^{2x})^2}+C,\end{aligned}\]
+<p>for some constant \(C\).</p>
+</div><div class="side6d">
+<p>Let \(u=1-e^{2x}\).<br>Then \(u'=-2e^{2x}\).</p>
+\[\int u^{-3}\,\dfrac{du}{dx}\,dx=\dfrac{u^{-2}}{-2}\]
+<p>OR let \(f(x)=1-e^{2x}\).<br>Then \(f'(x)=-2e^{2x}\).</p>
+\[\int\big(f(x)\big)^{-3}f'(x)\,dx=\dfrac{\big(f(x)\big)^{-2}}{-2}\]
+</div></div>
+<p class="small"><b>Note:</b> The second line inserts the factor \(-2\) to make \(u'=-2e^{2x}\), and balances it with \(-\tfrac12\) outside. The third line uses \(n=-3\), so \(\dfrac{u^{n+1}}{n+1}=\dfrac{u^{-2}}{-2}=-\tfrac12u^{-2}\).</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 6D}}
+<p class="small"><b>Technology:</b> Some algebraic programs can display the primitive and evaluate the exact value of an integral. These can be used to check the questions in this exercise and also to investigate the effect of making small changes to the function or to the limits of integration.</p>
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Use the standard form \(\displaystyle\int e^{ax+b}\,dx=\dfrac1a\,e^{ax+b}+C\) to find each indefinite integral.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int e^{2x}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int e^{3x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int e^{\frac13x}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int e^{\frac12x}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int10e^{2x}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int12e^{3x}\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int e^{4x+5}\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int e^{4x-2}\,dx\)</span><span><span class="pl">i</span>\(\displaystyle\int6e^{3x+2}\,dx\)</span><span><span class="pl">j</span>\(\displaystyle\int4e^{4x+3}\,dx\)</span><span><span class="pl">k</span>\(\displaystyle\int e^{7-2x}\,dx\)</span><span><span class="pl">l</span>\(\displaystyle\int\tfrac12e^{1-3x}\,dx\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Evaluate these definite integrals.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int_0^1e^x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^2e^x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-1}^3e^{-x}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^0e^{-x}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_0^2e^{2x}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-1}^220e^{-5x}\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int_{-3}^18e^{-4x}\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int_{-1}^39e^{6x}\,dx\)</span><span><span class="pl">i</span>\(\displaystyle\int_{-1}^1e^{2x+1}\,dx\)</span><span><span class="pl">j</span>\(\displaystyle\int_{-2}^0e^{4x-3}\,dx\)</span><span><span class="pl">k</span>\(\displaystyle\int_{-2}^{-1}e^{3x+2}\,dx\)</span><span><span class="pl">l</span>\(\displaystyle\int_{-\frac12}^{\frac12}e^{3-2x}\,dx\)</span><span><span class="pl">m</span>\(\displaystyle\int_{-\frac13}^{\frac13}e^{2+3x}\,dx\)</span><span><span class="pl">n</span>\(\displaystyle\int_1^26e^{3x+1}\,dx\)</span><span><span class="pl">o</span>\(\displaystyle\int_2^312e^{4x-5}\,dx\)</span><span><span class="pl">p</span>\(\displaystyle\int_1^212e^{8-3x}\,dx\)</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Express each function using negative indices, and hence find its primitive.
+<div class="parts three"><span><span class="pl">a</span>\(\dfrac{1}{e^x}\)</span><span><span class="pl">b</span>\(\dfrac{1}{e^{2x}}\)</span><span><span class="pl">c</span>\(\dfrac{1}{e^{3x}}\)</span><span><span class="pl">d</span>\(-\dfrac{3}{e^{3x}}\)</span><span><span class="pl">e</span>\(\dfrac{6}{e^{2x}}\)</span><span><span class="pl">f</span>\(\dfrac{8}{e^{-2x}}\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>A function \(f(x)\) has derivative \(f'(x)=e^{2x}\). Find the equation of \(f(x)\), which will involve an arbitrary constant.</span><span><span class="pl">b</span>It is also known that \(f(0)=-2\). Find the arbitrary constant and hence write down the equation of \(f(x)\).</span><span><span class="pl">c</span>Find \(f(1)\) and \(f(2)\).</span></div>{{work:40}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">5</span><div class="q-body">Find \(f(x)\) and then find \(f(1)\), given that:
+<div class="parts"><span><span class="pl">a</span>\(f'(x)=1+2e^x\) and \(f(0)=1\)</span><span><span class="pl">b</span>\(f'(x)=1-3e^x\) and \(f(0)=-1\)</span><span><span class="pl">c</span>\(f'(x)=2+e^{-x}\) and \(f(0)=0\)</span><span><span class="pl">d</span>\(f'(x)=4-e^{-x}\) and \(f(0)=2\)</span><span><span class="pl">e</span>\(f'(x)=e^{2x-1}\) and \(f\big(\tfrac12\big)=3\)</span><span><span class="pl">f</span>\(f'(x)=e^{1-3x}\) and \(f\big(\tfrac13\big)=\tfrac23\)</span><span><span class="pl">g</span>\(f'(x)=e^{\frac12x+1}\) and \(f(-2)=-4\)</span><span><span class="pl">h</span>\(f'(x)=e^{\frac13x+2}\) and \(f(-6)=2\)</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Expand the brackets and then find primitives of:
+<div class="parts three"><span><span class="pl">a</span>\(e^x(e^x+1)\)</span><span><span class="pl">b</span>\(e^x(e^x-1)\)</span><span><span class="pl">c</span>\(e^{-x}(2e^{-x}-1)\)</span><span><span class="pl">d</span>\((e^x+1)^2\)</span><span><span class="pl">e</span>\((e^x-1)^2\)</span><span><span class="pl">f</span>\((e^x-2)^2\)</span></div>
+<div class="parts"><span><span class="pl">g</span>\((e^x+e^{-x})(e^x-e^{-x})\)</span><span><span class="pl">h</span>\((e^{5x}+e^{-5x})(e^{5x}-e^{-5x})\)</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Use the standard form \(\displaystyle\int e^{ax+b}\,dx=\dfrac1a\,e^{ax+b}+C\) to find these indefinite integrals.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int e^{7x+q}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int e^{3x-k}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int e^{sx+1}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int e^{kx-1}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int pe^{px+q}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int me^{mx+k}\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int Ae^{sx-t}\,dx\)</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Express each function below as a power of \(e\) or a multiple of a power of \(e\), and hence find its primitive.
+<div class="parts three"><span><span class="pl">a</span>\(\dfrac{1}{e^{x-1}}\)</span><span><span class="pl">b</span>\(\dfrac{1}{e^{3x-1}}\)</span><span><span class="pl">c</span>\(\dfrac{1}{e^{2x+5}}\)</span><span><span class="pl">d</span>\(\dfrac{4}{e^{2x-1}}\)</span><span><span class="pl">e</span>\(\dfrac{10}{e^{2-5x}}\)</span><span><span class="pl">f</span>\(\dfrac{12}{e^{3x-5}}\)</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">By writing each integrand as the sum of multiples of powers of \(e\), find:
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int\dfrac{e^x+1}{e^x}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\dfrac{e^{2x}+1}{e^x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\dfrac{e^x-1}{e^{2x}}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\dfrac{e^x-3}{e^{3x}}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int\dfrac{2e^{2x}-3e^x}{e^{4x}}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int\dfrac{2e^x-e^{2x}}{e^{3x}}\,dx\)</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find \(y\) as a function of \(x\) if \(y'=e^{x-1}\), and \(y=1\) when \(x=1\). What is the \(y\)-intercept of this curve?</span><span><span class="pl">b</span>The gradient of a curve is given by \(y'=e^{2-x}\), and the curve passes through the point \((0,1)\). What is the equation of this curve? What is its horizontal asymptote?</span><span><span class="pl">c</span>It is known that \(f'(x)=e^x+\dfrac1e\) and that \(f(-1)=-1\). Find \(f(0)\).</span><span><span class="pl">d</span>Given that \(f''(x)=e^x-e^{-x}\) and that \(y=f(x)\) is horizontal as it passes through the origin, find \(f(x)\).</span></div>{{work:96}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">By first writing each integrand as a sum of powers of \(e\), find:
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^1e^x(2e^x-1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-1}^1(e^x+2)^2\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^1(e^x-1)(e^{-x}+1)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-1}^1(e^{2x}+e^{-x})(e^{2x}-e^{-x})\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_0^1\dfrac{e^{3x}+e^x}{e^{2x}}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-1}^1\dfrac{e^x-1}{e^{2x}}\,dx\)</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) Differentiate \(e^{x^2+3}\). &emsp; (ii) Hence find \(\displaystyle\int2xe^{x^2+3}\,dx\).</span><span><span class="pl">b</span>(i) Differentiate \(e^{x^2-2x+3}\). &emsp; (ii) Hence find \(\displaystyle\int(x-1)e^{x^2-2x+3}\,dx\).</span><span><span class="pl">c</span>(i) Differentiate \(e^{3x^2+4x+1}\). &emsp; (ii) Hence find \(\displaystyle\int(3x+2)e^{3x^2+4x+1}\,dx\).</span><span><span class="pl">d</span>(i) Differentiate \(y=e^{x^3}\). &emsp; (ii) Hence find \(\displaystyle\int_{-1}^0x^2e^{x^3}\,dx\).</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Write each integrand as a power of \(e\), and hence find the indefinite integral.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int\dfrac{1}{(e^x)^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\dfrac{1}{(e^x)^3}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\sqrt{e^x}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\sqrt[3]{e^x}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int\dfrac{1}{\sqrt{e^x}}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int\dfrac{1}{\sqrt[3]{e^x}}\,dx\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(y=xe^x\), and hence find \(\displaystyle\int_0^2xe^x\,dx\).</span><span><span class="pl">b</span>Differentiate \(y=xe^{-x}\), and hence find \(\displaystyle\int_{-2}^0xe^{-x}\,dx\).</span></div>{{work:76}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">By first simplifying each integrand, find:
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int\dfrac{e^x-e^{-x}}{\sqrt{e^x}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\dfrac{e^x+e^{-x}}{\sqrt[3]{e^x}}\,dx\)</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(f(x)=xe^{-x^2}\) is an odd function.</span><span><span class="pl">b</span>Hence evaluate \(\displaystyle\int_{-\sqrt2}^{\sqrt2}xe^{-x^2}\,dx\) without finding a primitive.</span></div>{{work:36}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">17</span><div class="q-body">Under Box 4, we gave the reverse chain rule for integrals of exponential functions,
+\[\int e^u\,\dfrac{du}{dx}\,dx=e^u+C\qquad\text{OR}\qquad\int e^{f(x)}f'(x)\,dx=e^{f(x)}+C.\]
+Use one or other of the formulae to find primitives of these functions
+<div class="parts three"><span><span class="pl">a</span>\(xe^{x^2}\)</span><span><span class="pl">b</span>\(4xe^{x^2-7}\)</span><span><span class="pl">c</span>\((3x+2)e^{3x^2+4x+1}\)</span><span><span class="pl">d</span>\((x^2-2x)e^{x^3-3x^2}\)</span><span><span class="pl">e</span>\(x^{-2}\,e^{x^{-1}}\)</span><span><span class="pl">f</span>\(-\sqrt x\,e^{-x\sqrt x}\)</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">Show that \(\displaystyle\int\dfrac{e^x+1}{e^{\frac12x}+e^{-\frac12x}}\,dx=2e^{\frac12x}+C\).{{work:40}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body"><b>A power series for \(e^x\):</b> The intention of this question is to outline a reasonably rigorous proof of the famous result that \(e^x\) can be written as the limit of the power series:
+\[e^x=1+x+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+\dfrac{x^4}{4!}+\dfrac{x^5}{5!}+\cdots,\]
+where \(n!=n\times(n-1)\times\cdots\times2\times1\).
+<div class="parts one"><span><span class="pl">a</span>For any positive number \(R\), we know that \(1&lt;e^t&lt;e^R\) for \(0&lt;t&lt;R\), because \(e^x\) is an increasing function. Integrate this inequality over the interval \(t=0\) to \(t=x\), where \(0&lt;x&lt;R\), and hence show that \(x&lt;e^x-1&lt;e^Rx\).</span><span><span class="pl">b</span>Change the variable to \(t\), giving \(t&lt;e^t-1&lt;e^Rt\). Then integrate this new inequality from \(t=0\) to \(t=x\), and hence show that \(\dfrac{x^2}{2!}&lt;e^x-1-x&lt;\dfrac{e^Rx^2}{2!}\).</span><span><span class="pl">c</span>Do this process twice more, and prove that:<br>(i) \(\dfrac{x^3}{3!}&lt;e^x-1-x-\dfrac{x^2}{2!}&lt;\dfrac{e^Rx^3}{3!}\)<br>(ii) \(\dfrac{x^4}{4!}&lt;e^x-1-x-\dfrac{x^2}{2!}-\dfrac{x^3}{3!}&lt;\dfrac{e^Rx^4}{4!}\)</span><span><span class="pl">d</span>Now use induction to prove that \(\dfrac{x^{n+1}}{(n+1)!}&lt;e^x-1-x-\dfrac{x^2}{2!}-\cdots-\dfrac{x^n}{n!}&lt;\dfrac{e^Rx^{n+1}}{(n+1)!}\).</span><span><span class="pl">e</span>Show that as \(n\to\infty\), the left and right expressions converge to zero. Hence prove that the infinite power series converges to \(e^x\) for \(x&gt;0\). (Hint: Let \(k\) be the smallest integer greater than \(x\) and show that for \(n&gt;k\), each term in the sequence is less than the corresponding term of a geometric sequence with ratio \(\tfrac{x}{k}\).)</span><span><span class="pl">f</span>Prove that the power series also converges to \(e^x\) for \(x&lt;0\).</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Use the power series in the previous question to show that
+\[\dfrac{e^x+e^{-x}}{2}=1+\dfrac{x^2}{2!}+\dfrac{x^4}{4!}+\cdots+\dfrac{x^{2n}}{(2n)!}+\cdots.\]</span><span><span class="pl">b</span>Find \(\alpha\), the value of the right-hand side, correct to four decimal places when \(x=0.5\).</span><span><span class="pl">c</span>Let \(u=e^{0.5}\). Show that \(u^2-2\alpha u+1=0\).</span><span><span class="pl">d</span>Solve this quadratic equation and hence estimate both \(e^{0.5}\) and \(e^{-0.5}\) correct to two decimal places. Compare your answers with the values obtained directly from the calculator.</span></div>{{work:90}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 10 minutes</b></span><span><b>5 marks</b></span><span>Calculator allowed · show working · the hint is below the question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span><span class="mk">5 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Find \(\dfrac{dy}{dx}\) if \(y=xe^{-x}\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence find \(\displaystyle\int_0^1xe^{-x}\,dx\).</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> how is the integrand in (ii) related to your answer to (i)?</div>{{work:70}}</div>
+</div>
+
+<p>The school trial papers used for this pack (2020–2024) have only this one question that fits this lesson, so the mini exam is short. For more timed practice, do Questions 5(e), 10(c), 10(d), 11(f), 12(d) and 14(b) above in 25 minutes.</p>
+</div>
