@@ -311,7 +311,10 @@ present(WE[0], r"\(2-8=-6\)", "WE1 c")
 present(WE[1], r"\(\displaystyle\int_{-2}^{2}(x^3-4x)\,dx=0\), because the integrand is odd.", "WE2 a")
 present(WE[1], r"(Check: \((-x)^3-4(-x)=-x^3+4x=-(x^3-4x)\).)", "WE2 check")
 report(sp.expand((-x) ** 3 - 4 * (-x) + (x ** 3 - 4 * x)) == 0, "x^3 - 4x is odd")
-present(WE[5], r"\(0\le4-x^2\le4\)", "WE6 b")
+present(WE[5], r"<b>b</b> Clearly \(0\le4-x^2\le4\) over the interval \(-2\le x\le2\).<br>", "WE6 b (book line)")
+present(WE[5], '<div class="bt">The steps behind Worked example 6</div>', "WE6 tip after the example")
+present(WE[5], r"The square has area \(4\times4=16\).", "WE6 tip square area")
+present(CON[2]["teach"], '<div class="box tip"><div class="bt">Recall: odd and even functions (Year 11)</div>', "Concept 2 recall tip")
 present(WE[5], r"\[0\le\int_{-2}^{2}(4-x^2)\,dx\le16.\]", "WE6 b conclusion")
 report(0 <= I(4 - x ** 2, -2, 2) <= 16 and I(4, -2, 2) == 16, "WE6: 0 <= 32/3 <= 16, rectangle 16")
 
@@ -542,6 +545,7 @@ def num_int(a_, b_, n_=20000):
 opts = {"A": num_int(0, 1), "B": num_int(0, 2), "C": num_int(0, 7), "D": num_int(0, 8)}
 report(max(opts, key=opts.get) == "B" and abs(stf(2)) < 1e-9 and abs(stf(6)) < 1e-9 and abs(stf(8)) < 1e-9,
        "PP1: recreated graph (zeros 2, 6, 8) gives B greatest = school key B", str({k_: round(v, 3) for k_, v in opts.items()}))
+present(PPQ[0][3], r'<div class="hint"><b>Hint:</b> what does the graph of \(y=f(x)\) look like across \([0,8]\)?</div>', "PP1 neutral hint")
 present(PPQ[0][3], r"<span>(B)&ensp;\(\displaystyle\int_0^2f(x)\,dx\)</span>", "PP1 option B")
 present(PPA[0][2], "<b>Answer (B).</b>", "PP1 answer")
 # PP2: only C equals the integral; the solution chain
