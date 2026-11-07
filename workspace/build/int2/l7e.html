@@ -1,1 +1,288 @@
-<!-- filled by Task: lesson 7e -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 7E</div><h2>Applications of integration</h2>
+<div class="focus">The trigonometric integrals from Lesson 7D can now be used to find areas in the usual way. We find the area between a curve such as \(y=\cos\tfrac12x\) and the \(x\)-axis, where the integral is split at every \(x\)-intercept, and the area between two curves, such as \(y=\sin x\) and \(y=\sin2x\), using the top curve minus the bottom curve.</div></div>
+
+<style>
+table.st7e { border-collapse:collapse; margin:1mm 0 1.5mm 3mm; }
+table.st7e td { padding:0.5mm 1.6mm; vertical-align:middle; }
+table.st7e td:first-child { text-align:left; white-space:nowrap; }
+.g7e { display:grid; grid-template-columns:1fr 1fr; column-gap:8mm; row-gap:3mm; margin-top:1mm; }
+.g7e > div { break-inside:avoid; }
+.g7e .fig { justify-content:flex-start; margin:1mm 0; }
+.f7e .fig { justify-content:flex-start; }
+.mc7e { display:grid; grid-template-columns:1fr; row-gap:1.5mm; margin:1.5mm 0 0 2mm; }
+.rv7e { font-weight:700; margin:3mm 0 1mm; }
+</style>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the area between a curve and the x-axis}}
+<div class="box concept"><div class="bt">Applications of integration</div>
+<p>The trigonometric integrals can now be used to find areas in the usual way.</p></div>
+<div class="box concept"><div class="bt">Finding areas by integration</div>
+<p>As always, <i>a sketch is essential</i>, because areas below the \(x\)-axis are represented as a negative number by the definite integral.</p>
+<p>It is best to evaluate the separate integrals first and then make a conclusion about areas.</p></div></div>
+<div class="box tip"><div class="bt">The standard forms from Lesson 7D</div>
+<ul><li>\(\displaystyle\int\cos(ax+b)\,dx=\dfrac1a\sin(ax+b)+C\)</li>
+<li>\(\displaystyle\int\sin(ax+b)\,dx=-\dfrac1a\cos(ax+b)+C\)</li>
+<li>\(\displaystyle\int\sec^2(ax+b)\,dx=\dfrac1a\tan(ax+b)+C\)</li></ul>
+<p>For example, \(\displaystyle\int\cos\tfrac12x\,dx=\dfrac{1}{\frac12}\sin\tfrac12x+C=2\sin\tfrac12x+C\), because the reciprocal of \(\tfrac12\) is \(2\).</p></div>
+<div class="box tip"><div class="bt">Sketching \(y=\cos nx\) and \(y=\sin nx\) (Year 11)</div>
+<p>The curves \(y=\cos nx\) and \(y=\sin nx\), where \(n\gt0\), have amplitude \(1\) and period \(2\pi\div n\). The curve \(y=\cos nx\) crosses the \(x\)-axis where \(nx=\dfrac{\pi}{2},\ \dfrac{3\pi}{2},\ \dfrac{5\pi}{2},\ \dots\), and the curve \(y=\sin nx\) crosses it where \(nx=0,\ \pi,\ 2\pi,\ \dots\). The curve is above the \(x\)-axis and below it in turn between these intercepts.</p></div>
+<div class="box tip"><div class="bt">The steps for finding an area</div>
+<ul><li>Sketch the curve in the given interval, and find every \(x\)-intercept inside it.</li>
+<li>Evaluate a separate integral over each piece between the intercepts.</li>
+<li>A piece below the \(x\)-axis gives a negative integral. Its area is the opposite of that integral.</li>
+<li>Add the areas of the pieces, and write the conclusion in square units.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Three pieces, one below the axis</span></div><div class="ex-body">
+<b>a</b> Sketch \(y=\cos\tfrac13x\) in the interval \(0\le x\le6\pi\), marking both \(x\)-intercepts.<br>
+<b>b</b> Hence find the area between the curve and the \(x\)-axis, for \(0\le x\le6\pi\).
+{{work:170}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Sketch \(y=\cos2x\) in the interval \(0\le x\le\pi\), marking both \(x\)-intercepts.<br>
+<b>b</b> Hence find the area between the curve and the \(x\)-axis, for \(0\le x\le\pi\).
+{{work:215}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 24</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Sketch \(y=\cos\tfrac12x\) in the interval \(0\le x\le4\pi\), marking both \(x\)-intercepts.<br>
+<b>b</b> Hence find the area between the curve and the \(x\)-axis, for \(0\le x\le4\pi\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 1.05fr"><div>
+<p><b>a</b> The curve \(y=\cos\tfrac12x\) has amplitude 1, and the period is \(2\pi\div\tfrac12=4\pi\).<br>The two \(x\)-intercepts in the interval are \(x=\pi\) and \(x=3\pi\).</p>
+<p><b>b</b> We must integrate separately over the three intervals \([0,\pi]\) and \([\pi,3\pi]\) and \([3\pi,4\pi]\).</p>
+</div><div class="f7e"><div class="fig">{{svg:c7e_ex24}}</div></div></div>
+<p>First,</p>
+\[\begin{aligned}\int_0^\pi\cos\tfrac12x\,dx&amp;=\Big[2\sin\tfrac12x\Big]_0^\pi\\&amp;=2\sin\tfrac{\pi}{2}-2\sin0\\&amp;=2-0\\&amp;=2,\end{aligned}\]
+<p>which is positive, because the curve is above the \(x\)-axis for \(0\le x\le\pi\).</p>
+<p>Secondly,</p>
+\[\begin{aligned}\int_\pi^{3\pi}\cos\tfrac12x\,dx&amp;=\Big[2\sin\tfrac12x\Big]_\pi^{3\pi}\\&amp;=2\sin\tfrac{3\pi}{2}-2\sin\tfrac{\pi}{2}\\&amp;=-2-2\\&amp;=-4,\end{aligned}\]
+<p>which is negative, because the curve is below the \(x\)-axis for \(\pi\le x\le3\pi\).</p>
+<p>Thirdly,</p>
+\[\begin{aligned}\int_{3\pi}^{4\pi}\cos\tfrac12x\,dx&amp;=\Big[2\sin\tfrac12x\Big]_{3\pi}^{4\pi}\\&amp;=2\sin2\pi-2\sin\tfrac{3\pi}{2}\\&amp;=0-(-2)\\&amp;=2,\end{aligned}\]
+<p>which is positive, because the curve is above the \(x\)-axis for \(3\pi\le x\le4\pi\).</p>
+<p>Hence</p>
+\[\begin{aligned}\text{total area}&amp;=2+4+2\\&amp;=8\text{ square units.}\end{aligned}\]
+</div></div>
+<div class="box tip"><div class="bt">Reading Worked example 24, line by line</div>
+<p>In part <b>a</b>, the curve crosses the \(x\)-axis where \(\tfrac12x=\dfrac{\pi}{2}\) or \(\tfrac12x=\dfrac{3\pi}{2}\), that is, where \(x=\pi\) or \(x=3\pi\). In part <b>b</b>, the primitive \(2\sin\tfrac12x\) comes from the first standard form with \(a=\tfrac12\). At the limits, \(\tfrac12\times\pi=\dfrac{\pi}{2}\), \(\tfrac12\times3\pi=\dfrac{3\pi}{2}\) and \(\tfrac12\times4\pi=2\pi\). The values are \(\sin0=0\), \(\sin\dfrac{\pi}{2}=1\), \(\sin\dfrac{3\pi}{2}=-1\) and \(\sin2\pi=0\). The middle integral is \(-4\), so the middle piece has area \(4\), and the total area is \(2+4+2=8\).</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:areas between curves}}
+<div class="box concept"><div class="bt">Finding areas between curves</div>
+<p>The next worked example uses the principle that if \(y=f(x)\) is above \(y=g(x)\) throughout some interval \(a\le x\le b\), then the area between the curves is given by the formula</p>
+\[\text{area between the curves}=\int_a^b\big(f(x)-g(x)\big)\,dx.\]</div></div>
+<div class="box tip"><div class="bt">Top curve minus bottom curve</div>
+<ul><li>Find where the curves meet. These \(x\)-values are usually the limits of the integral.</li>
+<li>Decide which curve is on top by testing one \(x\)-value between the limits.</li>
+<li>Integrate the top curve minus the bottom curve. The formula still works when part of the region lies below the \(x\)-axis, because \(f(x)-g(x)\) is positive throughout the interval.</li></ul>
+<p>To show that two curves meet at a given \(x\)-value, substitute it into both equations and show that the \(y\)-values are equal.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The other region between the curves</span></div><div class="ex-body">
+<b>a</b> Show that the curves \(y=\sin x\) and \(y=\sin2x\) intersect when \(x=\dfrac{\pi}{3}\).<br>
+<b>b</b> Sketch these curves in the interval \([0,\pi]\).<br>
+<b>c</b> Find the area contained between the curves in the interval \(\Big[\dfrac{\pi}{3},\pi\Big]\).
+{{work:205}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Show that the curves \(y=\cos x\) and \(y=\sin2x\) intersect when \(x=\dfrac{\pi}{6}\).<br>
+<b>b</b> Sketch these curves in the interval \(\Big[0,\dfrac{\pi}{2}\Big]\).<br>
+<b>c</b> Find the area contained between the curves in the interval \(\Big[0,\dfrac{\pi}{6}\Big]\).
+{{work:200}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 25</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Show that the curves \(y=\sin x\) and \(y=\sin2x\) intersect when \(x=\dfrac{\pi}{3}\).<br>
+<b>b</b> Sketch these curves in the interval \([0,\pi]\).<br>
+<b>c</b> Find the area contained between the curves in the interval \(\Big[0,\dfrac{\pi}{3}\Big]\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.25fr 1fr"><div>
+<p><b>a</b> The curves intersect at \(x=\dfrac{\pi}{3}\) because \(\sin\dfrac{\pi}{3}=\sin\dfrac{2\pi}{3}=\tfrac12\sqrt3\).</p>
+<p><b>b</b> The curves are sketched to the right.</p>
+<p><b>c</b> In the interval \(0\le x\le\dfrac{\pi}{3}\), the curve \(y=\sin2x\) is always above \(y=\sin x\),</p>
+</div><div class="f7e"><div class="fig">{{svg:c7e_ex25}}</div></div></div>
+\[\begin{aligned}\text{so area between}&amp;=\int_0^{\frac{\pi}{3}}(\sin2x-\sin x)\,dx\\&amp;=\Big[-\tfrac12\cos2x+\cos x\Big]_0^{\frac{\pi}{3}}\\&amp;=\Big(-\tfrac12\cos\tfrac{2\pi}{3}+\cos\tfrac{\pi}{3}\Big)-\Big(-\tfrac12\cos0+\cos0\Big).\end{aligned}\]
+<p>Because \(\cos0=1\) and \(\cos\dfrac{\pi}{3}=\tfrac12\) and \(\cos\dfrac{2\pi}{3}=-\tfrac12\),</p>
+\[\begin{aligned}\text{area}&amp;=\big(\tfrac14+\tfrac12\big)-\big(-\tfrac12+1\big)\\&amp;=\tfrac14\text{ square units.}\end{aligned}\]
+</div></div>
+<div class="box tip"><div class="bt">Reading Worked example 25, line by line</div>
+<p>In part <b>a</b>, \(\sin2x\) at \(x=\dfrac{\pi}{3}\) is \(\sin\dfrac{2\pi}{3}\). The angle \(\dfrac{2\pi}{3}\) is in quadrant 2 with related angle \(\dfrac{\pi}{3}\), and sine is positive there, so \(\sin\dfrac{2\pi}{3}=\sin\dfrac{\pi}{3}=\tfrac12\sqrt3\). In part <b>c</b>, a test value shows which curve is on top: at \(x=\dfrac{\pi}{4}\), \(\sin2x=\sin\dfrac{\pi}{2}=1\) and \(\sin x=\tfrac12\sqrt2\), which is less than \(1\). The primitive of \(\sin2x\) is \(-\tfrac12\cos2x\), and the primitive of \(-\sin x\) is \(\cos x\). In the last lines, \(-\tfrac12\times\big(-\tfrac12\big)=\tfrac14\) and \(-\tfrac12\times1+1=\tfrac12\), so the area is \(\tfrac34-\tfrac12=\tfrac14\).</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:two curves that cross twice}}
+<div class="box tip"><div class="bt">Where \(y=\sin x\) and \(y=\cos x\) meet</div>
+<p>To solve \(\sin x=\cos x\), divide both sides by \(\cos x\). This is allowed, because \(\cos x\ne0\) at any solution: if \(\cos x=0\), then \(\sin x=\pm1\), and the two sides are not equal. Dividing gives \(\tan x=1\). In each interval of length \(2\pi\) there are two solutions, \(\pi\) apart, one in quadrant 1 and one in quadrant 3.</p>
+<p>The curves then cross twice, and the region between the crossings lies partly above and partly below the \(x\)-axis. Top curve minus bottom curve still gives its area in one integral.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A region across the \(x\)-axis</span></div><div class="ex-body">
+<b>a</b> Show that in the interval \(0\le x\le2\pi\), the curves \(y=\sin x\) and \(y=-\cos x\) intersect when \(x=\dfrac{3\pi}{4}\) and when \(x=\dfrac{7\pi}{4}\).<br>
+<b>b</b> Sketch the curves in this interval and find the area contained between them.
+{{work:140}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Show that in the interval \(-\pi\le x\le\pi\), the curves \(y=\sin x\) and \(y=\cos x\) intersect when \(x=-\dfrac{3\pi}{4}\) and when \(x=\dfrac{\pi}{4}\).<br>
+<b>b</b> Sketch the curves in this interval and find the area contained between them.
+{{work:205}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 7E}}
+<p class="small"><b>Technology:</b> Some graphing programs can perform numerical integration on specified regions. Such programs would help to confirm the integrals in this exercise and to investigate quickly further integrals associated with these curves.</p>
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Find the exact area between the curve \(y=\cos x\) and the \(x\)-axis:
+<div class="parts"><span><span class="pl">a</span>from \(x=0\) to \(x=\dfrac{\pi}{2}\),</span><span><span class="pl">b</span>from \(x=0\) to \(x=\dfrac{\pi}{6}\).</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Find the exact area between the curve \(y=\sec^2x\) and the \(x\)-axis:
+<div class="parts"><span><span class="pl">a</span>from \(x=0\) to \(x=\dfrac{\pi}{4}\),</span><span><span class="pl">b</span>from \(x=0\) to \(x=\dfrac{\pi}{3}\).</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Find the exact area between the curve \(y=\sin x\) and the \(x\)-axis:
+<div class="parts"><span><span class="pl">a</span>from \(x=0\) to \(x=\dfrac{\pi}{4}\),</span><span><span class="pl">b</span>from \(x=0\) to \(x=\dfrac{\pi}{6}\).</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Calculate the area of the shaded region in each diagram below (and then observe that the two regions have equal area).
+<div class="g7e"><div><span class="pl">a</span><div class="fig">{{svg:q7e_q4a}}</div></div>
+<div><span class="pl">b</span><div class="fig">{{svg:q7e_q4b}}</div></div></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Find the area enclosed between each curve and the \(x\)-axis over the specified domain.
+<div class="parts"><span><span class="pl">a</span>\(y=\sin x\), from \(x=\dfrac{\pi}{3}\) to \(x=\dfrac{\pi}{2}\)</span><span><span class="pl">b</span>\(y=\sin2x\), from \(x=\dfrac{\pi}{4}\) to \(x=\dfrac{\pi}{2}\)</span><span><span class="pl">c</span>\(y=\cos x\), from \(x=\dfrac{\pi}{3}\) to \(x=\dfrac{\pi}{2}\)</span><span><span class="pl">d</span>\(y=\cos3x\), from \(x=\dfrac{\pi}{12}\) to \(x=\dfrac{\pi}{6}\)</span><span><span class="pl">e</span>\(y=\sec^2x\), from \(x=\dfrac{\pi}{6}\) to \(x=\dfrac{\pi}{3}\)</span><span><span class="pl">f</span>\(y=\sec^2\tfrac12x\), from \(x=-\dfrac{\pi}{2}\) to \(x=\dfrac{\pi}{2}\)</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Calculate the area of the shaded region in each diagram below.
+<div class="g7e"><div><span class="pl">a</span><div class="fig">{{svg:q7e_q6a}}</div></div>
+<div><span class="pl">b</span><div class="fig">{{svg:q7e_q6b}}</div></div>
+<div><span class="pl">c</span><div class="fig">{{svg:q7e_q6c}}</div></div>
+<div><span class="pl">d</span><div class="fig">{{svg:q7e_q6d}}</div></div></div>{{work:140}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Calculate the area of the shaded region in each diagram below.
+<div class="g7e"><div><span class="pl">a</span><div class="fig">{{svg:q7e_q7a}}</div></div>
+<div><span class="pl">b</span><div class="fig">{{svg:q7e_q7b}}</div></div></div>{{work:80}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body">Find, using a diagram, the area bounded by one arch of each curve and the \(x\)-axis.
+<div class="parts"><span><span class="pl">a</span>\(y=\sin x\)</span><span><span class="pl">b</span>\(y=\cos2x\)</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Sketch the area enclosed between each curve and the \(x\)-axis over the specified domain, and then find the exact value of the area. (Make use of symmetry wherever possible.)
+<div class="parts"><span><span class="pl">a</span>\(y=\cos x\), from \(x=0\) to \(x=\pi\)</span><span><span class="pl">b</span>\(y=\sin x\), from \(x=\dfrac{\pi}{4}\) to \(x=\dfrac{3\pi}{4}\)</span><span><span class="pl">c</span>\(y=\cos2x\), from \(x=0\) to \(x=\pi\)</span><span><span class="pl">d</span>\(y=\sin2x\), from \(x=\dfrac{\pi}{3}\) to \(x=\dfrac{2\pi}{3}\)</span><span><span class="pl">e</span>\(y=\sin x\), from \(x=-\dfrac{5\pi}{6}\) to \(x=\dfrac{7\pi}{6}\)</span><span><span class="pl">f</span>\(y=\cos3x\), from \(x=\dfrac{\pi}{6}\) to \(x=\dfrac{2\pi}{3}\)</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Sketch the curve \(y=2\cos\pi x\), for \(-1\le x\le1\), clearly marking the two \(x\)-intercepts.</span><span><span class="pl">b</span>Find the exact area bounded by the curve \(y=2\cos\pi x\) and the \(x\)-axis, between the two \(x\)-intercepts.</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="split" style="grid-template-columns:1.7fr 1fr"><div>An arch window 3 metres high and 2 metres wide is made in the shape of the curve \(y=3\cos\Big(\dfrac{\pi}{2}x\Big)\), as shown to the right. Find the area of the window in square metres, correct to one decimal place.</div>
+<div class="f7e"><div class="fig">{{svg:q7e_q11}}</div></div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">The graphs of \(y=x-\sin x\) and \(y=x\) are sketched together in a worked exercise in Section 7C. Find the total area enclosed between these graphs, from \(x=0\) to \(x=2\pi\).{{work:56}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">The region \(R\) is bounded by the curve \(y=\tan x\), the \(x\)-axis and the vertical line \(x=\dfrac{\pi}{3}\). Show that \(R\) has area \(\ln2\) square units.{{work:65}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Sketch the region bounded by the graphs of \(y=\sin x\) and \(y=\cos x\), and by the vertical lines \(x=-\dfrac{\pi}{2}\) and \(x=\dfrac{\pi}{6}\).</span><span><span class="pl">b</span>Find the area of the region in part <b>a</b>.</span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show by substitution that \(y=\sin x\) and \(y=\cos2x\) meet at \(x=-\dfrac{\pi}{2}\) and \(x=\dfrac{\pi}{6}\).</span><span><span class="pl">b</span>On the same number plane, sketch \(y=\sin x\) and \(y=\cos2x\), for \(-\dfrac{\pi}{2}\le x\le\dfrac{\pi}{6}\).</span><span><span class="pl">c</span>Hence find the area of the region bounded by the two curves.</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\sqrt2\sin\Big(x+\dfrac{\pi}{4}\Big)=\sin x+\cos x\).</span><span><span class="pl">b</span>Hence, or otherwise, find the exact area under one arch of the curve \(y=\sin x+\cos x\).</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that for all positive integers \(n\):
+<div class="parts"><span><span class="pl">i</span>\(\displaystyle\int_0^{2\pi}\sin nx\,dx=0\)</span><span><span class="pl">ii</span>\(\displaystyle\int_0^{2\pi}\cos nx\,dx=0\)</span></div></span>
+<span><span class="pl">b</span>Sketch each of the following graphs, and then find the area between the curve and the \(x\)-axis, from \(x=0\) to \(x=2\pi\).
+<div class="parts" style="grid-template-columns:repeat(5,1fr)"><span><span class="pl">i</span>\(y=\sin x\)</span><span><span class="pl">ii</span>\(y=\sin2x\)</span><span><span class="pl">iii</span>\(y=\sin3x\)</span><span><span class="pl">iv</span>\(y=\sin nx\)</span><span><span class="pl">v</span>\(y=\cos nx\)</span></div></span></div>{{work:120}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\displaystyle\int_0^n(1+\sin2\pi x)\,dx=n\), for all positive integers \(n\).</span><span><span class="pl">b</span>Sketch \(y=1+\sin2\pi x\), and interpret the result geometrically.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">Sketch \(y=|\sin x|\) for \(0\le x\le6\pi\), and hence evaluate \(\displaystyle\int_0^{6\pi}|\sin x|\,dx\).{{work:44}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Using the fact that \(\sin x\lt x\lt\tan x\) for \(0\lt x\lt\dfrac{\pi}{2}\), explain why \(x^2\sin x\lt x^3\lt x^2\tan x\) for \(0\lt x\lt\dfrac{\pi}{2}\).</span><span><span class="pl">b</span>Hence show that \(\displaystyle\int_0^{\frac{\pi}{4}}x^2\sin x\,dx\lt\dfrac{\pi^4}{4^5}\lt\int_0^{\frac{\pi}{4}}x^2\tan x\,dx\).</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Given that \(y=\dfrac{1}{1+\sin x}\), show that \(y'=-\dfrac{\cos x}{(1+\sin x)^2}\).</span><span><span class="pl">b</span>Hence explain why the function \(y=\dfrac{1}{1+\sin x}\) is decreasing for \(0\lt x\lt\dfrac{\pi}{2}\).</span><span><span class="pl">c</span>Sketch the curve for \(0\le x\le\dfrac{\pi}{2}\), and hence show that \(\dfrac{\pi}{4}\lt\displaystyle\int_0^{\frac{\pi}{2}}\dfrac{1}{1+\sin x}\,dx\lt\dfrac{\pi}{2}\).</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body">Use symmetry arguments to help evaluate:
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_{-4\pi}^{4\pi}\sin3x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-2\pi}^{2\pi}\cos^2x\sin^3x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-\frac{5\pi}{2}}^{\frac{5\pi}{2}}\cos x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-\pi}^{\pi}\sec^2\tfrac13x\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_{-\pi}^{\pi}(3+2x+\sin x)\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}(\sin2x+\cos3x+3x^2)\,dx\)</span></div>{{work:84}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">23</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{d}{dx}\Big(-\tfrac12e^{-x}(\sin x+\cos x)\Big)=e^{-x}\sin x\).</span><span><span class="pl">b</span>Find \(\displaystyle\int_0^Ne^{-x}\sin x\,dx\), and show that \(\displaystyle\int_0^\infty e^{-x}\sin x\,dx\) converges to \(\dfrac12\).</span><span><span class="pl">c</span>Find \(\displaystyle\int_0^\pi e^{-x}\sin x\,dx\), \(\displaystyle\int_{2\pi}^{3\pi}e^{-x}\sin x\,dx\), &hellip;, and show that the areas of the arches above the \(x\)-axis form a GP with limiting sum \(\dfrac{e^\pi}{2(e^\pi-1)}\).</span><span><span class="pl">d</span>Show that the areas of the arches below the \(x\)-axis also form a GP, and hence show that the total area contained between the curve and the \(x\)-axis, to the right of the \(y\)-axis, is \(\dfrac{e^\pi+1}{2(e^\pi-1)}\). Also confirm by subtraction the result of part <b>b</b>.</span></div>{{work:165}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>17 marks</b></span><span>Calculator allowed · show working · each hint is below its question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Fort Street High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q10</span><span class="mk">1 mark</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:1fr 1.15fr"><div>The area enclosed by the curves \(y=\sin x\) and \(y=\cos x\) is shaded in the diagram.<br>Which expression could be used to calculate this area?
+<div class="mc7e"><span>A.&ensp;\(\displaystyle\int_{\frac{\pi}{4}}^{\frac{5\pi}{4}}\big(\cos(x)-\sin(x)\big)\,dx\)</span><span>B.&ensp;\(\displaystyle\int_{\frac{\pi}{4}}^{\frac{5\pi}{4}}\big(\sin(x)-\cos(x)\big)\,dx\)</span><span>C.&ensp;\(\displaystyle\int_{\frac{\pi}{4}}^{\frac{5\pi}{4}}\big(\cos(x)+\sin(x)\big)\,dx\)</span><span>D.&ensp;\(\displaystyle\int_{\frac{\pi}{3}}^{\frac{4\pi}{3}}\big(\cos(x)-\sin(x)\big)\,dx\)</span></div></div>
+<div class="f7e"><div class="fig">{{svg:p7e_fs}}</div></div></div></div>
+<div class="hint"><b>Hint:</b> what does the diagram tell you about the boundaries of the shaded region?</div>{{work:100}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Caringbah High School, 2021, Year 12 Mathematics Extension&nbsp;1 HSC Course Assessment Task&nbsp;4,&nbsp;Q12(c)</span><span class="mk">5 marks</span></div>
+<div class="pp-q"><div class="fig">{{svg:p7e_car}}</div>
+<p>The graph above is the function \(f(x)=2\cos^{-1}\dfrac{x}{3}\).</p>
+<div class="pp-sub"><span>(i) Find the value of the \(y\) intercept.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Find the domain and range of \(f(x)=2\cos^{-1}\dfrac{x}{3}\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(iii) Calculate the area of the region under the function \(f(x)=2\cos^{-1}\dfrac{x}{3}\) between \(x=0\) and \(x=3\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> what does the graph tell you about the region?</div>{{work:120}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Northern Beaches Secondary College Manly Selective Campus, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find the area enclosed by the curve \(y=\tan^{-1}x\), the \(y\)-axis and the lines \(y=\pm\dfrac{\pi}{4}\).<br><b>(Express your answer in simplest exact form).</b></div>
+<div class="hint"><b>Hint:</b> what does the region look like?</div>{{work:55}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Hornsby Girls High School, 2023, Year 12 Higher School Certificate Trial Examination Term&nbsp;3, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(b)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">The graph of \(y=2\cos^{-1}\big(x+\tfrac12\big)\) is shown below.
+<div class="fig">{{svg:p7e_hgs}}</div>
+Calculate the shaded area.</div>
+<div class="hint"><b>Hint:</b> what are the boundaries of the shaded region?</div>{{work:55}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Pymble Ladies' College, 2024, Mathematics Extension 1 HSC Trial Examination Term&nbsp;3,&nbsp;Q13(d)</span><span class="mk">5 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Sketch the curve \(y=-\tan^{-1}x\) and label the point where \(x=1\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Find the area bounded by the curve, the \(x\)-axis and the line \(x=1\).</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> what does your sketch show about the region?</div>{{work:210}}</div>
+</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="lesson">
+<div class="page-break"></div>
+<div class="lesson-head"><div class="eyebrow">Review</div><h2>Chapter review exercise</h2>
+<div class="focus">The integration questions from the Chapter 6 review (exponential and logarithmic functions) and the Chapter 7 review (trigonometric functions), for mixed practice across this pack. The question numbers are the textbook's.</div></div>
+
+{{sec:blue:pencil:Chapter 6 review:integration questions}}
+<div class="q"><span class="q-num">16</span><div class="q-body">Find:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int e^{5x}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int10e^{2-5x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int e^{\frac15x}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int3e^{5x-4}\,dx\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">Find the exact value of:
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^2e^x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^1e^{2x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-1}^0e^{-x}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-\frac23}^0e^{3x+2}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_0^{\frac12}e^{3-2x}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^22e^{\frac12x}\,dx\)</span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">Find the primitive of:
+<div class="parts" style="grid-template-columns:repeat(4,1fr);row-gap:2mm"><span><span class="pl">a</span>\(\dfrac{1}{e^{5x}}\)</span><span><span class="pl">b</span>\(e^{3x}\times e^x\)</span><span><span class="pl">c</span>\(\dfrac{6}{e^{3x}}\)</span><span><span class="pl">d</span>\((e^{3x})^2\)</span><span><span class="pl">e</span>\(\dfrac{e^{3x}}{e^{5x}}\)</span><span><span class="pl">f</span>\(\dfrac{e^{3x}+1}{e^{2x}}\)</span><span><span class="pl">g</span>\(e^{2x}(e^x+e^{-x})\)</span><span><span class="pl">h</span>\((1+e^{-x})^2\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">Find the exact value of:
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^1(1+e^{-x})\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^2(e^{2x}+x)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^1\dfrac{2}{e^x}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_0^{\frac13}e^{3x}(1-e^{-3x})\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_0^1\dfrac{e^{2x}+1}{e^x}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^1(e^x+1)^2\,dx\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">If \(f'(x)=e^x-e^{-x}-1\) and \(f(0)=3\), find \(f(x)\) and then find \(f(1)\).{{work:55}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(e^{x^3}\).</span><span><span class="pl">b</span>Hence find \(\displaystyle\int_0^1x^2e^{x^3}\,dx\).</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body">Find the area of each region correct to three significant figures.
+<div class="g7e"><div><span class="pl">a</span><div class="fig">{{svg:r7e_6q22a}}</div></div>
+<div><span class="pl">b</span><div class="fig">{{svg:r7e_6q22b}}</div></div></div>{{work:95}}</div></div>
+<div class="q"><span class="q-num">23</span><div class="q-body">Find the exact area of the shaded region.
+<div class="g7e"><div><span class="pl">a</span><div class="fig">{{svg:r7e_6q23a}}</div></div>
+<div><span class="pl">b</span><div class="fig">{{svg:r7e_6q23b}}</div></div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">32</span><div class="q-body">Find these indefinite integrals.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\dfrac1x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\dfrac3x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\dfrac{1}{5x}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\dfrac{1}{x+7}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int\dfrac{1}{2x-1}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int\dfrac{1}{2-3x}\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int\dfrac{2}{2x+9}\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int\dfrac{8}{1-4x}\,dx\)</span></div>{{work:105}}</div></div>
+<div class="q"><span class="q-num">33</span><div class="q-body">Evaluate these definite integrals.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int_0^1\dfrac{1}{x+2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^4\dfrac{1}{4x-3}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^e\dfrac1x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{e^2}^{e^3}\dfrac1x\,dx\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">34</span><div class="q-body">Use the standard form \(\displaystyle\int\dfrac{u'}{u}\,dx=\log_e|u|+C\) OR \(\displaystyle\int\dfrac{f'(x)}{f(x)}\,dx=\log_e|f(x)|+C\) to find:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int\dfrac{2x}{x^2+4}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\dfrac{3x^2-5}{x^3-5x+7}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\dfrac{x}{x^2-3}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\dfrac{x^3-1}{x^4-4x}\,dx\)</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">35</span><div class="q-body">Find the area of the region bounded by the curve \(y=\dfrac1x\), the \(x\)-axis and the lines \(x=2\) and \(x=4\).{{work:85}}</div></div>
+<div class="q"><span class="q-num">36</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>By solving the equations simultaneously, show that the curve \(y=\dfrac5x\) and the line \(y=6-x\) intersect at the points \((1,5)\) and \((5,1)\).</span><span><span class="pl">b</span>By sketching both graphs on the same number plane, find the area of the region enclosed between them.</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">38</span><div class="q-body">Find these indefinite integrals.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int e^x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int2^x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int3^x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int5^x\,dx\)</span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">39</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(x\log_ex\), and hence find \(\displaystyle\int\log_ex\,dx\).</span><span><span class="pl">b</span>Differentiate \(xe^x\), and hence find \(\displaystyle\int xe^x\,dx\).</span><span><span class="pl">c</span>Hence prove that \(\displaystyle\int_1^e\dfrac1x\,dx=\int_1^e\log_ex\,dx=\int_0^1xe^x\,dx=1\).</span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">41</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find \(\displaystyle\int_0^32^x\,dx\) and \(\displaystyle\int_{-3}^02^x\,dx\).</span><span><span class="pl">b</span>Explain geometrically why the first is 8 times the second.</span></div>{{work:90}}</div></div>
+
+{{sec:blue:pencil:Chapter 7 review:integration questions}}
+<div class="q"><span class="q-num">5</span><div class="q-body">Find:
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int4\cos x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\sin4x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\sec^2\tfrac14x\,dx\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Find the value of:
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\sec^2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{4}}\cos2x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^{\frac13}\pi\sin\pi x\,dx\)</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Find the value of \(\displaystyle\int_0^{\frac14}\sin3x\,dx\), correct to three decimal places.{{work:26}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">A curve has gradient function \(y'=\cos\tfrac12x\) and passes through the point \((\pi,1)\). Find its equation.{{work:60}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Sketch the curve \(y=2\sin2x\), for \(0\le x\le\pi\), and then shade the area between the curve and the \(x\)-axis from \(x=\dfrac{\pi}{4}\) to \(x=\dfrac{3\pi}{4}\).</span><span><span class="pl">b</span>Calculate the shaded area in part <b>a</b>.</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Find the area of the shaded region in each diagram below.
+<div class="g7e"><div><span class="pl">a</span><div class="fig">{{svg:r7e_7q10a}}</div></div>
+<div><span class="pl">b</span><div class="fig">{{svg:r7e_7q10b}}</div></div></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="split" style="grid-template-columns:1.6fr 1fr"><div><div class="parts one"><span><span class="pl">a</span>Write \(\tan x\) in terms of \(\sin x\) and \(\cos x\).</span><span><span class="pl">b</span>Hence find the exact area of the shaded region in the diagram to the right.</span></div></div>
+<div class="f7e"><div class="fig">{{svg:r7e_7q11}}</div></div></div>{{work:44}}</div></div>
+<p style="margin:2mm 0 1mm"><b>The following questions are more difficult:</b></p>
+<div class="q"><span class="q-num">16</span><div class="q-body">Find:
+<div class="parts three" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int e^{2x}\cos e^{2x}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\dfrac{\sin e^{-2x}}{e^{2x}}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\dfrac{\sec^2x}{3\tan x+1}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\dfrac{3\sin x}{4+5\cos x}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int\dfrac{1-\cos^3x}{1-\sin^2x}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^\pi\sin x\cos^2x\,dx\)</span></div>{{work:105}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\tan^3x=\tan x\sec^2x-\tan x\).</span><span><span class="pl">b</span>Hence find:
+<div class="parts"><span><span class="pl">i</span>\(\displaystyle\int\tan^3x\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int\tan^5x\,dx\)</span></div></span></div>{{work:95}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Sketch \(y=1-\tan x\), for \(-\dfrac{\pi}{2}\lt x\lt\dfrac{\pi}{2}\), and shade the region \(R\) bounded by the curve and the coordinate axes.</span><span><span class="pl">b</span>Find the area of \(R\).</span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\cos(A+B)+\cos(A-B)=2\cos A\cos B\).</span><span><span class="pl">b</span>Hence find:
+<div class="parts"><span><span class="pl">i</span>\(\displaystyle\int_0^{\frac{\pi}{2}}2\cos3x\cos2x\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_0^\pi\cos3x\cos4x\,dx\)</span></div></span>
+<span><span class="pl">c</span>Find \(\displaystyle\int\cos mx\cos nx\,dx\), where \(m\) and \(n\) are:
+<div class="parts"><span><span class="pl">i</span>distinct positive integers,</span><span><span class="pl">ii</span>equal positive integers.</span></div></span></div>{{work:195}}</div></div>
+</div>

@@ -1,1 +1,166 @@
-<!-- filled by Task: lesson 7e -->
+{{ahead:Lesson 7E | Applications of integration}}
+<style>
+.ap7e { display:inline-block; break-inside:avoid; margin-right:5mm; }
+.sk7e { display:flex; gap:6mm; align-items:flex-start; flex-wrap:wrap; margin:1mm 0; }
+.sk7e svg { height:auto; }
+</style>
+<div class="ans-sec">Lesson Examples</div>
+<div class="a" style="break-inside:auto"><span class="an">C1</span><div class="ab"><div style="break-inside:avoid">
+<b>Tutor demo.</b>
+<p><b>a</b> The curve \(y=\cos\tfrac13x\) has amplitude \(1\), and the period is \(2\pi\div\tfrac13=6\pi\).<br>It crosses the \(x\)-axis where \(\tfrac13x=\dfrac{\pi}{2}\) or \(\tfrac13x=\dfrac{3\pi}{2}\), so the two \(x\)-intercepts in the interval are \(x=\dfrac{3\pi}{2}\) and \(x=\dfrac{9\pi}{2}\).</p>
+<div class="sk7e">{{svg:a7e_c1d}}</div></div>
+<p><b>b</b> Integrate separately over \(\Big[0,\dfrac{3\pi}{2}\Big]\), \(\Big[\dfrac{3\pi}{2},\dfrac{9\pi}{2}\Big]\) and \(\Big[\dfrac{9\pi}{2},6\pi\Big]\). The primitive of \(\cos\tfrac13x\) is \(\dfrac{1}{\frac13}\sin\tfrac13x=3\sin\tfrac13x\).</p>
+\[\begin{aligned}\int_0^{\frac{3\pi}{2}}\cos\tfrac13x\,dx&amp;=\Big[3\sin\tfrac13x\Big]_0^{\frac{3\pi}{2}}\\&amp;=3\sin\tfrac{\pi}{2}-3\sin0\\&amp;=3-0\\&amp;=3,\end{aligned}\]
+<p>which is positive, because the curve is above the \(x\)-axis there.</p>
+\[\begin{aligned}\int_{\frac{3\pi}{2}}^{\frac{9\pi}{2}}\cos\tfrac13x\,dx&amp;=\Big[3\sin\tfrac13x\Big]_{\frac{3\pi}{2}}^{\frac{9\pi}{2}}\\&amp;=3\sin\tfrac{3\pi}{2}-3\sin\tfrac{\pi}{2}\\&amp;=-3-3\\&amp;=-6,\end{aligned}\]
+<p>which is negative, because the curve is below the \(x\)-axis there.</p>
+\[\begin{aligned}\int_{\frac{9\pi}{2}}^{6\pi}\cos\tfrac13x\,dx&amp;=\Big[3\sin\tfrac13x\Big]_{\frac{9\pi}{2}}^{6\pi}\\&amp;=3\sin2\pi-3\sin\tfrac{3\pi}{2}\\&amp;=0-(-3)\\&amp;=3,\end{aligned}\]
+<p>which is positive, because the curve is above the \(x\)-axis there. At the limits, \(\tfrac13\times\dfrac{3\pi}{2}=\dfrac{\pi}{2}\), \(\tfrac13\times\dfrac{9\pi}{2}=\dfrac{3\pi}{2}\) and \(\tfrac13\times6\pi=2\pi\).</p>
+\[\begin{aligned}\text{Hence total area}&amp;=3+6+3\\&amp;=12\text{ square units.}\end{aligned}\]
+<div style="break-inside:avoid">
+<b>Your turn.</b>
+<p><b>a</b> The curve \(y=\cos2x\) has amplitude \(1\), and the period is \(2\pi\div2=\pi\).<br>It crosses the \(x\)-axis where \(2x=\dfrac{\pi}{2}\) or \(2x=\dfrac{3\pi}{2}\), so the two \(x\)-intercepts in the interval are \(x=\dfrac{\pi}{4}\) and \(x=\dfrac{3\pi}{4}\).</p>
+<div class="sk7e">{{svg:a7e_c1y}}</div></div>
+<p><b>b</b> Integrate separately over \(\Big[0,\dfrac{\pi}{4}\Big]\), \(\Big[\dfrac{\pi}{4},\dfrac{3\pi}{4}\Big]\) and \(\Big[\dfrac{3\pi}{4},\pi\Big]\). The primitive of \(\cos2x\) is \(\tfrac12\sin2x\).</p>
+\[\begin{aligned}\int_0^{\frac{\pi}{4}}\cos2x\,dx&amp;=\Big[\tfrac12\sin2x\Big]_0^{\frac{\pi}{4}}\\&amp;=\tfrac12\sin\tfrac{\pi}{2}-\tfrac12\sin0\\&amp;=\tfrac12-0\\&amp;=\tfrac12,\end{aligned}\]
+<p>which is positive, because the curve is above the \(x\)-axis there.</p>
+\[\begin{aligned}\int_{\frac{\pi}{4}}^{\frac{3\pi}{4}}\cos2x\,dx&amp;=\Big[\tfrac12\sin2x\Big]_{\frac{\pi}{4}}^{\frac{3\pi}{4}}\\&amp;=\tfrac12\sin\tfrac{3\pi}{2}-\tfrac12\sin\tfrac{\pi}{2}\\&amp;=-\tfrac12-\tfrac12\\&amp;=-1,\end{aligned}\]
+<p>which is negative, because the curve is below the \(x\)-axis there.</p>
+\[\begin{aligned}\int_{\frac{3\pi}{4}}^{\pi}\cos2x\,dx&amp;=\Big[\tfrac12\sin2x\Big]_{\frac{3\pi}{4}}^{\pi}\\&amp;=\tfrac12\sin2\pi-\tfrac12\sin\tfrac{3\pi}{2}\\&amp;=0-\big(-\tfrac12\big)\\&amp;=\tfrac12,\end{aligned}\]
+<p>which is positive, because the curve is above the \(x\)-axis there.</p>
+\[\begin{aligned}\text{Hence total area}&amp;=\tfrac12+1+\tfrac12\\&amp;=2\text{ square units.}\end{aligned}\]</div></div>
+
+<div class="a" style="break-inside:auto"><span class="an">C2</span><div class="ab"><div class="split" style="grid-template-columns:1.25fr 1fr;break-inside:avoid"><div>
+<b>Tutor demo.</b>
+<p><b>a</b> At \(x=\dfrac{\pi}{3}\), \(\ \sin x=\sin\dfrac{\pi}{3}=\tfrac12\sqrt3\) and \(\sin2x=\sin\dfrac{2\pi}{3}=\tfrac12\sqrt3\). The \(y\)-values are equal, so the curves intersect when \(x=\dfrac{\pi}{3}\).</p>
+<p><b>b</b> The curves are sketched to the right. They also meet at \(x=0\) and \(x=\pi\).</p>
+</div><div class="sk7e">{{svg:a7e_c2d}}</div></div>
+<p><b>c</b> In the interval \(\dfrac{\pi}{3}\le x\le\pi\), the curve \(y=\sin x\) is above \(y=\sin2x\): at \(x=\dfrac{\pi}{2}\), \(\sin x=1\) and \(\sin2x=\sin\pi=0\).</p>
+\[\begin{aligned}\text{area between}&amp;=\int_{\frac{\pi}{3}}^{\pi}(\sin x-\sin2x)\,dx\\&amp;=\Big[-\cos x+\tfrac12\cos2x\Big]_{\frac{\pi}{3}}^{\pi}\\&amp;=\Big(-\cos\pi+\tfrac12\cos2\pi\Big)-\Big(-\cos\tfrac{\pi}{3}+\tfrac12\cos\tfrac{2\pi}{3}\Big)\\&amp;=\big(1+\tfrac12\big)-\big(-\tfrac12-\tfrac14\big)\\&amp;=\tfrac32+\tfrac34\\&amp;=\tfrac94\text{ square units.}\end{aligned}\]
+<p class="small">Here \(\cos\pi=-1\), \(\cos2\pi=1\), \(\cos\dfrac{\pi}{3}=\tfrac12\) and \(\cos\dfrac{2\pi}{3}=-\tfrac12\), so \(\tfrac12\cos\dfrac{2\pi}{3}=-\tfrac14\).</p>
+<div class="split" style="grid-template-columns:1.25fr 1fr;break-inside:avoid"><div>
+<b>Your turn.</b>
+<p><b>a</b> At \(x=\dfrac{\pi}{6}\), \(\ \cos x=\cos\dfrac{\pi}{6}=\tfrac12\sqrt3\) and \(\sin2x=\sin\dfrac{\pi}{3}=\tfrac12\sqrt3\). The \(y\)-values are equal, so the curves intersect when \(x=\dfrac{\pi}{6}\).</p>
+<p><b>b</b> The curves are sketched to the right. They also meet at \(x=\dfrac{\pi}{2}\).</p>
+</div><div class="sk7e">{{svg:a7e_c2y}}</div></div>
+<p><b>c</b> In the interval \(0\le x\le\dfrac{\pi}{6}\), the curve \(y=\cos x\) is above \(y=\sin2x\): at \(x=0\), \(\cos x=1\) and \(\sin2x=0\).</p>
+\[\begin{aligned}\text{area between}&amp;=\int_0^{\frac{\pi}{6}}(\cos x-\sin2x)\,dx\\&amp;=\Big[\sin x+\tfrac12\cos2x\Big]_0^{\frac{\pi}{6}}\\&amp;=\Big(\sin\tfrac{\pi}{6}+\tfrac12\cos\tfrac{\pi}{3}\Big)-\Big(\sin0+\tfrac12\cos0\Big)\\&amp;=\big(\tfrac12+\tfrac14\big)-\big(0+\tfrac12\big)\\&amp;=\tfrac14\text{ square units.}\end{aligned}\]
+<p class="small">The primitive of \(-\sin2x\) is \(\tfrac12\cos2x\). At the upper limit, \(2\times\dfrac{\pi}{6}=\dfrac{\pi}{3}\).</p></div></div>
+
+<div class="a" style="break-inside:auto"><span class="an">C3</span><div class="ab"><div style="break-inside:avoid">
+<b>Tutor demo.</b>
+<p><b>a</b> Put \(\sin x=-\cos x\). Then \(\tan x=-1\), so \(x=\dfrac{3\pi}{4}\) or \(\dfrac{7\pi}{4}\) (the tangent is negative in quadrants 2 and 4, and the related angle is \(\dfrac{\pi}{4}\)). So the curves intersect at the points \(\Big(\dfrac{3\pi}{4},\tfrac12\sqrt2\Big)\) and \(\Big(\dfrac{7\pi}{4},-\tfrac12\sqrt2\Big)\).</p>
+<div class="sk7e">{{svg:a7e_c3d}}</div></div>
+<p><b>b</b> Between the intersections, \(y=-\cos x\) is above \(y=\sin x\): at \(x=\pi\), \(-\cos\pi=1\) and \(\sin\pi=0\).</p>
+\[\begin{aligned}\text{Area between}&amp;=\int_{\frac{3\pi}{4}}^{\frac{7\pi}{4}}(-\cos x-\sin x)\,dx\\&amp;=\Big[-\sin x+\cos x\Big]_{\frac{3\pi}{4}}^{\frac{7\pi}{4}}\\&amp;=\Big(-\sin\tfrac{7\pi}{4}+\cos\tfrac{7\pi}{4}\Big)-\Big(-\sin\tfrac{3\pi}{4}+\cos\tfrac{3\pi}{4}\Big)\\&amp;=\big(\tfrac12\sqrt2+\tfrac12\sqrt2\big)-\big(-\tfrac12\sqrt2-\tfrac12\sqrt2\big)\\&amp;=\sqrt2+\sqrt2\\&amp;=2\sqrt2\text{ square units.}\end{aligned}\]
+<p class="small">Here \(\sin\dfrac{7\pi}{4}=-\tfrac12\sqrt2\), \(\cos\dfrac{7\pi}{4}=\tfrac12\sqrt2\), \(\sin\dfrac{3\pi}{4}=\tfrac12\sqrt2\) and \(\cos\dfrac{3\pi}{4}=-\tfrac12\sqrt2\).</p>
+<div style="break-inside:avoid">
+<b>Your turn.</b>
+<p><b>a</b> Put \(\sin x=\cos x\). Then \(\tan x=1\), so \(x=-\dfrac{3\pi}{4}\) or \(\dfrac{\pi}{4}\) (the tangent is positive in quadrants 1 and 3, and the related angle is \(\dfrac{\pi}{4}\)). So the curves intersect at the points \(\Big(-\dfrac{3\pi}{4},-\tfrac12\sqrt2\Big)\) and \(\Big(\dfrac{\pi}{4},\tfrac12\sqrt2\Big)\).</p>
+<div class="sk7e">{{svg:a7e_c3y}}</div></div>
+<p><b>b</b> Between the intersections, \(y=\cos x\) is above \(y=\sin x\): at \(x=0\), \(\cos0=1\) and \(\sin0=0\).</p>
+\[\begin{aligned}\text{Area between}&amp;=\int_{-\frac{3\pi}{4}}^{\frac{\pi}{4}}(\cos x-\sin x)\,dx\\&amp;=\Big[\sin x+\cos x\Big]_{-\frac{3\pi}{4}}^{\frac{\pi}{4}}\\&amp;=\Big(\sin\tfrac{\pi}{4}+\cos\tfrac{\pi}{4}\Big)-\Big(\sin\big(-\tfrac{3\pi}{4}\big)+\cos\big(-\tfrac{3\pi}{4}\big)\Big)\\&amp;=\big(\tfrac12\sqrt2+\tfrac12\sqrt2\big)-\big(-\tfrac12\sqrt2-\tfrac12\sqrt2\big)\\&amp;=\sqrt2+\sqrt2\\&amp;=2\sqrt2\text{ square units.}\end{aligned}\]</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><span class="ap7e"><b>a</b> \(1\) square unit</span> <span class="ap7e"><b>b</b> \(\tfrac12\) square unit</span></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><span class="ap7e"><b>a</b> \(1\) square unit</span> <span class="ap7e"><b>b</b> \(\sqrt3\) square units</span></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><span class="ap7e"><b>a</b> \(1-\dfrac{1}{\sqrt2}\) square units</span> <span class="ap7e"><b>b</b> \(1-\dfrac{\sqrt3}{2}\) square units</span></div></div>
+<div class="a"><span class="an">4</span><div class="ab"><span class="ap7e"><b>a</b> \(\tfrac12\sqrt3\) u\(^2\)</span> <span class="ap7e"><b>b</b> \(\tfrac12\sqrt3\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">5</span><div class="ab"><span class="ap7e"><b>a</b> \(\tfrac12\) u\(^2\)</span> <span class="ap7e"><b>b</b> \(\tfrac12\) u\(^2\)</span> <span class="ap7e"><b>c</b> \(1-\dfrac{\sqrt3}{2}=\tfrac12\big(2-\sqrt3\big)\) u\(^2\)</span> <span class="ap7e"><b>d</b> \(\tfrac13\Big(1-\dfrac{1}{\sqrt2}\Big)=\tfrac16\big(2-\sqrt2\big)\) u\(^2\)</span> <span class="ap7e"><b>e</b> \(\tfrac23\sqrt3\) u\(^2\)</span> <span class="ap7e"><b>f</b> \(4\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">6</span><div class="ab"><span class="ap7e"><b>a</b> \(\big(\sqrt2-1\big)\) u\(^2\)</span> <span class="ap7e"><b>b</b> \(\tfrac14\) u\(^2\)</span> <span class="ap7e"><b>c</b> \(\Big(\dfrac{\pi^2}{8}-1\Big)\) u\(^2\)</span> <span class="ap7e"><b>d</b> \((\pi-2)\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">7</span><div class="ab"><span class="ap7e"><b>a</b> \(\big(2-\sqrt2\big)\) u\(^2\)</span> <span class="ap7e"><b>b</b> \(1\tfrac12\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">8</span><div class="ab"><span class="ap7e"><b>a</b> \(2\) u\(^2\)</span> <span class="ap7e"><b>b</b> \(1\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><span class="ap7e"><b>a</b> \(2\) u\(^2\)</span> <span class="ap7e"><b>b</b> \(\sqrt2\) u\(^2\)</span> <span class="ap7e"><b>c</b> \(2\) u\(^2\)</span> <span class="ap7e"><b>d</b> \(\tfrac12\) u\(^2\)</span> <span class="ap7e"><b>e</b> \(4\) u\(^2\)</span> <span class="ap7e"><b>f</b> \(1\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">10</span><div class="ab"><span class="ap7e"><b>b</b> \(\dfrac{4}{\pi}\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">11</span><div class="ab"><span class="ap7e">\(3.8\) m\(^2\)</span></div></div>
+<div class="a"><span class="an">12</span><div class="ab"><span class="ap7e">\(4\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">14</span><div class="ab"><span class="ap7e"><b>b</b> \(\tfrac12\big(3+\sqrt3\big)\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">15</span><div class="ab"><span class="ap7e"><b>c</b> \(\tfrac34\sqrt3\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">16</span><div class="ab"><span class="ap7e"><b>b</b> \(2\sqrt2\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">17</span><div class="ab"><span class="ap7e"><b>b</b> They are all \(4\) u\(^2\).</span></div></div>
+<div class="a"><span class="an">18</span><div class="ab"><span class="ap7e"><b>b</b> The curve is below \(y=1\) just as much as it is above \(y=1\), so the area is equal to the area of a rectangle \(n\) units long and \(1\) unit high.</span></div></div>
+<div class="a"><span class="an">19</span><div class="ab"><span class="ap7e">\(12\)</span></div></div>
+<div class="a"><span class="an">20</span><div class="ab"><span class="ap7e"><b>a</b> Since \(x^2\gt0\) for \(0\lt x\lt\dfrac{\pi}{2}\), \(\ x^2\sin x\lt x^2\times x\lt x^2\tan x\).</span></div></div>
+<div class="a"><span class="an">21</span><div class="ab"><span class="ap7e"><b>b</b> \(\cos x\) and \((1+\sin x)^2\) are both positive in the given domain, so \(y'\) is negative there.</span></div></div>
+<div class="a"><span class="an">22</span><div class="ab"><span class="ap7e"><b>a</b> \(0\), since the integrand is odd.</span> <span class="ap7e"><b>b</b> \(0\), since the integrand is odd.</span> <span class="ap7e"><b>c</b> \(2\), since the integrand is even.</span> <span class="ap7e"><b>d</b> \(6\sqrt3\), since the integrand is even.</span><br><span class="ap7e"><b>e</b> \(6\pi\). The first term is even, the other two are odd.</span> <span class="ap7e"><b>f</b> \(-\tfrac23+\dfrac{\pi^3}{4}\). The first term is odd, the other two are even.</span></div></div>
+<div class="a"><span class="an">23</span><div class="ab"><span class="ap7e"><b>b</b> \(\displaystyle\int_0^Ne^{-x}\sin x\,dx=\tfrac12-\tfrac12e^{-N}(\sin N+\cos N)\), which tends to \(\tfrac12\) as \(N\to\infty\).</span><br><span class="ap7e"><b>c</b> \(\displaystyle\int_0^\pi e^{-x}\sin x\,dx=\tfrac12\big(1+e^{-\pi}\big)\), &ensp;\(\displaystyle\int_{2\pi}^{3\pi}e^{-x}\sin x\,dx=\tfrac12e^{-2\pi}\big(1+e^{-\pi}\big)\), so the ratio is \(e^{-2\pi}\).</span></div></div>
+
+{{ahead:Lesson 7E | Applications of integration}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa" style="break-inside:auto"><div class="pp-src"><span><span class="pn">PP 1</span>Fort Street High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q10</span></div>
+<p>The points \(A\) and \(B\) are where the curves meet. Put \(\sin x=\cos x\). Then \(\tan x=1\), so \(x=\dfrac{\pi}{4}\) or \(x=\dfrac{5\pi}{4}\). These are the limits of the integral.</p>
+<p>Between \(A\) and \(B\), the curve \(y=\sin x\) is on top: at \(x=\dfrac{\pi}{2}\), \(\sin x=1\) and \(\cos x=0\). The area is the integral of the top curve minus the bottom curve, \(\displaystyle\int_{\frac{\pi}{4}}^{\frac{5\pi}{4}}\big(\sin(x)-\cos(x)\big)\,dx\).</p>
+<p>Option A is the bottom curve minus the top curve, so it gives the opposite of the area. Option C adds the two functions instead of subtracting them. Option D has the wrong limits. <b>Answer (B).</b></p></div>
+
+<div class="ppa" style="break-inside:auto"><div class="pp-src"><span><span class="pn">PP 2</span>Caringbah High School, 2021, Year 12 Mathematics Extension&nbsp;1 HSC Course Assessment Task&nbsp;4,&nbsp;Q12(c)</span></div>
+<p><b>(i)</b> When \(x=0\),</p>
+\[\begin{aligned}y&amp;=2\cos^{-1}0\\&amp;=2\times\dfrac{\pi}{2}\\&amp;=\pi.\end{aligned}\]
+<p>The \(y\) intercept is \(\pi\).</p>
+<p><b>(ii)</b> The domain of \(\cos^{-1}\) is \(-1\le\dfrac{x}{3}\le1\). Multiplying by \(3\), the domain of \(f\) is \(-3\le x\le3\).</p>
+<p>The range of \(\cos^{-1}\) is \(0\le\cos^{-1}\dfrac{x}{3}\le\pi\). Multiplying by \(2\), the range of \(f\) is \(0\le y\le2\pi\).</p>
+<p><b>(iii)</b> The region lies under the curve between \(x=0\) and \(x=3\). At \(x=3\), \(y=2\cos^{-1}1=0\), and at \(x=0\), \(y=\pi\). So the region is bounded by the curve, the \(x\)-axis and the \(y\)-axis, and it runs from \(y=0\) to \(y=\pi\). Make \(x\) the subject, and integrate with respect to \(y\):</p>
+\[\begin{aligned}y&amp;=2\cos^{-1}\dfrac{x}{3}\\\dfrac{y}{2}&amp;=\cos^{-1}\dfrac{x}{3}\\\dfrac{x}{3}&amp;=\cos\dfrac{y}{2}\\x&amp;=3\cos\dfrac{y}{2}.\end{aligned}\]
+<p>For \(0\le y\le\pi\), \(\ x=3\cos\dfrac{y}{2}\) is positive, so the region lies between the \(y\)-axis and this curve.</p>
+\[\begin{aligned}\text{Area}&amp;=\int_0^\pi3\cos\dfrac{y}{2}\,dy\\&amp;=\Big[6\sin\dfrac{y}{2}\Big]_0^\pi\\&amp;=6\sin\dfrac{\pi}{2}-6\sin0\\&amp;=6\times1-0\\&amp;=6.\end{aligned}\]
+<p>The area is \(6\) square units. (The primitive of \(\cos\tfrac12y\) is \(\dfrac{1}{\frac12}\sin\tfrac12y=2\sin\tfrac12y\), and \(3\times2=6\).)</p></div>
+
+<div class="ppa" style="break-inside:auto"><div class="pp-src"><span><span class="pn">PP 3</span>Northern Beaches Secondary College Manly Selective Campus, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(c)</span></span></div>
+<div class="split" style="grid-template-columns:1.25fr 1fr"><div>
+<p>The curve \(y=\tan^{-1}x\) passes through the origin and meets the lines \(y=\pm\dfrac{\pi}{4}\) at \(x=\pm1\), because \(\tan^{-1}1=\dfrac{\pi}{4}\) and \(\tan^{-1}(-1)=-\dfrac{\pi}{4}\). The region has two parts, one in the first quadrant and one in the third quadrant, each between the curve and the \(y\)-axis.</p>
+</div><div class="sk7e">{{svg:a7e_manly}}</div></div>
+<p>Make \(x\) the subject: from \(y=\tan^{-1}x\), \(\ x=\tan y\), for \(-\dfrac{\pi}{2}\lt y\lt\dfrac{\pi}{2}\).</p>
+<p>The function \(\tan^{-1}x\) is odd, so the two parts have equal area. In the first quadrant, the region runs from \(y=0\) to \(y=\dfrac{\pi}{4}\), between the \(y\)-axis and \(x=\tan y\). Using \(\displaystyle\int\tan y\,dy=-\log_e|\cos y|+C\) (Lesson 7D),</p>
+\[\begin{aligned}\text{Area}&amp;=2\int_0^{\frac{\pi}{4}}\tan y\,dy\\&amp;=2\Big[-\log_e\cos y\Big]_0^{\frac{\pi}{4}}\\&amp;=2\Big(-\log_e\cos\tfrac{\pi}{4}+\log_e\cos0\Big)\\&amp;=2\Big(-\log_e\dfrac{1}{\sqrt2}+\log_e1\Big)\\&amp;=2\big(\log_e\sqrt2+0\big)\\&amp;=2\times\tfrac12\log_e2\\&amp;=\log_e2.\end{aligned}\]
+<p>The area is \(\ln2\) square units. Here \(\cos y\gt0\) for \(0\le y\le\dfrac{\pi}{4}\), so \(|\cos y|=\cos y\); also \(-\log_e\dfrac{1}{\sqrt2}=\log_e\sqrt2\) and \(\log_e\sqrt2=\log_e2^{\frac12}=\tfrac12\log_e2\).</p></div>
+
+<div class="ppa" style="break-inside:auto"><div class="pp-src"><span><span class="pn">PP 4</span>Hornsby Girls High School, 2023, Year 12 Higher School Certificate Trial Examination Term&nbsp;3, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(b)</span></span></div>
+<p>The shaded region is bounded by the curve and the two axes.</p>
+<p>When \(x=0\), \(\ y=2\cos^{-1}\tfrac12=2\times\dfrac{\pi}{3}=\dfrac{2\pi}{3}\).<br>When \(y=0\), \(\ \cos^{-1}\big(x+\tfrac12\big)=0\), so \(x+\tfrac12=1\) and \(x=\tfrac12\).</p>
+<p>So the region runs from \(y=0\) to \(y=\dfrac{2\pi}{3}\). Make \(x\) the subject:</p>
+\[\begin{aligned}y&amp;=2\cos^{-1}\big(x+\tfrac12\big)\\\dfrac{y}{2}&amp;=\cos^{-1}\big(x+\tfrac12\big)\\\cos\dfrac{y}{2}&amp;=x+\tfrac12\\x&amp;=\cos\dfrac{y}{2}-\tfrac12.\end{aligned}\]
+<p>The region lies between the \(y\)-axis and this curve, so integrate with respect to \(y\):</p>
+\[\begin{aligned}A&amp;=\int_0^{\frac{2\pi}{3}}\Big(\cos\dfrac{y}{2}-\tfrac12\Big)\,dy\\&amp;=\Big[2\sin\dfrac{y}{2}-\tfrac12y\Big]_0^{\frac{2\pi}{3}}\\&amp;=\Big(2\sin\dfrac{\pi}{3}-\tfrac12\times\dfrac{2\pi}{3}\Big)-\Big(2\sin0-0\Big)\\&amp;=2\times\dfrac{\sqrt3}{2}-\dfrac{\pi}{3}\\&amp;=\sqrt3-\dfrac{\pi}{3}.\end{aligned}\]
+<p>The shaded area is \(\Big(\sqrt3-\dfrac{\pi}{3}\Big)\) square units. (At the upper limit, \(\tfrac12\times\dfrac{2\pi}{3}=\dfrac{\pi}{3}\).)</p></div>
+
+<div class="ppa" style="break-inside:auto"><div class="pp-src"><span><span class="pn">PP 5</span>Pymble Ladies' College, 2024, Mathematics Extension 1 HSC Trial Examination Term&nbsp;3,&nbsp;Q13(d)</span></div>
+<div class="split" style="grid-template-columns:1.1fr 1fr"><div>
+<p><b>(i)</b> The curve \(y=-\tan^{-1}x\) is the reflection of \(y=\tan^{-1}x\) in the \(x\)-axis. It passes through the origin, it is decreasing, and its horizontal asymptotes are \(y=\dfrac{\pi}{2}\) (to the left) and \(y=-\dfrac{\pi}{2}\) (to the right).</p>
+<p>When \(x=1\), \(\ y=-\tan^{-1}1=-\dfrac{\pi}{4}\), so the labelled point is \(\Big(1,-\dfrac{\pi}{4}\Big)\).</p>
+</div><div class="sk7e">{{svg:a7e_plc}}</div></div>
+<p><b>(ii)</b> The region is below the \(x\)-axis, from \(x=0\) to \(x=1\), and it runs from \(y=-\dfrac{\pi}{4}\) to \(y=0\). Make \(x\) the subject: from \(y=-\tan^{-1}x\), \(\ \tan^{-1}x=-y\), so \(x=\tan(-y)=-\tan y\).</p>
+<p>At each height \(y\), the region runs from the curve \(x=-\tan y\) on the left to the line \(x=1\) on the right. Using the right-hand boundary minus the left-hand boundary,</p>
+\[\begin{aligned}\text{Area}&amp;=\int_{-\frac{\pi}{4}}^{0}\big(1-(-\tan y)\big)\,dy\\&amp;=\int_{-\frac{\pi}{4}}^{0}\big(1+\tan y\big)\,dy\\&amp;=\Big[y-\log_e\cos y\Big]_{-\frac{\pi}{4}}^{0}\\&amp;=\big(0-\log_e\cos0\big)-\Big(-\tfrac{\pi}{4}-\log_e\cos\big(-\tfrac{\pi}{4}\big)\Big)\\&amp;=(0-0)-\Big(-\tfrac{\pi}{4}-\log_e\dfrac{1}{\sqrt2}\Big)\\&amp;=\dfrac{\pi}{4}+\log_e\dfrac{1}{\sqrt2}\\&amp;=\dfrac{\pi}{4}-\tfrac12\log_e2.\end{aligned}\]
+<p>The area is \(\Big(\dfrac{\pi}{4}-\tfrac12\ln2\Big)\) square units. Here \(\cos y\gt0\) for \(-\dfrac{\pi}{4}\le y\le0\), so \(|\cos y|=\cos y\), and \(\log_e\dfrac{1}{\sqrt2}=\log_e2^{-\frac12}=-\tfrac12\log_e2\).</p>
+</div>
+
+{{ahead:Review | Chapter review exercise}}
+<div class="ans-sec">Chapter 6 review: integration questions</div>
+<div class="a"><span class="an">16</span><div class="ab"><span class="ap7e"><b>a</b> \(\tfrac15e^{5x}+C\)</span> <span class="ap7e"><b>b</b> \(-2e^{2-5x}+C\)</span> <span class="ap7e"><b>c</b> \(5e^{\frac15x}+C\)</span> <span class="ap7e"><b>d</b> \(\tfrac35e^{5x-4}+C\)</span></div></div>
+<div class="a"><span class="an">17</span><div class="ab"><span class="ap7e"><b>a</b> \(e^2-1\)</span> <span class="ap7e"><b>b</b> \(\tfrac12(e^2-1)\)</span> <span class="ap7e"><b>c</b> \(e-1\)</span> <span class="ap7e"><b>d</b> \(\tfrac13(e^2-1)\)</span> <span class="ap7e"><b>e</b> \(\tfrac12e^2(e-1)\)</span> <span class="ap7e"><b>f</b> \(4(e-1)\)</span></div></div>
+<div class="a"><span class="an">18</span><div class="ab"><span class="ap7e"><b>a</b> \(-\tfrac15e^{-5x}+C\)</span> <span class="ap7e"><b>b</b> \(\tfrac14e^{4x}+C\)</span> <span class="ap7e"><b>c</b> \(-2e^{-3x}+C\)</span> <span class="ap7e"><b>d</b> \(\tfrac16e^{6x}+C\)</span> <span class="ap7e"><b>e</b> \(-\tfrac12e^{-2x}+C\)</span> <span class="ap7e"><b>f</b> \(e^x-\tfrac12e^{-2x}+C\)</span> <span class="ap7e"><b>g</b> \(\tfrac13e^{3x}+e^x+C\)</span> <span class="ap7e"><b>h</b> \(x-2e^{-x}-\tfrac12e^{-2x}+C\)</span></div></div>
+<div class="a"><span class="an">19</span><div class="ab"><span class="ap7e"><b>a</b> \(2-e^{-1}\)</span> <span class="ap7e"><b>b</b> \(\tfrac12(e^4+3)\)</span> <span class="ap7e"><b>c</b> \(2(1-e^{-1})\)</span> <span class="ap7e"><b>d</b> \(\tfrac13(e-2)\)</span> <span class="ap7e"><b>e</b> \(e-e^{-1}\)</span> <span class="ap7e"><b>f</b> \(\tfrac12(e^2+4e-3)\)</span></div></div>
+<div class="a"><span class="an">20</span><div class="ab"><span class="ap7e">\(f(x)=e^x+e^{-x}-x+1\), &ensp;\(f(1)=e+e^{-1}\)</span></div></div>
+<div class="a"><span class="an">21</span><div class="ab"><span class="ap7e"><b>a</b> \(3x^2e^{x^3}\)</span> <span class="ap7e"><b>b</b> \(\tfrac13(e-1)\)</span></div></div>
+<div class="a"><span class="an">22</span><div class="ab"><span class="ap7e"><b>a</b> \(3.19\) u\(^2\)</span> <span class="ap7e"><b>b</b> \(0.368\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">23</span><div class="ab"><span class="ap7e"><b>a</b> \(\tfrac12(1+e^{-2})\) u\(^2\)</span> <span class="ap7e"><b>b</b> \(\tfrac12(3-e)\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">32</span><div class="ab"><span class="ap7e"><b>a</b> \(\log_e|x|+C\)</span> <span class="ap7e"><b>b</b> \(3\log_e|x|+C\)</span> <span class="ap7e"><b>c</b> \(\tfrac15\log_e|x|+C\)</span> <span class="ap7e"><b>d</b> \(\log_e|x+7|+C\)</span> <span class="ap7e"><b>e</b> \(\tfrac12\log_e|2x-1|+C\)</span> <span class="ap7e"><b>f</b> \(-\tfrac13\log_e|2-3x|+C\)</span> <span class="ap7e"><b>g</b> \(\log_e|2x+9|+C\)</span> <span class="ap7e"><b>h</b> \(-2\log_e|1-4x|+C\)</span></div></div>
+<div class="a"><span class="an">33</span><div class="ab"><span class="ap7e"><b>a</b> \(\log_e\tfrac32\)</span> <span class="ap7e"><b>b</b> \(\tfrac14\log_e13\)</span> <span class="ap7e"><b>c</b> \(1\)</span> <span class="ap7e"><b>d</b> \(1\)</span></div></div>
+<div class="a"><span class="an">34</span><div class="ab"><span class="ap7e"><b>a</b> \(\log_e(x^2+4)+C\)</span> <span class="ap7e"><b>b</b> \(\log_e|x^3-5x+7|+C\)</span> <span class="ap7e"><b>c</b> \(\tfrac12\log_e|x^2-3|+C\)</span> <span class="ap7e"><b>d</b> \(\tfrac14\log_e|x^4-4x|+C\)</span></div></div>
+<div class="a"><span class="an">35</span><div class="ab"><span class="ap7e">\(\log_e2\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">36</span><div class="ab"><span class="ap7e"><b>b</b> \((12-5\log_e5)\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">38</span><div class="ab"><span class="ap7e"><b>a</b> \(e^x+C\)</span> <span class="ap7e"><b>b</b> \(\dfrac{2^x}{\log_e2}+C\)</span> <span class="ap7e"><b>c</b> \(\dfrac{3^x}{\log_e3}+C\)</span> <span class="ap7e"><b>d</b> \(\dfrac{5^x}{\log_e5}+C\)</span></div></div>
+<div class="a"><span class="an">39</span><div class="ab"><span class="ap7e"><b>a</b> \(\dfrac{d}{dx}\big(x\log_ex\big)=\log_ex+1\), &ensp;\(\displaystyle\int\log_ex\,dx=x\log_ex-x+C\)</span> <span class="ap7e"><b>b</b> \(\dfrac{d}{dx}\big(xe^x\big)=e^x+xe^x\), &ensp;\(\displaystyle\int xe^x\,dx=xe^x-e^x+C\)</span></div></div>
+<div class="a"><span class="an">41</span><div class="ab"><span class="ap7e"><b>a</b> \(\dfrac{7}{\ln2}\) and \(\dfrac{7}{8\ln2}\)</span><br><span class="ap7e"><b>b</b> When \(y=2^x\) is transformed successively by a vertical dilation with factor 8 and a shift right 3 units, the result is the same graph \(y=2^x\). The region in the second integral is transformed to the region in the first integral by this compound transformation.</span></div></div>
+
+<div class="ans-sec">Chapter 7 review: integration questions</div>
+<div class="a"><span class="an">5</span><div class="ab"><span class="ap7e"><b>a</b> \(4\sin x+C\)</span> <span class="ap7e"><b>b</b> \(-\tfrac14\cos4x+C\)</span> <span class="ap7e"><b>c</b> \(4\tan\tfrac14x+C\)</span></div></div>
+<div class="a"><span class="an">6</span><div class="ab"><span class="ap7e"><b>a</b> \(\sqrt3-1\)</span> <span class="ap7e"><b>b</b> \(\tfrac12\)</span> <span class="ap7e"><b>c</b> \(\tfrac12\)</span></div></div>
+<div class="a"><span class="an">7</span><div class="ab"><span class="ap7e">\(0.089\)</span></div></div>
+<div class="a"><span class="an">8</span><div class="ab"><span class="ap7e">\(y=2\sin\tfrac12x-1\)</span></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><div class="split" style="grid-template-columns:1fr 1.2fr"><div><b>a</b><div class="sk7e">{{svg:a7e_r9a}}</div></div><div><b>b</b> \(2\) u\(^2\)</div></div></div></div>
+<div class="a"><span class="an">10</span><div class="ab"><span class="ap7e"><b>a</b> \(\tfrac12\) u\(^2\)</span> <span class="ap7e"><b>b</b> \(\dfrac{3\sqrt3}{4}\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">11</span><div class="ab"><span class="ap7e"><b>a</b> \(\tan x=\dfrac{\sin x}{\cos x}\)</span> <span class="ap7e"><b>b</b> \(\tfrac12\ln2\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">16</span><div class="ab"><span class="ap7e"><b>a</b> \(\tfrac12\sin e^{2x}+C\)</span> <span class="ap7e"><b>b</b> \(\tfrac12\cos e^{-2x}+C\)</span> <span class="ap7e"><b>c</b> \(\tfrac13\log_e|3\tan x+1|+C\)</span> <span class="ap7e"><b>d</b> \(-\tfrac35\log_e|4+5\cos x|+C\)</span> <span class="ap7e"><b>e</b> \(\tan x-\sin x+C\)</span> <span class="ap7e"><b>f</b> \(\tfrac23\)</span></div></div>
+<div class="a"><span class="an">17</span><div class="ab"><span class="ap7e"><b>b</b> <b>i</b> \(\tfrac12\tan^2x+\log_e|\cos x|+C\)</span> <span class="ap7e"><b>ii</b> \(\tfrac14\tan^4x-\tfrac12\tan^2x-\log_e|\cos x|+C\)</span></div></div>
+<div class="a"><span class="an">18</span><div class="ab"><span class="ap7e"><b>b</b> \(\Big(\dfrac{\pi}{4}-\tfrac12\ln2\Big)\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">19</span><div class="ab"><span class="ap7e"><b>b</b> <b>i</b> \(1\tfrac15\)</span> <span class="ap7e"><b>ii</b> \(0\)</span><br><span class="ap7e"><b>c</b> <b>i</b> \(\dfrac{\sin(m+n)x}{2(m+n)}+\dfrac{\sin(m-n)x}{2(m-n)}+C\)</span> <span class="ap7e"><b>ii</b> \(\dfrac{\sin(m+n)x}{2(m+n)}+\tfrac12x+C\)</span></div></div>
