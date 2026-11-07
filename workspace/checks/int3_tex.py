@@ -90,6 +90,9 @@ class P:
             t = self.atom()
             if t is None:
                 break
+            if (t.isdigit() or t == ".") and out and out[-1].replace(".", "").isdigit():
+                out[-1] += t          # 12 is one number, not 1*2
+                continue
             out.append(t)
         if not out:
             raise ValueError(f"empty function argument at {self.s[self.i:self.i + 20]!r}")
