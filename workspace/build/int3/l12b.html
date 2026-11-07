@@ -1,1 +1,346 @@
-<!-- filled by Task: Int3 lesson 12B (l12b.html) -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 12B</div><h2>Inverse trigonometric functions: integrating</h2>
+<div class="focus">This lesson deals with the integrals associated with the inverse trigonometric functions, and with the standard applications of those integrals. Reversing the derivatives of Lesson 12A gives standard forms for \(\dfrac{1}{\sqrt{a^2-x^2}}\) and \(\dfrac{1}{a^2+x^2}\). When \(x^2\) has a coefficient, take it out first. The reverse chain rule extends the forms, and a product-rule derivative gives the primitive of \(\sin^{-1}x\) itself.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the basic standard forms}}
+<div class="box concept"><div class="bt">Reversing the derivatives</div>
+<p>Differentiation of the inverse trigonometric functions yields purely algebraic functions,</p>
+\[\frac{d}{dx}\sin^{-1}x=\frac{1}{\sqrt{1-x^2}}\qquad\text{and}\qquad\frac{d}{dx}\tan^{-1}x=\frac{1}{1+x^2}.\]
+<p>These are remarkable results, and indicate once again that trigonometric functions are very closely related to algebraic functions associated with squares and square roots. The relationship was already clear when the trigonometric functions were defined using the circle, whose equation \(x^2+y^2=r^2\) is Pythagoras’ theorem, which is purely algebraic.</p>
+<p>This lesson concerns integration, and we begin by reversing the three standard forms for differentiation. Lesson 12A also gave \(\dfrac{d}{dx}\cos^{-1}x=\dfrac{-1}{\sqrt{1-x^2}}\), so \(\dfrac{d}{dx}\big(-\cos^{-1}x\big)=\dfrac{1}{\sqrt{1-x^2}}\) as well.</p></div></div>
+<div class="box take"><div class="bt">4 Standard forms for integration</div>
+\[\int\frac{1}{\sqrt{1-x^2}}\,dx=\sin^{-1}x+C\qquad\text{OR}\qquad\int\frac{1}{\sqrt{1-x^2}}\,dx=-\cos^{-1}x+C\]
+\[\int\frac{1}{1+x^2}\,dx=\tan^{-1}x+C\]</div>
+<div class="box concept"><div class="bt">Two answers that agree, and algebraic integrands</div>
+<ul><li>The two primitives of \(\dfrac{1}{\sqrt{1-x^2}}\) differ only by a constant. From the identity \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\) (revision page), \(-\cos^{-1}x=\sin^{-1}x-\tfrac{\pi}{2}\). So the constant \(-\tfrac{\pi}{2}\) is absorbed into \(C\), and a definite integral gives the same value with either form (see the example below).</li>
+<li>Thus some purely algebraic functions require the inverse trigonometric functions for their integration. We have seen this sort of phenomenon before with the standard form \(\displaystyle\int\frac1x\,dx=\log_e|x|\), where the logarithmic function was required for the integration of another purely algebraic function.</li></ul></div>
+<div class="box concept"><div class="bt">The functions \(y=\dfrac{1}{\sqrt{1-x^2}}\) and \(y=\dfrac{1}{1+x^2}\)</div>
+<p>The primitives of both these functions have now been obtained, and they should therefore be regarded as reasonably standard functions whose graphs should be known. The sketch of each function, and some important definite integrals associated with them, are developed in Questions 15 and 16 of the exercise.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Both forms of Box 4</span></div><div class="ex-body">
+Evaluate \(\displaystyle\int_0^{\frac{\sqrt3}{2}}\frac{1}{\sqrt{1-x^2}}\,dx\) using both standard forms given in Box 4.
+{{work:44}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate \(\displaystyle\int_0^{\frac{1}{\sqrt2}}\frac{1}{\sqrt{1-x^2}}\,dx\) using both standard forms given in Box 4.
+{{work:44}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Evaluate \(\displaystyle\int_0^{\frac12}\frac{1}{\sqrt{1-x^2}}\,dx\) using both standard forms given in Box 4.
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+\[\begin{aligned}\int_0^{\frac12}\frac{1}{\sqrt{1-x^2}}\,dx&=\Big[\sin^{-1}x\Big]_0^{\frac12}\\&=\sin^{-1}\tfrac12-\sin^{-1}0\\&=\tfrac{\pi}{6}-0\\&=\tfrac{\pi}{6}\end{aligned}\]
+</div><div>
+<p style="margin:0">OR</p>
+\[\begin{aligned}\int_0^{\frac12}\frac{1}{\sqrt{1-x^2}}\,dx&=\Big[-\cos^{-1}x\Big]_0^{\frac12}\\&=-\cos^{-1}\tfrac12+\cos^{-1}0\\&=-\tfrac{\pi}{3}+\tfrac{\pi}{2}\\&=\tfrac{\pi}{6}\end{aligned}\]
+</div></div>
+<p class="small">The exact values come from the special triangles: \(\sin\tfrac{\pi}{6}=\tfrac12\), \(\sin0=0\), \(\cos\tfrac{\pi}{3}=\tfrac12\) and \(\cos\tfrac{\pi}{2}=0\), and each angle lies in the range of its inverse function.</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:definite integrals with inverse tan}}
+<div class="box concept"><div class="bt">Exact values and calculator values</div>
+<p>Enclose the primitive \(\tan^{-1}x\) in square brackets, substitute the upper and lower limits, and subtract. When the limits give special angles, such as \(\tan^{-1}1=\tfrac{\pi}{4}\) and \(\tan^{-1}0=0\), the answer is exact. Otherwise use the calculator, <b>in radians</b>, and round only at the end.</p>
+<p>Because \(1+x^2\) is never zero, the function \(\dfrac{1}{1+x^2}\) is continuous for all real \(x\), so any limits may be used.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Exact or four significant figures</span></div><div class="ex-body">
+Evaluate these definite integrals exactly or correct to four significant figures.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_0^{\sqrt3}\frac{1}{1+x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{3}\frac{1}{1+x^2}\,dx\)</span></div>
+{{work:36}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate these definite integrals exactly or correct to four significant figures.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_{-1}^{1}\frac{1}{1+x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{2}\frac{1}{1+x^2}\,dx\)</span></div>
+{{work:36}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 7</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Evaluate these definite integrals exactly or correct to four significant figures.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_0^1\frac{1}{1+x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^4\frac{1}{1+x^2}\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b></p>
+\[\begin{aligned}\int_0^1\frac{1}{1+x^2}\,dx&=\Big[\tan^{-1}x\Big]_0^1\\&=\tan^{-1}1-\tan^{-1}0\\&=\tfrac{\pi}{4}-0\\&=\tfrac{\pi}{4}\end{aligned}\]
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}\int_0^4\frac{1}{1+x^2}\,dx&=\Big[\tan^{-1}x\Big]_0^4\\&=\tan^{-1}4-\tan^{-1}0\\&=1.3258\ldots-0\\&\doteq1.326\end{aligned}\]
+</div></div></div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:standard forms with one constant}}
+<div class="box concept"><div class="bt">More general standard forms</div>
+<p>When constants are involved, the calculation of the primitive becomes fiddly. These standard integrals are commonly used. Here \(a\) is a positive constant.</p></div>
+<div class="box take"><div class="bt">5 Standard forms with one constant</div>
+\[\int\frac{1}{\sqrt{a^2-x^2}}\,dx=\sin^{-1}\frac xa+C\qquad\text{OR}\qquad\int\frac{1}{\sqrt{a^2-x^2}}\,dx=-\cos^{-1}\frac xa+C\]
+\[\int\frac{1}{a^2+x^2}\,dx=\frac1a\tan^{-1}\frac xa+C\]</div></div>
+<div class="box concept" style="break-inside:auto"><div class="bt">Proof</div>
+<p>Both proofs take out the factor \(a^2\), then use the reverse chain rule with \(u=\dfrac xa\). By the chain rule, \(\dfrac{d}{dx}\sin^{-1}u=\dfrac{1}{\sqrt{1-u^2}}\times\dfrac{du}{dx}\) and \(\dfrac{d}{dx}\tan^{-1}u=\dfrac{1}{1+u^2}\times\dfrac{du}{dx}\), so reversing these,</p>
+\[\int\frac{1}{\sqrt{1-u^2}}\,\frac{du}{dx}\,dx=\sin^{-1}u\qquad\text{and}\qquad\int\frac{1}{1+u^2}\,\frac{du}{dx}\,dx=\tan^{-1}u.\]
+<p>With \(u=\dfrac xa\), we have \(\dfrac{du}{dx}=\dfrac1a\).</p>
+<div><div>
+<p><b>A</b> First, \(a^2-x^2=a^2\big(1-\big(\tfrac xa\big)^2\big)\), and \(\sqrt{a^2}=a\) because \(a&gt;0\). So</p>
+\[\begin{aligned}\int\frac{1}{\sqrt{a^2-x^2}}\,dx&=\int\frac{1}{a\sqrt{1-\big(\frac xa\big)^2}}\,dx\\&=\int\frac{1}{\sqrt{1-\big(\frac xa\big)^2}}\times\frac1a\,dx\\&=\sin^{-1}\frac xa+C.\end{aligned}\]
+</div><div>
+<p><b>B</b> First, \(a^2+x^2=a^2\big(1+\big(\tfrac xa\big)^2\big)\). So</p>
+\[\begin{aligned}\int\frac{1}{a^2+x^2}\,dx&=\int\frac{1}{a^2\big(1+\big(\frac xa\big)^2\big)}\,dx\\&=\frac1a\int\frac{1}{1+\big(\frac xa\big)^2}\times\frac1a\,dx\\&=\frac1a\tan^{-1}\frac xa+C.\end{aligned}\]
+</div></div>
+<p>In <b>B</b>, \(\tfrac{1}{a^2}\) was written as \(\tfrac1a\times\tfrac1a\): one \(\tfrac1a\) is taken outside the integral, and the other is the \(\tfrac{du}{dx}\) that the reverse chain rule needs. The \(\cos^{-1}\) form follows in the same way from</p>
+\[\frac{d}{dx}\big(-\cos^{-1}u\big)=\frac{1}{\sqrt{1-u^2}}\times\frac{du}{dx}.\]</div>
+<div class="box tip"><div class="bt">Reading off \(a\)</div>
+<p>Match the integrand with the box: the number in front of \(x^2\) must be 1. Then \(a^2\) is the other number, and \(a\) is its positive square root. For example, \(\sqrt{9-x^2}\) has \(a=3\), and \(8+x^2\) has \(a=\sqrt8=2\sqrt2\). A constant factor in the numerator is taken outside the integral first.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Box 5 applied immediately</span></div><div class="ex-body">
+Find these indefinite integrals.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\frac{3}{\sqrt{16-x^2}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{1}{12+x^2}\,dx\)</span></div>
+{{work:34}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find these indefinite integrals.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\frac{5}{\sqrt{25-x^2}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{1}{18+x^2}\,dx\)</span></div>
+{{work:34}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 8a, b</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Evaluate these indefinite integrals. In parts <b>a</b> and <b>b</b>, the formulae can be applied immediately.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\frac{2}{\sqrt{9-x^2}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{1}{8+x^2}\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Here \(a=3\).</p>
+\[\begin{aligned}\int\frac{2}{\sqrt{9-x^2}}\,dx&=2\int\frac{1}{\sqrt{3^2-x^2}}\,dx\\&=2\sin^{-1}\frac x3+C\end{aligned}\]
+</div><div>
+<p><b>b</b> Here \(a=\sqrt8=2\sqrt2\).</p>
+\[\begin{aligned}\int\frac{1}{8+x^2}\,dx&=\int\frac{1}{(2\sqrt2)^2+x^2}\,dx\\&=\frac{1}{2\sqrt2}\tan^{-1}\frac{x}{2\sqrt2}+C\end{aligned}\]
+</div></div></div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:when x² has a coefficient}}
+<div class="box concept"><div class="bt">Take the coefficient of \(x^2\) out first</div>
+<p>In integrals such as \(\displaystyle\int\frac{6}{49+25x^2}\,dx\) and \(\displaystyle\int\frac{1}{\sqrt{5-3x^2}}\,dx\), the coefficients of \(x^2\) need to be taken out first, so that Box 5 can be used.</p>
+<ul><li>For \(a^2+b^2x^2\), take out \(b^2\): \(\ a^2+b^2x^2=b^2\Big(\dfrac{a^2}{b^2}+x^2\Big)\).</li>
+<li>For \(\sqrt{a^2-b^2x^2}\), take out \(\sqrt{b^2}=b\): \(\ \sqrt{a^2-b^2x^2}=\sqrt{b^2\Big(\dfrac{a^2}{b^2}-x^2\Big)}=b\sqrt{\dfrac{a^2}{b^2}-x^2}\).</li></ul></div></div>
+<div class="box concept"><div class="bt">Fuller versions of the standard forms</div>
+<p>Because manipulating the constants is still difficult, some prefer to remember fuller versions of the standard forms. Here \(a\) and \(b\) are positive constants. They are developed from Box 5 by taking out the coefficient of \(x^2\):</p>
+\[\begin{aligned}\int\frac{1}{\sqrt{a^2-b^2x^2}}\,dx&=\frac1b\int\frac{1}{\sqrt{\big(\frac ab\big)^2-x^2}}\,dx\\&=\frac1b\sin^{-1}\Big(x\div\frac ab\Big)+C\\&=\frac1b\sin^{-1}\frac{bx}{a}+C,\end{aligned}\]
+\[\begin{aligned}\int\frac{1}{a^2+b^2x^2}\,dx&=\frac{1}{b^2}\int\frac{1}{\big(\frac ab\big)^2+x^2}\,dx\\&=\frac{1}{b^2}\times\frac ba\tan^{-1}\Big(x\div\frac ab\Big)+C\\&=\frac{1}{ab}\tan^{-1}\frac{bx}{a}+C.\end{aligned}\]
+<p>In the same way, the \(\cos^{-1}\) form of Box 5 gives \(-\dfrac1b\cos^{-1}\dfrac{bx}{a}+C\). These forms can also be proven in the same manner as the forms with a single constant.</p></div>
+<div class="box take"><div class="bt">6 Standard forms with two constants</div>
+\[\int\frac{1}{\sqrt{a^2-b^2x^2}}\,dx=\frac1b\sin^{-1}\frac{bx}{a}+C\qquad\text{OR}\qquad-\frac1b\cos^{-1}\frac{bx}{a}+C\]
+\[\int\frac{1}{a^2+b^2x^2}\,dx=\frac{1}{ab}\tan^{-1}\frac{bx}{a}+C\]
+<p class="small">With these more general forms, integrals like parts <b>c</b> and <b>d</b> of the worked example below can be written down without any intermediate working.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Coefficients of \(x^2\)</span></div><div class="ex-body">
+Find these indefinite integrals by taking out the coefficient of \(x^2\). Then check each answer with Box 6.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">c</span>\(\displaystyle\int\frac{10}{9+16x^2}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{\sqrt{7-2x^2}}\,dx\)</span></div>
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find these indefinite integrals by taking out the coefficient of \(x^2\). Then check each answer with Box 6.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">c</span>\(\displaystyle\int\frac{12}{25+4x^2}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{\sqrt{3-5x^2}}\,dx\)</span></div>
+{{work:50}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 8c, d</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Evaluate these indefinite integrals. In parts <b>c</b> and <b>d</b>, the coefficients of \(x^2\) need to be taken out first.
+<div class="parts" style="row-gap:2mm"><span><span class="pl">c</span>\(\displaystyle\int\frac{6}{49+25x^2}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{\sqrt{5-3x^2}}\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div><div>
+<p><b>c</b> Take out 25. Then \(a^2=\tfrac{49}{25}\), so \(a=\tfrac75\).</p>
+\[\begin{aligned}\int\frac{6}{49+25x^2}\,dx&=\frac{6}{25}\int\frac{1}{\frac{49}{25}+x^2}\,dx\\&=\frac{6}{25}\times\frac57\tan^{-1}\frac{x}{7/5}+C\\&=\frac{6}{35}\tan^{-1}\frac{5x}{7}+C\end{aligned}\]
+<p class="small">Here \(\dfrac1a=\dfrac57\), and \(x\div\dfrac75=\dfrac{5x}{7}\).</p>
+</div><div>
+<p><b>d</b> Take out \(\sqrt3\). Then \(a^2=\tfrac53\), so \(a=\sqrt{\tfrac53}\).</p>
+\[\begin{aligned}\int\frac{1}{\sqrt{5-3x^2}}\,dx&=\frac{1}{\sqrt3}\int\frac{1}{\sqrt{\frac53-x^2}}\,dx\\&=\frac{1}{\sqrt3}\sin^{-1}\frac{x}{\sqrt{5/3}}+C\\&=\tfrac13\sqrt3\sin^{-1}x\sqrt{\tfrac35}+C\end{aligned}\]
+<p class="small">Here \(\sqrt{5-3x^2}=\sqrt3\,\sqrt{\tfrac53-x^2}\), \(\ \dfrac{1}{\sqrt3}=\dfrac{\sqrt3}{3}\), and \(x\div\sqrt{\tfrac53}=x\sqrt{\tfrac35}\).</p>
+</div></div>
+<p class="small">Check with Box 6. In <b>c</b>, \(a=7\) and \(b=5\), so the answer is \(6\times\dfrac{1}{35}\tan^{-1}\dfrac{5x}{7}+C\). In <b>d</b>, \(a=\sqrt5\) and \(b=\sqrt3\), so the answer is \(\dfrac{1}{\sqrt3}\sin^{-1}\dfrac{\sqrt3\,x}{\sqrt5}+C\), which is the same.</p>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:the reverse chain rule}}
+<div class="box concept"><div class="bt">Extending the standard forms</div>
+<p>In the usual way, the standard forms can be extended to give forms appropriate for the reverse chain rule. These forms are the reversals of the chain-rule standard forms at the end of Lesson 12A:</p>
+\[\frac{d}{dx}\sin^{-1}u=\frac{u'}{\sqrt{1-u^2}},\qquad\frac{d}{dx}\cos^{-1}u=\frac{-u'}{\sqrt{1-u^2}},\]
+\[\frac{d}{dx}\tan^{-1}u=\frac{u'}{1+u^2}.\]</div></div>
+<div class="box take"><div class="bt">7 The reverse chain rule</div>
+<div><div>
+\[\begin{aligned}\int\frac{u'}{\sqrt{1-u^2}}\,dx&=\sin^{-1}u+C\\\int\frac{u'}{\sqrt{1-u^2}}\,dx&=-\cos^{-1}u+C\\\int\frac{u'}{1+u^2}\,dx&=\tan^{-1}u+C\end{aligned}\]
+</div><div>
+<p style="margin:0">OR</p>
+\[\begin{aligned}\int\frac{f'(x)}{\sqrt{1-\big(f(x)\big)^2}}\,dx&=\sin^{-1}f(x)+C\\\int\frac{f'(x)}{\sqrt{1-\big(f(x)\big)^2}}\,dx&=-\cos^{-1}f(x)+C\\\int\frac{f'(x)}{1+\big(f(x)\big)^2}\,dx&=\tan^{-1}f(x)+C\end{aligned}\]
+</div></div></div>
+<div class="box tip"><div class="bt">Finding \(u\)</div>
+<p>Write the squared term as \(u^2\), so that \(u\) is the quantity being squared, and find \(u'\). The numerator must be \(u'\). If it is only a constant multiple of \(u'\), adjust the constant outside the integral, as in Worked example 9b.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Find \(u\) and \(u'\)</span></div><div class="ex-body">
+Find primitives of:
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\dfrac{e^{2x}}{1+e^{4x}}\)</span><span><span class="pl">b</span>\(\dfrac{x^2}{\sqrt{1-x^6}}\)</span></div>
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find primitives of:
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\dfrac{\cos x}{1+\sin^2x}\)</span><span><span class="pl">b</span>\(\dfrac{x}{1+x^4}\)</span></div>
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 9</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Find primitives of:
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\dfrac{e^x}{1+e^{2x}}\)</span><span><span class="pl">b</span>\(\dfrac{x}{\sqrt{1-x^4}}\)</span></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b> Let \(u=e^x\), then \(u'=e^x\). &ensp; OR &ensp; Let \(f(x)=e^x\), then \(f'(x)=e^x\). Note that \(e^{2x}=\big(e^x\big)^2\).</p>
+<p style="margin:0">With both notations,</p>
+\[\begin{aligned}\int\frac{e^x}{1+e^{2x}}\,dx&=\int\frac{e^x}{1+\big(e^x\big)^2}\,dx\\&=\tan^{-1}e^x+C,\ \text{for some constant }C.\end{aligned}\]
+<p><b>b</b> Let \(u=x^2\), then \(u'=2x\). &ensp; OR &ensp; Let \(f(x)=x^2\), then \(f'(x)=2x\). Note that \(x^4=\big(x^2\big)^2\), and that \(x=\tfrac12\times2x\).</p>
+<p style="margin:0">With both notations,</p>
+\[\begin{aligned}\int\frac{x}{\sqrt{1-x^4}}\,dx&=\tfrac12\int\frac{2x}{\sqrt{1-\big(x^2\big)^2}}\,dx\\&=\tfrac12\sin^{-1}x^2+C,\ \text{for some constant }C.\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 6 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 6:given a derivative, find an integral}}
+<div class="box concept"><div class="bt">The primitives of the inverse trigonometric functions</div>
+<p>As always, the result of a product-rule differentiation can be used to obtain an integral. In particular, this allows the primitives of the inverse trigonometric functions to be obtained.</p>
+<ul><li>Differentiate \(x\times(\text{the inverse function})\) by the product rule. One term of the derivative is the inverse function itself.</li>
+<li>Integrate both sides of the derivative. The integral of a derivative is the function itself.</li>
+<li>Rearrange to make the integral of the inverse function the subject. The other integral left over is found by the reverse chain rule.</li></ul></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The primitive of \(\cos^{-1}x\)</span></div><div class="ex-body">
+<b>a</b> Differentiate \(x\cos^{-1}x\), and hence find a primitive of \(\cos^{-1}x\).<br>
+<b>b</b> Find the area under the curve \(y=\cos^{-1}x\) from \(x=0\) to \(x=1\).
+{{work:84}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Differentiate \(x\sin^{-1}\dfrac x2\), and hence find a primitive of \(\sin^{-1}\dfrac x2\).<br>
+<b>b</b> Find the area under the curve \(y=\sin^{-1}\dfrac x2\) from \(x=0\) to \(x=2\).
+{{work:84}}</div></div>
+<div class="ex worked" style="break-inside:auto;break-before:page"><div class="ex-top"><span class="tag">Worked example 10</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Differentiate \(x\sin^{-1}x\), and hence find a primitive of \(\sin^{-1}x\).<br>
+<b>b</b> Find the shaded area under the curve \(y=\sin^{-1}x\) from \(x=0\) to \(x=1\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 52mm"><div>
+<p><b>a</b> Let \(y=x\sin^{-1}x\).<br>Using the product rule with \(u=x\) and \(v=\sin^{-1}x\), where \(u'=1\) and \(v'=\dfrac{1}{\sqrt{1-x^2}}\),</p>
+\[\begin{aligned}\frac{dy}{dx}&=1\times\sin^{-1}x+x\times\frac{1}{\sqrt{1-x^2}}\\&=\sin^{-1}x+\frac{x}{\sqrt{1-x^2}}.\end{aligned}\]
+</div><div>{{svg:c12b_ex10}}</div></div>
+<p>Integrating both sides (the integral of the derivative of \(x\sin^{-1}x\) is \(x\sin^{-1}x\)),</p>
+\[\begin{aligned}\text{Hence}\quad\int\sin^{-1}x\,dx+\int\frac{x}{\sqrt{1-x^2}}\,dx&=x\sin^{-1}x\\\int\sin^{-1}x\,dx&=x\sin^{-1}x-\int\frac{x}{\sqrt{1-x^2}}\,dx.\end{aligned}\]
+<div class="split" style="grid-template-columns:1fr 60mm;break-inside:avoid"><div>
+<p style="margin-top:0">Using the reverse chain rule,</p>
+\[\begin{aligned}-\int\frac{x}{\sqrt{1-x^2}}\,dx&=\tfrac12\int\big(1-x^2\big)^{-\frac12}\,(-2x)\,dx\\&=\tfrac12\times\big(1-x^2\big)^{\frac12}\times\frac21\\&=\sqrt{1-x^2},\end{aligned}\]
+</div><div style="border-left:1.4px solid var(--ink);padding-left:3mm">
+<p style="margin-top:0">Let \(u=1-x^2\).<br>Then \(\dfrac{du}{dx}=-2x\).</p>
+\[\int u^{-\frac12}\frac{du}{dx}\,dx=u^{\frac12}\times2.\]
+<p class="small" style="margin-bottom:0">Here \(-x=\tfrac12\times(-2x)\), and \(u^{-\frac12}\) integrates to \(\dfrac{u^{\frac12}}{\frac12}=u^{\frac12}\times2\).</p>
+</div></div>
+<div style="break-inside:avoid">
+\[\text{so}\quad\int\sin^{-1}x\,dx=x\sin^{-1}x+\sqrt{1-x^2}+C.\]
+<div class="split" style="grid-template-columns:1fr 60mm"><div>
+<p style="margin-top:0"><b>b</b> The shaded area is</p>
+\[\begin{aligned}\int_0^1\sin^{-1}x\,dx&=\Big[x\sin^{-1}x+\sqrt{1-x^2}\,\Big]_0^1\\&=\big(1\times\tfrac{\pi}{2}+0\big)-(0+1)\\&=\tfrac{\pi}{2}-1\text{ square units.}\end{aligned}\]
+</div><div>
+<p class="small" style="margin-top:7mm">At \(x=1\): \(\sin^{-1}1=\tfrac{\pi}{2}\) and \(\sqrt{1-1}=0\).<br>At \(x=0\): \(0\times\sin^{-1}0=0\) and \(\sqrt{1-0}=1\).</p></div></div></div>
+<p><b>Note:</b> We have already established in Section 7D that the area under \(y=\sin x\) from \(x=0\) to \(x=\tfrac{\pi}{2}\) is exactly 1 square unit. This means that the area between \(y=\sin^{-1}x\) and the \(y\)-axis is 1, and subtracting this area from the rectangle of area \(1\times\tfrac{\pi}{2}=\tfrac{\pi}{2}\) in the diagram above gives the same value \(\tfrac{\pi}{2}-1\) for the shaded area.</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 12B}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>{{svg:c12b_q1}}Find each definite integral correct to two decimal places from the graph by counting the number of little squares in the region under the curve:
+<div class="parts" style="row-gap:2mm;margin-top:1.5mm"><span><span class="pl">i</span>\(\displaystyle\int_0^1\frac{1}{1+x^2}\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_0^2\frac{1}{1+x^2}\,dx\)</span><span><span class="pl">iii</span>\(\displaystyle\int_{-\frac12}^{\frac12}\frac{1}{1+x^2}\,dx\)</span><span><span class="pl">iv</span>\(\displaystyle\int_{-3}^{-1}\frac{1}{1+x^2}\,dx\)</span></div></span>
+<span><span class="pl">b</span>Check your answers to <b>a</b> by using the fact that \(\tan^{-1}x\) is a primitive of \(\dfrac{1}{1+x^2}\).</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Find:
+<div class="parts three" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\frac{-1}{\sqrt{1-x^2}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{1}{\sqrt{4-x^2}}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\frac{1}{9+x^2}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{\sqrt{\frac49-x^2}}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int\frac{1}{2+x^2}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int\frac{-1}{\sqrt{5-x^2}}\,dx\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Find the exact value of:
+<div class="parts three" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_0^3\frac{1}{\sqrt{9-x^2}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^2\frac{1}{4+x^2}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^1\frac{1}{\sqrt{2-x^2}}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{\frac12}^{\frac12\sqrt3}\frac{\frac12}{\frac14+x^2}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_{\frac16\sqrt3}^{\frac16}\frac{-1}{\sqrt{\frac19-x^2}}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-\frac34\sqrt2}^{\frac34}\frac{1}{\sqrt{\frac94-x^2}}\,dx\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Find the equation of the curve, given that:
+<div class="parts one"><span><span class="pl">a</span>\(y'=\big(1-x^2\big)^{-\frac12}\) and the curve passes through the point \((0,\pi)\).</span><span><span class="pl">b</span>\(y'=4\big(16+x^2\big)^{-1}\) and the curve passes through the point \((-4,0)\).</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>If \(y'=\dfrac{1}{\sqrt{36-x^2}}\) and \(y=\tfrac{\pi}{6}\) when \(x=3\), find the value of \(y\) when \(x=3\sqrt3\).</span><span><span class="pl">b</span>Given that \(y'=\dfrac{2}{4+x^2}\) and that \(y=\tfrac{\pi}{3}\) when \(x=2\), find \(y\) when \(x=\tfrac{2}{\sqrt3}\).</span></div>{{work:36}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">6</span><div class="q-body">Find:
+<div class="parts three" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\frac{1}{\sqrt{1-4x^2}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{1}{1+16x^2}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\frac{-1}{\sqrt{1-2x^2}}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{\sqrt{4-9x^2}}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int\frac{1}{25+9x^2}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int\frac{-1}{\sqrt{3-4x^2}}\,dx\)</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Find the exact value of:
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_0^{\frac16}\frac{1}{\sqrt{1-9x^2}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{\frac12}^{\frac12\sqrt3}\frac{2}{1+4x^2}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-\frac12}^{\frac12}\frac{1}{\sqrt{1-3x^2}}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-\frac34}^{\frac{3}{2\sqrt2}}\frac{1}{\sqrt{9-4x^2}}\,dx\)</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Shade the region bounded by \(y=\sin^{-1}x\), the \(x\)-axis and the vertical line \(x=\tfrac12\).</span><span><span class="pl">b</span>Show that \(\dfrac{d}{dx}\Big(x\sin^{-1}x+\sqrt{1-x^2}\Big)=\sin^{-1}x\).</span><span><span class="pl">c</span>Hence find the exact area of the region.</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Shade the region bounded by the curve \(y=\sin^{-1}x\), the \(y\)-axis and the line \(y=\tfrac{\pi}{6}\).</span><span><span class="pl">b</span>Find the exact area of this region.</span><span><span class="pl">c</span>Hence use an alternative approach to confirm the area in the previous question.</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{d}{dx}\big(\cos^{-1}(2-x)\big)=\dfrac{1}{\sqrt{4x-x^2-3}}\).</span><span><span class="pl">b</span>Hence find \(\displaystyle\int_1^2\frac{1}{\sqrt{4x-x^2-3}}\,dx\).</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(\tan^{-1}\tfrac12x^3\).</span><span><span class="pl">b</span>Hence find \(\displaystyle\int\frac{x^2}{4+x^6}\,dx\).</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(x\tan^{-1}x\).</span><span><span class="pl">b</span>Hence find \(\displaystyle\int_0^1\tan^{-1}x\,dx\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Without finding any primitives, use arguments from symmetry or geometry to evaluate:
+<div class="parts three" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int_{-\frac13}^{\frac13}\sin^{-1}x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-5}^{5}\tan^{-1}x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-\frac34}^{\frac34}\cos^{-1}x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-\frac23}^{\frac23}\frac{x}{\sqrt{1-x^2}}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_{-3}^{3}\frac{x}{1+x^2}\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_{-6}^{6}\sqrt{36-x^2}\,dx\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Given that \(f(x)=\dfrac{x}{1+x^2}-\tan^{-1}x\):<br>(i) find \(f(0)\),<br>(ii) show that \(f'(x)=\dfrac{-2x^2}{\big(1+x^2\big)^2}\).</span><span><span class="pl">b</span>Hence:<br>(i) explain why \(f(x)&lt;0\) for all \(x&gt;0\),<br>(ii) find \(\displaystyle\int_0^1\frac{x^2}{\big(1+x^2\big)^2}\,dx\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">Consider the function \(f(x)=\dfrac{1}{\sqrt{4-x^2}}\).
+<div class="parts one"><span><span class="pl">a</span>Sketch the graph of \(y=\sqrt{4-x^2}\).</span><span><span class="pl">b</span>Hence sketch the graph of \(y=f(x)\).</span><span><span class="pl">c</span>Write down the domain and range of \(f(x)\), and describe its symmetry.</span><span><span class="pl">d</span>Find the area between the curve and the \(x\)-axis from \(x=-1\) to \(x=1\).</span><span><span class="pl">e</span>Find the total area between the curve and the \(x\)-axis. [<b>Note:</b> This is an example of an unbounded region having a finite area.]</span></div>{{work:150}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">Consider the function \(f(x)=\dfrac{4}{x^2+4}\).
+<div class="parts one"><span><span class="pl">a</span>What is the axis of symmetry of \(y=f(x)\)?</span><span><span class="pl">b</span>What are the domain and range?</span><span><span class="pl">c</span>Show that the graph of \(f(x)\) has a maximum turning point at \((0,1)\).</span><span><span class="pl">d</span>Find \(\displaystyle\lim_{x\to\infty}f(x)\), and hence sketch \(y=f(x)\). On the same axis, sketch \(y=\tfrac14\big(x^2+4\big)\).</span><span><span class="pl">e</span>Calculate the area bounded by the curve and the \(x\)-axis from \(x=-2\sqrt3\) to \(x=\tfrac23\sqrt3\).</span><span><span class="pl">f</span>Find the exact area between the curve and the \(x\)-axis from \(x=-a\) to \(x=a\), where \(a\) is a positive constant.</span><span><span class="pl">g</span>By letting \(a\) tend to infinity, find the total area between the curve and the \(x\)-axis. [<b>Note:</b> This is another example of an unbounded region having a finite area.]</span></div>{{work:140}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><div class="split" style="grid-template-columns:1fr 48mm"><div>The diagram to the right shows the region bounded by the curve \(y=\sin^{-1}x\), the \(y\)-axis and the tangent to the curve at the point \(\Big(\tfrac{\sqrt3}{2},\tfrac{\pi}{3}\Big)\). Show that the region has area \(\tfrac14\) unit\(^2\).</div><div>{{svg:c12b_q17}}</div></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Use the trapezoidal rule with five points to approximate \(I=\displaystyle\int_0^1\frac{1}{1+x^2}\,dx\), expressing your answer in simplest fraction form.</span><span><span class="pl">b</span>Find the exact value of \(I\), and hence show that \(\pi\doteq\tfrac{5323}{1700}\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">Show that \(\displaystyle\int_{-\frac14}^{\frac35}\frac{1}{1+x^2}\,dx=\frac{\pi}{4}\).{{work:40}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">Find, using the reverse chain rule:
+<div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\frac{1}{\sqrt x\,(1+x)}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^1\frac{1}{e^{-x}+e^x}\,dx\)</span></div>{{work:40}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">21</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\dfrac{d}{dx}\Big(\tan^{-1}\big(\tfrac32\tan x\big)\Big)=\dfrac{6}{5\sin^2x+4}\).</span><span><span class="pl">b</span>Hence find the area under the curve \(y=\dfrac{1}{5\sin^2x+4}\) from \(x=0\) to \(x=7\).</span><span><span class="pl">c</span>Why is the calculation asked for in part <b>b</b> invalid and completely wrong?</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body">[The power series for \(\tan^{-1}x\)]<br>Let \(x\) be a positive real number.
+<div class="parts one"><span><span class="pl">a</span>Find the sum of the geometric series \(1-t^2+t^4-t^6+\cdots+t^{4n}\), and hence show that for \(0&lt;t&lt;x\),
+\[\frac{1}{1+t^2}&lt;1-t^2+t^4-t^6+\cdots+t^{4n}.\]</span><span><span class="pl">b</span>Find \(1-t^2+t^4-t^6+\cdots+t^{4n}-t^{4n+2}\), and hence show that for \(0&lt;t&lt;x\),
+\[1-t^2+t^4-t^6+\cdots+t^{4n}&lt;\frac{1}{1+t^2}+t^{4n+2}.\]</span><span><span class="pl">c</span>By integrating the inequalities of parts <b>a</b> and <b>b</b> from \(t=0\) to \(t=x\), show that
+\[\tan^{-1}x&lt;x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+\cdots+\frac{x^{4n+1}}{4n+1}&lt;\tan^{-1}x+\frac{x^{4n+3}}{4n+3}.\]</span><span><span class="pl">d</span>By taking limits as \(n\to\infty\), show that for \(0\le x\le1\),
+\[\tan^{-1}x=x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+\cdots.\]</span><span><span class="pl">e</span>Use the fact that \(\tan^{-1}x\) is an odd function to prove this identity for \(-1\le x&lt;0\).</span><span><span class="pl">f</span>[Gregory’s series] Use a suitable substitution to prove that
+\[\frac{\pi}{4}=1-\frac13+\frac15-\frac17+\cdots.\]</span><span><span class="pl">g</span>By combining the terms in pairs, show that \(\dfrac{\pi}{8}=\dfrac{1}{1\times3}+\dfrac{1}{5\times7}+\dfrac{1}{9\times11}+\cdots\), and use the calculator to find how close an approximation to \(\pi\) can be obtained by taking 10 terms.</span></div>{{work:130}}</div></div>
+<div class="q"><span class="q-num">23</span><div class="q-body">[A sandwiching argument]
+{{svg:c12b_q23}}
+In the diagram, \(n\) rectangles are constructed between the two curves \(y=\tan^{-1}x\) and \(y=\tan^{-1}(x-1)\) in the interval \(1\le x\le n+1\).
+<div class="parts one"><span><span class="pl">a</span>Write down an expression for \(S_n\), the sum of the areas of the \(n\) rectangles.</span><span><span class="pl">b</span>Differentiate \(x\tan^{-1}x\) and hence find a primitive of \(\tan^{-1}x\).</span><span><span class="pl">c</span>Show that for all \(n\ge1\),
+\[\begin{aligned}&amp;n\tan^{-1}n-\tfrac12\ln\big(n^2+1\big)&lt;S_n\\&amp;\qquad&lt;(n+1)\tan^{-1}(n+1)-\tfrac12\ln\Big(\tfrac{n^2}{2}+n+1\Big)-\tfrac{\pi}{4}.\end{aligned}\]</span><span><span class="pl">d</span>Deduce that \(1562&lt;\tan^{-1}1+\tan^{-1}2+\tan^{-1}3+\cdots+\tan^{-1}1000&lt;1565\).</span></div>{{work:110}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>20 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Technical High School, 2021, Extension 1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q5</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following is the correct expression for \(\displaystyle\int\frac{dx}{\sqrt{16-x^2}}\) ?
+<div class="mc"><span>A.&ensp;\(\sin^{-1}4x+c\)</span><span>B.&ensp;\(\cos^{-1}4x+c\)</span><span>C.&ensp;\(\sin^{-1}\dfrac x4+c\)</span><span>D.&ensp;\(\cos^{-1}\dfrac x4+c\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is \(a\) here?</div>{{work:18}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Knox Grammar School, 2022, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q1</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which is equal to \(\displaystyle\int\frac{2}{2+x^2}\,dx\) ?
+<div class="mc"><span>A.&ensp;\(\tan^{-1}\dfrac{x}{\sqrt2}+c\)</span><span>B.&ensp;\(\dfrac{1}{\sqrt2}\tan^{-1}\dfrac{x}{\sqrt2}+c\)</span><span>C.&ensp;\(\sqrt2\tan^{-1}\dfrac{x}{\sqrt2}+c\)</span><span>D.&ensp;\(2\tan^{-1}\dfrac{x}{\sqrt2}+c\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is \(a^2\) here?</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(a)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find \(\displaystyle\int\frac{5}{2+x^2}\,dx\).</div>
+<div class="hint"><b>Hint:</b> which standard form has this shape?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q9(b)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Evaluate
+\[\int_0^{\sqrt2}\frac{dx}{\sqrt{4-x^2}}\]</div>
+<div class="hint"><b>Hint:</b> what is \(a\) here?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Blacktown Boys' High School, 2024, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Evaluate \(\displaystyle\int_0^{\frac15}\frac{dx}{1+25x^2}\)</div>
+<div class="hint"><b>Hint:</b> what is the coefficient of \(x^2\)?</div>{{work:32}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>St George Girls High School, 2020, Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q15(a)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find \(\displaystyle\int_0^{0.125}\frac{2}{\sqrt{1-4x^2}}\,dx\). Write your answer correct to 3 significant figures.</div>
+<div class="hint"><b>Hint:</b> what is being squared under the square root?</div>{{work:32}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Hornsby Girls High School, 2022, Year 12 Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Evaluate and find the exact value of \(\displaystyle\int_{\sqrt2}^{\sqrt6}\frac{1}{2+x^2}\,dx\).</div>
+<div class="hint"><b>Hint:</b> what is \(a\) here?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Northern Beaches Secondary College Manly Selective Campus, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q7</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the value of \(k\) such that \(\displaystyle\int_0^k\frac{1}{\sqrt{4-x^2}}\,dx=\frac{\pi}{3}\) ?
+<div class="mc"><span>A.&ensp;\(1\)</span><span>B.&ensp;\(\sqrt3\)</span><span>C.&ensp;\(2\)</span><span>D.&ensp;\(2\sqrt3\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is the integral in terms of \(k\)?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>James Ruse Agricultural High School, 2023, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(a)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find \(k\) such that \(\displaystyle\int_0^k\frac{1}{\sqrt{9-x^2}}\,dx=\frac{\pi}{2}\)</div>
+<div class="hint"><b>Hint:</b> what is the primitive of the integrand?</div>{{work:32}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q9</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the value of \(k\) such that \(\displaystyle\int_0^k\frac{dx}{1+(x-1)^2}=\frac{\pi}{2}\)
+<div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>A.&ensp;\(2\sqrt3\)</span><span>B.&ensp;\(\sqrt3\)</span><span>C.&ensp;\(2\)</span><span>D.&ensp;\(1\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is \(u\) here, and what is \(u'\)?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 11</span>Sydney Technical High School, 2023, Extension 1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q14(b)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:1fr 76mm"><div>The region enclosed by \(y=4-\dfrac{8}{\sqrt{8-x^2}}\) and the semi-circle \(y=-\sqrt{4-x^2}\) is shaded in the diagram.<br><br>Find the exact value of the area of the shaded region.</div><div>{{svg:pp12b_sths23}}</div></div></div>
+<div class="hint"><b>Hint:</b> which part of the region lies above the \(x\)-axis?</div>{{work:56}}</div>
+</div>
