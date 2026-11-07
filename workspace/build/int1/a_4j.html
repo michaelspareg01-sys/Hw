@@ -1,1 +1,186 @@
-<!-- filled by Task Int1 lesson 4J -->
+{{ahead:Lesson 4J | Primitive functions}}
+<div class="ans-sec">Lesson Examples</div>
+<p class="small">Throughout, \(C\) and \(D\) are constants, and \(x\gt0\) wherever there is a square root or a fractional index of <span style="white-space:nowrap">\(x\).</span></p>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b>
+<div data-c="d1">
+<div style="margin:0.8mm 0"><b>a</b> <span style="white-space:nowrap">\(f(x)=(x+1)^2=x^2+2x+1\),</span> so <span style="white-space:nowrap">\(f'(x)=2x+2\).</span> Also <span style="white-space:nowrap">\(g'(x)=2x+2\).</span></div>
+<div style="margin:0.8mm 0"><b>b</b> <span style="white-space:nowrap">\(f(x)-g(x)=\big(x^2+2x+1\big)-\big(x^2+2x\big)=1\).</span></div></div>
+The two functions have the same derivative for all <span style="white-space:nowrap">\(x\),</span> and they differ by the constant 1, as Box 14B says.<br>
+<b>Your turn.</b>
+<div data-c="y1">
+<div style="margin:0.8mm 0"><b>a</b> <span style="white-space:nowrap">\(f(x)=(x-3)^2=x^2-6x+9\),</span> so <span style="white-space:nowrap">\(f'(x)=2x-6\).</span> Also <span style="white-space:nowrap">\(g'(x)=2x-6\).</span></div>
+<div style="margin:0.8mm 0"><b>b</b> <span style="white-space:nowrap">\(f(x)-g(x)=\big(x^2-6x+9\big)-\big(x^2-6x+2\big)=7\).</span></div></div>
+The two functions have the same derivative for all <span style="white-space:nowrap">\(x\),</span> and they differ by the constant 7, as Box 14B says.</div></div>
+
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<div data-c="d2">
+<div style="margin:0.8mm 0"><b>a</b> For example, <span style="white-space:nowrap">\(x^3\),</span> <span style="white-space:nowrap">\(x^3+1\),</span> \(x^3-4\) and <span style="white-space:nowrap">\(x^3+\pi\):</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm"><span style="white-space:nowrap">\(\dfrac{d}{dx}\big(x^3\big)=3x^2\),</span> &ensp;<span style="white-space:nowrap">\(\dfrac{d}{dx}\big(x^3+1\big)=3x^2+0=3x^2\),</span> &ensp;<span style="white-space:nowrap">\(\dfrac{d}{dx}\big(x^3-4\big)=3x^2-0=3x^2\),</span> &ensp;<span style="white-space:nowrap">\(\dfrac{d}{dx}\big(x^3+\pi\big)=3x^2+0=3x^2\).</span></div>
+<div style="margin:0.8mm 0"><b>b</b> If <span style="white-space:nowrap">\(f'(x)=3x^2\),</span> then <span style="white-space:nowrap">\(f(x)=x^3+C\),</span> for some constant <span style="white-space:nowrap">\(C\).</span></div>
+<div style="margin:0.8mm 0"><b>c</b> Substitute the point \((2,5)\) into <span style="white-space:nowrap">\(f(x)=x^3+C\):</span> &ensp;<span style="white-space:nowrap">\(5=2^3+C\),</span> &ensp;<span style="white-space:nowrap">\(5=8+C\),</span> &ensp;so <span style="white-space:nowrap">\(C=-3\).</span> Hence <span style="white-space:nowrap">\(f(x)=x^3-3\).</span></div></div>
+<b>Your turn.</b>
+<div data-c="y2">
+<div style="margin:0.8mm 0"><b>a</b> For example, <span style="white-space:nowrap">\(x^4\),</span> <span style="white-space:nowrap">\(x^4+1\),</span> \(x^4-7\) and <span style="white-space:nowrap">\(x^4+\pi\):</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm"><span style="white-space:nowrap">\(\dfrac{d}{dx}\big(x^4\big)=4x^3\),</span> &ensp;<span style="white-space:nowrap">\(\dfrac{d}{dx}\big(x^4+1\big)=4x^3+0=4x^3\),</span> &ensp;<span style="white-space:nowrap">\(\dfrac{d}{dx}\big(x^4-7\big)=4x^3-0=4x^3\),</span> &ensp;<span style="white-space:nowrap">\(\dfrac{d}{dx}\big(x^4+\pi\big)=4x^3+0=4x^3\).</span></div>
+<div style="margin:0.8mm 0"><b>b</b> If <span style="white-space:nowrap">\(f'(x)=4x^3\),</span> then <span style="white-space:nowrap">\(f(x)=x^4+C\),</span> for some constant <span style="white-space:nowrap">\(C\).</span></div>
+<div style="margin:0.8mm 0"><b>c</b> Substitute the point \((1,-2)\) into <span style="white-space:nowrap">\(f(x)=x^4+C\):</span> &ensp;<span style="white-space:nowrap">\(-2=1^4+C\),</span> &ensp;<span style="white-space:nowrap">\(-2=1+C\),</span> &ensp;so <span style="white-space:nowrap">\(C=-3\).</span> Hence <span style="white-space:nowrap">\(f(x)=x^4-3\).</span></div></div>
+<p class="small" style="margin:0.5mm 0 0">In part <b>a</b> any four functions of the form \(x^3+C\) (or \(x^4+C\)) are correct.</p></div></div>
+
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b>
+<div style="margin:0.8mm 0" data-c="d3a"><b>a</b> Let <span style="white-space:nowrap">\(\dfrac{dy}{dx}=x^4+x^3+x^2+3\).</span> Then <span style="white-space:nowrap">\(y=\dfrac{x^5}{5}+\dfrac{x^4}{4}+\dfrac{x^3}{3}+3x+C=\tfrac15x^5+\tfrac14x^4+\tfrac13x^3+3x+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="d3b"><b>b</b> Let <span style="white-space:nowrap">\(f'(x)=4x^5-2\).</span> Then <span style="white-space:nowrap">\(f(x)=4\times\dfrac{x^6}{6}-2x+C=\tfrac23x^6-2x+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="d3c"><b>c</b> Expand first: <span style="white-space:nowrap">\(\dfrac{dy}{dx}=(2x+1)(x-3)=2x^2-6x+x-3=2x^2-5x-3\).</span><br>
+Then <span style="white-space:nowrap">\(y=2\times\dfrac{x^3}{3}-5\times\dfrac{x^2}{2}-3x+C=\tfrac23x^3-\tfrac52x^2-3x+C\).</span></div>
+<b>Your turn.</b>
+<div style="margin:0.8mm 0" data-c="y3a"><b>a</b> Let <span style="white-space:nowrap">\(\dfrac{dy}{dx}=x^5+x^2+x+4\).</span> Then <span style="white-space:nowrap">\(y=\dfrac{x^6}{6}+\dfrac{x^3}{3}+\dfrac{x^2}{2}+4x+C=\tfrac16x^6+\tfrac13x^3+\tfrac12x^2+4x+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="y3b"><b>b</b> Let <span style="white-space:nowrap">\(f'(x)=3x^4+5\).</span> Then <span style="white-space:nowrap">\(f(x)=3\times\dfrac{x^5}{5}+5x+C=\tfrac35x^5+5x+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="y3c"><b>c</b> Expand first: <span style="white-space:nowrap">\(\dfrac{dy}{dx}=(x+3)(x-1)=x^2-x+3x-3=x^2+2x-3\).</span><br>
+Then <span style="white-space:nowrap">\(y=\dfrac{x^3}{3}+2\times\dfrac{x^2}{2}-3x+C=\tfrac13x^3+x^2-3x+C\).</span></div></div></div>
+
+<div class="a"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b>
+<div style="margin:0.8mm 0" data-c="d4a"><b>a</b> Let <span style="white-space:nowrap">\(f'(x)=\dfrac{4}{x^3}=4x^{-3}\).</span> Then <span style="white-space:nowrap">\(f(x)=4\times\dfrac{x^{-2}}{-2}+C=-2x^{-2}+C=-\dfrac{2}{x^2}+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="d4b"><b>b</b> Let <span style="white-space:nowrap">\(\dfrac{dy}{dx}=\sqrt[3]{x^2}=x^{\frac23}\).</span> Then <span style="white-space:nowrap">\(y=\dfrac{x^{\frac53}}{\frac53}+C=\tfrac35x^{\frac53}+C\).</span></div>
+<b>Your turn.</b>
+<div style="margin:0.8mm 0" data-c="y4a"><b>a</b> Let <span style="white-space:nowrap">\(f'(x)=\dfrac{6}{x^4}=6x^{-4}\).</span> Then <span style="white-space:nowrap">\(f(x)=6\times\dfrac{x^{-3}}{-3}+C=-2x^{-3}+C=-\dfrac{2}{x^3}+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="y4b"><b>b</b> Let <span style="white-space:nowrap">\(\dfrac{dy}{dx}=x\sqrt x=x^1\times x^{\frac12}=x^{\frac32}\).</span> Then <span style="white-space:nowrap">\(y=\dfrac{x^{\frac52}}{\frac52}+C=\tfrac25x^{\frac52}+C\).</span></div></div></div>
+
+<div class="a"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b>
+<div style="margin:0.8mm 0" data-c="d5a"><b>a</b> Here \(a=2\) and <span style="white-space:nowrap">\(n=3\):</span> &ensp;<span style="white-space:nowrap">\(y=\dfrac{(2x+5)^4}{4\times2}+C=\dfrac{(2x+5)^4}{8}+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="d5b"><b>b</b> Here \(a=-2\) and <span style="white-space:nowrap">\(n=5\):</span> &ensp;<span style="white-space:nowrap">\(y=\dfrac{(3-2x)^6}{6\times(-2)}+C=-\dfrac{(3-2x)^6}{12}+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="d5c"><b>c</b> <span style="white-space:nowrap">\(\dfrac{dy}{dx}=\dfrac{1}{(x+3)^3}=(x+3)^{-3}\),</span> with \(a=1\) and <span style="white-space:nowrap">\(n=-3\):</span> &ensp;<span style="white-space:nowrap">\(y=\dfrac{(x+3)^{-2}}{-2}+C=-\dfrac{1}{2(x+3)^2}+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="d5d"><b>d</b> <span style="white-space:nowrap">\(\dfrac{dy}{dx}=\sqrt{4x+1}=(4x+1)^{\frac12}\),</span> with \(a=4\) and <span style="white-space:nowrap">\(n=\tfrac12\):</span> &ensp;<span style="white-space:nowrap">\(y=\dfrac{(4x+1)^{\frac32}}{\frac32\times4}+C=\dfrac{(4x+1)^{\frac32}}{6}+C\).</span></div>
+<b>Your turn.</b>
+<div style="margin:0.8mm 0" data-c="y5a"><b>a</b> Here \(a=4\) and <span style="white-space:nowrap">\(n=5\):</span> &ensp;<span style="white-space:nowrap">\(y=\dfrac{(4x+3)^6}{6\times4}+C=\dfrac{(4x+3)^6}{24}+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="y5b"><b>b</b> Here \(a=-5\) and <span style="white-space:nowrap">\(n=4\):</span> &ensp;<span style="white-space:nowrap">\(y=\dfrac{(2-5x)^5}{5\times(-5)}+C=-\dfrac{(2-5x)^5}{25}+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="y5c"><b>c</b> <span style="white-space:nowrap">\(\dfrac{dy}{dx}=\dfrac{1}{(x-4)^3}=(x-4)^{-3}\),</span> with \(a=1\) and <span style="white-space:nowrap">\(n=-3\):</span> &ensp;<span style="white-space:nowrap">\(y=\dfrac{(x-4)^{-2}}{-2}+C=-\dfrac{1}{2(x-4)^2}+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="y5d"><b>d</b> <span style="white-space:nowrap">\(\dfrac{dy}{dx}=\sqrt{x+3}=(x+3)^{\frac12}\),</span> with \(a=1\) and <span style="white-space:nowrap">\(n=\tfrac12\):</span> &ensp;<span style="white-space:nowrap">\(y=\dfrac{(x+3)^{\frac32}}{\frac32}+C=\tfrac23(x+3)^{\frac32}+C\).</span></div></div></div>
+
+<div class="a"><span class="an">C6</span><div class="ab"><b>Tutor demo.</b>
+<div style="margin:0.8mm 0" data-c="d6a"><b>a</b> <span style="white-space:nowrap">\(y=12\times\dfrac{x^3}{3}-2x+C=4x^3-2x+C\).</span> Substituting \(x=1\) and <span style="white-space:nowrap">\(y=5\):</span> &ensp;<span style="white-space:nowrap">\(5=4\times1^3-2\times1+C\),</span> &ensp;<span style="white-space:nowrap">\(5=4-2+C\),</span> &ensp;so <span style="white-space:nowrap">\(C=3\).</span> Hence <span style="white-space:nowrap">\(y=4x^3-2x+3\).</span></div>
+<div style="margin:0.8mm 0" data-c="d6b"><b>b</b> <span style="white-space:nowrap">\(y=\dfrac{(2x-1)^4}{4\times2}+C=\dfrac{(2x-1)^4}{8}+C\).</span> Substituting \(x=1\) and <span style="white-space:nowrap">\(y=2\):</span> &ensp;<span style="white-space:nowrap">\(2=\dfrac{(2-1)^4}{8}+C\),</span> &ensp;<span style="white-space:nowrap">\(2=\tfrac18+C\),</span> &ensp;so <span style="white-space:nowrap">\(C=\tfrac{15}{8}\).</span> Hence <span style="white-space:nowrap">\(y=\dfrac{(2x-1)^4}{8}+\dfrac{15}{8}\).</span></div>
+<b>Your turn.</b>
+<div style="margin:0.8mm 0" data-c="y6a"><b>a</b> <span style="white-space:nowrap">\(y=6\times\dfrac{x^3}{3}+2\times\dfrac{x^2}{2}+C=2x^3+x^2+C\).</span> Substituting \(x=1\) and <span style="white-space:nowrap">\(y=7\):</span> &ensp;<span style="white-space:nowrap">\(7=2+1+C\),</span> &ensp;so <span style="white-space:nowrap">\(C=4\).</span> Hence <span style="white-space:nowrap">\(y=2x^3+x^2+4\).</span></div>
+<div style="margin:0.8mm 0" data-c="y6b"><b>b</b> <span style="white-space:nowrap">\(y=\dfrac{(3x+1)^3}{3\times3}+C=\dfrac{(3x+1)^3}{9}+C\).</span> Substituting \(x=0\) and <span style="white-space:nowrap">\(y=1\):</span> &ensp;<span style="white-space:nowrap">\(1=\dfrac{1^3}{9}+C\),</span> &ensp;<span style="white-space:nowrap">\(1=\tfrac19+C\),</span> &ensp;so <span style="white-space:nowrap">\(C=\tfrac89\).</span> Hence <span style="white-space:nowrap">\(y=\dfrac{(3x+1)^3}{9}+\dfrac89\).</span></div></div></div>
+
+<div class="a" style="break-inside:auto"><span class="an">C7</span><div class="ab"><b>Tutor demo.</b>
+<div data-c="d7a">
+<div style="margin:0.8mm 0"><b>a</b> <span style="white-space:nowrap">\(f'(x)=12\times\dfrac{(x-2)^3}{3\times1}+C=4(x-2)^3+C\),</span> &ensp;then &ensp;<span style="white-space:nowrap">\(f(x)=4\times\dfrac{(x-2)^4}{4\times1}+Cx+D=(x-2)^4+Cx+D\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Because <span style="white-space:nowrap">\(f(0)=0\):</span> &ensp;<span style="white-space:nowrap">\(0=(0-2)^4+C\times0+D\),</span> &ensp;<span style="white-space:nowrap">\(0=16+D\),</span> &ensp;so <span style="white-space:nowrap">\(D=-16\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Because <span style="white-space:nowrap">\(f(2)=0\):</span> &ensp;<span style="white-space:nowrap">\(0=(2-2)^4+2C+D\),</span> &ensp;<span style="white-space:nowrap">\(0=2C-16\),</span> &ensp;so <span style="white-space:nowrap">\(C=8\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Hence <span style="white-space:nowrap">\(f(x)=(x-2)^4+8x-16\),</span> and <span style="white-space:nowrap">\(f(3)=(3-2)^4+8\times3-16=1+24-16=9\).</span></div></div>
+<div data-c="d7b">
+<div style="margin:0.8mm 0"><b>b</b> <span style="white-space:nowrap">\(y'=6\times\dfrac{x^2}{2}-2x+C=3x^2-2x+C\).</span> When <span style="white-space:nowrap">\(x=1\),</span> <span style="white-space:nowrap">\(y'=4\):</span> &ensp;<span style="white-space:nowrap">\(4=3-2+C\),</span> &ensp;so \(C=3\) and <span style="white-space:nowrap">\(y'=3x^2-2x+3\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Then <span style="white-space:nowrap">\(y=3\times\dfrac{x^3}{3}-2\times\dfrac{x^2}{2}+3x+D=x^3-x^2+3x+D\).</span> When <span style="white-space:nowrap">\(x=1\),</span> <span style="white-space:nowrap">\(y=3\):</span> &ensp;<span style="white-space:nowrap">\(3=1-1+3+D\),</span> &ensp;so <span style="white-space:nowrap">\(D=0\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Hence <span style="white-space:nowrap">\(y=x^3-x^2+3x\).</span></div></div>
+<b>Your turn.</b>
+<div data-c="y7a">
+<div style="margin:0.8mm 0"><b>a</b> <span style="white-space:nowrap">\(f'(x)=6\times\dfrac{(x+1)^2}{2\times1}+C=3(x+1)^2+C\),</span> &ensp;then &ensp;<span style="white-space:nowrap">\(f(x)=3\times\dfrac{(x+1)^3}{3\times1}+Cx+D=(x+1)^3+Cx+D\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Because <span style="white-space:nowrap">\(f(0)=0\):</span> &ensp;<span style="white-space:nowrap">\(0=(0+1)^3+C\times0+D\),</span> &ensp;<span style="white-space:nowrap">\(0=1+D\),</span> &ensp;so <span style="white-space:nowrap">\(D=-1\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Because <span style="white-space:nowrap">\(f(1)=6\):</span> &ensp;<span style="white-space:nowrap">\(6=(1+1)^3+C\times1+D\),</span> &ensp;<span style="white-space:nowrap">\(6=8+C-1\),</span> &ensp;so <span style="white-space:nowrap">\(C=-1\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Hence <span style="white-space:nowrap">\(f(x)=(x+1)^3-x-1\),</span> and <span style="white-space:nowrap">\(f(2)=(2+1)^3-2-1=27-2-1=24\).</span></div></div>
+<div data-c="y7b">
+<div style="margin:0.8mm 0"><b>b</b> <span style="white-space:nowrap">\(y'=12\times\dfrac{x^2}{2}+2x+C=6x^2+2x+C\).</span> When <span style="white-space:nowrap">\(x=0\),</span> <span style="white-space:nowrap">\(y'=1\):</span> &ensp;<span style="white-space:nowrap">\(1=0+0+C\),</span> &ensp;so \(C=1\) and <span style="white-space:nowrap">\(y'=6x^2+2x+1\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Then <span style="white-space:nowrap">\(y=6\times\dfrac{x^3}{3}+2\times\dfrac{x^2}{2}+x+D=2x^3+x^2+x+D\).</span> When <span style="white-space:nowrap">\(x=0\),</span> <span style="white-space:nowrap">\(y=-2\):</span> &ensp;<span style="white-space:nowrap">\(-2=0+0+0+D\),</span> &ensp;so <span style="white-space:nowrap">\(D=-2\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm">Hence <span style="white-space:nowrap">\(y=2x^3+x^2+x-2\).</span></div></div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<p class="small">Each answer shows the rule applied, then the simplified primitive. \(C\) and \(D\) are constants.</p>
+<div class="a"><span class="an">1</span><div class="ab">
+<div class="parts" style="row-gap:1.2mm;grid-template-columns:1fr 1fr">
+<span data-c="1a"><b>a</b> \(\dfrac{x^{6+1}}{6+1}+C=\tfrac17x^7+C\)</span>
+<span data-c="1b"><b>b</b> \(\dfrac{x^{3+1}}{3+1}+C=\tfrac14x^4+C\)</span>
+<span data-c="1c"><b>c</b> \(\dfrac{x^{10+1}}{10+1}+C=\tfrac{1}{11}x^{11}+C\)</span>
+<span data-c="1d"><b>d</b> \(3\times\dfrac{x^2}{2}+C=\tfrac32x^2+C\)</span>
+<span data-c="1e"><b>e</b> \(5\times\dfrac{x^1}{1}+C=5x+C\)</span>
+<span data-c="1f"><b>f</b> \(5\times\dfrac{x^{10}}{10}+C=\tfrac12x^{10}+C\)</span>
+<span data-c="1g"><b>g</b> \(21\times\dfrac{x^7}{7}+C=3x^7+C\)</span>
+<span data-c="1h"><b>h</b> The derivative of a constant is zero, so the primitive is <span style="white-space:nowrap">\(0x+C=C\).</span></span></div></div></div>
+<div class="a"><span class="an">2</span><div class="ab">
+<div style="margin:0.8mm 0" data-c="2a"><b>a</b> \(\dfrac{x^3}{3}+\dfrac{x^5}{5}+C=\tfrac13x^3+\tfrac15x^5+C\)</div>
+<div style="margin:0.8mm 0" data-c="2b"><b>b</b> \(4\times\dfrac{x^4}{4}-5\times\dfrac{x^5}{5}+C=x^4-x^5+C\)</div>
+<div style="margin:0.8mm 0" data-c="2c"><b>c</b> \(2\times\dfrac{x^3}{3}+5\times\dfrac{x^8}{8}+C=\tfrac23x^3+\tfrac58x^8+C\)</div>
+<div style="margin:0.8mm 0" data-c="2d"><b>d</b> \(\dfrac{x^3}{3}-\dfrac{x^2}{2}+x+C=\tfrac13x^3-\tfrac12x^2+x+C\)</div>
+<div style="margin:0.8mm 0" data-c="2e"><b>e</b> \(3x-4\times\dfrac{x^2}{2}+16\times\dfrac{x^8}{8}+C=3x-2x^2+2x^8+C\)</div>
+<div style="margin:0.8mm 0" data-c="2f"><b>f</b> \(3\times\dfrac{x^3}{3}-4\times\dfrac{x^4}{4}-5\times\dfrac{x^5}{5}+C=x^3-x^4-x^5+C\)</div></div></div>
+<div class="a"><span class="an">3</span><div class="ab">
+<div style="margin:0.8mm 0" data-c="3a"><b>a</b> <span style="white-space:nowrap">\(x(x-3)=x^2-3x\).</span> Primitive: \(\dfrac{x^3}{3}-3\times\dfrac{x^2}{2}+C=\tfrac13x^3-\tfrac32x^2+C\)</div>
+<div style="margin:0.8mm 0" data-c="3b"><b>b</b> <span style="white-space:nowrap">\((x+1)(x-2)=x^2-2x+x-2=x^2-x-2\).</span> Primitive: \(\dfrac{x^3}{3}-\dfrac{x^2}{2}-2x+C=\tfrac13x^3-\tfrac12x^2-2x+C\)</div>
+<div style="margin:0.8mm 0" data-c="3c"><b>c</b> <span style="white-space:nowrap">\((3x-1)(x+4)=3x^2+12x-x-4=3x^2+11x-4\).</span> Primitive: \(3\times\dfrac{x^3}{3}+11\times\dfrac{x^2}{2}-4x+C=x^3+\tfrac{11}{2}x^2-4x+C\)</div>
+<div style="margin:0.8mm 0" data-c="3d"><b>d</b> <span style="white-space:nowrap">\(x^2(5x^3-4x)=5x^5-4x^3\).</span> Primitive: \(5\times\dfrac{x^6}{6}-4\times\dfrac{x^4}{4}+C=\tfrac56x^6-x^4+C\)</div>
+<div style="margin:0.8mm 0" data-c="3e"><b>e</b> <span style="white-space:nowrap">\(2x^3(4x^4+1)=8x^7+2x^3\).</span> Primitive: \(8\times\dfrac{x^8}{8}+2\times\dfrac{x^4}{4}+C=x^8+\tfrac12x^4+C\)</div>
+<div style="margin:0.8mm 0" data-c="3f"><b>f</b> <span style="white-space:nowrap">\((x-3)(1+x^2)=x+x^3-3-3x^2\).</span> Primitive: \(\dfrac{x^2}{2}+\dfrac{x^4}{4}-3x-3\times\dfrac{x^3}{3}+C=\tfrac12x^2+\tfrac14x^4-3x-x^3+C\)</div></div></div>
+<div class="a"><span class="an">4</span><div class="ab">
+<div style="margin:0.8mm 0" data-c="4a"><b>a</b> <span style="white-space:nowrap">\(y=x^2+3x+C\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm"><span data-c="4ai"><b>i</b> <span style="white-space:nowrap">\(3=0+0+C\),</span> so \(C=3\) and <span style="white-space:nowrap">\(y=x^2+3x+3\).</span></span>&emsp;<span data-c="4aii"><b>ii</b> <span style="white-space:nowrap">\(8=1+3+C\),</span> so \(C=4\) and <span style="white-space:nowrap">\(y=x^2+3x+4\).</span></span></div>
+<div style="margin:0.8mm 0" data-c="4b"><b>b</b> <span style="white-space:nowrap">\(y=9\times\dfrac{x^3}{3}+4x+C=3x^3+4x+C\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm"><span data-c="4bi"><b>i</b> <span style="white-space:nowrap">\(1=0+0+C\),</span> so \(C=1\) and <span style="white-space:nowrap">\(y=3x^3+4x+1\).</span></span>&emsp;<span data-c="4bii"><b>ii</b> <span style="white-space:nowrap">\(5=3+4+C\),</span> so \(C=-2\) and <span style="white-space:nowrap">\(y=3x^3+4x-2\).</span></span></div>
+<div style="margin:0.8mm 0" data-c="4c"><b>c</b> <span style="white-space:nowrap">\(y=3\times\dfrac{x^3}{3}-4\times\dfrac{x^2}{2}+7x+C=x^3-2x^2+7x+C\).</span></div>
+<div style="margin:0.8mm 0 0.8mm 4mm"><span data-c="4ci"><b>i</b> <span style="white-space:nowrap">\(0=0-0+0+C\),</span> so \(C=0\) and <span style="white-space:nowrap">\(y=x^3-2x^2+7x\).</span></span>&emsp;<span data-c="4cii"><b>ii</b> <span style="white-space:nowrap">\(-1=1-2+7+C\),</span> so \(C=-7\) and <span style="white-space:nowrap">\(y=x^3-2x^2+7x-7\).</span></span></div></div></div>
+<div class="a"><span class="an">5</span><div class="ab">
+<div style="margin:0.8mm 0" data-c="5a"><b>a</b> <span style="white-space:nowrap">\(\dfrac{1}{x^2}=x^{-2}\).</span> Primitive: \(\dfrac{x^{-1}}{-1}+C=-\dfrac1x+C\)</div>
+<div style="margin:0.8mm 0" data-c="5b"><b>b</b> <span style="white-space:nowrap">\(\dfrac{1}{x^3}=x^{-3}\).</span> Primitive: \(\dfrac{x^{-2}}{-2}+C=-\dfrac{1}{2x^2}+C\)</div>
+<div style="margin:0.8mm 0" data-c="5c"><b>c</b> <span style="white-space:nowrap">\(-\dfrac{2}{x^3}=-2x^{-3}\).</span> Primitive: \(-2\times\dfrac{x^{-2}}{-2}+C=x^{-2}+C=\dfrac{1}{x^2}+C\)</div>
+<div style="margin:0.8mm 0" data-c="5d"><b>d</b> <span style="white-space:nowrap">\(-\dfrac{3}{x^4}=-3x^{-4}\).</span> Primitive: \(-3\times\dfrac{x^{-3}}{-3}+C=x^{-3}+C=\dfrac{1}{x^3}+C\)</div>
+<div style="margin:0.8mm 0" data-c="5e"><b>e</b> <span style="white-space:nowrap">\(\dfrac{1}{x^2}-\dfrac{1}{x^3}=x^{-2}-x^{-3}\).</span> Primitive: \(\dfrac{x^{-1}}{-1}-\dfrac{x^{-2}}{-2}+C=-\dfrac1x+\dfrac{1}{2x^2}+C\)</div></div></div>
+<div class="a"><span class="an">6</span><div class="ab">
+<div style="margin:0.8mm 0" data-c="6a"><b>a</b> <span style="white-space:nowrap">\(\sqrt x=x^{\frac12}\).</span> Primitive: \(\dfrac{x^{\frac32}}{\frac32}+C=\tfrac23x^{\frac32}+C\)</div>
+<div style="margin:0.8mm 0" data-c="6b"><b>b</b> <span style="white-space:nowrap">\(\dfrac{1}{\sqrt x}=x^{-\frac12}\).</span> Primitive: \(\dfrac{x^{\frac12}}{\frac12}+C=2x^{\frac12}+C=2\sqrt x+C\)</div>
+<div style="margin:0.8mm 0" data-c="6c"><b>c</b> <span style="white-space:nowrap">\(\sqrt[3]{x}=x^{\frac13}\).</span> Primitive: \(\dfrac{x^{\frac43}}{\frac43}+C=\tfrac34x^{\frac43}+C\)</div>
+<div style="margin:0.8mm 0" data-c="6d"><b>d</b> <span style="white-space:nowrap">\(\dfrac{2}{\sqrt x}=2x^{-\frac12}\).</span> Primitive: \(2\times\dfrac{x^{\frac12}}{\frac12}+C=4x^{\frac12}+C=4\sqrt x+C\)</div>
+<div style="margin:0.8mm 0" data-c="6e"><b>e</b> <span style="white-space:nowrap">\(\sqrt[5]{x^3}=x^{\frac35}\).</span> Primitive: \(\dfrac{x^{\frac85}}{\frac85}+C=\tfrac58x^{\frac85}+C\)</div></div></div>
+<div class="a"><span class="an">7</span><div class="ab">
+<div style="margin:0.8mm 0" data-c="7"><b>a</b> and <b>b</b>: &ensp;<span style="white-space:nowrap">\(\dfrac{dy}{dx}=x^{\frac12}\),</span> so <span style="white-space:nowrap">\(y=\dfrac{x^{\frac32}}{\frac32}+C=\tfrac23x^{\frac32}+C\).</span></div>
+<div style="margin:0.8mm 0" data-c="7a"><b>a</b> <span style="white-space:nowrap">\(1=0+C\),</span> so \(C=1\) and <span style="white-space:nowrap">\(y=\tfrac23x^{\frac32}+1\).</span></div>
+<div style="margin:0.8mm 0" data-c="7b"><b>b</b> <span style="white-space:nowrap">\(2=\tfrac23\times9^{\frac32}+C=\tfrac23\times27+C=18+C\),</span> so \(C=-16\) and <span style="white-space:nowrap">\(y=\tfrac23x^{\frac32}-16\).</span></div></div></div>
+<div class="a" style="break-inside:auto"><span class="an">8</span><div class="ab">
+<div style="margin:0.8mm 0" data-c="8a"><b>a</b> <span style="white-space:nowrap">\(y=-4\times\dfrac{x^2}{2}+C=-2x^2+C\),</span> the parabola <!--nc-->\(y=-2x^2\) translated up or down. At <span style="white-space:nowrap">\(A(1,2)\):</span> <span style="white-space:nowrap">\(2=-2+C\),</span> so \(C=4\) and <span style="white-space:nowrap">\(y=4-2x^2\).</span></div>
+<div style="margin:0.8mm 0" data-c="8b"><b>b</b> <span style="white-space:nowrap">\(y=3x+C\),</span> the parallel lines with gradient 3. At <span style="white-space:nowrap">\(A(1,2)\):</span> <span style="white-space:nowrap">\(2=3+C\),</span> so \(C=-1\) and <span style="white-space:nowrap">\(y=3x-1\).</span></div>
+<div style="margin:0.8mm 0" data-c="8c"><b>c</b> <span style="white-space:nowrap">\(y=3\times\dfrac{x^3}{3}+C=x^3+C\),</span> the cubic <!--nc-->\(y=x^3\) translated up or down. At <span style="white-space:nowrap">\(A(1,2)\):</span> <span style="white-space:nowrap">\(2=1+C\),</span> so \(C=1\) and <span style="white-space:nowrap">\(y=x^3+1\).</span></div>
+<div style="margin:0.8mm 0" data-c="8d"><b>d</b> <span style="white-space:nowrap">\(\dfrac{dy}{dx}=-x^{-2}\),</span> so <span style="white-space:nowrap">\(y=-\dfrac{x^{-1}}{-1}+C=\dfrac1x+C\),</span> the hyperbola <!--nc-->\(y=\dfrac1x\) translated up or down. At <span style="white-space:nowrap">\(A(1,2)\):</span> <span style="white-space:nowrap">\(2=1+C\),</span> so \(C=1\) and <span style="white-space:nowrap">\(y=\dfrac1x+1\).</span></div>
+<div style="margin:0.8mm 0">In each sketch the member through \(A(1,2)\) is blue.</div>
+{{svg:a4j_q8}}</div></div>
+<div class="a"><span class="an">9</span><div class="ab">
+<div class="parts one" style="row-gap:1.6mm">
+<span data-c="9a"><b>a</b> \(\dfrac{(x+1)^4}{4\times1}+C=\tfrac14(x+1)^4+C\)</span>
+<span data-c="9b"><b>b</b> \(\dfrac{(x-2)^6}{6\times1}+C=\tfrac16(x-2)^6+C\)</span>
+<span data-c="9c"><b>c</b> \(\dfrac{(x+5)^3}{3\times1}+C=\tfrac13(x+5)^3+C\)</span>
+<span data-c="9d"><b>d</b> \(\dfrac{(2x+3)^5}{5\times2}+C=\tfrac{1}{10}(2x+3)^5+C\)</span>
+<span data-c="9e"><b>e</b> \(\dfrac{(3x-4)^7}{7\times3}+C=\tfrac{1}{21}(3x-4)^7+C\)</span>
+<span data-c="9f"><b>f</b> \(\dfrac{(5x-1)^4}{4\times5}+C=\tfrac{1}{20}(5x-1)^4+C\)</span>
+<span data-c="9g"><b>g</b> \(\dfrac{(1-x)^4}{4\times(-1)}+C=-\tfrac14(1-x)^4+C\)</span>
+<span data-c="9h"><b>h</b> \(\dfrac{(1-7x)^4}{4\times(-7)}+C=-\tfrac{1}{28}(1-7x)^4+C\)</span>
+<span data-c="9i"><b>i</b> \((x-2)^{-4}\) has primitive \(\dfrac{(x-2)^{-3}}{(-3)\times1}+C=\dfrac{-1}{3(x-2)^3}+C\)</span>
+<span data-c="9j"><b>j</b> \((1-x)^{-10}\) has primitive \(\dfrac{(1-x)^{-9}}{(-9)\times(-1)}+C=\dfrac{1}{9(1-x)^9}+C\)</span></div></div></div>
+<div class="a"><span class="an">10</span><div class="ab">
+<div class="parts one" style="row-gap:1.6mm">
+<span data-c="10a"><b>a</b> \(\dfrac{(x+1)^{\frac32}}{\frac32\times1}+C=\tfrac23(x+1)^{\frac32}+C\)</span>
+<span data-c="10b"><b>b</b> \(\dfrac{(x-5)^{\frac32}}{\frac32\times1}+C=\tfrac23(x-5)^{\frac32}+C\)</span>
+<span data-c="10c"><b>c</b> \(\dfrac{(1-x)^{\frac32}}{\frac32\times(-1)}+C=-\tfrac23(1-x)^{\frac32}+C\)</span>
+<span data-c="10d"><b>d</b> \(\dfrac{(2x-7)^{\frac32}}{\frac32\times2}+C=\tfrac13(2x-7)^{\frac32}+C\)</span>
+<span data-c="10e"><b>e</b> \(\dfrac{(3x-4)^{\frac32}}{\frac32\times3}+C=\tfrac29(3x-4)^{\frac32}+C\)</span></div></div></div>
+<div class="a"><span class="an">11</span><div class="ab">
+<div style="margin:0.8mm 0" data-c="11a"><b>a</b> <span style="white-space:nowrap">\(y=\dfrac{(x-1)^5}{5\times1}+C=\tfrac15(x-1)^5+C\).</span> Then <span style="white-space:nowrap">\(0=\tfrac15\times0^5+C\),</span> so \(C=0\) and <span style="white-space:nowrap">\(y=\tfrac15(x-1)^5\).</span></div>
+<div style="margin:0.8mm 0" data-c="11b"><b>b</b> <span style="white-space:nowrap">\(y=\dfrac{(2x+1)^4}{4\times2}+C=\tfrac18(2x+1)^4+C\).</span> Then <span style="white-space:nowrap">\(-1=\tfrac18\times1^4+C\),</span> so \(C=-\tfrac98\) and <span style="white-space:nowrap">\(y=\tfrac18(2x+1)^4-\tfrac98\).</span></div>
+<div style="margin:0.8mm 0" data-c="11c"><b>c</b> <span style="white-space:nowrap">\(y=\dfrac{(2x+1)^{\frac32}}{\frac32\times2}+C=\tfrac13(2x+1)^{\frac32}+C\).</span> Then <span style="white-space:nowrap">\(\tfrac13=\tfrac13\times1^{\frac32}+C\),</span> so \(C=0\) and <span style="white-space:nowrap">\(y=\tfrac13(2x+1)^{\frac32}\).</span></div></div></div>
+<div class="a"><span class="an">12</span><div class="ab">
+<div style="margin:0.8mm 0" data-c="12a"><b>a</b> <span style="white-space:nowrap">\(y=3\times\dfrac{x^5}{5}-\dfrac{x^4}{4}+x+C=\tfrac35x^5-\tfrac14x^4+x+C\).</span> Through the origin: <span style="white-space:nowrap">\(0=0-0+0+C\),</span> so \(C=0\) and <span style="white-space:nowrap">\(y=\tfrac35x^5-\tfrac14x^4+x\).</span></div>
+<div style="margin:0.8mm 0" data-c="12b"><b>b</b> <span style="white-space:nowrap">\(y=2x+3\times\dfrac{x^3}{3}-\dfrac{x^4}{4}+C=2x+x^3-\tfrac14x^4+C\).</span> Through <span style="white-space:nowrap">\((2,6)\):</span> <span style="white-space:nowrap">\(6=4+8-4+C\),</span> so \(C=-2\) and <span style="white-space:nowrap">\(y=-\tfrac14x^4+x^3+2x-2\).</span></div>
+<div style="margin:0.8mm 0" data-c="12c"><b>c</b> <span style="white-space:nowrap">\(y=\dfrac{(2-5x)^4}{4\times(-5)}+C=-\tfrac{1}{20}(2-5x)^4+C\).</span> Through <span style="white-space:nowrap">\(\big(\tfrac15,1\big)\):</span> <span style="white-space:nowrap">\(1=-\tfrac{1}{20}\big(2-5\times\tfrac15\big)^4+C=-\tfrac{1}{20}+C\),</span> so \(C=\tfrac{21}{20}\) and <span style="white-space:nowrap">\(y=-\tfrac{1}{20}(2-5x)^4+\tfrac{21}{20}\).</span></div></div></div>
+<div class="a"><span class="an">13</span><div class="ab"><span data-c="13"><span style="white-space:nowrap">\(y=8\times\dfrac{t^4}{4}-6\times\dfrac{t^3}{3}+5t+C=2t^4-2t^3+5t+C\).</span> Then <span style="white-space:nowrap">\(4=0-0+0+C\),</span> so \(C=4\) and <span style="white-space:nowrap">\(y=2t^4-2t^3+5t+4\).</span></span><br>
+<span data-c="13@2">When <span style="white-space:nowrap">\(t=2\),</span> <span style="white-space:nowrap">\(y=2\times16-2\times8+10+4=30\).</span></span></div></div>
+<div class="a"><span class="an">14</span><div class="ab">The rule would give the primitive of \(x^{-1}\) as <span style="white-space:nowrap">\(\dfrac{x^0}{0}\),</span> which is undefined, because we cannot divide by zero. This problem is addressed in Chapter 6 (Lesson 6I in Part 2 of this course).</div></div>
+<div class="a"><span class="an">15</span><div class="ab" data-c="15"><span style="white-space:nowrap">\(y'=6\times\dfrac{x^2}{2}+4x+C=3x^2+4x+C\).</span> When <span style="white-space:nowrap">\(x=1\),</span> <span style="white-space:nowrap">\(y'=2\):</span> <span style="white-space:nowrap">\(2=3+4+C\),</span> so \(C=-5\) and <span style="white-space:nowrap">\(y'=3x^2+4x-5\).</span><br>
+Then <span style="white-space:nowrap">\(y=3\times\dfrac{x^3}{3}+4\times\dfrac{x^2}{2}-5x+D=x^3+2x^2-5x+D\).</span> When <span style="white-space:nowrap">\(x=1\),</span> <span style="white-space:nowrap">\(y=4\):</span> <span style="white-space:nowrap">\(4=1+2-5+D\),</span> so <span style="white-space:nowrap">\(D=6\).</span><br>
+Hence <span style="white-space:nowrap">\(y=x^3+2x^2-5x+6\).</span></div></div>
+<div class="a"><span class="an">16</span><div class="ab" data-c="16b"><b>b</b> <span style="white-space:nowrap">\(f(x)=\dfrac{x^3}{3}-10\times\dfrac{x^2}{2}+41x+D=\tfrac13x^3-5x^2+41x+D\).</span> The graph passes through <span style="white-space:nowrap">\((3,-34)\):</span> <span style="white-space:nowrap">\(-34=9-45+123+D\),</span> so <span style="white-space:nowrap">\(D=-121\).</span><br>
+Hence <span style="white-space:nowrap">\(f(x)=\tfrac13x^3-5x^2+41x-121\).</span> Then <span style="white-space:nowrap">\(f(0)=-121\),</span> so the graph cuts the \(y\)-axis at <span style="white-space:nowrap">\((0,-121)\).</span></div></div>
+<div class="a"><span class="an">17</span><div class="ab" data-c="17"><span style="white-space:nowrap">\(y'=8x-6\times\dfrac{x^2}{2}+C=8x-3x^2+C\),</span> and <span style="white-space:nowrap">\(y=8\times\dfrac{x^2}{2}-3\times\dfrac{x^3}{3}+Cx+D=4x^2-x^3+Cx+D\).</span><br>
+Through <span style="white-space:nowrap">\((1,6)\):</span> <span style="white-space:nowrap">\(6=4-1+C+D\),</span> so <span style="white-space:nowrap">\(C+D=3\).</span> Through <span style="white-space:nowrap">\((-1,8)\):</span> <span style="white-space:nowrap">\(8=4+1-C+D\),</span> so <span style="white-space:nowrap">\(-C+D=3\).</span><br>
+Adding, <span style="white-space:nowrap">\(2D=6\),</span> so \(D=3\) and <span style="white-space:nowrap">\(C=0\).</span> Hence <span style="white-space:nowrap">\(y=-x^3+4x^2+3\).</span></div></div>
+<div class="a"><span class="an">18</span><div class="ab"><div data-c="18"><span style="white-space:nowrap">\(f'(x)=-x^{-2}\),</span> so on any interval not containing 0, <span style="white-space:nowrap">\(f(x)=-\dfrac{x^{-1}}{-1}+C=\dfrac1x+C\).</span><br>
+The function \(\dfrac1x\) is undefined at <span style="white-space:nowrap">\(x=0\),</span> so the domain is two separate intervals, \(x\gt0\) and <span style="white-space:nowrap">\(x\lt0\).</span> Box 14 applies to each interval separately, so the constants on the two sides can be different:<br>
+for <span style="white-space:nowrap">\(x\gt0\),</span> <span style="white-space:nowrap">\(f(x)=\dfrac1x+C\),</span> and \(f(1)=2\) gives <span style="white-space:nowrap">\(2=1+C\),</span> so \(C=1\);<br>
+for <span style="white-space:nowrap">\(x\lt0\),</span> <span style="white-space:nowrap">\(f(x)=\dfrac1x+D\),</span> and \(f(-1)=2\) gives <span style="white-space:nowrap">\(2=-1+D\),</span> so <span style="white-space:nowrap">\(D=3\).</span><br>
+Hence \(f(x)=\dfrac1x+1\) for <span style="white-space:nowrap">\(x\gt0\),</span> and \(f(x)=\dfrac1x+3\) for <span style="white-space:nowrap">\(x\lt0\).</span></div>
+The asymptotes are <span style="white-space:nowrap">\(x=0\),</span> with \(y=1\) on the right and \(y=3\) on the left. The left branch cuts the \(x\)-axis at <span style="white-space:nowrap">\(x=-\tfrac13\),</span> and the right branch does not cut it.
+{{svg:a4j_q18}}</div></div>
