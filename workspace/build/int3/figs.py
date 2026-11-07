@@ -235,10 +235,10 @@ def fig_arev():
     save("a_q3c", g)
 
 
-def circle_tri(name, adj, opp, hyp_lab, adj_lab, opp_lab, w=150, h=130):
+def circle_tri(name, adj, opp, hyp_lab, adj_lab, opp_lab, w=170, h=150):
     """Circle with a ray at the angle whose cosine is adj/r and sine is opp/r, dropped perpendicular,
     and the three sides labelled (the textbook's quadrant diagram for Examples 5 and 13)."""
-    cx, cy, R = w / 2, h / 2, 46
+    cx, cy, R = w / 2, h / 2, 56
     r = sqrt(adj * adj + opp * opp)
     px, py = cx + R * adj / r, cy - R * opp / r
     f = Fig(w, h)
@@ -250,7 +250,7 @@ def circle_tri(name, adj, opp, hyp_lab, adj_lab, opp_lab, w=150, h=130):
     sy = 1 if opp > 0 else -1
     f.right(px, cy, -1, -sy, 6)
     f.text((cx + px) / 2, cy + (12 if opp > 0 else -6), adj_lab, size=11)
-    f.text(px + 4, (py + cy) / 2, opp_lab, anchor="start", size=11)
+    f.text(px - 5, (py + cy) / 2 + 4, opp_lab, anchor="end", size=11)   # inside, at mid-height, clear of the right-angle mark
     mx, my = (cx + px) / 2, (cy + py) / 2
     nx, ny = -sy * opp / r, -sy * adj / r   # unit normal on the side away from the triangle
     f.text(mx + 9 * nx, my + 9 * ny + 4, hyp_lab, size=11)
@@ -263,7 +263,21 @@ def fig_rev_tri():
     circle_tri("ex5b", 4, 3, "5", "4", "3")
 
 
+def fig_rev_acoscos():
+    # y = cos^-1(cos x): a zigzag between 0 and pi with period 2 pi (17C)
+    f = lambda t: acos(max(-1.0, min(1.0, cos(t))))
+    g = new(-3.4 * pi, 3.4 * pi, -0.5, 3.8, 300, 120)
+    g.curve(f, color="blue", width=2.0, x0=-3.25 * pi, x1=3.25 * pi, n=1300)
+    tip(g, f, 3.25 * pi, 1)
+    tip(g, f, -3.25 * pi, -1)
+    g.hline(pi, dash="3 3", x0=-3 * pi, x1=3 * pi)
+    g.xticks([(k * pi, lab) for k, lab in ((-3, "-3π"), (-2, "-2π"), (-1, "-π"), (1, "π"), (2, "2π"), (3, "3π"))])
+    g.yticks([(pi, "π")])
+    save("rev_acoscos", g)
+
+
 if __name__ == "__main__":
     fig_rev()
+    fig_rev_acoscos()
     fig_rev_tri()
     fig_arev()   # later lessons add their own figure functions here

@@ -354,6 +354,18 @@ if grab("compositions forward", C, "\\(\\sin\\big(\\sin^{-1}x\\big)=x\\) and \\(
     good &= all(abs(float(sp.tan(sp.atan(v * 7)) - v * 7)) < 1e-12 for v in SAMPLE)
     (ok if good else fail)("forward compositions are the identity")
 
+g = grab("cos^-1(cos x) A", C, "<b>A</b> For \\(@\\le x\\le@\\), \\(\\cos^{-1}(\\cos x)=x\\)")
+if g:
+    lo, hi = float(tex(g[0])), float(tex(g[1]))
+    ff = lambda v: float(sp.acos(sp.cos(sp.Float(v, 30))))
+    good = all(abs(ff(lo + (hi - lo) * k / 8) - (lo + (hi - lo) * k / 8)) < 1e-12 for k in range(9))
+    good &= all(abs(ff(-v) - ff(v)) < 1e-12 for v in (0.4, 1.9, 2.8))                       # B: even
+    good &= all(abs(ff(v + 2 * float(PI)) - ff(v)) < 1e-12 for v in (-2.5, 0.7, 3.0))          # C: period 2 pi
+    good &= abs(ff(-1.0) - 1.0) < 1e-12 and abs(ff(4.0) - (2 * float(PI) - 4.0)) < 1e-12
+    (ok if good else fail)(f"cos^-1(cos x): identity on [{lo:.3f}, {hi:.3f}], even, period 2 pi")
+if grab("cos^-1(cos x) C", C, "Because the graph has period \\(2\\pi\\)") is None:
+    pass
+
 # ======================= double-angle formulae and Examples 10, 13 =======================
 D = blk("The double-angle formulae (17E)")
 g = grab("compound-angle derivation", D, "\\[\\sin2\\theta=@.\\]")
