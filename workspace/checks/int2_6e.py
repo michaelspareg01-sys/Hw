@@ -417,6 +417,7 @@ except Exception as err:  # noqa: BLE001
 
 # Q11, Q12, Q13
 try:
+    has("11", "y=x^2\\) and \\(y=e^{x+1}\\) intersect at \\(x=-1", "region in the second quadrant between these two curves and the \\(y\\)-axis")
     report(same((x ** 2).subs(x, -1), sp.exp(x + 1).subs(x, -1)), "Q11a intersection at x = -1")
     report(min(float((sp.exp(x + 1) - x ** 2).subs(x, t_ / 20)) for t_ in range(-19, 1)) > 0, "Q11 e^{x+1} on top on (-1, 0]")
     c11 = re.search(r"<b>c</b> \\\((.*?)\\\) u", BLK["11"]).group(1)
@@ -484,6 +485,9 @@ for pn, lab, mk, body in PPS:
            and sub == want[2] and sum(sub) == int(mk) and body.count('<div class="hint">') == 1, f"{pn} label, marks, hint", f"{lab[:60]} {sub}")
 intro = grab(ppl, r"Suggested time: (\d+) minutes</b></span><span><b>(\d+) marks", "pp intro")
 tmin, marks = int(intro[0]), int(intro[1])
+hints = re.findall(r'<div class="hint"><b>Hint:</b> (.*?)</div>', ppl)
+report(len(hints) == 4 and len(set(hints)) == 1 and hints[0].endswith("?") and not re.search(r"part|\\\(|integral|normal|inverse|equation", hints[0]),
+       "PP hints: one neutral starting question, the same for all four", hints[0] if hints else "")
 report(marks == tot == 14 and tmin == 5 * round(1.5 * marks / 5), "PP total and time", f"{marks} marks, {tmin} min")
 
 try:
@@ -536,6 +540,9 @@ try:
     A4 = sp.integrate((a + (2 - y) * 2 / (3 * E ** 2)) - sp.Rational(3, 2) * sp.exp(y), (y, 0, 2))
     A4x = sp.Integral(f4, (x, sp.Rational(3, 2), a)).evalf() + (xA - a) * 2 / 2
     v, _ = last_display_value(s4, 2)
+    fin = re.findall(r"\\\[(.*?)\\\]", s4, re.S)[2]
+    sides4 = [tex(z) for z in T.split_top(prep(aligned_chain(fin)), "=")]
+    report(len(sides4) == 3 and all(same(z, A4) for z in sides4), "PP4 final combination, every line", f"{len(sides4)} sides")
     trap = last_display_value(s4, 0)[0]
     report(same(trap, (a + xA) / 2 * 2), "PP4 trapezium", str(trap))
     report(same(v, A4) and abs(float(A4x) - float(A4)) < 1e-9, "PP4 area 3e^2/2 + 3/2 + 4/(3e^2)", f"{sp.simplify(v)} = {float(v):.6f}")

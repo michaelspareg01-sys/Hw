@@ -17,11 +17,14 @@ table.st6e td.r { color:var(--ink-soft); }
 <!-- ============ Concept 1 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 1:the area between a curve and the x-axis}}
 <div class="box concept"><div class="bt">Finding the area between a curve and the \(x\)-axis</div>
-<p>A sketch is essential here, because the definite integral attaches a negative sign to the area of any region below the \(x\)-axis (provided that the integral does not run backwards, that is, provided the lower limit is less than the upper limit).</p>
-<ul><li>Sketch the curve, showing the intercepts (and any asymptote).</li>
+<p>A sketch is essential here, because the definite integral attaches a negative sign to the area of any region below the \(x\)-axis (provided that the integral does not run backwards).</p>
+</div></div>
+<div class="box tip"><div class="bt">The steps for finding an area</div>
+<ul><li>The integral does not run backwards when the lower limit is less than the upper limit.</li>
+<li>Sketch the curve, showing the intercepts (and any asymptote).</li>
 <li>Write down and evaluate the definite integral between the required \(x\)-values.</li>
 <li>If the region is below the \(x\)-axis, the integral is negative, and the area is its opposite. If the region crosses the \(x\)-axis, split the integral at the \(x\)-intercept and find each part separately.</li>
-<li>Write a conclusion, giving the area in square units.</li></ul></div></div>
+<li>Write a conclusion, giving the area in square units.</li></ul></div>
 <div class="box tip"><div class="bt">Sketching by shifting</div>
 <p>The graph of \(y=e^x-k\), where \(k\gt0\), is the graph of \(y=e^x\) moved down \(k\) units. Its \(y\)-intercept moves down from \(1\) to \(1-k\), and its horizontal asymptote moves down from \(y=0\) to \(y=-k\). Find the \(x\)-intercept by putting \(y=0\). For example, \(e^x=e^2\) gives \(x=2\), because \(e^x\) is an increasing function, so it takes the value \(e^2\) only once.</p></div>
 
@@ -57,7 +60,9 @@ table.st6e td.r { color:var(--ink-soft); }
 <div class="box concept"><div class="bt">Finding areas between curves</div>
 <p>If a curve \(y=f(x)\) is always above \(y=g(x)\) in an interval \(a\le x\le b\), then the area of the region between the curves is</p>
 \[\text{area between the curves}=\int_a^b\big(f(x)-g(x)\big)\,dx.\]
-<p>This is the top curve minus the bottom curve. The formula still works when part of the region lies below the \(x\)-axis, because only the difference \(f(x)-g(x)\) matters, and it is positive throughout the interval.</p></div></div>
+</div></div>
+<div class="box tip"><div class="bt">Top curve minus bottom curve</div>
+<p>The formula is the top curve minus the bottom curve. It still works when part of the region lies below the \(x\)-axis, because only the difference \(f(x)-g(x)\) matters, and it is positive throughout the interval.</p></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Top curve minus bottom curve</span></div><div class="ex-body">
 <b>a</b> Sketch the curves \(y=e^x\) and \(y=x^2\) in the interval \(-3\le x\le3\).<br>
@@ -115,7 +120,7 @@ and compare the results with the approximations obtained in part <b>a</b>.</span
 <div><span class="pl">c</span><div class="fig">{{svg:q6e_q6c}}</div>Find the area between the \(x\)-axis, the curve \(y=e^x-1\) and the line \(x=-1\).</div>
 <div><span class="pl">d</span><div class="fig">{{svg:q6e_q6d}}</div>What is the area bounded by \(x=2\), \(y=e^{-x}-2\), the \(x\)-axis and the \(y\)-axis?</div>
 <div><span class="pl">e</span><div class="fig">{{svg:q6e_q6e}}</div>Find the area of the region bounded by the curve \(y=e^{-x}-e\) and the coordinate axes.</div>
-<div><span class="pl">f</span><div class="fig">{{svg:q6e_q6f}}</div>Find the area of the region bounded by the curve \(y=3-e^{-x}\), the \(x\)-axis, and the lines \(x=-1\) and \(x=2\).</div></div>{{work:80}}</div></div>
+<div><span class="pl">f</span><div class="fig">{{svg:q6e_q6f}}</div>Find the area of the region bounded by the curve \(y=3-e^{-x}\), the \(x\)-axis, and the lines \(x=-1\) and \(x=2\).</div></div>{{work:40}}</div></div>
 
 {{band:D}}
 <div class="q"><span class="q-num">7</span><div class="q-body">
@@ -158,14 +163,14 @@ and compare the results with the approximations obtained in part <b>a</b>.</span
 <div class="fig">{{svg:p6e_plc}}</div>
 <div class="pp-sub"><span>(i) Find the value of \(y\) when \(x=e+1\).</span><span class="mk">1</span></div>
 <div class="pp-sub"><span>(ii) Find the shaded area, bounded by the curve, the \(x\)-axis and the line \(x=e+1\).</span><span class="mk">2</span></div></div>
-<div class="hint"><b>Hint:</b> where does the curve cross the \(x\)-axis, and which edges bound the shaded region on the left and on the right?</div>{{work:50}}</div>
+<div class="hint"><b>Hint:</b> what does the diagram tell you about the boundaries of the shaded region?</div>{{work:50}}</div>
 </div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Fort Street High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q11(c)</span><span class="mk">4 marks</span></div>
 <div class="pp-q"><div class="split" style="grid-template-columns:1fr 1.1fr"><div>The graph of \(f(x)=e^{\frac{x}{2}}+1\) is shown. The normal to the graph of \(f\) where it crosses the \(y\)-axis is also shown.</div><div class="f6e"><div class="fig">{{svg:p6e_fs}}</div></div></div>
 <div class="pp-sub"><span>(i) Find the equation of the <b>normal</b> to the graph of \(f\) where it crosses the \(y\)-axis.</span><span class="mk">2</span></div>
 <div class="pp-sub"><span>(ii) Find the exact area of the shaded region.</span><span class="mk">2</span></div></div>
-<div class="hint"><b>Hint:</b> where does the normal meet the \(x\)-axis, and which graph forms the top of the shaded region?</div>{{work:66}}</div>
+<div class="hint"><b>Hint:</b> what does the diagram tell you about the boundaries of the shaded region?</div>{{work:66}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Caringbah High School, 2020, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)(i)(ii)</span></span><span class="mk">4 marks</span></div>
 <div class="pp-q">The function \(f(x)=1+\ln x\) is defined in the domain \((0,1]\).
@@ -173,13 +178,13 @@ and compare the results with the approximations obtained in part <b>a</b>.</span
 <p>The diagram shows the graphs of the function \(y=f(x)\) and the inverse function \(y=f^{-1}(x)\).</p>
 <div class="fig">{{svg:p6e_car}}</div>
 <div class="pp-sub"><span>(ii) Find in simplest exact form the area of the shaded region in the first quadrant bounded by the curves \(y=f(x)\), \(y=f^{-1}(x)\) and the coordinate axes.</span><span class="mk">3</span></div></div>
-<div class="hint"><b>Hint:</b> what is the equation of the inverse function, and how is the integral of \(1+\ln x\) related to part (i)?</div>{{work:80}}</div>
+<div class="hint"><b>Hint:</b> what does the diagram tell you about the boundaries of the shaded region?</div>{{work:80}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Saint Ignatius' College, Riverview, 2024, Mathematics Assessment Task, Year 12 Mathematics (Extension One) Task 4, Trial HSC Examination, <span style="white-space:nowrap">Q13(d)(ii)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">Let \(f(x)=\ln\Big(\dfrac{2x}{3}\Big)\). Part (i), not included here, shows that the normal to the graph of \(y=f(x)\) at the point where \(x=\dfrac{3e^2}{2}\) has the equation \(y=-\dfrac{3e^2x}{2}+\dfrac{9e^4}{4}+2\).
 <div class="pp-sub"><span>(ii) Find the exact area enclosed by the graph of \(y=f(x)\), the line \(y=-\dfrac{3e^2x}{2}+\dfrac{9e^4}{4}+2\) and the \(x\) axis.</span><span class="mk">3</span></div>
 <div class="fig">{{svg:p6e_si}}</div></div>
-<div class="hint"><b>Hint:</b> where do the curve and the line meet, and where does each of them cross the \(x\)-axis?</div>{{work:80}}</div>
+<div class="hint"><b>Hint:</b> what does the diagram tell you about the boundaries of the shaded region?</div>{{work:80}}</div>
 
 <p>The school trial papers used for this pack (2020–2024) have only these four questions that fit this lesson, so the mini exam is short. For more timed practice, do Questions 6(f), 9(b) and 11(c) above in 10 minutes.</p>
 </div>
