@@ -22,9 +22,14 @@ SRC = os.environ.get("Y11CH13_SRC", os.path.join(HERE, "..", "build", "y11ch13")
 NUM = r"(\d+(?:\.\d+)?)"
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as f:
-        return f.read()
+        return f.read().replace(MATH_BREAK, "")
 
 
 def blocks(text):

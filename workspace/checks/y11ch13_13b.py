@@ -42,9 +42,14 @@ TR = standard_transformations + (implicit_multiplication, rationalize)
 MONEY = '<span style="white-space:nowrap">\\(\\$\\)'
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as f:
-        return f.read()
+        return f.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail=""):
@@ -540,7 +545,7 @@ try:
     (g,) = grab(src("13"), r"Subtracting (3) from (4), \(\mu=@\).", "A13b")
     report(val(g) == mu, "A13b mu", g)
     disp = re.search(r"\\\[\\begin\{aligned\}(.*?)\\end\{aligned\}\\\]", src("13"), re.S).group(1)
-    rows = [r for r in disp.split("\\\\")]
+    rows = [r for r in disp.split("\\\\") if "&amp;=" in r]   # label-only rows are layout line breaks
 
     def series(row):
         rhs = row.split("&amp;=")[1].split("&amp;&amp;")[0]

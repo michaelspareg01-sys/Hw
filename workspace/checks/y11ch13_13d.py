@@ -45,9 +45,14 @@ NCHECK = [0]
 TR = standard_transformations + (implicit_multiplication, rationalize)
 
 
+# Layout-only break point between two inline maths, added by the shrink-to-fit fix so a long
+# chain can wrap. "A\)\({}=B" prints exactly like "A=B"; drop it before matching templates.
+MATH_BREAK = "\\)\\({}"
+
+
 def read(name):
     with open(os.path.join(SRC, name), encoding="utf-8") as f:
-        return f.read()
+        return f.read().replace(MATH_BREAK, "")
 
 
 def report(ok, label, detail=""):
@@ -525,7 +530,7 @@ for who, stmt, blk in (("C4 demo", DEMO[3], BL["C4"].split("<b>Your turn.</b>")[
         n = int(re.search(r"A sample of (\d+)", stmt).group(1))
         s2 = F(re.search(r"variance \\\(s\^2=([\d.]+)\\\)", stmt).group(1))
         value(blk, r"The correction factor is \(\tfrac{@}{@}\).", (F(n), F(n - 1)), f"{who}: factor")
-        g = re.search(r"\\\[\\text\{corrected variance\}=([\d.]+)\\times\\tfrac\{(\d+)\}\{(\d+)\}=([\d.]+),\\qquad\\text\{corrected standard deviation\}=\\sqrt\{?([\d.]+)\}?(=[\d.]+|\\doteqdot[\d.]+)\.\\\]", blk)
+        g = re.search(r"\\\[\\begin\{aligned\}&amp;\\text\{corrected variance\}=([\d.]+)\\times\\tfrac\{(\d+)\}\{(\d+)\}=([\d.]+),\\\\&amp;\\text\{corrected standard deviation\}=\\sqrt\{?([\d.]+)\}?(=[\d.]+|\\doteqdot[\d.]+)\.\\end\{aligned\}\\\]", blk)
         if g is None:
             raise LookupError("corrected display not found")
         g = g.groups()
