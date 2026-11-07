@@ -701,10 +701,10 @@ for i, m in enumerate(m17):
         report(m17[i + 1].startswith("=1.5"), "A17b chain continues on the next line")
         chain(m + m17[i + 1], Vb, "A17b volume")
 present(a17, "about 144 thousand cubic metres", "A17a")
-present(a17, "about 509 thousand cubic metres", "A17b")
-report(round(Va) == 144 and round(Vb) == 509, "A17 rounded volumes", (Va, Vb))
-c = [m for m in maths(a17) if m.startswith("508.68")][0]
-report(abs(num(members(c)[1]) - Vb / Va) < 0.05 and members(c)[1] == "3.5", "A17c ratio 3.5", Vb / Va)
+present(a17, "about 513 thousand cubic metres", "A17b")
+report(round(Va) == 144 and round(Vb) == 513, "A17 rounded volumes", (Va, Vb))
+c = [m for m in maths(a17) if m.startswith("513")][0]
+report(abs(num(members(c)[1]) - Vb / Va) < 0.05 and members(c)[1] == "3.6", "A17c ratio 3.6", Vb / Va)
 peak_t = max((t / 100 for t in range(3000, 3800)), key=q17)
 report(33.5 <= peak_t <= 34.5, "A17 peak near 06/05/2004 03:40 (t = 34 h)", peak_t)
 rain = dict(figs_5h.Q17_RAIN)
