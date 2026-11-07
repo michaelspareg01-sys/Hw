@@ -1,1 +1,135 @@
-<!-- filled by Task Int1 lesson 5D -->
+{{ahead:Lesson 5D | Proving the fundamental theorem}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a" style="break-inside:auto"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> The graph is the horizontal line \(y=4\) for \(t\lt0\), and the line through \((0,4)\) and \((2,0)\) for \(t\ge0\), which is at height 2 when \(t=1\), \(-2\) when \(t=3\) and \(-4\) when \(t=4\). Use rectangles for \(x\lt0\), and a trapezium and triangles for \(x\gt0\).
+<ul data-c="d1w" style="margin:0.5mm 0"><li>\(A(-2)=-(2\times4)=-8\) and \(A(-1)=-(1\times4)=-4\) (rectangles above the axis; the integrals run backwards).</li>
+<li>\(A(0)=0\).</li>
+<li>\(A(1)\): a trapezium with parallel sides 4 and 2 and width 1, so \(A(1)=\dfrac{4+2}{2}\times1=3\).</li>
+<li>\(A(2)\): a triangle with base 2 and height 4, so \(A(2)=\tfrac12\times2\times4=4\).</li>
+<li>\(A(3)\): from 2 to 3 a triangle below the axis with base 1 and height 2, so \(A(3)=4-\tfrac12\times1\times2=4-1=3\).</li>
+<li>\(A(4)\): from 2 to 4 a triangle below the axis with base 2 and height 4, so \(A(4)=4-\tfrac12\times2\times4=4-4=0\).</li></ul>
+<table class="t" data-c="d1t"><tr><th>\(x\)</th><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td><td>\(4\)</td></tr>
+<tr><th>\(A(x)\)</th><td>\(-8\)</td><td>\(-4\)</td><td>\(0\)</td><td>\(3\)</td><td>\(4\)</td><td>\(3\)</td><td>\(0\)</td></tr></table>
+\(A(x)\) is increasing for \(x\lt2\) because \(y\gt0\), and decreasing for \(x\gt2\) because \(y\lt0\). Its highest point is \((2,4)\). For \(x\le0\) the graph is a straight line.
+{{svg:a5d_d1A}}
+<b>Your turn.</b> The graph is the horizontal line \(y=1\) for \(t\lt0\), and the line through \((0,1)\) and \((1,0)\) for \(t\ge0\), which is at height \(-1\) when \(t=2\) and \(-2\) when \(t=3\).
+<ul data-c="y1w" style="margin:0.5mm 0"><li>\(A(-3)=-(3\times1)=-3\), \(A(-2)=-(2\times1)=-2\) and \(A(-1)=-(1\times1)=-1\) (rectangles above the axis; the integrals run backwards).</li>
+<li>\(A(0)=0\).</li>
+<li>\(A(1)\): a triangle with base 1 and height 1, so \(A(1)=\tfrac12\times1\times1=\tfrac12\).</li>
+<li>\(A(2)\): from 1 to 2 a triangle below the axis with base 1 and height 1, so \(A(2)=\tfrac12-\tfrac12\times1\times1=\tfrac12-\tfrac12=0\).</li>
+<li>\(A(3)\): from 1 to 3 a triangle below the axis with base 2 and height 2, so \(A(3)=\tfrac12-\tfrac12\times2\times2=\tfrac12-2=-\tfrac32\).</li></ul>
+<table class="t" data-c="y1t"><tr><th>\(x\)</th><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr>
+<tr><th>\(A(x)\)</th><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(\tfrac12\)</td><td>\(0\)</td><td>\(-\tfrac32\)</td></tr></table>
+\(A(x)\) is increasing for \(x\lt1\) because \(y\gt0\), and decreasing for \(x\gt1\) because \(y\lt0\). Its highest point is \(\big(1,\tfrac12\big)\). For \(x\le0\) the graph is a straight line.
+{{svg:a5d_y1A}}</div></div>
+
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b> By the differential form, replace \(t\) by \(x\) in the integrand.
+<div data-c="d2">
+<div style="margin:0.8mm 0"><b>a</b> \(f(t)=(t^3+2)^4\), so \(\displaystyle\frac{d}{dx}\int_0^x(t^3+2)^4\,dt=(x^3+2)^4\).</div>
+<div style="margin:0.8mm 0"><b>b</b> \(f(t)=\sqrt{1+t^3}\), so \(\displaystyle\frac{d}{dx}\int_1^x\sqrt{1+t^3}\,dt=\sqrt{1+x^3}\).</div>
+<div style="margin:0.8mm 0"><b>c</b> \(f(t)=e^{-3t^2}\), so \(\displaystyle\frac{d}{dx}\int_{-2}^x e^{-3t^2}\,dt=e^{-3x^2}\).</div></div>
+<b>Your turn.</b>
+<div data-c="y2">
+<div style="margin:0.8mm 0"><b>a</b> \(f(t)=(t^4-1)^5\), so \(\displaystyle\frac{d}{dx}\int_2^x(t^4-1)^5\,dt=(x^4-1)^5\).</div>
+<div style="margin:0.8mm 0"><b>b</b> \(f(t)=\log_e(t^2+1)\), so \(\displaystyle\frac{d}{dx}\int_3^x\log_e(t^2+1)\,dt=\log_e(x^2+1)\).</div>
+<div style="margin:0.8mm 0"><b>c</b> \(f(t)=e^{t^3}\), so \(\displaystyle\frac{d}{dx}\int_{-1}^x e^{t^3}\,dt=e^{x^3}\).</div></div>
+The lower limits do not affect the answers.</div></div>
+
+<div class="a" style="break-inside:auto"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b>
+<div data-c="d3a"><b>a</b> The primitive of \(12t^3\) is \(\dfrac{12t^4}{4}=3t^4\).
+\[\int_2^x12t^3\,dt=\Big[3t^4\Big]_2^x=3x^4-3\times2^4=3x^4-48,\]
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_2^x12t^3\,dt&amp;=\frac{d}{dx}\big(3x^4-48\big)\\&amp;=12x^3,\quad\text{consistent with the differential form.}\end{aligned}\]</div>
+<div data-c="d3b"><b>b</b> The primitive of \(t^3-6t^2+4\) is \(\dfrac{t^4}{4}-\dfrac{6t^3}{3}+4t=\tfrac14t^4-2t^3+4t\).
+\[\begin{aligned}\int_{-1}^x(t^3-6t^2+4)\,dt&amp;=\Big[\tfrac14t^4-2t^3+4t\Big]_{-1}^x\\&amp;=\big(\tfrac14x^4-2x^3+4x\big)-\big(\tfrac14(-1)^4-2(-1)^3+4(-1)\big)\\&amp;=\big(\tfrac14x^4-2x^3+4x\big)-\big(\tfrac14+2-4\big)\\&amp;=\tfrac14x^4-2x^3+4x+\tfrac74,\end{aligned}\]
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_{-1}^x(t^3-6t^2+4)\,dt&amp;=\frac{d}{dx}\big(\tfrac14x^4-2x^3+4x+\tfrac74\big)\\&amp;=x^3-6x^2+4,\quad\text{consistent.}\end{aligned}\]</div>
+<div data-c="d3c"><b>c</b> Write \(\dfrac{1}{t^3}=t^{-3}\). Its primitive is \(\dfrac{t^{-2}}{-2}=-\tfrac12t^{-2}\).
+\[\int_2^x\frac{1}{t^3}\,dt=\Big[-\tfrac12t^{-2}\Big]_2^x=-\tfrac12x^{-2}-\big(-\tfrac12\times2^{-2}\big)=-\tfrac12x^{-2}+\tfrac18,\]
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_2^x\frac{1}{t^3}\,dt&amp;=\frac{d}{dx}\big(-\tfrac12x^{-2}+\tfrac18\big)\\&amp;=-\tfrac12\times(-2)x^{-3}\\&amp;=x^{-3},\quad\text{consistent.}\end{aligned}\]</div>
+<b>Your turn.</b>
+<div data-c="y3a"><b>a</b> The primitive of \(3t^2\) is \(\dfrac{3t^3}{3}=t^3\).
+\[\int_1^x3t^2\,dt=\Big[t^3\Big]_1^x=x^3-1^3=x^3-1,\]
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_1^x3t^2\,dt&amp;=\frac{d}{dx}\big(x^3-1\big)\\&amp;=3x^2,\quad\text{consistent with the differential form.}\end{aligned}\]</div>
+<div data-c="y3b"><b>b</b> The primitive of \(t^3+3t^2-2\) is \(\dfrac{t^4}{4}+\dfrac{3t^3}{3}-2t=\tfrac14t^4+t^3-2t\).
+\[\begin{aligned}\int_{-1}^x(t^3+3t^2-2)\,dt&amp;=\Big[\tfrac14t^4+t^3-2t\Big]_{-1}^x\\&amp;=\big(\tfrac14x^4+x^3-2x\big)-\big(\tfrac14(-1)^4+(-1)^3-2(-1)\big)\\&amp;=\big(\tfrac14x^4+x^3-2x\big)-\big(\tfrac14-1+2\big)\\&amp;=\tfrac14x^4+x^3-2x-\tfrac54,\end{aligned}\]
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_{-1}^x(t^3+3t^2-2)\,dt&amp;=\frac{d}{dx}\big(\tfrac14x^4+x^3-2x-\tfrac54\big)\\&amp;=x^3+3x^2-2,\quad\text{consistent.}\end{aligned}\]</div>
+<div data-c="y3c"><b>c</b> Write \(\dfrac{2}{t^2}=2t^{-2}\). Its primitive is \(\dfrac{2t^{-1}}{-1}=-2t^{-1}\).
+\[\int_1^x\frac{2}{t^2}\,dt=\Big[-2t^{-1}\Big]_1^x=-2x^{-1}-\big(-2\times1^{-1}\big)=-2x^{-1}+2,\]
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_1^x\frac{2}{t^2}\,dt&amp;=\frac{d}{dx}\big(-2x^{-1}+2\big)\\&amp;=-2\times(-1)x^{-2}\\&amp;=2x^{-2},\quad\text{consistent.}\end{aligned}\]</div></div></div>
+
+<div class="a"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b>
+<div data-c="d4">
+<div style="margin:0.8mm 0"><b>a</b> The domain is all real \(x\), and \(y\) is continuous at every real number, so it is a continuous function.</div>
+<div style="margin:0.8mm 0"><b>b</b> The domain is \(x\ne-3\), and \(y\) is continuous at every value in its domain, so it is a continuous function.</div>
+<div style="margin:0.8mm 0"><b>c</b> Now \(-3\) lies in the domain, and \(y\) is not continuous at \(x=-3\) (near \(x=-3\) the values \(\dfrac{1}{x+3}\) are very large, far from the value 0), so it is not a continuous function.</div>
+<div style="margin:0.8mm 0"><b>d</b> The domain is \(x\ge-3\), and \(y\) is continuous at every value in its domain, so it is a continuous function.</div></div>
+<b>Your turn.</b>
+<div data-c="y4">
+<div style="margin:0.8mm 0"><b>a</b> The domain is all real \(x\), and \(y\) is continuous at every real number, so it is a continuous function.</div>
+<div style="margin:0.8mm 0"><b>b</b> The domain is \(x\ne0\), and \(y\) is continuous at every value in its domain, so it is a continuous function.</div>
+<div style="margin:0.8mm 0"><b>c</b> Now \(0\) lies in the domain, and \(y\) is not continuous at \(x=0\) (near \(x=0\) the values \(\dfrac{1}{x^2}\) are very large, far from the value 0), so it is not a continuous function.</div>
+<div style="margin:0.8mm 0"><b>d</b> The domain is \(x\gt-1\), and \(y\) is continuous at every value in its domain, so it is a continuous function.</div></div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab" data-c="q1">
+<b>a</b> The region is a triangle with base \(x\) and height \(3x\), so \(A(x)=\tfrac12\times x\times3x=\tfrac32x^2\).<br>
+<b>b</b> \(A'(x)=\tfrac32\times2x=3x\), which is the original function \(y=3t\) with \(t\) replaced by \(x\).</div></div>
+<div class="a"><span class="an">2</span><div class="ab" data-c="q2">
+<b>a</b> \(y=3\). The region is a rectangle with width \(x\) and height 3, so \(A(x)=3\times x=3x\), and \(A'(x)=3\).<br>
+<b>b</b> \(y=2t\) (gradient \(\tfrac84=2\)). The region is a triangle with base \(x\) and height \(2x\), so \(A(x)=\tfrac12\times x\times2x=x^2\), and \(A'(x)=2x\).<br>
+<b>c</b> \(y=2+t\) (gradient \(\tfrac{6-2}{4}=1\)). The region is a trapezium with parallel sides 2 and \(2+x\) and width \(x\), so<br>
+&emsp;\(A(x)=\tfrac12\big(2+(2+x)\big)\times x=\tfrac12(4+x)x=2x+\tfrac12x^2\), &ensp;and \(A'(x)=2+x\).<br>
+<b>d</b> \(y=5-t\) (gradient \(\tfrac{1-5}{4}=-1\)). The region is a trapezium with parallel sides 5 and \(5-x\) and width \(x\), so<br>
+&emsp;\(A(x)=\tfrac12\big(5+(5-x)\big)\times x=\tfrac12(10-x)x=5x-\tfrac12x^2\), &ensp;and \(A'(x)=5-x\).<br>
+In each part \(A'(x)\) is the original function with \(t\) replaced by \(x\).</div></div>
+<div class="a"><span class="an">3</span><div class="ab" data-c="q3">
+<b>a</b> \(A(0)=0\), and \(f(t)\gt0\), so \(A(x)\) is increasing for all \(x\ge0\). In \([0,2]\), \(f(t)\) is decreasing, so \(A(x)\) is increasing at a decreasing rate. In \([2,\infty)\), \(f(t)\) is increasing, so \(A(x)\) is increasing at an increasing rate. It has an inflection at \(x=2\).<br>
+<b>b</b> \(A(0)=0\), and \(f(t)\gt0\), so \(A(x)\) is increasing for all \(x\ge0\). In \([0,2]\), \(f(t)\) is increasing, so \(A(x)\) is increasing at an increasing rate. In \([2,\infty)\), \(f(t)\) is decreasing towards 0, so \(A(x)\) is increasing at a decreasing rate, and the graph flattens out. It has an inflection at \(x=2\).
+{{svg:a5d_q3}}</div></div>
+<div class="a"><span class="an">4</span><div class="ab" data-c="q4">
+<b>a</b> \(\dfrac1x\) &emsp; <b>b</b> \(\dfrac{1}{1+x^3}\) &emsp; <b>c</b> \(e^{-\frac12x^2}\)</div></div>
+<div class="a" style="break-inside:auto"><span class="an">5</span><div class="ab">
+<div data-c="q5a"><b>a</b> By the differential form, the answer is \(3x^2-12\). Check:
+\[\begin{aligned}\int_1^x(3t^2-12)\,dt&amp;=\Big[t^3-12t\Big]_1^x\\&amp;=\big(x^3-12x\big)-\big(1^3-12\times1\big)\\&amp;=\big(x^3-12x\big)-\big(1-12\big)\\&amp;=x^3-12x+11,\end{aligned}\]
+and \(\dfrac{d}{dx}\big(x^3-12x+11\big)=3x^2-12\).</div>
+<div data-c="q5b"><b>b</b> By the differential form, the answer is \(x^3+4x\). Check:
+\[\begin{aligned}\int_2^x(t^3+4t)\,dt&amp;=\Big[\tfrac14t^4+2t^2\Big]_2^x\\&amp;=\big(\tfrac14x^4+2x^2\big)-\big(\tfrac14\times2^4+2\times2^2\big)\\&amp;=\big(\tfrac14x^4+2x^2\big)-\big(4+8\big)\\&amp;=\tfrac14x^4+2x^2-12,\end{aligned}\]
+and \(\dfrac{d}{dx}\big(\tfrac14x^4+2x^2-12\big)=x^3+4x\).</div>
+<div data-c="q5c"><b>c</b> By the differential form, the answer is \(\dfrac{1}{x^2}\). Check:
+\[\begin{aligned}\int_2^x\frac{1}{t^2}\,dt&amp;=\Big[-t^{-1}\Big]_2^x\\&amp;=-x^{-1}-\big(-2^{-1}\big)\\&amp;=-x^{-1}+\tfrac12\\&amp;=\tfrac12-\frac1x,\end{aligned}\]
+and \(\dfrac{d}{dx}\Big(\tfrac12-x^{-1}\Big)=x^{-2}=\dfrac{1}{x^2}\).</div></div></div>
+<div class="a"><span class="an">6</span><div class="ab">
+<div data-c="q6a"><b>a</b> i&ensp;\(x^2\) &emsp; ii&ensp;\(x^3+3x\) &emsp; iii&ensp;\(\dfrac1x\) &emsp; iv&ensp;\((x^3-3)^4\)</div>
+<div data-c="q6b"><b>b</b> i&ensp;\(\displaystyle\int_1^x t^2\,dt=\Big[\tfrac13t^3\Big]_1^x=\tfrac13x^3-\tfrac13\), and \(\dfrac{d}{dx}\big(\tfrac13x^3-\tfrac13\big)=x^2\).<br>
+&emsp;ii
+\[\begin{aligned}\int_2^x(t^3+3t)\,dt&amp;=\Big[\tfrac14t^4+\tfrac32t^2\Big]_2^x\\&amp;=\big(\tfrac14x^4+\tfrac32x^2\big)-\big(\tfrac14\times2^4+\tfrac32\times2^2\big)\\&amp;=\big(\tfrac14x^4+\tfrac32x^2\big)-\big(4+6\big)\\&amp;=\tfrac14x^4+\tfrac32x^2-10,\end{aligned}\]
+and \(\dfrac{d}{dx}\big(\tfrac14x^4+\tfrac32x^2-10\big)=x^3+3x\).</div></div></div>
+<div class="a"><span class="an">7</span><div class="ab" data-c="q7">
+<b>a</b> \(e^t\gt0\) and \(e^t\) is increasing, so \(A(x)\) is increasing at an increasing rate. \(A(0)=0\), and \(A(x)\lt0\) for \(x\lt0\), because the integral runs backwards and the curve is above the axis. The curve \(y=A(x)\) looks like \(y=e^x-1\).<br>
+<b>b</b> The curve is zero at \(x=1\), and is increasing at an increasing rate for \(x\gt1\), because \(\log_e t\) is positive and increasing there. For \(0\lt x\lt1\), \(\log_e t\lt0\) and the integral runs backwards, so \(A(x)\gt0\), and \(A(x)\) is decreasing. Its lowest point is \((1,0)\).<br>
+<b>c</b> The curve is zero at \(x=1\), and is increasing at a decreasing rate, because \(\dfrac1t\) is positive and decreasing. For \(0\lt x\lt1\), \(A(x)\lt0\), because the integral runs backwards and the curve is above the axis.<br>
+In each sketch below, \(y=f(t)\) is dashed and \(y=A(x)\) is solid.
+{{svg:a5d_q7}}</div></div>
+<div class="a"><span class="an">8</span><div class="ab">
+<div data-c="q8a"><b>a</b> By the symmetry of the cosine graph, the regions from \(\tfrac{\pi}{2}\) to \(\pi\) and from \(\pi\) to \(\tfrac{3\pi}{2}\) (below the axis) and from \(\tfrac{3\pi}{2}\) to \(2\pi\) (above the axis) are all congruent to \(P\), so each has area 1. So \(A\big(\tfrac{\pi}{2}\big)=1\), \(A(\pi)=1-1=0\), \(A\big(\tfrac{3\pi}{2}\big)=0-1=-1\) and \(A(2\pi)=-1+1=0\).
+<table class="t"><tr><th>\(x\)</th><td>\(0\)</td><td>\(\frac{\pi}{2}\)</td><td>\(\pi\)</td><td>\(\frac{3\pi}{2}\)</td><td>\(2\pi\)</td></tr>
+<tr><th>\(A(x)\)</th><td>\(0\)</td><td>\(1\)</td><td>\(0\)</td><td>\(-1\)</td><td>\(0\)</td></tr></table>
+The curve looks like \(y=\sin x\), and this suggests that \(\sin x\) has derivative \(\cos x\).</div>
+<div data-c="q8b"><b>b</b> The graph of \(y=\sin x\) is the graph of \(y=\cos x\) shifted \(\tfrac{\pi}{2}\) to the right, so each hump from \(0\) to \(\pi\) and from \(\pi\) to \(2\pi\) has area 2. So \(A\big(\tfrac{\pi}{2}\big)=1\), \(A(\pi)=1+1=2\), \(A\big(\tfrac{3\pi}{2}\big)=2-1=1\) and \(A(2\pi)=1-1=0\).
+<table class="t"><tr><th>\(x\)</th><td>\(0\)</td><td>\(\frac{\pi}{2}\)</td><td>\(\pi\)</td><td>\(\frac{3\pi}{2}\)</td><td>\(2\pi\)</td></tr>
+<tr><th>\(A(x)\)</th><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(1\)</td><td>\(0\)</td></tr></table>
+The graph looks like \(y=1-\cos x\), which suggests that the derivative of \(1-\cos x\) is \(\sin x\), that is, the derivative of \(\cos x\) is \(-\sin x\).</div>
+{{svg:a5d_q8}}</div></div>
+<div class="a"><span class="an">9</span><div class="ab" data-c="q9">
+<b>a</b> \(A(x)\) is increasing when \(f(t)\) is positive, that is, for \(x\lt c\), and is decreasing for \(x\gt c\).<br>
+<b>b</b> \(A(x)\) has a maximum turning point at \(x=c\), and no minimum turning points.<br>
+<b>c</b> \(A(x)\) has inflections where \(f(t)\) changes from increasing to decreasing or back (its turning points), that is, at \(x=b\) and \(x=d\).<br>
+<b>d</b> \(A(a)=0\). Because of the point symmetry of \(f(t)\), the area from \(c\) to \(e\) below the axis equals the area from \(a\) to \(c\) above it, so \(A(e)=0\). The zeroes of \(A(x)\) are \(x=a\) and \(x=e\).<br>
+<b>e</b> \(A(x)\) is positive for \(a\lt x\lt e\), and negative for \(x\lt a\) and for \(x\gt e\).<br>
+<b>f</b>
+{{svg:a5d_q9}}</div></div>
+<div class="a"><span class="an">10</span><div class="ab" data-c="q10">
+<b>a</b> The function is continuous at every real number, so it is a continuous function.<br>
+<b>b</b> The domain is \(x\ne2\), and \(y\) is continuous at every value in its domain, so it is a continuous function.<br>
+<b>c</b> Now \(2\) lies in the domain, and \(y\) is not continuous at \(x=2\), so it is not a continuous function.<br>
+<b>d</b> The domain is \(x\ge0\), and \(y\) is continuous at every value in its domain, so it is a continuous function.<br>
+<b>e</b> The domain is \(x\gt0\), and \(y\) is continuous at every value in its domain, so it is a continuous function.<br>
+<b>f</b> The domain is \(x\ge0\), and \(y\) is not continuous at \(x=0\), so it is not a continuous function.</div></div>
