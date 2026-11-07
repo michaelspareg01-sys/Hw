@@ -18,7 +18,9 @@
 <p>Let \(f(x)\) be a function that is continuous in a closed interval \([a,b]\). Then</p>
 \[\int_a^b f(x)\,dx=F(b)-F(a),\quad\text{where }F(x)\text{ is any primitive of }f(x).\]</div>
 <div class="box concept"><div class="bt">Areas and tangents are inverse processes</div>
-<p>This result is extraordinary because it says that taking areas and taking tangents are inverse processes, which is not obvious. The definite integral was defined in Lesson 5A as an area. Its value comes from a primitive, that is, from reversing differentiation, and differentiation is about gradients of tangents.</p></div>
+<p>This result is extraordinary because it says that taking areas and taking tangents are inverse processes, which is not obvious.</p></div>
+<div class="box tip"><div class="bt">Why ‘inverse processes’</div>
+<p>The definite integral was defined in Lesson 5A as an area. Box 4 says that its value comes from a primitive, that is, from reversing differentiation, and differentiation is about the gradients of tangents.</p></div>
 <div class="box concept"><div class="bt">Using the fundamental theorem to evaluate an integral</div>
 <p>The conventional way to set out these calculations is to enclose the primitive in square brackets, writing the lower and upper limits as subscript and superscript respectively:</p>
 \[\int_a^b f(x)\,dx=\Big[F(x)\Big]_a^b=F(b)-F(a).\]</div>
@@ -60,9 +62,10 @@ Evaluate these definite integrals. Then draw diagrams to show the regions that t
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:primitives with several terms}}
 <div class="box warn"><div class="bt">Brackets are needed</div>
-<p><b>Note:</b> Whenever the primitive has two or more terms, brackets are needed when substituting the upper and lower limits of integration.</p>
+<p><b>Note:</b> Whenever the primitive has two or more terms, brackets are needed when substituting the upper and lower limits of integration.</p></div>
+<div class="box tip"><div class="bt">Why the brackets matter</div>
 <p>The minus sign between the brackets subtracts the <i>whole</i> value at the lower limit. For example, \((16-12)-(4-6)=4-(-2)=6\), whereas leaving the brackets out would give \(16-12-4-6=-6\), which is wrong.</p></div>
-<div class="box warn"><div class="bt">Never omit a substitution of 0</div>
+<div class="box tip"><div class="bt">Never omit a substitution of 0</div>
 <p>When the lower limit is 0, still write the bracket \((0-0)\) for it. Many primitives give 0 at \(x=0\), but not all of them do. For example, using Lesson 4J, a primitive of \((x+1)^2\) is \(\tfrac13(x+1)^3\), and</p>
 \[\Big[\tfrac13(x+1)^3\Big]_0^1=\tfrac13\times2^3-\tfrac13\times1^3=\tfrac83-\tfrac13=\tfrac73,\]
 <p>where the value at 0 is \(\tfrac13\), not 0.</p></div>
@@ -72,7 +75,7 @@ Evaluate these definite integrals. Then draw diagrams to show the regions that t
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Several terms, a zero and a negative limit</span></div><div class="ex-body">
 Evaluate these definite integrals.
 <div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int_0^1 7x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^3(16-x^2)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^2(3x^2-2x+4)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^{1}(3x^2+1)\,dx\)</span></div>
-{{work:56}}</div></div>
+{{work:46}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 Evaluate these definite integrals.
 <div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int_0^1 4x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^2(9-x^2)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^3(3x^2+2x-1)\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-1}^{2}(3x^2+2)\,dx\)</span></div>
@@ -91,7 +94,7 @@ Evaluate these definite integrals.
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:expanding brackets in the integrand}}
 <div class="box concept"><div class="bt">Expand first</div>
 <p>As with differentiation, it is often necessary to expand the brackets in the integrand before finding a primitive. With integration, there is no ‘product rule’ that could avoid the expansion.</p></div>
-<div class="box warn"><div class="bt">Do not integrate each factor separately</div>
+<div class="box tip"><div class="bt">Do not integrate each factor separately</div>
 <p>The primitive of a product is <i>not</i> the product of the primitives. For example, \(x(x+1)\) is not integrated by multiplying \(\tfrac12x^2\) by \(\tfrac12x^2+x\). Expand to \(x^2+x\) first, then take the primitive of each term.</p></div></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Expand, then evaluate</span></div><div class="ex-body">
@@ -118,10 +121,10 @@ Expand the brackets in each integral, then evaluate it.
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:writing the integrand as separate fractions}}
 <div class="box concept"><div class="bt">Split the fraction first</div>
-<p>If the integrand is a fraction with two or more terms in the numerator, it should normally be written as separate fractions, as with differentiation. With integration, there is no ‘quotient rule’ that could avoid this.</p>
-\[\frac{3x^4-2x^2}{x^2}=\frac{3x^4}{x^2}-\frac{2x^2}{x^2}=3x^2-2.\]</div>
+<p>If the integrand is a fraction with two or more terms in the numerator, it should normally be written as separate fractions, as with differentiation. With integration, there is no ‘quotient rule’ that could avoid this.</p></div>
 <div class="box tip"><div class="bt">Dividing powers</div>
-<p>Divide each term of the numerator by the denominator, subtracting the indices: \(\dfrac{x^4}{x^2}=x^{4-2}=x^2\), \(\dfrac{x^3}{x^3}=x^0=1\), \(\dfrac{x^4}{x^3}=x\). Do not divide only the first term.</p></div></div>
+<p>Divide each term of the numerator by the denominator, subtracting the indices: \(\dfrac{x^4}{x^2}=x^{4-2}=x^2\), \(\dfrac{x^3}{x^3}=x^0=1\), \(\dfrac{x^4}{x^3}=x\). Do not divide only the first term. For example,</p>
+\[\frac{3x^4-2x^2}{x^2}=\frac{3x^4}{x^2}-\frac{2x^2}{x^2}=3x^2-2.\]</div></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Split, then evaluate</span></div><div class="ex-body">
 Write each integrand as two separate fractions, then evaluate the integral.
@@ -147,7 +150,8 @@ Write each integrand as two separate fractions, then evaluate the integral.
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:negative indices, and asymptotes}}
 <div class="box concept"><div class="bt">Negative indices</div>
-<p>The fundamental theorem also works when the indices are negative. Care is needed when converting between negative powers of \(x\) and fractions.</p>
+<p>The fundamental theorem also works when the indices are negative. Care is needed when converting between negative powers of \(x\) and fractions.</p></div>
+<div class="box tip"><div class="bt">Converting negative powers</div>
 \[\frac{1}{x^4}=x^{-4},\qquad\frac{x^{-3}}{-3}=-\frac{1}{3x^3}\quad(\text{the 3 stays with }x^3\text{ in the denominator}).\]</div>
 <div class="box warn"><div class="bt">The index \(-1\) cannot be handled by this rule</div>
 <p><b>Note:</b> The negative index \(-1\) cannot be handled by this rule, because it would generate division by 0, which is nonsense:</p>
@@ -159,18 +163,20 @@ Write each integrand as two separate fractions, then evaluate the integral.
 \[\begin{aligned}\int_{-1}^{1}x^{-4}\,dx&amp;=\Big[\frac{x^{-3}}{-3}\Big]_{-1}^{1}\\&amp;=-\frac{1}{3\times1^3}-\Big(-\frac{1}{3\times(-1)^3}\Big)\\&amp;=-\frac13-\frac13\\&amp;=-\frac23.\end{aligned}\]
 </div><div>{{svg:c5b_asym}}</div></div>
 <p>But in fact the calculation is nonsense. The function has an asymptote at \(x=0\), so it is not even defined there. (And the function \(y=x^{-4}\) is always positive, so how could it give a negative answer for an integral?) You cannot integrate across an asymptote, and you always need to be on the lookout for such meaningless integrals.</p>
+</div>
+<div class="box tip"><div class="bt">Check for an asymptote first</div>
 <p>Box 4 needs \(f(x)\) to be continuous in the <i>whole</i> closed interval \([a,b]\). Before using it, check that the denominator is never zero anywhere from \(a\) to \(b\).</p></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Negative indices</span></div><div class="ex-body">
 Use negative indices to evaluate these definite integrals.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^4 x^{-2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^2\frac{1}{x^3}\,dx\)</span></div>
 <b>c</b> Explain why \(\displaystyle\int_{-2}^{1}\frac{1}{x^2}\,dx\) is meaningless.
-{{work:75}}</div></div>
+{{work:62}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 Use negative indices to evaluate these definite integrals.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^3 x^{-2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^2\frac{1}{x^5}\,dx\)</span></div>
 <b>c</b> Explain why \(\displaystyle\int_{-1}^{2}x^{-3}\,dx\) is meaningless.
-{{work:75}}</div></div>
+{{work:62}}</div></div>
 <div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 Use negative indices to evaluate these definite integrals.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^5 x^{-2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^2\frac{1}{x^4}\,dx\)</span></div>
@@ -263,11 +269,8 @@ A circle has radius 7. It is cut into a large number of equal thin sectors, whic
 <div class="parts three"><span><span class="pl">i</span>\(\displaystyle\int_0^2\frac{1}{(3-x)^2}\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_2^4\frac{1}{(3-x)^2}\,dx\)</span><span><span class="pl">iii</span>\(\displaystyle\int_4^6\frac{1}{(3-x)^2}\,dx\)</span></div>{{work:82}}</div></div>
 <div class="q"><span class="q-num">16</span><div class="q-body"><span class="pl">a</span>Use the differential form of the fundamental theorem \(\displaystyle\frac{d}{dx}\int_a^x f(t)\,dt=f(x)\) to find:
 <div class="parts"><span><span class="pl">i</span>\(\displaystyle\frac{d}{dx}\int_1^x t^2\,dt\)</span><span><span class="pl">ii</span>\(\displaystyle\frac{d}{dx}\int_2^x(t^3+3t)\,dt\)</span><span><span class="pl">iii</span>\(\displaystyle\frac{d}{dx}\int_a^x\frac1t\,dt\)</span><span><span class="pl">iv</span>\(\displaystyle\frac{d}{dx}\int_a^x(t^3-3)^4\,dt\)</span></div>
-<span class="pl">b</span>Confirm your answers to parts (i) and (ii) above by evaluating the definite integral and then differentiating with respect to \(x\).{{work:100}}</div></div>
+<span class="pl">b</span>Confirm your answers to parts (i) and (ii) above by evaluating the definite integral and then differentiating with respect to \(x\).{{work:170}}</div></div>
 
-{{band:E}}
-<div class="q"><span class="q-num">17</span><div class="q-body">The derivative of the function \(U(x)\) is \(u(x)\).
-<div class="parts one"><span><span class="pl">a</span>Find \(V'(x)\), where \(V(x)=(a-x)\,U(x)+\displaystyle\int_0^x U(t)\,dt\) and \(a\) is a constant.</span><span><span class="pl">b</span>Hence prove that \(\displaystyle\int_0^a U(x)\,dx=aU(0)+\int_0^a(a-x)\,u(x)\,dx\).</span></div>{{work:190}}</div></div>
 
 <!-- ============ Past papers ============ -->
 <div style="break-inside:avoid">
@@ -278,7 +281,7 @@ A circle has radius 7. It is cut into a large number of equal thin sectors, whic
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q10</span></span><span class="mk">1 mark</span></div>
 <div class="pp-q">The graph of the function \(y=f(x)\) is sketched below. The value of \(\displaystyle\int_{-1}^{1}f(x^2-1)\,dx\) equals
 <div style="margin:1mm 0 0 4mm">{{svg:p5b_nsb}}</div>
-<div class="mc"><span>A.&ensp;\(2\)</span><span>B.&ensp;\(\dfrac13\)</span><span>C.&ensp;\(\sqrt2\)</span><span>D.&ensp;\(\dfrac23\)</span></div></div>
-<div class="hint"><b>Hint:</b> what values does \(x^2-1\) take between the limits of the integral?</div>{{work:40}}</div>
+<div class="mc" style="grid-template-columns:repeat(4,1fr);align-items:center"><span>A.&ensp;\(2\)</span><span>B.&ensp;\(\dfrac13\)</span><span>C.&ensp;\(\sqrt2\)</span><span>D.&ensp;\(\dfrac23\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is being fed into \(f\)?</div>{{work:40}}</div>
 </div>
 </div>

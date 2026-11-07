@@ -14,10 +14,10 @@ and compared with an independent computation:
   - the 'meaningless' integrals have a pole of the integrand inside the interval (sympy.singularities);
   - Q10, Q11: k solved with sympy.solve from the stems read from the page (k > 0);
   - Q12: the integral of the piecewise f read from the figure description (quadrants, lines);
-  - Q16: sympy.diff of the integral with a variable upper limit; Q17a: sympy.diff of V(x) with a generic U.
+  - Q16: sympy.diff of the integral with a variable upper limit (Q17 is omitted as a later-method item).
 The textbook's printed answers (Ext 1 Y12 PDF 889) are transcribed below and compared as well.
 Past paper: marks add to the intro total, time 1.5 x marks rounded up to 5 minutes (min 5), labels match
-in both files, one hint, and the MC letter is the only option equal to the value of the integral, computed
+in both files, one hint (a neutral question: no numbers, no method words), and the MC letter is the only option equal to the value of the integral, computed
 from f(x) = max(0, 1 - |x|) (the printed graph) with sympy.
 
 Exit status 1 if anything fails. Run: python3 workspace/checks/int1_5b.py
@@ -193,11 +193,10 @@ for c in range(1, 7):
     want = ["demo", "attempt"] if c == 6 else ["demo", "attempt", "worked"]
     report([kd for kd, _, _ in exs] == want, f"Concept {c} blocks", str([kd for kd, _, _ in exs]))
 TQ = dict(re.findall(r'<div class="q"(?: style="[^"]*")?><span class="q-num">(\d+)</span>(.*?)(?=<div class="q"><span class="q-num">|\{\{band|$)', hw, re.S))
-report(sorted(TQ, key=int) == [str(i) for i in range(1, 18)], "textbook questions 1-17", str(sorted(TQ, key=int)))
-bF, rest_ = hw.split("{{band:D}}")
-bD, bE = rest_.split("{{band:E}}")
-report(hw.count("{{band:F}}") == 1 and bF.count('class="q-num"') == 5 and bD.count('class="q-num"') == 11
-       and bE.count('class="q-num"') == 1, "bands", "F: Q1-5, D: Q6-16, E: Q17 (as the textbook)")
+report(sorted(TQ, key=int) == [str(i) for i in range(1, 17)], "textbook questions 1-16 (Q17 omitted: later method)", str(sorted(TQ, key=int)))
+bF, bD = hw.split("{{band:D}}")
+report(hw.count("{{band:F}}") == 1 and "{{band:E}}" not in hw and bF.count('class="q-num"') == 5 and bD.count('class="q-num"') == 11,
+       "bands", "F: Q1-5, D: Q6-16 (as the textbook; the E band held only Q17)")
 parts_a = ans.split('<div class="ans-sec">')
 report(len(parts_a) == 4 and parts_a[1].startswith("Lesson Examples") and parts_a[2].startswith("Textbook Homework")
        and parts_a[3].startswith("Past-Paper Homework"), "answer sections", "Lesson Examples, Textbook Homework, Past-Paper")
@@ -274,6 +273,12 @@ for lab, (b_, h_) in (("demo a", (3, 6)), ("yt a", (1, 4))):
     report(eq(R(1, 2) * b_ * h_, sp.integrate(2 * x if lab == "demo a" else 4 * x, (x, 0, b_))), f"C1 {lab} triangle = integral")
 report(eq(R(1 + 7, 2) * 3, sp.integrate(2 * x - 3, (x, 2, 5))) and (2 * 2 - 3, 2 * 5 - 3) == (1, 7), "C1 demo b trapezium sides 1, 7")
 report(eq(R(1 + 5, 2) * 2, sp.integrate(2 * x - 5, (x, 3, 5))) and (2 * 3 - 5, 2 * 5 - 5) == (1, 5), "C1 yt b trapezium sides 1, 5")
+
+# WE3b expansion line printed in the lesson
+present(CON[3]["worked"], r"\((x-4)(x-6)=x^2-6x-4x+24\)<br>\(\phantom{(x-4)(x-6)}=x^2-10x+24\)", "WE3b expansion")
+report(eq(sp.expand((x - 4) * (x - 6)), x**2 - 6 * x - 4 * x + 24) and eq(x**2 - 6 * x - 4 * x + 24, x**2 - 10 * x + 24), "WE3b expansion values")
+present(CON[3]["worked"], r"\(x(x+1)=x^2+x\)", "WE3a expansion")
+report(eq(sp.expand(x * (x + 1)), x**2 + x), "WE3a expansion value")
 
 # C3/C4 expansions and splits printed in the answers
 for txt, lhs, rhs in ((r"\((x-5)(x-6)=x^2-6x-5x+30=x^2-11x+30\)", (x - 5) * (x - 6), x**2 - 11 * x + 30),
@@ -482,16 +487,10 @@ for p, tv in A16.items():
     d = sp.diff(I16[p], x)
     report(eq(d, tv) and eq(T(a16[p]), tv), f"Q16a({p})", f"printed {a16[p]}, d/dx = {d}")
 
-# Q17a
-U = sp.Function("U")
-V = (a_ - x) * U(x) + sp.Integral(U(t), (t, 0, x))
-dV = sp.simplify(sp.diff(V, x).doit())
-report(eq(dV, (a_ - x) * sp.Derivative(U(x), x)) and "\\(V'(x)=(a-x)\\,u(x)\\)" in BLK["17"], "Q17a V' = (a - x)u(x)", str(dV))
-
 # answers present only for items with a final answer
-report(sorted((k_ for k_ in BLK if not k_.startswith("C")), key=int) == [str(i) for i in range(1, 18)],
-       "textbook answers Q1-17 (show-that parts omitted inside Q10, Q16b, Q17b)")
-report("(i)" not in BLK["10"] and "<b>b</b>" not in BLK["17"], "Q10(i) and Q17b (show/prove) not answered")
+report(sorted((k_ for k_ in BLK if not k_.startswith("C")), key=int) == [str(i) for i in range(1, 17)],
+       "textbook answers Q1-16 (show-that parts omitted inside Q10, Q16b)")
+report("(i)" not in BLK["10"] and "V'(x)" not in les + ans, "Q10(i) not answered; Q17 absent from both files")
 
 # ---------------------------------------------------------------- past paper
 PPQ = re.findall(r'<div class="pp"><div class="pp-src"><span><span class="pn">PP (\d+)</span>(.*?)</span><span class="mk">(\d+) marks?</span></div>(.*?)(?=<div class="pp">|$)', ppl, re.S)
@@ -506,6 +505,11 @@ tot = re.search(r"<span><b>(\d+) marks?</b></span>", ppl).group(1)
 report(int(tot) == int(mk) == 1, "PP marks total 1")
 report(int(tm) == max(5, 5 * math.ceil(1.5 * int(tot) / 5)), "PP time 1.5 x marks rounded to 5 min (min 5)", tm)
 report(body.count('class="hint"') == 1, "PP1 one hint")
+hint = re.search(r'<div class="hint"><b>Hint:</b>(.*?)</div>', body, re.S).group(1)
+METHOD = ("integrat", "primitive", "substitut", "fundamental", "theorem", "area", "expand", "symmetr", "line",
+          "gradient", "equation", "between", "limit", "square", "x^2", "x^")
+report(not re.search(r"\d", hint) and not any(w in hint.lower() for w in METHOD) and hint.strip().endswith("?"),
+       "PP1 hint is a neutral starting question (no numbers, no method words)", hint.strip())
 present(ppl, "For more timed practice, do Questions 4(f), 6(f), 7(f), 11(f), 13(c) and 14(b) above in 25 minutes.", "timed-practice note")
 present(body, r"\int_{-1}^{1}f(x^2-1)\,dx", "PP1 stem integral")
 present(body, "{{svg:p5b_nsb}}", "PP1 graph")
