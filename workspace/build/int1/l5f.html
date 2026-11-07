@@ -1,1 +1,335 @@
-<!-- filled by Task Int1 lesson 5F -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 5F</div><h2>Finding areas by integration</h2>
+<div class="focus">An area is always positive, but a definite integral is negative when the curve is below the \(x\)-axis. This lesson turns definite integrals into areas: sketch the region first, integrate separately over the parts above and below the \(x\)-axis, use symmetry when the function is odd or even, and write the conclusion in square units. It ends by integrating with respect to \(y\), which finds the area between a curve and the \(y\)-axis.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:areas and definite integrals, and regions above the x-axis}}
+<div class="box concept"><div class="bt">Finding areas by integration</div>
+<p>The aim of this lesson and the next is to use definite integrals to find the areas of regions bounded by curves, lines and the coordinate axes.</p>
+<p>Lessons 5F–5G ignore integrals that run backwards. Running an integral backwards reverses its sign, which would confuse the discussion of areas in these lessons. When finding areas, we decide what integrals to create, and we naturally avoid integrals that run backwards.</p></div>
+<div class="box concept"><div class="bt">Areas and definite integrals</div>
+<p>Areas and definite integrals are closely related, but they are not the same thing.</p>
+<ul><li>An area is always positive, whereas a definite integral may be positive or negative, depending on whether the curve is above or below the \(x\)-axis.</li></ul>
+<p>Problems on areas require care when finding the required integral or combination of integrals. Some particular techniques are listed below, but the general rule is to draw a diagram first to see which pieces need to be added or subtracted.</p></div></div>
+<div class="box take"><div class="bt">15 Finding an area</div>
+<p>When using integrals to find the area of a region:</p>
+<ol style="margin:0.5mm 0 0"><li>Draw a sketch of the curves, showing relevant intercepts and intersections.</li>
+<li>Create and evaluate the necessary definite integral or integrals.</li>
+<li>Write a conclusion, giving the required area in square units.</li></ol></div>
+<div class="box concept"><div class="bt">Regions above the \(x\)-axis</div>
+<p>When a curve lies entirely above the \(x\)-axis, the relevant integral will be positive, and the area of the region will be equal to the integral, apart from needing units.</p></div>
+<div class="box tip"><div class="bt">Where the limits come from</div>
+<p>‘The region bounded by the curve and the \(x\)-axis’ gives no limits. Find them from the sketch: they are the \(x\)-intercepts, found by solving \(y=0\). For \(y=4-x^2\), solve \(4-x^2=0\), so \(x^2=4\) and \(x=-2\) or \(x=2\). Areas are written in square units, shortened to \(\text{u}^2\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A region above the \(x\)-axis</span></div><div class="ex-body">
+Find the area of the region bounded by the curve \(y=9-x^2\) and the \(x\)-axis.
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find the area of the region bounded by the curve \(y=1-x^2\) and the \(x\)-axis.
+{{work:52}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find the area of the region bounded by the curve \(y=4-x^2\) and the \(x\)-axis. (This was the example sketched in the introduction to this chapter.)
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 46mm;column-gap:4mm"><div>
+<p>The curve meets the \(x\)-axis at \((2,0)\) and \((-2,0)\).<br>The region lies entirely above the \(x\)-axis and the relevant integral is</p>
+\[\begin{aligned}\int_{-2}^{2}(4-x^2)\,dx&amp;=\Big[4x-\frac{x^3}{3}\Big]_{-2}^{2}\\&amp;=\big(8-\tfrac83\big)-\big(-8+\tfrac83\big)\\&amp;=5\tfrac13-\big(-5\tfrac13\big)\\&amp;=10\tfrac23,\end{aligned}\]
+<p>which is positive because the curve lies entirely above the \(x\)-axis.<br>Hence the required area is \(10\tfrac23\) square units.</p>
+</div><div>{{svg:c5f_e22}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Worked example 1, line by line</div>
+<p>Upper limit 2: \(4\times2-\tfrac{2^3}{3}=8-\tfrac83\). Lower limit \(-2\): \(4\times(-2)-\tfrac{(-2)^3}{3}=-8-\tfrac{-8}{3}=-8+\tfrac83\). Then \(8-\tfrac83=\tfrac{24}{3}-\tfrac83=\tfrac{16}{3}=5\tfrac13\) and \(-8+\tfrac83=-\tfrac{16}{3}=-5\tfrac13\), so the integral is \(5\tfrac13+5\tfrac13=10\tfrac23\).</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:regions below the x-axis}}
+<div class="box concept"><div class="bt">Regions below the \(x\)-axis</div>
+<p>When a curve lies entirely below the \(x\)-axis, the relevant integral will be negative, and the area will be the opposite of this.</p></div>
+<div class="box tip"><div class="bt">Why the integral is negative</div>
+<p>Below the \(x\)-axis, every height \(f(x)\) is negative, so every strip \(f(x)\,\delta x\) has a negative value. This is the signed area of Lesson 5C (Box 5). The area is the integral with its sign changed: write the integral first, then give the area as a positive number.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A region below the \(x\)-axis</span></div><div class="ex-body">
+Find the area of the region bounded by the curve \(y=x^2-4\) and the \(x\)-axis.
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find the area of the region bounded by the curve \(y=x^2-9\) and the \(x\)-axis.
+{{work:52}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find the area of the region bounded by the curve \(y=x^2-1\) and the \(x\)-axis.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 46mm;column-gap:4mm"><div>
+<p>The curve meets the \(x\)-axis at \((1,0)\) and \((-1,0)\).<br>The region lies entirely below the \(x\)-axis, and the relevant integral is</p>
+\[\begin{aligned}\int_{-1}^{1}(x^2-1)\,dx&amp;=\Big[\frac{x^3}{3}-x\Big]_{-1}^{1}\\&amp;=\big(\tfrac13-1\big)-\big(-\tfrac13+1\big)\\&amp;=-\tfrac23-\tfrac23\\&amp;=-1\tfrac13,\end{aligned}\]
+<p>which is negative, because the curve lies entirely below the \(x\)-axis.<br>Hence the required area is \(1\tfrac13\) square units.</p>
+</div><div>{{svg:c5f_e23}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Worked example 2, line by line</div>
+<p>At \(x=-1\): \(\tfrac{(-1)^3}{3}-(-1)=-\tfrac13+1\). Then \(\tfrac13-1=-\tfrac23\) and \(-\tfrac13+1=\tfrac23\), so the integral is \(-\tfrac23-\tfrac23=-\tfrac43=-1\tfrac13\). The area is the opposite, \(1\tfrac13\).</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:curves that cross the x-axis}}
+<div class="box concept"><div class="bt">Curves that cross the \(x\)-axis</div>
+<p>When a curve crosses the \(x\)-axis, the area of the region between the curve and the \(x\)-axis cannot usually be found by means of a single integral. This is because integrals representing regions below the \(x\)-axis have negative values.</p></div>
+<div class="box tip"><div class="bt">Split at every \(x\)-intercept</div>
+<ol style="margin:0"><li>Find the \(x\)-intercepts and sketch the curve.</li>
+<li>Write one integral for each piece, from one intercept to the next.</li>
+<li>Evaluate each integral. A negative value means the piece is below the axis: its area is the opposite.</li>
+<li>Add the areas (all positive).</li></ol>
+<p>A single integral over the whole interval adds the signed areas, so the parts below the axis cancel some of the parts above.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Above and below</span></div><div class="ex-body">
+<b>a</b> Sketch the cubic curve \(y=x(x+1)(x-3)\), showing the \(x\)-intercepts.<br>
+<b>b</b> Shade the region enclosed between the \(x\)-axis and the curve, and find its area.<br>
+<b>c</b> Find \(\displaystyle\int_{-1}^{3}x(x+1)(x-3)\,dx\) and explain why this integral does not represent the area of the region described in part <b>b</b>.
+{{work:100}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Sketch the cubic curve \(y=x(x+1)(x-4)\), showing the \(x\)-intercepts.<br>
+<b>b</b> Shade the region enclosed between the \(x\)-axis and the curve, and find its area.<br>
+<b>c</b> Find \(\displaystyle\int_{-1}^{4}x(x+1)(x-4)\,dx\) and explain why this integral does not represent the area of the region described in part <b>b</b>.
+{{work:100}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<b>a</b> Sketch the cubic curve \(y=x(x+1)(x-2)\), showing the \(x\)-intercepts.<br>
+<b>b</b> Shade the region enclosed between the \(x\)-axis and the curve, and find its area.<br>
+<b>c</b> Find \(\displaystyle\int_{-1}^{2}x(x+1)(x-2)\,dx\) and explain why this integral does not represent the area of the region described in part <b>b</b>.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 46mm;column-gap:4mm;break-inside:avoid"><div>
+<p><b>a</b> The curve has \(x\)-intercepts \(x=-1\), \(x=0\) and \(x=2\), and is graphed on the right.</p>
+<p><b>b</b> Expanding the cubic,</p>
+\[\begin{aligned}y&amp;=x(x+1)(x-2)\\&amp;=x(x^2-x-2)\\&amp;=x^3-x^2-2x.\end{aligned}\]
+</div><div>{{svg:c5f_e24}}</div></div>
+<p>For the region above the \(x\)-axis,</p>
+\[\begin{aligned}\int_{-1}^{0}(x^3-x^2-2x)\,dx&amp;=\Big[\frac{x^4}{4}-\frac{x^3}{3}-x^2\Big]_{-1}^{0}\\&amp;=(0-0-0)-\big(\tfrac14+\tfrac13-1\big)\\&amp;=\tfrac{5}{12},\end{aligned}\]
+<p>so area above \(=\tfrac{5}{12}\) square units.</p>
+<p>For the region below the \(x\)-axis,</p>
+\[\begin{aligned}\int_{0}^{2}(x^3-x^2-2x)\,dx&amp;=\Big[\frac{x^4}{4}-\frac{x^3}{3}-x^2\Big]_{0}^{2}\\&amp;=\big(4-2\tfrac23-4\big)-(0-0-0)\\&amp;=-2\tfrac23,\end{aligned}\]
+<p>so area below \(=2\tfrac23\) square units.</p>
+<p>Adding these, \(\text{total area}=\tfrac{5}{12}+2\tfrac23=3\tfrac{1}{12}\) square units.</p>
+<p><b>c</b></p>
+\[\begin{aligned}\int_{-1}^{2}x(x+1)(x-2)\,dx&amp;=\Big[\frac{x^4}{4}-\frac{x^3}{3}-x^2\Big]_{-1}^{2}\\&amp;=\big(4-2\tfrac23-4\big)-\big(\tfrac14+\tfrac13-1\big)\\&amp;=-2\tfrac23+\tfrac{5}{12}\\&amp;=-2\tfrac14.\end{aligned}\]
+<p>This integral represents the difference \(2\tfrac23-\tfrac{5}{12}=2\tfrac14\) of the two areas, and is negative because the area below is larger than the area above.</p>
+</div></div>
+<div class="box tip"><div class="bt">Worked example 3, line by line</div>
+<p>At \(x=-1\): \(\tfrac{(-1)^4}{4}=\tfrac14\), \(-\tfrac{(-1)^3}{3}=+\tfrac13\) and \(-(-1)^2=-1\). So the bracket is \(\tfrac{3}{12}+\tfrac{4}{12}-\tfrac{12}{12}=-\tfrac{5}{12}\), and \(0-\big(-\tfrac{5}{12}\big)=\tfrac{5}{12}\).</p>
+<p>At \(x=2\): \(\tfrac{2^4}{4}=4\), \(\tfrac{2^3}{3}=\tfrac83=2\tfrac23\) and \(2^2=4\). So the bracket is \(4-2\tfrac23-4=-2\tfrac23\).</p>
+<p>Total: \(\tfrac{5}{12}+\tfrac{32}{12}=\tfrac{37}{12}=3\tfrac{1}{12}\). Part <b>c</b>: \(-\tfrac{32}{12}+\tfrac{5}{12}=-\tfrac{27}{12}=-\tfrac94=-2\tfrac14\).</p></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:areas associated with odd and even functions}}
+<div class="box concept"><div class="bt">Areas associated with odd and even functions</div>
+<p>As always in mathematics, calculations are often much easier if symmetries can be recognised.</p></div>
+<div class="box tip"><div class="bt">The symmetry, from Lesson 5C</div>
+<p>An odd function, \(f(-x)=-f(x)\), has point symmetry in the origin. The region on the left of the origin is the region on the right rotated by \(180^\circ\), so the two regions have equal areas, one above and one below the \(x\)-axis. An even function, \(f(-x)=f(x)\), has line symmetry in the \(y\)-axis, so the regions on the two sides have equal areas on the same side of the \(x\)-axis. In both cases, find one area and double it.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Doubling the area</span></div><div class="ex-body">
+<b>a</b> Show that \(y=x^3-9x\) is an odd function.<br>
+<b>b</b> Using part <b>a</b>, find the area between the curve \(y=x^3-9x\) and the \(x\)-axis.
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Show that \(y=x^3-4x\) is an odd function.<br>
+<b>b</b> Using part <b>a</b>, find the area between the curve \(y=x^3-4x\) and the \(x\)-axis.
+{{work:70}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<b>a</b> Show that \(y=x^3-x\) is an odd function.<br>
+<b>b</b> Using part <b>a</b>, find the area between the curve \(y=x^3-x\) and the \(x\)-axis.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 46mm;column-gap:4mm"><div>
+<p><b>a</b> Let \(f(x)=x^3-x\).</p>
+\[\begin{aligned}\text{Then }f(-x)&amp;=(-x)^3-(-x)\\&amp;=-x^3+x\\&amp;=-f(x),\text{ so }f(x)\text{ is odd.}\end{aligned}\]
+<p><b>b</b> Factoring,</p>
+\[\begin{aligned}y&amp;=x(x^2-1)\\&amp;=x(x-1)(x+1),\end{aligned}\]
+<p>so the \(x\)-intercepts are \(x=-1\), \(x=0\) and \(x=1\).<br>The two shaded regions have equal areas because the function is odd.</p>
+</div><div>{{svg:c5f_e25}}</div></div>
+\[\begin{aligned}\text{First, }\int_0^1(x^3-x)\,dx&amp;=\Big[\frac{x^4}{4}-\frac{x^2}{2}\Big]_0^1\\&amp;=\big(\tfrac14-\tfrac12\big)-(0-0)\\&amp;=-\tfrac14,\end{aligned}\]
+<p>so area below the \(x\)-axis \(=\tfrac14\) square units.<br>Doubling, total area \(=\tfrac12\) square units.</p>
+</div></div>
+<div class="box tip"><div class="bt">Worked example 4, line by line</div>
+<p>\(\tfrac14-\tfrac12=\tfrac14-\tfrac24=-\tfrac14\). The region from \(x=0\) to \(x=1\) is below the axis, so its area is \(\tfrac14\). The region from \(x=-1\) to \(x=0\) is above the axis and has the same area, so the total is \(2\times\tfrac14=\tfrac12\). (The single integral \(\int_{-1}^{1}(x^3-x)\,dx\) is 0, by Lesson 5C, so it is not the area.)</p></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:area between a graph and the y-axis}}
+<div class="box concept"><div class="bt">Area between a graph and the \(y\)-axis</div>
+<p>Integration with respect to \(y\) rather than \(x\) can often give a result quickly, and avoid subtraction of areas.</p>
+<p>Suppose then that we can find the inverse function, and write \(x\) is a function of \(y\).</p>
+<ul><li>A definite integral with respect to \(y\) represents the signed area of the region between the curve and the \(y\)-axis.</li>
+<li>This means that the definite integral is the sum of areas of regions to the right of the \(y\)-axis, minus the sum of areas of regions to the left of the \(y\)-axis.</li>
+<li>The limits of integration are values of \(y\) rather than values of \(x\).</li></ul></div></div>
+<div class="box take"><div class="bt">16 The definite integral and integration with respect to \(y\)</div>
+<p>Let \(x\) be a continuous function of \(y\) in some closed interval \(a\le y\le b\).</p>
+<p>Then the definite integral \(\displaystyle\int_a^b x\,dy\) is the sum of the areas of regions to the right of the \(y\)-axis, from \(y=a\) to \(y=b\), minus the sum of the areas of the regions to the left of the \(y\)-axis.</p></div>
+<div class="box concept"><div class="bt">Working with the inverse function</div>
+<p>When the function is given with \(y\) as a function of \(x\), we first need to solve the equation for \(x\). We are thus working with the inverse function.</p></div>
+<div class="box tip"><div class="bt">The same rules with the axes swapped</div>
+<p>Everything in Concepts 1–3 still works, with \(y\) in place of \(x\): the strips are horizontal, of length \(x\) and width \(\delta y\); ‘above the \(x\)-axis’ becomes ‘to the right of the \(y\)-axis’; and the limits are read off the \(y\)-axis. Integrate the new variable as usual: \(\displaystyle\int(y-1)\,dy=\frac{y^2}{2}-y+C\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Integrating with respect to \(y\)</span></div><div class="ex-body">
+<b>a</b> Sketch the lines \(y=2x+1\) and \(y=7\), and shade the region between these lines to the right of the \(y\)-axis.<br>
+<b>b</b> Write the equation of the line so that \(x\) is a function of \(y\).<br>
+<b>c</b> Use integration with respect to \(y\) to find the area of this region.<br>
+<b>d</b> Confirm the result by area formulae.
+{{work:84}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Sketch the lines \(y=x+2\) and \(y=5\), and shade the region between these lines to the right of the \(y\)-axis.<br>
+<b>b</b> Write the equation of the line so that \(x\) is a function of \(y\).<br>
+<b>c</b> Use integration with respect to \(y\) to find the area of this region.<br>
+<b>d</b> Confirm the result by area formulae.
+{{work:84}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<b>a</b> Sketch the lines \(y=x+1\) and \(y=5\), and shade the region between these lines to the right of the \(y\)-axis.<br>
+<b>b</b> Write the equation of the line so that \(x\) is a function of \(y\).<br>
+<b>c</b> Use integration with respect to \(y\) to find the area of this region.<br>
+<b>d</b> Confirm the result by area formulae.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 46mm;column-gap:4mm"><div>
+<p><b>a</b> The lines are sketched on the right. They meet at \((4,5)\).</p>
+<p><b>b</b> The given equation is \(y=x+1\).<br>Solving for \(x\), \(\quad x=y-1\).</p>
+<p><b>c</b> The required integral is</p>
+\[\begin{aligned}\int_1^5(y-1)\,dy&amp;=\Big[\frac{y^2}{2}-y\Big]_1^5\\&amp;=\Big(\frac{25}{2}-5\Big)-\Big(\frac12-1\Big)\\&amp;=7\tfrac12-\big(-\tfrac12\big)\\&amp;=8,\end{aligned}\]
+</div><div>{{svg:c5f_e26}}</div></div>
+<p>which is positive, because the region is to the right of the \(y\)-axis.<br>Hence the required area is \(8\ \text{u}^2\).</p>
+\[\begin{aligned}\textbf{d}\quad\text{Area of triangle}&amp;=\tfrac12\times\text{base}\times\text{height}\\&amp;=\tfrac12\times4\times4\\&amp;=8\ \text{u}^2.\end{aligned}\]
+</div></div>
+<div class="box tip"><div class="bt">Worked example 5, line by line</div>
+<p>The lines meet where \(x+1=5\), so \(x=4\) and the point is \((4,5)\). The region runs up the \(y\)-axis from \(y=1\) (where the line \(y=x+1\) crosses the \(y\)-axis) to \(y=5\), so these are the limits. In part <b>c</b>, \(\tfrac{25}{2}-5=\tfrac{15}{2}=7\tfrac12\) and \(\tfrac12-1=-\tfrac12\), so the integral is \(7\tfrac12+\tfrac12=8\). In part <b>d</b>, the triangle has vertices \((0,1)\), \((0,5)\) and \((4,5)\): its base is \(4-0=4\) along the line \(y=5\), and its height is \(5-1=4\).</p></div>
+
+<!-- ============ Concept 6 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 6:regions on both sides of the y-axis}}
+<div class="box tip"><div class="bt">Regions to the left of the \(y\)-axis</div>
+<p>By Box 16, an integral with respect to \(y\) over a region to the <i>left</i> of the \(y\)-axis is negative, because there \(x\) is negative. As in Concept 3, split the \(y\)-interval where the curve crosses the \(y\)-axis, evaluate each integral, and add the areas.</p></div>
+<div class="box tip"><div class="bt">Fractional powers of negative numbers</div>
+<p>Take the cube root first, then the power: \((-8)^{\frac43}=\big((-8)^{\frac13}\big)^4=(-2)^4=16\), and \((-1)^{\frac43}=\big((-1)^{\frac13}\big)^4=(-1)^4=1\). A primitive of \(y^{\frac13}\) is \(\dfrac{y^{\frac43}}{\frac43}=\tfrac34y^{\frac43}\) (increase the index by 1 and divide by the new index, Lesson 5E).</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Right and left of the \(y\)-axis</span></div><div class="ex-body">
+Consider the cubic \(y=x^3\). One region lies between the curve and the \(y\)-axis from \(y=0\) to \(y=27\), to the right of the \(y\)-axis. A second region lies between the curve and the \(y\)-axis from \(y=-8\) to \(y=0\), to the left of the \(y\)-axis.<br>
+<b>a</b> Write the equation of the cubic so that \(x\) is a function of \(y\).<br>
+<b>b</b> Use integration with respect to \(y\) to find the areas of the regions to the right and left of the \(y\)-axis.<br>
+<b>c</b> Find the total area of the two regions.
+{{work:84}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Consider the curve \(y=x^5\). One region lies between the curve and the \(y\)-axis from \(y=0\) to \(y=1\), to the right of the \(y\)-axis. A second region lies between the curve and the \(y\)-axis from \(y=-1\) to \(y=0\), to the left of the \(y\)-axis.<br>
+<b>a</b> Write the equation of the curve so that \(x\) is a function of \(y\).<br>
+<b>b</b> Use integration with respect to \(y\) to find the areas of the regions to the right and left of the \(y\)-axis.<br>
+<b>c</b> Find the total area of the two regions.
+{{work:84}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:minmax(0,1fr) 46mm;column-gap:4mm"><div>
+The curve in the diagram is the cubic \(y=x^3\).<br>
+<b>a</b> Write the equation of the cubic so that \(x\) is a function of \(y\).<br>
+<b>b</b> Use integration with respect to \(y\) to find the areas of the shaded regions to the right and left of the \(y\)-axis.<br>
+<b>c</b> Find the total area of the two shaded regions.
+<div class="sol-label">Solution</div>
+<p><b>a</b> The given equation is \(y=x^3\).</p>
+\[\begin{aligned}\text{Solving for }x,\quad x^3&amp;=y\\x&amp;=y^{\frac13}.\end{aligned}\]
+</div><div>{{svg:c5f_e27}}</div></div>
+<p><b>b</b> For the region to the right of the \(y\)-axis,</p>
+\[\begin{aligned}\int_0^8y^{\frac13}\,dy&amp;=\tfrac34\Big[y^{\frac43}\Big]_0^8\\&amp;=\tfrac34\times(16-0)\qquad\big(\text{because }8^{\frac43}=2^4=16\big)\\&amp;=12,\end{aligned}\]
+<p>so area \(=12\) square units.</p>
+<p>For the region to the left of the \(y\)-axis,</p>
+\[\begin{aligned}\int_{-1}^{0}y^{\frac13}\,dy&amp;=\tfrac34\Big[y^{\frac43}\Big]_{-1}^{0}\\&amp;=\tfrac34\times(0-1)\qquad\big(\text{because }(-1)^{\frac43}=(-1)^4=1\big)\\&amp;=-\tfrac34,\end{aligned}\]
+<p>so area \(=\tfrac34\) square units.</p>
+<p><b>c</b> Adding these, total area \(=12\tfrac34\) square units.</p>
+</div></div>
+<div class="box tip"><div class="bt">Worked example 6, line by line</div>
+<p>The right-hand region runs from \(y=0\) to \(y=8\) (the point \((2,8)\) on the curve), and the left-hand region from \(y=-1\) (the point \((-1,-1)\)) to \(y=0\). The \(\tfrac34\) is taken out of the bracket: \(\Big[\tfrac34y^{\frac43}\Big]_0^8=\tfrac34\Big[y^{\frac43}\Big]_0^8\). Then \(\tfrac34\times16=12\), and \(12+\tfrac34=12\tfrac34\).</p></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+<div style="break-inside:avoid">{{sec:blue:pencil:Textbook homework:Exercise 5F}}
+{{band:F}}
+<p class="small"><b>Technology:</b> Graphing software would help in identifying the definite integrals that need to be evaluated to find the area of a given region.</p>
+<div class="q"><span class="q-num">1</span><div class="q-body">Find the area of each shaded region below by evaluating the appropriate integral.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);column-gap:2mm;row-gap:1mm">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:q5f_1a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:q5f_1b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:q5f_1c}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:q5f_1d}}</div>
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">e</span>{{svg:q5f_1e}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">f</span>{{svg:q5f_1f}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">g</span>{{svg:q5f_1g}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">h</span>{{svg:q5f_1h}}</div>
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">i</span>{{svg:q5f_1i}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">j</span>{{svg:q5f_1j}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">k</span>{{svg:q5f_1k}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">l</span>{{svg:q5f_1l}}</div></div>{{work:95}}</div></div>
+</div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Find the area of each shaded region below by evaluating an integral of the form \(\int_{y_1}^{y_2}g(y)\,dy\).
+<div class="parts" style="grid-template-columns:repeat(4,1fr);column-gap:2mm;row-gap:1mm">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:q5f_2a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:q5f_2b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:q5f_2c}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:q5f_2d}}</div>
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">e</span>{{svg:q5f_2e}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">f</span>{{svg:q5f_2f}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">g</span>{{svg:q5f_2g}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">h</span>{{svg:q5f_2h}}</div></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Find the area of each shaded region below by evaluating the appropriate integral.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);column-gap:2mm;row-gap:1mm">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:q5f_3a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:q5f_3b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:q5f_3c}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:q5f_3d}}</div></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Find the area of each shaded region below by evaluating the appropriate integral.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);column-gap:2mm;row-gap:1mm">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:q5f_4a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:q5f_4b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:q5f_4c}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:q5f_4d}}</div></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><div class="split" style="grid-template-columns:minmax(0,1fr) 46mm;column-gap:4mm"><div>The line \(y=x+1\) is graphed on the right.
+<div class="parts one"><span><span class="pl">a</span>Copy the diagram, and shade the region between the line \(y=x+1\) and the \(x\)-axis from \(x=-3\) to \(x=2\).</span>
+<span><span class="pl">b</span>By evaluating \(\displaystyle\int_{-1}^{2}(x+1)\,dx\), find the area of the shaded region above the \(x\)-axis.</span>
+<span><span class="pl">c</span>By evaluating \(\displaystyle\int_{-3}^{-1}(x+1)\,dx\), find the area of the shaded region below the \(x\)-axis.</span>
+<span><span class="pl">d</span>Hence find the area of the entire shaded region.</span>
+<span><span class="pl">e</span>Find \(\displaystyle\int_{-3}^{2}(x+1)\,dx\), and explain why this integral does not give the area of the shaded region.</span></div></div><div>{{svg:q5f_5}}</div></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><div class="split" style="grid-template-columns:minmax(0,1fr) 46mm;column-gap:4mm"><div>The curve \(y=(x-1)(x+3)=x^2+2x-3\) is graphed.
+<div class="parts one"><span><span class="pl">a</span>Copy the diagram, and shade the region between the curve \(y=(x-1)(x+3)\) and the \(x\)-axis from \(x=-3\) to \(x=2\).</span>
+<span><span class="pl">b</span>By evaluating \(\displaystyle\int_{-3}^{1}(x^2+2x-3)\,dx\), find the area of the shaded region below the \(x\)-axis.</span>
+<span><span class="pl">c</span>By evaluating \(\displaystyle\int_{1}^{2}(x^2+2x-3)\,dx\), find the area of the shaded region above the \(x\)-axis.</span>
+<span><span class="pl">d</span>Hence find the area of the entire shaded region.</span>
+<span><span class="pl">e</span>Find \(\displaystyle\int_{-3}^{2}(x^2+2x-3)\,dx\), and explain why this integral does not give the area of the shaded region.</span></div></div><div>{{svg:q5f_6}}</div></div>{{work:76}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><div class="split" style="grid-template-columns:minmax(0,1fr) 46mm;column-gap:4mm"><div>The curve \(y=x(x+1)(x-2)=x^3-x^2-2x\) is graphed.
+<div class="parts one"><span><span class="pl">a</span>Copy the diagram, and shade the region bounded by the curve and the \(x\)-axis.</span>
+<span><span class="pl">b</span>By evaluating \(\displaystyle\int_{0}^{2}(x^3-x^2-2x)\,dx\), find the area of the shaded region below the \(x\)-axis.</span>
+<span><span class="pl">c</span>By evaluating \(\displaystyle\int_{-1}^{0}(x^3-x^2-2x)\,dx\), find the area of the shaded region above the \(x\)-axis.</span>
+<span><span class="pl">d</span>Hence find the area of the entire region you have shaded.</span>
+<span><span class="pl">e</span>Find \(\displaystyle\int_{-1}^{2}(x^3-x^2-2x)\,dx\), and explain why this integral does not give the area of the shaded region.</span></div></div><div>{{svg:q5f_7}}</div></div>{{work:76}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body">In each part below, find the area of the region bounded by the graph of the given function and the \(x\)-axis between the specified values. Remember that areas above and below the \(x\)-axis must be calculated separately.
+<div class="parts one"><span><span class="pl">a</span>\(y=x^2\), between \(x=-3\) and \(x=2\),</span>
+<span><span class="pl">b</span>\(y=2x^3\), between \(x=-4\) and \(x=1\),</span>
+<span><span class="pl">c</span>\(y=3x(x-2)\), between \(x=0\) and \(x=2\),</span>
+<span><span class="pl">d</span>\(y=x-3\), between \(x=-1\) and \(x=4\),</span>
+<span><span class="pl">e</span>\(y=(x-1)(x+3)(x-2)\), between \(x=-3\), and \(x=2\)</span>
+<span><span class="pl">f</span>\(y=-2x(x+1)\), between \(x=-2\) and \(x=2\).</span></div>{{work:150}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">In each part below, find the area of the region bounded by the graph of the given function and the \(y\)-axis between the specified values. Remember that areas to the right and to the left of the \(y\)-axis must be calculated separately.
+<div class="parts one"><span><span class="pl">a</span>\(x=y-5\), between \(y=0\) and \(y=6\),</span>
+<span><span class="pl">b</span>\(x=3-y\), between \(y=2\) and \(y=5\),</span>
+<span><span class="pl">c</span>\(x=y^2\), between \(y=-1\) and \(y=3\),</span>
+<span><span class="pl">d</span>\(x=(y-1)(y+1)\), between \(y=3\) and \(y=0\).</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">In each part below you should sketch the curve and look carefully for any symmetries that will simplify the calculation.
+<div class="parts one"><span><span class="pl">a</span>Find the area of the region bounded by the given curve and the \(x\)-axis.</span>
+<span style="padding-left:6mm"><span class="pl">i</span>\(y=x^7\), for \(-2\le x\le2\),</span>
+<span style="padding-left:6mm"><span class="pl">ii</span>\(y=x^3-16x=x(x-4)(x+4)\), for \(-4\le x\le4\),</span>
+<span style="padding-left:6mm"><span class="pl">iii</span>\(y=x^4-9x^2=x^2(x-3)(x+3)\), for \(-3\le x\le3\).</span>
+<span><span class="pl">b</span>Find the area of the region bounded by the given curve and the \(y\)-axis.</span>
+<span style="padding-left:6mm"><span class="pl">i</span>\(x=2y\), for \(-5\le y\le5\),</span>
+<span style="padding-left:6mm"><span class="pl">ii</span>\(x=y^2\), for \(-3\le y\le3\),</span>
+<span style="padding-left:6mm"><span class="pl">iii</span>\(x=4-y^2=(2-y)(2+y)\), for \(-2\le y\le2\).</span></div>{{work:130}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Find the area of the region bounded by \(y=|x+2|\) and the \(x\)-axis, for \(-2\le x\le2\).{{work:40}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><div class="split" style="grid-template-columns:minmax(0,1fr) 44mm;column-gap:4mm"><div>The diagram shows the parabola \(y^2=16(2-x)\).
+<div class="parts one"><span><span class="pl">a</span>Find the \(x\)-intercept and the \(y\)-intercepts.</span>
+<span><span class="pl">b</span>Find the exact area of the shaded region:</span>
+<span style="padding-left:6mm"><span class="pl">i</span>by integrating \(y=4\sqrt{2-x}\) with respect to \(x\),</span>
+<span style="padding-left:6mm"><span class="pl">ii</span>by integrating with respect to \(y\). (You will need to make \(x\) the subject of the equation.)</span></div></div><div>{{svg:q5f_12}}</div></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">The gradient of a curve is \(y'=x^2-4x+3\), and the curve passes through the origin.
+<div class="parts one"><span><span class="pl">a</span>Find the equation of the curve.</span>
+<span><span class="pl">b</span>Show that the curve has turning points at \(\big(1,1\tfrac13\big)\) and \((3,0)\), and sketch its graph.</span>
+<span><span class="pl">c</span>Find the area of the region bounded by the curve and the \(x\)-axis between the two turning points.</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Sketch \(y=x^2\) and mark the points \(A(a,a^2)\), \(B(-a,a^2)\), \(P(a,0)\) and \(Q(-a,0)\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(\displaystyle\int_0^a x^2\,dx=\tfrac23\,(\text{area }\triangle OAP)\).</span>
+<span><span class="pl">b</span>Show that \(\displaystyle\int_{-a}^{a}x^2\,dx=\tfrac13\,(\text{area of rectangle }ABQP)\).</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">Given positive real numbers \(a\) and \(n\), let \(A\), \(P\) and \(Q\) be the points \((a,a^n)\), \((a,0)\) and \((0,a^n)\) respectively. Find the ratios:
+<div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^a x^n\,dx:(\text{area of }\triangle AOP)\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^a x^n\,dx:(\text{area of rectangle }OPAQ)\)</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><div class="parts one" style="margin-top:0"><span><span class="pl">a</span>Show that \(x^4-2x^3+x=x(x-1)(x^2-x-1)\). Then sketch a graph of the function \(y=x^4-2x^3+x\) and shade the three regions bounded by the graph and the \(x\)-axis.</span>
+<span><span class="pl">b</span>If \(a=\dfrac12\big(1+\sqrt5\big)\), evaluate \(a^2\), \(a^4\) and \(a^5\).</span>
+<span><span class="pl">c</span>Show that the area of one shaded region equals the sum of the areas of the other two.</span></div>{{work:170}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">17</span><div class="q-body">Consider the function \(\displaystyle G(x)=\int_0^x g(u)\,du\), where \(g(u)=\begin{cases}4-\tfrac43u, &amp; \text{for }0\le u&lt;6,\\ u-10, &amp; \text{for }6\le u\le12.\end{cases}\)
+<div class="parts one"><span><span class="pl">a</span>Sketch a graph of \(g(u)\).</span>
+<span><span class="pl">b</span>Find the stationary points of the function \(y=G(x)\) and determine their nature.</span>
+<span><span class="pl">c</span>Find the values of \(x\) for which \(G(x)=0\).</span>
+<span><span class="pl">d</span>Sketch the curve \(y=G(x)\), indicating all important features.</span>
+<span><span class="pl">e</span>Find the area bounded by the curve \(y=G(x)\) and the \(x\)-axis for \(0\le x\le6\).</span></div>{{work:170}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body"><div class="parts one" style="margin-top:0"><span><span class="pl">a</span>Show that for \(n&lt;-1\), \(\displaystyle\int_1^N x^n\,dx\) converges as \(N\to\infty\), and find the limit.</span>
+<span><span class="pl">b</span>Show that for \(n&gt;-1\), \(\displaystyle\int_\varepsilon^1 x^n\,dx\) converges as \(\varepsilon\to0^+\), and find the limit.</span>
+<span><span class="pl">c</span>Interpret these two results as areas.</span></div>{{work:130}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 5 minutes</b></span><span><b>1 mark</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">This is the only school-paper item that needs just this lesson’s ideas. For more timed practice, do Questions 4(b), 6, 8(e), 9(d), 10(a)(iii) and 12 above in 30 minutes.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Normanhurst Boys High School, 2022, Mathematics Extension 1, Year 12 Course Assessment Task 4 (Trial <span style="white-space:nowrap">Examination),&nbsp;Q10</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the area enclosed between the curve \(y=x^3-1\), the \(y\)-axis and the lines \(y=1\) and \(y=2\)?
+<div class="mc" style="grid-template-columns:1fr 1fr"><span>(A)&ensp;\(\displaystyle\int_1^2(x^3-1)\,dy\)</span><span>(C)&ensp;\(\displaystyle\int_1^2\big(\sqrt3y+1\big)\,dy\)</span><span>(B)&ensp;\(\displaystyle\int_1^2\sqrt[3]{y+1}\,dy\)</span><span>(D)&ensp;\(\displaystyle\int_1^2(y+1)\,dy\)</span></div></div>
+<div class="hint"><b>Hint:</b> what are the boundaries of the region?</div>{{work:40}}</div>
+</div>
+</div>

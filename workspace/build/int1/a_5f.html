@@ -1,1 +1,100 @@
-<!-- filled by Task Int1 lesson 5F -->
+{{ahead:Lesson 5F | Finding areas by integration}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a" style="break-inside:auto"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> The curve meets the \(x\)-axis where \(9-x^2=0\), at \((3,0)\) and \((-3,0)\). The region lies entirely above the \(x\)-axis, and the relevant integral is
+\[\begin{aligned}\int_{-3}^{3}(9-x^2)\,dx&amp;=\Big[9x-\frac{x^3}{3}\Big]_{-3}^{3}\\&amp;=\big(27-9\big)-\big(-27+9\big)\\&amp;=18-(-18)\\&amp;=36,\end{aligned}\]
+which is positive. Hence the required area is \(36\) square units.<br>
+<b>Your turn.</b> The curve meets the \(x\)-axis where \(1-x^2=0\), at \((1,0)\) and \((-1,0)\). The region lies entirely above the \(x\)-axis, and
+\[\begin{aligned}\int_{-1}^{1}(1-x^2)\,dx&amp;=\Big[x-\frac{x^3}{3}\Big]_{-1}^{1}\\&amp;=\big(1-\tfrac13\big)-\big(-1+\tfrac13\big)\\&amp;=\tfrac23-\big(-\tfrac23\big)\\&amp;=1\tfrac13.\end{aligned}\]
+Hence the required area is \(1\tfrac13\) square units.</div></div>
+<div class="a" style="break-inside:auto"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b> The curve meets the \(x\)-axis where \(x^2-4=0\), at \((2,0)\) and \((-2,0)\). The region lies entirely below the \(x\)-axis, and
+\[\begin{aligned}\int_{-2}^{2}(x^2-4)\,dx&amp;=\Big[\frac{x^3}{3}-4x\Big]_{-2}^{2}\\&amp;=\big(\tfrac83-8\big)-\big(-\tfrac83+8\big)\\&amp;=-\tfrac{16}{3}-\tfrac{16}{3}\\&amp;=-10\tfrac23,\end{aligned}\]
+which is negative, because the curve lies below the \(x\)-axis. Hence the required area is \(10\tfrac23\) square units.<br>
+<b>Your turn.</b> The curve meets the \(x\)-axis at \((3,0)\) and \((-3,0)\), and the region lies entirely below the \(x\)-axis.
+\[\begin{aligned}\int_{-3}^{3}(x^2-9)\,dx&amp;=\Big[\frac{x^3}{3}-9x\Big]_{-3}^{3}\\&amp;=(9-27)-(-9+27)\\&amp;=-18-18\\&amp;=-36,\end{aligned}\]
+so the required area is \(36\) square units.</div></div>
+<div class="a" style="break-inside:auto"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> The \(x\)-intercepts are \(x=-1\), \(x=0\) and \(x=3\). The cubic has a positive leading coefficient, so it is above the axis for \(-1&lt;x&lt;0\) and below it for \(0&lt;x&lt;3\).<br>
+<b>b</b> Expanding, \(y=x(x^2-3x+x-3)=x(x^2-2x-3)=x^3-2x^2-3x\). For the region above the \(x\)-axis,
+\[\begin{aligned}\int_{-1}^{0}(x^3-2x^2-3x)\,dx&amp;=\Big[\frac{x^4}{4}-\frac{2x^3}{3}-\frac{3x^2}{2}\Big]_{-1}^{0}\\&amp;=(0-0-0)-\big(\tfrac14+\tfrac23-\tfrac32\big)\\&amp;=-\big(\tfrac{3}{12}+\tfrac{8}{12}-\tfrac{18}{12}\big)\\&amp;=\tfrac{7}{12},\end{aligned}\]
+so area above \(=\tfrac{7}{12}\) square units. For the region below the \(x\)-axis,
+\[\begin{aligned}\int_{0}^{3}(x^3-2x^2-3x)\,dx&amp;=\Big[\frac{x^4}{4}-\frac{2x^3}{3}-\frac{3x^2}{2}\Big]_{0}^{3}\\&amp;=\big(\tfrac{81}{4}-18-\tfrac{27}{2}\big)-(0-0-0)\\&amp;=\tfrac{81}{4}-\tfrac{72}{4}-\tfrac{54}{4}\\&amp;=-11\tfrac14,\end{aligned}\]
+so area below \(=11\tfrac14\) square units. Total area \(=\tfrac{7}{12}+11\tfrac14=\tfrac{7}{12}+\tfrac{135}{12}=\tfrac{142}{12}=11\tfrac56\) square units.<br>
+<b>c</b>
+\[\begin{aligned}\int_{-1}^{3}x(x+1)(x-3)\,dx&amp;=\Big[\frac{x^4}{4}-\frac{2x^3}{3}-\frac{3x^2}{2}\Big]_{-1}^{3}\\&amp;=-11\tfrac14+\tfrac{7}{12}\\&amp;=-\tfrac{135}{12}+\tfrac{7}{12}\\&amp;=-10\tfrac23.\end{aligned}\]
+This integral is the difference \(11\tfrac14-\tfrac{7}{12}=10\tfrac23\) of the two areas, and is negative because the area below is larger than the area above.<br>
+<b>Your turn.</b><br>
+<b>a</b> The \(x\)-intercepts are \(x=-1\), \(x=0\) and \(x=4\); the curve is above the axis for \(-1&lt;x&lt;0\) and below it for \(0&lt;x&lt;4\).<br>
+<b>b</b> \(y=x(x^2-3x-4)=x^3-3x^2-4x\), with primitive \(\tfrac{x^4}{4}-x^3-2x^2\).
+\[\begin{aligned}\int_{-1}^{0}(x^3-3x^2-4x)\,dx&amp;=\Big[\frac{x^4}{4}-x^3-2x^2\Big]_{-1}^{0}\\&amp;=0-\big(\tfrac14+1-2\big)\\&amp;=\tfrac34,\end{aligned}\]
+\[\begin{aligned}\int_{0}^{4}(x^3-3x^2-4x)\,dx&amp;=\Big[\frac{x^4}{4}-x^3-2x^2\Big]_{0}^{4}\\&amp;=(64-64-32)-0\\&amp;=-32,\end{aligned}\]
+so the areas are \(\tfrac34\) and \(32\), and the total area is \(32\tfrac34\) square units.<br>
+<b>c</b> \(\displaystyle\int_{-1}^{4}x(x+1)(x-4)\,dx=-32+\tfrac34=-31\tfrac14\). It is the difference \(32-\tfrac34\) of the two areas, negative because the area below is larger.</div></div>
+<div class="a" style="break-inside:auto"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> Let \(f(x)=x^3-9x\). Then \(f(-x)=(-x)^3-9(-x)=-x^3+9x=-f(x)\), so \(f(x)\) is odd.<br>
+<b>b</b> \(y=x(x^2-9)=x(x-3)(x+3)\), so the \(x\)-intercepts are \(x=-3\), \(x=0\) and \(x=3\). The two regions have equal areas because the function is odd.
+\[\begin{aligned}\int_0^3(x^3-9x)\,dx&amp;=\Big[\frac{x^4}{4}-\frac{9x^2}{2}\Big]_0^3\\&amp;=\big(\tfrac{81}{4}-\tfrac{81}{2}\big)-(0-0)\\&amp;=-\tfrac{81}{4},\end{aligned}\]
+so area below the \(x\)-axis \(=\tfrac{81}{4}\) square units. Doubling, total area \(=\tfrac{81}{2}=40\tfrac12\) square units.<br>
+<b>Your turn.</b><br>
+<b>a</b> \(f(-x)=(-x)^3-4(-x)=-x^3+4x=-f(x)\), so \(f(x)=x^3-4x\) is odd.<br>
+<b>b</b> \(y=x(x-2)(x+2)\), with \(x\)-intercepts \(-2\), \(0\) and \(2\).
+\[\begin{aligned}\int_0^2(x^3-4x)\,dx&amp;=\Big[\frac{x^4}{4}-2x^2\Big]_0^2\\&amp;=(4-8)-(0-0)\\&amp;=-4,\end{aligned}\]
+so area below \(=4\) square units, and doubling, total area \(=8\) square units.</div></div>
+<div class="a" style="break-inside:auto"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> The lines meet where \(2x+1=7\), that is, at \((3,7)\). The line \(y=2x+1\) crosses the \(y\)-axis at \((0,1)\). The region is the triangle with vertices \((0,1)\), \((0,7)\) and \((3,7)\).<br>
+<b>b</b> \(y=2x+1\), so \(2x=y-1\) and \(x=\tfrac12y-\tfrac12\).<br>
+<b>c</b>
+\[\begin{aligned}\int_1^7\big(\tfrac12y-\tfrac12\big)\,dy&amp;=\Big[\frac{y^2}{4}-\frac{y}{2}\Big]_1^7\\&amp;=\Big(\frac{49}{4}-\frac72\Big)-\Big(\frac14-\frac12\Big)\\&amp;=\frac{35}{4}-\Big(-\frac14\Big)\\&amp;=9,\end{aligned}\]
+which is positive, because the region is to the right of the \(y\)-axis. The area is \(9\ \text{u}^2\).<br>
+<b>d</b> Area of triangle \(=\tfrac12\times3\times6=9\ \text{u}^2\) (base \(3-0=3\) along \(y=7\), height \(7-1=6\)).<br>
+<b>Your turn.</b><br>
+<b>a</b> The lines meet where \(x+2=5\), at \((3,5)\); the line crosses the \(y\)-axis at \((0,2)\).<br>
+<b>b</b> \(x=y-2\).<br>
+<b>c</b>
+\[\begin{aligned}\int_2^5(y-2)\,dy&amp;=\Big[\frac{y^2}{2}-2y\Big]_2^5\\&amp;=\Big(\frac{25}{2}-10\Big)-(2-4)\\&amp;=\tfrac52+2\\&amp;=4\tfrac12,\end{aligned}\]
+so the area is \(4\tfrac12\ \text{u}^2\).<br>
+<b>d</b> Area of triangle \(=\tfrac12\times3\times3=4\tfrac12\ \text{u}^2\).</div></div>
+<div class="a" style="break-inside:auto"><span class="an">C6</span><div class="ab"><b>Tutor demo.</b><br>
+<b>a</b> \(y=x^3\), so \(x^3=y\) and \(x=y^{\frac13}\).<br>
+<b>b</b> For the region to the right of the \(y\)-axis,
+\[\begin{aligned}\int_0^{27}y^{\frac13}\,dy&amp;=\tfrac34\Big[y^{\frac43}\Big]_0^{27}\\&amp;=\tfrac34\times(81-0)\qquad\big(27^{\frac43}=3^4=81\big)\\&amp;=60\tfrac34,\end{aligned}\]
+so area \(=60\tfrac34\) square units. For the region to the left of the \(y\)-axis,
+\[\begin{aligned}\int_{-8}^{0}y^{\frac13}\,dy&amp;=\tfrac34\Big[y^{\frac43}\Big]_{-8}^{0}\\&amp;=\tfrac34\times(0-16)\qquad\big((-8)^{\frac43}=(-2)^4=16\big)\\&amp;=-12,\end{aligned}\]
+so area \(=12\) square units.<br>
+<b>c</b> Total area \(=60\tfrac34+12=72\tfrac34\) square units.<br>
+<b>Your turn.</b><br>
+<b>a</b> \(x^5=y\), so \(x=y^{\frac15}\).<br>
+<b>b</b> A primitive of \(y^{\frac15}\) is \(\dfrac{y^{\frac65}}{\frac65}=\tfrac56y^{\frac65}\).
+\[\begin{aligned}\int_0^{1}y^{\frac15}\,dy&amp;=\tfrac56\Big[y^{\frac65}\Big]_0^{1}\\&amp;=\tfrac56\times(1-0)\\&amp;=\tfrac56,\end{aligned}\]
+\[\begin{aligned}\int_{-1}^{0}y^{\frac15}\,dy&amp;=\tfrac56\Big[y^{\frac65}\Big]_{-1}^{0}\\&amp;=\tfrac56\times(0-1)\\&amp;=-\tfrac56,\end{aligned}\]
+using \((-1)^{\frac65}=(-1)^6=1\). The areas are \(\tfrac56\) and \(\tfrac56\) square units.<br>
+<b>c</b> Total area \(=\tfrac56+\tfrac56=1\tfrac23\) square units.</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><div class="a-grid"><span><b>a</b> \(\int_0^2 2x\,dx=4\ \text{u}^2\)</span><span><b>b</b> \(\int_1^3 3x^2\,dx=26\ \text{u}^2\)</span><span><b>c</b> \(\int_0^3 4x^3\,dx=81\ \text{u}^2\)</span><span><b>d</b> \(\int_{-1}^2(3x^2+1)\,dx=12\ \text{u}^2\)</span><span><b>e</b> \(\int_0^3 x^2\,dx=9\ \text{u}^2\)</span><span><b>f</b> \(\int_2^4(x^2-2x)\,dx=6\tfrac23\ \text{u}^2\)</span><span><b>g</b> \(\int_0^{16}\sqrt x\,dx=\tfrac{128}{3}\ \text{u}^2\)</span><span><b>h</b> \(\int_1^3(5-x)\,dx=6\ \text{u}^2\)</span><span><b>i</b> \(\int_{-1}^0(x^3-x)\,dx=\tfrac14\ \text{u}^2\)</span><span><b>j</b> \(\int_{-4}^3(12-x-x^2)\,dx=57\tfrac16\ \text{u}^2\)</span><span><b>k</b> \(\int_{-1}^2(5x^4+1)\,dx=36\ \text{u}^2\)</span><span><b>l</b> \(\int_1^{27}\sqrt[3]{x}\,dx=60\ \text{u}^2\)</span></div></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><div class="a-grid"><span><b>a</b> \(\int_0^5 2y\,dy=25\ \text{u}^2\)</span><span><b>b</b> \(\int_{-2}^0 3y^2\,dy=8\ \text{u}^2\)</span><span><b>c</b> \(\int_2^4(2y-4)\,dy=4\ \text{u}^2\)</span><span><b>d</b> \(\int_{-3}^3(27-3y^2)\,dy=108\ \text{u}^2\)</span><span><b>e</b> \(\int_0^3 y\,dy=\tfrac92\ \text{u}^2\)</span><span><b>f</b> \(\int_3^5(y^2+1)\,dy=34\tfrac23\ \text{u}^2\)</span><span><b>g</b> \(\int_0^9\sqrt y\,dy=18\ \text{u}^2\)</span><span><b>h</b> \(\int_1^4 y^{-\frac12}\,dy=2\ \text{u}^2\)</span></div></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><div class="a-grid"><span><b>a</b> \(\int_1^3(x^2-4x+3)\,dx=-\tfrac43\), area \(\tfrac43\ \text{u}^2\)</span><span><b>b</b> \(\int_{-3}^0 3x\,dx=-\tfrac{27}{2}\), area \(\tfrac{27}{2}\ \text{u}^2\)</span><span><b>c</b> \(\int_{-3}^0 x^3\,dx=-\tfrac{81}{4}\), area \(\tfrac{81}{4}\ \text{u}^2\)</span><span><b>d</b> \(\int_1^3(1-x^4)\,dx=-46\tfrac25\), area \(46\tfrac25\ \text{u}^2\)</span></div></div></div>
+<div class="a"><span class="an">4</span><div class="ab"><div class="a-grid"><span><b>a</b> \(\int_1^4(1-y)\,dy=-\tfrac92\), area \(\tfrac92\ \text{u}^2\)</span><span><b>b</b> \(\int_2^4(y^2-6y+8)\,dy=-\tfrac43\), area \(\tfrac43\ \text{u}^2\)</span><span><b>c</b> \(\int_{-8}^{-1}y^{\frac13}\,dy=-\tfrac{45}{4}\), area \(\tfrac{45}{4}\ \text{u}^2\)</span><span><b>d</b> \(\int_0^3(-y^2)\,dy=-9\), area \(9\ \text{u}^2\)</span></div></div></div>
+<div class="a"><span class="an">5</span><div class="ab"><b>b</b> \(4\tfrac12\ \text{u}^2\) &nbsp; <b>c</b> \(2\ \text{u}^2\) &nbsp; <b>d</b> \(6\tfrac12\ \text{u}^2\)<br><b>e</b> \(2\tfrac12\). This is the area above the \(x\)-axis minus the area below it.</div></div>
+<div class="a"><span class="an">6</span><div class="ab"><b>b</b> \(10\tfrac23\ \text{u}^2\) &nbsp; <b>c</b> \(2\tfrac13\ \text{u}^2\) &nbsp; <b>d</b> \(13\ \text{u}^2\)<br><b>e</b> \(-8\tfrac13\). This is the area above the \(x\)-axis minus the area below it.</div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>b</b> \(2\tfrac23\ \text{u}^2\) &nbsp; <b>c</b> \(\tfrac{5}{12}\ \text{u}^2\) &nbsp; <b>d</b> \(3\tfrac{1}{12}\ \text{u}^2\)<br><b>e</b> \(-2\tfrac14\). This is the area above the \(x\)-axis minus the area below it.</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>a</b> \(11\tfrac23\ \text{u}^2\) &nbsp; <b>b</b> \(128\tfrac12\ \text{u}^2\) &nbsp; <b>c</b> \(4\ \text{u}^2\) &nbsp; <b>d</b> \(8\tfrac12\ \text{u}^2\) &nbsp; <b>e</b> \(32\tfrac34\ \text{u}^2\) &nbsp; <b>f</b> \(11\tfrac13\ \text{u}^2\)</div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>a</b> \(13\ \text{u}^2\) &nbsp; <b>b</b> \(2\tfrac12\ \text{u}^2\) &nbsp; <b>c</b> \(9\tfrac13\ \text{u}^2\) &nbsp; <b>d</b> \(7\tfrac13\ \text{u}^2\)</div></div>
+<div class="a"><span class="an">10</span><div class="ab"><b>a</b> (i) \(64\ \text{u}^2\) &nbsp; (ii) \(128\ \text{u}^2\) &nbsp; (iii) \(64\tfrac45\ \text{u}^2\) &nbsp;&nbsp; <b>b</b> (i) \(50\ \text{u}^2\) &nbsp; (ii) \(18\ \text{u}^2\) &nbsp; (iii) \(\tfrac{32}{3}\ \text{u}^2\)</div></div>
+<div class="a"><span class="an">11</span><div class="ab">\(8\ \text{u}^2\)</div></div>
+<div class="a"><span class="an">12</span><div class="ab"><b>a</b> \((2,0)\), \(\big(0,4\sqrt2\big)\), \(\big(0,-4\sqrt2\big)\) &nbsp; <b>b</b> \(\dfrac{16\sqrt2}{3}\ \text{u}^2\) (both methods); in (ii), \(x=2-\dfrac{y^2}{16}\)</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>a</b> \(y=\tfrac13x^3-2x^2+3x\)<br><b>b</b> The curve passes through the origin, \(\big(1,1\tfrac13\big)\) is a maximum turning point and \((3,0)\) is a minimum turning point.<br><b>c</b> \(\tfrac43\ \text{u}^2\)</div></div>
+<div class="a"><span class="an">15</span><div class="ab"><b>a</b> \(2:n+1\) &nbsp; <b>b</b> \(1:n+1\)</div></div>
+<div class="a"><span class="an">16</span><div class="ab"><b>b</b> \(a^2=\tfrac12\big(3+\sqrt5\big)\), \(a^4=\tfrac12\big(7+3\sqrt5\big)\), \(a^5=\tfrac12\big(11+5\sqrt5\big)\)<br><b>c</b> Areas are \(\tfrac15\ \text{u}^2\), \(\tfrac{1}{10}\ \text{u}^2\) and \(\tfrac{1}{10}\ \text{u}^2\).</div></div>
+<div class="a"><span class="an">17</span><div class="ab"><b>a</b> Straight line segments from \((0,4)\) through \((3,0)\) down to \((6,-4)\), then up through \((10,0)\) to \((12,2)\).<br>
+<b>b</b> maximum at \((3,6)\), minimum at \((10,-8)\) &nbsp; <b>c</b> \(x=0\), \(x=6\)<br>
+<b>d</b> The curve starts at the origin, rises to the maximum \((3,6)\), falls through \((6,0)\) to the minimum \((10,-8)\), then rises to the endpoint \((12,-6)\). &nbsp; <b>e</b> \(24\ \text{u}^2\)</div></div>
+<div class="a"><span class="an">18</span><div class="ab"><b>a</b> \(-\dfrac{1}{n+1}\) &nbsp; <b>b</b> \(\dfrac{1}{n+1}\)<br><b>c</b> For \(n&lt;-1\), the region under \(y=x^n\) to the right of \(x=1\), although unbounded, has the finite area \(-\dfrac{1}{n+1}\). For \(n&gt;-1\), the region under \(y=x^n\) from \(x=0\) to \(x=1\) has the finite area \(\dfrac{1}{n+1}\), even when the curve has an asymptote at \(x=0\).</div></div>
+
+{{ahead:Lesson 5F | Finding areas by integration}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Normanhurst Boys High School, 2022, Mathematics Extension 1, Year 12 Course Assessment Task 4 (Trial <span style="white-space:nowrap">Examination),&nbsp;Q10</span></span></div>
+<p>The region is bounded by the \(y\)-axis and the horizontal lines \(y=1\) and \(y=2\), so integrate with respect to \(y\), with limits \(y=1\) and \(y=2\) (Box 16). Write \(x\) as a function of \(y\):</p>
+\[\begin{aligned}y&amp;=x^3-1\\x^3&amp;=y+1\\x&amp;=\sqrt[3]{y+1}.\end{aligned}\]
+<p>For \(1\le y\le2\), \(y+1\) is positive, so \(x=\sqrt[3]{y+1}\) is positive and the region lies to the right of the \(y\)-axis. Hence the integral is the area itself:</p>
+\[\text{area}=\int_1^2\sqrt[3]{y+1}\,dy.\]
+<p><b>Answer (B).</b> Option (A) still has the integrand written in terms of \(x\). Options (C) and (D) are not the inverse of \(y=x^3-1\): for example, (D) uses \(x=y+1\), which is the inverse of \(y=x-1\).</p></div>
