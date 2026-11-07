@@ -1,1 +1,267 @@
-<!-- filled by Task Int1 lesson 5G -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 5G</div><h2>Areas of compound regions</h2>
+<div class="focus">When a region is formed by two or more different curves, it usually has to be cut into pieces before integrals can find its area. This lesson finds where the curves meet, then either adds the areas of the pieces under different curves, or integrates the top curve minus the bottom curve. A careful sketch comes first every time.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:regions under a combination of curves}}
+<div class="box concept"><div class="bt">Compound regions</div>
+<p>When a region is formed by two or more different curves, some dissection process is usually needed before integrals can be used to calculate its area. Thus a preliminary sketch of the region becomes all the more important.</p></div>
+<div class="box concept"><div class="bt">Areas of regions under a combination of curves</div>
+<p>Some regions are bounded by different curves in different parts of the \(x\)-axis.</p></div>
+<div class="box tip"><div class="bt">Cutting the region into pieces</div>
+<ol style="margin:0"><li>Sketch the curves and find where they meet, by solving their equations simultaneously.</li>
+<li>Cut the region with a vertical line through the meeting point. Each piece now lies under just one curve.</li>
+<li>Integrate each curve over its own piece, then add the areas.</li></ol></div>
+<div class="box tip"><div class="bt">The primitive of \((x-2)^2\)</div>
+<p>From Lesson 4J, a primitive of \((ax+b)^n\) is \(\tfrac{(ax+b)^{n+1}}{a(n+1)}\). With \(a=1\), \(b=-2\) and \(n=2\), a primitive of \((x-2)^2\) is \(\tfrac13(x-2)^3\). Check by differentiating:</p>
+\[\frac{d}{dx}\,\frac{(x-2)^3}{3}=\frac{3(x-2)^2}{3}=(x-2)^2.\]</div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two parabolas and the \(x\)-axis</span></div><div class="ex-body">
+<b>a</b> Sketch the curves \(y=x^2\) and \(y=(x-4)^2\) on one set of axes.<br>
+<b>b</b> Shade the region bounded by \(y=x^2\), \(y=(x-4)^2\) and the \(x\)-axis.<br>
+<b>c</b> Find the area of this shaded region.
+{{work:85}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Sketch the curves \(y=x^2\) and \(y=(x-6)^2\) on one set of axes.<br>
+<b>b</b> Shade the region bounded by \(y=x^2\), \(y=(x-6)^2\) and the \(x\)-axis.<br>
+<b>c</b> Find the area of this shaded region.
+{{work:85}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<b>a</b> Sketch the curves \(y=x^2\) and \(y=(x-2)^2\) on one set of axes.<br>
+<b>b</b> Shade the region bounded by \(y=x^2\), \(y=(x-2)^2\) and the \(x\)-axis.<br>
+<b>c</b> Find the area of this shaded region.
+<div class="sol-label">Solution</div>
+<p><b>a</b> The two curves intersect at \((1,1)\), because it is easily checked by substitution that this point lies on both curves.</p>
+<p><b>b</b> The whole region is above the \(x\)-axis, but it will be necessary to find separately the areas of the regions to the left and right of \(x=1\).</p>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 48mm;column-gap:4mm"><div>
+<p><b>c</b> First,</p>
+<div data-k="WE1c1">\[\begin{aligned}\int_0^1 x^2\,dx&amp;=\Big[\frac{x^3}{3}\Big]_0^1\\&amp;=\tfrac13.\end{aligned}\]</div>
+<p>Secondly,</p>
+<div data-k="WE1c2">\[\begin{aligned}\int_1^2(x-2)^2\,dx&amp;=\Big[\frac{(x-2)^3}{3}\Big]_1^2\\&amp;=0-\big(-\tfrac13\big)\\&amp;=\tfrac13.\end{aligned}\]</div>
+<p>Combining these,</p>
+<div data-k="WE1c">\[\begin{aligned}\text{area}&amp;=\tfrac13+\tfrac13\\&amp;=\tfrac23\text{ square units.}\end{aligned}\]</div>
+</div><div>{{svg:c5g_e28}}</div></div>
+</div></div>
+<div class="box concept"><div class="bt">Note</div>
+<p><b>Note:</b> In this worked example, the second parabola is the first shifted right 2, and a parabola is symmetric about its axis of symmetry. This is why the two pieces have the same area.</p></div>
+<div class="box tip"><div class="bt">Worked example 1, line by line</div>
+<p><b>a</b> Checking \((1,1)\): \(1^2=1\) and \((1-2)^2=(-1)^2=1\). To find the point without guessing, solve \(x^2=(x-2)^2\). Expanding, \(x^2=x^2-4x+4\), so \(4x=4\) and \(x=1\). Then \(y=1^2=1\).</p>
+<p><b>c</b> First piece: \(\tfrac{1^3}{3}-\tfrac{0^3}{3}=\tfrac13-0=\tfrac13\). Second piece: at \(x=2\), \(\tfrac{(2-2)^3}{3}=\tfrac{0}{3}=0\); at \(x=1\), \(\tfrac{(1-2)^3}{3}=\tfrac{(-1)^3}{3}=-\tfrac13\). So the integral is \(0-\big(-\tfrac13\big)=\tfrac13\).</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:regions between curves}}
+<div class="box concept"><div class="bt">Areas of regions between curves</div>
+<p>Suppose that one curve \(y=f(x)\) is always below another curve \(y=g(x)\) in an interval \(a\le x\le b\). Then the area of the region between the curves from \(x=a\) to \(x=b\) can be found by subtraction.</p></div>
+<div class="box take"><div class="bt">17 Area between curves</div>
+<p>If \(f(x)\le g(x)\) in the interval \(a\le x\le b\), then</p>
+\[\text{area between the curves}=\int_a^b\big(g(x)-f(x)\big)\,dx.\]
+<p>That is, take the integral of the top curve minus the bottom curve.</p></div>
+<div class="box concept"><div class="bt">The assumption \(f(x)\le g(x)\) is important</div>
+<p>The assumption that \(f(x)\le g(x)\) is important. If the curves cross each other, then separate integrals will need to be taken or else the areas of regions where different curves are on top will begin to cancel each other out.</p></div></div>
+<div class="box tip" style="break-inside:avoid"><div class="bt">Why subtraction works</div>
+<p>Suppose first that both curves are above the \(x\)-axis. The area under the top curve \(g\), minus the area under the bottom curve \(f\), leaves the area between them:</p>
+<div style="display:flex;align-items:center;justify-content:center;gap:2mm">{{svg:c5g_sub1}}<span style="font-size:16pt">\(-\)</span>{{svg:c5g_sub2}}<span style="font-size:16pt">\(=\)</span>{{svg:c5g_sub3}}</div>
+<p>In symbols, using the properties of the definite integral from Lesson 5C,</p>
+\[\int_a^b g(x)\,dx-\int_a^b f(x)\,dx=\int_a^b\big(g(x)-f(x)\big)\,dx.\]</div>
+<div class="box tip"><div class="bt">Finding the limits and the top curve</div>
+<ol style="margin:0"><li>The limits \(a\) and \(b\) are usually the \(x\)-coordinates of the points where the curves meet. Put the two expressions for \(y\) equal, collect every term on one side, and solve the equation.</li>
+<li>To see which curve is on top, substitute a value of \(x\) between \(a\) and \(b\) into both equations. The larger \(y\)-value belongs to the top curve.</li>
+<li>Simplify (top) \(-\) (bottom) before integrating. Put the bottom curve in brackets, because the minus sign changes the sign of every one of its terms.</li></ol></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A line above a parabola</span></div><div class="ex-body">
+<b>a</b> Find the two points where the curve \(y=(x-3)^2\) meets the line \(y=x+3\).<br>
+<b>b</b> Draw a sketch and shade the area of the region between these two graphs.<br>
+<b>c</b> Find the shaded area.
+{{work:95}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Find the two points where the curve \(y=(x-1)^2\) meets the line \(y=x+1\).<br>
+<b>b</b> Draw a sketch and shade the area of the region between these two graphs.<br>
+<b>c</b> Find the shaded area.
+{{work:160}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<b>a</b> Find the two points where the curve \(y=(x-2)^2\) meets the line \(y=x\).<br>
+<b>b</b> Draw a sketch and shade the area of the region between these two graphs.<br>
+<b>c</b> Find the shaded area.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 48mm;column-gap:4mm"><div>
+<p><b>a</b> Substituting \(y=x\) into \(y=(x-2)^2\) gives</p>
+<div data-k="WE2a">\[\begin{aligned}(x-2)^2&amp;=x\\x^2-4x+4&amp;=x\\x^2-5x+4&amp;=0\\{}(x-1)(x-4)&amp;=0,\\x&amp;=1\text{ or }4,\end{aligned}\]</div>
+<p>so the two graphs intersect at \((1,1)\) and \((4,4)\).</p>
+<p><b>b</b> The sketch is drawn to the right.</p>
+</div><div>{{svg:c5g_e29}}</div></div>
+<p><b>c</b> In the shaded region, the line is above the parabola.</p>
+<div data-k="WE2c">\[\begin{aligned}\text{Hence area}&amp;=\int_1^4\big(x-(x-2)^2\big)\,dx\\&amp;=\int_1^4\big(x-(x^2-4x+4)\big)\,dx\\&amp;=\int_1^4(-x^2+5x-4)\,dx\\&amp;=\Big[-\frac{x^3}{3}+\frac{5x^2}{2}-4x\Big]_1^4\\&amp;=\big(-21\tfrac13+40-16\big)-\big(-\tfrac13+2\tfrac12-4\big)\\&amp;=2\tfrac23+1\tfrac56\\&amp;=4\tfrac12\text{ square units.}\end{aligned}\]</div>
+</div></div>
+<div class="box tip"><div class="bt">Worked example 2, line by line</div>
+<p>At \(x=4\): \(-\tfrac{4^3}{3}=-\tfrac{64}{3}=-21\tfrac13\), \(\tfrac{5\times4^2}{2}=\tfrac{80}{2}=40\) and \(4\times4=16\). So the first bracket is \(-21\tfrac13+40-16=2\tfrac23\).</p>
+<p>At \(x=1\): \(-\tfrac{1^3}{3}=-\tfrac13\), \(\tfrac{5\times1^2}{2}=2\tfrac12\) and \(4\times1=4\). So the second bracket is \(-\tfrac26+\tfrac{15}{6}-\tfrac{24}{6}=-\tfrac{11}{6}=-1\tfrac56\).</p>
+<p>Subtracting, \(2\tfrac23-\big(-1\tfrac56\big)=2\tfrac23+1\tfrac56=\tfrac{16}{6}+\tfrac{11}{6}=\tfrac{27}{6}=4\tfrac12\).</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:a region between curves that crosses the x-axis}}
+<div class="box concept"><div class="bt">Note</div>
+<p><b>Note:</b> The formula given in Box 17 for the area of the region between two curves holds even if the region crosses the \(x\)-axis.</p>
+<p>To illustrate this point, the next example is the previous example shifted down 2 units so that the region between the line and the parabola crosses the \(x\)-axis. The area of course remains the same — and notice how the formula still gives the correct answer.</p></div>
+<div class="box tip"><div class="bt">Why the formula still works</div>
+<p>Shift both curves up by the same number \(c\), far enough that the whole region is above the \(x\)-axis. The area does not change, and Box 17 works for the shifted curves. But the height of each strip is unchanged too:</p>
+\[\big(g(x)+c\big)-\big(f(x)+c\big)=g(x)-f(x).\]
+<p>So the integral of the top curve minus the bottom curve gives the area wherever the region lies. There is no need to split the region at the \(x\)-intercepts, as Lesson 5F did, because \(g(x)-f(x)\) is never negative between \(a\) and \(b\).</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The region crosses the \(x\)-axis</span></div><div class="ex-body">
+<b>a</b> Find the two points where the curves \(y=x^2-6x+3\) and \(y=x-3\) meet.<br>
+<b>b</b> Draw a sketch and find the area of the region between these two curves.
+{{work:80}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Find the two points where the curves \(y=x^2-2x-2\) and \(y=x-2\) meet.<br>
+<b>b</b> Draw a sketch and find the area of the region between these two curves.
+{{work:80}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<b>a</b> Find the two points where the curves \(y=x^2-4x+2\) and \(y=x-2\) meet.<br>
+<b>b</b> Draw a sketch and find the area of the region between these two curves.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 50mm;column-gap:4mm"><div>
+<p><b>a</b> Substituting \(y=x-2\) into \(y=x^2-4x+2\) gives</p>
+<div data-k="WE3a">\[\begin{aligned}x^2-4x+2&amp;=x-2\\x^2-5x+4&amp;=0\\{}(x-1)(x-4)&amp;=0\\x&amp;=1\text{ or }4,\end{aligned}\]</div>
+<p>so the two graphs intersect at \((1,-1)\) and \((4,2)\).</p>
+</div><div>{{svg:c5g_e30}}</div></div>
+<p><b>b</b> Again, the line is above the parabola,</p>
+<div data-k="WE3b">\[\begin{aligned}\text{so area}&amp;=\int_1^4\big((x-2)-(x^2-4x+2)\big)\,dx\\&amp;=\int_1^4(-x^2+5x-4)\,dx\\&amp;=\Big[-\frac{x^3}{3}+\frac{5x^2}{2}-4x\Big]_1^4\\&amp;=\big(-21\tfrac13+40-16\big)-\big(-\tfrac13+2\tfrac12-4\big)\\&amp;=4\tfrac12\text{ square units.}\end{aligned}\]</div>
+</div></div>
+<div class="box tip"><div class="bt">Worked example 3, line by line</div>
+<p>The integrand: \((x-2)-(x^2-4x+2)=x-2-x^2+4x-2=-x^2+5x-4\), the same integrand as in Worked example 2.</p>
+<p>The brackets are the same as in Worked example 2: \(-21\tfrac13+40-16=2\tfrac23\) and \(-\tfrac13+2\tfrac12-4=-1\tfrac56\). The step the text leaves out is \(2\tfrac23-\big(-1\tfrac56\big)=2\tfrac23+1\tfrac56=4\tfrac12\).</p></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:regions between curves that cross}}
+<div class="box concept"><div class="bt">Areas of regions between curves that cross</div>
+<p>Now suppose that one curve \(y=f(x)\) is sometimes above and sometimes below another curve \(y=g(x)\) in the relevant interval. In this case, the conditions of Box 17 no longer hold, and separate integrals will need to be calculated.</p></div>
+<div class="box tip"><div class="bt">One integral for each piece</div>
+<ol style="margin:0"><li>Find every point where the curves meet inside the interval. These points cut the region into pieces.</li>
+<li>In each piece, decide which curve is on top, and integrate (top) \(-\) (bottom) over that piece.</li>
+<li>Add the areas of the pieces.</li></ol>
+<p>A single integral of (one curve) \(-\) (the other) across a crossing point would subtract one piece from the other, which is the cancelling that the box above warns about.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The curves change places</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:minmax(0,1fr) 54mm;column-gap:4mm"><div>
+The diagram shows the curves<br>
+\(\qquad y=-x^2+2x-1\quad\text{and}\quad y=x^2-8x+7\)<br>
+meeting at the points \((1,0)\) and \((4,-9)\). Find the area of the shaded region.
+</div><div>{{svg:c5g_d4}}</div></div>
+{{work:160}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:minmax(0,1fr) 54mm;column-gap:4mm"><div>
+The diagram shows the curves<br>
+\(\qquad y=-x^2+2x-1\quad\text{and}\quad y=x^2-6x+5\)<br>
+meeting at the points \((1,0)\) and \((3,-4)\). Find the area of the shaded region.
+</div><div>{{svg:c5g_y4}}</div></div>
+{{work:170}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:minmax(0,1fr) 54mm;column-gap:4mm"><div>
+The diagram below shows the curves<br>
+\(\qquad y=-x^2+4x-4\quad\text{and}\quad y=x^2-8x+12\)<br>
+meeting at the points \((2,0)\) and \((4,-4)\). Find the area of the shaded region.
+<div class="sol-label">Solution</div>
+<p>In the left-hand region, the second curve is above the first,</p>
+</div><div>{{svg:c5g_e31}}</div></div>
+<div data-k="WE4L">\[\begin{aligned}\text{So}\quad\text{area}&amp;=\int_0^2\big((x^2-8x+12)-(-x^2+4x-4)\big)\,dx\\&amp;=\int_0^2(2x^2-12x+16)\,dx\\&amp;=\Big[\frac{2x^3}{3}-6x^2+16x\Big]_0^2\\&amp;=5\tfrac13-24+32\\&amp;=13\tfrac13\text{ u}^2.\end{aligned}\]</div>
+<p>In the right-hand region, the first curve is above the second,</p>
+<div data-k="WE4R">\[\begin{aligned}\text{so}\quad\text{area}&amp;=\int_2^4\big((-x^2+4x-4)-(x^2-8x+12)\big)\,dx\\&amp;=\int_2^4(-2x^2+12x-16)\,dx\\&amp;=\Big[-\frac{2x^3}{3}+6x^2-16x\Big]_2^4\\&amp;=\big(-42\tfrac23+96-64\big)-\big(-5\tfrac13+24-32\big)\\&amp;=-10\tfrac23+13\tfrac13\\&amp;=2\tfrac23\text{ u}^2.\end{aligned}\]</div>
+<div data-k="WE4">\[\begin{aligned}\text{Hence total area}&amp;=13\tfrac13+2\tfrac23\\&amp;=16\text{ u}^2.\end{aligned}\]</div>
+</div></div>
+<div class="box tip"><div class="bt">Worked example 4, line by line</div>
+<p>Left integrand: take away each term of the bottom curve.</p>
+\[\begin{aligned}(x^2-8x+12)-(-x^2+4x-4)&amp;=x^2-8x+12+x^2-4x+4\\&amp;=2x^2-12x+16.\end{aligned}\]
+<p>At \(x=2\): \(\tfrac{2\times2^3}{3}=\tfrac{16}{3}=5\tfrac13\), \(6\times2^2=24\) and \(16\times2=32\). At \(x=0\) every term is 0, so the area is \(5\tfrac13-24+32=13\tfrac13\).</p>
+<p>Right integrand:</p>
+\[\begin{aligned}(-x^2+4x-4)-(x^2-8x+12)&amp;=-x^2+4x-4-x^2+8x-12\\&amp;=-2x^2+12x-16.\end{aligned}\]
+<p>At \(x=4\): \(-\tfrac{2\times4^3}{3}=-\tfrac{128}{3}=-42\tfrac23\), \(6\times4^2=96\) and \(16\times4=64\), so the bracket is \(-42\tfrac23+32=-10\tfrac23\). At \(x=2\): \(-5\tfrac13+24-32=-13\tfrac13\). Then \(-10\tfrac23-\big(-13\tfrac13\big)=-10\tfrac23+13\tfrac13=2\tfrac23\).</p></div>
+
+<!-- ============ Homework ============ -->
+<div style="break-inside:avoid">{{sec:blue:pencil:Textbook homework:Exercise 5G}}
+{{band:F}}
+<p class="small"><b>Technology:</b> Graphing programs are particularly useful with compound regions because they allow the separate parts of the region to be identified clearly.</p>
+<div class="q"><span class="q-num">1</span><div class="q-body">Find the area of the shaded region in each diagram below.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);column-gap:3mm"><div><span class="pl">a</span>{{svg:q5g_1a}}</div><div><span class="pl">b</span>{{svg:q5g_1b}}</div><div><span class="pl">c</span>{{svg:q5g_1c}}</div><div><span class="pl">d</span>{{svg:q5g_1d}}</div>
+<div><span class="pl">e</span>{{svg:q5g_1e}}</div><div><span class="pl">f</span>{{svg:q5g_1f}}</div><div><span class="pl">g</span>{{svg:q5g_1g}}</div><div><span class="pl">h</span>{{svg:q5g_1h}}</div></div>{{work:80}}</div></div>
+</div>
+<div class="q"><span class="q-num">2</span><div class="q-body">By considering regions between the curves and the \(y\)-axis, find the area of the shaded region in each diagram below.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);column-gap:3mm"><div><span class="pl">a</span>{{svg:q5g_2a}}</div><div><span class="pl">b</span>{{svg:q5g_2b}}</div><div><span class="pl">c</span>{{svg:q5g_2c}}</div><div><span class="pl">d</span>{{svg:q5g_2d}}</div></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Find the areas of the shaded regions in the diagrams below. In each case you will need to find two areas and add them.
+<div class="parts" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div><span class="pl">a</span>{{svg:q5g_3a}}</div><div><span class="pl">b</span>{{svg:q5g_3b}}</div></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Find the areas of the shaded regions in the diagrams below. In each case you will need to find two areas and subtract one from the other.
+<div class="parts" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div><span class="pl">a</span>{{svg:q5g_4a}}</div><div><span class="pl">b</span>{{svg:q5g_4b}}</div></div>{{work:56}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">5</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>By solving the equations simultaneously, show that the parabola \(y=x^2+4\) and the line \(y=x+6\) intersect at the points \((-1,5)\) and \((2,8)\).</span>
+<span><span class="pl">b</span>Sketch the parabola and the line on the same diagram, and shade the region enclosed between them.</span>
+<span><span class="pl">c</span>Show that this region has area
+\[\int_{-1}^{2}\big((x+6)-(x^2+4)\big)\,dx=\int_{-1}^{2}(x-x^2+2)\,dx,\]
+and evaluate the integral.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>By solving the equations simultaneously, show that the parabola \(y=3x-x^2=x(3-x)\) and the line \(y=x\) intersect at the points \((0,0)\) and \((2,2)\).</span>
+<span><span class="pl">b</span>Sketch the parabola and the line on the same diagram, and shade the region enclosed between them.</span>
+<span><span class="pl">c</span>Show that this region has area
+\[\int_0^2(3x-x^2-x)\,dx=\int_0^2(2x-x^2)\,dx,\]
+and evaluate the integral.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>By solving the equations simultaneously, show that the parabola \(y=(x-3)^2\) and the line \(y=14-2x\) intersect at the points \((-1,16)\) and \((5,4)\).</span>
+<span><span class="pl">b</span>Sketch the parabola and the line on the same diagram, and shade the region enclosed between them.</span>
+<span><span class="pl">c</span>Show that this region has area
+\[\int_{-1}^{5}\big((14-2x)-(x-3)^2\big)\,dx=\int_{-1}^{5}(4x+5-x^2)\,dx,\]
+and evaluate the integral.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Solve simultaneously to find the points of intersection of each pair of graphs. Then sketch the graphs on the same diagram and shade the region enclosed between them. By evaluating the appropriate definite integral, find the area of the shaded region in each case.
+<div class="parts one"><span data-q="8a"><span class="pl">a</span>\(y=x+3\) and \(y=x^2+1\)</span>
+<span data-q="8b"><span class="pl">b</span>\(y=9-x^2\) and \(y=3-x\)</span><span data-q="8c"><span class="pl">c</span>\(y=x^2-x+4\) and \(y=-x^2+3x+4\)</span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>By solving the equations simultaneously, show that the parabola \(y=x^2+2x-8\) and the line \(y=2x+1\) intersect at the points \((3,7)\) and \((-3,-5)\).</span>
+<span><span class="pl">b</span>Sketch both graphs on the same diagram, and shade the region enclosed between them.</span>
+<span><span class="pl">c</span>Despite the fact that it crosses the \(x\)-axis, the region has area given by
+\[\int_{-3}^{3}\big((2x+1)-(x^2+2x-8)\big)\,dx=\int_{-3}^{3}(9-x^2)\,dx.\]
+Evaluate the integral and hence find the area of the region enclosed between the curves.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>By solving the equations simultaneously, show that the parabola \(y=x^2-x-2\) and the line \(y=x-2\) intersect at the points \((0,-2)\) and \((2,0)\).</span>
+<span><span class="pl">b</span>Sketch both graphs on the same diagram, and shade the region enclosed between them.</span>
+<span><span class="pl">c</span>Despite the fact that it is below the \(x\)-axis, the region has area given by
+\[\int_0^2\big((x-2)-(x^2-x-2)\big)\,dx=\int_0^2(2x-x^2)\,dx.\]
+Evaluate this integral and hence find the area of the region between the curves.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Solve simultaneously to find the points of intersection of each pair of graphs. Then sketch the graphs on the same diagram, and shade the region enclosed between them. By evaluating the appropriate definite integral, find the area of the shaded region in each case.
+<div class="parts one"><span data-q="11a"><span class="pl">a</span>\(y=x^2-6x+5\) and \(y=x-5\)</span>
+<span data-q="11b"><span class="pl">b</span>\(y=-3x\) and \(y=4-x^2\)</span><span data-q="11c"><span class="pl">c</span>\(y=x^2-1\) and \(y=7-x^2\)</span></div>{{work:90}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>On the same number plane, sketch the graphs of the parabolas \(y=x^2\) and \(x=y^2\), clearly indicating their points of intersection. Shade the region enclosed between them.</span>
+<span><span class="pl">b</span>Explain why the area of this region is given by \(\displaystyle\int_0^1\big(\sqrt{x}-x^2\big)\,dx\).</span>
+<span><span class="pl">c</span>Find the area of the region bounded by the two curves.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">Tangents are drawn to the parabola \(x^2=8y\) at the points \(A(4,2)\) and \(B(-4,2)\).
+<div class="parts one"><span><span class="pl">a</span>Draw a diagram of the situation and note the symmetry about the \(y\)-axis.</span>
+<span><span class="pl">b</span>Find the equation of the tangent at the point \(A\).</span>
+<span><span class="pl">c</span>Find the area of the region bounded by the curve and the tangents.</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>Show that the tangent to the curve \(y=x^3\) at the point where \(x=2\) has equation \(y=12x-16\).</span>
+<span><span class="pl">b</span>Show by substitution that the tangent and the curve intersect again at the point \((-4,-64)\).</span>
+<span><span class="pl">c</span>Find the area of the region enclosed between the curve and the tangent.</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">Consider the curves \(y=x^3-3\) and \(y=-x^2+10x-11\).
+<div class="parts one"><span><span class="pl">a</span>Show by substitution that the curves intersect at three points whose \(x\)-values are \(-4\), 1 and 2.</span>
+<span><span class="pl">b</span>Sketch the curves showing clearly their intersection points.</span>
+<span><span class="pl">c</span>Find the area of the region enclosed by the two curves.</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>Find the points of intersection of the curves \(y=x^2(1-x)\) and \(y=x(1-x)^2\).</span>
+<span><span class="pl">b</span>Hence find the area bounded by the two curves.</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>Given the two functions \(f(x)=(x+1)(x-1)(x-3)\) and \(g(x)=(x+1)(x-1)\), for what values of \(x\) is \(f(x)&gt;g(x)\)?</span>
+<span><span class="pl">b</span>Sketch a graph of the two functions on the same number plane, and find the area enclosed between them.</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body"><div class="parts one" style="margin-top:0">
+<span><span class="pl">a</span>Sketch a graph of the function \(y=12x-32-x^2\), clearly indicating the \(x\)-intercepts.</span>
+<span><span class="pl">b</span>Find the equation of the tangent to the curve at the point \(A\) where \(x=5\).</span>
+<span><span class="pl">c</span>If the tangent meets the \(x\)-axis at \(B\), and \(C\) is the \(x\)-intercept of the parabola closer to the origin, find the area of the region bounded by \(AB\), \(BC\) and the arc \(CA\).</span></div>{{work:80}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">19</span><div class="q-body">Find the value of \(k\) for which the line \(y=kx\) bisects the area enclosed by the curve \(4y=4x-x^2\) and the \(x\)-axis.{{work:80}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">The <i>average value</i> of a continuous function \(f(x)\) over an interval \(a\le x\le b\) is defined to be \(\displaystyle\frac{1}{b-a}\int_a^b f(x)\,dx\) if \(a\ne b\), or \(f(a)\) if \(a=b\). If \(k\) is the average value of \(f(x)\) on the interval \(a\le x\le b\), show that the area of the region bounded by \(f(x)\) above the line \(y=k\) is equal to the area of the region bounded by \(f(x)\) below the line \(y=k\).{{work:80}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:timed practice}}
+<p>The school trial papers used for this pack (2020–2024) have no question that first needs this lesson’s methods: each integration question in them can be done with the methods of an earlier lesson, or needs later work. For timed practice, do Questions 8(b), 11(c), 13, 15 and 17 above in 30 minutes.</p>
+</div>
+</div>

@@ -36,6 +36,10 @@ Method for every item: integration with respect to y (Box 16): write x as a func
 - Not taken: 1.7-01 (Sydney Tech 2020 Sample 2 Q12(c)(i): revision sample paper, controller ruling); 1.7-02 (NSB 2021 Q14(e): no cover, the question pages do not print the school name, and the marks are not visible); 1.7-04 (Knox 2023 Q10): doubtful under house rule 6, because the stem says g passes through the origin and also that g^-1(x) is not equal to x for 0 <= x <= a, which fails at x = 0 (g^-1(0) = 0); it also needs continuity, which is not stated.
 - **House rule 8 shortfall**: 1.7-03 is the only clean int1-L7 row (1 mark). The lesson prints a timed-practice note: Exercise 5F Questions 4(b), 6, 8(e), 9(d), 10(a)(iii) and 12 in 30 minutes.
 
+## 5G
+None. The catalogue (`docs/pp_candidates_integration.md`) has no row tagged int1-L8 (0 items, 0 marks): no school-paper integration item has 5G (areas of compound regions) as its earliest lesson. Only rows tagged int1-L8 were considered. Re-read every `docs/pp_selected_*.md` and `docs/PAST_PAPERS_USED.md` before choosing and before committing: nothing to record.
+- **House rule 8 shortfall**: no question exists, so the section ends with the timed-practice note only: Exercise 5G Questions 8(b), 11(c), 13, 15 and 17 in 30 minutes.
+
 ## 5H
 Method for every item: the trapezoidal rule with one subinterval (Box 18), then the log laws. Order in the lesson is PP 1 below. Total 1 mark, 5 min. Only rows tagged int1-L9 were considered.
 - SGS, 2023, Q3 | 5H (MC, area under y = log_a x from x = 2 to x = 4 by one application of the trapezoidal rule: (4 - 2)/2 (log_a 2 + log_a 4) = log_a 2 + 2 log_a 2 = 3 log_a 2, row 1.9-01) | 1 | `2023/Sydney Grammar 2023 3U.pdf` | question p4, solution `2023/Sydney Grammar 2023 3U Solutions.pdf` p1 (handwritten, A) | label "Sydney Grammar School, 2023, Trial Examination, Form VI Mathematics Extension 1" (as Ch 12 / Y11 Ch 14 / Y11 Ch 15); diagram recreated as SVG `p5h_sgs` (dashed lines at x = 2 and 4, ticks 1 to 5); Q11(c), Q12(a), Q12(b), Q13(a) of this paper are used elsewhere (different questions)
