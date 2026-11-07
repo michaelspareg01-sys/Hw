@@ -1,1 +1,354 @@
-<!-- filled by Task: lesson 6k -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 6K</div><h2>Calculus with other bases</h2>
+<div class="focus">The change-of-base formula writes every logarithmic function as a constant multiple of \(\log_ex\), and every exponential function \(a^x\) as a power of \(e\). With these we differentiate \(\log_ax\), show that base \(e\) is the only base whose logarithm has gradient 1 at its \(x\)-intercept, and differentiate and integrate \(a^x\). This gives three new standard forms: the derivatives of \(\log_ax\) and \(a^x\), and the primitive of \(a^x\).</div></div>
+
+<style>
+table.st6k { border-collapse:collapse; margin:1mm 0 1.5mm 5mm; }
+table.st6k td { padding:0.5mm 1.6mm; vertical-align:middle; }
+table.st6k td:first-child { text-align:left; white-space:nowrap; }
+table.st6k td.r { color:var(--ink-soft); }
+.side6k { border-left:1.4px solid var(--line-strong); padding-left:4mm; }
+.f6k .fig { justify-content:flex-start; margin:1mm 0; }
+.key6k { border:1px solid var(--ink); padding:0 1mm; }
+table.tb6k { border-collapse:collapse; margin:1mm 0; font-size:9.8pt; }
+table.tb6k td { border:1px solid var(--line-strong); padding:1mm 2.4mm; text-align:center; min-width:9mm; }
+table.tb6k td:first-child { background:var(--blue-tint); }
+table.tb6k tr:first-child td { background:var(--blue-tint); }
+</style>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:logarithmic functions to other bases}}
+<div class="box concept"><div class="bt">Calculus with other bases</div>
+<p>In applications of exponential functions where calculus is required, the base \(e\) can generally be used. For example, the treatment of exponential growth in Chapter 11 of the Year 11 book was done entirely using base \(e\).</p>
+<p>The change-of-base formula, however, allows calculus to be applied to exponential and logarithmic functions of any base without conversion to base \(e\). In this section, we develop three further standard forms that allow calculus to be applied straightforwardly to functions such as \(y=2^x\) and \(y=10^x\).</p>
+<p>Throughout this section, the other base \(a\) must be positive and not equal to 1.</p></div>
+<div class="box concept"><div class="bt">Logarithmic functions to other bases</div>
+<p>Any logarithmic function can be expressed easily in terms of \(\log_ex\) by using the change-of-base formula. For example,</p>
+\[\log_2x=\dfrac{\log_ex}{\log_e2}.\]
+<p>Thus every other logarithmic function is just a constant multiple of \(\log_ex\). This allows any other logarithmic function to be differentiated easily.</p></div></div>
+<div class="box tip"><div class="bt">Where the change-of-base formula comes from</div>
+<table class="st6k">
+<tr><td>Let</td><td>\(y=\log_ax.\)</td><td class="r"></td></tr>
+<tr><td>Then</td><td>\(a^y=x,\)</td><td class="r">by the definition of logarithms.</td></tr>
+<tr><td>Take \(\log_e\) of both sides:</td><td>\(\log_e\big(a^y\big)=\log_ex\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(y\log_ea=\log_ex,\)</td><td class="r">by the log law \(\log_e\big(a^n\big)=n\log_ea\).</td></tr>
+<tr><td>Divide by \(\log_ea\):</td><td>\(y=\dfrac{\log_ex}{\log_ea}.\)</td><td class="r">(\(\log_ea\ne0\), because \(a\ne1\).)</td></tr></table></div>
+<div class="box take"><div class="bt">11 Logarithmic functions with other bases</div>
+<p>Every logarithmic function can be written as a multiple of a logarithmic function base \(e\):</p>
+\[\log_ax=\dfrac{\log_ex}{\log_ea},\qquad\text{that is}\qquad\log_ax=\dfrac{1}{\log_ea}\times\log_ex.\]</div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Change of base on the calculator</span></div><div class="ex-body">
+<b>a</b> Express the function \(y=\log_3x\) in terms of the function \(\log_ex\).<br>
+<b>b</b> Hence use the calculator function labelled <span class="key6k">ln</span> to approximate, correct to four decimal places:
+<div class="parts three"><span><span class="pl">i</span>\(\log_340\)</span><span><span class="pl">ii</span>\(\log_32\)</span><span><span class="pl">iii</span>\(\log_30.05\)</span></div>
+<b>c</b> Check the results of part <b>b</b> using the function labelled <span class="key6k">\(x^y\)</span>.
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Express the function \(y=\log_7x\) in terms of the function \(\log_ex\).<br>
+<b>b</b> Hence use the calculator function labelled <span class="key6k">ln</span> to approximate, correct to four decimal places:
+<div class="parts three"><span><span class="pl">i</span>\(\log_750\)</span><span><span class="pl">ii</span>\(\log_73\)</span><span><span class="pl">iii</span>\(\log_70.2\)</span></div>
+<b>c</b> Check the results of part <b>b</b> using the function labelled <span class="key6k">\(x^y\)</span>.
+{{work:46}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 39</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Express the function \(y=\log_5x\) in terms of the function \(\log_ex\).<br>
+<b>b</b> Hence use the calculator function labelled <span class="key6k">ln</span> to approximate, correct to four decimal places:
+<div class="parts three"><span><span class="pl">i</span>\(\log_530\)</span><span><span class="pl">ii</span>\(\log_52\)</span><span><span class="pl">iii</span>\(\log_50.07\)</span></div>
+<b>c</b> Check the results of part <b>b</b> using the function labelled <span class="key6k">\(x^y\)</span>.
+<div class="sol-label">Solution</div>
+<p><b>a</b> \(\log_5x=\dfrac{\log_ex}{\log_e5}\)</p>
+<div class="split" style="grid-template-columns:1fr 1fr 1fr"><div>
+<p><b>b</b> <b>i</b></p>
+\[\begin{aligned}\log_530&amp;=\dfrac{\log_e30}{\log_e5}\\&amp;\doteq2.1133\end{aligned}\]
+</div><div>
+<p><b>ii</b></p>
+\[\begin{aligned}\log_52&amp;=\dfrac{\log_e2}{\log_e5}\\&amp;\doteq0.4307\end{aligned}\]
+</div><div>
+<p><b>iii</b></p>
+\[\begin{aligned}\log_50.07&amp;=\dfrac{\log_e0.07}{\log_e5}\\&amp;\doteq-1.6523\end{aligned}\]
+</div></div>
+<p><b>c</b> Checking these results using the function labelled <span class="key6k">\(x^y\)</span>:</p>
+<div class="parts three"><span><span class="pl">i</span>\(5^{2.1133}\doteq30\)</span><span><span class="pl">ii</span>\(5^{0.4307}\doteq2\)</span><span><span class="pl">iii</span>\(5^{-1.6523}\doteq0.07\)</span></div>
+</div></div>
+<div class="box tip"><div class="bt">Why part c checks part b</div>
+<p>By the definition of logarithms, \(\log_530=y\) means \(5^y=30\). So if \(\log_530\doteq2.1133\), then raising \(5\) to the power \(2.1133\) must give back about \(30\). On the calculator, \(5^{2.1133}=30.0008\ldots\), which rounds to \(30\).</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:differentiating logarithmic functions with other bases}}
+<div class="box concept"><div class="bt">Differentiating logarithmic functions with other bases</div>
+<p>Once the function is expressed as a multiple of a logarithmic function base \(e\), it can be differentiated using the previous standard forms.</p>
+<p>Part <b>b</b> of Worked example 40 below gives the formula in the general case:</p></div>
+<div class="box take"><div class="bt">12 Differentiating logarithmic functions with other bases</div>
+<ul><li>Either use the change-of-base formula to convert to logarithms base \(e\).</li>
+<li>Or use the standard form \(\dfrac{d}{dx}\log_ax=\dfrac{1}{x\log_ea}\).</li></ul></div></div>
+<div class="box tip"><div class="bt">The constant factor stays</div>
+<p>After the change of base, \(\log_ax=\dfrac{1}{\log_ea}\times\log_ex\). The factor \(\dfrac{1}{\log_ea}\) is a constant, and the derivative of a constant times a function is the constant times the derivative of the function. Since \(\dfrac{d}{dx}\log_ex=\dfrac1x\), the derivative is \(\dfrac{1}{\log_ea}\times\dfrac1x\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Both approaches</span></div><div class="ex-body">
+<b>1</b> Use the change-of-base formula to differentiate:
+<div class="parts"><span><span class="pl">a</span>\(y=\log_3x\)</span><span><span class="pl">b</span>\(y=4\log_ax\)</span></div>
+<b>2</b> Use the standard form to differentiate:
+<div class="parts"><span><span class="pl">a</span>\(\log_5x\)</span><span><span class="pl">b</span>\(\log_{1.08}x\)</span></div>
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>1</b> Use the change-of-base formula to differentiate:
+<div class="parts"><span><span class="pl">a</span>\(y=\log_7x\)</span><span><span class="pl">b</span>\(y=2\log_ax\)</span></div>
+<b>2</b> Use the standard form to differentiate:
+<div class="parts"><span><span class="pl">a</span>\(\log_4x\)</span><span><span class="pl">b</span>\(\log_{1.1}x\)</span></div>
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 40</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use the change-of-base formula to differentiate:
+<div class="parts"><span><span class="pl">a</span>\(y=\log_2x\)</span><span><span class="pl">b</span>\(y=\log_ax\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 1fr"><div>
+<p><b>a</b> Here \(\ y=\log_2x.\)<br>Using the change-of-base formula,</p>
+\[y=\dfrac{\log_ex}{\log_e2}.\]
+<p>Because \(\log_e2\) is a constant,</p>
+\[\begin{aligned}\dfrac{dy}{dx}&amp;=\dfrac1x\times\dfrac{1}{\log_e2}\\&amp;=\dfrac{1}{x\log_e2}.\end{aligned}\]
+</div><div>
+<p><b>b</b> Here \(\ y=\log_ax.\)<br>Using the change-of-base formula,</p>
+\[y=\dfrac{\log_ex}{\log_ea}.\]
+<p>Because \(\log_ea\) is a constant,</p>
+\[\begin{aligned}\dfrac{dy}{dx}&amp;=\dfrac1x\times\dfrac{1}{\log_ea}\\&amp;=\dfrac{1}{x\log_ea}.\end{aligned}\]
+</div></div>
+</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 41</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="parts"><span><span class="pl">a</span>Differentiate \(\log_{10}x\).</span><span><span class="pl">b</span>Differentiate \(\log_{1.05}x\).</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts"><span><span class="pl">a</span>\(\dfrac{d}{dx}\log_{10}x=\dfrac{1}{x\log_e10}\)</span><span><span class="pl">b</span>\(\dfrac{d}{dx}\log_{1.05}x=\dfrac{1}{x\log_e1.05}\)</span></div>
+</div></div>
+<div class="box tip"><div class="bt">Reading the standard form</div>
+<p>In \(\dfrac{d}{dx}\log_ax=\dfrac{1}{x\log_ea}\), the base \(a\) of the logarithm moves into the denominator as \(\log_ea\). In Worked example 41a the base is \(a=10\), so the denominator is \(x\log_e10\). In part <b>b</b> the base is \(a=1.05\), so the denominator is \(x\log_e1.05\).</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:a characterisation of the logarithmic function}}
+<div class="box concept"><div class="bt">A characterisation of the logarithmic function</div>
+<p>We have already discussed in Section 6A that the tangent to \(y=\log_ex\) at the \(x\)-intercept has gradient exactly 1.</p>
+<p>The worked example below shows that this property distinguishes the logarithmic function base \(e\) from all other logarithmic functions.</p></div></div>
+<div class="box take"><div class="bt">13 The gradient at the \(x\)-intercept</div>
+<p>The function \(y=\log_ex\) is the only logarithmic function whose gradient at the \(x\)-intercept is exactly 1.</p></div>
+<div class="box tip"><div class="bt">Two facts from the definition of logarithms</div>
+<p>\(\log_ax=c\) means \(x=a^c\). So \(\log_ax=0\) gives \(x=a^0=1\). Thus every logarithmic function \(y=\log_ax\) has \(x\)-intercept \((1,0)\). In the same way, \(\log_ea=1\) gives \(a=e^1=e\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The tangent at the \(x\)-intercept</span></div><div class="ex-body">
+<b>a</b> Find the \(x\)-intercept of \(y=\log_3x\), and show that the tangent there has gradient \(\dfrac{1}{\log_e3}.\)<br>
+<b>b</b> Find the equation of this tangent.<br>
+<b>c</b> Find the base \(a\) for which the tangent to \(y=\log_ax\) at the \(x\)-intercept has gradient \(2\).
+{{work:54}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Find the \(x\)-intercept of \(y=\log_5x\), and show that the tangent there has gradient \(\dfrac{1}{\log_e5}.\)<br>
+<b>b</b> Find the equation of this tangent.<br>
+<b>c</b> Find the base \(a\) for which the tangent to \(y=\log_ax\) at the \(x\)-intercept has gradient \(\tfrac12\).
+{{work:54}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 42</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Show that the tangent to \(y=\log_ax\) at the \(x\)-intercept has gradient \(\dfrac{1}{\log_ea}.\)<br>
+<b>b</b> Show that the function \(y=\log_ex\) is the only logarithmic function whose gradient at the \(x\)-intercept is exactly 1.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.2fr 1fr"><div>
+<p><b>a</b></p>
+<table class="st6k">
+<tr><td>Here</td><td>\(y=\log_ax.\)</td></tr>
+<tr><td>When \(y=0\),</td><td>\(\log_ax=0\)</td></tr>
+<tr><td></td><td>\(\phantom{\log_a}x=1,\)</td></tr></table>
+<p>so the \(x\)-intercept is \((1,0)\).</p>
+<table class="st6k">
+<tr><td>Differentiating,</td><td>\(y'=\dfrac{1}{x\log_ea},\)</td></tr>
+<tr><td>so when \(x=1\),</td><td>\(y'=\dfrac{1}{\log_ea},\ \) as required.</td></tr></table>
+</div><div>
+<div class="f6k"><div class="fig">{{svg:c6k_ex42}}</div></div>
+<p><b>b</b> The gradient at the \(x\)-intercept is 1 if and only if</p>
+\[\begin{aligned}\log_ea&amp;=1\\a&amp;=e^1\\&amp;=e,\end{aligned}\]
+<p>that is, if and only if the original base \(a\) is equal to \(e\).</p>
+</div></div>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:exponential functions with other bases}}
+<div class="box concept"><div class="bt">Exponential functions with other bases</div>
+<p>Before calculus can be applied to an exponential function \(y=a^x\) with base \(a\) different from \(e\), it must be written as an exponential function with base \(e\). The important identity used to do this is</p>
+\[e^{\log_ea}=a,\]
+<p>which simply expresses the fact that the functions \(e^x\) and \(\log_ex\) are inverse functions. Now \(a^x\) can be written as</p>
+<table class="st6k">
+<tr><td>\(a^x=\big(e^{\log_ea}\big)^x,\)</td><td class="r">replacing \(a\) by \(e^{\log_ea}\),</td></tr>
+<tr><td>\(\phantom{a^x}=e^{x\log_ea},\)</td><td class="r">using the index law \(\big(e^k\big)^x=e^{kx}\).</td></tr></table>
+<p>Thus \(a^x\) has been expressed in the form \(e^{kx}\), where \(k=\log_ea\) is a constant.</p></div></div>
+<div class="box tip"><div class="bt">Why \(e^{\log_ea}=a\)</div>
+<p>By the definition of logarithms, \(\log_ea\) is the index to which \(e\) must be raised to give \(a\). So raising \(e\) to that index gives \(a\) back. For example, \(\log_e2\doteq0.6931\), and \(e^{0.6931}\doteq2\). In the second line above, the index law is used with \(k=\log_ea\), so \(kx=x\log_ea\).</p></div>
+<div class="box take"><div class="bt">14 Exponential functions with other bases</div>
+<ul><li>Every positive real number can be written as a power of \(e\):
+\[a=e^{\log_ea}\]</li>
+<li>Every exponential function can be written as an exponential function base \(e\):
+\[a^x=e^{x\log_ea}\]</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Powers of \(e\)</span></div><div class="ex-body">
+Express these numbers and functions as powers of \(e\).
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(3\)</span><span><span class="pl">b</span>\(3^x\)</span><span><span class="pl">c</span>\(7^{-x}\)</span><span><span class="pl">d</span>\(10^{2x}\)</span></div>
+{{work:36}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Express these numbers and functions as powers of \(e\).
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(5\)</span><span><span class="pl">b</span>\(5^x\)</span><span><span class="pl">c</span>\(2^{-x}\)</span><span><span class="pl">d</span>\(6^{3x}\)</span></div>
+{{work:36}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 43</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Express these numbers and functions as powers of \(e\).
+<div class="parts three"><span><span class="pl">a</span>\(2\)</span><span><span class="pl">b</span>\(2^x\)</span><span><span class="pl">c</span>\(5^{-x}\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 1fr 1fr"><div>
+<p><b>a</b> \(\ 2=e^{\log_e2}\)</p>
+</div><div>
+<p><b>b</b></p>
+\[\begin{aligned}2^x&amp;=\big(e^{\log_e2}\big)^x\\&amp;=e^{x\log_e2}\end{aligned}\]
+</div><div>
+<p><b>c</b></p>
+\[\begin{aligned}5^{-x}&amp;=\big(e^{\log_e5}\big)^{-x}\\&amp;=e^{-x\log_e5}\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:differentiating and integrating exponential functions with other bases}}
+<div class="box concept"><div class="bt">Differentiating and integrating exponential functions with other bases</div>
+<p>Write the function as a power of \(e\). It can then be differentiated and integrated.</p>
+<table class="st6k">
+<tr><td>First,</td><td>\(a^x=e^{\log_e a^x}\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(\phantom{a^x}=e^{x\log_ea}.\)</td><td class="r"></td></tr>
+<tr><td>Differentiating,</td><td>\(\dfrac{d}{dx}\,a^x=\dfrac{d}{dx}\,e^{x\log_ea}\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(\phantom{\dfrac{d}{dx}\,a^x}=e^{x\log_ea}\times\log_ea,\)</td><td class="r">because \(\dfrac{d}{dx}\,e^{kx}=ke^{kx}\),</td></tr>
+<tr><td></td><td>\(\phantom{\dfrac{d}{dx}\,a^x}=a^x\log_ea,\)</td><td class="r">because \(e^{x\log_ea}=a^x\).</td></tr></table></div></div>
+<div class="box concept"><div class="bt">Integrating exponential functions with other bases</div>
+<table class="st6k">
+<tr><td>Integrating,</td><td>\(\displaystyle\int a^x\,dx=\int e^{x\log_ea}\,dx\)</td><td class="r"></td></tr>
+<tr><td></td><td>\(\displaystyle\phantom{\int a^x\,dx}=\dfrac{e^{x\log_ea}}{\log_ea},\)</td><td class="r">because \(\displaystyle\int e^{kx}\,dx=\dfrac1k\,e^{kx}\),</td></tr>
+<tr><td></td><td>\(\displaystyle\phantom{\int a^x\,dx}=\dfrac{a^x}{\log_ea},\)</td><td class="r">because \(e^{x\log_ea}=a^x\).</td></tr></table>
+<p>This process can be carried through every time, or the results can be remembered as standard forms.</p></div>
+<div class="box take"><div class="bt">15 Differentiation and integration with other bases</div>
+<p>There are two approaches.</p>
+<ul><li>Write all powers with base \(e\) before differentiating or integrating.</li>
+<li>Alternatively, use the standard forms:</li></ul>
+\[\dfrac{d}{dx}\,a^x=a^x\log_ea\qquad\text{and}\qquad\int a^x\,dx=\dfrac{a^x}{\log_ea}+C\]</div>
+<div class="box concept"><div class="bt">Base \(e\) is the simplest</div>
+<p><b>Note:</b> The formulae for differentiating and integrating \(a^x\) both involve the constant \(\log_ea\). This constant \(\log_ea\) is 1 when \(a=e\), so the formulae are simplest when the base is \(e\). Again, this indicates that \(e\) is the appropriate base to use for calculus with exponential functions.</p></div>
+<div class="box tip"><div class="bt">The derivation in detail</div>
+<ul><li>The first line uses the identity \(e^{\log_eb}=b\) with \(b=a^x\). Then the log law \(\log_e\big(a^x\big)=x\log_ea\) gives the second line.</li>
+<li>The standard forms for \(e^{kx}\) are used with the constant \(k=\log_ea\).</li>
+<li>The integration lines leave out the constant of integration. Box 15 adds it: \(\displaystyle\int a^x\,dx=\dfrac{a^x}{\log_ea}+C\).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Both approaches for \(3^x\)</span></div><div class="ex-body">
+<b>a</b> Differentiate \(y=3^x\). Hence find the gradient of \(y=3^x\) at the \(y\)-intercept, correct to three significant figures.<br>
+<b>b</b> Write \(3^x\) as a power of \(e\), and hence find \(\displaystyle\int3^x\,dx\).
+{{work:44}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Differentiate \(y=5^x\). Hence find the gradient of \(y=5^x\) at the \(y\)-intercept, correct to three significant figures.<br>
+<b>b</b> Write \(5^x\) as a power of \(e\), and hence find \(\displaystyle\int5^x\,dx\).
+{{work:44}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 44</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Differentiate \(y=2^x\). Hence find the gradient of \(y=2^x\) at the \(y\)-intercept, correct to three significant figures.
+<div class="sol-label">Solution</div>
+<table class="st6k">
+<tr><td>Here</td><td>\(y=2^x.\)</td></tr>
+<tr><td>Using the standard form,</td><td>\(y'=2^x\log_e2.\)</td></tr>
+<tr><td>Hence when \(x=0\),</td><td>\(y'=2^0\times\log_e2\)</td></tr>
+<tr><td></td><td>\(\phantom{y'}=\log_e2\)</td></tr>
+<tr><td></td><td>\(\phantom{y'}\doteq0.693.\)</td></tr></table>
+<p><b>Note:</b> This result may be compared with the results of physically measuring this gradient in Question 1 of Exercise 11A in the Year 11 book.</p>
+</div></div>
+<div class="box tip"><div class="bt">Why \(x=0\)</div>
+<p>The \(y\)-intercept is where \(x=0\). Since \(2^0=1\), the \(y\)-intercept of \(y=2^x\) is \((0,1)\), and the gradient there is \(1\times\log_e2=\log_e2\).</p></div>
+
+<!-- ============ Concept 6 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 6:areas involving other bases}}
+<div class="box tip"><div class="bt">The area between a line and an exponential curve (as in Lesson 6E)</div>
+<ul><li>Find where the two graphs meet. These \(x\)-values are the limits of the integral.</li>
+<li>Decide which graph is on top by substituting one \(x\)-value between the limits into both.</li>
+<li>Area \(=\displaystyle\int(\text{upper curve}-\text{lower curve})\,dx\), using \(\displaystyle\int a^x\,dx=\dfrac{a^x}{\log_ea}+C\) for the exponential term.</li></ul></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The region between \(y=3^x\) and a line</span></div><div class="ex-body">
+<b>a</b> Show that the line \(y=2x+1\) meets the curve \(y=3^x\) at \(A(0,1)\) and \(B(1,3)\).<br>
+<b>b</b> Sketch the two curves and shade the region contained between them.<br>
+<b>c</b> Find the area of this shaded region, correct to four significant figures.
+{{work:66}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Show that the line \(y=3x+1\) meets the curve \(y=4^x\) at \(A(0,1)\) and \(B(1,4)\).<br>
+<b>b</b> Sketch the two curves and shade the region contained between them.<br>
+<b>c</b> Find the area of this shaded region, correct to four significant figures.
+{{work:66}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 45</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Show that the line \(y=x+1\) meets the curve \(y=2^x\) at \(A(0,1)\) and \(B(1,2)\).<br>
+<b>b</b> Sketch the two curves and shade the region contained between them.<br>
+<b>c</b> Find the area of this shaded region, correct to four significant figures.
+<div class="sol-label">Solution</div>
+<p><b>a</b> Simple substitution of \(x=0\) and \(x=1\) into both functions verifies the result.</p>
+<p><b>b</b> The graph is drawn to the right.</p>
+<div class="split" style="grid-template-columns:1.45fr 1fr"><div>
+<p><b>c</b></p>
+\[\begin{aligned}\text{Area}&amp;=\int_0^1(\text{upper curve}-\text{lower curve})\,dx\\&amp;=\int_0^1\big(x+1-2^x\big)\,dx\\&amp;=\Big[\tfrac12x^2+x-\dfrac{2^x}{\log_e2}\Big]_0^1\\&amp;=\Big(\tfrac12+1-\dfrac{2}{\log_e2}\Big)-\Big(0+0-\dfrac{1}{\log_e2}\Big)\\&amp;=1\tfrac12-\dfrac{1}{\log_e2}\text{ square units}\\&amp;\doteq0.05730\text{ square units.}\end{aligned}\]
+</div><div class="f6k"><div class="fig">{{svg:c6k_ex45}}</div></div></div>
+</div></div>
+<div class="box tip"><div class="bt">The lines that Worked example 45 leaves out</div>
+<p><b>a</b> When \(x=0\): \(\ x+1=1\) and \(2^0=1\), so both pass through \(A(0,1)\). When \(x=1\): \(\ x+1=2\) and \(2^1=2\), so both pass through \(B(1,2)\).</p>
+<p><b>c</b> The line is the upper curve: at \(x=\tfrac12\), \(\ x+1=1.5\) while \(2^{\frac12}=\sqrt2\doteq1.414\). Substituting the limits uses \(2^1=2\) and \(2^0=1\). Then</p>
+\[\Big(\tfrac12+1-\dfrac{2}{\log_e2}\Big)-\Big(0+0-\dfrac{1}{\log_e2}\Big)=1\tfrac12-\dfrac{2}{\log_e2}+\dfrac{1}{\log_e2}=1\tfrac12-\dfrac{1}{\log_e2},\]
+<p>and \(1.5-1.442\,695\ldots=0.057\,304\ldots\doteq0.05730\).</p></div>
+
+<!-- ============ Homework ============ -->
+{{sec:blue:pencil:Textbook homework:Exercise 6K}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Use the change-of-base formula \(\log_ax=\dfrac{\log_ex}{\log_ea}\) and the function labelled <span class="key6k">ln</span> on your calculator to evaluate each expression correct to three significant figures. Then check your answers using the function labelled <span class="key6k">\(x^y\)</span>.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\log_23\)</span><span><span class="pl">b</span>\(\log_210\)</span><span><span class="pl">c</span>\(\log_526\)</span><span><span class="pl">d</span>\(\log_30.0047\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Use the change-of-base formula to express these with base \(e\), then differentiate them.
+<div class="parts three"><span><span class="pl">a</span>\(y=\log_2x\)</span><span><span class="pl">b</span>\(y=\log_{10}x\)</span><span><span class="pl">c</span>\(y=3\log_5x\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Use the standard form \(\dfrac{d}{dx}\log_ax=\dfrac{1}{x\log_ea}\) to differentiate:
+<div class="parts three"><span><span class="pl">a</span>\(y=\log_3x\)</span><span><span class="pl">b</span>\(y=\log_7x\)</span><span><span class="pl">c</span>\(y=5\log_6x\)</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Express these functions as powers of \(e\), then differentiate them.
+<div class="parts three"><span><span class="pl">a</span>\(y=3^x\)</span><span><span class="pl">b</span>\(y=4^x\)</span><span><span class="pl">c</span>\(y=2^x\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Use the standard form \(\dfrac{d}{dx}\,a^x=a^x\log_ea\) to differentiate:
+<div class="parts three"><span><span class="pl">a</span>\(y=10^x\)</span><span><span class="pl">b</span>\(y=8^x\)</span><span><span class="pl">c</span>\(y=3\times5^x\)</span></div>{{work:22}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Convert each integrand to a power of \(e\) and then integrate.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int2^x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int6^x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int7^x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int3^x\,dx\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Use the result \(\displaystyle\int a^x\,dx=\dfrac{a^x}{\log_ea}+C\) to find each primitive, then evaluate the definite integral correct to four significant figures.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int_0^12^x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^13^x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-1}^15^x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_0^24^x\,dx\)</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">
+<div class="split" style="grid-template-columns:1fr 1fr"><div>
+<div class="parts one"><span><span class="pl">a</span>Complete the table of values to the right, giving your answers correct to two decimal places where necessary.</span><span><span class="pl">b</span>Use this table of values to sketch the three curves \(y=\log_2x\), \(y=\log_ex\) and \(y=\log_4x\) on the same set of axes.</span></div>
+</div><div>
+<table class="tb6k">
+<tr><td>\(x\)</td><td>\(\tfrac14\)</td><td>\(\tfrac12\)</td><td>\(1\)</td><td>\(2\)</td><td>\(4\)</td></tr>
+<tr><td>\(\log_2x\)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>\(\log_ex\)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>\(\log_4x\)</td><td></td><td></td><td></td><td></td><td></td></tr></table>
+</div></div>{{work:56}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(y=\log_2x\). Hence find the gradient of the tangent to the curve at \(x=1\).</span><span><span class="pl">b</span>Hence find the equation of the tangent there.</span><span><span class="pl">c</span>Do likewise for:
+<div class="parts"><span><span class="pl">i</span>\(y=\log_3x\),</span><span><span class="pl">ii</span>\(y=\log_5x\).</span></div></span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Give the exact value of each integral, then evaluate it correct to four decimal places.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_1^32^x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-1}^1\big(3^x+1\big)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^2\big(10^x-10x\big)\,dx\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Use the change-of-base formula to express \(y=\log_{10}x\) with base \(e\), and hence find \(y'\).
+<div class="parts one"><span><span class="pl">a</span>Find the gradient of the tangent to this curve at the point \((10,1)\).</span><span><span class="pl">b</span>Thus find the equation of this tangent in general form.</span><span><span class="pl">c</span>At what value of \(x\) will the tangent have gradient 1?</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find the equations of the tangents to each of \(y=\log_2x\), \(y=\log_ex\) and \(y=\log_4x\) at the points where \(x=3\).</span><span><span class="pl">b</span>Show that the three tangents all meet at the same point on the \(x\)-axis.</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that the curves \(y=2^x\) and \(y=1+2x-x^2\) intersect at \(A(0,1)\) and \(B(1,2)\).</span><span><span class="pl">b</span>Sketch the curves and find the area between them.</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Find the intercepts of the curve \(y=8-2^x\), and hence find the area of the region bounded by this curve and the coordinate axes.{{work:50}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Sketch the curve \(y=3-3^x\), showing the intercepts and asymptote.</span><span><span class="pl">b</span>Find the area contained between the curve and the axes.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that the curves \(y=x+1\) and \(y=4^x\) intersect at the \(y\)-intercept and at \(\big(-\tfrac12,\tfrac12\big)\).</span><span><span class="pl">b</span>Write the area of the region enclosed between these two curves as an integral.</span><span><span class="pl">c</span>Evaluate the integral found in part <b>b</b>.</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that the tangent to \(y=\log_3x\) at \(x=e\) passes through the origin.</span><span><span class="pl">b</span>Show that the tangent to \(y=\log_5x\) at \(x=e\) passes through the origin.</span><span><span class="pl">c</span>Show that the same is true for \(y=\log_ax\), for any base \(a\).</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(x\log_ex-x\), and hence find \(\displaystyle\int\log_ex\,dx\).</span><span><span class="pl">b</span>Use the change-of-base formula and the integral in part <b>a</b> to evaluate \(\displaystyle\int_1^{10}\log_{10}x\,dx\).</span></div>{{work:50}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">19</span><div class="q-body">As always, the three standard forms in this section have linear extensions. The pronumeral \(m\) is used here instead of the usual \(a\) because \(a\) is being used for the base.
+<div class="parts one"><span><span class="pl">a</span>Use the standard form \(\dfrac{d}{dx}\log_a(mx+b)=\dfrac{m}{(mx+b)\log_ea}\) to differentiate:
+<div class="parts three"><span><span class="pl">i</span>\(y=\log_3x\)</span><span><span class="pl">ii</span>\(y=\log_7(2x+3)\)</span><span><span class="pl">iii</span>\(y=5\log_6(4-9x)\)</span></div></span><span><span class="pl">b</span>Use the standard form \(\dfrac{d}{dx}\,a^{mx+b}=ma^{mx+b}\log_ea\) to differentiate:
+<div class="parts three"><span><span class="pl">i</span>\(y=10^x\)</span><span><span class="pl">ii</span>\(y=8^{4x-3}\)</span><span><span class="pl">iii</span>\(y=3\times5^{2-7x}\)</span></div></span><span><span class="pl">c</span>Use the standard form \(\displaystyle\int a^{mx+b}\,dx=\dfrac{a^{mx+b}}{m\log_ea}+C\) to find:
+<div class="parts three"><span><span class="pl">i</span>\(\displaystyle\int3^{5x}\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int6^{2x+7}\,dx\)</span><span><span class="pl">iii</span>\(\displaystyle\int5\times7^{4-9x}\,dx\)</span></div></span></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">If the positive base \(a\) of \(y=a^x\) and \(y=\log_ax\) is small enough, then the two curves will intersect. What base must be chosen so that the two are tangent at the point of contact? Proceed as follows:
+<div class="parts one"><span><span class="pl">a</span>Rewrite both equations with base \(e\), and let \(k=\log_ea\).</span><span><span class="pl">b</span>Explain why the gradient of the tangent at the point of contact must be 1.</span><span><span class="pl">c</span>Use the last part to obtain two equations for the gradient.</span><span><span class="pl">d</span>Solve these simultaneously to find \(k\), and hence write down the base \(a\).</span></div>{{work:100}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:timed practice}}
+<p>The school trial papers used for this pack (2020–2024) have no integration question that first needs this lesson: each of their integration questions can be done with an earlier lesson’s methods or needs later work. For timed practice, do Questions 10(c), 12, 14 and 16 above in 30 minutes.</p>
+</div>
+</div>

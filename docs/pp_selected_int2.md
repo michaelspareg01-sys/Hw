@@ -22,3 +22,7 @@ Method: split the fraction into two separate fractions, then the third standard 
 ## 6J
 No past-paper questions. The catalogue (`docs/pp_candidates_integration.md`) has no row tagged int2-L4 (0 items, 0 marks): no school-paper integration item has 6J as its earliest lesson (each fits an earlier lesson or needs later work). Only rows tagged int2-L4 were considered. Re-read every `docs/pp_selected_*.md` and `docs/PAST_PAPERS_USED.md` before choosing and before committing: nothing to record.
 - **House rule 8 shortfall**: no question exists, so the section ends with the timed-practice note only: Exercise 6J Questions 6(b), 9(b), 11 and 16 in 30 minutes.
+
+## 6K
+No past-paper questions. The catalogue (`docs/pp_candidates_integration.md`) has no row tagged int2-L5 (0 items, 0 marks): no school-paper integration item has 6K as its earliest lesson. The one catalogued item that needs an a^x integral (Caringbah 2020 Q13(a), and its duplicate SGGHS 2020 Q14(c)) is a volume of rotation, tagged int3-L6. Only rows tagged int2-L5 were considered. Re-read every `docs/pp_selected_*.md` and `docs/PAST_PAPERS_USED.md` before choosing and before committing: nothing to record.
+- **House rule 8 shortfall**: no question exists, so the section ends with the timed-practice note only: Exercise 6K Questions 10(c), 12, 14 and 16 in 30 minutes.
