@@ -1,0 +1,218 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Revision</div><h2>Inverse trig functions, double angles and standard integrals</h2>
+<div class="focus">A short review of Year 11 Extension 1 Chapter 17 (17A, 17B, 17C and 17E) and of the standard integrals from Parts 1 and 2. Lessons 12A and 12B differentiate and integrate the inverse trigonometric functions, so they need their domains, ranges and graphs. Lesson 12C uses the \(\cos2\theta\) formulae to integrate \(\sin^2x\) and \(\cos^2x\). Lessons 12D to 12F use every standard integral below.</div></div>
+
+<style>
+table.si { border-collapse:collapse; width:100%; margin:2mm 0 1mm; font-size:10pt; }
+table.si th { text-align:left; font-weight:700; color:var(--ink-soft); padding:0.8mm 2mm 0.8mm 0; white-space:nowrap; width:34mm; }
+table.si td { padding:0.8mm 2mm; }
+table.si tr { border-bottom:1px solid var(--line); }
+table.si tr:last-child { border-bottom:none; }
+</style>
+{{sec:violet:loop:Summary:keep these pages open while you work}}
+<div class="box formula"><div class="bt">Inverse relations and functions (17A)</div>
+<p>Suppose that the graph of a relation has been drawn.</p>
+<ul><li>The graph of the inverse relation is obtained by reflecting the original graph in the diagonal line \(y=x\).</li>
+<li>The inverse relation of a given relation is a function if and only if no horizontal line crosses the original graph more than once.</li>
+<li>In particular, suppose that the original relation is a function. If the function is one-to-one, then the inverse relation is also a function. If the function is many-to-one, then the inverse relation is not a function.</li>
+<li>The domain and range of the inverse relation are the range and domain respectively of the original function.</li>
+<li>To find the equation and conditions of the inverse relation, write \(x\) for \(y\) and \(y\) for \(x\) every time each variable occurs. If the resulting equation can be solved for \(y\), then the inverse is a function.</li></ul>
+<p>Each of the six trigonometric functions fails the horizontal line test, so its inverse relation is not a function. To create an inverse function, we restrict the domain to a piece of the curve between two stationary points (or between two asymptotes for \(\tan x\)). Because acute angles should be included, the choices below are the obvious ones.</p></div>
+
+<div class="box formula"><div class="bt">The definition of \(y=\sin^{-1}x\) (17B)</div>
+<div class="split"><div>
+<ul><li>\(y=\sin^{-1}x\) is not the inverse relation of \(y=\sin x\). It is the inverse function of the restriction of \(y=\sin x\) to \(-\tfrac{\pi}{2}\le x\le\tfrac{\pi}{2}\).</li>
+<li>\(y=\sin^{-1}x\) has domain \(-1\le x\le1\) and range \(-\tfrac{\pi}{2}\le y\le\tfrac{\pi}{2}\).</li>
+<li>\(y=\sin^{-1}x\) is an increasing function.</li>
+<li>\(y=\sin^{-1}x\) has tangent \(y=x\) at the origin, and is vertical at its endpoints.</li></ul>
+<p class="small">The line \(y=x\) is the tangent to \(y=\sin x\) at the origin. Reflection in \(y=x\) does not move this line, so it is also the tangent to \(y=\sin^{-1}x\). The curve \(y=\sin x\) is horizontal at its stationary points, so \(y=\sin^{-1}x\) is vertical at its endpoints. In the graphs, the dashed diagonal is \(y=x\).</p>
+</div><div><div style="display:flex;justify-content:space-between;text-align:center;font-size:9.5pt"><div>{{svg:rev_sin}}\(y=\sin x,\ -\tfrac{\pi}{2}\le x\le\tfrac{\pi}{2}\)</div><div>{{svg:rev_asin}}\(y=\sin^{-1}x\)</div></div></div></div></div>
+
+<div class="box formula"><div class="bt">The definition of \(y=\cos^{-1}x\) (17B)</div>
+<div class="split"><div>
+<ul><li>\(y=\cos^{-1}x\) is not the inverse relation of \(y=\cos x\). It is the inverse function of the restriction of \(y=\cos x\) to \(0\le x\le\pi\).</li>
+<li>\(y=\cos^{-1}x\) has domain \(-1\le x\le1\) and range \(0\le y\le\pi\).</li>
+<li>\(y=\cos^{-1}x\) is a decreasing function.</li>
+<li>\(y=\cos^{-1}x\) has gradient \(-1\) at its \(y\)-intercept, and is vertical at its endpoints.</li></ul>
+<p class="small">The tangent to \(y=\cos x\) at its \(x\)-intercept \(\big(\tfrac{\pi}{2},0\big)\) is the line \(x+y=\tfrac{\pi}{2}\), with gradient \(-1\). Reflection in \(y=x\) maps this line onto itself, so it is also the tangent to \(y=\cos^{-1}x\) at its \(y\)-intercept \(\big(0,\tfrac{\pi}{2}\big)\). It is dashed in both graphs.</p>
+</div><div><div style="display:flex;justify-content:space-between;text-align:center;font-size:9.5pt"><div>{{svg:rev_cos}}\(y=\cos x,\ 0\le x\le\pi\)</div><div>{{svg:rev_acos}}\(y=\cos^{-1}x\)</div></div></div></div></div>
+
+<div class="box formula"><div class="bt">The definition of \(y=\tan^{-1}x\) (17B)</div>
+<div class="split"><div>
+<ul><li>\(y=\tan^{-1}x\) is not the inverse relation of \(y=\tan x\). It is the inverse function of the restriction of \(y=\tan x\) to \(-\tfrac{\pi}{2}\lt x\lt\tfrac{\pi}{2}\) (an open interval).</li>
+<li>\(y=\tan^{-1}x\) has domain the real line and range \(-\tfrac{\pi}{2}\lt y\lt\tfrac{\pi}{2}\).</li>
+<li>\(y=\tan^{-1}x\) is an increasing function.</li>
+<li>\(y=\tan^{-1}x\) has gradient 1 at its \(y\)-intercept.</li>
+<li>The lines \(y=\tfrac{\pi}{2}\) and \(y=-\tfrac{\pi}{2}\) are horizontal asymptotes.</li></ul>
+<p class="small">The vertical asymptotes \(x=\pm\tfrac{\pi}{2}\) of \(y=\tan x\) reflect onto the horizontal asymptotes \(y=\pm\tfrac{\pi}{2}\) of \(y=\tan^{-1}x\). The line \(y=x\) (dashed diagonal) is the tangent to both curves at the origin.</p>
+</div><div><div style="display:flex;justify-content:space-between;text-align:center;font-size:9.5pt"><div>{{svg:rev_tan}}\(y=\tan x,\ -\tfrac{\pi}{2}\lt x\lt\tfrac{\pi}{2}\)</div><div>{{svg:rev_atan}}\(y=\tan^{-1}x\)</div></div></div></div></div>
+
+<div class="box formula"><div class="bt">Radians, notation and interpreting the restrictions (17B)</div>
+<ul><li><b>Use radians</b> when dealing with inverse trigonometric functions.</li>
+<li>The functions \(\text{cosec}^{-1}x\), \(\sec^{-1}x\) and \(\cot^{-1}x\) are not defined in this course.</li>
+<li>Alternative notation: \(\arcsin x=\sin^{-1}x\), \(\ \arccos x=\cos^{-1}x\), \(\ \arctan x=\tan^{-1}x\). Note that \(\sin^{-1}x\) is not the reciprocal \((\sin x)^{-1}=\dfrac{1}{\sin x}\).</li></ul>
+<p>The key to calculations is to <b>include the restriction</b> every time an expression involving the inverse trigonometric functions is rewritten using trigonometric functions:</p>
+<ul><li>\(y=\sin^{-1}x\) means \(x=\sin y\) where \(-\tfrac{\pi}{2}\le y\le\tfrac{\pi}{2}\).</li>
+<li>\(y=\cos^{-1}x\) means \(x=\cos y\) where \(0\le y\le\pi\).</li>
+<li>\(y=\tan^{-1}x\) means \(x=\tan y\) where \(-\tfrac{\pi}{2}\lt y\lt\tfrac{\pi}{2}\).</li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 4 (17B)</span></div><div class="ex-body">
+Find:
+<div class="parts"><span><span class="pl">a</span>\(\cos^{-1}\big(-\tfrac12\big)\)</span><span><span class="pl">b</span>\(\tan^{-1}(-1)\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Let \(\alpha=\cos^{-1}\big(-\tfrac12\big)\).<br>
+Then \(\cos\alpha=-\tfrac12\), where \(0\le\alpha\le\pi\).<br>
+Hence \(\alpha\) is in the second quadrant,<br>and the related angle is \(\tfrac{\pi}{3}\),<br>
+so \(\alpha=\pi-\tfrac{\pi}{3}=\dfrac{2\pi}{3}\).</p>
+</div><div>
+<p><b>b</b> Let \(\alpha=\tan^{-1}(-1)\).<br>
+Then \(\tan\alpha=-1\), where \(-\tfrac{\pi}{2}\lt\alpha\lt\tfrac{\pi}{2}\).<br>
+Hence \(\alpha\) is in the fourth quadrant,<br>and the related angle is \(\tfrac{\pi}{4}\),<br>
+so \(\alpha=-\dfrac{\pi}{4}\).</p>
+</div></div></div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 5 (17B)</span></div><div class="ex-body">
+Evaluate these expressions exactly, rationalising denominators where necessary.
+<div class="parts three"><span><span class="pl">a</span>\(\tan\Big(\sin^{-1}\big(-\tfrac15\big)\Big)\)</span><span><span class="pl">b</span>\(\sin\big(\cos^{-1}\tfrac45\big)\)</span><span><span class="pl">c</span>\(\sin\big(\sin^{-1}\tfrac45\big)\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> Let \(\alpha=\sin^{-1}\big(-\tfrac15\big)\).<br>
+Then \(\sin\alpha=-\tfrac15\), where \(-\tfrac{\pi}{2}\le\alpha\le\tfrac{\pi}{2}\).<br>
+Hence \(\alpha\) is in the fourth quadrant. The third side of the triangle is \(\sqrt{5^2-1^2}=\sqrt{24}\), and \(\tan\alpha\) is negative in the fourth quadrant, so
+\[\tan\alpha=\dfrac{-1}{\sqrt{24}}\times\dfrac{\sqrt6}{\sqrt6}=\dfrac{-\sqrt6}{12}=-\tfrac{1}{12}\sqrt6.\]
+(Here \(\sqrt{24}\times\sqrt6=\sqrt{144}=12\).)</p>
+<p><b>b</b> Let \(\alpha=\cos^{-1}\tfrac45\).<br>
+Then \(\cos\alpha=\tfrac45\), where \(0\le\alpha\le\pi\).<br>
+Hence \(\alpha\) is in the first quadrant. The third side is \(\sqrt{5^2-4^2}=3\). So \(\sin\alpha=\tfrac35\).</p>
+<p><b>c</b> Let \(\alpha=\sin^{-1}\tfrac45\).<br>
+Then \(\sin\alpha=\tfrac45\) (where the condition \(-\tfrac{\pi}{2}\le\alpha\le\tfrac{\pi}{2}\) is now irrelevant), so \(\sin\big(\sin^{-1}\tfrac45\big)=\tfrac45\).</p>
+</div><div>{{svg:ex5a}}{{svg:ex5b}}</div></div></div></div>
+
+<div class="box formula"><div class="bt">Graphs involving shifting and reflecting (17C)</div>
+<p>Reflecting in either axis, and shifting, can both be applied to the graphs of the three inverse trigonometric functions. As always, substitute key values to confirm the graph. In the case of \(\tan^{-1}x\), it is wise to take limits to confirm the horizontal asymptotes.</p></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 6a (17C)</span></div><div class="ex-body">
+Sketch this graph, stating its domain and range, and any asymptotes: \(\ y-\tfrac{\pi}{2}=\tan^{-1}(x+1)\).
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p>\(y-\tfrac{\pi}{2}=\tan^{-1}(x+1)\) is \(y=\tan^{-1}x\) shifted left 1 unit and up \(\tfrac{\pi}{2}\) units.</p>
+<p>Confirm this by a small table of values:</p>
+<table class="t"><tr><th>\(x\)</th><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td></tr>
+<tr><th>\(y\)</th><td>\(\tfrac{\pi}{4}\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\tfrac{3\pi}{4}\)</td></tr></table>
+<p class="small">For example, at \(x=-2\): \(y=\tfrac{\pi}{2}+\tan^{-1}(-1)=\tfrac{\pi}{2}-\tfrac{\pi}{4}=\tfrac{\pi}{4}\).</p>
+<p>The domain is all real numbers, and the range is \(0\lt y\lt\pi\).<br>
+As \(x\to\infty\), \(y\to\pi\), and as \(x\to-\infty\), \(y\to0\),<br>
+so the horizontal asymptotes are \(y=0\) and \(y=\pi\).</p>
+</div><div>{{svg:ex6a}}</div></div></div></div>
+
+<div class="box formula"><div class="bt">Symmetries and the identity \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\) (17C)</div>
+<div class="split"><div>
+<ul><li>\(y=\sin^{-1}x\) is odd, that is, \(\sin^{-1}(-x)=-\sin^{-1}x\).</li>
+<li>\(y=\tan^{-1}x\) is odd, that is, \(\tan^{-1}(-x)=-\tan^{-1}x\).</li>
+<li>\(y=\cos^{-1}x\) has odd symmetry about its \(y\)-intercept \(\big(0,\tfrac{\pi}{2}\big)\), that is,
+\[\cos^{-1}(-x)=\pi-\cos^{-1}x.\]</li>
+<li><b>Complementary angles:</b> \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\), for \(-1\le x\le1\). The graphs are reflections of each other in the horizontal line \(y=\tfrac{\pi}{4}\) (right).</li></ul>
+</div><div>{{svg:rev_comp}}</div></div>
+<div class="split" style="grid-template-columns:0.8fr 1.2fr"><div>
+<p><b>Proof of \(\cos^{-1}(-x)=\pi-\cos^{-1}x\).</b></p>
+<p style="margin-left:4mm">\(\begin{aligned}[t]\text{Let}\quad&\alpha=\cos^{-1}(-x).\\\text{Then}\quad&-x=\cos\alpha,\ \text{ where }0\le\alpha\le\pi,\\\text{so}\quad&\cos(\pi-\alpha)=x,\\&\quad\text{because }\cos(\pi-\alpha)=-\cos\alpha,\\&\pi-\alpha=\cos^{-1}x,\\&\quad\text{because }0\le\pi-\alpha\le\pi,\\&\alpha=\pi-\cos^{-1}x.\end{aligned}\)</p>
+</div><div>
+<p><b>Proof of \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\).</b></p>
+<p style="margin-left:4mm">\(\begin{aligned}[t]\text{Let}\quad&\alpha=\cos^{-1}x.\\\text{Then}\quad&x=\cos\alpha,\ \text{ where }0\le\alpha\le\pi,\\&\sin\big(\tfrac{\pi}{2}-\alpha\big)=x,\\&\quad\text{because }\sin\big(\tfrac{\pi}{2}-\alpha\big)=\cos\alpha,\\&\sin^{-1}x=\tfrac{\pi}{2}-\alpha,\\&\quad\text{because }-\tfrac{\pi}{2}\le\tfrac{\pi}{2}-\alpha\le\tfrac{\pi}{2},\\&\sin^{-1}x+\alpha=\tfrac{\pi}{2}\\&\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}.\end{aligned}\)</p>
+</div></div></div>
+
+<div class="box formula"><div class="bt">Compositions (17C)</div>
+<ul><li>\(\sin\big(\sin^{-1}x\big)=x\) and \(\cos\big(\cos^{-1}x\big)=x\) for \(-1\le x\le1\), and \(\tan\big(\tan^{-1}x\big)=x\) for all real \(x\).</li>
+<li>The other way round needs the restriction: \(\sin^{-1}(\sin x)=x\) only for \(-\tfrac{\pi}{2}\le x\le\tfrac{\pi}{2}\), \(\ \cos^{-1}(\cos x)=x\) only for \(0\le x\le\pi\), and \(\tan^{-1}(\tan x)=x\) only for \(-\tfrac{\pi}{2}\lt x\lt\tfrac{\pi}{2}\).</li></ul></div>
+
+<div class="box formula"><div class="bt">The double-angle formulae (17E)</div>
+<p>Replacing both \(\alpha\) and \(\beta\) by \(\theta\) in the compound-angle formula \(\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta\) gives</p>
+\[\sin2\theta=\sin(\theta+\theta)=\sin\theta\cos\theta+\cos\theta\sin\theta=2\sin\theta\cos\theta.\]
+<p>The same process gives expansions of \(\cos2\theta\) and \(\tan2\theta\):</p>
+<div class="split"><div>
+\[\begin{aligned}\sin2\theta&=2\sin\theta\cos\theta\\\cos2\theta&=\cos^2\theta-\sin^2\theta\\\tan2\theta&=\dfrac{2\tan\theta}{1-\tan^2\theta}\end{aligned}\]
+</div><div>
+<p style="margin-bottom:0"><b>The \(\cos2\theta\) formulae.</b> Using \(\sin^2\theta=1-\cos^2\theta\), then \(\cos^2\theta=1-\sin^2\theta\):</p>
+\[\begin{aligned}\cos2\theta&=\cos^2\theta-\sin^2\theta\\&=2\cos^2\theta-1\\&=1-2\sin^2\theta\end{aligned}\]
+</div></div>
+<p class="small">These rest on the Pythagorean identities \(\sin^2\theta+\cos^2\theta=1\) and \(1+\tan^2\theta=\sec^2\theta\), which Lesson 12A also uses. Lesson 12C rearranges the last two forms of \(\cos2\theta\) to integrate \(\cos^2x\) and \(\sin^2x\).</p></div>
+
+<div class="split" style="gap:4mm">
+<div class="ex worked" style="margin:0"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 10 (17E)</span></div><div class="ex-body">
+Prove that \((\sin x+\cos x)^2=1+\sin2x\).
+<div class="sol-label">Solution</div>
+<p style="margin-left:4mm">\(\begin{aligned}[t]\text{LHS}&=(\sin x+\cos x)^2\\&=\sin^2x+\cos^2x+2\sin x\cos x\\&=1+\sin2x\\&=\text{RHS}.\end{aligned}\)</p>
+</div></div>
+
+<div class="ex worked" style="margin:0"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 13 (17E)</span></div><div class="ex-body">
+Find \(\sin\big(2\cos^{-1}\tfrac45\big)\).
+<div class="sol-label">Solution</div>
+<p>Let \(\alpha=\cos^{-1}\tfrac45\).<br>
+Then \(\cos\alpha=\tfrac45\), where \(0\le\alpha\le\pi\).<br>
+Hence \(\alpha\) is in the first quadrant, and from the triangle (as in Example 5b), \(\sin\alpha=\tfrac35\).</p>
+<p style="margin-left:4mm">\(\begin{aligned}[t]\text{So}\quad\sin2\alpha&=2\sin\alpha\cos\alpha\\&=2\times\tfrac35\times\tfrac45\\&=\tfrac{24}{25}.\end{aligned}\)</p>
+</div></div>
+</div>
+
+<div class="box formula" style="break-inside:auto"><div class="bt">Standard integrals from Parts 1 and 2</div>
+<p><b>Primitives and the fundamental theorem (4J, 5B, 5E).</b> \(F(x)\) is a primitive of \(f(x)\) if \(F'(x)=f(x)\). If \(f(x)\) is continuous in \([a,b]\), then
+\[\int_a^bf(x)\,dx=\Big[F(x)\Big]_a^b=F(b)-F(a),\quad\text{where }F(x)\text{ is any primitive of }f(x).\]
+Enclose the primitive in square brackets, substitute the upper and lower limits, and subtract.</p>
+<table class="si">
+<tr><th>Powers (4J, 5E)</th><td>\(\displaystyle\int x^n\,dx=\dfrac{x^{n+1}}{n+1}+C,\ \ n\ne-1\)</td><td>\(\displaystyle\int(ax+b)^n\,dx=\dfrac{(ax+b)^{n+1}}{a(n+1)}+C,\ \ n\ne-1\)</td></tr>
+<tr><th>Reverse chain rule (5I)</th><td>\(\displaystyle\int u^n\,\dfrac{du}{dx}\,dx=\dfrac{u^{n+1}}{n+1}+C\)</td><td>OR \(\ \displaystyle\int\big(f(x)\big)^nf'(x)\,dx=\dfrac{\big(f(x)\big)^{n+1}}{n+1}+C\)</td></tr>
+<tr><th>Exponential (6D)</th><td>\(\displaystyle\int e^x\,dx=e^x+C\)</td><td>\(\displaystyle\int e^{ax+b}\,dx=\dfrac1a\,e^{ax+b}+C\)</td></tr>
+<tr><th>Reciprocal (6I)</th><td>\(\displaystyle\int\dfrac1x\,dx=\log_e|x|+C\)</td><td>\(\displaystyle\int\dfrac{1}{ax+b}\,dx=\dfrac1a\log_e|ax+b|+C\)</td></tr>
+<tr><th></th><td>\(\displaystyle\int\dfrac{u'}{u}\,dx=\log_e|u|+C\)</td><td>OR \(\ \displaystyle\int\dfrac{f'(x)}{f(x)}\,dx=\log_e|f(x)|+C\)</td></tr>
+<tr><th>Trigonometric (7D)</th><td>\(\displaystyle\int\cos x\,dx=\sin x+C\)</td><td>\(\displaystyle\int\cos(ax+b)\,dx=\dfrac1a\sin(ax+b)+C\)</td></tr>
+<tr><th></th><td>\(\displaystyle\int\sin x\,dx=-\cos x+C\)</td><td>\(\displaystyle\int\sin(ax+b)\,dx=-\dfrac1a\cos(ax+b)+C\)</td></tr>
+<tr><th></th><td>\(\displaystyle\int\sec^2x\,dx=\tan x+C\)</td><td>\(\displaystyle\int\sec^2(ax+b)\,dx=\dfrac1a\tan(ax+b)+C\)</td></tr>
+</table>
+<ul><li>In every form, \(C\) is a constant. Pay attention to the signs in the \(\sin\) and \(\cos\) integrals.</li>
+<li>For the reverse chain rule, the vital step is to identify \(u\) or \(f(x)\) and its derivative. For \(\dfrac{f'(x)}{f(x)}\), the top must be the derivative of the bottom.</li>
+<li>Radians are the right units for calculus with trigonometric functions.</li>
+<li><b>No calculation involving a primitive may cross an asymptote.</b></li></ul></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 34 (6I)</span></div><div class="ex-body">
+Evaluate these definite integrals using the first two standard forms for reciprocal functions.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_e^{e^2}\dfrac5x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^4\dfrac{1}{1-2x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^5\dfrac{1}{x-2}\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> \(\begin{aligned}[t]\int_e^{e^2}\dfrac5x\,dx&=5\Big[\log_e|x|\Big]_e^{e^2}\\&=5\big(\log_ee^2-\log_ee\big)\\&=5(2-1)\\&=5\end{aligned}\)</p>
+</div><div>
+<p><b>b</b> \(\begin{aligned}[t]\int_1^4\dfrac{1}{1-2x}\,dx&=-\tfrac12\Big[\log_e|1-2x|\Big]_1^4\\&=-\tfrac12\big(\log_e\lvert-7\rvert-\log_e\lvert-1\rvert\big)\\&=-\tfrac12\big(\log_e7-0\big)\\&=-\tfrac12\log_e7\end{aligned}\)</p>
+<p class="small">Here \(a=-2\) and \(b=1\) in the second standard form.</p>
+</div></div>
+<p><b>c</b> This definite integral is meaningless, because it crosses the asymptote at \(x=2\).</p>
+</div></div>
+
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Textbook Example 17 (7D)</span></div><div class="ex-body">
+Evaluate these definite integrals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^{\pi}\cos x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac{\pi}{3}}\sec^2x\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{\frac{\pi}{4}}^{\frac{3\pi}{4}}\sec^2x\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p><b>a</b> \(\begin{aligned}[t]\int_0^{\pi}\cos x\,dx&=\Big[\sin x\Big]_0^{\pi}\\&=\sin\pi-\sin0\\&=0\end{aligned}\)</p>
+<p class="small">(Use the graph of \(y=\sin x\) to see that \(\sin\pi=0\) and \(\sin0=0\).)</p>
+</div><div>
+<p><b>b</b> \(\begin{aligned}[t]\int_0^{\frac{\pi}{3}}\sec^2x\,dx&=\Big[\tan x\Big]_0^{\frac{\pi}{3}}\\&=\tan\tfrac{\pi}{3}-\tan0\\&=\sqrt3\end{aligned}\)</p>
+<p class="small">(Here \(\tan\tfrac{\pi}{3}=\sqrt3\) and \(\tan0=0\).)</p>
+</div></div>
+<p><b>c</b> This integral is meaningless, because it crosses the asymptote at \(x=\tfrac{\pi}{2}\).</p>
+</div></div>
+
+{{sec:violet:spark:Warm-up:answers are in the answers booklet}}
+<p class="small">Questions 1 to 4 are from the Year 11 Extension 1 exercise named, with some parts left out. Questions 5 and 6 practise the standard integrals from Parts 1 and 2. Give exact answers, in radians.</p>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Exercise 17B Q2</span><br>Find the exact value of:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">b</span>\(\sin^{-1}\tfrac12\)</span><span><span class="pl">d</span>\(\arctan1\)</span><span><span class="pl">e</span>\(\sin^{-1}(-1)\)</span><span><span class="pl">f</span>\(\cos^{-1}0\)</span><span><span class="pl">i</span>\(\sin^{-1}\Big(-\tfrac{\sqrt3}{2}\Big)\)</span><span><span class="pl">j</span>\(\cos^{-1}\Big(-\tfrac{1}{\sqrt2}\Big)\)</span><span><span class="pl">k</span>\(\arctan\Big(-\tfrac{1}{\sqrt3}\Big)\)</span><span><span class="pl">l</span>\(\arccos(-1)\)</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Exercise 17B Q5</span><br>Find the exact value of:
+<div class="parts"><span><span class="pl">a</span>\(\sin^{-1}\big(\sin\tfrac{4\pi}{3}\big)\)</span><span><span class="pl">b</span>\(\cos^{-1}\Big(\cos\big(-\tfrac{\pi}{4}\big)\Big)\)</span><span><span class="pl">c</span>\(\tan^{-1}\big(\tan\tfrac{5\pi}{6}\big)\)</span><span><span class="pl">d</span>\(\cos^{-1}\big(\cos\tfrac{5\pi}{4}\big)\)</span><span><span class="pl">e</span>\(\arcsin\Big(2\sin\big(-\tfrac{\pi}{6}\big)\Big)\)</span><span><span class="pl">f</span>\(\arctan\big(3\tan\tfrac{7\pi}{6}\big)\)</span></div>{{work:38}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Exercise 17C Q2</span><br>Sketch each function, using appropriate translations of \(y=\sin^{-1}x\), \(y=\cos^{-1}x\) and \(y=\tan^{-1}x\). State the domain and range, and whether it is even, odd or neither.
+<div class="parts three"><span><span class="pl">a</span>\(y=\sin^{-1}(x-1)\)</span><span><span class="pl">b</span>\(y=\cos^{-1}(x+1)\)</span><span><span class="pl">c</span>\(y-\tfrac{\pi}{2}=\tan^{-1}x\)</span></div>{{work:72}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Exercise 17E Q8</span><br>Use a double-angle formula to find the exact value of:
+<div class="parts three"><span><span class="pl">a</span>\(\cos\big(2\cos^{-1}\tfrac13\big)\)</span><span><span class="pl">b</span>\(\sin\big(2\cos^{-1}\tfrac67\big)\)</span><span><span class="pl">c</span>\(\tan\big(2\tan^{-1}(-2)\big)\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Standard integrals (Parts 1 and 2)</span><br>Find each indefinite integral.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int(4x^3-6x+5)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int(2x+1)^4\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int e^{-2x}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\dfrac{1}{2x+5}\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int\sin4x\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int\cos\tfrac12x\,dx\)</span><span><span class="pl">g</span>\(\displaystyle\int\sec^23x\,dx\)</span><span><span class="pl">h</span>\(\displaystyle\int\dfrac{2x}{x^2+1}\,dx\)</span><span><span class="pl">i</span>\(\displaystyle\int3x^2(x^3+1)^4\,dx\)</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Standard integrals (Parts 1 and 2)</span><br>Evaluate each definite integral.
+<div class="parts three" style="row-gap:3mm"><span><span class="pl">a</span>\(\displaystyle\int_1^2(3x^2-2x)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^1e^{2x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^e\dfrac3x\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_0^{\frac{\pi}{6}}\cos2x\,dx\)</span><span><span class="pl">e</span>\(\displaystyle\int_0^{\frac{\pi}{8}}\sec^22x\,dx\)</span><span><span class="pl">f</span>\(\displaystyle\int_0^{\frac{\pi}{3}}\sin x\,dx\)</span></div>{{work:110}}</div></div>
+</div>

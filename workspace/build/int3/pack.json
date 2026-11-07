@@ -1,0 +1,6 @@
+{"chapter": "Integration Part 3 Further Integration | Lesson and Homework",
+ "lesson": {"parts": ["cover.html","revision.html","l12a.html","l12b.html","l12c.html","l12d.html","l12e.html","l12f.html"], "out": "lesson.pdf",
+            "title": "Year 12 Ext 1 Integration Part 3 Further Integration - Lesson and Homework"},
+ "answers": {"parts": ["a_rev.html","a_12a.html","a_12b.html","a_12c.html","a_12d.html","a_12e.html","a_12f.html"], "out": "answers.pdf",
+             "title": "Year 12 Ext 1 Integration Part 3 Further Integration - Homework Answers",
+             "footer": "Integration Part 3 Further Integration | Homework Answers", "heading": "Integration Part 3 Further Integration - Homework Answers"}}
