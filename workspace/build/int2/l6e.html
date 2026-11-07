@@ -1,1 +1,185 @@
-<!-- filled by Task: lesson 6e -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 6E</div><h2>Applications of integration</h2>
+<div class="focus">The normal methods of finding areas by integration can now be applied to functions involving \(e^x\). We find the area between a curve and the \(x\)-axis, where a sketch is essential because regions below the axis give negative integrals, and the area between two curves, using the top curve minus the bottom curve.</div></div>
+
+<style>
+table.st6e { border-collapse:collapse; margin:1mm 0 1.5mm 5mm; }
+table.st6e td { padding:0.5mm 1.6mm; vertical-align:middle; }
+table.st6e td:first-child { text-align:left; white-space:nowrap; }
+table.st6e td.r { color:var(--ink-soft); }
+.side6e { border-left:1.4px solid var(--line-strong); padding-left:4mm; }
+.g6e { display:grid; grid-template-columns:1fr 1fr; column-gap:8mm; row-gap:3mm; margin-top:1mm; }
+.g6e > div { break-inside:avoid; }
+.g6e .fig { justify-content:flex-start; margin:1mm 0; }
+.f6e .fig { justify-content:flex-start; }
+</style>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the area between a curve and the x-axis}}
+<div class="box concept"><div class="bt">Finding the area between a curve and the \(x\)-axis</div>
+<p>A sketch is essential here, because the definite integral attaches a negative sign to the area of any region below the \(x\)-axis (provided that the integral does not run backwards, that is, provided the lower limit is less than the upper limit).</p>
+<ul><li>Sketch the curve, showing the intercepts (and any asymptote).</li>
+<li>Write down and evaluate the definite integral between the required \(x\)-values.</li>
+<li>If the region is below the \(x\)-axis, the integral is negative, and the area is its opposite. If the region crosses the \(x\)-axis, split the integral at the \(x\)-intercept and find each part separately.</li>
+<li>Write a conclusion, giving the area in square units.</li></ul></div></div>
+<div class="box tip"><div class="bt">Sketching by shifting</div>
+<p>The graph of \(y=e^x-k\), where \(k\gt0\), is the graph of \(y=e^x\) moved down \(k\) units. Its \(y\)-intercept moves down from \(1\) to \(1-k\), and its horizontal asymptote moves down from \(y=0\) to \(y=-k\). Find the \(x\)-intercept by putting \(y=0\). For example, \(e^x=e^2\) gives \(x=2\), because \(e^x\) is an increasing function, so it takes the value \(e^2\) only once.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A region below the \(x\)-axis</span></div><div class="ex-body">
+<b>a</b> Use shifting to sketch \(y=e^x-e^2\), showing the intercepts and asymptote.<br>
+<b>b</b> Find the area of the region between this curve, the \(x\)-axis and the \(y\)-axis.
+{{work:78}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Use shifting to sketch \(y=e^x-e^3\), showing the intercepts and asymptote.<br>
+<b>b</b> Find the area of the region between this curve, the \(x\)-axis and the \(y\)-axis.
+{{work:78}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 17</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Use shifting to sketch \(y=e^x-e\), showing the intercepts and asymptote.<br>
+<b>b</b> Find the area of the region between this curve, the \(x\)-axis and the \(y\)-axis.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.25fr 1fr"><div>
+<p><b>a</b> Move the graph of \(y=e^x\) down \(e\) units.</p>
+<table class="st6e">
+<tr><td>When \(x=0\),</td><td>\(y=e^0-e\)</td></tr>
+<tr><td></td><td>\(\phantom{y}=1-e.\)</td></tr>
+<tr><td>When \(y=0\),</td><td>\(e^x=e\)</td></tr>
+<tr><td></td><td>\(\phantom{e^x}x=1.\)</td></tr></table>
+<p>The horizontal asymptote moves down to \(y=-e\).</p>
+</div><div class="f6e"><div class="fig">{{svg:c6e_ex17}}</div></div></div>
+<p><b>b</b></p>
+\[\begin{aligned}\int_0^1(e^x-e)\,dx&amp;=\Big[e^x-ex\Big]_0^1\qquad\text{(the number }e\text{ is a constant)}\\&amp;=(e^1-e)-(e^0-0)\\&amp;=-1.\end{aligned}\]
+<p>This integral is negative because the region is below the \(x\)-axis.<br>Hence the required area is \(1\) square unit.</p>
+<p class="small"><b>Note:</b> The primitive of the constant \(e\) is \(ex\), just as the primitive of \(3\) is \(3x\). In the second line, \(e^1-e=0\) and \(e^0-0=1\), so the value is \(0-1=-1\).</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:areas between curves}}
+<div class="box concept"><div class="bt">Finding areas between curves</div>
+<p>If a curve \(y=f(x)\) is always above \(y=g(x)\) in an interval \(a\le x\le b\), then the area of the region between the curves is</p>
+\[\text{area between the curves}=\int_a^b\big(f(x)-g(x)\big)\,dx.\]
+<p>This is the top curve minus the bottom curve. The formula still works when part of the region lies below the \(x\)-axis, because only the difference \(f(x)-g(x)\) matters, and it is positive throughout the interval.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Top curve minus bottom curve</span></div><div class="ex-body">
+<b>a</b> Sketch the curves \(y=e^x\) and \(y=x^2\) in the interval \(-3\le x\le3\).<br>
+<b>b</b> Find the area of the region between the curves, from \(x=0\) to \(x=3\).
+{{work:84}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Sketch the curves \(y=e^x\) and \(y=x^2\) in the interval \(-1\le x\le1\).<br>
+<b>b</b> Find the area of the region between the curves, from \(x=0\) to \(x=1\).
+{{work:84}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 18</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Sketch the curves \(y=e^x\) and \(y=x^2\) in the interval \(-2\le x\le2\).<br>
+<b>b</b> Find the area of the region between the curves, from \(x=0\) to \(x=2\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1.3fr 1fr"><div>
+<p><b>a</b> The graphs are drawn to the right.<br>Note that for \(x\gt0\), \(y=e^x\) is always above \(y=x^2\).</p>
+<p><b>b</b> Using the standard formula above,</p>
+\[\begin{aligned}\text{area}&amp;=\int_0^2\big(e^x-x^2\big)\,dx\\&amp;=\Big[e^x-\tfrac13x^3\Big]_0^2\\&amp;=\big(e^2-\tfrac83\big)-\big(e^0-0\big)\\&amp;=e^2-3\tfrac23\text{ square units.}\end{aligned}\]
+</div><div class="f6e"><div class="fig">{{svg:c6e_ex18}}</div></div></div>
+<p class="small"><b>Note:</b> The first line writes the formula with \(f(x)=e^x\) on top and \(g(x)=x^2\) below. In the third line, \(\tfrac13\times2^3=\tfrac83\) and \(e^0=1\), so the value is \(e^2-\tfrac83-1=e^2-3\tfrac23\).</p>
+</div></div>
+
+<div class="box tip"><div class="bt">Integrating with respect to \(y\) (from Section 5F)</div>
+<div class="split" style="grid-template-columns:1.5fr 1fr"><div>
+<p>A region bounded by a logarithmic curve is often easier to find by integrating with respect to \(y\). Write \(x\) as a function of \(y\), then integrate between \(y\)-values, using the right-hand curve minus the left-hand curve.</p>
+<p>For example, the region between \(y=\log_ex\), the \(y\)-axis and the lines \(y=0\) and \(y=1\) is shown. Since \(y=\log_ex\), we have \(x=e^y\) by the definition of logarithms. So</p>
+</div><div class="f6e"><div class="fig">{{svg:c6e_tipy}}</div></div></div>
+\[\begin{aligned}\text{area}&amp;=\int_0^1e^y\,dy\\&amp;=\Big[e^y\Big]_0^1\\&amp;=e^1-e^0\\&amp;=e-1\text{ square units.}\end{aligned}\]</div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 6E}}
+<p class="small"><b>Technology:</b> Graphing programs that can calculate the areas of specified regions may make the problems in this exercise clearer, particularly when no diagram has been given.</p>
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Use the standard form \(\displaystyle\int e^x\,dx=e^x+C\) to evaluate each definite integral. Then approximate it correct to two decimal places.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">i</span>\(\displaystyle\int_0^1e^x\,dx\)</span><span><span class="pl">ii</span>\(\displaystyle\int_{-1}^0e^x\,dx\)</span><span><span class="pl">iii</span>\(\displaystyle\int_{-2}^0e^x\,dx\)</span><span><span class="pl">iv</span>\(\displaystyle\int_{-3}^0e^x\,dx\)</span></div></span>
+<span><span class="pl">b</span>The graph below shows \(y=e^x\) from \(x=-5\) to \(x=1\), with a scale of 10 divisions to 1 unit, so that 100 little squares equal 1 square unit. By counting squares under the curve from \(x=0\) to \(x=1\), find an approximation to \(\displaystyle\int_0^1e^x\,dx\), and compare it with the approximation obtained in part <b>a</b>.</span>
+<span><span class="pl">c</span>Count squares to the left of the \(y\)-axis to obtain approximations to:
+<div class="parts" style="grid-template-columns:repeat(3,1fr)"><span><span class="pl">i</span>\(\displaystyle\int_{-1}^0e^x\,dx\),</span><span><span class="pl">ii</span>\(\displaystyle\int_{-2}^0e^x\,dx\),</span><span><span class="pl">iii</span>\(\displaystyle\int_{-3}^0e^x\,dx\),</span></div>
+and compare the results with the approximations obtained in part <b>a</b>.</span>
+<span><span class="pl">d</span>Continue counting squares to the left of \(x=-3\), and estimate the total area under the curve to the left of the \(y\)-axis.</span></div>
+<div class="fig">{{svg:q6e_q1}}</div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Answer these questions first in exact form, then correct to four significant figures. In each case use the standard form \(\displaystyle\int e^{ax+b}\,dx=\tfrac1a\,e^{ax+b}+C\).
+<div class="parts one"><span><span class="pl">a</span>Find the area between the curve \(y=e^{2x}\) and the \(x\)-axis from \(x=0\) to \(x=3\).</span><span><span class="pl">b</span>Find the area between the curve \(y=e^{-x}\) and the \(x\)-axis from \(x=0\) to \(x=1\).</span><span><span class="pl">c</span>Find the area between the curve \(y=e^{\frac13x}\) and the \(x\)-axis from \(x=-3\) to \(x=0\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">In each case find the area between the \(x\)-axis and the given curve between the given \(x\)-values. Use the standard form \(\displaystyle\int e^{ax+b}\,dx=\tfrac1a\,e^{ax+b}+C\).
+<div class="parts"><span><span class="pl">a</span>\(y=e^{x+3}\), for \(-2\le x\le0\)</span><span><span class="pl">b</span>\(y=e^{2x-1}\), for \(0\le x\le1\)</span><span><span class="pl">c</span>\(y=e^{-2x-1}\), for \(-2\le x\le-1\)</span><span><span class="pl">d</span>\(y=e^{\frac13x+2}\), for \(0\le x\le3\)</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="g6e"><div><span class="pl">a</span><div class="fig">{{svg:q6e_q4a}}</div>Find the area of the region bounded by the curve \(y=e^{\frac12x}\), the \(x\)-axis, and the lines \(x=-1\) and \(x=2\).</div>
+<div><span class="pl">b</span><div class="fig">{{svg:q6e_q4b}}</div>Find the area of the region bounded by the curve \(y=e^{-x}\), the \(x\)-axis, the \(y\)-axis and the line \(x=1\).</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find the area between the curve \(y=e^x+e^{-x}\) and the \(x\)-axis, from \(x=-2\) to \(x=2\).</span><span><span class="pl">b</span>Find the area between the curve \(y=x^2+e^x\) and the \(x\)-axis, from \(x=-3\) to \(x=3\).</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">
+<div class="g6e"><div><span class="pl">a</span><div class="fig">{{svg:q6e_q6a}}</div>Find the area of the region bounded by the curve \(y=e^{-x}\) and the lines \(x=2\) and \(y=1\).</div>
+<div><span class="pl">b</span><div class="fig">{{svg:q6e_q6b}}</div>Find the area of the region in the first quadrant bounded by the coordinate axes and the curve \(y=e-e^x\).</div>
+<div><span class="pl">c</span><div class="fig">{{svg:q6e_q6c}}</div>Find the area between the \(x\)-axis, the curve \(y=e^x-1\) and the line \(x=-1\).</div>
+<div><span class="pl">d</span><div class="fig">{{svg:q6e_q6d}}</div>What is the area bounded by \(x=2\), \(y=e^{-x}-2\), the \(x\)-axis and the \(y\)-axis?</div>
+<div><span class="pl">e</span><div class="fig">{{svg:q6e_q6e}}</div>Find the area of the region bounded by the curve \(y=e^{-x}-e\) and the coordinate axes.</div>
+<div><span class="pl">f</span><div class="fig">{{svg:q6e_q6f}}</div>Find the area of the region bounded by the curve \(y=3-e^{-x}\), the \(x\)-axis, and the lines \(x=-1\) and \(x=2\).</div></div>{{work:80}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">7</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Sketch the curves \(y=e^x\) and \(y=x+1\), and shade the region between them, from \(x=0\) to \(x=1\). Then write down the area of this region as an integral and evaluate it.</span><span><span class="pl">b</span>Sketch the curves \(y=e^x\) and \(y=1-x\), and shade the region between them, from \(x=0\) to \(x=1\). Then write down the area of this region as an integral and evaluate it.</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">
+<div class="split" style="grid-template-columns:1.6fr 1fr"><div>The diagram to the right shows the region above the <span style="white-space:nowrap">\(x\)-axis,</span> below both \(y=e^x\) and \(y=e^{-x}\), between \(x=-1\) and \(x=1\).
+<div class="parts one"><span><span class="pl">a</span>Explain why the area of this region may be written as \(\ \text{area}=2\displaystyle\int_0^1e^{-x}\,dx\).</span><span><span class="pl">b</span>Hence find the area of this region.</span></div></div>
+<div class="f6e"><div class="fig">{{svg:q6e_q8}}</div></div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="split" style="grid-template-columns:1.6fr 1fr"><div>The diagram to the right shows the region above the <span style="white-space:nowrap">\(x\)-axis,</span> below both \(y=e-e^{-x}\) and \(y=e-e^x\).
+<div class="parts one"><span><span class="pl">a</span>Explain why the area of this region may be written as \(\ \text{area}=2\displaystyle\int_0^1(e-e^x)\,dx\).</span><span><span class="pl">b</span>Hence find the area of this region.</span></div></div>
+<div class="f6e"><div class="fig">{{svg:q6e_q9}}</div></div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="split" style="grid-template-columns:1.6fr 1fr"><div>The diagram to the right shows the region between the curve \(y=e^x-e^{-x}\), the \(x\)-axis and the lines \(x=-3\) and \(x=3\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(y=e^x-e^{-x}\) is an odd function.</span><span><span class="pl">b</span>Hence write down the value of \(\displaystyle\int_{-3}^3(e^x-e^{-x})\,dx\) without finding a primitive.</span><span><span class="pl">c</span>Explain why the area of this region may be written as \(\ \text{area}=2\displaystyle\int_0^3(e^x-e^{-x})\,dx\).</span><span><span class="pl">d</span>Hence find the area of this region.</span></div></div>
+<div class="f6e"><div class="fig">{{svg:q6e_q10}}</div></div></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that the curves \(y=x^2\) and \(y=e^{x+1}\) intersect at \(x=-1\).</span><span><span class="pl">b</span>Hence sketch the region in the second quadrant between these two curves and the \(y\)-axis.</span><span><span class="pl">c</span>Find its area.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Sketch the region between the graphs of \(y=e^x\) and \(y=x\), between the \(y\)-axis and \(x=2\), then find its area.{{work:50}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">In this question, give all approximations correct to four decimal places.
+<div class="parts one"><span><span class="pl">a</span>Find the area between the curve \(y=e^x\) and the \(x\)-axis, for \(0\le x\le1\), by evaluating an appropriate integral. Then approximate the result.</span><span><span class="pl">b</span>Estimate the area using the trapezoidal rule with two subintervals (that is, with three function values).</span><span><span class="pl">c</span>Is the trapezoidal-rule approximation greater than or less than the exact value? Give a geometric explanation.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(e^{-x^2}\) and hence write down a primitive of \(xe^{-x^2}\).</span><span><span class="pl">b</span>Hence find the area between the curve \(y=xe^{-x^2}\) and the \(x\)-axis from \(x=0\) to \(x=2\), and from \(x=-2\) to \(x=2\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) Evaluate the integral \(\displaystyle\int_N^0e^x\,dx\). &emsp; (ii) What is its limit as \(N\to-\infty\)?</span><span><span class="pl">b</span>(i) Evaluate the integral \(\displaystyle\int_0^Ne^{-x}\,dx\). &emsp; (ii) What is its limit as \(N\to\infty\)?</span><span><span class="pl">c</span>Similarly, evaluate \(\displaystyle\int_0^N2xe^{-x^2}\,dx\), and find its limit as \(N\to\infty\).</span></div>{{work:56}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">16</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Find \(\displaystyle\int_\delta^1\dfrac{e^{\sqrt x}}{\sqrt x}\,dx\).</span><span><span class="pl">b</span>What happens to the integral as \(\delta\to0^+\)?</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Differentiate \(x\,e^{-x}\), and hence find \(\displaystyle\int_0^Nx\,e^{-x}\,dx\).</span><span><span class="pl">b</span>Find the limit of this integral as \(N\to\infty\) (use the dominance results).</span><span><span class="pl">c</span>Differentiate \(x^2\,e^{-x}\), and hence find \(\displaystyle\int_0^\infty x^2e^{-x}\,dx\).</span></div>{{work:64}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 20 minutes</b></span><span><b>14 marks</b></span><span>Calculator allowed · show working · each hint is below its question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Pymble Ladies' College, 2023, Mathematics Extension 1 HSC Trial Examination Term&nbsp;3,&nbsp;Q13(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Part of the graph of \(y=\log_e(x-1)\) is given.
+<div class="fig">{{svg:p6e_plc}}</div>
+<div class="pp-sub"><span>(i) Find the value of \(y\) when \(x=e+1\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Find the shaded area, bounded by the curve, the \(x\)-axis and the line \(x=e+1\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> where does the curve cross the \(x\)-axis, and which edges bound the shaded region on the left and on the right?</div>{{work:50}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Fort Street High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q11(c)</span><span class="mk">4 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:1fr 1.1fr"><div>The graph of \(f(x)=e^{\frac{x}{2}}+1\) is shown. The normal to the graph of \(f\) where it crosses the \(y\)-axis is also shown.</div><div class="f6e"><div class="fig">{{svg:p6e_fs}}</div></div></div>
+<div class="pp-sub"><span>(i) Find the equation of the <b>normal</b> to the graph of \(f\) where it crosses the \(y\)-axis.</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Find the exact area of the shaded region.</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> where does the normal meet the \(x\)-axis, and which graph forms the top of the shaded region?</div>{{work:66}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Caringbah High School, 2020, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)(i)(ii)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">The function \(f(x)=1+\ln x\) is defined in the domain \((0,1]\).
+<div class="pp-sub"><span>(i) Show that \(\dfrac{d}{dx}\big(x\ln x\big)=1+\ln x\)</span><span class="mk">1</span></div>
+<p>The diagram shows the graphs of the function \(y=f(x)\) and the inverse function \(y=f^{-1}(x)\).</p>
+<div class="fig">{{svg:p6e_car}}</div>
+<div class="pp-sub"><span>(ii) Find in simplest exact form the area of the shaded region in the first quadrant bounded by the curves \(y=f(x)\), \(y=f^{-1}(x)\) and the coordinate axes.</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> what is the equation of the inverse function, and how is the integral of \(1+\ln x\) related to part (i)?</div>{{work:80}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Saint Ignatius' College, Riverview, 2024, Mathematics Assessment Task, Year 12 Mathematics (Extension One) Task 4, Trial HSC Examination, <span style="white-space:nowrap">Q13(d)(ii)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Let \(f(x)=\ln\Big(\dfrac{2x}{3}\Big)\). Part (i), not included here, shows that the normal to the graph of \(y=f(x)\) at the point where \(x=\dfrac{3e^2}{2}\) has the equation \(y=-\dfrac{3e^2x}{2}+\dfrac{9e^4}{4}+2\).
+<div class="pp-sub"><span>(ii) Find the exact area enclosed by the graph of \(y=f(x)\), the line \(y=-\dfrac{3e^2x}{2}+\dfrac{9e^4}{4}+2\) and the \(x\) axis.</span><span class="mk">3</span></div>
+<div class="fig">{{svg:p6e_si}}</div></div>
+<div class="hint"><b>Hint:</b> where do the curve and the line meet, and where does each of them cross the \(x\)-axis?</div>{{work:80}}</div>
+
+<p>The school trial papers used for this pack (2020–2024) have only these four questions that fit this lesson, so the mini exam is short. For more timed practice, do Questions 6(f), 9(b) and 11(c) above in 10 minutes.</p>
+</div>

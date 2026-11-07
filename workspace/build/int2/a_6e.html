@@ -1,1 +1,100 @@
-<!-- filled by Task: lesson 6e -->
+{{ahead:Lesson 6E | Applications of integration}}
+<style>
+.ap6e { display:inline-block; break-inside:avoid; margin-right:5mm; }
+.sk6e { display:flex; gap:6mm; align-items:flex-start; flex-wrap:wrap; margin:1mm 0; }
+.sk6e svg { height:auto; }
+</style>
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b>
+<div class="split" style="grid-template-columns:1.3fr 1fr"><div>
+<p><b>a</b> Move the graph of \(y=e^x\) down \(e^2\) units.<br>When \(x=0\), \(\ y=e^0-e^2=1-e^2\).<br>When \(y=0\), \(\ e^x=e^2\), so \(x=2\).<br>The horizontal asymptote moves down to \(y=-e^2\).</p>
+</div><div class="sk6e">{{svg:a6e_c1d}}</div></div>
+<p><b>b</b> The region is below the \(x\)-axis, from \(x=0\) to \(x=2\).</p>
+\[\begin{aligned}\int_0^2(e^x-e^2)\,dx&amp;=\Big[e^x-e^2x\Big]_0^2\\&amp;=(e^2-2e^2)-(e^0-0)\\&amp;=-e^2-1.\end{aligned}\]
+<p>The integral is negative because the region is below the \(x\)-axis. Hence the area is \(e^2+1\) square units.</p>
+<b>Your turn.</b>
+<div class="split" style="grid-template-columns:1.3fr 1fr"><div>
+<p><b>a</b> Move the graph of \(y=e^x\) down \(e^3\) units.<br>When \(x=0\), \(\ y=e^0-e^3=1-e^3\).<br>When \(y=0\), \(\ e^x=e^3\), so \(x=3\).<br>The horizontal asymptote moves down to \(y=-e^3\).</p>
+</div><div class="sk6e">{{svg:a6e_c1y}}</div></div>
+<p><b>b</b> The region is below the \(x\)-axis, from \(x=0\) to \(x=3\).</p>
+\[\begin{aligned}\int_0^3(e^x-e^3)\,dx&amp;=\Big[e^x-e^3x\Big]_0^3\\&amp;=(e^3-3e^3)-(e^0-0)\\&amp;=-2e^3-1.\end{aligned}\]
+<p>The integral is negative because the region is below the \(x\)-axis. Hence the area is \(2e^3+1\) square units.</p></div></div>
+
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<div class="split" style="grid-template-columns:1.3fr 1fr"><div>
+<p><b>a</b> The graphs are drawn to the right. For \(x\gt0\), \(y=e^x\) is always above \(y=x^2\). At \(x=3\), \(e^3\doteq20.1\) and \(3^2=9\).</p>
+<p><b>b</b> Using the formula, with \(e^x\) on top,</p>
+\[\begin{aligned}\text{area}&amp;=\int_0^3\big(e^x-x^2\big)\,dx\\&amp;=\Big[e^x-\tfrac13x^3\Big]_0^3\\&amp;=\big(e^3-9\big)-\big(e^0-0\big)\\&amp;=e^3-10\text{ square units.}\end{aligned}\]
+<p class="small">Here \(\tfrac13\times3^3=9\) and \(e^0=1\).</p>
+</div><div class="sk6e">{{svg:a6e_c2d}}</div></div>
+<b>Your turn.</b>
+<div class="split" style="grid-template-columns:1.3fr 1fr"><div>
+<p><b>a</b> The graphs are drawn to the right. For \(x\gt0\), \(y=e^x\) is always above \(y=x^2\).</p>
+<p><b>b</b> Using the formula, with \(e^x\) on top,</p>
+\[\begin{aligned}\text{area}&amp;=\int_0^1\big(e^x-x^2\big)\,dx\\&amp;=\Big[e^x-\tfrac13x^3\Big]_0^1\\&amp;=\big(e-\tfrac13\big)-\big(e^0-0\big)\\&amp;=e-1\tfrac13\text{ square units.}\end{aligned}\]
+</div><div class="sk6e">{{svg:a6e_c2y}}</div></div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><b>a</b> <span class="ap6e"><b>i</b> \(e-1\doteq1.72\)</span> <span class="ap6e"><b>ii</b> \(1-e^{-1}\doteq0.63\)</span> <span class="ap6e"><b>iii</b> \(1-e^{-2}\doteq0.86\)</span> <span class="ap6e"><b>iv</b> \(1-e^{-3}\doteq0.95\)</span><br>
+<span class="ap6e"><b>b</b> About 172 little squares, so about \(1.72\), which agrees with part <b>a</b>.</span><br>
+<span class="ap6e"><b>c</b> About 63, 86 and 95 little squares, so about \(0.63\), \(0.86\) and \(0.95\), which agree with part <b>a</b>.</span><br>
+<span class="ap6e"><b>d</b> About 100 little squares, so about \(1\). (The total area is exactly \(1\).)</span></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><span class="ap6e"><b>a</b> \(\tfrac12(e^6-1)\doteq201.2\) square units</span> <span class="ap6e"><b>b</b> \(1-e^{-1}\doteq0.6321\) square units</span> <span class="ap6e"><b>c</b> \(3(1-e^{-1})\doteq1.896\) square units</span></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><span class="ap6e"><b>a</b> \(e(e^2-1)\) u\(^2\)</span> <span class="ap6e"><b>b</b> \(\tfrac12(e-e^{-1})\) u\(^2\)</span> <span class="ap6e"><b>c</b> \(\tfrac12e(e^2-1)\) u\(^2\)</span> <span class="ap6e"><b>d</b> \(3e^2(e-1)\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">4</span><div class="ab"><span class="ap6e"><b>a</b> \(2(e-e^{-\frac12})\) u\(^2\)</span> <span class="ap6e"><b>b</b> \((1-e^{-1})\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">5</span><div class="ab"><span class="ap6e"><b>a</b> \(2(e^2-e^{-2})\doteq14.51\) u\(^2\)</span> <span class="ap6e"><b>b</b> \(18+e^3-e^{-3}\doteq38.04\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">6</span><div class="ab"><span class="ap6e"><b>a</b> \((1+e^{-2})\) u\(^2\)</span> <span class="ap6e"><b>b</b> \(1\) u\(^2\)</span> <span class="ap6e"><b>c</b> \(e^{-1}\) u\(^2\)</span> <span class="ap6e"><b>d</b> \((3+e^{-2})\) u\(^2\)</span> <span class="ap6e"><b>e</b> \(1\) u\(^2\)</span> <span class="ap6e"><b>f</b> \((9+e^{-2}-e)\) u\(^2\)</span></div></div>
+<div class="a"><span class="an">7</span><div class="ab"><div class="split"><div><b>a</b> \(\displaystyle\int_0^1(e^x-1-x)\,dx=\big(e-2\tfrac12\big)\) u\(^2\)<div class="sk6e">{{svg:a6e_q7a}}</div></div>
+<div><b>b</b> \(\displaystyle\int_0^1(e^x-1+x)\,dx=\big(e-1\tfrac12\big)\) u\(^2\)<div class="sk6e">{{svg:a6e_q7b}}</div></div></div></div></div>
+<div class="a"><span class="an">8</span><div class="ab"><span class="ap6e"><b>a</b> The region is symmetric in the \(y\)-axis, so the area is twice the area in the first quadrant, where the region is below \(y=e^{-x}\).</span><br><span class="ap6e"><b>b</b> \(2-\dfrac2e\) square units</span></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><span class="ap6e"><b>a</b> The region is symmetric in the \(y\)-axis, so the area is twice the area in the first quadrant, where the region is below \(y=e-e^x\).</span><br><span class="ap6e"><b>b</b> \(2\) square units</span></div></div>
+<div class="a"><span class="an">10</span><div class="ab"><span class="ap6e"><b>b</b> \(0\)</span><br><span class="ap6e"><b>c</b> The region is symmetric under a half-turn about the origin, so the area is twice the area of the part in the first quadrant.</span><br><span class="ap6e"><b>d</b> \(2(e^3+e^{-3}-2)\) square units</span></div></div>
+<div class="a"><span class="an">11</span><div class="ab"><div class="split" style="grid-template-columns:1fr 1.2fr"><div><b>b</b><div class="sk6e">{{svg:a6e_q11}}</div></div><div><b>c</b> \(\big(e-1\tfrac13\big)\) u\(^2\)</div></div></div></div>
+<div class="a"><span class="an">12</span><div class="ab"><div class="split" style="grid-template-columns:1fr 1.2fr"><div><div class="sk6e">{{svg:a6e_q12}}</div></div><div>\((e^2-3)\) square units</div></div></div></div>
+<div class="a"><span class="an">13</span><div class="ab"><span class="ap6e"><b>a</b> \(e-1\doteq1.7183\)</span> <span class="ap6e"><b>b</b> \(1.7539\)</span><br><span class="ap6e"><b>c</b> The trapezoidal-rule approximation is greater. The curve is concave up, so all the chords are above the curve.</span></div></div>
+<div class="a"><span class="an">14</span><div class="ab"><span class="ap6e"><b>a</b> \(\dfrac{d}{dx}e^{-x^2}=-2xe^{-x^2}\), so a primitive of \(xe^{-x^2}\) is \(-\tfrac12e^{-x^2}\).</span><br><span class="ap6e"><b>b</b> From \(x=0\) to \(x=2\), area \(=\tfrac12-\tfrac12e^{-4}\) square units. The function is odd, so the area (not signed) from \(x=-2\) to \(x=2\) is \(1-e^{-4}\) square units.</span></div></div>
+<div class="a"><span class="an">15</span><div class="ab"><span class="ap6e"><b>a</b> (i) \(1-e^N\) &ensp; (ii) \(1\)</span> <span class="ap6e"><b>b</b> (i) \(1-e^{-N}\) &ensp; (ii) \(1\)</span><br><span class="ap6e"><b>c</b> \(\displaystyle\int_0^N2xe^{-x^2}\,dx=1-e^{-N^2}\), thus in the limit as \(N\to\infty\) this is just \(1\).</span></div></div>
+<div class="a"><span class="an">16</span><div class="ab"><span class="ap6e"><b>a</b> \(2\big(e-e^{\sqrt\delta}\big)\)</span> <span class="ap6e"><b>b</b> It approaches \(2(e-1)\).</span></div></div>
+<div class="a"><span class="an">17</span><div class="ab"><span class="ap6e"><b>a</b> \(\dfrac{d}{dx}\big(xe^{-x}\big)=e^{-x}-xe^{-x}\), \(\ \displaystyle\int_0^Nxe^{-x}\,dx=1-(1+N)e^{-N}\)</span> <span class="ap6e"><b>b</b> \(1\)</span><br><span class="ap6e"><b>c</b> \(\dfrac{d}{dx}\big(x^2e^{-x}\big)=2xe^{-x}-x^2e^{-x}\), \(\ \displaystyle\int_0^\infty x^2e^{-x}\,dx=2\)</span></div></div>
+
+{{ahead:Lesson 6E | Applications of integration}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa" style="break-inside:auto"><div class="pp-src"><span><span class="pn">PP 1</span>Pymble Ladies' College, 2023, Mathematics Extension 1 HSC Trial Examination Term&nbsp;3,&nbsp;Q13(d)</span></div>
+<p><b>(i)</b> When \(x=e+1\), \(\ y=\log_e(e+1-1)=\log_ee=1\).</p>
+<p><b>(ii)</b> The curve meets the \(x\)-axis where \(\log_e(x-1)=0\), that is, \(x-1=1\), so \(x=2\). The shaded region runs from \(y=0\) to \(y=1\), with the curve on the left and the line \(x=e+1\) on the right, so integrate with respect to \(y\).</p>
+<p>From \(y=\log_e(x-1)\), \(\ x-1=e^y\), so \(x=e^y+1\). Using the right-hand boundary minus the left-hand boundary,</p>
+\[\begin{aligned}\text{area}&amp;=\int_0^1\Big((e+1)-(e^y+1)\Big)\,dy\\&amp;=\int_0^1\big(e-e^y\big)\,dy\\&amp;=\Big[ey-e^y\Big]_0^1\\&amp;=(e\times1-e^1)-(e\times0-e^0)\\&amp;=0-(-1)\\&amp;=1.\end{aligned}\]
+<p>The shaded area is \(1\) square unit.</p></div>
+
+<div class="ppa" style="break-inside:auto"><div class="pp-src"><span><span class="pn">PP 2</span>Fort Street High School, 2020, Trial Higher School Certificate Examination, Mathematics Extension&nbsp;1,&nbsp;Q11(c)</span></div>
+<p><b>(i)</b> When \(x=0\), \(\ f(0)=e^0+1=2\), so the graph crosses the \(y\)-axis at \((0,2)\).</p>
+<p>Differentiating, \(\ f'(x)=\tfrac12e^{\frac{x}{2}}\), so \(f'(0)=\tfrac12e^0=\tfrac12\). The gradient of the tangent at \((0,2)\) is \(\tfrac12\), so the gradient of the normal is \(-2\) (since \(\tfrac12\times(-2)=-1\)).</p>
+\[\begin{aligned}y-2&amp;=-2(x-0)\\y&amp;=-2x+2.\end{aligned}\]
+<p>The normal is \(y=-2x+2\), or \(2x+y-2=0\).</p>
+<p><b>(ii)</b> The normal meets the \(x\)-axis where \(0=-2x+2\), that is, at \(x=1\). The shaded region runs from \(x=0\) to \(x=1\) (the vertical edge in the diagram is the line \(x=1\), through the point where the normal meets the \(x\)-axis), with the curve on top and the normal below. Top minus bottom:</p>
+\[\begin{aligned}\text{area}&amp;=\int_0^1\Big(\big(e^{\frac{x}{2}}+1\big)-\big(-2x+2\big)\Big)\,dx\\&amp;=\int_0^1\big(e^{\frac{x}{2}}+2x-1\big)\,dx\\&amp;=\Big[2e^{\frac{x}{2}}+x^2-x\Big]_0^1\\&amp;=\big(2e^{\frac12}+1-1\big)-\big(2e^0+0-0\big)\\&amp;=2\sqrt e-2.\end{aligned}\]
+<p class="small">Here \(\displaystyle\int e^{\frac12x}\,dx=\dfrac{1}{\frac12}\,e^{\frac12x}=2e^{\frac12x}\). The shaded area is \(2\sqrt e-2\) square units.</p></div>
+
+<div class="ppa" style="break-inside:auto"><div class="pp-src"><span><span class="pn">PP 3</span>Caringbah High School, 2020, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)(i)(ii)</span></span></div>
+<p><b>(i)</b> Using the product rule with \(u=x\) and \(v=\ln x\), so \(u'=1\) and \(v'=\dfrac1x\),</p>
+\[\begin{aligned}\dfrac{d}{dx}\big(x\ln x\big)&amp;=u'v+v'u\\&amp;=1\times\ln x+\dfrac1x\times x\\&amp;=\ln x+1,\end{aligned}\]
+<p>which is \(1+\ln x\), as required.</p>
+<p><b>(ii)</b> The inverse function: from \(y=1+\ln x\), swap \(x\) and \(y\) to get \(x=1+\ln y\). Then \(\ln y=x-1\), so \(f^{-1}(x)=e^{x-1}\).</p>
+<p>The two curves meet on the line \(y=x\) at \((1,1)\), since \(f(1)=1+\ln1=1\). The curve \(y=f(x)\) meets the \(x\)-axis where \(1+\ln x=0\), that is, \(x=e^{-1}\). The curve \(y=f^{-1}(x)\) meets the \(y\)-axis at \(y=e^{-1}\).</p>
+<p>So the shaded region lies under \(y=e^{x-1}\) from \(x=0\) to \(x=1\), with the region under \(y=f(x)\) from \(x=e^{-1}\) to \(x=1\) taken away:</p>
+\[\text{area}=\int_0^1e^{x-1}\,dx-\int_{e^{-1}}^1(1+\ln x)\,dx.\]
+<p>By part (i), a primitive of \(1+\ln x\) is \(x\ln x\). Hence</p>
+\[\begin{aligned}\text{area}&amp;=\Big[e^{x-1}\Big]_0^1-\Big[x\ln x\Big]_{e^{-1}}^1\\&amp;=\big(e^0-e^{-1}\big)-\big(1\times\ln1-e^{-1}\ln e^{-1}\big)\\&amp;=\big(1-e^{-1}\big)-\big(0-e^{-1}\times(-1)\big)\\&amp;=1-e^{-1}-e^{-1}\\&amp;=1-\dfrac2e.\end{aligned}\]
+<p>The shaded area is \(1-\dfrac2e\) square units.</p></div>
+
+<div class="ppa" style="break-inside:auto"><div class="pp-src"><span><span class="pn">PP 4</span>Saint Ignatius' College, Riverview, 2024, Mathematics Assessment Task, Year 12 Mathematics (Extension One) Task 4, Trial HSC Examination, <span style="white-space:nowrap">Q13(d)(ii)</span></span></div>
+<p><b>(ii)</b> The curve and the line meet at the point of part (i), where \(x=\dfrac{3e^2}{2}\) and \(y=\ln\Big(\dfrac23\times\dfrac{3e^2}{2}\Big)=\ln e^2=2\).</p>
+<p>The line meets the \(x\)-axis where \(\ 0=-\dfrac{3e^2x}{2}+\dfrac{9e^4}{4}+2\), so \(\dfrac{3e^2x}{2}=\dfrac{9e^4}{4}+2\), and multiplying by \(\dfrac{2}{3e^2}\), \(\ x=\dfrac{3e^2}{2}+\dfrac{4}{3e^2}\).</p>
+<p>The curve meets the \(x\)-axis where \(\ln\dfrac{2x}{3}=0\), that is, \(\dfrac{2x}{3}=1\), so \(x=\dfrac32\).</p>
+<p>Let \(O=(0,0)\), \(A=\Big(\dfrac{3e^2}{2}+\dfrac{4}{3e^2},\,0\Big)\), \(B=\Big(\dfrac{3e^2}{2},\,2\Big)\) and \(C=(0,2)\). The enclosed region is the trapezium \(OABC\) with the region between the curve and the \(y\)-axis, from \(y=0\) to \(y=2\), taken away.</p>
+<p>The trapezium has parallel sides \(OA\) and \(CB\) and height \(2\):</p>
+\[\begin{aligned}\text{area of }OABC&amp;=\tfrac12\Big(\dfrac{3e^2}{2}+\dfrac{4}{3e^2}+\dfrac{3e^2}{2}\Big)\times2\\&amp;=3e^2+\dfrac{4}{3e^2}.\end{aligned}\]
+<p>For the curve, \(y=\ln\dfrac{2x}{3}\) gives \(e^y=\dfrac{2x}{3}\), so \(x=\tfrac32e^y\). Integrating with respect to \(y\),</p>
+\[\begin{aligned}\int_0^2\tfrac32e^y\,dy&amp;=\tfrac32\Big[e^y\Big]_0^2\\&amp;=\tfrac32\big(e^2-e^0\big)\\&amp;=\tfrac32e^2-\tfrac32.\end{aligned}\]
+<p>Hence the enclosed area is</p>
+\[\begin{aligned}3e^2+\dfrac{4}{3e^2}-\Big(\tfrac32e^2-\tfrac32\Big)&amp;=\tfrac32e^2+\tfrac32+\dfrac{4}{3e^2}\text{ square units.}\end{aligned}\]</div>
