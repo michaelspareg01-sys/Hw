@@ -110,16 +110,19 @@ def lesson():
     g = Graph(-0.5, 4.5, -1.4, 2.6, w=200, h=150, pad=(12, 30, 18, 16))
     g.fill(zero, p, aa, cc, opacity=0.25)
     g.fill(p, zero, cc, dd, opacity=0.25)
+    g.fill(p, zero, 2 * b0 - dd, aa, opacity=0.25)
     g.axes("t", "f(t)")
     g.curve(p, color="ink", width=1.5, x0=-0.4, x1=4.3)
     g.vline(dd, 0, p(dd), color="ink", dash="", width=1.1)
+    g.vline(2 * b0 - dd, 0, p(2 * b0 - dd), color="ink", dash="", width=1.1)
     for v in (aa, b0, cc, dd):
         g.vline(v, -1.4, 0, color="faint", width=1)
-    g.label(aa, 0, "a", dx=-10, dy=-9, italic=True).label(b0, 0, "b", dy=-9, italic=True)
+    g.label(aa, 0, "a", dx=-8, dy=12, italic=True).label(b0, 0, "b", dy=-9, italic=True)
     g.label(cc, 0, "c", dx=-7, dy=-9, italic=True).label(dd, 0, "d", dx=7, dy=-9, italic=True)
     g.label(b0 - 0.5, 1.85, "B", italic=True, size=12).label(b0 + 1.05, 1.85, "B", italic=True, size=12)
-    pointer(g, b0 - 0.55, 1.6, b0 - 0.45, -0.45, bend=-14)
-    pointer(g, b0 - 0.45, 1.6, b0 + 0.45, -0.45, bend=14)
+    pointer(g, b0 - 0.55, 1.6, aa - 0.45, 0.25, bend=-10)
+    pointer(g, b0 - 0.45, 1.6, b0 - 0.45, -0.45, bend=10)
+    pointer(g, b0 + 1.0, 1.6, b0 + 0.45, -0.45, bend=-10)
     pointer(g, b0 + 1.1, 1.6, cc + 0.5, 0.25, bend=10)
     save("c5d_fp", g)
 
@@ -345,14 +348,14 @@ def answers():
     combine("a5d_q8", [g, g2], gap=24, mm=120)
 
     # Q9 f: sketch of A(x)
-    g = Graph(-0.6, 6.4, -1.0, 1.6, w=210, h=126, pad=(30, 24, 22, 12))
+    g = Graph(-2.6, 8.6, -0.8, 1.15, w=260, h=150, pad=(30, 24, 22, 12))
     g.axes("x", "A(x)")
-    g.curve(A9, color="blue", width=2, x0=-0.5, x1=6.3)
+    g.curve(A9, color="blue", width=2, x0=-2.5, x1=8.5)
     for v, s in ((1, "a"), (2, "b"), (3, "c"), (4, "d"), (5, "e")):
         g.xticks([(v, "")]).label(v, 0, s, dy=13, italic=True)
     g.dot(3, A9(3), r=2.4).vline(3, 0, A9(3))
     save("a5d_q9", g)
-    size("a5d_q9", 80)
+    size("a5d_q9", 92)
 
 
 if __name__ == "__main__":

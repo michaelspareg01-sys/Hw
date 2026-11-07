@@ -201,6 +201,57 @@ report(r"\(-4\) when \(t=3\)" in CON[1]["worked"] and r"height \(-2\) when \(t=2
        and f13.subs(t, 2) == -2 and f13.subs(t, 3) == -4, "WE13 line heights at t=2, 3")
 
 
+# the parabola tip: A(b), A(c), A(d) chains and the fourth area B, on the model f = (t-b)^2 - 1 (zeros a, c;
+# d chosen so that the area from c to d is B); B is the area from a to b
+bb = sp.Rational(11, 5)
+fp = (t - bb)**2 - 1
+aa, cc = bb - 1, bb + 1
+dd = [r for r in sp.solve(sp.integrate(fp, (t, cc, sp.Symbol("q"))) - sp.integrate(-fp, (t, aa, bb)), sp.Symbol("q")) if r.is_real and r > cc][0]
+Bv = sp.integrate(-fp, (t, aa, bb))
+Bs = sp.Symbol("B")
+report(eq(sp.integrate(-fp, (t, bb, cc)), Bv) and eq(sp.integrate(fp, (t, 2 * bb - dd, aa)), Bv),
+       "parabola model: the areas [a,b], [b,c], [c,d] and the mirror region left of a are all B")
+tipseg = teach.split('<div class="bt">Where the values and the rates come from</div>')[1].split('<div class="box take">')[0]
+rows = displays(tipseg)[0].replace("\\begin{aligned}", "").replace("\\end{aligned}", "").split("\\\\")
+for row, k in zip(rows, (bb, cc, dd)):
+    mm = re.match(r"\s*A\((\w)\)&=(.*)$", row.strip().rstrip(".,"), re.S)
+    report(bool(mm), f"tip row A(...) found: {row[:30]}")
+    if not mm:
+        continue
+    want = sp.simplify(sp.integrate(fp, (t, aa, k)))
+    for mem in split_top(mm.group(2)):
+        mem = mem.strip().rstrip(",.")
+        if "\\int" in mem:
+            pieces = re.findall(r"\\int_(\w)\^(\w)", mem)
+            sub = {"a": aa, "b": bb, "c": cc, "d": dd}
+            v = sum(sp.integrate(fp, (t, sub[lo], sub[hi])) for lo, hi in pieces)
+        else:
+            v = T(mem.replace("B", "(B)")).subs(sp.Symbol("B"), Bv) if "B" in mem else T(mem)
+        report(eq(v, want), f"tip A({mm.group(1)}) member {mem[:30]}", f"{sp.nsimplify(v)} vs {want}")
+for L, k in (("b", bb), ("c", cc), ("d", dd)):
+    v = sp.simplify(sp.integrate(fp, (t, aa, k)) / Bv)
+    printed = re.search(r"\\\(A\(" + L + r"\)=(-?\d?)B\\\)", teach)
+    co = printed.group(1) if printed else None
+    co = (1 if co == "" else -1 if co == "-" else int(co)) if printed else None
+    report(co is not None and eq(co, v), f"bullet A({L}) = {v}B", printed.group(0) if printed else "missing")
+report(eq(sp.integrate(fp, (t, aa, 2 * bb - dd)), -Bv) and "at that end \\(A(x)=-B\\)" in tipseg, "tip: A = -B at the left end of the fourth area")
+report(sp.diff(sp.integrate(fp, (t, aa, x)), x, 2).subs(x, cc) > 0 and "local minimum \\(A(c)=-2B\\)" in tipseg
+       and sp.limit(sp.integrate(fp, (t, aa, x)), x, -sp.oo) == -sp.oo, "tip: A(c) = -2B is a local (not global) minimum")
+report("The four areas marked \\(B\\) are all equal." in teach, "the book's 'four areas marked B'")
+# prose values in the C1 answers and the WE13 tip: 'height h when t = k'
+for txt, f, where in ((BLK["C1"].split("Your turn")[0], fd1, "C1 demo"), (BLK["C1"].split("Your turn")[1], fy1, "C1 your turn"),
+                      (CON[1]["worked"], f13, "WE13 tip")):
+    hs = re.findall(r"(?:height )?\\?\(?(-?\d+)\\?\)? when \\\(t=(\d+)\\\)", txt)
+    report(len(hs) >= 2, f"{where}: heights read", str(hs))
+    for h, k in hs:
+        report(f.subs(t, int(k)) == int(h), f"{where}: height {h} at t = {k}")
+    for x1, y1, x2, y2 in re.findall(r"\\\(\((\d),(-?\d)\)\\\) and \\\(\((\d),(-?\d)\)\\\)", txt):
+        report(f.subs(t, int(x1)) == int(y1) and f.subs(t, int(x2)) == int(y2), f"{where}: line through ({x1},{y1}) and ({x2},{y2})")
+    hp = re.search(r"highest point is \\\((?:\\big)?\((\d),\s*(.+?)(?:\\big)?\)\\\)", txt)
+    if where != "WE13 tip":
+        k_ = int(hp.group(1)) if hp else None
+        report(bool(hp) and eq(A_of(f, k_), T(hp.group(2))) and sp.solve(f.args[1][0], t)[0] == k_, f"{where}: highest point", hp.group(0) if hp else "missing")
+
 # ---------------------------------------------------------------- differential form
 def num_ftc(f, a, x0):
     g = sp.lambdify(t, f, "mpmath")

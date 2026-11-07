@@ -5,13 +5,15 @@
 <!-- ============ Concept 1 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 1:the signed area function}}
 <div class="box concept"><div class="bt">Where this section fits</div>
-<p>This section develops a proof of the fundamental theorem of calculus, as stated and used in Sections 5B and 5C (Lessons 5B and 5C of this pack). This would be the time to review the account of first-principles integration in Section 5A (Lesson 5A), because the approach used there of trapping an integral between upper and lower rectangles is used again in this proof.</p></div></div>
+<p>This section develops a proof of the fundamental theorem of calculus, as stated and used in Sections 5B and 5C. This would be the time to review the account of first-principles integration in Section 5A, because the approach used there of trapping an integral between upper and lower rectangles is used again in this proof.</p></div></div>
+<div class="box tip"><div class="bt">In this pack</div>
+<p>Sections 5A, 5B and 5C of the textbook are Lessons 5A, 5B and 5C of this pack.</p></div>
 <div class="box concept"><div class="bt">The definite integral as a function of its upper limit</div>
 <div class="split" style="grid-template-columns:1fr 46mm"><div>
 <p>The value of a definite integral \(\displaystyle\int_a^b f(x)\,dx\) changes when the value of \(b\) changes. This means that it is a function of its upper limit \(b\). When we want to emphasise the functional relationship with the upper limit, we usually replace the letter \(b\) by the letter \(x\), which is conventionally the variable of a function.</p>
-<p>In turn, the original letter \(x\) needs to be replaced by some other letter, usually \(t\). Then the definite integral is clearly represented as a function of its upper limit \(x\), as in the first diagram on the right. This function is called the <i>signed area function</i> for \(f(x)\) starting at \(x=a\), and is defined by</p>
+<p>In turn, the original letter \(x\) needs to be replaced by some other letter, usually \(t\). Then the definite integral is clearly represented as a function of its upper limit \(x\), as in the first diagram above. This function is called the <i>signed area function</i> for \(f(x)\) starting at \(x=a\), and is defined by</p>
 \[A(x)=\int_a^x f(t)\,dt.\]
-<p>The function \(A(x)\) is always zero at \(x=a\). For the function sketched on the right, \(A(x)\) increases at an increasing rate (see the second sketch). \(A(x)\) is also defined to the left of \(a\), where it is negative because the integrals run backwards.</p>
+<p>The function \(A(x)\) is always zero at \(x=a\). For the function sketched above, \(A(x)\) increases at an increasing rate (see the second sketch). \(A(x)\) is also defined to the left of \(a\), where it is negative because the integrals run backwards.</p>
 </div><div>{{svg:c5d_fa}}{{svg:c5d_Aa}}</div></div></div>
 <div class="box tip"><div class="bt">Reading the two sketches line by line</div>
 <ul style="margin:0"><li>At \(x=a\): \(A(a)=\displaystyle\int_a^a f(t)\,dt=0\), because the region from \(a\) to \(a\) has zero width.</li>
@@ -23,7 +25,7 @@ The integral \(\displaystyle\int_x^a f(t)\,dt\) is a positive area, because the 
 <div class="box concept"><div class="bt">The signed area function</div>
 <p>The function in the sketch above was never negative. But the definite integral is the <i>signed area</i> under the curve, meaning that a negative sign is attached to areas of regions below the \(x\)-axis (provided that the integral is not running backwards).</p>
 <div class="split" style="grid-template-columns:1fr 52mm"><div>
-<p>The upper graph of \(f(t)\) to the right is a parabola with axis of symmetry \(x=b\). The areas marked \(B\) are all equal. Here are some properties of the signed area function</p>
+<p>The upper graph of \(f(t)\) to the right is a parabola with axis of symmetry \(x=b\). The four areas marked \(B\) are all equal. Here are some properties of the signed area function</p>
 \[A(x)=\int_a^x f(t)\,dt.\]
 <ul><li>\(A(a)=0\), as always.</li>
 <li>In the interval \([a,b]\), \(f(t)\) is negative and decreasing, so \(A(x)\) decreases at an increasing rate.</li>
@@ -31,12 +33,13 @@ The integral \(\displaystyle\int_x^a f(t)\,dt\) is a positive area, because the 
 <li>In the interval \([c,\infty)\), \(f(t)\) is positive and increasing, so \(A(x)\) increases at an increasing rate.</li>
 <li>\(A(b)=-B\) and \(A(c)=-2B\) and \(A(d)=-B\).</li>
 <li>\(A(x)\) is also defined in the interval \((-\infty,a]\) to the left of \(a\), where it is negative because the integrals run backwards and the curve is above the \(x\)-axis.</li></ul>
-<p>The lower diagram on the right is a sketch of the signed area function \(A(x)\) of \(f(x)\).</p>
+<p>The lower diagram above is a sketch of the signed area function \(A(x)\) of \(f(x)\).</p>
 </div><div>{{svg:c5d_fp}}{{svg:c5d_Ap}}</div></div></div>
 <div class="box tip"><div class="bt">Where the values and the rates come from</div>
 <p>The region from \(a\) to \(b\) is below the axis and has area \(B\), so its signed area is \(-B\). Add the regions one at a time:</p>
 \[\begin{aligned}A(b)&amp;=\int_a^b f(t)\,dt=-B,\\A(c)&amp;=\int_a^b f(t)\,dt+\int_b^c f(t)\,dt=-B+(-B)=-2B,\\A(d)&amp;=\int_a^c f(t)\,dt+\int_c^d f(t)\,dt=-2B+B=-B.\end{aligned}\]
-<p>Think of the thin strips again. In \([a,b]\) each new strip has a negative signed area, and the strips get deeper because \(f(t)\) is decreasing, so \(A(x)\) goes down faster and faster. In \([b,c]\) the strips are still below the axis, but they get shallower, so \(A(x)\) goes down more and more slowly. At \(c\) the curve crosses the axis, so \(A(x)\) stops decreasing and starts increasing: its lowest value is \(A(c)=-2B\).</p></div>
+<p>Think of the thin strips again. In \([a,b]\) each new strip has a negative signed area, and the strips get deeper because \(f(t)\) is decreasing, so \(A(x)\) goes down faster and faster. In \([b,c]\) the strips are still below the axis, but they get shallower, so \(A(x)\) goes down more and more slowly. At \(c\) the curve crosses the axis, so \(A(x)\) stops decreasing and starts increasing: it has a local minimum \(A(c)=-2B\).</p>
+<p>The fourth area \(B\), to the left of \(a\), is the mirror image in the axis of symmetry of the region from \(c\) to \(d\). It is above the axis, and the integral from \(a\) back to its left-hand end runs backwards, so at that end \(A(x)=-B\) again.</p></div>
 <div class="box take"><div class="bt">13 The signed area function</div>
 <p>Suppose that \(f(x)\) is a function defined in some interval \(I\) containing \(a\). The <i>signed area function</i> for \(f(x)\) starting at \(a\) is the function defined by the definite integral</p>
 \[A(x)=\int_a^x f(t)\,dt,\qquad\text{for all }x\text{ in the interval }I.\]</div>
@@ -58,16 +61,19 @@ Let \(A(x)=\displaystyle\int_0^x f(t)\,dt\) be the signed area function starting
 <table class="t" data-c="we13"><tr><th>\(x\)</th><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr>
 <tr><th>\(A(x)\)</th><td>\(-6\)</td><td>\(-4\)</td><td>\(-2\)</td><td>\(0\)</td><td>\(1\)</td><td>\(0\)</td><td>\(-3\)</td></tr></table>
 </div><div>{{svg:c5d_e13f}}{{svg:c5d_e13A}}</div></div>
-<p>The entries of the table come from these areas. The graph is the horizontal line \(y=2\) for \(t\lt0\), and the line through \((0,2)\) and \((1,0)\) for \(t\ge0\), which is at height \(-2\) when \(t=2\) and at height \(-4\) when \(t=3\).</p>
+<p>For \(x=-2\) and \(x=-1\), \(A(x)\) is negative because the integrals run backwards and the curve is above the \(x\)-axis. The area function \(A(x)\) is increasing for \(t\lt1\) because \(y\gt0\), and is decreasing for \(x\gt1\) because \(y\lt0\).</p>
+</div></div>
+
+<div class="box tip"><div class="bt">Where the table entries come from</div>
+<p>The graph is the horizontal line \(y=2\) for \(t\lt0\), and the line through \((0,2)\) and \((1,0)\) for \(t\ge0\), which is at height \(-2\) when \(t=2\) and at height \(-4\) when \(t=3\).</p>
 <ul data-c="we13w" style="margin:0.5mm 0"><li>\(x=-3,\,-2,\,-1\): each is a rectangle of height 2 above the axis, and the integral runs backwards, so
 \(A(-3)=-(3\times2)=-6\), \(A(-2)=-(2\times2)=-4\) and \(A(-1)=-(1\times2)=-2\).</li>
 <li>\(x=0\): \(A(0)=0\), as always.</li>
 <li>\(x=1\): a triangle above the axis, with base 1 and height 2, so \(A(1)=\tfrac12\times1\times2=1\).</li>
 <li>\(x=2\): from 1 to 2 there is a triangle below the axis, with base 1 and height 2, so \(A(2)=1-\tfrac12\times1\times2=1-1=0\).</li>
 <li>\(x=3\): from 1 to 3 there is a triangle below the axis, with base 2 and height 4, so \(A(3)=1-\tfrac12\times2\times4=1-4=-3\).</li></ul>
-<p>For \(x=-2\) and \(x=-1\), \(A(x)\) is negative because the integrals run backwards and the curve is above the \(x\)-axis. The area function \(A(x)\) is increasing for \(t\lt1\) because \(y\gt0\), and is decreasing for \(x\gt1\) because \(y\lt0\).</p>
-<p class="small">To sketch \(y=A(x)\), plot the seven points and join them smoothly. For \(x\le0\) the points lie on a straight line, because each step of 1 to the left takes away the same area 2. The highest point is at \(x=1\), where \(A(x)\) changes from increasing to decreasing.</p>
-</div></div>
+<p>To sketch \(y=A(x)\), plot the seven points and join them smoothly. For \(x\le0\) the points lie on a straight line, because each step of 1 to the left takes away the same area 2. The highest point is at \(x=1\), where \(A(x)\) changes from increasing to decreasing.</p>
+</div>
 
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:the fundamental theorem, differential form}}
@@ -83,8 +89,6 @@ Let \(A(x)=\displaystyle\int_0^x f(t)\,dt\) be the signed area function starting
 </div><div>{{svg:c5d_ftc}}</div></div>
 <p>Subtracting areas in the diagram above,</p>
 \[A(x+h)-A(x)=\int_x^{x+h}f(t)\,dt,\]
-<p class="small" style="margin-top:0">This is because the region from \(a\) to \(x+h\) is the region from \(a\) to \(x\) together with the thin strip from \(x\) to \(x+h\):</p>
-\[\begin{aligned}A(x+h)&amp;=\int_a^{x+h}f(t)\,dt\\&amp;=\int_a^x f(t)\,dt+\int_x^{x+h}f(t)\,dt\\&amp;=A(x)+\int_x^{x+h}f(t)\,dt,\end{aligned}\]
 \[\text{so}\qquad A'(x)=\lim_{h\to0}\frac1h\int_x^{x+h}f(t)\,dt.\]
 <p>This limit is handled by means of a clever sandwiching technique.<br>
 Suppose that \(f(t)\) is increasing in the interval \([x,x+h]\), as in the diagram above.<br>
@@ -99,7 +103,10 @@ Because \(f(x)\) is continuous, \(f(x+h)\to f(x)\) as \(h\to0\),</p>
 <p>If \(f(x)\) is decreasing in the interval \([x,x+h]\), the same argument applies, but with the inequalities reversed.</p>
 <p><b>Note:</b> This theorem shows that the signed area function \(A(x)=\displaystyle\int_a^x f(t)\,dt\) is a primitive of \(f(x)\). It is therefore often written as \(F(x)\) rather than \(A(x)\).</p></div>
 <div class="box tip"><div class="bt">The steps of the proof, filled in</div>
-<ul style="margin:0"><li><b>The rectangles.</b> Both rectangles have width \(h\). The blue lower rectangle lies inside the strip under the curve from \(x\) to \(x+h\), and the strip lies inside the upper rectangle (blue and amber together). Area of a rectangle \(=\) width \(\times\) height, which gives \(h\times f(x)\) and \(h\times f(x+h)\).</li>
+<ul style="margin:0"><li><b>Subtracting areas.</b> The region from \(a\) to \(x+h\) is the region from \(a\) to \(x\) together with the thin strip from \(x\) to \(x+h\):
+\[\begin{aligned}A(x+h)&amp;=\int_a^{x+h}f(t)\,dt\\&amp;=\int_a^x f(t)\,dt+\int_x^{x+h}f(t)\,dt\\&amp;=A(x)+\int_x^{x+h}f(t)\,dt.\end{aligned}\]
+Subtracting \(A(x)\) from both sides gives \(A(x+h)-A(x)=\displaystyle\int_x^{x+h}f(t)\,dt\).</li>
+<li><b>The rectangles.</b> Both rectangles have width \(h\). The blue lower rectangle lies inside the strip under the curve from \(x\) to \(x+h\), and the strip lies inside the upper rectangle (blue and amber together). Area of a rectangle \(=\) width \(\times\) height, which gives \(h\times f(x)\) and \(h\times f(x+h)\).</li>
 <li><b>Dividing by \(h\).</b> In the diagram \(h\gt0\), so dividing by \(h\) keeps the inequality signs the same way round. (When \(h\lt0\), the strip runs from \(x+h\) to \(x\), and the same sandwich applied to that strip gives the same limit.)</li>
 <li><b>The sandwich.</b> As \(h\to0\), the left-hand side \(f(x)\) stays fixed and the right-hand side \(f(x+h)\) approaches \(f(x)\). The middle expression is trapped between two quantities that both approach \(f(x)\), so it approaches \(f(x)\) too. This is the same reasoning as step <b>D</b> in Lesson 5A.</li>
 <li><b>Decreasing \(f\).</b> Then the lower rectangle has height \(f(x+h)\) and the upper one has height \(f(x)\), so \(f(x+h)\le\dfrac1h\displaystyle\int_x^{x+h}f(t)\,dt\le f(x)\), with the same limit \(f(x)\).</li>
@@ -119,11 +126,12 @@ Use the differential form of the fundamental theorem to simplify these expressio
 <div class="sol-label">Solution</div>
 <p>The differential form says that \(\displaystyle\frac{d}{dx}\int_a^x f(t)\,dt=f(x)\). Hence:</p>
 <div data-c="we14">
-<p><b>a</b> Here \(f(t)=(t^2+1)^3\), so replace \(t\) by \(x\): &ensp;\(\displaystyle\frac{d}{dx}\int_0^x(t^2+1)^3\,dt=(x^2+1)^3\).</p>
-<p><b>b</b> Here \(f(t)=\log_e t\), so replace \(t\) by \(x\): &ensp;\(\displaystyle\frac{d}{dx}\int_4^x(\log_e t)\,dt=\log_e x\).</p>
-<p><b>c</b> Here \(f(t)=e^{-t^2}\), so replace \(t\) by \(x\): &ensp;\(\displaystyle\frac{d}{dx}\int_{-3}^x e^{-t^2}\,dt=e^{-x^2}\).</p></div>
-<p class="small">The lower limits 0, 4 and \(-3\) do not appear in the answers.</p>
+<p><b>a</b> \(\displaystyle\frac{d}{dx}\int_0^x(t^2+1)^3\,dt=(x^2+1)^3\)</p>
+<p><b>b</b> \(\displaystyle\frac{d}{dx}\int_4^x(\log_e t)\,dt=\log_e x\)</p>
+<p><b>c</b> \(\displaystyle\frac{d}{dx}\int_{-3}^x e^{-t^2}\,dt=e^{-x^2}\)</p></div>
 </div></div>
+<div class="box tip"><div class="bt">Reading Example 14</div>
+<p>In each part, read off the integrand \(f(t)\) and replace \(t\) by \(x\): in <b>a</b> \(f(t)=(t^2+1)^3\), in <b>b</b> \(f(t)=\log_e t\), and in <b>c</b> \(f(t)=e^{-t^2}\). The lower limits 0, 4 and \(-3\) do not appear in the answers.</p></div>
 
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:the fundamental theorem, integral form}}
@@ -133,15 +141,19 @@ Use the differential form of the fundamental theorem to simplify these expressio
 <p><b>Theorem:</b> Suppose that \(f(x)\) is continuous in the closed interval \([a,b]\), and that \(F(x)\) is a primitive of \(f(x)\). Then</p>
 \[\int_a^b f(x)\,dx=F(b)-F(a).\]</div></div>
 <div class="box concept"><div class="bt">Proof</div>
-<p><b>Proof:</b> We now know that \(F(x)\) and \(\displaystyle\int_a^x f(t)\,dt\) are both primitives of \(f(x)\). (The second one is a primitive by the differential form.)<br>
-Because any two primitives differ only by a constant (Box 14B in Lesson 4J),</p>
+<p><b>Proof:</b> We now know that \(F(x)\) and \(\displaystyle\int_a^x f(t)\,dt\) are both primitives of \(f(x)\).<br>
+Because any two primitives differ only by a constant,</p>
 \[\int_a^x f(t)\,dt=F(x)+C,\qquad\text{for some constant }C.\]
 \[\text{Substituting }x=a,\qquad\int_a^a f(t)\,dt=F(a)+C,\]
 <p>but \(\displaystyle\int_a^a f(t)\,dt=0\), because the area in this definite integral has zero width,</p>
 \[\begin{aligned}\text{so}\qquad0&amp;=F(a)+C\\C&amp;=-F(a).\end{aligned}\]
-\[\text{Thus (putting }C=-F(a)\text{ into the first line)}\qquad\int_a^x f(t)\,dt=F(x)-F(a),\]
+\[\text{Thus}\qquad\int_a^x f(t)\,dt=F(x)-F(a),\]
 <p>and changing letters from \(x\) to \(b\) and from \(t\) to \(x\) gives</p>
 \[\int_a^b f(x)\,dx=F(b)-F(a),\qquad\text{as required.}\]</div>
+<div class="box tip"><div class="bt">The reasons in the proof</div>
+<ul style="margin:0"><li>\(\displaystyle\int_a^x f(t)\,dt\) is a primitive of \(f(x)\) by the differential form, proven above.</li>
+<li>‘Any two primitives differ only by a constant’ is Box 14B in Lesson 4J.</li>
+<li>The line ‘Thus …’ comes from putting \(C=-F(a)\) into the first line, \(\displaystyle\int_a^x f(t)\,dt=F(x)+C\).</li></ul></div>
 <div class="box tip"><div class="bt">The change of letters</div>
 <p>Putting \(x=b\) into \(\displaystyle\int_a^x f(t)\,dt=F(x)-F(a)\) gives \(\displaystyle\int_a^b f(t)\,dt=F(b)-F(a)\). The letter \(t\) inside the integral only names the horizontal axis: \(\displaystyle\int_a^b f(t)\,dt\) and \(\displaystyle\int_a^b f(x)\,dx\) are the same area, so \(t\) may be changed back to \(x\). In the examples below, the primitive is written in square brackets, \(\big[F(t)\big]_a^x=F(x)-F(a)\), exactly as in Lesson 5B.</p></div>
 
@@ -152,22 +164,25 @@ Use the integral form of the fundamental theorem to evaluate each integral. Then
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 Use the integral form of the fundamental theorem to evaluate each integral. Then differentiate your result, thus confirming the consistency of the discussion above.
 <div class="parts" style="grid-template-columns:1fr 1.5fr 1fr"><span><span class="pl">a</span>\(\displaystyle\frac{d}{dx}\int_1^x3t^2\,dt\)</span><span><span class="pl">b</span>\(\displaystyle\frac{d}{dx}\int_{-1}^x(t^3+3t^2-2)\,dt\)</span><span><span class="pl">c</span>\(\displaystyle\frac{d}{dx}\int_1^x\frac{2}{t^2}\,dt\)</span></div>
-{{work:70}}</div></div>
+{{work:150}}</div></div>
 <div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 15</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 Use the integral form of the fundamental theorem to evaluate each integral. Then differentiate your result, thus confirming the consistency of the discussion above.
 <div class="parts" style="grid-template-columns:1fr 1.5fr 1fr"><span><span class="pl">a</span>\(\displaystyle\frac{d}{dx}\int_1^x6t^2\,dt\)</span><span><span class="pl">b</span>\(\displaystyle\frac{d}{dx}\int_{-2}^x(t^3-9t^2+5)\,dt\)</span><span><span class="pl">c</span>\(\displaystyle\frac{d}{dx}\int_4^x\frac{1}{t^2}\,dt\)</span></div>
 <div class="sol-label">Solution</div>
 <div data-c="we15a"><p><b>a</b> The primitive of \(6t^2\) is \(\dfrac{6t^3}{3}=2t^3\).</p>
-\[\begin{aligned}\int_1^x6t^2\,dt&amp;=\Big[2t^3\Big]_1^x\\&amp;=2x^3-2\times1^3\\&amp;=2x^3-2,\end{aligned}\]
-\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_1^x6t^2\,dt&amp;=\frac{d}{dx}\big(2x^3-2\big)\\&amp;=6x^2,\qquad\text{consistent with the differential form.}\end{aligned}\]</div>
+<div class="split" style="grid-template-columns:1fr 1.25fr;gap:3mm"><div>
+\[\begin{aligned}\int_1^x6t^2\,dt&amp;=\Big[2t^3\Big]_1^x\\&amp;=2x^3-2\times1^3\\&amp;=2x^3-2,\end{aligned}\]</div><div>
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_1^x6t^2\,dt&amp;=\frac{d}{dx}\big(2x^3-2\big)\\&amp;=6x^2,\end{aligned}\]<p style=\"margin:0 0 0 18mm\">consistent with the differential form.</p></div></div></div>
 <div data-c="we15b"><p><b>b</b> The primitive of \(t^3-9t^2+5\) is \(\dfrac{t^4}{4}-\dfrac{9t^3}{3}+5t=\tfrac14t^4-3t^3+5t\).</p>
 \[\begin{aligned}\int_{-2}^x(t^3-9t^2+5)\,dt&amp;=\Big[\tfrac14t^4-3t^3+5t\Big]_{-2}^x\\&amp;=\big(\tfrac14x^4-3x^3+5x\big)-\big(\tfrac14(-2)^4-3(-2)^3+5(-2)\big)\\&amp;=\big(\tfrac14x^4-3x^3+5x\big)-\big(\tfrac14\times16-3\times(-8)-10\big)\\&amp;=\big(\tfrac14x^4-3x^3+5x\big)-(4+24-10)\\&amp;=\tfrac14x^4-3x^3+5x-18,\end{aligned}\]
 \[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_{-2}^x(t^3-9t^2+5)\,dt&amp;=\frac{d}{dx}\big(\tfrac14x^4-3x^3+5x-18\big)\\&amp;=x^3-9x^2+5,\\&amp;\qquad\text{consistent with the differential form.}\end{aligned}\]</div>
 <div data-c="we15c"><p><b>c</b> Write \(\dfrac{1}{t^2}=t^{-2}\). Its primitive is \(\dfrac{t^{-1}}{-1}=-t^{-1}\).</p>
-\[\begin{aligned}\int_4^x\frac{1}{t^2}\,dt&amp;=\int_4^x t^{-2}\,dt\\&amp;=\Big[-t^{-1}\Big]_4^x\\&amp;=-x^{-1}-\big(-4^{-1}\big)\\&amp;=-x^{-1}+\tfrac14,\end{aligned}\]
-\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_4^x\frac{1}{t^2}\,dt&amp;=\frac{d}{dx}\big(-x^{-1}+\tfrac14\big)\\&amp;=-(-1)x^{-2}\\&amp;=x^{-2},\qquad\text{consistent with the differential form.}\end{aligned}\]</div>
-<p class="small">In each part the final answer is the integrand with \(t\) replaced by \(x\) (in part <b>c</b>, \(x^{-2}=\dfrac{1}{x^2}\)), just as the differential form says. The constant \(-F(a)\) disappears when we differentiate.</p>
+<div class="split" style="grid-template-columns:1fr 1.25fr;gap:3mm"><div>
+\[\begin{aligned}\int_4^x\frac{1}{t^2}\,dt&amp;=\int_4^x t^{-2}\,dt\\&amp;=\Big[-t^{-1}\Big]_4^x\\&amp;=-x^{-1}-\big(-4^{-1}\big)\\&amp;=-x^{-1}+\tfrac14,\end{aligned}\]</div><div>
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_4^x\frac{1}{t^2}\,dt&amp;=\frac{d}{dx}\big(-x^{-1}+\tfrac14\big)\\&amp;=-(-1)x^{-2}\\&amp;=x^{-2},\end{aligned}\]<p style=\"margin:0 0 0 18mm\">consistent with the differential form.</p></div></div></div>
 </div></div>
+<div class="box tip"><div class="bt">Reading Example 15</div>
+<p>In each part the final answer is the integrand with \(t\) replaced by \(x\) (in part <b>c</b>, \(x^{-2}=\dfrac{1}{x^2}\)), just as the differential form says. The constant \(-F(a)\) disappears when we differentiate.</p></div>
 
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:super challenge, continuous functions}}
