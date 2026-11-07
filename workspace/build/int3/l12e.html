@@ -1,1 +1,193 @@
-<!-- filled by Task: Int3 lesson 12E (l12e.html) -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 12E</div><h2>Further integration by substitution</h2>
+<div class="focus">The second stage of integration by substitution reverses the procedure of Lesson 12D and replaces \(x\) by a function of \(u\). The substitutions are therefore of the form ‘Let \(x=\) some function of \(u\).’ A substitution such as \(x=1-u^2\) removes a square root, and a trigonometric substitution such as \(x=6\sin u\) turns \(\sqrt{36-x^2}\) into \(6\cos u\). In a definite integral the limits are changed as well, so there is no need to return to \(x\).</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:substituting x by a function of u}}
+<div class="box concept"><div class="bt">‘Let \(x=\) some function of \(u\)’</div>
+<p>In Lesson 12D every substitution had the form ‘Let \(u=\) some function of \(x\)’. The second stage of integration by substitution reverses this procedure and replaces \(x\) by a function of \(u\), say \(x=g(u)\). Then:</p>
+<ul><li>Differentiate: \(\dfrac{dx}{du}=g'(u)\), so \(dx=g'(u)\,du\). The \(dx\) in the integral must be replaced by \(g'(u)\,du\).</li>
+<li>Replace every \(x\) in the integrand by \(g(u)\). The function \(g\) is chosen so that the awkward part of the integrand, usually a square root, becomes a simple expression in \(u\).</li>
+<li>In a definite integral, change the limits from values of \(x\) to values of \(u\). Then there is no need to return to \(x\).</li>
+<li>In an indefinite integral, the answer must be written in terms of \(x\) at the end. Use the substitution backwards, for example \(u=\sqrt{1-x}\) when \(x=1-u^2\).</li></ul></div></div>
+<div class="box formula"><div class="bt">The substitution \(x=1-u^2\) in detail</div>
+<p>As a first example, here is a quite different substitution which solves the integral of Lesson 12D Example 18, \(\displaystyle\int_0^1x\sqrt{1-x}\,dx\), where the substitution was \(u=1-x\). Let \(x=1-u^2\). Then</p>
+<div class="split"><div>
+\[\begin{aligned}\frac{dx}{du}&=-2u\\dx&=-2u\,du\end{aligned}\]
+</div><div>
+\[\begin{aligned}1-x&=1-(1-u^2)\\&=u^2\\\sqrt{1-x}&=u\end{aligned}\]
+</div></div>
+<p>The positive square root \(u\ge0\) is taken, so \(u=\sqrt{1-x}\). For the limits: when \(x=0\), \(1-u^2=0\), so \(u^2=1\) and \(u=1\); when \(x=1\), \(1-u^2=1\), so \(u^2=0\) and \(u=0\).</p></div>
+<div class="box warn"><div class="bt">Change everything</div>
+<ul><li>Never just write \(du\) in place of \(dx\). Here \(dx=-2u\,du\), and the factor \(-2u\) stays in the integral.</li>
+<li>The new limits may come out in the reverse order (here from \(u=1\) to \(u=0\)). Keep them in that order, and take the minus sign outside if it helps.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Let \(x\) be a function of \(u\)</span></div><div class="ex-body">
+<b>a</b> Find \(\displaystyle\int x\sqrt{x-2}\,dx\), using the substitution \(x=u^2+2\).<br>
+<b>b</b> Find \(\displaystyle\int_{-3}^{1}x\sqrt{1-x}\,dx\), using the substitution \(x=1-u^2\).
+{{work:78}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Find \(\displaystyle\int x\sqrt{x+3}\,dx\), using the substitution \(x=u^2-3\).<br>
+<b>b</b> Find \(\displaystyle\int_{-3}^{0}x\sqrt{1-x}\,dx\), using the substitution \(x=1-u^2\).
+{{work:78}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 20</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find \(\displaystyle\int_0^1x\sqrt{1-x}\,dx\), using the substitution \(x=1-u^2\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:1fr 46mm"><div>
+\[\begin{aligned}\int_{0}^{1}x\sqrt{1-x}\,dx&=\int_{1}^{0}(1-u^2)\,u\,(-2u)\,du\\&=-2\int_{1}^{0}(u^2-u^4)\,du\\&=-2\Big[\tfrac13u^3-\tfrac15u^5\Big]_{1}^{0}\\&=-2\Big(0-\big(\tfrac13-\tfrac15\big)\Big)\\&=2\big(\tfrac13-\tfrac15\big)\\&=2\times\tfrac{2}{15}\\&=\tfrac{4}{15}\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=1-u^2\).<br>Then \(dx=-2u\,du\),<br>and \(\sqrt{1-x}=u\).<br>When \(x=0\), \(u=1\),<br>when \(x=1\), \(u=0\).</p>
+</div></div>
+<p class="small">In the second line, \((1-u^2)\times u\times(-2u)=-2(u^2-u^4)\). At the upper limit \(u=0\) the bracket is \(0\), and at the lower limit \(u=1\) it is \(\tfrac13-\tfrac15\).</p>
+<p>This question is a good example of how an integral may be evaluated in contrasting ways: Lesson 12D found the same value, \(\tfrac{4}{15}\), with the substitution \(u=1-x\).</p>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:a trigonometric substitution, and the area of a segment}}
+<div class="box concept"><div class="bt">Removing \(\sqrt{a^2-x^2}\) with \(x=a\sin u\)</div>
+<p>The next integral uses a trigonometric substitution, but can also be done using areas of segments. When the integrand contains \(\sqrt{a^2-x^2}\), where \(a>0\), let \(x=a\sin u\). Then \(dx=a\cos u\,du\), and</p>
+\[\begin{aligned}a^2-x^2&=a^2-a^2\sin^2u\\&=a^2(1-\sin^2u)\\&=a^2\cos^2u,\end{aligned}\]
+<p>so \(\sqrt{a^2-x^2}=a\cos u\), because \(\cos u\ge0\) when \(-\tfrac{\pi}{2}\le u\le\tfrac{\pi}{2}\). The integral usually becomes a multiple of \(\cos^2u\), which is integrated with \(\cos^2u=\tfrac12+\tfrac12\cos2u\) (Lesson 12C).</p></div></div>
+<div class="box formula"><div class="bt">The area of a segment (Year 11)</div>
+<div class="split" style="grid-template-columns:1fr 50mm"><div>
+<p>A chord of a circle of radius \(r\) that subtends an angle \(\theta\) (in radians) at the centre cuts off a segment. The segment is the sector minus the isosceles triangle formed by the two radii and the chord:</p>
+\[\text{segment}=\tfrac12r^2\theta-\tfrac12r^2\sin\theta=\tfrac12r^2(\theta-\sin\theta).\]
+</div><div>
+<p class="small">The sector has area \(\tfrac12r^2\theta\). The triangle has two sides \(r\) with the angle \(\theta\) between them, so its area is \(\tfrac12r\times r\times\sin\theta\).</p>
+</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two ways</span></div><div class="ex-body">
+Find \(\displaystyle\int_{2\sqrt2}^{4}\sqrt{16-x^2}\,dx\):<br>
+<b>a</b> using the substitution \(x=4\sin u\),<br>
+<b>b</b> using the formula for the area of a segment.
+{{work:84}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same methods</span></div><div class="ex-body">
+Find \(\displaystyle\int_{0}^{3}\sqrt{36-x^2}\,dx\):<br>
+<b>a</b> using the substitution \(x=6\sin u\),<br>
+<b>b</b> using the areas of a triangle and a sector.
+{{work:84}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 21</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find \(\displaystyle\int_{3\sqrt2}^{6}\sqrt{36-x^2}\,dx\):<br>
+<b>a</b> using the substitution \(x=6\sin u\),<br>
+<b>b</b> using the formula for the area of a segment.
+<div class="sol-label">Solution</div>
+<p><b>a</b></p>
+<div class="split" style="grid-template-columns:1fr 56mm"><div>
+\[\begin{aligned}\int_{3\sqrt2}^{6}\sqrt{36-x^2}\,dx&=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}6\cos u\times6\cos u\,du\\&=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}36\cos^2u\,du\\&=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}36\big(\tfrac12+\tfrac12\cos2u\big)\,du\\&=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}(18+18\cos2u)\,du\\&=\Big[18u+9\sin2u\Big]_{\frac{\pi}{4}}^{\frac{\pi}{2}}\\&=\big(9\pi+9\sin\pi\big)-\big(\tfrac{9\pi}{2}+9\sin\tfrac{\pi}{2}\big)\\&=(9\pi+0)-\big(\tfrac{9\pi}{2}+9\big)\\&=\tfrac92(\pi-2)\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=6\sin u\).<br>Then \(dx=6\cos u\,du\),<br>and \(\sqrt{36-x^2}=6\cos u\).<br>When \(x=3\sqrt2\), \(u=\tfrac{\pi}{4}\),<br>when \(x=6\), \(u=\tfrac{\pi}{2}\).</p>
+</div></div>
+<p class="small">Here \(36-x^2=36-36\sin^2u=36\cos^2u\), and \(\cos u\ge0\) for \(\tfrac{\pi}{4}\le u\le\tfrac{\pi}{2}\). When \(x=3\sqrt2\), \(\sin u=\tfrac{3\sqrt2}{6}=\tfrac{1}{\sqrt2}\); when \(x=6\), \(\sin u=1\). The primitive of \(18\cos2u\) is \(\tfrac{18}{2}\sin2u=9\sin2u\).</p>
+<div class="split" style="grid-template-columns:1fr 60mm"><div>
+<p><b>b</b> The integral is sketched opposite: it is the area under the semicircle \(y=\sqrt{36-x^2}\) from \(x=3\sqrt2\) to \(x=6\). The shaded area is half the segment subtending an angle of \(90^\circ\), because the chord \(x=3\sqrt2\) meets the circle at the angles \(45^\circ\) and \(-45^\circ\). Hence</p>
+\[\begin{aligned}\int_{3\sqrt2}^{6}\sqrt{36-x^2}\,dx&=\tfrac12\times\tfrac12\times6^2\big(\tfrac{\pi}{2}-\sin\tfrac{\pi}{2}\big)\\&=\tfrac14\times36\times\big(\tfrac{\pi}{2}-1\big)\\&=9\big(\tfrac{\pi}{2}-1\big)\end{aligned}\]
+<p class="small">This agrees with part <b>a</b>, because \(9\big(\tfrac{\pi}{2}-1\big)=\tfrac{9\pi}{2}-9=\tfrac92(\pi-2)\).</p>
+</div><div class="center">{{svg:c12e_ex21}}</div></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:choosing the values of u, and other trigonometric substitutions}}
+<div class="box concept"><div class="bt">A note on the values of \(u\)</div>
+<p>Careful readers may notice a problem here, in that given the value \(x=3\sqrt2\), \(u\) is determined by \(\sin u=\tfrac12\sqrt2\), so there are infinitely many possible values of \(u\). A similar problem occurred in the previous worked example, where \(0=1-u^2\) had two solutions. These problems arise because the functions involved in the substitutions were \(x=1-u^2\) and \(x=6\sin u\), whose inverses were not functions. A full account of all this would require substitutions by restrictions of the functions given above so that they had inverse functions. In practice, however, this is rarely necessary, and it is certainly not a concern of this course.</p>
+<p>As a rule of thumb, work with positive square roots, and with trigonometric functions, work in the same quadrants as were involved in the definitions of the inverse trigonometric functions in Chapter 17 of the Year 11 book.</p></div></div>
+<div class="box take"><div class="bt">The rule of thumb in practice (\(a>0\))</div>
+<ul><li>\(x=1-u^2\) and similar: take \(u\ge0\), so that \(u=\sqrt{1-x}\).</li>
+<li>\(x=a\sin\theta\): take \(-\tfrac{\pi}{2}\le\theta\le\tfrac{\pi}{2}\), so \(\theta=\sin^{-1}\dfrac{x}{a}\) and \(\cos\theta\ge0\).</li>
+<li>\(x=a\cos\theta\): take \(0\le\theta\le\pi\), so \(\theta=\cos^{-1}\dfrac{x}{a}\) and \(\sin\theta\ge0\).</li>
+<li>\(x=a\tan\theta\): take \(-\tfrac{\pi}{2}\lt\theta\lt\tfrac{\pi}{2}\), so \(\theta=\tan^{-1}\dfrac{x}{a}\) and \(\cos\theta\gt0\), \(\sec\theta\gt0\).</li></ul></div>
+<div class="box concept"><div class="bt">Which trigonometric substitution? (Exercise 12E Questions 8 to 12)</div>
+<p>Each substitution turns a sum or difference of squares into a single square, using \(\sin^2\theta+\cos^2\theta=1\) and \(\tan^2\theta+1=\sec^2\theta\) (Lesson 12C):</p>
+\[\begin{aligned}x=a\sin\theta:&\quad a^2-x^2=a^2(1-\sin^2\theta)=a^2\cos^2\theta\\x=a\cos\theta:&\quad a^2-x^2=a^2(1-\cos^2\theta)=a^2\sin^2\theta\\x=a\tan\theta:&\quad a^2+x^2=a^2(1+\tan^2\theta)=a^2\sec^2\theta\\x=a\sec\theta:&\quad x^2-a^2=a^2(\sec^2\theta-1)=a^2\tan^2\theta\end{aligned}\]</div>
+<div class="box formula"><div class="bt">Returning to \(x\) in an indefinite integral</div>
+<p>The answer comes out as a function of \(\theta\), such as \(\tan\theta\) or \(\sin\theta\), and must be written in terms of \(x\). With \(x=a\sin\theta\), \(\sin\theta=\dfrac{x}{a}\) and \(\cos\theta=\sqrt{1-\sin^2\theta}=\dfrac{\sqrt{a^2-x^2}}{a}\), so</p>
+\[\tan\theta=\frac{\sin\theta}{\cos\theta}=\frac{x}{\sqrt{a^2-x^2}}.\]
+<p>With \(x=a\tan\theta\), \(\sec\theta=\sqrt{1+\tan^2\theta}=\dfrac{\sqrt{a^2+x^2}}{a}\), so \(\sin\theta=\dfrac{\tan\theta}{\sec\theta}=\dfrac{x}{\sqrt{a^2+x^2}}\). The right-angled triangles below give the same results when \(\theta\) is acute.</p>
+<div class="center">{{svg:c12e_tri}}</div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Other substitutions</span></div><div class="ex-body">
+<b>a</b> Find \(\displaystyle\int\frac{1}{(9+x^2)^{\frac32}}\,dx\), using the substitution \(x=3\tan\theta\).<br>
+<b>b</b> Evaluate \(\displaystyle\int_{0}^{1}\frac{1}{\sqrt{4-x^2}}\,dx\), using the substitution \(x=2\cos\theta\).
+{{work:84}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same methods</span></div><div class="ex-body">
+<b>a</b> Find \(\displaystyle\int\frac{1}{(4-x^2)^{\frac32}}\,dx\), using the substitution \(x=2\sin\theta\).<br>
+<b>b</b> Evaluate \(\displaystyle\int_{0}^{\sqrt3}\frac{1}{\sqrt{4-x^2}}\,dx\), using the substitution \(x=2\cos\theta\).
+{{work:84}}</div></div>
+
+<div class="box take" style="break-inside:avoid"><div class="bt">10 Integration using the reverse chain rule and substitution</div>
+<p>Here is a summary of Lessons 12D and 12E. The chain rule can be used in reverse in various ways to find integrals.</p>
+<ul><li>The reverse chain rule straightforwardly reverses the steps of differentiation by the chain rule.</li>
+<li>A reverse-chain-rule formula can be developed for each standard form.</li>
+<li>Substitution can be done by, ‘Let \(u\) be a function of \(x\).’</li>
+<li>Substitution can be done by, ‘Let \(x\) be a function of \(u\).’</li>
+<li>When substituting into a definite integral, the limits of integration can be substituted as well, so that there is no need ever to return from \(u\) to \(x\).</li></ul></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 12E}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Consider the integral \(I=\displaystyle\int x(x-1)^5\,dx\), and let \(x=u+1\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(dx=du\).</span><span><span class="pl">b</span>Show that \(I=\displaystyle\int u^5(u+1)\,du\).</span><span><span class="pl">c</span>Hence find \(I\).</span><span><span class="pl">d</span>Check your answer by differentiating it.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Using the same substitution as in the previous question, find:
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int\frac{x}{\sqrt{x-1}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{x}{(x-1)^2}\,dx\)</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Consider the integral \(J=\displaystyle\int x\sqrt{x+1}\,dx\), and let \(x=u^2-1\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(dx=2u\,du\).</span><span><span class="pl">b</span>Show that \(J=2\displaystyle\int(u^4-u^2)\,du\).</span><span><span class="pl">c</span>Hence find \(J\).</span><span><span class="pl">d</span>Check your answer by differentiating it.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Using the same substitution as in the previous question, find:
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int x^2\sqrt{x+1}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{2x+3}{\sqrt{x+1}}\,dx\)</span></div>{{work:52}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Find each indefinite integral using the given substitution.
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int\frac{x-2}{x+2}\,dx\) &ensp;(Let \(x=u-2\).)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{2x+1}{\sqrt{2x-1}}\,dx\) &ensp;(Let \(x=\tfrac12(u+1)\).)</span><span><span class="pl">c</span>\(\displaystyle\int3x\sqrt{4x-5}\,dx\) &ensp;(Let \(x=\tfrac14(u^2+5)\).)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{1+\sqrt x}\,dx\) &ensp;(Let \(x=(u-1)^2\).)</span></div>{{work:140}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Evaluate, using the given substitution:
+<div class="parts one"><span><span class="pl">a</span>\(\displaystyle\int_0^1x(x+1)^3\,dx\) &ensp;(Let \(x=u-1\).)</span><span><span class="pl">b</span>\(\displaystyle\int_0^{\frac12}\frac{1+x}{1-x}\,dx\) &ensp;(Let \(x=1-u\).)</span><span><span class="pl">c</span>\(\displaystyle\int_0^1\frac{3x}{\sqrt{3x+1}}\,dx\) &ensp;(Let \(x=\tfrac13(u-1)\).)</span><span><span class="pl">d</span>\(\displaystyle\int_0^1\frac{2-x}{(2+x)^3}\,dx\) &ensp;(Let \(x=u-2\).)</span><span><span class="pl">e</span>\(\displaystyle\int_0^4x\sqrt{4-x}\,dx\) &ensp;(Let \(x=4-u^2\).)</span><span><span class="pl">f</span>\(\displaystyle\int_1^5\frac{x}{(2x-1)^{\frac32}}\,dx\) &ensp;(Let \(x=\tfrac12(u^2+1)\).)</span><span><span class="pl">g</span>\(\displaystyle\int_0^4\frac{1}{3+\sqrt x}\,dx\) &ensp;(Let \(x=(u-3)^2\).)</span><span><span class="pl">h</span>\(\displaystyle\int_0^7\frac{x^2}{\sqrt[3]{x+1}}\,dx\) &ensp;(Let \(x=u^3-1\).)</span></div>{{work:136}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">7</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Consider the integral \(I=\displaystyle\int\frac{1}{\sqrt{5-4x-x^2}}\,dx\), and let \(x=u-2\).<br>Show that \(I=\displaystyle\int\frac{1}{\sqrt{9-u^2}}\,du\), and hence find \(I\).</span><span><span class="pl">b</span>Use a similar approach to find:<br>(i) \(\displaystyle\int\frac{1}{x^2+2x+4}\,dx\) &ensp;(Let \(x=u-1\).)<br>(ii) \(\displaystyle\int\frac{1}{\sqrt{4-2x-x^2}}\,dx\) &ensp;(Let \(x=u-1\).)<br>(iii) \(\displaystyle\int_1^2\frac{1}{\sqrt{3+2x-x^2}}\,dx\) &ensp;(Let \(x=u+1\).)<br>(iv) \(\displaystyle\int_3^7\frac{1}{x^2-6x+25}\,dx\) &ensp;(Let \(x=u+3\).)</span></div>{{work:120}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Consider the integral \(J=\displaystyle\int\frac{1}{\sqrt{4-x^2}}\,dx\), and let \(x=2\sin\theta\).<br>Show that \(J=\displaystyle\int1\,d\theta\), and hence show that \(J=\sin^{-1}\tfrac{x}{2}+C\).</span><span><span class="pl">b</span>Using a similar approach, find:<br>(i) \(\displaystyle\int\frac{1}{9+x^2}\,dx\) &ensp;(Let \(x=3\tan\theta\).)<br>(ii) \(\displaystyle\int\frac{-1}{\sqrt{3-x^2}}\,dx\) &ensp;(Let \(x=\sqrt3\cos\theta\).)<br>(iii) \(\displaystyle\int\frac{1}{\sqrt{1-4x^2}}\,dx\) &ensp;(Let \(x=\tfrac12\sin\theta\).)<br>(iv) \(\displaystyle\int\frac{1}{1+16x^2}\,dx\) &ensp;(Let \(x=\tfrac14\tan\theta\).)<br>(v) \(\displaystyle\int_0^3\frac{1}{\sqrt{36-x^2}}\,dx\) &ensp;(Let \(x=6\sin\theta\).)<br>(vi) \(\displaystyle\int_0^{\frac23}\frac{1}{4+9x^2}\,dx\) &ensp;(Let \(x=\tfrac23\tan\theta\).)</span></div>{{work:150}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Consider the integral \(I=\displaystyle\int\frac{1}{(1-x^2)^{\frac32}}\,dx\), and let \(x=\sin\theta\).<br>Show that \(I=\displaystyle\int\sec^2\theta\,d\theta\), and hence show that \(I=\dfrac{x}{\sqrt{1-x^2}}+C\).</span><span><span class="pl">b</span>Similarly, use the given substitution to find:<br>(i) \(\displaystyle\int\frac{1}{(4+x^2)^{\frac32}}\,dx\) &ensp;(Let \(x=2\tan\theta\).)<br>(ii) \(\displaystyle\int_0^{\frac12}\frac{x^2}{\sqrt{1-x^2}}\,dx\) &ensp;(Let \(x=\sin\theta\).)<br>(iii) \(\displaystyle\int_0^2\sqrt{4-x^2}\,dx\) &ensp;(Let \(x=2\sin\theta\).)<br>(iv) \(\displaystyle\int\frac{1}{x^2\sqrt{25-x^2}}\,dx\) &ensp;(Let \(x=5\cos\theta\).)<br>(v) \(\displaystyle\int\frac{1}{x^2\sqrt{9+x^2}}\,dx\) &ensp;(Let \(x=3\tan\theta\).)<br>(vi) \(\displaystyle\int_2^4\frac{1}{x^2\sqrt{x^2-4}}\,dx\) &ensp;(Let \(x=2\sec\theta\).)</span></div>{{work:141}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Find the equation of the curve \(y=f(x)\) if \(f'(x)=\dfrac{\sqrt{x^2-9}}{x}\) and \(f(3)=0\).<br>(Hint: Use the substitution \(x=3\sec\theta\).){{work:70}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Find the exact area of the region bounded by \(y=\dfrac{x^3}{\sqrt{3-x^2}}\), the \(x\)-axis and the line \(x=1\).<br>(Hint: Use the substitution \(x=\sqrt3\sin\theta\), followed by the substitution \(u=\cos\theta\).){{work:80}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">[These are confirmations rather than proofs, because the calculus of trigonometric functions was developed on the basis of the formulae in parts <b>a</b> and <b>b</b>.]
+<div class="parts one"><span><span class="pl">a</span>Use integration to confirm that the area of a circle is \(\pi r^2\).<br>(Hint: Find the area bounded by the semi-circle \(y=\sqrt{r^2-x^2}\) and the \(x\)-axis and double it. Use the substitution \(x=r\sin\theta\).)</span><span><span class="pl">b</span><div class="split" style="grid-template-columns:1fr 50mm"><div>The shaded area in the diagram to the right is the segment of a circle of radius \(r\) cut off by the chord \(AB\) subtending an angle \(\alpha\) at the centre \(O\).<br>(i) Show that the area is \(I=2\displaystyle\int_{r\cos\frac12\alpha}^{r}\sqrt{r^2-x^2}\,dx\).<br>(ii) Let \(x=r\cos\theta\), and show that \(I=-2r^2\displaystyle\int_{\frac12\alpha}^{0}\sin^2\theta\,d\theta\).<br>(iii) Hence confirm that \(I=\tfrac12r^2(\alpha-\sin\alpha)\).</div><div class="center">{{svg:c12e_q12}}</div></div></span><span><span class="pl">c</span>Use a similar approach to confirm that the area of the ellipse \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\) is \(\pi ab\). Then justify the formula by regarding the ellipse as the unit circle stretched horizontally by a factor of \(a\) and vertically by a factor of \(b\).</span></div>{{work:121}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">13</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Use the substitution \(x=-u\) to show that \(\displaystyle\int_{-2}^{2}\frac{x^2}{e^x+1}\,dx=\int_{-2}^{2}\frac{x^2e^x}{e^x+1}\,dx\).</span><span><span class="pl">b</span>Hence find \(\displaystyle\int_{-2}^{2}\frac{x^2}{e^x+1}\,dx\).</span></div>{{work:150}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>18 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Girls High School, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q5</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following is equal to \(\displaystyle\int_0^{\sqrt3}\frac{1}{\big(x^2+1\big)^2}\,dx\) after applying the substitution \(x=\tan\theta\)?
+<div class="mc"><span>(A)&ensp;\(\displaystyle\int_0^{\frac{\pi}{3}}\cos^2\theta\,d\theta\)</span><span>(B)&ensp;\(\displaystyle\int_0^{\frac{\pi}{3}}\sec^2\theta\,d\theta\)</span><span>(C)&ensp;\(\displaystyle\int_0^{\frac{\pi}{6}}\cos^2\theta\,d\theta\)</span><span>(D)&ensp;\(\displaystyle\int_0^{\frac{\pi}{6}}\sec^2\theta\,d\theta\)</span></div></div>
+<div class="hint"><b>Hint:</b> what do \(dx\), \(x^2+1\) and the two limits each become?</div>{{work:30}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q4</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the value of \(\displaystyle\int_0^{\frac{\sqrt3}{2}}\sqrt{1-y^2}\,dy\)
+<div class="mc"><span>(A)&ensp;\(\tfrac{\pi}{6}\)</span><span>(B)&ensp;\(\tfrac{\pi}{3}\)</span><span>(C)&ensp;\(\tfrac{\pi}{6}+\tfrac{\sqrt3}{8}\)</span><span>(D)&ensp;\(\tfrac{\pi}{3}+\tfrac{\sqrt3}{8}\)</span></div></div>
+<div class="hint"><b>Hint:</b> which substitution turns \(1-y^2\) into a perfect square?</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">Let \(f(x)=\dfrac{2x}{\sqrt{1-x^2}}\)
+<div class="pp-sub"><span>(i) For what values of \(x\) is \(f(x)\) undefined?</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Find \(\displaystyle\int_0^{\frac12}\frac{2x\,dx}{\sqrt{1-x^2}}\) using the substitution \(x=\sin u\).</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> when can a square root in a denominator not be calculated?</div>{{work:66}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension&nbsp;1 HSC Trial <span style="white-space:nowrap">Examination,&nbsp;Q12(b)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find the following definite integral using the substitution \(x=\cos\theta\).<br>Express your answer in exact value.
+\[\int_{-\frac{1}{\sqrt2}}^{\frac12}\frac{x}{\sqrt{1-x^2}}\,dx\]</div>
+<div class="hint"><b>Hint:</b> which values of \(\theta\) match the two limits?</div>{{work:60}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Caringbah High School, 2020, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(b)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Using the substitution \(x=\cos2\theta\), show \(\displaystyle\int_0^1\sqrt{\frac{1-x}{1+x}}\,dx=\int_0^{\frac{\pi}{4}}4\sin^2\theta\,d\theta\)</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence evaluate in simplest exact form \(\displaystyle\int_0^1\sqrt{\frac{1-x}{1+x}}\,dx\)</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> what do \(1-\cos2\theta\) and \(1+\cos2\theta\) equal?</div>{{work:80}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2020, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(a)</span></span><span class="mk">5 marks</span></div>
+<div class="pp-q">Using the substitution \(x=(u-4)^2+1\), or otherwise, evaluate \(\displaystyle\int_2^5\frac{1}{4+\sqrt{x-1}}\,dx\)</div>
+<div class="hint"><b>Hint:</b> what is \(\sqrt{x-1}\) in terms of \(u\)?</div>{{work:80}}</div>
+</div>

@@ -1,1 +1,142 @@
-<!-- filled by Task: Int3 lesson 12E (a_12e.html) -->
+{{ahead:Lesson 12E | Further integration by substitution}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b>
+<p><b>a</b></p>
+<div class="split" style="grid-template-columns:1fr 52mm"><div>
+\[\begin{aligned}\int x\sqrt{x-2}\,dx&=\int(u^2+2)\,u\times2u\,du\\&=\int(2u^4+4u^2)\,du\\&=\tfrac25u^5+\tfrac43u^3+C\\&=\tfrac25(x-2)^{\frac52}+\tfrac43(x-2)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=u^2+2\).<br>Then \(dx=2u\,du\),<br>and \(\sqrt{x-2}=u\).</p>
+</div></div>
+<p class="small">Here \(x-2=u^2\) and \(u\ge0\), so \(u=\sqrt{x-2}\). Then \(u^5=(x-2)^{\frac52}\) and \(u^3=(x-2)^{\frac32}\).</p>
+<p><b>b</b></p>
+<div class="split" style="grid-template-columns:1fr 52mm"><div>
+\[\begin{aligned}\int_{-3}^{1}x\sqrt{1-x}\,dx&=\int_{2}^{0}(1-u^2)\,u\,(-2u)\,du\\&=-2\int_{2}^{0}(u^2-u^4)\,du\\&=-2\Big[\tfrac13u^3-\tfrac15u^5\Big]_{2}^{0}\\&=-2\Big(0-\big(\tfrac83-\tfrac{32}{5}\big)\Big)\\&=2\big(\tfrac83-\tfrac{32}{5}\big)\\&=2\times\big(-\tfrac{56}{15}\big)\\&=-\tfrac{112}{15}\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=1-u^2\).<br>Then \(dx=-2u\,du\),<br>and \(\sqrt{1-x}=u\).<br>When \(x=-3\), \(u=2\),<br>when \(x=1\), \(u=0\).</p>
+</div></div>
+<p class="small">When \(x=-3\), \(1-u^2=-3\), so \(u^2=4\) and \(u=2\) (taking \(u\ge0\)). The value is negative because \(x\sqrt{1-x}\lt0\) for \(-3\lt x\lt0\), and that part outweighs the part from \(0\) to \(1\).</p>
+
+</div></div>
+<div class="a"><span class="an"></span><div class="ab"><b>Your turn.</b>
+<p><b>a</b></p>
+<div class="split" style="grid-template-columns:1fr 52mm"><div>
+\[\begin{aligned}\int x\sqrt{x+3}\,dx&=\int(u^2-3)\,u\times2u\,du\\&=\int(2u^4-6u^2)\,du\\&=\tfrac25u^5-2u^3+C\\&=\tfrac25(x+3)^{\frac52}-2(x+3)^{\frac32}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=u^2-3\).<br>Then \(dx=2u\,du\),<br>and \(\sqrt{x+3}=u\).</p>
+</div></div>
+<p><b>b</b></p>
+<div class="split" style="grid-template-columns:1fr 52mm"><div>
+\[\begin{aligned}\int_{-3}^{0}x\sqrt{1-x}\,dx&=\int_{2}^{1}(1-u^2)\,u\,(-2u)\,du\\&=-2\int_{2}^{1}(u^2-u^4)\,du\\&=-2\Big[\tfrac13u^3-\tfrac15u^5\Big]_{2}^{1}\\&=-2\Big(\big(\tfrac13-\tfrac15\big)-\big(\tfrac83-\tfrac{32}{5}\big)\Big)\\&=-2\Big(\tfrac{2}{15}+\tfrac{56}{15}\Big)\\&=-2\times\tfrac{58}{15}\\&=-\tfrac{116}{15}\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=1-u^2\).<br>Then \(dx=-2u\,du\),<br>and \(\sqrt{1-x}=u\).<br>When \(x=-3\), \(u=2\),<br>when \(x=0\), \(u=1\).</p>
+</div></div>
+</div></div>
+
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<p><b>a</b></p>
+<p class="subst">Let \(x=4\sin u\). Then \(dx=4\cos u\,du\), and \(\sqrt{16-x^2}=4\cos u\). When \(x=2\sqrt2\), \(u=\tfrac{\pi}{4}\), when \(x=4\), \(u=\tfrac{\pi}{2}\).</p>
+\[\begin{aligned}\int_{2\sqrt2}^{4}\sqrt{16-x^2}\,dx&=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}4\cos u\times4\cos u\,du\\&=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}16\cos^2u\,du\\&=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}16\big(\tfrac12+\tfrac12\cos2u\big)\,du\\&=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}(8+8\cos2u)\,du\\&=\Big[8u+4\sin2u\Big]_{\frac{\pi}{4}}^{\frac{\pi}{2}}\\&=\big(4\pi+4\sin\pi\big)-\big(2\pi+4\sin\tfrac{\pi}{2}\big)\\&=(4\pi+0)-(2\pi+4)\\&=2\pi-4\end{aligned}\]
+<p class="small">Here \(16-x^2=16-16\sin^2u=16\cos^2u\), and \(\cos u\ge0\) for \(\tfrac{\pi}{4}\le u\le\tfrac{\pi}{2}\). When \(x=2\sqrt2\), \(\sin u=\tfrac{2\sqrt2}{4}=\tfrac{1}{\sqrt2}\).</p>
+<div class="split" style="grid-template-columns:1fr 54mm"><div>
+<p><b>b</b> The chord \(x=2\sqrt2\) meets the circle \(x^2+y^2=16\) at the angles \(45^\circ\) and \(-45^\circ\), so it subtends \(90^\circ=\tfrac{\pi}{2}\) at the centre. The region is half of that segment:</p>
+\[\begin{aligned}\int_{2\sqrt2}^{4}\sqrt{16-x^2}\,dx&=\tfrac12\times\tfrac12\times4^2\big(\tfrac{\pi}{2}-\sin\tfrac{\pi}{2}\big)\\&=4\big(\tfrac{\pi}{2}-1\big)\\&=2\pi-4\end{aligned}\]
+</div><div class="center">{{svg:a12e_c2demo}}</div></div>
+
+</div></div>
+<div class="a"><span class="an"></span><div class="ab"><b>Your turn.</b>
+<p><b>a</b></p>
+<p class="subst">Let \(x=6\sin u\). Then \(dx=6\cos u\,du\), and \(\sqrt{36-x^2}=6\cos u\). When \(x=0\), \(u=0\), when \(x=3\), \(u=\tfrac{\pi}{6}\).</p>
+\[\begin{aligned}\int_{0}^{3}\sqrt{36-x^2}\,dx&=\int_{0}^{\frac{\pi}{6}}6\cos u\times6\cos u\,du\\&=\int_{0}^{\frac{\pi}{6}}36\big(\tfrac12+\tfrac12\cos2u\big)\,du\\&=\Big[18u+9\sin2u\Big]_{0}^{\frac{\pi}{6}}\\&=\big(3\pi+9\sin\tfrac{\pi}{3}\big)-\big(0+9\sin0\big)\\&=3\pi+9\times\tfrac{\sqrt3}{2}\\&=3\pi+\tfrac{9\sqrt3}{2}\end{aligned}\]
+<div class="split" style="grid-template-columns:1fr 54mm"><div>
+<p><b>b</b> At \(x=3\), \(y=\sqrt{36-9}=3\sqrt3\), and the radius to \((3,3\sqrt3)\) makes the angle \(\tfrac{\pi}{3}\) with the \(x\)-axis, because \(\cos\tfrac{\pi}{3}=\tfrac36\). The region is the triangle with vertices \(O\), \((3,0)\) and \((3,3\sqrt3)\), together with the sector between that radius and the \(y\)-axis. The angle of the sector is \(\tfrac{\pi}{2}-\tfrac{\pi}{3}=\tfrac{\pi}{6}\). So</p>
+\[\begin{aligned}\int_{0}^{3}\sqrt{36-x^2}\,dx&=\tfrac12\times3\times3\sqrt3+\tfrac12\times6^2\times\tfrac{\pi}{6}\\&=\tfrac{9\sqrt3}{2}+3\pi\end{aligned}\]
+</div><div class="center">{{svg:a12e_c2yt}}</div></div>
+</div></div>
+
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b>
+<p><b>a</b> Take \(-\tfrac{\pi}{2}\lt\theta\lt\tfrac{\pi}{2}\), so \(\sec\theta\gt0\).</p>
+<div class="split" style="grid-template-columns:1fr 62mm"><div>
+\[\begin{aligned}\int\frac{1}{(9+x^2)^{\frac32}}\,dx&=\int\frac{3\sec^2\theta}{27\sec^3\theta}\,d\theta\\&=\tfrac19\int\cos\theta\,d\theta\\&=\tfrac19\sin\theta+C\\&=\frac{x}{9\sqrt{9+x^2}}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=3\tan\theta\).<br>Then \(dx=3\sec^2\theta\,d\theta\),<br>and \((9+x^2)^{\frac32}=27\sec^3\theta\).</p>
+</div></div>
+<p class="small">Here \(9+x^2=9+9\tan^2\theta=9\sec^2\theta\), so \((9+x^2)^{\frac32}=(3\sec\theta)^3=27\sec^3\theta\). To return to \(x\): \(\tan\theta=\tfrac{x}{3}\), so \(\sec\theta=\sqrt{1+\tan^2\theta}=\tfrac{\sqrt{9+x^2}}{3}\) and \(\sin\theta=\tfrac{\tan\theta}{\sec\theta}=\tfrac{x}{\sqrt{9+x^2}}\).</p>
+<p><b>b</b> Take \(0\le\theta\le\pi\), so \(\sin\theta\ge0\).</p>
+<div class="split" style="grid-template-columns:1fr 62mm"><div>
+\[\begin{aligned}\int_{0}^{1}\frac{1}{\sqrt{4-x^2}}\,dx&=\int_{\frac{\pi}{2}}^{\frac{\pi}{3}}\frac{-2\sin\theta}{2\sin\theta}\,d\theta\\&=\int_{\frac{\pi}{2}}^{\frac{\pi}{3}}(-1)\,d\theta\\&=\Big[-\theta\Big]_{\frac{\pi}{2}}^{\frac{\pi}{3}}\\&=-\tfrac{\pi}{3}+\tfrac{\pi}{2}\\&=\tfrac{\pi}{6}\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=2\cos\theta\).<br>Then \(dx=-2\sin\theta\,d\theta\),<br>and \(\sqrt{4-x^2}=2\sin\theta\).<br>When \(x=0\), \(\theta=\tfrac{\pi}{2}\),<br>when \(x=1\), \(\theta=\tfrac{\pi}{3}\).</p>
+</div></div>
+<p class="small">Here \(4-x^2=4-4\cos^2\theta=4\sin^2\theta\). When \(x=1\), \(\cos\theta=\tfrac12\). The answer agrees with \(\sin^{-1}\tfrac12-\sin^{-1}0=\tfrac{\pi}{6}\) from Lesson 12B.</p>
+
+</div></div>
+<div class="a"><span class="an"></span><div class="ab"><b>Your turn.</b>
+<p><b>a</b> Take \(-\tfrac{\pi}{2}\le\theta\le\tfrac{\pi}{2}\), so \(\cos\theta\ge0\).</p>
+<div class="split" style="grid-template-columns:1fr 62mm"><div>
+\[\begin{aligned}\int\frac{1}{(4-x^2)^{\frac32}}\,dx&=\int\frac{2\cos\theta}{8\cos^3\theta}\,d\theta\\&=\tfrac14\int\sec^2\theta\,d\theta\\&=\tfrac14\tan\theta+C\\&=\frac{x}{4\sqrt{4-x^2}}+C\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=2\sin\theta\).<br>Then \(dx=2\cos\theta\,d\theta\),<br>and \((4-x^2)^{\frac32}=8\cos^3\theta\).</p>
+</div></div>
+<p class="small">Here \(4-x^2=4\cos^2\theta\). To return to \(x\): \(\sin\theta=\tfrac{x}{2}\) and \(\cos\theta=\tfrac{\sqrt{4-x^2}}{2}\), so \(\tan\theta=\tfrac{x}{\sqrt{4-x^2}}\).</p>
+<p><b>b</b></p>
+<div class="split" style="grid-template-columns:1fr 62mm"><div>
+\[\begin{aligned}\int_{0}^{\sqrt3}\frac{1}{\sqrt{4-x^2}}\,dx&=\int_{\frac{\pi}{2}}^{\frac{\pi}{6}}\frac{-2\sin\theta}{2\sin\theta}\,d\theta\\&=\Big[-\theta\Big]_{\frac{\pi}{2}}^{\frac{\pi}{6}}\\&=-\tfrac{\pi}{6}+\tfrac{\pi}{2}\\&=\tfrac{\pi}{3}\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=2\cos\theta\).<br>Then \(dx=-2\sin\theta\,d\theta\),<br>and \(\sqrt{4-x^2}=2\sin\theta\).<br>When \(x=0\), \(\theta=\tfrac{\pi}{2}\),<br>when \(x=\sqrt3\), \(\theta=\tfrac{\pi}{6}\).</p>
+</div></div>
+</div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><b>c</b> \(\tfrac17(x-1)^7+\tfrac16(x-1)^6+C\)</div></div>
+<div class="a"><span class="an">2</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac23(x-1)^{\frac32}+2(x-1)^{\frac12}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\log_e|x-1|-\dfrac{1}{x-1}+C\)</span></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><b>c</b> \(\tfrac25(x+1)^{\frac52}-\tfrac23(x+1)^{\frac32}+C\)</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><b>a</b> \(\tfrac27(x+1)^{\frac72}-\tfrac45(x+1)^{\frac52}+\tfrac23(x+1)^{\frac32}+C\)<br><b>b</b> \(\tfrac43(x+1)^{\frac32}+2(x+1)^{\frac12}+C\)</div></div>
+<div class="a"><span class="an">5</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \((x+2)-4\log_e|x+2|+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(\tfrac13(2x-1)^{\frac32}+2(2x-1)^{\frac12}+C\)</span><br><span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tfrac{3}{40}(4x-5)^{\frac52}+\tfrac58(4x-5)^{\frac32}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(2(1+\sqrt x)-2\log_e(1+\sqrt x)+C\)</span></div></div>
+<div class="a"><span class="an">6</span><div class="ab"><span style="white-space:nowrap;margin-right:3.5mm"><b>a</b> \(\tfrac{49}{20}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>b</b> \(2\log_e2-\tfrac12\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>c</b> \(\tfrac89\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>d</b> \(\tfrac19\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>e</b> \(\tfrac{128}{15}\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>f</b> \(\tfrac43\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>g</b> \(4-6\log_e\tfrac53\)</span> <span style="white-space:nowrap;margin-right:3.5mm"><b>h</b> \(\tfrac{2517}{40}\)</span></div></div>
+<div class="a"><span class="an">7</span><div class="ab"><b>a</b> \(\sin^{-1}\dfrac{x+2}{3}+C\)<br><b>b</b> <span style="white-space:nowrap;margin-right:3.5mm">(i) \(\dfrac{1}{\sqrt3}\tan^{-1}\dfrac{x+1}{\sqrt3}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(ii) \(\sin^{-1}\dfrac{x+1}{\sqrt5}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(iii) \(\tfrac{\pi}{6}\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(iv) \(\tfrac{\pi}{16}\)</span></div></div>
+<div class="a"><span class="an">8</span><div class="ab"><b>b</b> <span style="white-space:nowrap;margin-right:3.5mm">(i) \(\tfrac13\tan^{-1}\tfrac{x}{3}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(ii) \(\cos^{-1}\dfrac{x}{\sqrt3}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(iii) \(\tfrac12\sin^{-1}2x+C\)</span><br><span style="white-space:nowrap;margin-right:3.5mm">(iv) \(\tfrac14\tan^{-1}4x+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(v) \(\tfrac{\pi}{6}\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(vi) \(\tfrac{\pi}{24}\)</span></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><b>b</b> <span style="white-space:nowrap;margin-right:3.5mm">(i) \(\dfrac{x}{4\sqrt{4+x^2}}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(ii) \(\tfrac{\pi}{12}-\tfrac{\sqrt3}{8}\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(iii) \(\pi\)</span><br><span style="white-space:nowrap;margin-right:3.5mm">(iv) \(-\dfrac{\sqrt{25-x^2}}{25x}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(v) \(-\dfrac{\sqrt{9+x^2}}{9x}+C\)</span> <span style="white-space:nowrap;margin-right:3.5mm">(vi) \(\tfrac{\sqrt3}{8}\)</span></div></div>
+<div class="a"><span class="an">10</span><div class="ab">\(y=\sqrt{x^2-9}-3\tan^{-1}\dfrac{\sqrt{x^2-9}}{3}\)</div></div>
+<div class="a"><span class="an">11</span><div class="ab">\(\tfrac13\big(6\sqrt3-7\sqrt2\big)\) units\(^2\)</div></div>
+<div class="a"><span class="an">13</span><div class="ab"><b>b</b> \(\tfrac83\)</div></div>
+
+{{ahead:Lesson 12E | Further integration by substitution}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Girls High School, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q5</span></span></div>
+<div class="split" style="grid-template-columns:1fr 52mm"><div>
+\[\begin{aligned}\int_0^{\sqrt3}\frac{1}{\big(x^2+1\big)^2}\,dx&=\int_0^{\frac{\pi}{3}}\frac{\sec^2\theta}{\big(\sec^2\theta\big)^2}\,d\theta\\&=\int_0^{\frac{\pi}{3}}\frac{1}{\sec^2\theta}\,d\theta\\&=\int_0^{\frac{\pi}{3}}\cos^2\theta\,d\theta\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=\tan\theta\).<br>Then \(dx=\sec^2\theta\,d\theta\),<br>and \(x^2+1=\sec^2\theta\).<br>When \(x=0\), \(\theta=0\),<br>when \(x=\sqrt3\), \(\theta=\tfrac{\pi}{3}\).</p>
+</div></div>
+<p><b>Answer (A).</b> Here \(x^2+1=\tan^2\theta+1=\sec^2\theta\), and \(\tan\theta=\sqrt3\) gives \(\theta=\tfrac{\pi}{3}\). Option (B) forgets to square \(x^2+1\). Options (C) and (D) use the upper limit \(\tfrac{\pi}{6}\), which belongs to \(x=\tfrac{1}{\sqrt3}\), not to \(x=\sqrt3\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q4</span></span></div>
+<p>Let \(y=\sin\theta\), with \(0\le\theta\le\tfrac{\pi}{2}\). Then \(dy=\cos\theta\,d\theta\) and \(\sqrt{1-y^2}=\sqrt{1-\sin^2\theta}=\cos\theta\). When \(y=0\), \(\theta=0\), and when \(y=\tfrac{\sqrt3}{2}\), \(\theta=\tfrac{\pi}{3}\). So</p>
+\[\begin{aligned}\int_0^{\frac{\sqrt3}{2}}\sqrt{1-y^2}\,dy&=\int_0^{\frac{\pi}{3}}\cos\theta\times\cos\theta\,d\theta\\&=\int_0^{\frac{\pi}{3}}\big(\tfrac12+\tfrac12\cos2\theta\big)\,d\theta\\&=\Big[\tfrac12\theta+\tfrac14\sin2\theta\Big]_0^{\frac{\pi}{3}}\\&=\big(\tfrac{\pi}{6}+\tfrac14\sin\tfrac{2\pi}{3}\big)-\big(0+\tfrac14\sin0\big)\\&=\tfrac{\pi}{6}+\tfrac14\times\tfrac{\sqrt3}{2}\\&=\tfrac{\pi}{6}+\tfrac{\sqrt3}{8}\end{aligned}\]
+<p><b>Answer (C).</b> As a check, the integral is the area between the \(y\)-axis and the quarter circle \(x=\sqrt{1-y^2}\), from \(y=0\) to \(y=\tfrac{\sqrt3}{2}\). It is a sector of angle \(\tfrac{\pi}{3}\) between the \(x\)-axis and the radius to \(\big(\tfrac12,\tfrac{\sqrt3}{2}\big)\) (area \(\tfrac12\times1^2\times\tfrac{\pi}{3}=\tfrac{\pi}{6}\)) plus the right-angled triangle with vertices \(O\), \(\big(0,\tfrac{\sqrt3}{2}\big)\) and \(\big(\tfrac12,\tfrac{\sqrt3}{2}\big)\) (area \(\tfrac12\times\tfrac12\times\tfrac{\sqrt3}{2}=\tfrac{\sqrt3}{8}\)). Option (A) leaves out the triangle. Options (B) and (D) use \(\tfrac{\pi}{3}\), the angle itself, where the primitive \(\tfrac12\theta\) gives \(\tfrac{\pi}{6}\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 3</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(d)</span></span></div>
+<p><b>(i)</b> The square root needs \(1-x^2\ge0\), and the denominator must not be zero, so \(f(x)\) is defined only when \(1-x^2\gt0\). It is undefined when \(1-x^2\le0\), that is, \(x^2\ge1\), so \(x\le-1\) or \(x\ge1\).</p>
+<p><b>(ii)</b></p>
+<div class="split" style="grid-template-columns:1fr 50mm"><div>
+\[\begin{aligned}\int_0^{\frac12}\frac{2x}{\sqrt{1-x^2}}\,dx&=\int_0^{\frac{\pi}{6}}\frac{2\sin u\cos u}{\cos u}\,du\\&=2\int_0^{\frac{\pi}{6}}\sin u\,du\\&=2\Big[-\cos u\Big]_0^{\frac{\pi}{6}}\\&=2\big(-\cos\tfrac{\pi}{6}+\cos0\big)\\&=2\big(-\tfrac{\sqrt3}{2}+1\big)\\&=2-\sqrt3\end{aligned}\]
+</div><div style="border-left:1px solid var(--line);padding-left:3mm">
+<p style="line-height:2.3">Let \(x=\sin u\).<br>Then \(dx=\cos u\,du\),<br>and \(\sqrt{1-x^2}=\cos u\).<br>When \(x=0\), \(u=0\),<br>when \(x=\tfrac12\), \(u=\tfrac{\pi}{6}\).</p>
+</div></div>
+<p class="small">Here \(1-x^2=1-\sin^2u=\cos^2u\), and \(\cos u\gt0\) for \(0\le u\le\tfrac{\pi}{6}\).</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 4</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension&nbsp;1 HSC Trial <span style="white-space:nowrap">Examination,&nbsp;Q12(b)</span></span></div>
+<p>Take \(0\le\theta\le\pi\), so that \(\sin\theta\ge0\) and \(\sqrt{1-\cos^2\theta}=\sqrt{\sin^2\theta}=\sin\theta\). For the limits, \(\theta=\cos^{-1}\big(-\tfrac{1}{\sqrt2}\big)=\tfrac{3\pi}{4}\) and \(\theta=\cos^{-1}\tfrac12=\tfrac{\pi}{3}\).</p>
+<p class="subst">Let \(x=\cos\theta\). Then \(dx=-\sin\theta\,d\theta\), and \(\sqrt{1-x^2}=\sin\theta\). When \(x=-\tfrac{1}{\sqrt2}\), \(\theta=\tfrac{3\pi}{4}\), when \(x=\tfrac12\), \(\theta=\tfrac{\pi}{3}\).</p>
+\[\begin{aligned}\int_{-\frac{1}{\sqrt2}}^{\frac12}\frac{x}{\sqrt{1-x^2}}\,dx&=\int_{\frac{3\pi}{4}}^{\frac{\pi}{3}}\frac{\cos\theta}{\sin\theta}\times(-\sin\theta)\,d\theta\\&=-\int_{\frac{3\pi}{4}}^{\frac{\pi}{3}}\cos\theta\,d\theta\\&=\int_{\frac{\pi}{3}}^{\frac{3\pi}{4}}\cos\theta\,d\theta\\&=\Big[\sin\theta\Big]_{\frac{\pi}{3}}^{\frac{3\pi}{4}}\\&=\sin\tfrac{3\pi}{4}-\sin\tfrac{\pi}{3}\\&=\tfrac{1}{\sqrt2}-\tfrac{\sqrt3}{2}\\&=\tfrac{\sqrt2-\sqrt3}{2}\end{aligned}\]
+<p class="small">Reversing the limits changes the sign of the integral. The answer is negative because the integrand is negative for \(x\lt0\), and that part outweighs the positive part.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 5</span>Caringbah High School, 2020, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(b)</span></span></div>
+<p><b>(i)</b> Let \(x=\cos2\theta\), with \(0\le\theta\le\tfrac{\pi}{4}\). Then \(dx=-2\sin2\theta\,d\theta\). When \(x=0\), \(\cos2\theta=0\), so \(2\theta=\tfrac{\pi}{2}\) and \(\theta=\tfrac{\pi}{4}\); when \(x=1\), \(\cos2\theta=1\), so \(\theta=0\). Using \(1-\cos2\theta=2\sin^2\theta\) and \(1+\cos2\theta=2\cos^2\theta\),</p>
+\[\sqrt{\frac{1-x}{1+x}}=\sqrt{\frac{2\sin^2\theta}{2\cos^2\theta}}=\frac{\sin\theta}{\cos\theta},\]
+<p>because \(\sin\theta\ge0\) and \(\cos\theta\gt0\) for \(0\le\theta\le\tfrac{\pi}{4}\). So</p>
+\[\begin{aligned}\int_0^1\sqrt{\frac{1-x}{1+x}}\,dx&=\int_{\frac{\pi}{4}}^{0}\frac{\sin\theta}{\cos\theta}\times(-2\sin2\theta)\,d\theta\\&=\int_0^{\frac{\pi}{4}}\frac{\sin\theta}{\cos\theta}\times2\sin2\theta\,d\theta\\&=\int_0^{\frac{\pi}{4}}\frac{\sin\theta}{\cos\theta}\times4\sin\theta\cos\theta\,d\theta\\&=\int_0^{\frac{\pi}{4}}4\sin^2\theta\,d\theta\end{aligned}\]
+<p class="small">The second line reverses the limits and removes the minus sign. The third uses \(\sin2\theta=2\sin\theta\cos\theta\).</p>
+<p><b>(ii)</b> By part (i), using \(\sin^2\theta=\tfrac12-\tfrac12\cos2\theta\),</p>
+\[\begin{aligned}\int_0^1\sqrt{\frac{1-x}{1+x}}\,dx&=\int_0^{\frac{\pi}{4}}4\sin^2\theta\,d\theta\\&=\int_0^{\frac{\pi}{4}}\big(2-2\cos2\theta\big)\,d\theta\\&=\Big[2\theta-\sin2\theta\Big]_0^{\frac{\pi}{4}}\\&=\big(\tfrac{\pi}{2}-\sin\tfrac{\pi}{2}\big)-\big(0-\sin0\big)\\&=\tfrac{\pi}{2}-1\end{aligned}\]</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 6</span>Abbotsleigh, 2020, Higher School Certificate Assessment 4 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(a)</span></span></div>
+<p>Take \(u\ge4\). Then \(x-1=(u-4)^2\), so \(\sqrt{x-1}=u-4\) (the positive square root) and \(4+\sqrt{x-1}=u\). For the limits: when \(x=2\), \((u-4)^2=1\), so \(u-4=1\) and \(u=5\); when \(x=5\), \((u-4)^2=4\), so \(u-4=2\) and \(u=6\).</p>
+<p class="subst">Let \(x=(u-4)^2+1\). Then \(dx=2(u-4)\,du\), and \(4+\sqrt{x-1}=u\). When \(x=2\), \(u=5\), when \(x=5\), \(u=6\).</p>
+\[\begin{aligned}\int_2^5\frac{1}{4+\sqrt{x-1}}\,dx&=\int_5^6\frac{2(u-4)}{u}\,du\\&=2\int_5^6\Big(1-\frac{4}{u}\Big)\,du\\&=2\Big[u-4\log_eu\Big]_5^6\\&=2\big((6-4\log_e6)-(5-4\log_e5)\big)\\&=2\big(1-4\log_e6+4\log_e5\big)\\&=2-8\log_e\tfrac65\end{aligned}\]
+<p class="small">The last line uses \(\log_e6-\log_e5=\log_e\tfrac65\). The value is about \(0.541\).</p></div>
