@@ -1,1 +1,228 @@
-<!-- filled by Task Int1 lesson 5I -->
+<style>.rc5i{display:flex;flex-wrap:wrap;column-gap:5mm;row-gap:1mm;margin:1mm 0 2mm 0;align-items:flex-start}.rc5i>.rs{border-left:1.4px solid var(--line-strong);padding-left:3mm}.a5i-il>span{display:inline-block;max-width:calc(100% - 7mm);margin:0.6mm 7mm 0.6mm 0;vertical-align:top}.a5i-s{color:var(--ink-soft)}</style>
+{{ahead:Lesson 5I | The reverse chain rule}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><div style="break-inside:avoid"><b>Tutor demo.</b>
+<div class="rc5i"><div data-c="d1a"><b>a</b> \(\begin{aligned}[t]\text{Let }y&amp;=(x^4-3)^5.\\\text{Then }\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}\\&amp;=5(x^4-3)^4\times4x^3\\&amp;=20x^3(x^4-3)^4.\end{aligned}\)</div>
+<div class="rs" data-s="d1a">\(\begin{aligned}[t]\text{Let }u&amp;=x^4-3.\\\text{Then }y&amp;=u^5.\\\text{Hence }\frac{du}{dx}&amp;=4x^3\\\text{and }\frac{dy}{du}&amp;=5u^4.\end{aligned}\)</div></div>
+<div data-c="d1b"><b>b</b> By part <b>a</b>, \(\dfrac{d}{dx}(x^4-3)^5=20x^3(x^4-3)^4\). Reversing this, \(\displaystyle\int 20x^3(x^4-3)^4\,dx=(x^4-3)^5\), so \((x^4-3)^5\) is a primitive.</div>
+<div data-c="d1c"><b>c</b> \(x^3(x^4-3)^4\) is \(20x^3(x^4-3)^4\) divided by 20. Dividing by 20, \(\displaystyle\int x^3(x^4-3)^4\,dx=\tfrac{1}{20}(x^4-3)^5+C\).</div></div>
+<div style="break-inside:avoid"><b>Your turn.</b>
+<div class="rc5i"><div data-c="y1a"><b>a</b> \(\begin{aligned}[t]\text{Let }y&amp;=(x^2+7)^3.\\\text{Then }\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}\\&amp;=3(x^2+7)^2\times2x\\&amp;=6x(x^2+7)^2.\end{aligned}\)</div>
+<div class="rs" data-s="y1a">\(\begin{aligned}[t]\text{Let }u&amp;=x^2+7.\\\text{Then }y&amp;=u^3.\\\text{Hence }\frac{du}{dx}&amp;=2x\\\text{and }\frac{dy}{du}&amp;=3u^2.\end{aligned}\)</div></div>
+<div data-c="y1b"><b>b</b> By part <b>a</b>, \(\dfrac{d}{dx}(x^2+7)^3=6x(x^2+7)^2\). Reversing this, \(\displaystyle\int 6x(x^2+7)^2\,dx=(x^2+7)^3\), so \((x^2+7)^3\) is a primitive.</div>
+<div data-c="y1c"><b>c</b> \(x(x^2+7)^2\) is \(6x(x^2+7)^2\) divided by 6. Dividing by 6, \(\displaystyle\int x(x^2+7)^2\,dx=\tfrac16(x^2+7)^3+C\).</div></div></div></div>
+<div class="a"><span class="an">C2</span><div class="ab"><div style="break-inside:avoid"><b>Tutor demo.</b>
+<div class="rc5i"><div data-c="d2a"><b>a</b> \(\begin{aligned}[t]\text{Let }y&amp;=\frac{1}{4+x^3}.\\\text{Then }\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}\\&amp;=-(4+x^3)^{-2}\times3x^2\\&amp;=\frac{-3x^2}{(4+x^3)^2}.\end{aligned}\)</div>
+<div class="rs" data-s="d2a">\(\begin{aligned}[t]\text{Let }u&amp;=4+x^3.\\\text{Then }y&amp;=u^{-1}.\\\text{Hence }\frac{du}{dx}&amp;=3x^2\\\text{and }\frac{dy}{du}&amp;=-u^{-2}.\end{aligned}\)</div></div>
+<div data-c="d2b"><b>b</b> By part <b>a</b>, \(\dfrac{d}{dx}\Big(\dfrac{1}{4+x^3}\Big)=\dfrac{-3x^2}{(4+x^3)^2}\). Reversing this, \(\displaystyle\int\frac{-3x^2}{(4+x^3)^2}\,dx=\frac{1}{4+x^3}+C\).<br>
+Dividing by \(-3\), \(\displaystyle\int\frac{x^2}{(4+x^3)^2}\,dx=\frac{-1}{3(4+x^3)}+C\).</div></div>
+<div style="break-inside:avoid"><b>Your turn.</b>
+<div class="rc5i"><div data-c="y2a"><b>a</b> \(\begin{aligned}[t]\text{Let }y&amp;=\frac{1}{9+x^2}.\\\text{Then }\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}\\&amp;=-(9+x^2)^{-2}\times2x\\&amp;=\frac{-2x}{(9+x^2)^2}.\end{aligned}\)</div>
+<div class="rs" data-s="y2a">\(\begin{aligned}[t]\text{Let }u&amp;=9+x^2.\\\text{Then }y&amp;=u^{-1}.\\\text{Hence }\frac{du}{dx}&amp;=2x\\\text{and }\frac{dy}{du}&amp;=-u^{-2}.\end{aligned}\)</div></div>
+<div data-c="y2b"><b>b</b> By part <b>a</b>, \(\dfrac{d}{dx}\Big(\dfrac{1}{9+x^2}\Big)=\dfrac{-2x}{(9+x^2)^2}\). Reversing this, \(\displaystyle\int\frac{-2x}{(9+x^2)^2}\,dx=\frac{1}{9+x^2}+C\).<br>
+Dividing by \(-2\), \(\displaystyle\int\frac{x}{(9+x^2)^2}\,dx=\frac{-1}{2(9+x^2)}+C\).</div></div></div></div>
+<div class="a"><span class="an">C3</span><div class="ab"><div style="break-inside:avoid"><b>Tutor demo.</b> The derivative of \(x^4+2\) is \(4x^3\), and \(x^3=\tfrac14\times4x^3\).
+<div class="rc5i"><div data-c="d3">\(\begin{aligned}[t]\int x^3(x^4+2)^5\,dx&amp;=\tfrac14\int 4x^3(x^4+2)^5\,dx\\&amp;=\tfrac14\times\tfrac16(x^4+2)^6+C\\&amp;=\tfrac{1}{24}(x^4+2)^6+C\end{aligned}\)</div>
+<div class="rs" data-s="d3">\(\begin{aligned}[t]\text{Let }u&amp;=x^4+2.\\\text{Then }\frac{du}{dx}&amp;=4x^3.\end{aligned}\)<br>\(\begin{aligned}[t]&amp;\text{Here }\int u^5\frac{du}{dx}\,dx\\&amp;\quad=\tfrac16u^6.\end{aligned}\)</div></div></div>
+<div style="break-inside:avoid"><b>Your turn.</b> The derivative of \(x^2-3\) is \(2x\), and \(x=\tfrac12\times2x\).
+<div class="rc5i"><div data-c="y3">\(\begin{aligned}[t]\int x(x^2-3)^4\,dx&amp;=\tfrac12\int 2x(x^2-3)^4\,dx\\&amp;=\tfrac12\times\tfrac15(x^2-3)^5+C\\&amp;=\tfrac{1}{10}(x^2-3)^5+C\end{aligned}\)</div>
+<div class="rs" data-s="y3">\(\begin{aligned}[t]\text{Let }u&amp;=x^2-3.\\\text{Then }\frac{du}{dx}&amp;=2x.\end{aligned}\)<br>\(\begin{aligned}[t]&amp;\text{Here }\int u^4\frac{du}{dx}\,dx\\&amp;\quad=\tfrac15u^5.\end{aligned}\)</div></div></div></div></div>
+<div class="a"><span class="an">C4</span><div class="ab"><div style="break-inside:avoid"><b>Tutor demo.</b>
+<div class="rc5i"><div data-c="d4a"><b>a</b> \(\begin{aligned}[t]\int x\sqrt{9-x^2}\,dx&amp;=-\tfrac12\int(-2x)\times(9-x^2)^{\frac12}\,dx\\&amp;=-\tfrac12\times\tfrac23(9-x^2)^{\frac32}+C\\&amp;=-\tfrac13(9-x^2)^{\frac32}+C\end{aligned}\)</div>
+<div class="rs" data-s="d4a">\(\begin{aligned}[t]\text{Let }u&amp;=9-x^2.\\\text{Then }\frac{du}{dx}&amp;=-2x.\end{aligned}\)<br>\(\begin{aligned}[t]&amp;\text{Here }\int u^{\frac12}\frac{du}{dx}\,dx\\&amp;\quad=\tfrac23u^{\frac32}.\end{aligned}\)</div></div>
+<div data-c="d4b"><b>b</b> Using the primitive from part <b>a</b>, and \(9^{\frac32}=\big(\sqrt9\big)^3=3^3=27\),
+\[\begin{aligned}\int_0^3x\sqrt{9-x^2}\,dx&amp;=-\tfrac13\Big[(9-x^2)^{\frac32}\Big]_0^3\\&amp;=-\tfrac13\Big((9-9)^{\frac32}-(9-0)^{\frac32}\Big)\\&amp;=-\tfrac13(0-27)\\&amp;=9\end{aligned}\]</div>
+<p data-c="d4c"><b>c</b> The definite integral is meaningless because \(\sqrt{9-x^2}\) is undefined for \(x&gt;3\), and the interval \(0\le x\le4\) includes the values \(3&lt;x\le4\).</p></div>
+<div style="break-inside:avoid"><b>Your turn.</b>
+<div class="rc5i"><div data-c="y4a"><b>a</b> \(\begin{aligned}[t]\int x\sqrt{4-x^2}\,dx&amp;=-\tfrac12\int(-2x)\times(4-x^2)^{\frac12}\,dx\\&amp;=-\tfrac12\times\tfrac23(4-x^2)^{\frac32}+C\\&amp;=-\tfrac13(4-x^2)^{\frac32}+C\end{aligned}\)</div>
+<div class="rs" data-s="y4a">\(\begin{aligned}[t]\text{Let }u&amp;=4-x^2.\\\text{Then }\frac{du}{dx}&amp;=-2x.\end{aligned}\)<br>\(\begin{aligned}[t]&amp;\text{Here }\int u^{\frac12}\frac{du}{dx}\,dx\\&amp;\quad=\tfrac23u^{\frac32}.\end{aligned}\)</div></div>
+<div data-c="y4b"><b>b</b> Using the primitive from part <b>a</b>, and \(4^{\frac32}=\big(\sqrt4\big)^3=2^3=8\),
+\[\begin{aligned}\int_0^2x\sqrt{4-x^2}\,dx&amp;=-\tfrac13\Big[(4-x^2)^{\frac32}\Big]_0^2\\&amp;=-\tfrac13\Big((4-4)^{\frac32}-(4-0)^{\frac32}\Big)\\&amp;=-\tfrac13(0-8)\\&amp;=\tfrac83\end{aligned}\]</div>
+<p data-c="y4c"><b>c</b> The definite integral is meaningless because \(\sqrt{4-x^2}\) is undefined for \(x&gt;2\), and the interval \(0\le x\le3\) includes the values \(2&lt;x\le3\).</p></div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<p class="small">\(C\) is a constant. In each part <b>b</b>, the integrand is compared with the derivative in part <b>a</b>.</p>
+<div class="a"><span class="an">1</span><div class="ab"><div class="a5i-il">
+<span data-c="1a"><b>a</b> \(\dfrac{d}{dx}(2x+3)^4=4(2x+3)^3\times2=8(2x+3)^3\)</span>
+<span data-c="1bi"><b>b i</b> \(\displaystyle\int 8(2x+3)^3\,dx=(2x+3)^4+C\)</span>
+<span data-c="1bii"><b>ii</b> \(16(2x+3)^3=2\times8(2x+3)^3\), so \(\displaystyle\int 16(2x+3)^3\,dx=2(2x+3)^4+C\).</span></div></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><div class="a5i-il">
+<span data-c="2a"><b>a</b> \(\dfrac{d}{dx}(3x-5)^3=3(3x-5)^2\times3=9(3x-5)^2\)</span>
+<span data-c="2bi"><b>b i</b> \(\displaystyle\int 9(3x-5)^2\,dx=(3x-5)^3+C\)</span>
+<span data-c="2bii"><b>ii</b> \(27(3x-5)^2=3\times9(3x-5)^2\), so \(\displaystyle\int 27(3x-5)^2\,dx=3(3x-5)^3+C\).</span></div></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><div class="a5i-il">
+<span data-c="3a"><b>a</b> \(\dfrac{d}{dx}(1+4x)^5=5(1+4x)^4\times4=20(1+4x)^4\)</span>
+<span data-c="3bi"><b>b i</b> \(\displaystyle\int 20(1+4x)^4\,dx=(1+4x)^5+C\)</span>
+<span data-c="3bii"><b>ii</b> \(10(1+4x)^4=\tfrac12\times20(1+4x)^4\), so \(\displaystyle\int 10(1+4x)^4\,dx=\tfrac12(1+4x)^5+C\).</span></div></div></div>
+<div class="a"><span class="an">4</span><div class="ab"><div class="a5i-il">
+<span data-c="4a"><b>a</b> \(\dfrac{d}{dx}(1-2x)^4=4(1-2x)^3\times(-2)=-8(1-2x)^3\)</span>
+<span data-c="4bi"><b>b i</b> \(\displaystyle\int -8(1-2x)^3\,dx=(1-2x)^4+C\)</span>
+<span data-c="4bii"><b>ii</b> \(-2(1-2x)^3=\tfrac14\times\big(-8(1-2x)^3\big)\), so \(\displaystyle\int -2(1-2x)^3\,dx=\tfrac14(1-2x)^4+C\).</span></div></div></div>
+<div class="a"><span class="an">5</span><div class="ab"><div class="a5i-il">
+<span data-c="5a"><b>a</b> \(\dfrac{d}{dx}(4x+3)^{-1}=-(4x+3)^{-2}\times4=-4(4x+3)^{-2}\)</span>
+<span data-c="5bi"><b>b i</b> \(\displaystyle\int -4(4x+3)^{-2}\,dx=(4x+3)^{-1}+C\)</span>
+<span data-c="5bii"><b>ii</b> \((4x+3)^{-2}=-\tfrac14\times\big(-4(4x+3)^{-2}\big)\), so \(\displaystyle\int(4x+3)^{-2}\,dx=-\tfrac14(4x+3)^{-1}+C\).</span></div></div></div>
+<div class="a"><span class="an">6</span><div class="ab"><div class="a5i-il">
+<span data-c="6a"><b>a</b> \(\dfrac{d}{dx}(2x-5)^{\frac12}=\tfrac12(2x-5)^{-\frac12}\times2=(2x-5)^{-\frac12}\)</span>
+<span data-c="6bi"><b>b i</b> \(\displaystyle\int(2x-5)^{-\frac12}\,dx=(2x-5)^{\frac12}+C\)</span>
+<span data-c="6bii"><b>ii</b> \(\displaystyle\int\tfrac13(2x-5)^{-\frac12}\,dx=\tfrac13(2x-5)^{\frac12}+C\)</span></div></div></div>
+<div class="a"><span class="an">7</span><div class="ab"><div class="a5i-il">
+<span data-c="7a"><b>a</b> \(\dfrac{d}{dx}(x^2+3)^4=4(x^2+3)^3\times2x=8x(x^2+3)^3\)</span>
+<span data-c="7bi"><b>b i</b> \(\displaystyle\int 8x(x^2+3)^3\,dx=(x^2+3)^4+C\)</span>
+<span data-c="7bii"><b>ii</b> \(40x(x^2+3)^3=5\times8x(x^2+3)^3\), so \(\displaystyle\int 40x(x^2+3)^3\,dx=5(x^2+3)^4+C\).</span></div></div></div>
+<div class="a"><span class="an">8</span><div class="ab"><div class="a5i-il">
+<span data-c="8a"><b>a</b> \(\dfrac{d}{dx}(x^3-1)^5=5(x^3-1)^4\times3x^2=15x^2(x^3-1)^4\)</span>
+<span data-c="8bi"><b>b i</b> \(\displaystyle\int 15x^2(x^3-1)^4\,dx=(x^3-1)^5+C\)</span>
+<span data-c="8bii"><b>ii</b> \(3x^2(x^3-1)^4=\tfrac15\times15x^2(x^3-1)^4\), so \(\displaystyle\int 3x^2(x^3-1)^4\,dx=\tfrac15(x^3-1)^5+C\).</span></div></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><div class="a5i-il">
+<span data-c="9a"><b>a</b> \(\dfrac{d}{dx}\sqrt{2x^2+3}=\dfrac{d}{dx}(2x^2+3)^{\frac12}=\tfrac12(2x^2+3)^{-\frac12}\times4x=\dfrac{2x}{\sqrt{2x^2+3}}\)</span>
+<span data-c="9bi"><b>b i</b> \(\displaystyle\int\frac{2x}{\sqrt{2x^2+3}}\,dx=\sqrt{2x^2+3}+C\)</span>
+<span data-c="9bii"><b>ii</b> \(\dfrac{x}{\sqrt{2x^2+3}}=\tfrac12\times\dfrac{2x}{\sqrt{2x^2+3}}\), so \(\displaystyle\int\frac{x}{\sqrt{2x^2+3}}\,dx=\tfrac12\sqrt{2x^2+3}+C\).</span></div></div></div>
+<div class="a"><span class="an">10</span><div class="ab"><div class="a5i-il">
+<span data-c="10a"><b>a</b> \(\dfrac{d}{dx}\sqrt x=\dfrac{d}{dx}x^{\frac12}=\tfrac12x^{-\frac12}=\dfrac{1}{2\sqrt x}\), so \(\dfrac{d}{dx}\big(\sqrt x+1\big)^3=3\big(\sqrt x+1\big)^2\times\dfrac{1}{2\sqrt x}=\dfrac{3\big(\sqrt x+1\big)^2}{2\sqrt x}\)</span>
+<span data-c="10bi"><b>b i</b> \(\displaystyle\int\frac{3\big(\sqrt x+1\big)^2}{2\sqrt x}\,dx=\big(\sqrt x+1\big)^3+C\)</span>
+<span data-c="10bii"><b>ii</b> \(\dfrac{\big(\sqrt x+1\big)^2}{\sqrt x}=\tfrac23\times\dfrac{3\big(\sqrt x+1\big)^2}{2\sqrt x}\), so \(\displaystyle\int\frac{\big(\sqrt x+1\big)^2}{\sqrt x}\,dx=\tfrac23\big(\sqrt x+1\big)^3+C\).</span></div></div></div>
+<div class="a"><span class="an">11</span><div class="ab"><div class="a5i-il">
+<span data-c="11a"><b>a</b> \(\dfrac{d}{dx}(x^3+3x^2+5)^4=4(x^3+3x^2+5)^3\times(3x^2+6x)\)\(\displaystyle{}=4(x^3+3x^2+5)^3\times3(x^2+2x)\)\(\displaystyle{}=12(x^2+2x)(x^3+3x^2+5)^3\)</span>
+<span data-c="11bi"><b>b i</b> \(\displaystyle\int 12(x^2+2x)(x^3+3x^2+5)^3\,dx=(x^3+3x^2+5)^4+C\)</span>
+<span data-c="11bii"><b>ii</b> Dividing by 12, \(\displaystyle\int(x^2+2x)(x^3+3x^2+5)^3\,dx=\tfrac{1}{12}(x^3+3x^2+5)^4+C\).</span></div></div></div>
+<div class="a"><span class="an">12</span><div class="ab"><div class="a5i-il">
+<span data-c="12a"><b>a</b> \(\dfrac{d}{dx}(5-x^2-x)^7=7(5-x^2-x)^6\times(-2x-1)=-7(2x+1)(5-x^2-x)^6\)</span>
+<span data-c="12bi"><b>b i</b> \(-14x-7=-7(2x+1)\), so \(\displaystyle\int(-14x-7)(5-x^2-x)^6\,dx=(5-x^2-x)^7+C\).</span>
+<span data-c="12bii"><b>ii</b> Dividing by \(-7\), \(\displaystyle\int(2x+1)(5-x^2-x)^6\,dx=-\tfrac17(5-x^2-x)^7+C\).</span></div></div></div>
+<div class="a"><span class="an">13</span><div class="ab">
+<div data-c="13a"><b>a</b> <span class="a5i-s" data-s="13a">\(f(x)=5x+4\), \(f'(x)=5\), \(n=3\):</span> \(\displaystyle\int 5(5x+4)^3\,dx=\frac{(5x+4)^4}{4}+C=\tfrac14(5x+4)^4+C\)</div>
+<div data-c="13b"><b>b</b> <span class="a5i-s" data-s="13b">\(f(x)=1-3x\), \(f'(x)=-3\), \(n=5\):</span> \(\displaystyle\int -3(1-3x)^5\,dx=\frac{(1-3x)^6}{6}+C=\tfrac16(1-3x)^6+C\)</div>
+<div data-c="13c"><b>c</b> <span class="a5i-s" data-s="13c">\(f(x)=x^2-5\), \(f'(x)=2x\), \(n=7\):</span> \(\displaystyle\int 2x(x^2-5)^7\,dx=\frac{(x^2-5)^8}{8}+C=\tfrac18(x^2-5)^8+C\)</div>
+<div data-c="13d"><b>d</b> <span class="a5i-s" data-s="13d">\(f(x)=x^3+7\), \(f'(x)=3x^2\), \(n=4\):</span> \(\displaystyle\int 3x^2(x^3+7)^4\,dx=\frac{(x^3+7)^5}{5}+C=\tfrac15(x^3+7)^5+C\)</div>
+<div data-c="13e"><b>e</b> <span class="a5i-s" data-s="13e">\(f(x)=3x^2+2\), \(f'(x)=6x\), \(n=-2\):</span> \(\displaystyle\int\frac{6x}{(3x^2+2)^2}\,dx=\int 6x(3x^2+2)^{-2}\,dx\)\(\displaystyle{}=\frac{(3x^2+2)^{-1}}{-1}+C=\frac{-1}{3x^2+2}+C\)</div>
+<div data-c="13f"><b>f</b> <span class="a5i-s" data-s="13f">\(f(x)=9-2x^3\), \(f'(x)=-6x^2\), \(n=-\tfrac12\):</span> \(\displaystyle\int\frac{-6x^2}{\sqrt{9-2x^3}}\,dx=\int -6x^2(9-2x^3)^{-\frac12}\,dx=\frac{(9-2x^3)^{\frac12}}{\frac12}+C\)\(\displaystyle{}=2\sqrt{9-2x^3}+C\)</div></div></div>
+<div class="a"><span class="an">14</span><div class="ab">
+<div data-c="14a"><b>a</b> <span class="a5i-s" data-s="14a">\(u=5x^2+3\), \(\dfrac{du}{dx}=10x\), \(n=2\):</span> \(\displaystyle\int 10x(5x^2+3)^2\,dx=\tfrac13(5x^2+3)^3+C\)</div>
+<div data-c="14b"><b>b</b> <span class="a5i-s" data-s="14b">\(u=x^2+1\), \(\dfrac{du}{dx}=2x\), \(n=3\):</span> \(\displaystyle\int 2x(x^2+1)^3\,dx=\tfrac14(x^2+1)^4+C\)</div>
+<div data-c="14c"><b>c</b> <span class="a5i-s" data-s="14c">\(u=1+4x^3\), \(\dfrac{du}{dx}=12x^2\), \(n=5\):</span> \(\displaystyle\int 12x^2(1+4x^3)^5\,dx=\tfrac16(1+4x^3)^6+C\)</div>
+<div data-c="14d"><b>d</b> <span class="a5i-s" data-s="14d">\(u=1+3x^2\), \(\dfrac{du}{dx}=6x\), \(n=4\):</span> \(\displaystyle\int x(1+3x^2)^4\,dx=\tfrac16\int 6x(1+3x^2)^4\,dx\)\(\displaystyle{}=\tfrac16\times\tfrac15(1+3x^2)^5+C=\tfrac{1}{30}(1+3x^2)^5+C\)</div>
+<div data-c="14e"><b>e</b> <span class="a5i-s" data-s="14e">\(u=1-x^4\), \(\dfrac{du}{dx}=-4x^3\), \(n=7\):</span> \(\displaystyle\int x^3(1-x^4)^7\,dx=-\tfrac14\int(-4x^3)(1-x^4)^7\,dx=-\tfrac14\times\tfrac18(1-x^4)^8+C\)\(\displaystyle{}=-\tfrac{1}{32}(1-x^4)^8+C\)</div>
+<div data-c="14f"><b>f</b> <span class="a5i-s" data-s="14f">\(u=x^3-1\), \(\dfrac{du}{dx}=3x^2\), \(n=\tfrac12\):</span> \(\displaystyle\int 3x^2\sqrt{x^3-1}\,dx=\int 3x^2(x^3-1)^{\frac12}\,dx\)\(\displaystyle{}=\frac{(x^3-1)^{\frac32}}{\frac32}+C=\tfrac23(x^3-1)^{\frac32}+C\)</div>
+<div data-c="14g"><b>g</b> <span class="a5i-s" data-s="14g">\(u=5x^2+1\), \(\dfrac{du}{dx}=10x\), \(n=\tfrac12\):</span> \(\displaystyle\int x\sqrt{5x^2+1}\,dx=\tfrac{1}{10}\int 10x(5x^2+1)^{\frac12}\,dx=\tfrac{1}{10}\times\tfrac23(5x^2+1)^{\frac32}+C\)\(\displaystyle{}=\tfrac{1}{15}(5x^2+1)^{\frac32}+C\)</div>
+<div data-c="14h"><b>h</b> <span class="a5i-s" data-s="14h">\(u=x^2+3\), \(\dfrac{du}{dx}=2x\), \(n=-\tfrac12\):</span> \(\displaystyle\int\frac{2x}{\sqrt{x^2+3}}\,dx=\int 2x(x^2+3)^{-\frac12}\,dx=\frac{(x^2+3)^{\frac12}}{\frac12}+C=2\sqrt{x^2+3}+C\)</div>
+<div data-c="14i"><b>i</b> <span class="a5i-s" data-s="14i">\(u=4x^2+8x+1\), \(\dfrac{du}{dx}=8x+8=8(x+1)\), \(n=-\tfrac12\):</span> \(\displaystyle\int\frac{x+1}{\sqrt{4x^2+8x+1}}\,dx=\tfrac18\int 8(x+1)(4x^2+8x+1)^{-\frac12}\,dx\)\(\displaystyle{}=\tfrac18\times2(4x^2+8x+1)^{\frac12}+C=\tfrac14\sqrt{4x^2+8x+1}+C\)</div>
+<div data-c="14j"><b>j</b> <span class="a5i-s" data-s="14j">\(u=x^2+5\), \(\dfrac{du}{dx}=2x\), \(n=-3\):</span> \(\displaystyle\int\frac{x}{(x^2+5)^3}\,dx=\tfrac12\int 2x(x^2+5)^{-3}\,dx\)\(\displaystyle{}=\tfrac12\times\frac{(x^2+5)^{-2}}{-2}+C=-\frac{1}{4(x^2+5)^2}+C\)</div></div></div>
+<div class="a"><span class="an">15</span><div class="ab">
+<div data-c="15a" style="break-inside:avoid"><b>a</b> <span class="a5i-s" data-s="15a">\(u=x^3+1\), \(\dfrac{du}{dx}=3x^2\), \(n=4\):</span>
+\[\begin{aligned}\int_{-1}^{1}x^2(x^3+1)^4\,dx&amp;=\tfrac13\int_{-1}^{1}3x^2(x^3+1)^4\,dx\\&amp;=\tfrac13\times\tfrac15\Big[(x^3+1)^5\Big]_{-1}^{1}\\&amp;=\tfrac{1}{15}\big((1+1)^5-(-1+1)^5\big)=\tfrac{1}{15}(32-0)=\tfrac{32}{15}\end{aligned}\]</div>
+<div data-c="15b" style="break-inside:avoid"><b>b</b> <span class="a5i-s" data-s="15b">\(u=5x^2+1\), \(\dfrac{du}{dx}=10x\), \(n=-3\):</span>
+\[\begin{aligned}\int_0^1\frac{x}{(5x^2+1)^3}\,dx&amp;=\tfrac{1}{10}\int_0^1 10x(5x^2+1)^{-3}\,dx\\&amp;=\tfrac{1}{10}\times\Big(-\tfrac12\Big)\Big[(5x^2+1)^{-2}\Big]_0^1\\&amp;=-\tfrac{1}{20}\big(6^{-2}-1^{-2}\big)=-\tfrac{1}{20}\Big(\tfrac{1}{36}-1\Big)\\&amp;=-\tfrac{1}{20}\times\Big(-\tfrac{35}{36}\Big)=\tfrac{35}{720}=\tfrac{7}{144}\end{aligned}\]</div>
+<div data-c="15c" style="break-inside:avoid"><b>c</b> <span class="a5i-s" data-s="15c">\(u=1-4x^2\), \(\dfrac{du}{dx}=-8x\), \(n=\tfrac12\):</span>
+\[\begin{aligned}\int_0^{\frac12}x\sqrt{1-4x^2}\,dx&amp;=-\tfrac18\int_0^{\frac12}(-8x)(1-4x^2)^{\frac12}\,dx\\&amp;=-\tfrac18\times\tfrac23\Big[(1-4x^2)^{\frac32}\Big]_0^{\frac12}\\&amp;=-\tfrac{1}{12}\Big(0^{\frac32}-1^{\frac32}\Big)=-\tfrac{1}{12}(0-1)=\tfrac{1}{12}\end{aligned}\]</div>
+<div data-c="15d" style="break-inside:avoid"><b>d</b> <span class="a5i-s" data-s="15d">\(u=x^2+10x+3\), \(\dfrac{du}{dx}=2x+10=2(x+5)\), \(n=2\):</span>
+\[\begin{aligned}\int_{-3}^{-1}(x+5)(x^2+10x+3)^2\,dx&amp;=\tfrac12\int_{-3}^{-1}2(x+5)(x^2+10x+3)^2\,dx\\&amp;=\tfrac12\times\tfrac13\Big[(x^2+10x+3)^3\Big]_{-3}^{-1}\\&amp;=\tfrac16\big((1-10+3)^3-(9-30+3)^3\big)\\&amp;=\tfrac16\big((-6)^3-(-18)^3\big)\\&amp;=\tfrac16(-216+5832)=\tfrac16\times5616=936\end{aligned}\]</div></div></div>
+<div class="a"><span class="an">16</span><div class="ab">
+<div data-c="16a"><b>a</b> <span class="a5i-s" data-s="16a">\(u=1-\dfrac1x=1-x^{-1}\), \(\dfrac{du}{dx}=x^{-2}=\dfrac{1}{x^2}\), \(n=5\):</span> \(\displaystyle\int\frac{\big(1-\frac1x\big)^5}{x^2}\,dx=\int\Big(1-\frac1x\Big)^5\times\frac{1}{x^2}\,dx=\tfrac16\Big(1-\frac1x\Big)^6+C\)</div>
+<div data-c="16b" style="break-inside:avoid"><b>b</b> <span class="a5i-s" data-s="16b">\(u=1+\sqrt x\), \(\dfrac{du}{dx}=\dfrac{1}{2\sqrt x}\), \(n=-2\):</span>
+\[\begin{aligned}\int_1^4\frac{1}{\sqrt x\,\big(1+\sqrt x\big)^2}\,dx&amp;=2\int_1^4\big(1+\sqrt x\big)^{-2}\times\frac{1}{2\sqrt x}\,dx\\&amp;=2\Big[\frac{\big(1+\sqrt x\big)^{-1}}{-1}\Big]_1^4=-2\Big[\big(1+\sqrt x\big)^{-1}\Big]_1^4\\&amp;=-2\big((1+2)^{-1}-(1+1)^{-1}\big)\\&amp;=-2\Big(\tfrac13-\tfrac12\Big)=-2\times\Big(-\tfrac16\Big)=\tfrac13\end{aligned}\]</div></div></div>
+<div class="a"><span class="an">17</span><div class="ab">
+<b>a</b> \(\sqrt{x^2-1}\) needs \(x^2-1\ge0\), so the domain is \(x\le-1\) or \(x\ge1\).<br>
+<div data-c="17b" style="break-inside:avoid"><b>b</b> By the product rule, with \(\dfrac{d}{dx}(x^2-1)^{\frac12}=\tfrac12(x^2-1)^{-\frac12}\times2x\),
+\[\begin{aligned}f'(x)&amp;=1\times\sqrt{x^2-1}+x\times\tfrac12(x^2-1)^{-\frac12}\times2x\\&amp;=\sqrt{x^2-1}+\frac{x^2}{\sqrt{x^2-1}}\\&amp;=\frac{(x^2-1)+x^2}{\sqrt{x^2-1}}\\&amp;=\frac{2x^2-1}{\sqrt{x^2-1}}\end{aligned}\]
+<!--nc-->\(f'(x)=0\) only when <!--nc-->\(2x^2-1=0\), that is, <!--nc-->\(x=\pm\dfrac{1}{\sqrt2}\). These values are not in the domain, because <!--nc-->\(\dfrac{1}{\sqrt2}&lt;1\). (At <!--nc-->\(x=\pm1\), <!--nc-->\(f'(x)\) is undefined.) So there are no stationary points.</div>
+<div style="break-inside:avoid"><div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div data-c="17c"><b>c</b> \(f(-x)=(-x)\sqrt{(-x)^2-1}=-x\sqrt{x^2-1}=-f(x)\), so \(f\) is odd and its graph has point symmetry about the origin.<br>
+For \(x\ge1\), \(f(x)\ge0\), with \(f(1)=0\), and \(f'(x)&gt;0\) for \(x&gt;1\) (since \(2x^2-1&gt;0\)), so the curve rises. The branch for \(x\le-1\) is the rotation of this branch through \(180^\circ\) about the origin.</div>
+<div class="fig" style="margin:0">{{svg:a5i_17c}}</div></div></div>
+<div data-c="17d" style="break-inside:avoid"><b>d</b> On \(1\le x\le3\), \(f(x)\ge0\), and \(8^{\frac32}=8\sqrt8=8\times2\sqrt2=16\sqrt2\). <span class="a5i-s" data-s="17d">\(u=x^2-1\), \(\dfrac{du}{dx}=2x\), \(n=\tfrac12\).</span>
+\[\begin{aligned}\text{Area}&amp;=\int_1^3x\sqrt{x^2-1}\,dx=\tfrac12\int_1^3 2x(x^2-1)^{\frac12}\,dx\\&amp;=\tfrac12\times\tfrac23\Big[(x^2-1)^{\frac32}\Big]_1^3\\&amp;=\tfrac13\Big(8^{\frac32}-0^{\frac32}\Big)=\tfrac13\times16\sqrt2=\tfrac{16\sqrt2}{3}\text{ u}^2\end{aligned}\]</div></div></div>
+<div class="a"><span class="an">18</span><div class="ab">
+<div style="break-inside:avoid"><div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div data-c="18a"><b>a</b> Intercepts: <!--nc-->\(y=0\) when <!--nc-->\(x=0\) or <!--nc-->\(7-x^2=0\), that is, at <!--nc-->\((0,0)\), <!--nc-->\((\sqrt7,0)\) and <!--nc-->\((-\sqrt7,0)\). By the product rule,
+\[\begin{aligned}y'&amp;=1\times(7-x^2)^3+x\times3(7-x^2)^2\times(-2x)\\&amp;=(7-x^2)^2\big((7-x^2)-6x^2\big)\\&amp;=(7-x^2)^2(7-7x^2)\\&amp;=7(7-x^2)^2(1-x^2)\end{aligned}\]
+So <!--nc-->\(y'=0\) at <!--nc-->\(x=\pm1\) and <!--nc-->\(x=\pm\sqrt7\). At <!--nc-->\(x=1\), <!--nc-->\(y=1\times6^3=216\); at <!--nc-->\(x=-1\), <!--nc-->\(y=-216\).<br>
+Since <!--nc-->\((7-x^2)^2\ge0\), <!--nc-->\(y'\) has the sign of <!--nc-->\(1-x^2\): positive for <!--nc-->\(-1&lt;x&lt;1\), and negative for <!--nc-->\(|x|&gt;1\) (apart from the zeroes at <!--nc-->\(\pm\sqrt7\)).<br>
+So <!--nc-->\((1,216)\) is a maximum turning point and <!--nc-->\((-1,-216)\) is a minimum turning point. At <!--nc-->\(x=\pm\sqrt7\), <!--nc-->\(y'\) is negative on both sides, so <!--nc-->\((\sqrt7,0)\) and <!--nc-->\((-\sqrt7,0)\) are horizontal points of inflection.</div>
+<div class="fig" style="margin:0">{{svg:a5i_18a}}</div></div></div>
+<div data-c="18b" style="break-inside:avoid"><b>b</b> The curve is odd: \(y\ge0\) for \(0\le x\le\sqrt7\) and \(y\le0\) for \(-\sqrt7\le x\le0\), so the two parts have equal area. <span class="a5i-s" data-s="18b">\(u=7-x^2\), \(\dfrac{du}{dx}=-2x\), \(n=3\).</span>
+\[\begin{aligned}\text{Area}&amp;=2\int_0^{\sqrt7}x(7-x^2)^3\,dx\\&amp;=2\times\Big(-\tfrac12\Big)\int_0^{\sqrt7}(-2x)(7-x^2)^3\,dx\\&amp;=-\tfrac14\Big[(7-x^2)^4\Big]_0^{\sqrt7}\\&amp;=-\tfrac14\big(0^4-7^4\big)=\tfrac14\times2401=\tfrac{2401}{4}=600\tfrac14\text{ u}^2\end{aligned}\]</div></div></div>
+
+{{ahead:Lesson 5I | The reverse chain rule}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>Ascham School, 2020, Mathematics Extension 1 Trial HSC <span style="white-space:nowrap">Examination,&nbsp;Q5</span></span><span class="mk">1 mark</span></div>
+<div data-c="pp1">The derivative of \(1-x^2\) is \(-2x\), and \(x=-\tfrac12\times(-2x)\). <span class="a5i-s" data-s="pp1">\(u=1-x^2\), \(\dfrac{du}{dx}=-2x\), \(n=-\tfrac12\).</span>
+\[\begin{aligned}\int\frac{x}{\sqrt{1-x^2}}\,dx&amp;=-\tfrac12\int(-2x)(1-x^2)^{-\frac12}\,dx\\&amp;=-\tfrac12\times\frac{(1-x^2)^{\frac12}}{\frac12}+c\\&amp;=-\tfrac12\times2(1-x^2)^{\frac12}+c\\&amp;=-\sqrt{1-x^2}+c\end{aligned}\]</div>
+<p>The answer is <b>D</b>. Option C is half of D, so its derivative is \(\dfrac{x}{2\sqrt{1-x^2}}\), half the integrand. Options A and B are not \(-\sqrt{1-x^2}\) plus a constant.</p></div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q10</span></span><span class="mk">1 mark</span></div>
+<div data-c="pp2">The derivative of \(9-x^2\) is \(-2x\), and \(x=-\tfrac12\times(-2x)\). <span class="a5i-s" data-s="pp2">\(u=9-x^2\), \(\dfrac{du}{dx}=-2x\), \(n=-\tfrac12\).</span>
+\[\begin{aligned}\int\frac{x}{\sqrt{9-x^2}}\,dx&amp;=-\tfrac12\int(-2x)(9-x^2)^{-\frac12}\,dx\\&amp;=-\tfrac12\times\frac{(9-x^2)^{\frac12}}{\frac12}+C\\&amp;=-\tfrac12\times2(9-x^2)^{\frac12}+C\\&amp;=-\sqrt{9-x^2}+C\end{aligned}\]</div>
+<p>The answer is <b>A</b>. Check: \(\dfrac{d}{dx}\Big(-\sqrt{9-x^2}\Big)=-\tfrac12(9-x^2)^{-\frac12}\times(-2x)=\dfrac{x}{\sqrt{9-x^2}}\). Option B differentiates to twice the integrand, option D to \(-2\) times it, and option C to the opposite of the integrand.</p></div>
+
+{{ahead:Review | Chapter review exercise}}
+<div class="a"><span class="an">1</span><div class="ab"><div class="a5i-il">
+<span data-c="r1a"><b>a</b> \(\displaystyle\int_0^1 3x^2\,dx=\Big[x^3\Big]_0^1=1-0=1\)</span>
+<span data-c="r1b"><b>b</b> \(\displaystyle\int_1^2 x\,dx=\Big[\frac{x^2}{2}\Big]_1^2=2-\tfrac12=\tfrac32\)</span>
+<span data-c="r1c"><b>c</b> \(\displaystyle\int_2^5 4x^3\,dx=\Big[x^4\Big]_2^5=625-16=609\)</span>
+<span data-c="r1d"><b>d</b> \(\displaystyle\int_{-1}^{1}x^4\,dx=\Big[\frac{x^5}{5}\Big]_{-1}^{1}=\tfrac15-\big(-\tfrac15\big)=\tfrac25\)</span>
+<span data-c="r1e"><b>e</b> \(\displaystyle\int_{-4}^{-2}2x\,dx=\Big[x^2\Big]_{-4}^{-2}=4-16=-12\)</span>
+<span data-c="r1f"><b>f</b> \(\displaystyle\int_{-3}^{-1}x^2\,dx=\Big[\frac{x^3}{3}\Big]_{-3}^{-1}=-\tfrac13-(-9)=8\tfrac23\)</span>
+<span data-c="r1g"><b>g</b> \(\displaystyle\int_0^2(x+3)\,dx=\Big[\frac{x^2}{2}+3x\Big]_0^2=(2+6)-0=8\)</span>
+<span data-c="r1h"><b>h</b> \(\displaystyle\int_{-1}^{4}(2x-5)\,dx=\Big[x^2-5x\Big]_{-1}^{4}=(16-20)-(1+5)=-10\)</span>
+<span data-c="r1i"><b>i</b> \(\displaystyle\int_{-3}^{1}(x^2-2x+1)\,dx=\Big[\frac{x^3}{3}-x^2+x\Big]_{-3}^{1}=\big(\tfrac13-1+1\big)-(-9-9-3)\)\(\displaystyle{}=\tfrac13+21=21\tfrac13\)</span></div></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><div class="a5i-il">
+<span data-c="r2a"><b>a</b> \(x(x-1)=x^2-x\), so \(\displaystyle\int_1^3(x^2-x)\,dx=\Big[\frac{x^3}{3}-\frac{x^2}{2}\Big]_1^3=\big(9-\tfrac92\big)-\big(\tfrac13-\tfrac12\big)=\tfrac92+\tfrac16=4\tfrac23\)</span>
+<span data-c="r2b"><b>b</b> \((x+1)(x-3)=x^2-2x-3\), so \(\displaystyle\int_{-1}^{0}(x^2-2x-3)\,dx=\Big[\frac{x^3}{3}-x^2-3x\Big]_{-1}^{0}=0-\big(-\tfrac13-1+3\big)=-1\tfrac23\)</span>
+<span data-c="r2c"><b>c</b> \((2x-1)^2=4x^2-4x+1\), so \(\displaystyle\int_0^1(4x^2-4x+1)\,dx=\Big[\frac{4x^3}{3}-2x^2+x\Big]_0^1=\big(\tfrac43-2+1\big)-0=\tfrac13\)</span></div></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><div class="a5i-il">
+<span data-c="r3a"><b>a</b> \(\dfrac{x^2-3x}{x}=x-3\), so \(\displaystyle\int_1^2(x-3)\,dx=\Big[\frac{x^2}{2}-3x\Big]_1^2=(2-6)-\big(\tfrac12-3\big)=-4+\tfrac52=-1\tfrac12\)</span>
+<span data-c="r3b"><b>b</b> \(\dfrac{3x^4-4x^2}{x^2}=3x^2-4\), so \(\displaystyle\int_2^3(3x^2-4)\,dx=\Big[x^3-4x\Big]_2^3=(27-12)-(8-8)=15\)</span>
+<span data-c="r3c"><b>c</b> \(\dfrac{x^3-2x^4}{x^2}=x-2x^2\), so \(\displaystyle\int_{-2}^{-1}(x-2x^2)\,dx=\Big[\frac{x^2}{2}-\frac{2x^3}{3}\Big]_{-2}^{-1}=\big(\tfrac12+\tfrac23\big)-\big(2+\tfrac{16}{3}\big)\)\(\displaystyle{}=\tfrac76-\tfrac{44}{6}=-\tfrac{37}{6}=-6\tfrac16\)</span></div></div></div>
+<div class="a"><span class="an">4</span><div class="ab">
+<span data-c="r4aii"><b>a ii</b> \(5k-20=10\), so \(5k=30\) and \(k=6\).</span> &emsp;
+<span data-c="r4bii"><b>b ii</b> \(k^2-k=6\), so \(k^2-k-6=0\), \((k-3)(k+2)=0\), and \(k=3\) or \(k=-2\). The positive value is \(k=3\).</span></div></div>
+<div class="a"><span class="an">5</span><div class="ab">
+<span data-c="r5a"><b>a</b> \(0\). The integral has zero width: the upper and lower limits are both 3.</span><br>
+<span data-c="r5b"><b>b</b> \(0\). The integrand is odd, \((-x)^3=-x^3\), and the interval \(-2\le x\le2\) is symmetric about \(x=0\).</span><br>
+<span data-c="r5c"><b>c</b> \(0\). The integrand is odd, \((-x)^3-9(-x)=-(x^3-9x)\), and the interval \(-3\le x\le3\) is symmetric about \(x=0\).</span></div></div>
+<div class="a"><span class="an">6</span><div class="ab">
+<span data-c="r6a"><b>a</b> A triangle from \(x=0\) to \(x=2\) with height 4, and a rectangle from \(x=2\) to \(x=3\) with height 4: \(\displaystyle\int_0^3f(x)\,dx=\tfrac12\times2\times4+1\times4=4+4=8\).</span><br>
+<span data-c="r6b"><b>b</b> A triangle above the \(x\)-axis from \(x=0\) to \(x=2\) with height 2, and a triangle below the \(x\)-axis from \(x=2\) to \(x=3\) with depth 1, which counts as negative: \(\displaystyle\int_0^3f(x)\,dx=\tfrac12\times2\times2-\tfrac12\times1\times1=2-\tfrac12=\tfrac32\).</span></div></div>
+<div class="a"><span class="an">7</span><div class="ab">
+<span data-c="r7ai"><b>a i</b> \(\displaystyle A(x)=\Big[4t-\tfrac12t^2\Big]_{-2}^{x}=\big(4x-\tfrac12x^2\big)-(-8-2)=4x-\tfrac12x^2+10\)</span><br>
+<span data-c="r7aii"><b>a ii</b> \(\displaystyle A(x)=\Big[-t^{-1}\Big]_2^x=-x^{-1}-\big(-\tfrac12\big)=\tfrac12-x^{-1}\)</span><br>
+<span data-c="r7bi"><b>b i</b> \(\dfrac{d}{dx}\big(4x-\tfrac12x^2+10\big)=4-x\)</span> &emsp; <span data-c="r7bii"><b>b ii</b> \(\dfrac{d}{dx}\big(\tfrac12-x^{-1}\big)=x^{-2}\)</span><br>
+<span data-c="r7ci"><b>c i</b> \(x^5-5x^3+1\)</span> &emsp; <span data-c="r7cii"><b>c ii</b> \(\dfrac{x^2+4}{x^2-1}\)</span> &emsp; <span class="small">(the integrand with \(t\) replaced by \(x\))</span></div></div>
+<div class="a"><span class="an">8</span><div class="ab"><div class="a5i-il">
+<span data-c="r8a"><b>a</b> \(\dfrac{x^2}{2}+2x+C\)</span>
+<span data-c="r8b"><b>b</b> \(\dfrac{x^4}{4}+3\times\dfrac{x^3}{3}-5\times\dfrac{x^2}{2}+x+C=\dfrac{x^4}{4}+x^3-\dfrac{5x^2}{2}+x+C\)</span>
+<span data-c="r8c"><b>c</b> \(x(x-1)=x^2-x\), so the integral is \(\dfrac{x^3}{3}-\dfrac{x^2}{2}+C\).</span>
+<span data-c="r8d"><b>d</b> \((x-3)(2-x)=-x^2+5x-6\), so the integral is \(-\dfrac{x^3}{3}+\dfrac{5x^2}{2}-6x+C\).</span>
+<span data-c="r8e"><b>e</b> \(\dfrac{x^{-1}}{-1}+C=-x^{-1}+C\)</span>
+<span data-c="r8f"><b>f</b> \(\displaystyle\int x^{-7}\,dx=\frac{x^{-6}}{-6}+C=-\frac{1}{6x^6}+C\)</span>
+<span data-c="r8g"><b>g</b> \(\displaystyle\int x^{\frac12}\,dx=\frac{x^{\frac32}}{\frac32}+C=\frac{2x^{\frac32}}{3}+C\)</span>
+<span data-c="r8h"><b>h</b> \(\dfrac{(x+1)^5}{5}+C=\tfrac15(x+1)^5+C\)</span>
+<span data-c="r8i"><b>i</b> \(\dfrac{(2x-3)^6}{2\times6}+C=\tfrac{1}{12}(2x-3)^6+C\)</span></div></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><div class="a5i-il">
+<span data-c="r9a"><b>a</b> \(\displaystyle\int_{-3}^{1}x^2\,dx=\Big[\frac{x^3}{3}\Big]_{-3}^{1}=\tfrac13-(-9)=9\tfrac13\), so the area is \(9\tfrac13\text{ u}^2\).</span>
+<span data-c="r9b"><b>b</b> \(\displaystyle\int_{-2}^{0}(x^3-4x)\,dx=\Big[\frac{x^4}{4}-2x^2\Big]_{-2}^{0}=0-(4-8)=4\), so the area is \(4\text{ u}^2\).</span>
+<span data-c="r9c"><b>c</b> \(\displaystyle\int_1^3(x^2-4x+3)\,dx=\Big[\frac{x^3}{3}-2x^2+3x\Big]_1^3\)\(\displaystyle{}=(9-18+9)-\big(\tfrac13-2+3\big)=-\tfrac43\). The region is below the \(x\)-axis, so the area is \(\tfrac43\text{ u}^2\).</span>
+<span data-c="r9d"><b>d</b> Integrate with respect to \(y\): \(\displaystyle\int_3^4(2y-6)\,dy=\Big[y^2-6y\Big]_3^4=(16-24)-(9-18)=-8+9=1\), so the area is \(1\text{ u}^2\).</span>
+<span data-c="r9e"><b>e</b> \(\displaystyle\int_0^1(x-x^2)\,dx=\Big[\frac{x^2}{2}-\frac{x^3}{3}\Big]_0^1=\tfrac12-\tfrac13=\tfrac16\), so the area is \(\tfrac16\text{ u}^2\).</span>
+<span data-c="r9f"><b>f</b> \(\displaystyle\int_{-1}^{1}(x^2-x^4)\,dx=\Big[\frac{x^3}{3}-\frac{x^5}{5}\Big]_{-1}^{1}\)\(\displaystyle{}=\big(\tfrac13-\tfrac15\big)-\big(-\tfrac13+\tfrac15\big)=\tfrac{2}{15}+\tfrac{2}{15}=\tfrac{4}{15}\), so the area is \(\tfrac{4}{15}\text{ u}^2\).</span>
+<span data-c="r9g"><b>g</b> \(\displaystyle\int_1^2(3x-2-x^2)\,dx=\Big[\frac{3x^2}{2}-2x-\frac{x^3}{3}\Big]_1^2\)\(\displaystyle{}=\big(6-4-\tfrac83\big)-\big(\tfrac32-2-\tfrac13\big)=-\tfrac23+\tfrac56=\tfrac16\), so the area is \(\tfrac16\text{ u}^2\).</span>
+<span data-c="r9h"><b>h</b> \(\displaystyle\int_{-2}^{1}\big((1-x^2)-(x-1)\big)\,dx=\int_{-2}^{1}(2-x-x^2)\,dx=\Big[2x-\frac{x^2}{2}-\frac{x^3}{3}\Big]_{-2}^{1}\)\(\displaystyle{}=\big(2-\tfrac12-\tfrac13\big)-\big(-4-2+\tfrac83\big)=\tfrac76+\tfrac{10}{3}=\tfrac{27}{6}=4\tfrac12\), so the area is \(4\tfrac12\text{ u}^2\).</span></div></div></div>
+<div class="a"><span class="an">10</span><div class="ab"><div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div data-c="r10b"><b>b</b> Between <!--nc-->\(x=1\) and <!--nc-->\(x=3\) the line is above the parabola, and \((x+2)-(x^2-3x+5)=-x^2+4x-3\).
+\[\begin{aligned}\text{Area}&amp;=\int_1^3(-x^2+4x-3)\,dx=\Big[-\frac{x^3}{3}+2x^2-3x\Big]_1^3\\&amp;=(-9+18-9)-\big(-\tfrac13+2-3\big)=0+\tfrac43=\tfrac43\text{ u}^2\end{aligned}\]</div>
+<div class="fig" style="margin:0">{{svg:a5i_r10b}}</div></div></div></div>
+<div class="a"><span class="an">11</span><div class="ab">
+<div data-c="r11a"><b>a</b> Three function values give two subintervals, so \(h=1\).
+<table class="t" style="margin:1mm 0"><tr><td>\(x\)</td><td>1</td><td>2</td><td>3</td></tr><tr><td>\(2^x\)</td><td>2</td><td>4</td><td>8</td></tr></table>
+\(\displaystyle\int_1^3 2^x\,dx\doteqdot\frac{h}{2}\big(f(1)+2f(2)+f(3)\big)=\tfrac12(2+2\times4+8)=\tfrac12\times18=9\)</div>
+<div data-c="r11b" style="break-inside:avoid"><b>b</b> Five function values give four subintervals, so \(h=\tfrac12\). The values of \(\log_{10}x\) are given to 4 decimal places.
+<table class="t" style="margin:1mm 0"><tr><td>\(x\)</td><td>1</td><td>1.5</td><td>2</td><td>2.5</td><td>3</td></tr><tr><td>\(\log_{10}x\)</td><td>0</td><td>0.1761</td><td>0.3010</td><td>0.3979</td><td>0.4771</td></tr></table>
+\(\displaystyle\int_1^3\log_{10}x\,dx\doteqdot\frac{h}{2}\big(f(1)+2f(1.5)+2f(2)+2f(2.5)+f(3)\big)\)\(\displaystyle{}\doteqdot\tfrac14\big(0+2\times(0.1761+0.3010+0.3979)+0.4771\big)\)\(\displaystyle{}\doteqdot\tfrac14\times2.2271\doteqdot0.5568\doteqdot0.56\) (to two significant figures)</div></div></div>
+<div class="a"><span class="an">12</span><div class="ab"><div class="a5i-il">
+<span data-c="r12a"><b>a</b> \(\dfrac{d}{dx}(3x+4)^6=6(3x+4)^5\times3=18(3x+4)^5\)</span>
+<span data-c="r12bi"><b>b i</b> \(\displaystyle\int 18(3x+4)^5\,dx=(3x+4)^6+C\)</span>
+<span data-c="r12bii"><b>ii</b> \(9(3x+4)^5=\tfrac12\times18(3x+4)^5\), so \(\displaystyle\int 9(3x+4)^5\,dx=\tfrac12(3x+4)^6+C\).</span></div></div></div>
+<div class="a"><span class="an">13</span><div class="ab"><div class="a5i-il">
+<span data-c="r13a"><b>a</b> \(\dfrac{d}{dx}(x^2-1)^3=3(x^2-1)^2\times2x=6x(x^2-1)^2\)</span>
+<span data-c="r13bi"><b>b i</b> \(\displaystyle\int 6x(x^2-1)^2\,dx=(x^2-1)^3+C\)</span>
+<span data-c="r13bii"><b>ii</b> Dividing by 6, \(\displaystyle\int x(x^2-1)^2\,dx=\tfrac16(x^2-1)^3+C\).</span></div></div></div>
+<div class="a"><span class="an">14</span><div class="ab">
+<div data-c="r14a"><b>a</b> <span class="a5i-s" data-s="r14a">\(u=x^3+1\), \(\dfrac{du}{dx}=3x^2\), \(n=4\):</span> \(\displaystyle\int 3x^2(x^3+1)^4\,dx=\tfrac15(x^3+1)^5+C\)</div>
+<div data-c="r14b"><b>b</b> <span class="a5i-s" data-s="r14b">\(u=x^2-5\), \(\dfrac{du}{dx}=2x\), \(n=-3\):</span> \(\displaystyle\int\frac{2x}{(x^2-5)^3}\,dx=\int 2x(x^2-5)^{-3}\,dx\)\(\displaystyle{}=\frac{(x^2-5)^{-2}}{-2}+C=-\frac{1}{2(x^2-5)^2}+C\)</div></div></div>

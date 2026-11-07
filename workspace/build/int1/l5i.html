@@ -1,1 +1,280 @@
-<!-- filled by Task Int1 lesson 5I -->
+<style>.rc5i{display:flex;flex-wrap:wrap;column-gap:5mm;row-gap:1mm;margin:1mm 0 2mm 0;align-items:flex-start}.rc5i>.rs{border-left:1.4px solid var(--line-strong);padding-left:3mm}.bx5i{display:inline-block;border:1.2px solid var(--ink);padding:0 1.5mm;margin-right:3mm}</style>
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 5I</div><h2>The reverse chain rule</h2>
+<div class="focus">When the chain rule is used to differentiate a composite function, the result is a product of two terms. This lesson reverses a chain-rule differentiation to find a primitive. A formula for the reverse chain rule is then developed in two notations, using \(u\) or using \(f(x)\). The vital step is to identify \(u\) or \(f(x)\) and its derivative in the function that is being integrated. The lesson ends with the Chapter 5 review exercise.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:reversing a chain-rule differentiation}}
+<div class="box concept"><div class="bt">The reverse chain rule</div>
+<p>When we use the chain rule to differentiate a composite function, the result is a product of two terms. For example, in the first worked example below,</p>
+<div data-c="c1_box">\[\frac{d}{dx}(x^3+5)^4=4(x^3+5)^3\times3x^2.\]</div>
+<p>This section deals with the problem of reversing a chain-rule differentiation.</p></div>
+<div class="box concept"><div class="bt">Reversing a chain-rule differentiation</div>
+<p>Finding primitives is the reverse process of differentiation. Thus once any differentiation has been performed, the process can then be reversed to give a primitive.</p></div></div>
+<div class="box tip"><div class="bt">The chain rule (from Year 11)</div>
+<p>The revision pages at the start of this pack set out the chain rule. To differentiate \(y=(x^3+5)^4\), work on the right first: let \(u=x^3+5\), so that \(y=u^4\). Then \(\dfrac{du}{dx}=3x^2\) and \(\dfrac{dy}{du}=4u^3\). On the left, multiply them, and put \(u=x^3+5\) back:</p>
+<div data-c="c1_chain">\[\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}=4u^3\times3x^2=4(x^3+5)^3\times3x^2.\]</div>
+<p>The two terms of the product are the derivative of the outer power, \(4(x^3+5)^3\), and the derivative of the inside function, \(3x^2\).</p></div>
+<div class="box tip"><div class="bt">Reading a derivative backwards</div>
+<p>If \(\dfrac{d}{dx}F(x)=g(x)\), then \(F(x)\) is a primitive of \(g(x)\), so \(\displaystyle\int g(x)\,dx=F(x)+C\). If the function to be integrated is \(g(x)\) divided by a number \(k\), then its primitive is \(F(x)\) divided by \(k\):</p>
+\[\int\frac{g(x)}{k}\,dx=\frac{F(x)}{k}+C,\qquad\text{because}\qquad\frac{d}{dx}\Big(\frac{F(x)}{k}\Big)=\frac{g(x)}{k}.\]</div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Differentiate, then reverse</span></div><div class="ex-body">
+<div class="parts one"><span data-q="d1a"><span class="pl">a</span>Differentiate \((x^4-3)^5\) with full setting-out of the chain rule.</span>
+<span data-q="d1b"><span class="pl">b</span>Hence find a primitive of \(20x^3(x^4-3)^4\).</span>
+<span data-q="d1c"><span class="pl">c</span>Hence find the primitive of \(x^3(x^4-3)^4\).</span></div>
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span data-q="y1a"><span class="pl">a</span>Differentiate \((x^2+7)^3\) with full setting-out of the chain rule.</span>
+<span data-q="y1b"><span class="pl">b</span>Hence find a primitive of \(6x(x^2+7)^2\).</span>
+<span data-q="y1c"><span class="pl">c</span>Hence find the primitive of \(x(x^2+7)^2\).</span></div>
+{{work:62}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 36</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="parts one"><span data-q="w36a"><span class="pl">a</span>Differentiate \((x^3+5)^4\) with full setting-out of the chain rule.</span>
+<span data-q="w36b"><span class="pl">b</span>Hence find a primitive of \(12x^2(x^3+5)^3\).</span>
+<span data-q="w36c"><span class="pl">c</span>Hence find the primitive of \(x^2(x^3+5)^3\).</span></div>
+<div class="sol-label">Solution</div>
+<div class="rc5i"><div data-c="w36a"><b>a</b> \(\begin{aligned}[t]\text{Let }y&amp;=(x^3+5)^4.\\\text{Then }\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}\\&amp;=4(x^3+5)^3\times3x^2\\&amp;=12x^2(x^3+5)^3.\end{aligned}\)</div>
+<div class="rs" data-s="w36a">\(\begin{aligned}[t]\text{Let }u&amp;=x^3+5.\\\text{Then }y&amp;=u^4.\\\text{Hence }\frac{du}{dx}&amp;=3x^2\\\text{and }\frac{dy}{du}&amp;=4u^3.\end{aligned}\)</div></div>
+<div data-c="w36b"><p><b>b</b> By part <b>a</b>, \(\quad\dfrac{d}{dx}(x^3+5)^4=12x^2(x^3+5)^3.\)</p>
+<p>Reversing this, \(\quad\displaystyle\int 12x^2(x^3+5)^3\,dx=(x^3+5)^4.\)</p></div>
+<div data-c="w36c"><p><b>c</b> Dividing by 12, \(\quad\displaystyle\int x^2(x^3+5)^3\,dx=\tfrac{1}{12}(x^3+5)^4+C,\qquad\text{for some constant }C.\)</p></div>
+</div></div>
+<div class="box concept"><div class="bt">Adding the constant</div>
+<p><b>Note:</b> It is best not to add the arbitrary constant until the last line, because it would be pointless to divide \(C\) by 12 as well.</p></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 36</div>
+<p data-c="t36a"><b>a</b> On the right, \(\dfrac{dy}{du}=4u^3\). Putting \(u=x^3+5\) back gives \(4u^3=4(x^3+5)^3\), and this is the factor used on the left. Then \(4(x^3+5)^3\times3x^2=4\times3\times x^2(x^3+5)^3=12x^2(x^3+5)^3\).</p>
+<p data-c="t36b"><b>b</b> Reversing the line in part <b>a</b> means that \((x^3+5)^4\) is a primitive of \(12x^2(x^3+5)^3\). Any constant could be added; the book leaves it until part <b>c</b>.</p>
+<p data-c="t36c"><b>c</b> The function \(x^2(x^3+5)^3\) is \(12x^2(x^3+5)^3\) divided by 12, so its primitive is \((x^3+5)^4\) divided by 12: \(\displaystyle\int x^2(x^3+5)^3\,dx=\tfrac{1}{12}\int 12x^2(x^3+5)^3\,dx=\tfrac{1}{12}(x^3+5)^4+C\). Check: \(\dfrac{d}{dx}\Big(\tfrac{1}{12}(x^3+5)^4\Big)=\tfrac{1}{12}\times12x^2(x^3+5)^3=x^2(x^3+5)^3\).</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:reversing with a negative index}}
+<div class="box tip"><div class="bt">A fraction is a negative power</div>
+<p>To differentiate a fraction such as \(\dfrac{1}{1+x^2}\) by the chain rule, write it as \((1+x^2)^{-1}\). Let \(u=1+x^2\), so that \(y=u^{-1}\) and \(\dfrac{dy}{du}=-u^{-2}\). The answer is written as a fraction again: \(-(1+x^2)^{-2}=-\dfrac{1}{(1+x^2)^2}\).</p>
+<p>When the derivative is reversed, the number to divide by may be negative. Dividing by \(-2\) is the same as multiplying by \(-\tfrac12\).</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A negative index</span></div><div class="ex-body">
+<div class="parts one"><span data-q="d2a"><span class="pl">a</span>Differentiate \(\dfrac{1}{4+x^3}\) with full setting-out of the chain rule.</span>
+<span data-q="d2b"><span class="pl">b</span>Hence find the primitive of \(\dfrac{x^2}{(4+x^3)^2}\).</span></div>
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span data-q="y2a"><span class="pl">a</span>Differentiate \(\dfrac{1}{9+x^2}\) with full setting-out of the chain rule.</span>
+<span data-q="y2b"><span class="pl">b</span>Hence find the primitive of \(\dfrac{x}{(9+x^2)^2}\).</span></div>
+{{work:60}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 37</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="parts one"><span data-q="w37a"><span class="pl">a</span>Differentiate \(\dfrac{1}{1+x^2}\) with full setting-out of the chain rule.</span>
+<span data-q="w37b"><span class="pl">b</span>Hence find the primitive of \(\dfrac{x}{(1+x^2)^2}\).</span></div>
+<div class="sol-label">Solution</div>
+<div class="rc5i"><div data-c="w37a"><b>a</b> \(\begin{aligned}[t]\text{Let }y&amp;=\frac{1}{1+x^2}.\\\text{Then }\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}\\&amp;=-(1+x^2)^{-2}\times2x\\&amp;=\frac{-2x}{(1+x^2)^2}.\end{aligned}\)</div>
+<div class="rs" data-s="w37a">\(\begin{aligned}[t]\text{Let }u&amp;=1+x^2.\\\text{Then }y&amp;=u^{-1}.\\\text{Hence }\frac{du}{dx}&amp;=2x\\\text{and }\frac{dy}{du}&amp;=-u^{-2}.\end{aligned}\)</div></div>
+<div data-c="w37b"><p><b>b</b> By part <b>a</b>, \(\quad\dfrac{d}{dx}\Big(\dfrac{1}{1+x^2}\Big)=\dfrac{-2x}{(1+x^2)^2}.\)</p>
+<p>Reversing this, \(\quad\displaystyle\int\frac{-2x}{(1+x^2)^2}\,dx=\frac{1}{1+x^2}+C,\qquad\text{for some constant }C,\)</p>
+<p><span class="bx5i">\(\div\,(-2)\)</span> \(\displaystyle\int\frac{x}{(1+x^2)^2}\,dx=\frac{-1}{2(1+x^2)}+C.\)</p></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 37</div>
+<p data-c="t37a"><b>a</b> On the right, \(\dfrac{dy}{du}=-u^{-2}\). Putting \(u=1+x^2\) back gives \(-u^{-2}=-(1+x^2)^{-2}\). Then \(-(1+x^2)^{-2}\times2x=-\dfrac{2x}{(1+x^2)^2}=\dfrac{-2x}{(1+x^2)^2}\).</p>
+<p data-c="t37b"><b>b</b> The function \(\dfrac{x}{(1+x^2)^2}\) is \(\dfrac{-2x}{(1+x^2)^2}\) divided by \(-2\), so divide the primitive by \(-2\): \(\dfrac{1}{1+x^2}\div(-2)=\dfrac{1}{1+x^2}\times\Big(-\dfrac12\Big)=\dfrac{-1}{2(1+x^2)}\). The constant is added last.</p></div>
+<div class="box take"><div class="bt">21 Reversing a chain-rule differentiation</div>
+<p>Once a chain-rule differentiation, or any differentiation, has been performed, the result can be written down in reverse as an indefinite integral.</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:a formula for the reverse chain rule}}
+<div class="box concept"><div class="bt">A formula for the reverse chain rule</div>
+<p>There is a formula for the reverse chain rule. Start with the formula for differentiating a function using the chain rule — we gave the formula in two forms:</p>
+<div data-c="c3_d">\[\frac{d}{dx}(u^n)=nu^{n-1}\frac{du}{dx}\qquad\qquad\frac{d}{dx}\big(f(x)\big)^n=n\big(f(x)\big)^{n-1}f'(x)\]</div>
+<p>and we can reverse both forms of the formula,</p>
+<div data-c="c3_r">\[\int u^{n-1}\frac{du}{dx}\,dx=\frac{u^n}{n}\qquad\qquad\int\big(f(x)\big)^{n-1}f'(x)\,dx=\frac{\big(f(x)\big)^n}{n}.\]</div>
+<p>Then replacing \(n-1\) by \(n\) and \(n\) by \(n+1\),</p>
+<div data-c="c3_f">\[\int u^n\frac{du}{dx}\,dx=\frac{u^{n+1}}{n+1}\qquad\text{OR}\qquad\int\big(f(x)\big)^nf'(x)\,dx=\frac{\big(f(x)\big)^{n+1}}{n+1}.\]</div>
+<p>Take your pick which formula you prefer to use. The difficult part is recognising what \(u\) or \(f(x)\) should be in the function that you are integrating.</p>
+<p>We shall do Worked example 36c again using the formula.</p></div></div>
+<div class="box tip"><div class="bt">Why the formula works</div>
+<p>Differentiate the right-hand side by the chain rule: \(\dfrac{d}{dx}\Big(\dfrac{u^{n+1}}{n+1}\Big)=\dfrac{(n+1)u^n}{n+1}\times\dfrac{du}{dx}=u^n\dfrac{du}{dx}\), which is the function inside the integral. The index on the right is one more than the index on the left, and we divide by that new index. So the index \(n=-1\) cannot be used, because then \(n+1=0\) (as in Lesson 5E).</p></div>
+<div class="box tip"><div class="bt">Using the formula, step by step</div>
+<ol style="margin:0"><li>Choose \(u\) (or \(f(x)\)): the function inside the power.</li>
+<li>Find \(\dfrac{du}{dx}\) (or \(f'(x)\)) on the right-hand side.</li>
+<li>If the other factor is a multiple of \(\dfrac{du}{dx}\), multiply inside the integral by a number and outside by its reciprocal, so that \(\dfrac{du}{dx}\) appears exactly.</li>
+<li>Write the standard form with the particular value of \(n\), then simplify the numbers in front.</li></ol></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Using the formula</span></div><div class="ex-body">
+<span data-q="d3">Use the formula for the reverse chain rule to find \(\displaystyle\int x^3(x^4+2)^5\,dx\).</span>
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<span data-q="y3">Use the formula for the reverse chain rule to find \(\displaystyle\int x(x^2-3)^4\,dx\).</span>
+{{work:56}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 38</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<span data-q="w38">Use the formula for the reverse chain rule to find \(\displaystyle\int x^2(x^3+5)^3\,dx\).</span>
+<div class="sol-label">Solution</div>
+<p>The key to finding this integral is to realise that \(x^2\) is a multiple of the derivative of \(x^3+5\). At this point, we can put \(u=x^3+5\) or \(f(x)=x^3+5\), and everything works smoothly after that. Here are two strong recommendations:</p>
+<ul style="margin:0 0 1mm 0"><li>Show working identifying \(u\) or \(f(x)\) and its derivative on the right-hand side.</li>
+<li>Write down the standard form above substituting the particular value of \(n\).</li></ul>
+<p>Using the first formula,</p>
+<div class="rc5i"><div data-c="w38">\(\begin{aligned}[t]\int x^2(x^3+5)^3\,dx&amp;=\tfrac13\int 3x^2(x^3+5)^3\,dx\\&amp;=\tfrac13\times\tfrac14(x^3+5)^4+C,\\&amp;\quad\text{for some constant }C,\\&amp;=\tfrac{1}{12}(x^3+5)^4+C.\end{aligned}\)</div>
+<div class="rs" data-s="w38">\(\begin{aligned}[t]\text{Let }u&amp;=x^3+5.\\\text{Then }\frac{du}{dx}&amp;=3x^2.\end{aligned}\)<br>\(\begin{aligned}[t]&amp;\text{Here }\int u^3\frac{du}{dx}\,dx\\&amp;\quad=\tfrac14u^4.\end{aligned}\)</div></div>
+<p>Using the second formula,</p>
+<div class="rc5i"><div data-c="w38f">\(\begin{aligned}[t]\int x^2(x^3+5)^3\,dx&amp;=\tfrac13\int 3x^2(x^3+5)^3\,dx\\&amp;=\tfrac13\times\tfrac14(x^3+5)^4+C,\\&amp;\quad\text{for some constant }C,\\&amp;=\tfrac{1}{12}(x^3+5)^4+C.\end{aligned}\)</div>
+<div class="rs" data-s="w38f">\(\begin{aligned}[t]\text{Let }f(x)&amp;=x^3+5.\\\text{Then }f'(x)&amp;=3x^2.\end{aligned}\)<br>\(\begin{aligned}[t]&amp;\text{Here }\int\big(f(x)\big)^3f'(x)\,dx\\&amp;\quad=\tfrac14\big(f(x)\big)^4.\end{aligned}\)</div></div>
+</div></div>
+<div class="box concept"><div class="bt">Two notations</div>
+<p>Notice that the two notations differ only in the working in the right-hand column.</p></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 38</div>
+<p data-c="t38"><b>First line.</b> The derivative of \(x^3+5\) is \(3x^2\), and \(x^2=\tfrac13\times3x^2\). Multiplying inside the integral by 3 and outside by \(\tfrac13\) does not change it, because \(\tfrac13\times3=1\): \(\displaystyle\int x^2(x^3+5)^3\,dx=\tfrac13\int 3x^2(x^3+5)^3\,dx\).</p>
+<p><b>Second line.</b> Here \(n=3\), so the formula gives \(\dfrac{u^{3+1}}{3+1}=\tfrac14u^4\), and \(u^4=(x^3+5)^4\). <b>Third line.</b> \(\tfrac13\times\tfrac14=\tfrac{1}{12}\). This is the answer to Worked example 36c.</p></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:fractional indices, and where the integrand is defined}}
+<div class="box tip"><div class="bt">A square root is a power</div>
+<p>Write \(\sqrt{1-x^2}=(1-x^2)^{\frac12}\), so that \(n=\tfrac12\) and the new index is \(n+1=\tfrac32\). Dividing by \(\tfrac32\) is the same as multiplying by \(\tfrac23\).</p>
+<p>A definite integral needs the integrand to be defined at every point of the interval. Since \(\sqrt{1-x^2}\) needs \(1-x^2\ge0\), it is defined only for \(-1\le x\le1\). For a definite integral, the primitive goes in square brackets, with no constant, and the limits are substituted (Lesson 5B).</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A square root</span></div><div class="ex-body">
+Use the formula for the reverse chain rule to find:
+<div class="parts three"><span data-q="d4a"><span class="pl">a</span>\(\displaystyle\int x\sqrt{9-x^2}\,dx\)</span><span data-q="d4b"><span class="pl">b</span>\(\displaystyle\int_0^3x\sqrt{9-x^2}\,dx\)</span><span data-q="d4c"><span class="pl">c</span>\(\displaystyle\int_0^4x\sqrt{9-x^2}\,dx\)</span></div>
+{{work:105}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use the formula for the reverse chain rule to find:
+<div class="parts three"><span data-q="y4a"><span class="pl">a</span>\(\displaystyle\int x\sqrt{4-x^2}\,dx\)</span><span data-q="y4b"><span class="pl">b</span>\(\displaystyle\int_0^2x\sqrt{4-x^2}\,dx\)</span><span data-q="y4c"><span class="pl">c</span>\(\displaystyle\int_0^3x\sqrt{4-x^2}\,dx\)</span></div>
+{{work:66}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 39</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Use the formula for the reverse chain rule to find:
+<div class="parts"><span data-q="w39a"><span class="pl">a</span>\(\displaystyle\int x\sqrt{1-x^2}\,dx\)</span><span data-q="w39b"><span class="pl">b</span>\(\displaystyle\int_0^2x\sqrt{1-x^2}\,dx\)</span></div>
+<div class="sol-label">Solution</div>
+<p><b>a</b> This integral is based on the recognition that \(\dfrac{d}{dx}(1-x^2)=-2x\).</p>
+<p>Using the first formula,</p>
+<div class="rc5i"><div data-c="w39a">\(\begin{aligned}[t]\int x\sqrt{1-x^2}\,dx&amp;=-\tfrac12\int(-2x)\times(1-x^2)^{\frac12}\,dx\\&amp;=-\tfrac12\times\tfrac23(1-x^2)^{\frac32}+C,\\&amp;\quad\text{for some constant }C,\\&amp;=-\tfrac13(1-x^2)^{\frac32}+C.\end{aligned}\)</div>
+<div class="rs" data-s="w39a">\(\begin{aligned}[t]\text{Let }u&amp;=1-x^2.\\\text{Then }\frac{du}{dx}&amp;=-2x.\end{aligned}\)<br>\(\begin{aligned}[t]&amp;\text{Here }\int u^{\frac12}\frac{du}{dx}\,dx\\&amp;\quad=\tfrac23u^{\frac32}.\end{aligned}\)</div></div>
+<p>Using the second formula,</p>
+<div class="rc5i"><div data-c="w39af">\(\begin{aligned}[t]\int x\sqrt{1-x^2}\,dx&amp;=-\tfrac12\int(-2x)\times(1-x^2)^{\frac12}\,dx\\&amp;=-\tfrac12\times\tfrac23(1-x^2)^{\frac32}+C,\\&amp;\quad\text{for some constant }C,\\&amp;=-\tfrac13(1-x^2)^{\frac32}+C.\end{aligned}\)</div>
+<div class="rs" data-s="w39af">\(\begin{aligned}[t]\text{Let }f(x)&amp;=1-x^2.\\\text{Then }f'(x)&amp;=-2x.\end{aligned}\)<br>\(\begin{aligned}[t]&amp;\text{Here }\int\big(f(x)\big)^{\frac12}f'(x)\,dx\\&amp;\quad=\tfrac23\big(f(x)\big)^{\frac32}.\end{aligned}\)</div></div>
+<p data-c="w39b"><b>b</b> The definite integral is meaningless because \(\sqrt{1-x^2}\) is undefined for \(x&gt;1\).</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 39</div>
+<p data-c="t39a"><b>a</b> The derivative of \(1-x^2\) is \(-2x\), and \(x=-\tfrac12\times(-2x)\), so multiply inside by \(-2\) and outside by \(-\tfrac12\). Here \(n=\tfrac12\), so the formula gives \(\dfrac{u^{\frac32}}{\frac32}=\tfrac23u^{\frac32}\). Then \(-\tfrac12\times\tfrac23=-\tfrac13\).</p>
+<p><b>b</b> The interval \(0\le x\le2\) includes the values \(1&lt;x\le2\), where \(1-x^2&lt;0\). For example, at \(x=2\), \(1-x^2=1-4=-3\), which has no square root.</p></div>
+<div class="box take"><div class="bt">22 A formula for the reverse chain rule</div>
+<ul><li>The reversing of the chain rule can be written as a formula in two ways:
+<div data-c="c4_box">\[\int u^n\frac{du}{dx}\,dx=\frac{u^{n+1}}{n+1}+C\quad\text{OR}\quad\int\big(f(x)\big)^nf'(x)\,dx=\frac{\big(f(x)\big)^{n+1}}{n+1}+C.\]</div></li>
+<li>The vital step in using this formula is to identify \(u\) or \(f(x)\) and its derivative.</li></ul></div>
+<div class="box concept"><div class="bt">Writing the integrand as a product</div>
+<p>To use the formula, we have to write the integrand as a product. One factor is a power of a function \(f(x)\) or \(u\). The other factor is the derivative of that function.</p></div>
+
+<!-- ============ Homework ============ -->
+<div style="break-inside:avoid">{{sec:blue:pencil:Textbook homework:Exercise 5I}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body"><span data-q="1a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(2x+3)^4\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="1bi"><span class="pl">i</span>\(\displaystyle\int 8(2x+3)^3\,dx\)</span><span data-q="1bii"><span class="pl">ii</span>\(\displaystyle\int 16(2x+3)^3\,dx\)</span></div>{{work:30}}</div></div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span data-q="2a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(3x-5)^3\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="2bi"><span class="pl">i</span>\(\displaystyle\int 9(3x-5)^2\,dx\)</span><span data-q="2bii"><span class="pl">ii</span>\(\displaystyle\int 27(3x-5)^2\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span data-q="3a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(1+4x)^5\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="3bi"><span class="pl">i</span>\(\displaystyle\int 20(1+4x)^4\,dx\)</span><span data-q="3bii"><span class="pl">ii</span>\(\displaystyle\int 10(1+4x)^4\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span data-q="4a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(1-2x)^4\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="4bi"><span class="pl">i</span>\(\displaystyle\int -8(1-2x)^3\,dx\)</span><span data-q="4bii"><span class="pl">ii</span>\(\displaystyle\int -2(1-2x)^3\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span data-q="5a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(4x+3)^{-1}\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="5bi"><span class="pl">i</span>\(\displaystyle\int -4(4x+3)^{-2}\,dx\)</span><span data-q="5bii"><span class="pl">ii</span>\(\displaystyle\int(4x+3)^{-2}\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span data-q="6a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(2x-5)^{\frac12}\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="6bi"><span class="pl">i</span>\(\displaystyle\int(2x-5)^{-\frac12}\,dx\)</span><span data-q="6bii"><span class="pl">ii</span>\(\displaystyle\int\tfrac13(2x-5)^{-\frac12}\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span data-q="7a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(x^2+3)^4\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="7bi"><span class="pl">i</span>\(\displaystyle\int 8x(x^2+3)^3\,dx\)</span><span data-q="7bii"><span class="pl">ii</span>\(\displaystyle\int 40x(x^2+3)^3\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><span data-q="8a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(x^3-1)^5\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="8bi"><span class="pl">i</span>\(\displaystyle\int 15x^2(x^3-1)^4\,dx\)</span><span data-q="8bii"><span class="pl">ii</span>\(\displaystyle\int 3x^2(x^3-1)^4\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span data-q="9a"><span class="pl">a</span>Find \(\dfrac{d}{dx}\sqrt{2x^2+3}\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="9bi"><span class="pl">i</span>\(\displaystyle\int\frac{2x}{\sqrt{2x^2+3}}\,dx\)</span><span data-q="9bii"><span class="pl">ii</span>\(\displaystyle\int\frac{x}{\sqrt{2x^2+3}}\,dx\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><span data-q="10a"><span class="pl">a</span>Find \(\dfrac{d}{dx}\big(\sqrt x+1\big)^3\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="10bi"><span class="pl">i</span>\(\displaystyle\int\frac{3\big(\sqrt x+1\big)^2}{2\sqrt x}\,dx\)</span><span data-q="10bii"><span class="pl">ii</span>\(\displaystyle\int\frac{\big(\sqrt x+1\big)^2}{\sqrt x}\,dx\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><span data-q="11a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(x^3+3x^2+5)^4\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="11bi"><span class="pl">i</span>\(\displaystyle\int 12(x^2+2x)(x^3+3x^2+5)^3\,dx\)</span><span data-q="11bii"><span class="pl">ii</span>\(\displaystyle\int(x^2+2x)(x^3+3x^2+5)^3\,dx\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><span data-q="12a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(5-x^2-x)^7\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="12bi"><span class="pl">i</span>\(\displaystyle\int(-14x-7)(5-x^2-x)^6\,dx\)</span><span data-q="12bii"><span class="pl">ii</span>\(\displaystyle\int(2x+1)(5-x^2-x)^6\,dx\)</span></div>{{work:34}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">13</span><div class="q-body">Find these indefinite integrals using the reverse chain rule in either form
+<div data-c="q13_form">\[\int f'(x)\big(f(x)\big)^n\,dx=\frac{\big(f(x)\big)^{n+1}}{n+1}+C\qquad\text{OR}\qquad\int u^n\frac{du}{dx}\,dx=\frac{u^{n+1}}{n+1}+C.\]</div>
+<div class="parts one"><span data-q="13a"><span class="pl">a</span>\(\displaystyle\int 5(5x+4)^3\,dx\) &ensp; (Let \(f(x)=5x+4\) or \(u=5x+4\).)</span>
+<span data-q="13b"><span class="pl">b</span>\(\displaystyle\int -3(1-3x)^5\,dx\) &ensp; (Let \(f(x)=1-3x\) or \(u=1-3x\).)</span>
+<span data-q="13c"><span class="pl">c</span>\(\displaystyle\int 2x(x^2-5)^7\,dx\) &ensp; (Let \(f(x)=x^2-5\) or \(u=x^2-5\).)</span>
+<span data-q="13d"><span class="pl">d</span>\(\displaystyle\int 3x^2(x^3+7)^4\,dx\) &ensp; (Let \(f(x)=x^3+7\) or \(u=x^3+7\).)</span>
+<span data-q="13e"><span class="pl">e</span>\(\displaystyle\int\frac{6x}{(3x^2+2)^2}\,dx\) &ensp; (Let \(f(x)=3x^2+2\) or \(u=3x^2+2\).)</span>
+<span data-q="13f"><span class="pl">f</span>\(\displaystyle\int\frac{-6x^2}{\sqrt{9-2x^3}}\,dx\) &ensp; (Let \(f(x)=9-2x^3\) or \(u=9-2x^3\).)</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Find these indefinite integrals using the reverse chain rule.
+<div class="parts"><span data-q="14a"><span class="pl">a</span>\(\displaystyle\int 10x(5x^2+3)^2\,dx\)</span><span data-q="14b"><span class="pl">b</span>\(\displaystyle\int 2x(x^2+1)^3\,dx\)</span>
+<span data-q="14c"><span class="pl">c</span>\(\displaystyle\int 12x^2(1+4x^3)^5\,dx\)</span><span data-q="14d"><span class="pl">d</span>\(\displaystyle\int x(1+3x^2)^4\,dx\)</span>
+<span data-q="14e"><span class="pl">e</span>\(\displaystyle\int x^3(1-x^4)^7\,dx\)</span><span data-q="14f"><span class="pl">f</span>\(\displaystyle\int 3x^2\sqrt{x^3-1}\,dx\)</span>
+<span data-q="14g"><span class="pl">g</span>\(\displaystyle\int x\sqrt{5x^2+1}\,dx\)</span><span data-q="14h"><span class="pl">h</span>\(\displaystyle\int\frac{2x}{\sqrt{x^2+3}}\,dx\)</span>
+<span data-q="14i"><span class="pl">i</span>\(\displaystyle\int\frac{x+1}{\sqrt{4x^2+8x+1}}\,dx\)</span><span data-q="14j"><span class="pl">j</span>\(\displaystyle\int\frac{x}{(x^2+5)^3}\,dx\)</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">Evaluate these definite integrals using the reverse chain rule.
+<div class="parts"><span data-q="15a"><span class="pl">a</span>\(\displaystyle\int_{-1}^{1}x^2(x^3+1)^4\,dx\)</span><span data-q="15b"><span class="pl">b</span>\(\displaystyle\int_0^1\frac{x}{(5x^2+1)^3}\,dx\)</span>
+<span data-q="15c"><span class="pl">c</span>\(\displaystyle\int_0^{\frac12}x\sqrt{1-4x^2}\,dx\)</span><span data-q="15d"><span class="pl">d</span>\(\displaystyle\int_{-3}^{-1}(x+5)(x^2+10x+3)^2\,dx\)</span></div>{{work:96}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">16</span><div class="q-body">Use the reverse chain rule to find:
+<div class="parts"><span data-q="16a"><span class="pl">a</span>\(\displaystyle\int\frac{\big(1-\frac1x\big)^5}{x^2}\,dx\)</span><span data-q="16b"><span class="pl">b</span>\(\displaystyle\int_1^4\frac{1}{\sqrt x\,\big(1+\sqrt x\big)^2}\,dx\)</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>What is the domain of the function \(f(x)=x\sqrt{x^2-1}\)?</span>
+<span><span class="pl">b</span>Find \(f'(x)\), and hence show that the function has no stationary points in its domain.</span>
+<span><span class="pl">c</span>Show that the function is odd, and hence sketch its graph.</span>
+<span><span class="pl">d</span>By evaluating the appropriate definite integral, find the area of the region bounded by the curve and the \(x\)-axis from \(x=1\) to \(x=3\).</span></div>{{work:180}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Sketch \(y=x(7-x^2)^3\), indicating all stationary points and intercepts with the axes.</span>
+<span><span class="pl">b</span>Find the area of the region enclosed between the curve and the \(x\)-axis.</span></div>{{work:190}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 5 minutes</b></span><span><b>2 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">These are the only school-paper items that need just this lesson’s ideas. For more timed practice, do Questions 14(g), 14(i), 14(j), 15(b), 15(d), 16(b) and 17(d) above in 25 minutes.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Ascham School, 2020, Mathematics Extension 1 Trial HSC <span style="white-space:nowrap">Examination,&nbsp;Q5</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q" data-q="pp1">\(\displaystyle\int\frac{x}{\sqrt{1-x^2}}\,dx=\)
+<div class="mc"><span>A.&ensp;\(\sin^{-1}x+c\)</span><span>B.&ensp;\(-x\cos^{-1}x+c\)</span><span>C.&ensp;\(-\dfrac12\sqrt{1-x^2}+c\)</span><span>D.&ensp;\(-\sqrt{1-x^2}+c\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is being integrated here?</div>{{work:30}}</div>
+</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q10</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q" data-q="pp2">Which of the following is an expression for \(\displaystyle\int\frac{x}{\sqrt{9-x^2}}\,dx\)?
+<div class="mc"><span>A.&ensp;\(-\sqrt{9-x^2}+C\)</span><span>B.&ensp;\(-2\sqrt{9-x^2}+C\)</span><span>C.&ensp;\(\sqrt{9-x^2}+C\)</span><span>D.&ensp;\(2\sqrt{9-x^2}+C\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is under the square root, and what is in the numerator?</div>{{work:30}}</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="page-break"></div>
+<div class="lesson-head"><div class="eyebrow">Chapter 5 Review</div><h2>Chapter review exercise</h2>
+<div class="focus">Mixed practice from the whole chapter, Lessons 5A to 5I.</div></div>
+<div class="q"><span class="q-num">1</span><div class="q-body">Evaluate these definite integrals, using the fundamental theorem.
+<div class="parts three"><span data-q="r1a"><span class="pl">a</span>\(\displaystyle\int_0^1 3x^2\,dx\)</span><span data-q="r1b"><span class="pl">b</span>\(\displaystyle\int_1^2 x\,dx\)</span><span data-q="r1c"><span class="pl">c</span>\(\displaystyle\int_2^5 4x^3\,dx\)</span>
+<span data-q="r1d"><span class="pl">d</span>\(\displaystyle\int_{-1}^{1}x^4\,dx\)</span><span data-q="r1e"><span class="pl">e</span>\(\displaystyle\int_{-4}^{-2}2x\,dx\)</span><span data-q="r1f"><span class="pl">f</span>\(\displaystyle\int_{-3}^{-1}x^2\,dx\)</span>
+<span data-q="r1g"><span class="pl">g</span>\(\displaystyle\int_0^2(x+3)\,dx\)</span><span data-q="r1h"><span class="pl">h</span>\(\displaystyle\int_{-1}^{4}(2x-5)\,dx\)</span><span data-q="r1i"><span class="pl">i</span>\(\displaystyle\int_{-3}^{1}(x^2-2x+1)\,dx\)</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">By expanding the brackets where necessary, evaluate these definite integrals.
+<div class="parts three"><span data-q="r2a"><span class="pl">a</span>\(\displaystyle\int_1^3 x(x-1)\,dx\)</span><span data-q="r2b"><span class="pl">b</span>\(\displaystyle\int_{-1}^{0}(x+1)(x-3)\,dx\)</span><span data-q="r2c"><span class="pl">c</span>\(\displaystyle\int_0^1(2x-1)^2\,dx\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Write each integrand as separate fractions, then evaluate the integral.
+<div class="parts three"><span data-q="r3a"><span class="pl">a</span>\(\displaystyle\int_1^2\frac{x^2-3x}{x}\,dx\)</span><span data-q="r3b"><span class="pl">b</span>\(\displaystyle\int_2^3\frac{3x^4-4x^2}{x^2}\,dx\)</span><span data-q="r3c"><span class="pl">c</span>\(\displaystyle\int_{-2}^{-1}\frac{x^3-2x^4}{x^2}\,dx\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="pl">a</span><span class="pl">i</span>Show that \(\displaystyle\int_4^k 5\,dx=5k-20\).<br>
+&emsp;&ensp;<span class="pl">ii</span>Hence find the value of \(k\) if \(\displaystyle\int_4^k 5\,dx=10\).<br>
+<span class="pl">b</span><span class="pl">i</span>Show that \(\displaystyle\int_0^k(2x-1)\,dx=k^2-k\).<br>
+&emsp;&ensp;<span class="pl">ii</span>Hence find the positive value of \(k\) for which \(\displaystyle\int_0^k(2x-1)\,dx=6\).{{work:50}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Without finding a primitive, use the properties of the definite integral to evaluate these integrals, stating reasons.
+<div class="parts three"><span data-q="r5a"><span class="pl">a</span>\(\displaystyle\int_3^3(x^3-5x+4)\,dx\)</span><span data-q="r5b"><span class="pl">b</span>\(\displaystyle\int_{-2}^{2}x^3\,dx\)</span><span data-q="r5c"><span class="pl">c</span>\(\displaystyle\int_{-3}^{3}(x^3-9x)\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Use area formulae to find \(\displaystyle\int_0^3 f(x)\,dx\), given the following sketches of \(f(x)\).
+<div class="parts" style="column-gap:4mm"><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:q5i_r6a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:q5i_r6b}}</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span class="pl">a</span>Find each signed area function.
+<div class="parts"><span data-q="r7ai"><span class="pl">i</span>\(\displaystyle A(x)=\int_{-2}^{x}(4-t)\,dt\)</span><span data-q="r7aii"><span class="pl">ii</span>\(\displaystyle A(x)=\int_2^x t^{-2}\,dt\)</span></div>
+<span class="pl">b</span>Differentiate the results in part <b>a</b> to find:
+<div class="parts"><span data-q="r7bi"><span class="pl">i</span>\(\displaystyle\frac{d}{dx}\int_{-2}^{x}(4-t)\,dt\)</span><span data-q="r7bii"><span class="pl">ii</span>\(\displaystyle\frac{d}{dx}\int_2^x t^{-2}\,dt\)</span></div>
+<span class="pl">c</span>Without first performing the integration, use the fundamental theorem of calculus to find these functions.
+<div class="parts"><span data-q="r7ci"><span class="pl">i</span>\(\displaystyle\frac{d}{dx}\int_7^x(t^5-5t^3+1)\,dt\)</span><span data-q="r7cii"><span class="pl">ii</span>\(\displaystyle\frac{d}{dx}\int_3^x\frac{t^2+4}{t^2-1}\,dt\)</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">Find these indefinite integrals.
+<div class="parts three"><span data-q="r8a"><span class="pl">a</span>\(\displaystyle\int(x+2)\,dx\)</span><span data-q="r8b"><span class="pl">b</span>\(\displaystyle\int(x^3+3x^2-5x+1)\,dx\)</span><span data-q="r8c"><span class="pl">c</span>\(\displaystyle\int x(x-1)\,dx\)</span>
+<span data-q="r8d"><span class="pl">d</span>\(\displaystyle\int(x-3)(2-x)\,dx\)</span><span data-q="r8e"><span class="pl">e</span>\(\displaystyle\int x^{-2}\,dx\)</span><span data-q="r8f"><span class="pl">f</span>\(\displaystyle\int\frac{1}{x^7}\,dx\)</span>
+<span data-q="r8g"><span class="pl">g</span>\(\displaystyle\int\sqrt x\,dx\)</span><span data-q="r8h"><span class="pl">h</span>\(\displaystyle\int(x+1)^4\,dx\)</span><span data-q="r8i"><span class="pl">i</span>\(\displaystyle\int(2x-3)^5\,dx\)</span></div>{{work:150}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Find the area of each shaded region below by evaluating a definite integral.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);column-gap:2mm;row-gap:1mm">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:q5i_r9a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:q5i_r9b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:q5i_r9c}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:q5i_r9d}}</div>
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">e</span>{{svg:q5i_r9e}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">f</span>{{svg:q5i_r9f}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">g</span>{{svg:q5i_r9g}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">h</span>{{svg:q5i_r9h}}</div></div>{{work:100}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>By solving the equations simultaneously, show that the curves \(y=x^2-3x+5\) and \(y=x+2\) intersect at the points \((1,3)\) and \((3,5)\).</span>
+<span><span class="pl">b</span>Sketch both curves on the same diagram and find the area of the region enclosed between them.</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><div class="parts one"><span data-q="r11a"><span class="pl">a</span>Use the trapezoidal rule with three function values to approximate \(\int_1^3 2^x\,dx\).</span>
+<span data-q="r11b"><span class="pl">b</span>Use the trapezoidal rule with five function values to approximate \(\int_1^3\log_{10}x\,dx\). Give your answer correct to two significant figures.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><span data-q="r12a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(3x+4)^6\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="r12bi"><span class="pl">i</span>\(\displaystyle\int 18(3x+4)^5\,dx\)</span><span data-q="r12bii"><span class="pl">ii</span>\(\displaystyle\int 9(3x+4)^5\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><span data-q="r13a"><span class="pl">a</span>Find \(\dfrac{d}{dx}(x^2-1)^3\).</span><br><span class="pl">b</span>Hence find:
+<div class="parts"><span data-q="r13bi"><span class="pl">i</span>\(\displaystyle\int 6x(x^2-1)^2\,dx\)</span><span data-q="r13bii"><span class="pl">ii</span>\(\displaystyle\int x(x^2-1)^2\,dx\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Find these indefinite integrals using the reverse chain rule.
+<div class="parts"><span data-q="r14a"><span class="pl">a</span>\(\displaystyle\int 3x^2(x^3+1)^4\,dx\)</span><span data-q="r14b"><span class="pl">b</span>\(\displaystyle\int\frac{2x}{(x^2-5)^3}\,dx\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><span data-q="r15">Use the reverse chain rule to show that \(\displaystyle\int_0^1\frac{x}{\sqrt{x^2+3}}\,dx=2-\sqrt3\).</span>{{work:40}}</div></div>
+</div>
