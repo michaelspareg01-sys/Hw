@@ -1,1 +1,116 @@
-<!-- filled by Task: lesson 6i -->
+{{ahead:Lesson 6I | Integration of the reciprocal function}}
+<style>.ab .ap6i { display:inline-block; margin-right:4.5mm; }</style>
+<div class="ans-sec">Lesson Examples</div>
+<div class="a"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b>
+<div class="split" style="grid-template-columns:1fr 1fr"><div>
+<div style="break-inside:avoid"><p><b>a</b></p>
+\[\begin{aligned}\int_1^3\dfrac1x\,dx&amp;=\Big[\log_ex\Big]_1^3\\&amp;=\log_e3-\log_e1\\&amp;=\log_e3\end{aligned}\]</div>
+</div><div>
+<div style="break-inside:avoid"><p><b>c</b></p>
+\[\begin{aligned}\int_1^{e^3}\dfrac1x\,dx&amp;=\Big[\log_ex\Big]_1^{e^3}\\&amp;=\log_ee^3-\log_e1\\&amp;=3-0\\&amp;=3\end{aligned}\]</div>
+</div></div>
+<p><b>b</b> \(\displaystyle\int_1^3\dfrac1x\,dx=\log_e3\doteq1.099\). Both rectangles have width \(3-1=2\). The lower rectangle has height \(\tfrac13\), the value of \(\dfrac1x\) at \(x=3\), so its area is \(2\times\tfrac13=\tfrac23\). The upper rectangle has height \(1\), the value of \(\dfrac1x\) at \(x=1\), so its area is \(2\times1=2\). Since \(\tfrac23\lt1.099\lt2\), the integral is indeed between \(\tfrac23\) and \(2\).</p>
+<b>Your turn.</b>
+<div class="split" style="grid-template-columns:1fr 1fr"><div>
+<div style="break-inside:avoid"><p><b>a</b></p>
+\[\begin{aligned}\int_1^5\dfrac1x\,dx&amp;=\Big[\log_ex\Big]_1^5\\&amp;=\log_e5-\log_e1\\&amp;=\log_e5\end{aligned}\]</div>
+</div><div>
+<div style="break-inside:avoid"><p><b>c</b></p>
+\[\begin{aligned}\int_1^{e^4}\dfrac1x\,dx&amp;=\Big[\log_ex\Big]_1^{e^4}\\&amp;=\log_ee^4-\log_e1\\&amp;=4-0\\&amp;=4\end{aligned}\]</div>
+</div></div>
+<p><b>b</b> \(\displaystyle\int_1^5\dfrac1x\,dx=\log_e5\doteq1.609\). Both rectangles have width \(5-1=4\). The lower rectangle has height \(\tfrac15\), so its area is \(4\times\tfrac15=\tfrac45\). The upper rectangle has height \(1\), so its area is \(4\times1=4\). Since \(\tfrac45\lt1.609\lt4\), the integral is indeed between \(\tfrac45\) and \(4\).</p></div></div>
+
+<div class="a"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<div style="break-inside:avoid"><p><b>a</b></p>
+\[\begin{aligned}\int_e^{e^3}\dfrac4x\,dx&amp;=4\Big[\log_e|x|\Big]_e^{e^3}\\&amp;=4\big(\log_ee^3-\log_ee\big)\\&amp;=4(3-1)\\&amp;=8\end{aligned}\]</div>
+<div style="break-inside:avoid"><p><b>b</b> \((a=-3\text{ and }b=1)\)</p>
+\[\begin{aligned}\int_1^3\dfrac{1}{1-3x}\,dx&amp;=-\tfrac13\Big[\log_e|1-3x|\Big]_1^3\\&amp;=-\tfrac13\big(\log_e|-8|-\log_e|-2|\big)\\&amp;=-\tfrac13\big(\log_e8-\log_e2\big)\\&amp;=-\tfrac13\log_e4\end{aligned}\]</div>
+<p class="small">In <b>b</b>, \(1-3\times3=-8\) and \(1-3\times1=-2\), and \(\log_e8-\log_e2=\log_e\tfrac82=\log_e4\).</p>
+<p><b>c</b> The denominator \(x-3\) is zero at \(x=3\), which lies between \(1\) and \(4\). This definite integral is meaningless because it crosses the asymptote at \(x=3\).</p>
+<div style="break-inside:avoid"><p><b>d</b> The interval \(-4\le x\le-1\) is on the left-hand branch, so it does not cross \(x=0\).</p>
+\[\begin{aligned}\int_{-4}^{-1}\dfrac1x\,dx&amp;=\Big[\log_e|x|\Big]_{-4}^{-1}\\&amp;=\log_e|-1|-\log_e|-4|\\&amp;=0-\log_e4\\&amp;=-\log_e4\end{aligned}\]</div>
+<p>The integral is negative because the region is below the \(x\)-axis (the diagram in Concept 2).</p>
+<b>Your turn.</b>
+<div style="break-inside:avoid"><p><b>a</b></p>
+\[\begin{aligned}\int_e^{e^4}\dfrac2x\,dx&amp;=2\Big[\log_e|x|\Big]_e^{e^4}\\&amp;=2\big(\log_ee^4-\log_ee\big)\\&amp;=2(4-1)\\&amp;=6\end{aligned}\]</div>
+<div style="break-inside:avoid"><p><b>b</b> \((a=-2\text{ and }b=1)\)</p>
+\[\begin{aligned}\int_1^2\dfrac{1}{1-2x}\,dx&amp;=-\tfrac12\Big[\log_e|1-2x|\Big]_1^2\\&amp;=-\tfrac12\big(\log_e|-3|-\log_e|-1|\big)\\&amp;=-\tfrac12\big(\log_e3-0\big)\\&amp;=-\tfrac12\log_e3\end{aligned}\]</div>
+<p><b>c</b> The denominator \(x-1\) is zero at \(x=1\), which lies between \(0\) and \(3\). This definite integral is meaningless because it crosses the asymptote at \(x=1\).</p>
+<div style="break-inside:avoid"><p><b>d</b> The interval \(-6\le x\le-2\) is on the left-hand branch.</p>
+\[\begin{aligned}\int_{-6}^{-2}\dfrac1x\,dx&amp;=\Big[\log_e|x|\Big]_{-6}^{-2}\\&amp;=\log_e|-2|-\log_e|-6|\\&amp;=\log_e2-\log_e6\\&amp;=-\log_e3\end{aligned}\]</div>
+<p class="small">The last line uses \(\log_e2-\log_e6=\log_e\tfrac26=\log_e\tfrac13=-\log_e3\).</p></div></div>
+
+<div class="a"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b>
+<div style="break-inside:avoid"><p><b>a</b> Let \(u=x^2+5\). Then \(u'=2x\), so the top is the derivative of the bottom.</p>
+\[\begin{aligned}\int_0^2\dfrac{2x}{x^2+5}\,dx&amp;=\Big[\log_e(x^2+5)\Big]_0^2\\&amp;=\log_e9-\log_e5\end{aligned}\]</div>
+<div style="break-inside:avoid"><p><b>b</b> Let \(u=1-x^2\). Then \(u'=-2x\). Make the top the derivative of the bottom:</p>
+\[\begin{aligned}\int_3^5\dfrac{x}{1-x^2}\,dx&amp;=-\tfrac12\int_3^5\dfrac{-2x}{1-x^2}\,dx\\&amp;=-\tfrac12\Big[\log_e|1-x^2|\Big]_3^5\\&amp;=-\tfrac12\big(\log_e|-24|-\log_e|-8|\big)\\&amp;=-\tfrac12\big(\log_e24-\log_e8\big)\\&amp;=-\tfrac12\log_e3\end{aligned}\]</div>
+<p class="small">Here \(1-5^2=-24\), \(1-3^2=-8\) and \(\log_e24-\log_e8=\log_e\tfrac{24}{8}=\log_e3\). The asymptotes \(x=\pm1\) are not between \(3\) and \(5\).</p>
+<p><b>c</b> The denominator \(8-x^3\) is zero at \(x=2\), which lies between \(0\) and \(3\). This definite integral is meaningless because it crosses the asymptote at \(x=2\).</p>
+<b>Your turn.</b>
+<div style="break-inside:avoid"><p><b>a</b> Let \(u=x^2+3\). Then \(u'=2x\), so the top is the derivative of the bottom.</p>
+\[\begin{aligned}\int_0^1\dfrac{2x}{x^2+3}\,dx&amp;=\Big[\log_e(x^2+3)\Big]_0^1\\&amp;=\log_e4-\log_e3\end{aligned}\]</div>
+<div style="break-inside:avoid"><p><b>b</b> Let \(u=1-x^2\). Then \(u'=-2x\).</p>
+\[\begin{aligned}\int_2^4\dfrac{x}{1-x^2}\,dx&amp;=-\tfrac12\int_2^4\dfrac{-2x}{1-x^2}\,dx\\&amp;=-\tfrac12\Big[\log_e|1-x^2|\Big]_2^4\\&amp;=-\tfrac12\big(\log_e|-15|-\log_e|-3|\big)\\&amp;=-\tfrac12\big(\log_e15-\log_e3\big)\\&amp;=-\tfrac12\log_e5\end{aligned}\]</div>
+<p><b>c</b> The denominator \(4-x^2\) is zero at \(x=2\), which lies between \(0\) and \(3\). This definite integral is meaningless because it crosses the asymptote at \(x=2\).</p></div></div>
+
+<div class="a"><span class="an">C4</span><div class="ab"><div class="split"><div>
+<b>Tutor demo.</b>
+<p><b>a</b> Here \(\dfrac{3}{2-x}=3\times\dfrac{1}{-x+2}\), with \(a=-1\).<br>
+Taking the primitive, \(f(x)=-3\ln|2-x|+C\).<br>
+Because \(f(0)=0\), \(\ 0=-3\ln2+C\),<br>so \(C=3\ln2\).<br>
+Hence \(f(x)=3\ln2-3\ln|2-x|\).</p>
+<p><b>b</b> \(x=0\) and \(x=1\) are both on the left of the asymptote \(x=2\).<br>
+\(f(1)=3\ln2-3\ln1=3\ln2\)</p>
+</div><div>
+<b>Your turn.</b>
+<p><b>a</b> Here \(\dfrac{4}{5-x}=4\times\dfrac{1}{-x+5}\), with \(a=-1\).<br>
+Taking the primitive, \(f(x)=-4\ln|5-x|+C\).<br>
+Because \(f(0)=0\), \(\ 0=-4\ln5+C\),<br>so \(C=4\ln5\).<br>
+Hence \(f(x)=4\ln5-4\ln|5-x|\).</p>
+<p><b>b</b> \(x=0\) and \(x=4\) are both on the left of the asymptote \(x=5\).<br>
+\(f(4)=4\ln5-4\ln1=4\ln5\)</p>
+</div></div></div></div>
+
+<div class="a"><span class="an">C5</span><div class="ab"><b>Tutor demo.</b>
+<div style="break-inside:avoid"><p><b>a</b> By the product rule with \(u=x\) and \(v=\log_ex\), so \(u'=1\) and \(v'=\dfrac1x\),</p>
+\[\begin{aligned}\dfrac{d}{dx}(x\log_ex-x)&amp;=\Big(\log_ex+x\times\dfrac1x\Big)-1\\&amp;=\log_ex+1-1\\&amp;=\log_ex.\end{aligned}\]</div>
+<p><b>b</b> Reversing part <b>a</b>, \(\ \displaystyle\int\log_ex\,dx=x\log_ex-x+C\).</p>
+<div style="break-inside:avoid"><p><b>c</b></p>
+\[\begin{aligned}\int_1^{e^2}\log_ex\,dx&amp;=\Big[x\log_ex-x\Big]_1^{e^2}\\&amp;=\big(e^2\log_ee^2-e^2\big)-\big(1\log_e1-1\big)\\&amp;=\big(2e^2-e^2\big)-(0-1)\\&amp;=e^2+1\end{aligned}\]</div>
+<b>Your turn.</b>
+<p><b>a</b> and <b>b</b> As in the tutor demo, \(\dfrac{d}{dx}(x\log_ex-x)=\log_ex+1-1=\log_ex\), so \(\displaystyle\int\log_ex\,dx=x\log_ex-x+C\).</p>
+<div style="break-inside:avoid"><p><b>c</b></p>
+\[\begin{aligned}\int_e^{e^2}\log_ex\,dx&amp;=\Big[x\log_ex-x\Big]_e^{e^2}\\&amp;=\big(e^2\log_ee^2-e^2\big)-\big(e\log_ee-e\big)\\&amp;=\big(2e^2-e^2\big)-(e-e)\\&amp;=e^2\end{aligned}\]</div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a"><span class="an">1</span><div class="ab"><span class="ap6i"><b>a</b> \(2\log_e|x|+C\)</span> <span class="ap6i"><b>b</b> \(\tfrac13\log_e|x|+C\)</span> <span class="ap6i"><b>c</b> \(\tfrac45\log_e|x|+C\)</span> <span class="ap6i"><b>d</b> \(\tfrac32\log_e|x|+C\)</span></div></div>
+<div class="a"><span class="an">2</span><div class="ab"><span class="ap6i"><b>a</b> \(\tfrac14\log_e|4x+1|+C\)</span> <span class="ap6i"><b>b</b> \(\tfrac15\log_e|5x-3|+C\)</span> <span class="ap6i"><b>c</b> \(2\log_e|3x+2|+C\)</span> <span class="ap6i"><b>d</b> \(3\log_e|5x+1|+C\)</span> <span class="ap6i"><b>e</b> \(\log_e|4x+3|+C\)</span> <span class="ap6i"><b>f</b> \(-\log_e|3-x|+C\)</span> <span class="ap6i"><b>g</b> \(-\tfrac12\log_e|7-2x|+C\)</span> <span class="ap6i"><b>h</b> \(\tfrac45\log_e|5x-1|+C\)</span> <span class="ap6i"><b>i</b> \(-4\log_e|1-3x|+C\)</span></div></div>
+<div class="a"><span class="an">3</span><div class="ab"><span class="ap6i"><b>a</b> \(\log_e5\)</span> <span class="ap6i"><b>b</b> \(\log_e3\)</span> <span class="ap6i"><b>c</b> \(\log_e|-2|-\log_e|-8|=-2\log_e2\)</span> <span class="ap6i"><b>d</b> The integral is meaningless because it runs across an asymptote at \(x=0\).</span> <span class="ap6i"><b>e</b> \(\tfrac12(\log_e8-\log_e2)=\log_e2\)</span> <span class="ap6i"><b>f</b> \(\tfrac15(\log_e|-25|-\log_e|-75|)=-\tfrac15\log_e3\)</span></div></div>
+<div class="a"><span class="an">4</span><div class="ab"><span class="ap6i"><b>a</b> \(\log_e2\doteq0.6931\)</span> <span class="ap6i"><b>b</b> \(\log_e3-\log_e5\doteq-0.5108\)</span> <span class="ap6i"><b>c</b> \(-\tfrac12\log_e7\doteq-0.9730\)</span> <span class="ap6i"><b>d</b> \(\tfrac32\log_e3\doteq1.648\)</span> <span class="ap6i"><b>e</b> \(\log_e\tfrac52\doteq0.9163\)</span> <span class="ap6i"><b>f</b> The integral is meaningless because it runs across an asymptote at \(x=5\tfrac12\).</span></div></div>
+<div class="a"><span class="an">5</span><div class="ab"><span class="ap6i"><b>a</b> \(1\)</span> <span class="ap6i"><b>b</b> \(2\)</span> <span class="ap6i"><b>c</b> \(3\)</span> <span class="ap6i"><b>d</b> \(\tfrac12\)</span></div></div>
+<div class="a"><span class="an">6</span><div class="ab"><span class="ap6i"><b>a</b> \(x+\log_e|x|+C\)</span> <span class="ap6i"><b>b</b> \(\tfrac15x+\tfrac35\log_e|x|+C\)</span> <span class="ap6i"><b>c</b> \(\tfrac19\log_e|x|-\tfrac89x+C\)</span> <span class="ap6i"><b>d</b> \(3x-2\log_e|x|+C\)</span> <span class="ap6i"><b>e</b> \(x^2+x-4\log_e|x|+C\)</span> <span class="ap6i"><b>f</b> \(\tfrac13x^3-\log_e|x|-\tfrac2x+C\)</span></div></div>
+<div class="a"><span class="an">7</span><div class="ab"><span class="ap6i"><b>a</b> \(\log_e|x^2-9|+C\)</span> <span class="ap6i"><b>b</b> \(\log_e|3x^2+x|+C\)</span> <span class="ap6i"><b>c</b> \(\log_e|x^2+x-3|+C\)</span> <span class="ap6i"><b>d</b> \(\log_e|2+5x-3x^2|+C\)</span> <span class="ap6i"><b>e</b> \(\tfrac12\log_e|x^2+6x-1|+C\)</span> <span class="ap6i"><b>f</b> \(\tfrac14\log_e|12x-3-2x^2|+C\)</span> <span class="ap6i"><b>g</b> \(\log_e(1+e^x)+C\)</span> <span class="ap6i"><b>h</b> \(-\log_e(1+e^{-x})+C\)</span> <span class="ap6i"><b>i</b> \(\log_e(e^x+e^{-x})+C\)</span><br>
+The denominators in parts <b>g</b>–<b>i</b> are never negative, so the absolute value sign is unnecessary.</div></div>
+<div class="a"><span class="an">8</span><div class="ab"><span class="ap6i"><b>a</b> \(\tfrac13\log_e|3x-k|+C\)</span> <span class="ap6i"><b>b</b> \(\tfrac1m\log_e|mx-2|+C\)</span> <span class="ap6i"><b>c</b> \(\log_e|px+q|+C\)</span> <span class="ap6i"><b>d</b> \(\tfrac{A}{s}\log_e|sx-t|+C\)</span></div></div>
+<div class="a"><span class="an">9</span><div class="ab"><span class="ap6i"><b>a</b> \(f(x)=x+2\ln|x|\), \(f(2)=2+2\ln2\)</span> <span class="ap6i"><b>b</b> \(f(x)=x^2+\tfrac13\ln|x|+1\), \(f(2)=5+\tfrac13\ln2\)</span> <span class="ap6i"><b>c</b> \(f(x)=3x+\tfrac52\ln|2x-1|-3\), \(f(2)=3+\tfrac52\ln3\)</span> <span class="ap6i"><b>d</b> \(f(x)=2x^3+5\ln|3x+2|-2\), \(f(2)=14+5\ln8\)</span></div></div>
+<div class="a"><span class="an">10</span><div class="ab"><span class="ap6i"><b>a</b> \(f(x)=x+\ln|x|+\tfrac12x^2\)</span> <span class="ap6i"><b>b</b> \(g(x)=x^2-3\ln|x|+\tfrac4x-6\)</span></div></div>
+<div class="a"><span class="an">11</span><div class="ab"><span class="ap6i"><b>a</b> \(y=\tfrac14(\log_e|x|+2)\), \(x=e^{-2}\)</span> <span class="ap6i"><b>b</b> \(y=2\log_e|x+1|+1\)</span> <span class="ap6i"><b>c</b> \(y=\log_e\Big|\dfrac{x^2+5x+4}{10}\Big|+1\), \(y(0)=\log_e\tfrac{4}{10}+1\)</span> <span class="ap6i"><b>d</b> \(y=2\log_e|x|+x+C\), \(y=2\log_e|x|+x\), \(y(2)=\log_e4+2\)</span> <span class="ap6i"><b>e</b> \(f(x)=2+x-\log_e|x|\), \(f(e)=e+1\)</span></div></div>
+<div class="a"><span class="an">12</span><div class="ab"><span class="ap6i"><b>a</b> \(\log_e|x^3-5|+C\)</span> <span class="ap6i"><b>b</b> \(\log_e|x^4+x-5|+C\)</span> <span class="ap6i"><b>c</b> \(\tfrac14\log_e|x^4-6x^2|+C\)</span> <span class="ap6i"><b>d</b> \(\tfrac12\log_e|5x^4-7x^2+8|+C\)</span> <span class="ap6i"><b>e</b> \(2\log_e2\)</span> <span class="ap6i"><b>f</b> \(\log_e\dfrac{4(e+1)}{e+2}\)</span></div></div>
+<div class="a"><span class="an">13</span><div class="ab"><span class="ap6i"><b>a</b> (i) \(y'=\log_ex\) &nbsp; (ii) \(x\log_ex-x+C\) and \(\dfrac{\sqrt e}{2}\)</span><br><span class="ap6i"><b>b</b> (i) \(y'=4x\log_ex\) &nbsp; (ii) \(\tfrac12x^2\log_ex-\tfrac14x^2+C\) and \(2\log_e2-1-\dfrac{e^2}{4}\)</span><br><span class="ap6i"><b>c</b> \(\dfrac{2\log_ex}{x}\) and \(\dfrac38\)</span> <span class="ap6i"><b>d</b> \(\dfrac{d}{dx}\ln(\ln x)=\dfrac{1}{x\ln x}\), so the primitives are \(\ln(\ln x)+C\) for \(x\gt1\) (in general, \(\ln|\ln x|+C\))</span></div></div>
+<div class="a"><span class="an">14</span><div class="ab"><span class="ap6i"><b>a</b> \(a=e^5\)</span> <span class="ap6i"><b>b</b> \(a=e^{-4}\)</span> <span class="ap6i"><b>c</b> \(a=-e^2\)</span> <span class="ap6i"><b>d</b> \(a=-e^{-1}\)</span></div></div>
+<div class="a"><span class="an">15</span><div class="ab"><span class="ap6i"><b>a</b> \(\log_e(e^x+1)+C\)</span> <span class="ap6i"><b>b</b> \(\tfrac13(e^3-e^{-3})+2\)</span> <span class="ap6i"><b>c</b> \(\dfrac{d}{dx}\,xe^x=(x+1)e^x\)</span></div></div>
+<div class="a"><span class="an">16</span><div class="ab">The key to all this is that \(\log_e|5x|=\log_e5+\log_e|x|\), so that \(\log_e|x|\) and \(\log_e|5x|\) differ only by a constant \(\log_e5\). Thus \(C_2=C_1-\tfrac15\log_e5\), and because \(C_1\) and \(C_2\) are arbitrary constants, it does not matter at all. In particular, in a definite integral, adding a constant doesn't change the answer, because it cancels out when we take \(F(b)-F(a)\).</div></div>
+<div class="a"><span class="an">17</span><div class="ab">\(y=\begin{cases}\log_ex+1,&amp;\text{for }x\gt0,\\\log_e(-x)+2,&amp;\text{for }x\lt0.\end{cases}\)</div></div>
+<div class="a"><span class="an">18</span><div class="ab"><span class="ap6i"><b>d</b> (i) \(\log_e\tfrac32\doteq0.41\) &nbsp; (ii) \(\log_e2=1-\tfrac12+\tfrac13-\tfrac14+\cdots\)</span><br><span class="ap6i"><b>e</b> \(\log_e(1-x)=-x-\dfrac{x^2}{2}-\dfrac{x^3}{3}-\dfrac{x^4}{4}-\cdots\), \(\ \log_e\tfrac12\doteq-0.69\)</span><br><span class="ap6i"><b>f</b> Using \(x=\tfrac12\), \(\log_e3\doteq1.0986\).</span></div></div>
+
+{{ahead:Lesson 6I | Integration of the reciprocal function}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa"><div class="pp-src"><span><span class="pn">PP 1</span>North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(a)(i)</span></span></div>
+<p>The integrand needs \(\ln x\), so \(x\gt0\) (and \(x\ne1\), so that \(\ln x\ne0\)). Split the fraction into two separate fractions:</p>
+\[\begin{aligned}\dfrac{1-\ln x}{x\ln x}&amp;=\dfrac{1}{x\ln x}-\dfrac{\ln x}{x\ln x}\\&amp;=\dfrac{1}{x\ln x}-\dfrac1x.\end{aligned}\]
+<p>For the first fraction, let \(u=\ln x\). Then \(u'=\dfrac1x\), so</p>
+\[\dfrac{1}{x\ln x}=\dfrac{\tfrac1x}{\ln x}=\dfrac{u'}{u},\quad\text{and}\quad\int\dfrac{u'}{u}\,dx=\ln|u|=\ln|\ln x|.\]
+<p>Hence</p>
+\[\begin{aligned}\int\dfrac{1-\ln x}{x\ln x}\,dx&amp;=\int\Big(\dfrac{1}{x\ln x}-\dfrac1x\Big)\,dx\\&amp;=\ln|\ln x|-\ln x+C,\end{aligned}\]
+<p>for some constant \(C\). Here \(\ln|x|=\ln x\) because \(x\gt0\). Using a log law, this can also be written as \(\ln\Big|\dfrac{\ln x}{x}\Big|+C\).</p></div>
