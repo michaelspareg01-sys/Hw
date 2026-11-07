@@ -24,7 +24,7 @@
 <div data-c="c1_def">\[\begin{aligned}\int_0^3(x^2+1)\,dx&amp;=\Big[\frac{x^3}{3}+x\Big]_0^3\\&amp;=(9+3)-(0+0)\\&amp;=12\end{aligned}\]</div>
 <p>This is a number. The indefinite integral \(\displaystyle\int(x^2+1)\,dx=\frac{x^3}{3}+x+C\) is a function of \(x\) and of \(C\). If the constant were included in the definite integral, it would cancel: \((9+3+C)-(0+0+C)=12\). This is why any primitive can be used for a definite integral (Lesson 5B).</p></div>
 <div class="box concept"><div class="bt">Standard forms for integration</div>
-<p>The two rules for finding primitives given in the last section of Chapter 4 (Lesson 4J) can now be restated in this new notation.</p></div>
+<p>The two rules for finding primitives given in the last section of Chapter 4 can now be restated in this new notation.</p></div>
 <div class="box take"><div class="bt">14 Standard forms for integration</div>
 <p>Suppose that \(n\ne-1\). Then</p>
 <ul><li>\(\displaystyle\int x^n\,dx=\frac{x^{n+1}}{n+1}+C,\quad\) for some constant \(C\).</li>
@@ -32,7 +32,7 @@
 <div class="box concept"><div class="bt">Integration and integral</div>
 <p>The word ‘integration’ is commonly used to refer both to the finding of a primitive, and to the evaluating of a definite integral. Similarly, the unqualified term ‘integral’ is used to refer both to the indefinite integral and to the definite integral.</p></div>
 <div class="box tip"><div class="bt">Sums, multiples and constants (from Lesson 4J)</div>
-<p>Integrate a sum term by term, and keep each constant multiple in front. A constant \(k\) is \(kx^0\), so its integral is \(kx+C\). For example,</p>
+<p>The last section of Chapter 4 is Lesson 4J of this pack. Integrate a sum term by term, and keep each constant multiple in front. A constant \(k\) is \(kx^0\), so its integral is \(kx+C\). For example,</p>
 <div data-c="c1_sum">\[\begin{aligned}\int(3x^2+4x-5)\,dx&amp;=3\times\frac{x^3}{3}+4\times\frac{x^2}{2}-5x+C\\&amp;=x^3+2x^2-5x+C.\end{aligned}\]</div>
 <p>Only one constant \(C\) is needed for the whole answer.</p></div>
 
@@ -51,9 +51,11 @@ Use the standard form \(\displaystyle\int x^n\,dx=\frac{x^{n+1}}{n+1}+C\) to fin
 <div data-c="w16a"><p><b>a</b> \(\displaystyle\int 9\,dx=9x+C\), for some constant \(C\).</p>
 <p><b>Note:</b> We know that \(9x\) is the primitive of \(9\), because \(\dfrac{d}{dx}(9x)=9\). But the formula still gives the correct answer, because \(9=9x^0\), so increasing the index to 1 and dividing by this new index 1,</p>
 \[\begin{aligned}\int 9x^0\,dx&amp;=\frac{9x^1}{1}+C,\qquad\text{for some constant }C\\&amp;=9x+C.\end{aligned}\]</div>
-<div data-c="w16b"><p><b>b</b> Increase the index from 3 to 4, then divide by 4.</p>
+<div data-c="w16b"><p><b>b</b></p>
 \[\begin{aligned}\int 12x^3\,dx&amp;=12\times\frac{x^4}{4}+C,\qquad\text{for some constant }C\\&amp;=3x^4+C\end{aligned}\]</div>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 16</div>
+<p data-c="t16b"><b>b</b> Increase the index from 3 to 4, then divide by 4. Then \(12\div4=3\), so \(12\times\dfrac{x^4}{4}+C=\dfrac{12}{4}x^4+C=3x^4+C\).</p></div>
 
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:the second standard form, for powers of ax + b}}
@@ -80,21 +82,25 @@ Use the standard form \(\displaystyle\int(ax+b)^n\,dx=\frac{(ax+b)^{n+1}}{a(n+1)
 Use the standard form \(\displaystyle\int(ax+b)^n\,dx=\frac{(ax+b)^{n+1}}{a(n+1)}+C\) to find:
 <div class="parts"><span data-q="w17a"><span class="pl">a</span>\(\displaystyle\int(3x+1)^5\,dx\)</span><span data-q="w17b"><span class="pl">b</span>\(\displaystyle\int(5-2x)^2\,dx\)</span></div>
 <div class="sol-label">Solution</div>
-<div data-c="w17a"><p><b>a</b> Here \(n=5\) and \(a=3\) and \(b=1\), so divide by \(3\times6\).</p>
+<div data-c="w17a"><p><b>a</b></p>
 \[\begin{aligned}\int(3x+1)^5\,dx&amp;=\frac{(3x+1)^6}{3\times6}+C\qquad\text{(here }n=5\text{ and }a=3\text{ and }b=1)\\&amp;=\tfrac{1}{18}(3x+1)^6+C,\qquad\text{for some constant }C\end{aligned}\]</div>
-<div data-c="w17b"><p><b>b</b> Here \(n=2\) and \(a=-2\) and \(b=5\), so divide by \((-2)\times3=-6\).</p>
-\[\begin{aligned}\int(5-2x)^2\,dx&amp;=\frac{(5-2x)^3}{(-2)\times3}+C\qquad\text{(here }n=2\text{ and }a=-2\text{ and }b=5)\\&amp;=\frac{(5-2x)^3}{-6}+C\\&amp;=-\tfrac16(5-2x)^3+C,\qquad\text{for some constant }C\end{aligned}\]</div>
+<div data-c="w17b"><p><b>b</b></p>
+\[\begin{aligned}\int(5-2x)^2\,dx&amp;=\frac{(5-2x)^3}{(-2)\times3}+C\qquad\text{(here }n=2\text{ and }a=-2\text{ and }b=5)\\&amp;=-\tfrac16(5-2x)^3+C,\qquad\text{for some constant }C\end{aligned}\]</div>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 17</div>
+<p data-c="t17a"><b>a</b> The denominator is \(a(n+1)\) with \(n=5\), \(a=3\) and \(b=1\): \(3\times6=18\), so \(\dfrac{(3x+1)^6}{3\times6}+C=\dfrac{(3x+1)^6}{18}+C=\tfrac{1}{18}(3x+1)^6+C\).</p>
+<p data-c="t17b"><b>b</b> Here \(n=2\), \(a=-2\) and \(b=5\): \((-2)\times3=-6\), so \(\dfrac{(5-2x)^3}{(-2)\times3}+C=\dfrac{(5-2x)^3}{-6}+C=-\tfrac16(5-2x)^3+C\).</p></div>
 
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:negative indices}}
 <div class="box concept"><div class="bt">Negative indices</div>
-<p>Both standard forms apply with negative indices as well as positive indices, as in the next worked example. The exception is the index \(-1\), where the rule is nonsense because it results in division by zero. We shall deal with the integration of \(x^{-1}\) in Chapter 6 (Lesson 6I in Part 2 of this course).</p></div>
+<p>Both standard forms apply with negative indices as well as positive indices, as in the next worked example. The exception is the index \(-1\), where the rule is nonsense because it results in division by zero. We shall deal with the integration of \(x^{-1}\) in Chapter 6.</p></div>
 <div class="box tip"><div class="bt">Negative indices, step by step</div>
 <ol style="margin:0"><li>Rewrite each fraction with a negative index. The whole bracket moves up: \(\dfrac{1}{(3x+4)^2}=(3x+4)^{-2}\).</li>
 <li>Increase the index by 1. For example, \(-3\) becomes \(-2\), not \(-4\).</li>
 <li>Divide by the new index, which is negative, so a minus sign appears.</li>
-<li>Write the answer as a fraction again, with a positive index: \(\dfrac{x^{-2}}{-2}=-\dfrac{1}{2x^2}\).</li></ol></div></div>
+<li>Write the answer as a fraction again, with a positive index: \(\dfrac{x^{-2}}{-2}=-\dfrac{1}{2x^2}\).</li></ol>
+<p>Chapter 6 of the textbook is Lesson 6I in Part 2 of this course.</p></div></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Negative indices</span></div><div class="ex-body">
 Use negative indices to find these indefinite integrals.
@@ -109,13 +115,16 @@ Use negative indices to find these indefinite integrals.
 <div class="parts"><span data-q="w18a"><span class="pl">a</span>\(\displaystyle\int\frac{12}{x^3}\,dx\)</span><span data-q="w18b"><span class="pl">b</span>\(\displaystyle\int\frac{dx}{(3x+4)^2}\)</span></div>
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div data-c="w18a">
-<p><b>a</b> Increase the index from \(-3\) to \(-2\).</p>
-\[\begin{aligned}\int\frac{12}{x^3}\,dx&amp;=\int 12x^{-3}\,dx\\&amp;=12\times\frac{x^{-2}}{-2}+C\\&amp;=-6x^{-2}+C\\&amp;=-\frac{6}{x^2}+C\end{aligned}\]
+<p><b>a</b></p>
+\[\begin{aligned}\int\frac{12}{x^3}\,dx&amp;=\int 12x^{-3}\,dx\\&amp;=12\times\frac{x^{-2}}{-2}+C\\&amp;=-\frac{6}{x^2}+C\end{aligned}\]
 </div><div data-c="w18b">
-<p><b>b</b> Here \(n=-2\), \(a=3\) and \(b=4\).</p>
-\[\begin{aligned}\int\frac{dx}{(3x+4)^2}&amp;=\int(3x+4)^{-2}\,dx\\&amp;=\frac{(3x+4)^{-1}}{3\times(-1)}+C\\&amp;=-\tfrac13(3x+4)^{-1}+C\\&amp;=-\frac{1}{3(3x+4)}+C\end{aligned}\]
+<p><b>b</b></p>
+\[\begin{aligned}\int\frac{dx}{(3x+4)^2}&amp;=\int(3x+4)^{-2}\,dx\\&amp;=\frac{(3x+4)^{-1}}{3\times(-1)}+C\\&amp;=-\frac{1}{3(3x+4)}+C\end{aligned}\]
 </div></div>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 18</div>
+<p data-c="t18a"><b>a</b> Increase the index from \(-3\) to \(-2\), and divide by \(-2\). Then \(12\div(-2)=-6\) and \(x^{-2}=\dfrac{1}{x^2}\), so \(12\times\dfrac{x^{-2}}{-2}+C=-6x^{-2}+C=-\dfrac{6}{x^2}+C\).</p>
+<p data-c="t18b"><b>b</b> Here \(n=-2\), \(a=3\) and \(b=4\), so the new index is \(-1\) and \(3\times(-1)=-3\). Then \(\dfrac{(3x+4)^{-1}}{3\times(-1)}+C=-\tfrac13(3x+4)^{-1}+C=-\dfrac{1}{3(3x+4)}+C\).</p></div>
 
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:special expansions}}
@@ -134,18 +143,23 @@ Find these indefinite integrals.
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 Find these indefinite integrals.
 <div class="parts"><span data-q="y4a"><span class="pl">a</span>\(\displaystyle\int(x^2-3)^2\,dx\)</span><span data-q="y4b"><span class="pl">b</span>\(\displaystyle\int\Big(\frac1x-2\Big)\Big(\frac1x+2\Big)\,dx\)</span></div>
-{{work:78}}</div></div>
+{{work:55}}</div></div>
 <div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 19</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 Find these indefinite integrals.
 <div class="parts"><span data-q="w19a"><span class="pl">a</span>\(\displaystyle\int(x^3-1)^2\,dx\)</span><span data-q="w19b"><span class="pl">b</span>\(\displaystyle\int\Big(3-\frac{1}{x^2}\Big)\Big(3+\frac{1}{x^2}\Big)\,dx\)</span></div>
 <div class="sol-label">Solution</div>
-<div data-c="w19a"><p><b>a</b> Using \((A+B)^2=A^2+2AB+B^2\) with <!--nc-->\(A=x^3\) and <!--nc-->\(B=-1\):</p>
-\[(x^3-1)^2=(x^3)^2+2\times x^3\times(-1)+(-1)^2=x^6-2x^3+1.\]
-\[\begin{aligned}\int(x^3-1)^2\,dx&amp;=\int(x^6-2x^3+1)\,dx\qquad\text{(using }(A+B)^2=A^2+2AB+B^2)\\&amp;=\frac{x^7}{7}-2\times\frac{x^4}{4}+x+C\\&amp;=\frac{x^7}{7}-\frac{x^4}{2}+x+C\end{aligned}\]</div>
-<div data-c="w19b"><p><b>b</b> Using \((A-B)(A+B)=A^2-B^2\) with <!--nc-->\(A=3\) and <!--nc-->\(B=\dfrac{1}{x^2}\):</p>
-\[\Big(3-\frac{1}{x^2}\Big)\Big(3+\frac{1}{x^2}\Big)=3^2-\Big(\frac{1}{x^2}\Big)^2=9-\frac{1}{x^4}.\]
-\[\begin{aligned}&amp;\int\Big(3-\frac{1}{x^2}\Big)\Big(3+\frac{1}{x^2}\Big)\,dx\\&amp;\quad=\int\Big(9-\frac{1}{x^4}\Big)\,dx\qquad\text{(using }(A-B)(A+B)=A^2-B^2)\\&amp;\quad=\int(9-x^{-4})\,dx\\&amp;\quad=9x-\frac{x^{-3}}{-3}+C\\&amp;\quad=9x+\tfrac13x^{-3}+C\\&amp;\quad=9x+\frac{1}{3x^3}+C\end{aligned}\]</div>
+<div data-c="w19a"><p><b>a</b></p>
+\[\begin{aligned}\int(x^3-1)^2\,dx&amp;=\int(x^6-2x^3+1)\,dx\qquad\text{(using }(A+B)^2=A^2+2AB+B^2)\\&amp;=\frac{x^7}{7}-\frac{x^4}{2}+x+C\end{aligned}\]</div>
+<div data-c="w19b"><p><b>b</b></p>
+\[\begin{aligned}&amp;\int\Big(3-\frac{1}{x^2}\Big)\Big(3+\frac{1}{x^2}\Big)\,dx\\&amp;\quad=\int\Big(9-\frac{1}{x^4}\Big)\,dx\qquad\text{(using }(A-B)(A+B)=A^2-B^2)\\&amp;\quad=\int(9-x^{-4})\,dx\\&amp;\quad=9x-\frac{x^{-3}}{-3}+C\\&amp;\quad=9x+\frac{1}{3x^3}+C\end{aligned}\]</div>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 19</div>
+<div data-c="t19a"><p><b>a</b> Use \((A+B)^2=A^2+2AB+B^2\) with <!--nc-->\(A=x^3\) and <!--nc-->\(B=-1\):</p>
+\[(x^3-1)^2=(x^3)^2+2\times x^3\times(-1)+(-1)^2=x^6-2x^3+1.\]
+<p>Then the primitive of \(2x^3\) is \(2\times\dfrac{x^4}{4}=\dfrac{x^4}{2}\), so \(\dfrac{x^7}{7}-2\times\dfrac{x^4}{4}+x+C=\dfrac{x^7}{7}-\dfrac{x^4}{2}+x+C\).</p></div>
+<div data-c="t19b"><p><b>b</b> Use \((A-B)(A+B)=A^2-B^2\) with <!--nc-->\(A=3\) and <!--nc-->\(B=\dfrac{1}{x^2}\):</p>
+\[\Big(3-\frac{1}{x^2}\Big)\Big(3+\frac{1}{x^2}\Big)=3^2-\Big(\frac{1}{x^2}\Big)^2=9-\frac{1}{x^4}.\]
+<p>Dividing by \(-3\) changes the sign, and \(x^{-3}=\dfrac{1}{x^3}\), so \(9x-\dfrac{x^{-3}}{-3}+C=9x+\tfrac13x^{-3}+C=9x+\dfrac{1}{3x^3}+C\).</p></div></div>
 
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:fractional indices}}
@@ -161,24 +175,28 @@ Find these indefinite integrals.
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Fractional and negative indices</span></div><div class="ex-body">
 Use fractional and negative indices to evaluate:
 <div class="parts"><span data-q="d5a"><span class="pl">a</span>\(\displaystyle\int_1^9\sqrt x\,dx\)</span><span data-q="d5b"><span class="pl">b</span>\(\displaystyle\int_1^9\frac{1}{\sqrt x}\,dx\)</span></div>
-{{work:46}}</div></div>
+{{work:70}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 Use fractional and negative indices to evaluate:
 <div class="parts"><span data-q="y5a"><span class="pl">a</span>\(\displaystyle\int_0^4\sqrt x\,dx\)</span><span data-q="y5b"><span class="pl">b</span>\(\displaystyle\int_1^{16}\frac{1}{\sqrt x}\,dx\)</span></div>
-{{work:46}}</div></div>
+{{work:70}}</div></div>
 <div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 20</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 Use fractional and negative indices to evaluate:
 <div class="parts"><span data-q="w20a"><span class="pl">a</span>\(\displaystyle\int_1^4\sqrt x\,dx\)</span><span data-q="w20b"><span class="pl">b</span>\(\displaystyle\int_1^4\frac{1}{\sqrt x}\,dx\)</span></div>
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div data-c="w20a">
 <p><b>a</b> Increase the index to \(\tfrac32\), and divide by \(\tfrac32\).</p>
-\[\begin{aligned}\int_1^4\sqrt x\,dx&amp;=\int_1^4 x^{\frac12}\,dx\\&amp;=\Big[\frac{x^{\frac32}}{\frac32}\Big]_1^4\\&amp;=\tfrac23\Big[x^{\frac32}\Big]_1^4\\&amp;=\tfrac23\times\big(4^{\frac32}-1^{\frac32}\big)\\&amp;=\tfrac23\times(8-1)\\&amp;=\tfrac{14}{3}\\&amp;=4\tfrac23\end{aligned}\]
+\[\begin{aligned}\int_1^4\sqrt x\,dx&amp;=\int_1^4 x^{\frac12}\,dx\\&amp;=\tfrac23\Big[x^{\frac32}\Big]_1^4\\&amp;=\tfrac23\times(8-1)\\&amp;=4\tfrac23\end{aligned}\]
 </div><div data-c="w20b">
 <p><b>b</b> Increase the index to \(\tfrac12\), and divide by \(\tfrac12\).</p>
-\[\begin{aligned}\int_1^4\frac{1}{\sqrt x}\,dx&amp;=\int_1^4 x^{-\frac12}\,dx\\&amp;=\Big[\frac{x^{\frac12}}{\frac12}\Big]_1^4\\&amp;=2\Big[x^{\frac12}\Big]_1^4\\&amp;=2\times\big(4^{\frac12}-1^{\frac12}\big)\\&amp;=2\times(2-1)\\&amp;=2\end{aligned}\]
+\[\begin{aligned}\int_1^4\frac{1}{\sqrt x}\,dx&amp;=\int_1^4 x^{-\frac12}\,dx\\&amp;=2\Big[x^{\frac12}\Big]_1^4\\&amp;=2\times(2-1)\\&amp;=2\end{aligned}\]
 </div></div>
-<p class="small">Here \(4^{\frac32}=\big(\sqrt4\big)^3=8\), \(4^{\frac12}=\sqrt4=2\), and every power of 1 is 1.</p>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 20</div>
+<div data-c="t20a"><p><b>a</b> Dividing by \(\tfrac32\) is multiplying by \(\tfrac23\). Then substitute 4 and 1, where \(4^{\frac32}=\big(\sqrt4\big)^3=8\) and every power of 1 is 1:</p>
+\[\Big[\frac{x^{\frac32}}{\frac32}\Big]_1^4=\tfrac23\Big[x^{\frac32}\Big]_1^4=\tfrac23\times\big(4^{\frac32}-1^{\frac32}\big)=\tfrac23\times(8-1)=\tfrac{14}{3}=4\tfrac23.\]</div>
+<div data-c="t20b"><p><b>b</b> Dividing by \(\tfrac12\) is multiplying by 2, and \(4^{\frac12}=\sqrt4=2\):</p>
+\[\Big[\frac{x^{\frac12}}{\frac12}\Big]_1^4=2\Big[x^{\frac12}\Big]_1^4=2\times\big(4^{\frac12}-1^{\frac12}\big)=2\times(2-1)=2.\]</div></div>
 
 <!-- ============ Concept 6 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 6:fractional powers of ax + b}}
@@ -188,19 +206,21 @@ Use fractional and negative indices to evaluate:
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A surd of a linear function</span></div><div class="ex-body">
 <b>a</b> Use index notation to express \(\dfrac{1}{\sqrt{5-4x}}\) as a power of \(5-4x\).<br>
 <b>b</b> <span data-q="d6b">Hence find the indefinite integral \(\displaystyle\int\frac{dx}{\sqrt{5-4x}}\).</span>
-{{work:40}}</div></div>
+{{work:56}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 <b>a</b> Use index notation to express \(\dfrac{1}{\sqrt{2x+7}}\) as a power of \(2x+7\).<br>
 <b>b</b> <span data-q="y6b">Hence find the indefinite integral \(\displaystyle\int\frac{dx}{\sqrt{2x+7}}\).</span>
-{{work:40}}</div></div>
+{{work:56}}</div></div>
 <div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 21</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 <b>a</b> Use index notation to express \(\dfrac{1}{\sqrt{9-2x}}\) as a power of \(9-2x\).<br>
 <b>b</b> <span data-q="w21b">Hence find the indefinite integral \(\displaystyle\int\frac{dx}{\sqrt{9-2x}}\).</span>
 <div class="sol-label">Solution</div>
 <div data-c="w21b"><p><b>a</b> \(\dfrac{1}{\sqrt{9-2x}}=(9-2x)^{-\frac12}\).</p>
-<p><b>b</b> Hence, using <!--nc-->\(\displaystyle\int(ax+b)^n\,dx=\frac{(ax+b)^{n+1}}{a(n+1)}+C\) with \(n=-\tfrac12\), \(a=-2\) and \(b=9\),</p>
-\[\begin{aligned}\int\frac{1}{\sqrt{9-2x}}\,dx&amp;=\int(9-2x)^{-\frac12}\,dx\\&amp;=\frac{(9-2x)^{\frac12}}{-2\times\frac12}+C\\&amp;=\frac{(9-2x)^{\frac12}}{-1}+C\\&amp;=-\sqrt{9-2x}+C.\end{aligned}\]</div>
+<p><b>b</b> Hence</p>
+\[\begin{aligned}\int\frac{1}{\sqrt{9-2x}}\,dx&amp;=\int(9-2x)^{-\frac12}\,dx\\&amp;=\frac{(9-2x)^{\frac12}}{-2\times\frac12}+C,\qquad\text{using }\int(ax+b)^n\,dx=\frac{(ax+b)^{n+1}}{a(n+1)},\\&amp;=-\sqrt{9-2x}+C.\end{aligned}\]</div>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 21</div>
+<p data-c="t21b"><b>b</b> Here \(n=-\tfrac12\), \(a=-2\) and \(b=9\), so the new index is <!--nc-->\(n+1=\tfrac12\), and \(-2\times\tfrac12=-1\). Then \(\dfrac{(9-2x)^{\frac12}}{-2\times\frac12}+C=\dfrac{(9-2x)^{\frac12}}{-1}+C=-\sqrt{9-2x}+C\).</p></div>
 
 <!-- ============ Homework ============ -->
 <div style="break-inside:avoid">{{sec:blue:pencil:Textbook homework:Exercise 5E}}
@@ -275,6 +295,6 @@ Use fractional and negative indices to evaluate:
 <!-- ============ Past papers ============ -->
 <div style="break-inside:avoid">
 {{sec:amber:clock:Past-paper homework:timed practice}}
-<p>The school trial papers used for this pack (2020–2024) have no question that first needs this lesson’s methods: each integration question in them can be done with the methods of an earlier lesson, or needs later work. For timed practice, do Questions 8(l), 11(l), 12(c), 13(i), 14(c), 16(c), 18(d) and 19(i) above in 30 minutes.</p>
+<p>The school trial papers used for this pack (2020–2024) have no question that first needs this lesson’s methods: each integration question in the catalogue for these papers can be done with the methods of an earlier lesson, or needs later work. For timed practice, do Questions 8(l), 11(l), 12(c), 13(i), 14(c), 16(c), 18(d) and 19(i) above in 30 minutes.</p>
 </div>
 </div>

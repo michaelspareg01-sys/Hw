@@ -57,7 +57,7 @@ def ok(flag, label, detail=""):
 
 # ------------------------------------------------------------------ TeX -> sympy
 def prep(s):
-    s = s.replace("&amp;", "").replace("&", "")
+    s = s.replace("&amp;", "").replace("&", "").replace("\\div", "/")
     s = re.sub(r"\\sqrt\[(\d)\]\{([^{}]*)\}", r"(\2)^{(1/\1)}", s)
     s = re.sub(r"\\sqrt\s+(\w)", r"\\sqrt{\1}", s)
     s = re.sub(r"(\d+)\\tfrac(\d)(\d)", r"(\1+\2/\3)", s)        # mixed number 17\tfrac13
@@ -250,6 +250,9 @@ def check_block(key, text, spec, final_key=None):
         for t in mem:
             if re.match(r"\\d?frac\{d\}\{dx\}", t):
                 vals.append(("DX", sp.diff(P(re.sub(r"^\\d?frac\{d\}\{dx\}", "", t)), X)))
+            elif "\\int" in t and not t.lstrip().startswith(("\\int", "\\displaystyle\\int")):
+                mm = re.fullmatch(r"(.*?)-\\int(.*?)\\,dx", t.strip(), re.S)   # uv - integral of v du/dx
+                vals.append(("UV", P(mm.group(1)) - sp.integrate(P(mm.group(2)), X) + C))
             elif "\\int" in t:
                 vals.append(("INT", parse_int(t)))
             elif BR.search(t):
@@ -260,7 +263,7 @@ def check_block(key, text, spec, final_key=None):
                 vals.append(("BR", (Mz, F, lo, hi)))
             else:
                 vals.append(("E", P(t)))
-        anyx = any(k_ in ("DX", "INT", "BR") or (k_ == "E" and (has_x(v_) or has_c(v_))) for k_, v_ in vals)
+        anyx = any(k_ in ("DX", "INT", "BR", "UV") or (k_ == "E" and has_c(v_)) for k_, v_ in vals)
         if kind == "id" or not anyx:
             ref = vals[0][1]
             good = all((feq(v_, ref) if (has_x(v_) or has_x(ref)) else neq(v_, ref)) for k_, v_ in vals[1:])
@@ -278,6 +281,8 @@ def check_block(key, text, spec, final_key=None):
                     ok(feq(v_, f), lab, "(derivative = integrand)")
                 elif k_ == "BR":
                     ok(False, lab, "bracket in an indefinite item")
+                elif k_ == "UV":
+                    ok(feq(sp.diff(v_, X), f), lab, "(uv - integral: d/dx = integrand)")
                 elif has_c(v_):
                     ok(feq(sp.diff(v_, X), f), lab, "(d/dx = integrand)")
                     finals.append(v_)
@@ -478,6 +483,20 @@ for k in TRANS:
 
 ok(not feq(sp.diff(-R(5, 4) * (1 - x / 4)**4, X), (1 - x / 5)**3), "12c: the printed key (1 - x/4) is a slip; not used")
 
+# "Steps the book skips" tips after the worked examples: each is checked against its example's integral
+TIPS = ("t16b", "t17a", "t17b", "t18a", "t18b", "t19a", "t19b", "t20a", "t20b", "t21b")
+for tk in TIPS:
+    blk = block(les, "data-c", tk)
+    if blk is not None:
+        check_block(tk, blk, SPEC["w" + tk[1:]], sp.sympify(KEY["w" + tk[1:]]))
+ok(les.count("Steps the book skips: Worked example") == 6, "a tip after each of Worked examples 16-21")
+WE = re.findall(r'<span class="tag">Worked example (\d+)</span>(.*?)</div></div>\n<div class="box tip"><div class="bt">Steps the book skips: Worked example (\d+)', les, re.S)
+ok([w[0] for w in WE] == [str(i) for i in range(16, 22)] and all(w[0] == w[2] for w in WE), "each tip follows its worked example")
+for w in WE:
+    ok(not re.search(r"Here \\\(n=|so divide by|Increase the index from", w[1]), f"WE{w[0]}: no pack prose inside the example box")
+for nm, frm, vv in (("20bi", "\\(v=\\tfrac15(x-1)^5\\)", (X - 1)**5 / 5), ("20bii", "\\(v=\\tfrac23(1+x)^{\\frac32}\\)", R(2, 3) * (1 + X)**R(3, 2))):
+    ok(frm in ans and feq(sp.diff(vv, X), (X - 1)**4 if nm == "20bi" else sp.sqrt(1 + X)), f"Q{nm}: printed v has dv/dx as stated")
+
 # textbook answers present for every question part, demos for every lesson example
 ok(sorted(k for k in KEY if not k[0] in "dyw") == sorted(k for k in TRANS if not k[0] in "dyw"), "every exercise part has a key value")
 ans_keys = set(re.findall(r'data-c="([^"]+)"', ans))
@@ -504,8 +523,8 @@ ok(feq(sp.diff(X**(N + 1) / (N + 1), X), X**N) and feq(sp.diff((Aa * X + Bb)**(N
    "Box 14: both forms differentiate back (generic a, b, n)")
 
 # textbook sentences with a pack cross-reference, bands, Q17 and Q20a
-for s in ("We shall deal with the integration of \\(x^{-1}\\) in Chapter 6",
-          "given in the last section of Chapter 4 (Lesson 4J)",
+for s in ("We shall deal with the integration of \\(x^{-1}\\) in Chapter 6.</p></div>",
+          "given in the last section of Chapter 4 can now be restated in this new notation.",
           "The only exception to including the constant of integration is when calculating definite integrals"):
     ok(les.count(s) == 1, f"text printed once: {s[:60]}")
 hw = les.split("<!-- ============ Homework ============ -->")[1].split("<!-- ============ Past papers ============ -->")[0]
