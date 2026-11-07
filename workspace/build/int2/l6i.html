@@ -50,8 +50,10 @@ table.st6i td.r { color:var(--ink-soft); }
 <p><b>a</b></p>
 \[\begin{aligned}\int_1^2\dfrac1x\,dx&amp;=\Big[\log_ex\Big]_1^2\\&amp;=\log_e2-\log_e1\\&amp;=\log_e2,\quad\text{because }\log_e1=0.\end{aligned}\]
 <p><b>b</b> Hence \(\displaystyle\int_1^2\dfrac1x\,dx\doteq0.693\), which is indeed between \(\tfrac12\) and \(1\), as the diagram above indicated.</p>
-<p class="small"><b>Note:</b> In the diagram, both rectangles have width \(1\). The lower (shaded) rectangle has height \(\tfrac12\), the value of \(\dfrac1x\) at \(x=2\), so its area is \(\tfrac12\). The upper (hatched) rectangle has height \(1\), the value of \(\dfrac1x\) at \(x=1\), so its area is \(1\). Between \(x=1\) and \(x=2\) the curve lies between these two heights, so the area under it lies between \(\tfrac12\) and \(1\). On the calculator, \(\log_e2=0.693\,147\ldots\)</p>
 </div></div>
+<div class="box tip"><div class="bt">Reading the rectangles in Worked example 33</div>
+<p>In the diagram, both rectangles have width \(1\). The lower (shaded) rectangle has height \(\tfrac12\), the value of \(\dfrac1x\) at \(x=2\), so its area is \(\tfrac12\). The upper (hatched) rectangle has height \(1\), the value of \(\dfrac1x\) at \(x=1\), so its area is \(1\). Between \(x=1\) and \(x=2\) the curve lies between these two heights, so the area under it lies between \(\tfrac12\) and \(1\). On the calculator, \(\log_e2=0.693\,147\ldots\)</p>
+</div>
 
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:the primitive on both sides of the origin}}
@@ -61,37 +63,45 @@ table.st6i td.r { color:var(--ink-soft); }
 <p>There is no reason why we should not integrate over a closed interval such as \(-4\le x\le-1\) on the left-hand side of the origin. We can take any definite integrals of \(\dfrac1x\), provided only that we do not work across the asymptote at \(x=0\). If \(x\) is negative, then \(\log(-x)\) is well defined, and using our previous standard forms,</p>
 \[\dfrac{d}{dx}\log(-x)=-\Big(\dfrac{1}{-x}\Big)=\dfrac1x.\]
 </div><div class="f6i"><div class="fig">{{svg:c6i_both}}</div></div></div>
-<p>In full, by the chain rule:</p>
-<table class="st6i">
-<tr><td>Let</td><td>\(y=\log_e(-x),\)</td><td class="r">where \(x\lt0\).</td></tr>
-<tr><td>Let</td><td>\(u=-x,\)</td><td class="r">so \(y=\log_eu\).</td></tr>
-<tr><td>Then</td><td>\(\dfrac{du}{dx}=-1\ \text{ and }\ \dfrac{dy}{du}=\dfrac1u.\)</td><td class="r"></td></tr>
-<tr><td>Hence</td><td>\(\dfrac{dy}{dx}=\dfrac{dy}{du}\times\dfrac{du}{dx}=\dfrac{1}{-x}\times(-1)=\dfrac1x.\)</td><td class="r"></td></tr></table>
 <p>Reversing this, \(\log(-x)\) is a primitive of \(\dfrac1x\) when \(x\) is negative,</p>
 \[\int\dfrac1x\,dx=\log_e(-x)+C,\ \text{ provided that }x\lt0.\]
 <p>The absolute value function is designed for just these situations. We can combine the two results into one standard form for the whole reciprocal function,</p>
 \[\int\dfrac1x\,dx=\log_e|x|+C,\ \text{ provided that }x\ne0.\]
 <p>Question 16 of Exercise 6G gives more detail about this standard form.</p></div></div>
+<div class="box tip"><div class="bt">The derivative of \(\log_e(-x)\) in full</div>
+<p>The line \(\dfrac{d}{dx}\log(-x)=-\Big(\dfrac{1}{-x}\Big)\) uses the chain rule. Written out:</p>
+<table class="st6i">
+<tr><td>Let</td><td>\(y=\log_e(-x),\)</td><td class="r">where \(x\lt0\).</td></tr>
+<tr><td>Let</td><td>\(u=-x,\)</td><td class="r">so \(y=\log_eu\).</td></tr>
+<tr><td>Then</td><td>\(\dfrac{du}{dx}=-1\ \text{ and }\ \dfrac{dy}{du}=\dfrac1u.\)</td><td class="r"></td></tr>
+<tr><td>Hence</td><td>\(\dfrac{dy}{dx}=\dfrac{dy}{du}\times\dfrac{du}{dx}=\dfrac{1}{-x}\times(-1)=\dfrac1x.\)</td><td class="r"></td></tr></table>
+</div>
 <div class="box concept"><div class="bt">Each branch may have its own constant of integration</div>
 <p>Careful readers will realise that because \(y=\dfrac1x\) has two disconnected branches, there can be different constants of integration in the two branches. So the general primitive of \(\dfrac1x\) is</p>
 \[\int\dfrac1x\,dx=\begin{cases}\log_ex+A,&amp;\text{for }x\gt0,\\\log(-x)+B,&amp;\text{for }x\lt0,\end{cases}\qquad\text{where }A\text{ and }B\text{ are constants.}\]
 <p>If a boundary condition is given for one branch, this has no implication at all for the constant of integration in the other branch.</p>
 <p>In any physical interpretation, however, the function would normally have meaning in only one of the two branches, so the complication discussed here is rarely needed, and the over-simplified forms in Box 10 below are standard and generally used. The qualification is understood and taken account of when necessary.</p></div>
 <div class="box concept"><div class="bt">Three standard forms</div>
-<p>As always, reversing the other standard forms for differentiation gives two more standard forms. In full:</p>
+<p>As always, reversing the other standard forms for differentiation gives two more standard forms.</p></div>
+<div class="box tip"><div class="bt">Where the second and third forms come from</div>
+<p>Reversing each derivative, as for \(\dfrac1x\):</p>
 <table class="st6i">
 <tr><td>Reversing</td><td>\(\dfrac{d}{dx}\log_e(ax+b)=\dfrac{a}{ax+b}\)</td></tr>
 <tr><td>gives</td><td>\(\displaystyle\int\dfrac{a}{ax+b}\,dx=\log_e|ax+b|,\)</td></tr>
 <tr><td>and dividing through by \(a\),</td><td>\(\displaystyle\int\dfrac{1}{ax+b}\,dx=\dfrac1a\log_e|ax+b|+C.\)</td></tr>
 <tr><td>Reversing</td><td>\(\dfrac{d}{dx}\log_eu=\dfrac{u'}{u}\)</td></tr>
-<tr><td>gives</td><td>\(\displaystyle\int\dfrac{u'}{u}\,dx=\log_e|u|+C.\)</td></tr></table></div>
+<tr><td>gives</td><td>\(\displaystyle\int\dfrac{u'}{u}\,dx=\log_e|u|+C.\)</td></tr></table>
+</div>
 <div class="box take"><div class="bt">10 Standard forms for integrating reciprocal functions</div>
 <ul><li>\(\displaystyle\int\dfrac1x\,dx=\log_e|x|+C\)</li>
 <li>\(\displaystyle\int\dfrac{1}{ax+b}\,dx=\dfrac1a\log_e|ax+b|+C\)</li>
 <li>\(\displaystyle\int\dfrac{u'}{u}\,dx=\log_e|u|+C\qquad\text{OR}\qquad\int\dfrac{f'(x)}{f(x)}\,dx=\log_e|f(x)|+C\)</li></ul>
 <p>No calculation involving these primitives may cross an asymptote.</p></div>
 <div class="box warn"><div class="bt">Never cross an asymptote</div>
-<p>The final warning always applies to the primitive of any function, but it is mentioned here because it is such an obvious issue. Before substituting the limits, find where the denominator is zero. If that \(x\)-value lies between the limits, the definite integral is meaningless.</p></div>
+<p>The final warning always applies to the primitive of any function, but it is mentioned here because it is such an obvious issue.</p></div>
+<div class="box tip"><div class="bt">Checking for an asymptote</div>
+<p>Before substituting the limits, find where the denominator is zero. If that \(x\)-value lies between the limits, the definite integral is meaningless.</p>
+</div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The first two standard forms</span></div><div class="ex-body">
 Evaluate these definite integrals using the first two standard forms above.
@@ -113,8 +123,10 @@ Evaluate these definite integrals using the first two standard forms above.
 \[\begin{aligned}\int_1^4\dfrac{1}{1-2x}\,dx&amp;=-\tfrac12\Big[\log_e|1-2x|\Big]_1^4\\&amp;=-\tfrac12\big(\log_e|-7|-\log_e|-1|\big)\\&amp;=-\tfrac12\big(\log_e7-0\big)\\&amp;=-\tfrac12\log_e7\end{aligned}\]
 </div></div>
 <p><b>c</b> This definite integral is meaningless because it crosses the asymptote at \(x=2\).</p>
-<p class="small"><b>Note:</b> In part <b>a</b>, \(\log_ee^2=2\) and \(\log_ee=1\). In part <b>b</b>, \(1-2\times4=-7\) and \(1-2\times1=-1\), and \(\log_e|-1|=\log_e1=0\). In part <b>c</b>, the denominator \(x-2\) is zero at \(x=2\), which lies between the limits \(1\) and \(5\).</p>
 </div></div>
+<div class="box tip"><div class="bt">The arithmetic in Worked example 34</div>
+<p>In part <b>a</b>, \(\log_ee^2=2\) and \(\log_ee=1\). In part <b>b</b>, \(1-2\times4=-7\) and \(1-2\times1=-1\), and \(\log_e|-1|=\log_e1=0\). In part <b>c</b>, the denominator \(x-2\) is zero at \(x=2\), which lies between the limits \(1\) and \(5\).</p>
+</div>
 
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:using the third standard form}}
@@ -122,9 +134,12 @@ Evaluate these definite integrals using the first two standard forms above.
 <p>The vital point in using the third standard form,</p>
 \[\int\dfrac{u'}{u}\,dx=\log_e|u|\qquad\text{OR}\qquad\int\dfrac{f'(x)}{f(x)}\,dx=\log_e|f(x)|,\]
 <p>is that the top must be the derivative of the bottom. Choose whichever form of the reverse chain rule you are most comfortable with.</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps for the third standard form</div>
 <ul><li>Let \(u\) (or \(f(x)\)) be the bottom, and find its derivative \(u'\).</li>
 <li>If the top is \(u'\), the primitive is \(\log_e|u|\).</li>
-<li>If the top is a constant multiple of \(u'\), first make the top the derivative of the bottom: multiply the top by a constant, and multiply outside the integral by its reciprocal (Worked example 35b).</li></ul></div></div>
+<li>If the top is a constant multiple of \(u'\), first make the top the derivative of the bottom: multiply the top by a constant, and multiply outside the integral by its reciprocal (Worked example 35b).</li></ul>
+</div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The top is the derivative of the bottom</span></div><div class="ex-body">
 Evaluate these definite integrals using the third standard form above.
@@ -154,16 +169,21 @@ Evaluate these definite integrals using the third standard form above.
 \[\int_4^5\dfrac{x}{9-x^2}\,dx=-\tfrac12\int_4^5\dfrac{-2x}{9-x^2}\,dx,\ \text{ of the form }\int\dfrac{u'}{u}\,dx\ \text{ OR }\int\dfrac{f'(x)}{f(x)}\,dx,\]
 \[\begin{aligned}\phantom{\int_4^5\dfrac{x}{9-x^2}\,dx}&amp;=-\tfrac12\Big[\log_e|9-x^2|\Big]_4^5\\&amp;=-\tfrac12\big(\log_e|-16|-\log_e|-7|\big)\\&amp;=-\tfrac12\big(4\log_e2-\log_e7\big)\\&amp;=-2\log_e2+\tfrac12\log_e7.\end{aligned}\]
 <p><b>c</b> This definite integral is meaningless because it crosses the asymptote at \(x=1\).</p>
-<p class="small"><b>Note:</b> In part <b>b</b>, \(9-5^2=-16\) and \(9-4^2=-7\), and \(\log_e16=\log_e2^4=4\log_e2\). In part <b>c</b>, the denominator \(1-x^3\) is zero at \(x=1\), which lies between the limits \(0\) and \(2\).</p>
 </div></div>
+<div class="box tip"><div class="bt">The arithmetic in Worked example 35</div>
+<p>In part <b>b</b>, \(9-5^2=-16\) and \(9-4^2=-7\), and \(\log_e16=\log_e2^4=4\log_e2\). In part <b>c</b>, the denominator \(1-x^3\) is zero at \(x=1\), which lies between the limits \(0\) and \(2\).</p>
+</div>
 
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:given the derivative, find the function}}
 <div class="box concept"><div class="bt">Given the derivative, find the function</div>
 <p>Finding the function from the derivative involves a constant that can be found if the value of \(y\) is known for some value of \(x\).</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps for finding the function</div>
 <ul><li>Take the primitive of the derivative, including the constant \(C\).</li>
 <li>Substitute the known value to find \(C\).</li>
-<li>Write the function with the value of \(C\) in it, then use it. Check that the known point and the \(x\)-value you use are on the same side of any asymptote.</li></ul></div></div>
+<li>Write the function with the value of \(C\) in it, then use it. Check that the known point and the \(x\)-value you use are on the same side of any asymptote.</li></ul>
+</div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Find the constant</span></div><div class="ex-body">
 <b>a</b> Find \(f(x)\), if \(f'(x)=\dfrac{3}{2-x}\) and the graph passes through the origin.<br>
@@ -188,15 +208,19 @@ Evaluate these definite integrals using the third standard form above.
 <table class="st6i">
 <tr><td>Substituting \(x=2\) gives</td><td>\(f(2)=2\ln3-2\ln1\)</td></tr>
 <tr><td></td><td>\(\phantom{f(2)}=2\ln3.\)</td></tr></table>
-<p class="small"><b>Note:</b> In the second line, \(\dfrac{2}{3-x}=2\times\dfrac{1}{-x+3}\), with \(a=-1\) and \(b=3\), so the primitive is \(2\times\dfrac{1}{-1}\ln|3-x|=-2\ln|3-x|\). In part <b>b</b>, \(|3-2|=1\) and \(\ln1=0\).</p>
 <p><b>Note:</b> As remarked above, this working is over-simplified, because each branch may have its own constant of integration. But there is no problem in this question because the asymptote is at \(x=3\), so that the given point \((0,0)\) on the curve, and the value \(x=2\) in part <b>b</b>, are both on the same side of the asymptote.</p>
 </div></div>
+<div class="box tip"><div class="bt">The primitive in Worked example 36</div>
+<p>In the second line, \(\dfrac{2}{3-x}=2\times\dfrac{1}{-x+3}\), with \(a=-1\) and \(b=3\), so the primitive is \(2\times\dfrac{1}{-1}\ln|3-x|=-2\ln|3-x|\). In part <b>b</b>, \(|3-2|=1\) and \(\ln1=0\).</p>
+</div>
 
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:a primitive of log x}}
 <div class="box concept"><div class="bt">A primitive of \(\log_ex\)</div>
-<p>The next worked example is more difficult, but it is important because it produces a primitive of \(\log_ex\), which the theory has not yielded so far. There is no need to memorise the result.</p>
-<p>The method reverses a derivative, as in Section 6D: differentiate a function whose derivative contains \(\log_ex\), then reverse the result.</p></div></div>
+<p>The next worked example is more difficult, but it is important because it produces a primitive of \(\log_ex\), which the theory has not yielded so far. There is no need to memorise the result.</p></div></div>
+<div class="box tip"><div class="bt">How the method works</div>
+<p>The method reverses a derivative, as in Section 6D: differentiate a function whose derivative contains \(\log_ex\), then reverse the result.</p>
+</div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Reverse a derivative</span></div><div class="ex-body">
 <b>a</b> Differentiate \(x\log_ex-x\), using the product rule for the first term.<br>
@@ -228,8 +252,10 @@ Evaluate these definite integrals using the third standard form above.
 \[\int\log_ex\,dx=x\log_ex-x+C.\]
 <p><b>c</b> Part <b>b</b> can now be used to find the definite integral,</p>
 \[\begin{aligned}\int_1^e\log_ex\,dx&amp;=\Big[x\log_ex-x\Big]_1^e\\&amp;=(e\log_ee-e)-(1\log_e1-1)\\&amp;=(e\log_ee-e)-(0-1)\\&amp;=(e-e)+1\\&amp;=1.\end{aligned}\]
-<p class="small"><b>Note:</b> In part <b>c</b>, \(\log_ee=1\), so \(e\log_ee-e=e-e=0\), and \(1\log_e1=1\times0=0\).</p>
 </div></div>
+<div class="box tip"><div class="bt">The arithmetic in Worked example 37</div>
+<p>In part <b>c</b>, \(\log_ee=1\), so \(e\log_ee-e=e-e=0\), and \(1\log_e1=1\times0=0\).</p>
+</div>
 
 <!-- ============ Homework ============ -->
 <div class="page-break"></div>
@@ -250,8 +276,8 @@ Evaluate these definite integrals using the third standard form above.
 
 {{band:D}}
 <div class="q"><span class="q-num">7</span><div class="q-body">In each case show that the numerator is the derivative of the denominator. Then use the form \(\displaystyle\int\dfrac{u'}{u}\,dx=\log_e|u|+C\) &ensp;or&ensp; \(\displaystyle\int\dfrac{f'(x)}{f(x)}\,dx=\log_e|f(x)|+C\) to integrate the expression.
-<div class="parts three"><span><span class="pl">a</span>\(\dfrac{2x}{x^2-9}\)</span><span><span class="pl">b</span>\(\dfrac{6x+1}{3x^2+x}\)</span><span><span class="pl">c</span>\(\dfrac{2x+1}{x^2+x-3}\)</span><span><span class="pl">d</span>\(\dfrac{5-6x}{2+5x-3x^2}\)</span><span><span class="pl">e</span>\(\dfrac{x+3}{x^2+6x-1}\)</span><span><span class="pl">f</span>\(\dfrac{3-x}{12x-3-2x^2}\)</span><span><span class="pl">g</span>\(\dfrac{e^x}{1+e^x}\)</span><span><span class="pl">h</span>\(\dfrac{e^{-x}}{1+e^{-x}}\)</span><span><span class="pl">i</span>\(\dfrac{e^x-e^{-x}}{e^x+e^{-x}}\)</span></div>
-Why is it unnecessary (but not wrong) to use absolute value signs in the answers to parts <b>g</b>–<b>i</b>?{{work:76}}</div></div>
+<div class="parts three"><span><span class="pl">a</span>\(\dfrac{2x}{x^2-9}\)</span><span><span class="pl">b</span>\(\dfrac{6x+1}{3x^2+x}\)</span><span><span class="pl">c</span>\(\dfrac{2x+1}{x^2+x-3}\)</span><span><span class="pl">d</span>\(\dfrac{5-6x}{2+5x-3x^2}\)</span><span><span class="pl">g</span>\(\dfrac{e^x}{1+e^x}\)</span><span><span class="pl">i</span>\(\dfrac{e^x-e^{-x}}{e^x+e^{-x}}\)</span></div>
+Why is it unnecessary (but not wrong) to use absolute value signs in the answers to parts <b>g</b> and <b>i</b>?{{work:76}}</div></div>
 <div class="q"><span class="q-num">8</span><div class="q-body">Use the standard form \(\displaystyle\int\dfrac{1}{ax+b}\,dx=\dfrac1a\log_e|ax+b|+C\) to find these indefinite integrals.
 <div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int\dfrac{1}{3x-k}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\dfrac{1}{mx-2}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int\dfrac{p}{px+q}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\dfrac{A}{sx-t}\,dx\)</span></div>{{work:36}}</div></div>
 <div class="q"><span class="q-num">9</span><div class="q-body">Find \(f(x)\), and then find \(f(2)\), given that:
@@ -293,8 +319,8 @@ Use this result and an appropriate value of \(x\) to find \(\log_e3\) correct to
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q13(a)(i)</span></span><span class="mk">2 marks</span></div>
 <div class="pp-q">Find \(\displaystyle\int\dfrac{1-\ln x}{x\ln x}\,dx\)</div>
-<div class="hint"><b>Hint:</b> what is being integrated here, and how many terms does its numerator have?</div>{{work:56}}</div>
+<div class="hint"><b>Hint:</b> what is being integrated here?</div>{{work:56}}</div>
 </div>
 
-<p>The school trial papers used for this pack (2020–2024) have only this one question that fits this lesson, so the mini exam is short. For more timed practice, do Questions 4(d), 7(f), 9(d), 11(c), 12(f) and 13(c) above in 25 minutes.</p>
+<p>The school trial papers used for this pack (2020–2024) have only this one question that fits this lesson, so the mini exam is short. For more timed practice, do Questions 4(d), 7(d), 9(d), 11(c), 12(f) and 13(c) above in 25 minutes.</p>
 </div>

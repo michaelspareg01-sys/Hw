@@ -420,8 +420,12 @@ check_indef("7", from_int=False)
 check_indef("8")
 check_indef("12")
 K.pop("t")
-report("never negative" in BLK["7"] and all(num(e_.subs(x, v)) > 0 for e_ in (1 + sp.exp(x), 1 + sp.exp(-x), sp.exp(x) + sp.exp(-x)) for v in (-5, 0, 5)),
-       "Q7 g-i denominators never negative")
+report("never negative" in BLK["7"] and "parts <b>g</b> and <b>i</b>" in TQ["7"] and all(num(e_.subs(x, v)) > 0 for e_ in (1 + sp.exp(x), sp.exp(x) + sp.exp(-x)) for v in (-5, 0, 5)),
+       "Q7 g and i denominators never negative")
+report(sorted(q_parts(TQ["7"])) == list("abcdgi") and sorted(aparts("7")) == list("abcdgi"), "Q7 parts e, f, h omitted (numerator not the derivative)", str(sorted(q_parts(TQ["7"]))))
+for lt, qt in qmath("7").items():
+    nu_, de_ = re.match(r"\\dfrac\{(.*)\}\{(.*)\}$", qt.strip()).groups()
+    report(sp.simplify(sp.diff(tex(de_), x) - tex(nu_)) == 0, f"Q7{lt} numerator is exactly the derivative of the denominator", qt)
 
 
 def check_def(n, sf=None):
@@ -581,7 +585,7 @@ try:
     report(lab.startswith("North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics")
            and lab.endswith("Extension 1, Q13(a)(i)"), "PP 1 label", lab[:120])
     body = PPS[0][3]
-    report(body.count('<div class="hint">') == 1 and PPS[0][2] == "2", "PP 1 marks 2 and one hint")
+    report(body.count('<div class="hint">') == 1 and PPS[0][2] == "2" and "<b>Hint:</b> what is being integrated here?</div>" in body, "PP 1 marks 2 and one hint")
     intro = grab(ppl, r"Suggested time: (\d+) minutes</b></span><span><b>(\d+) marks", "pp intro")
     report(int(intro[1]) == 2 and int(intro[0]) == 5 * max(1, round(1.5 * 2 / 5)), "PP time and marks", f"{intro}")
     qi = grab(body, r"Find \\\((\\displaystyle\\int.*?)\\\)", "PP integrand")
