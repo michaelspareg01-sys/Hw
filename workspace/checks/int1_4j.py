@@ -247,6 +247,10 @@ def check_item(key, text, sp_):
                 role = "SKIP"
             elif Lc in ("a", "n"):
                 role = ("PAR", Lc)
+            elif sp_.get("shift") and re.fullmatch(r"f'\((-?[\d.]+)\)", Lc):
+                role = ("V", float(re.fullmatch(r"f'\((-?[\d.]+)\)", Lc).group(1)))
+            elif sp_.get("shift") and Lc in D1_NAMES | D2_NAMES:
+                role = "F" if Lc in D1_NAMES else "D1"     # the item is about f'(x): its primitive of f''(x)
             elif re.fullmatch(r"f\((-?[\d.]+)\)", Lc):
                 role = ("V", float(re.fullmatch(r"f\((-?[\d.]+)\)", Lc).group(1)))
             elif Lc in F_NAMES:
@@ -496,6 +500,7 @@ ANS.update({
     "13": prim(8 * t ** 3 - 6 * t ** 2 + 5, conds=[("y", 0, 4)], var=t, tb="2t^4-2t^3+5t+4"),
     "13@2": prim(8 * t ** 3 - 6 * t ** 2 + 5, conds=[("y", 0, 4)], var=t, tb="30"),
     "15": prim(6 * x + 4, order=2, conds=[("dy", 1, 2), ("y", 1, 4)], tb="x^3+2x^2-5x+6"),
+    "16a": prim(2 * x - 10, conds=[("y", 3, 20)], shift=True, tb="x^2-10x+41"),
     "16b": prim(x ** 2 - 10 * x + 41, conds=[("y", 3, -34)]),
     "17": prim(8 - 6 * x, order=2, conds=[("y", 1, 6), ("y", -1, 8)], tb="-x^3+4x^2+3"),
     "18": prim(-1 / x ** 2, conds=[("y", 1, 2), ("y", -1, 2)], tb=r"\dfrac1x+1",
@@ -556,6 +561,26 @@ def main():
     c16 = sp.solve(sp.Eq(f16.subs(x, 3) + sp.Symbol("k"), 20), sp.Symbol("k"))[0]
     ok(sp.expand(f16 + c16 - (x ** 2 - 10 * x + 41)) == 0, "Q16a: f'(x) = x^2 - 10x + 41 from f''(x) = 2x - 10 and f'(3) = 20")
     ok(sp.expand(sp.diff(4 * x ** 2 - x ** 3 + C * x + D, x, 2) - (8 - 6 * x)) == 0, "Q17: y = 4x^2 - x^3 + Cx + D has y'' = 8 - 6x")
+    # Q19 proofs (a_4j.html): the printed facts, checked for degrees 1-7 and for three primitives of c
+    Aw0 = read("a_4j.html")
+    for s_ in (r"\(p^{(n)}(x)=n!\,a_n\ne0\)", r"\(p^{(n-1)}(x)=cx+C_1\)", r"\(p^{(n-2)}(x)=\dfrac{c}{2}x^2+C_1x+C_2\)",
+               r"\(p^{(n-3)}(x)=\dfrac{c}{2\times3}x^3+\dfrac{C_1}{2}x^2+C_2x+C_3\)", r"\(p(x)=\dfrac{c}{n!}x^n+"):
+        ok(Aw0.count(s_) == 1, "Q19 printed: " + s_[:70], f"found {Aw0.count(s_)}")
+    cs = sp.symbols("a0:8")
+    for deg in range(1, 8):
+        poly = sum(cs[j] * x ** j for j in range(deg + 1))
+        ok(sp.expand(sp.diff(poly, x, deg) - sp.factorial(deg) * cs[deg]) == 0 and sp.diff(poly, x, deg + 1) == 0,
+           f"Q19a: degree {deg}: nth derivative = n! a_n, (n+1)th = 0")
+    cc, c1, c2, c3 = sp.symbols("c C1 C2 C3")
+    p1 = sp.integrate(cc, x) + c1
+    p2 = sp.integrate(p1, x) + c2
+    p3 = sp.integrate(p2, x) + c3
+    ok(sp.expand(p1 - (cc * x + c1)) == 0 and sp.expand(p2 - (cc / 2 * x ** 2 + c1 * x + c2)) == 0 and
+       sp.expand(p3 - (cc / 6 * x ** 3 + c1 / 2 * x ** 2 + c2 * x + c3)) == 0, "Q19b: three primitives of the constant c")
+    pn = cc
+    for k_ in range(6):
+        pn = sp.integrate(pn, x)
+    ok(sp.expand(pn - cc * x ** 6 / sp.factorial(6)) == 0, "Q19b: n = 6 primitives of c give c x^n / n!")
     print("== concept claims and worked examples in l4j.html")
     for k_, s_ in LESSON.items():
         b_ = block(L, "data-c", k_)
