@@ -1,1 +1,104 @@
-<!-- filled by Task Int1 lesson 5H -->
+{{ahead:Lesson 5H | The trapezoidal rule}}
+<div class="ans-sec">Lesson Examples</div>
+<div class="a" style="break-inside:auto" data-c="c1"><span class="an">C1</span><div class="ab"><b>Tutor demo.</b> Table of values for \(f(x)=\dfrac{12}{x}\):
+<table class="t" data-c="c1dt"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(\dfrac{12}{x}\)</th><td>12</td><td>6</td><td>4</td><td>3</td></tr></table>
+<b>a</b> One subinterval uses the two end values.
+\[\begin{aligned}\int_1^4\frac{12}{x}\,dx&amp;\doteqdot\frac{4-1}{2}\times\Big(f(1)+f(4)\Big)\\&amp;=\tfrac32\times(12+3)\\&amp;=\tfrac32\times15\\&amp;=22\tfrac12\end{aligned}\]
+<b>b</b> Three subintervals of width 1 use the four values: \(\displaystyle\int_1^4=\int_1^2+\int_2^3+\int_3^4\), so
+\[\begin{aligned}\int_1^4\frac{12}{x}\,dx&amp;\doteqdot\tfrac12\Big(f(1)+f(2)\Big)+\tfrac12\Big(f(2)+f(3)\Big)+\tfrac12\Big(f(3)+f(4)\Big)\\&amp;=\tfrac12(12+6)+\tfrac12(6+4)+\tfrac12(4+3)\\&amp;=9+5+3\tfrac12\\&amp;=17\tfrac12\end{aligned}\]
+<b>Your turn.</b> Table of values for \(f(x)=\dfrac{60}{x}\):
+<table class="t" data-c="c1yt"><tr><th>\(x\)</th><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(\dfrac{60}{x}\)</th><td>30</td><td>20</td><td>15</td><td>12</td></tr></table>
+\[\begin{aligned}\textbf{a}\quad\int_2^5\frac{60}{x}\,dx&amp;\doteqdot\frac{5-2}{2}\times\Big(f(2)+f(5)\Big)\\&amp;=\tfrac32\times(30+12)\\&amp;=\tfrac32\times42\\&amp;=63\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\int_2^5\frac{60}{x}\,dx&amp;\doteqdot\tfrac12\Big(f(2)+f(3)\Big)+\tfrac12\Big(f(3)+f(4)\Big)+\tfrac12\Big(f(4)+f(5)\Big)\\&amp;=\tfrac12(30+20)+\tfrac12(20+15)+\tfrac12(15+12)\\&amp;=25+17\tfrac12+13\tfrac12\\&amp;=56\end{aligned}\]</div></div>
+
+<div class="a" style="break-inside:auto" data-c="c2"><span class="an">C2</span><div class="ab"><b>Tutor demo.</b>
+<b>a</b> \(f(1)=50\times1-1^4=50-1=49\) and \(f(3)=50\times3-3^4=150-81=69\).
+\[\begin{aligned}\int_1^3(50x-x^4)\,dx&amp;\doteqdot\frac{3-1}{2}\times\Big(f(1)+f(3)\Big)\\&amp;=1\times(49+69)\\&amp;=118\end{aligned}\]
+<b>b</b> \(y=50x-x^4\), so \(y'=50-4x^3\) and \(y''=-12x^2\). Since \(x^2&gt;0\), \(y''&lt;0\) throughout \(1\le x\le3\), so the curve is concave down, the chord is below the curve, and the trapezoidal rule underestimates the integral.<br>
+<b>c</b>
+\[\begin{aligned}\int_1^3(50x-x^4)\,dx&amp;=\Big[25x^2-\tfrac15x^5\Big]_1^3\\&amp;=\big(25\times9-\tfrac15\times243\big)-\big(25\times1-\tfrac15\times1\big)\\&amp;=(225-48.6)-(25-0.2)\\&amp;=176.4-24.8\\&amp;=151.6,\end{aligned}\]
+which is greater than 118, as part <b>b</b> predicts.<br>
+<b>Your turn.</b>
+<b>a</b> \(f(1)=1^3+1=2\) and \(f(3)=3^3+1=28\).
+\[\begin{aligned}\int_1^3(x^3+1)\,dx&amp;\doteqdot\frac{3-1}{2}\times\Big(f(1)+f(3)\Big)\\&amp;=1\times(2+28)\\&amp;=30\end{aligned}\]
+<b>b</b> \(y=x^3+1\), so \(y'=3x^2\) and \(y''=6x\). Since \(x&gt;0\), \(y''&gt;0\) throughout \(1\le x\le3\), so the curve is concave up, the chord is above the curve, and the trapezoidal rule overestimates the integral.<br>
+<b>c</b>
+\[\begin{aligned}\int_1^3(x^3+1)\,dx&amp;=\Big[\tfrac14x^4+x\Big]_1^3\\&amp;=\big(\tfrac14\times81+3\big)-\big(\tfrac14\times1+1\big)\\&amp;=23\tfrac14-1\tfrac14\\&amp;=22,\end{aligned}\]
+which is less than 30, as part <b>b</b> predicts.</div></div>
+
+<div class="a" style="break-inside:auto" data-c="c3"><span class="an">C3</span><div class="ab"><b>Tutor demo.</b>
+<b>a</b> Multiply by \(60\times60=3600\) to get cubic metres per hour, then divide by \(1\,000\,000\) to get millions. For example, \(50\times3600=180\,000\), which is 0.18 million, and \(900\times3600=3\,240\,000\), which is 3.24 million.
+<table class="t" data-c="c3dR"><tr><th>\(t\)</th><td>0</td><td>3</td><td>6</td><td>9</td><td>12</td><td>15</td><td>18</td></tr><tr><th>\(R\)</th><td>0.18</td><td>1.44</td><td>3.24</td><td>2.52</td><td>1.8</td><td>1.08</td><td>0.72</td></tr></table>
+<b>b</b> Here \(h=3\) and \(n=6\), with \(a=x_0=0\), \(x_1=3\), …, \(x_5=15\), \(x_6=b=18\).
+\[\begin{aligned}\int_0^{18}R\,dt&amp;\doteqdot\frac32\Big(f(0)+2f(3)+2f(6)+2f(9)\\&amp;\qquad+2f(12)+2f(15)+f(18)\Big)\\&amp;=1.5\,(0.18+2.88+6.48+5.04+3.6+2.16+0.72)\\&amp;=1.5\times21.06\\&amp;=31.59\end{aligned}\]
+Using the second formula, \(\dfrac{b-a}{2n}=\dfrac{18-0}{12}=1.5\), and
+\[\begin{aligned}\int_0^{18}R\,dt&amp;\doteqdot\frac{18-0}{12}\bigg(f(0)+f(18)\\&amp;\qquad+2\Big(f(3)+f(6)+f(9)+f(12)+f(15)\Big)\bigg)\\&amp;=1.5\,\big(0.18+0.72+2(1.44+3.24+2.52+1.8+1.08)\big)\\&amp;=1.5\,(0.9+2\times10.08)\\&amp;=1.5\times21.06\\&amp;=31.59\end{aligned}\]
+About 31.6 million cubic metres of water flowed into the dam.<br>
+<b>Your turn.</b> The rate is in litres per minute and the time is in minutes, so no conversion is needed. Here \(h=10\) and \(n=4\).
+\[\begin{aligned}\int_0^{40}(\text{rate})\,dt&amp;\doteqdot\frac{10}{2}\Big(f(0)+2f(10)+2f(20)+2f(30)+f(40)\Big)\\&amp;=5\,(20+70+80+60+15)\\&amp;=5\times245\\&amp;=1225\end{aligned}\]
+\[\begin{aligned}\int_0^{40}(\text{rate})\,dt&amp;\doteqdot\frac{40-0}{8}\bigg(f(0)+f(40)+2\Big(f(10)+f(20)+f(30)\Big)\bigg)\\&amp;=5\,\big(20+15+2(35+40+30)\big)\\&amp;=5\,(35+210)\\&amp;=1225\end{aligned}\]
+About 1225 litres flowed into the tank.</div></div>
+
+<div class="a" style="break-inside:auto" data-c="c4"><span class="an">C4</span><div class="ab"><b>Tutor demo.</b> Here \(h=\dfrac{0.5-0}{10}=0.05\). Set up the sheet as in Worked example 35, with these changes: in step 1, enter 0 into <code>A2</code> and type <code>=0.05+A2</code> into <code>B2</code>; in step 6, type <code>=L4*0.025</code>, because \(\tfrac12h=0.025\). Values to six decimal places:
+<div class="split" style="grid-template-columns:auto 1fr;gap:6mm"><div><table class="t" data-c="c4dt" style="font-size:9pt;margin:0"><tr><th>\(x\)</th><th>\(\phi(x)\)</th><th>row 4</th></tr><tr><td>0</td><td>0.398942</td><td>0.398942</td></tr><tr><td>0.05</td><td>0.398444</td><td>0.796888</td></tr><tr><td>0.1</td><td>0.396953</td><td>0.793905</td></tr><tr><td>0.15</td><td>0.394479</td><td>0.788959</td></tr><tr><td>0.2</td><td>0.391043</td><td>0.782085</td></tr><tr><td>0.25</td><td>0.386668</td><td>0.773336</td></tr><tr><td>0.3</td><td>0.381388</td><td>0.762776</td></tr><tr><td>0.35</td><td>0.375240</td><td>0.750481</td></tr><tr><td>0.4</td><td>0.368270</td><td>0.736540</td></tr><tr><td>0.45</td><td>0.360527</td><td>0.721054</td></tr><tr><td>0.5</td><td>0.352065</td><td>0.352065</td></tr></table></div><div>
+The sum of row 4 is \(L4\doteqdot7.657031\), so
+\[\begin{aligned}\int_0^{0.5}\phi(x)\,dx&amp;\doteqdot0.025\times7.657031\\&amp;\doteqdot0.191426\\&amp;\doteqdot0.1914.\end{aligned}\]
+For \(0\le x\le0.5\), \(x^2-1&lt;0\) and \(\phi(x)&gt;0\), so \(\phi''(x)&lt;0\). The curve is concave down, so this is an underestimate. (With 100 subintervals the estimate is 0.1915.)</div></div>
+<b>Your turn.</b> Here \(h=\dfrac{2-1}{10}=0.1\): enter 1 into <code>A2</code> and keep <code>=0.1+A2</code> in <code>B2</code> and <code>=L4*0.05</code> in <code>L5</code>.
+<div class="split" style="grid-template-columns:auto 1fr;gap:6mm"><div><table class="t" data-c="c4yt" style="font-size:9pt;margin:0"><tr><th>\(x\)</th><th>\(\phi(x)\)</th><th>row 4</th></tr><tr><td>1</td><td>0.241971</td><td>0.241971</td></tr><tr><td>1.1</td><td>0.217852</td><td>0.435704</td></tr><tr><td>1.2</td><td>0.194186</td><td>0.388372</td></tr><tr><td>1.3</td><td>0.171369</td><td>0.342737</td></tr><tr><td>1.4</td><td>0.149727</td><td>0.299455</td></tr><tr><td>1.5</td><td>0.129518</td><td>0.259035</td></tr><tr><td>1.6</td><td>0.110921</td><td>0.221842</td></tr><tr><td>1.7</td><td>0.094049</td><td>0.188098</td></tr><tr><td>1.8</td><td>0.078950</td><td>0.157900</td></tr><tr><td>1.9</td><td>0.065616</td><td>0.131232</td></tr><tr><td>2</td><td>0.053991</td><td>0.053991</td></tr></table></div><div>
+The sum of row 4 is \(L4\doteqdot2.720337\), so
+\[\begin{aligned}\int_1^{2}\phi(x)\,dx&amp;\doteqdot0.05\times2.720337\\&amp;\doteqdot0.136017\\&amp;\doteqdot0.1360.\end{aligned}\]
+For \(1&lt;x\le2\), \(x^2-1&gt;0\) and \(\phi(x)&gt;0\), so \(\phi''(x)&gt;0\). The curve is concave up, so this is an overestimate. (With 100 subintervals the estimate is 0.1359.)</div></div></div></div>
+
+<div class="ans-sec">Textbook Homework</div>
+<div class="a" data-c="a1"><span class="an">1</span><div class="ab"><b>a</b> \(\tfrac12(8+12)\times4=40\) &nbsp; <b>b</b> \(\tfrac12(6.2+4.8)\times4=22\) &nbsp; <b>c</b> \(\tfrac12(-4-9)\times4=-26\)</div></div>
+<div class="a" data-c="a2"><span class="an">2</span><div class="ab"><b>a</b> \(\tfrac12(12+20)\times4+\tfrac12(20+30)\times4=64+100=164\)<br><b>b</b> \(h=4\): \(\tfrac42(12+2\times20+30)=2\times82=164\), the same.</div></div>
+<div class="a" data-c="a3"><span class="an">3</span><div class="ab">\(h=5\): \(\tfrac52(2.4+2\times2.6+4.4)=2.5\times12=30\)</div></div>
+<div class="a"><span class="an">4</span><div class="ab"><div class="split" style="grid-template-columns:1fr 1fr"><div><b>a</b> The curve is concave up, so the chord is above the curve, and the area under the chord will be greater than the area under the curve.<div class="fig">{{svg:a5h_q4a}}</div></div><div><b>b</b> The curve is concave down, so the chord is underneath the curve, and the area under the chord will be less than the area under the curve.<div class="fig">{{svg:a5h_q4b}}</div></div></div></div></div>
+<div class="a" data-c="a5"><span class="an">5</span><div class="ab"><div class="split" style="grid-template-columns:minmax(0,1fr) 48mm"><div><b>a</b> <table class="t" style="display:inline-table;vertical-align:middle;margin:0"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(y\)</th><td>0</td><td>3</td><td>4</td><td>3</td><td>0</td></tr></table><br>
+<b>b</b> \(h=1\): \(\tfrac12(0+2\times3+2\times4+2\times3+0)=\tfrac12\times20=10\)<br>
+<b>c</b> \[\begin{aligned}\int_0^4(4x-x^2)\,dx&amp;=\Big[2x^2-\tfrac13x^3\Big]_0^4\\&amp;=\big(32-\tfrac{64}{3}\big)-0\\&amp;=10\tfrac23\end{aligned}\]The curve is concave down (\(y''=-2&lt;0\)), so each chord is below the curve.<br>
+<b>d</b> The error is \(10\tfrac23-10=\tfrac23\), and \(\tfrac23\div10\tfrac23\times100\%=\tfrac{1}{16}\times100\%=6\tfrac14\%\).</div><div style="width:48mm">{{svg:a5h_q5}}</div></div></div></div>
+<div class="a" data-c="a6"><span class="an">6</span><div class="ab"><b>a</b> <table class="t" style="display:inline-table;vertical-align:middle;margin:0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(y\)</th><td>6</td><td>3</td><td>2</td><td>\(1\tfrac12\)</td><td>\(1\tfrac15\)</td></tr></table><br>
+<b>b</b> \(h=1\): \(\tfrac12\big(6+2\times3+2\times2+2\times1\tfrac12+1\tfrac15\big)=\tfrac12\times20\tfrac15=10\tfrac1{10}\)<br>
+<b>c</b> \(y=6x^{-1}\), so \(y'=-6x^{-2}\) and \(y''=12x^{-3}\). Then \(y''\) is positive in the interval \(1\le x\le5\), so the curve is concave up.</div></div>
+<div class="a" data-c="a8"><span class="an">8</span><div class="ab"><b>a</b> \(h=\tfrac12\): \(\tfrac14\big(1+2\times0.7071+0.5\big)\doteqdot0.7286\doteqdot0.73\)<br>
+<b>b</b> \(h=1\): \(\tfrac12(4+2\times2+1)=4.5\)<br>
+<b>c</b> \(h=1\): \(\tfrac12\big(\sqrt[3]7+2\sqrt[3]5+\sqrt[3]3\big)\doteqdot\tfrac12(1.9129+3.4200+1.4422)\doteqdot3.3876\doteqdot3.4\)<br>
+<b>d</b> \(h=6\): \(3\big(\sqrt{16}+2\sqrt{10}+\sqrt4\big)\doteqdot3(4+6.3246+2)\doteqdot36.97\doteqdot37\)</div></div>
+<div class="a" data-c="a9"><span class="an">9</span><div class="ab"><b>a</b> \(h=1\): \(\tfrac12\big(\tfrac12+2\times\tfrac13+2\times\tfrac14+2\times\tfrac15+\tfrac16\big)\)<br>&emsp;\(=\tfrac{67}{60}\doteqdot1.12\)<br>
+<b>b</b> \(h=\tfrac12\): \(\tfrac14\big(0.5+2(0.36940+0.33333+0.31010)+0.29289\big)\)<br>&emsp;\(\doteqdot0.70464\doteqdot0.705\)<br>
+<b>c</b> \(h=1\): \(\tfrac12\big(\sqrt{13}+2(\sqrt{22}+\sqrt{33}+\sqrt{46})+\sqrt{61}\big)\)<br>&emsp;\(\doteqdot\tfrac12(3.6056+34.4346+7.8102)\doteqdot22.925\doteqdot22.9\)<br>
+<b>d</b> \(h=\tfrac14\): \(\tfrac18\big(0+2(0.09691+0.17609+0.24304)+0.30103\big)\)<br>&emsp;\(\doteqdot0.16664\doteqdot0.167\)</div></div>
+<div class="a" data-c="a10"><span class="an">10</span><div class="ab">\(h=1\): \(\tfrac12\big(1.5+2(1.3+1.4+2.0+2.4)+2.7\big)=\tfrac12\times18.4=9.2\) metres</div></div>
+<div class="a" data-c="a11"><span class="an">11</span><div class="ab">The widths at 0 and 40 are zero. \(h=10\): \(5\big(0+2(20+18+17)+0\big)=5\times110=550\ \text{m}^2\)</div></div>
+<div class="a" data-c="a12"><span class="an">12</span><div class="ab">\(h=50\): \(25\big(5+2(10+13+14+11+7)+3\big)=25\times118=2950\ \text{m}^2\)</div></div>
+<div class="a" data-c="a13"><span class="an">13</span><div class="ab"><b>a</b> \(h=\tfrac14\): \(\tfrac18\big(1+2(0.968246+0.866025+0.661438)+0\big)\doteqdot0.748927\doteqdot0.7489\)<br>
+<b>b</b> The integral is the area of a quarter of a unit circle, \(\tfrac{\pi}{4}\), so \(\pi\doteqdot4\times0.7489\doteqdot3.0\). The approximation is less than the integral, because the curve is concave down.</div></div>
+<div class="a" data-c="a14"><span class="an">14</span><div class="ab">\(h=1\):
+\[\begin{aligned}\int_1^5\ln x\,dx&amp;\doteqdot\tfrac12\big(\ln1+2\ln2+2\ln3+2\ln4+\ln5\big)\\&amp;=\tfrac12\ln\big(1\times2^2\times3^2\times4^2\times5\big)\\&amp;=\tfrac12\ln2880\\&amp;=\ln\sqrt{2880}\\&amp;\doteqdot\ln54,\ \text{since }\sqrt{2880}\doteqdot53.7.\end{aligned}\]</div></div>
+<div class="a" data-c="a15"><span class="an">15</span><div class="ab"><b>a</b> \(y'=\dfrac{1}{2\sqrt x}&gt;0\) for \(x&gt;0\).<br>
+<b>b</b> On each subinterval \([k-1,k]\), the curve is increasing, so it lies below the upper rectangle of height \(\sqrt k\) and width 1. Adding the \(n\) rectangles, \(\sqrt1+\cdots+\sqrt n\ge\displaystyle\int_0^n\sqrt x\,dx=\Big[\tfrac23x^{\frac32}\Big]_0^n=\tfrac23n\sqrt n\).<br>
+<b>c</b> With \(h=1\), the trapezoidal rule gives \(\tfrac12\big(0+2\sqrt1+\cdots+2\sqrt{n-1}+\sqrt n\big)=\sqrt1+\cdots+\sqrt n-\tfrac12\sqrt n\). Since \(y''=-\tfrac14x^{-\frac32}&lt;0\), the curve is concave down and this underestimates the integral, so \(\sqrt1+\cdots+\sqrt n-\tfrac12\sqrt n\le\tfrac23n\sqrt n\), that is, \(\sqrt1+\cdots+\sqrt n\le\tfrac23n\sqrt n+\tfrac12\sqrt n=\dfrac{\sqrt n\,(4n+3)}{6}\).<br>
+<b>d</b> With \(n=12\,000\), \(876\,356\le\text{sum}\le876\,411\), so the sum is \(876\,400\) to the nearest hundred.</div></div>
+<div class="a" data-c="a16"><span class="an">16</span><div class="ab">The estimates settle down as the number of subintervals increases (values to 4 decimal places):
+<table class="t" data-c="a16t"><tr><th>subintervals</th><th>5</th><th>10</th><th>20</th><th>100</th></tr>
+<tr><th>a</th><td>2.6655</td><td>2.4744</td><td>2.4181</td><td>2.3987</td></tr>
+<tr><th>b</th><td>16.1003</td><td>16.3034</td><td>16.3581</td><td>16.3761</td></tr>
+<tr><th>c</th><td>1.0366</td><td>0.8863</td><td>0.8862</td><td>0.8862</td></tr></table>
+In parts <b>a</b> and <b>c</b> the estimates decrease, and in part <b>b</b> they increase.</div></div>
+<div class="a" data-c="a17"><span class="an">17</span><div class="ab">Readings from the graph (yours may differ a little), then \(R=3.6\times\text{flow rate}\).<br>
+<b>a</b> Flow rates 2.4, 2.2, 2.1 and 2.3 m³/s give
+<table class="t" data-c="a17a"><tr><th>\(t\)</th><td>17:40</td><td>23:40</td><td>05:40</td><td>11:40</td></tr><tr><th>\(R\)</th><td>8.64</td><td>7.92</td><td>7.56</td><td>8.28</td></tr></table>
+With \(h=6\): \(\tfrac62\big(8.64+2\times7.92+2\times7.56+8.28\big)=3\times47.88=143.64\),<br>so about 144 thousand cubic metres.<br>
+<b>b</b> Flow rates 3.3, 4.0, 7.4, 13.2, 10.3, 7.4 and 6.3 m³/s give
+<table class="t" data-c="a17b"><tr><th>\(t\)</th><td>17:40</td><td>20:40</td><td>23:40</td><td>02:40</td><td>05:40</td><td>08:40</td><td>11:40</td></tr><tr><th>\(R\)</th><td>11.88</td><td>14.4</td><td>26.64</td><td>47.52</td><td>37.08</td><td>26.64</td><td>22.68</td></tr></table>
+With \(h=3\): \(\tfrac32\big(11.88+2(14.4+26.64+47.52+37.08+26.64)+22.68\big)\)<br>&emsp;\(=1.5\times339.12=508.68\), so about 509 thousand cubic metres. The flow changes quickly in this period, with a sharp peak near 06/05/2004 03:40, so narrower subintervals are needed for the chords to follow the curve. In part <b>a</b> the flow is almost steady, so 6 hours is narrow enough.<br>
+<b>c</b> \(508.68\div143.64\doteqdot3.5\), so about 3.5 times as much water. Light rain fell in the morning of 05/05/2004 with little effect. Steady rain from about 17:40 on 05/05/2004 and very heavy rain just after 23:40 were followed, within a few hours, by a steep rise to the peak. After the rain stopped, the flow fell quickly at first and then slowly over the next day.</div></div>
+
+{{ahead:Lesson 5H | The trapezoidal rule}}
+<div class="ans-sec">Past-Paper Homework - Worked Solutions</div>
+<div class="ppa" data-c="pp1"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Grammar School, 2023, Trial Examination, Form VI Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q3</span></span></div>
+<p>The shaded region runs from \(x=2\) to \(x=4\), so one application of the trapezoidal rule uses the two heights \(\log_a2\) and \(\log_a4\), with width \(4-2=2\).</p>
+\[\begin{aligned}\text{Area}&amp;\doteqdot\frac{4-2}{2}\big(\log_a2+\log_a4\big)\\&amp;=\log_a2+\log_a4\\&amp;=\log_a2+\log_a2^2\\&amp;=\log_a2+2\log_a2\\&amp;=3\log_a2.\end{aligned}\]
+<p><b>Answer (A).</b> Option (C) is the average of the two heights, without multiplying by the width 2. Option (B) is wrong because \(\log_a2+\log_a4=\log_a(2\times4)=\log_a8\), not \(\log_a6\). Option (D) does not come from the two heights.</p></div>

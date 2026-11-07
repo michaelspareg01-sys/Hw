@@ -1,1 +1,292 @@
-<!-- filled by Task Int1 lesson 5H -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 5H</div><h2>The trapezoidal rule</h2>
+<div class="focus">Some definite integrals cannot be found exactly with a primitive, and some functions are known only from a table of measured values. This lesson approximates such integrals by replacing the curve by chords, so that the region becomes a set of trapezia. It covers the rule with one subinterval, splitting the interval into several equal subintervals, how the concavity of the curve tells you whether the rule overestimates or underestimates, the single formula for \(n\) subintervals, and doing the calculation on a spreadsheet.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the trapezoidal rule, and subdividing the interval}}
+<div class="box concept"><div class="bt">Why approximate?</div>
+<p>Methods of approximating definite integrals become necessary when exact calculations using primitives are not possible. This can happen for two reasons.</p>
+<ul><li>The primitives of many important functions cannot be written down in a formula suitable for calculation. This is the case for the important normal distribution in Chapter 16.</li>
+<li>Some values of a function may be known only from experiments, and the function formula may be unknown.</li></ul></div></div>
+<div class="box concept" data-c="trapbox"><div class="bt">The trapezoidal rule</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Besides taking upper and lower rectangles, the most obvious way to approximate an integral is to replace the curve by a straight line, that is, by a chord joining \(\big(a,f(a)\big)\) and \(\big(b,f(b)\big)\). The resulting region is a trapezium, so this approximation method is called the <i>trapezoidal rule</i>.</p>
+<p>Consider the trapezium in the diagram to the right.</p></div><div>{{svg:c5h_one}}</div></div>
+\[\begin{aligned}\text{Here}\qquad\text{width}&amp;=b-a,\\ \text{and}\quad\text{average of parallel sides}&amp;=\frac{f(a)+f(b)}{2}.\\ \text{Hence}\quad\text{area of trapezium}&amp;=\text{width}\times\text{average of parallel sides}\\&amp;=\frac{b-a}{2}\Big(f(a)+f(b)\Big).\end{aligned}\]
+<p>The area of this trapezium is taken as an approximation of the integral.</p></div>
+<div class="box take" data-c="box18"><div class="bt">18 The trapezoidal rule using one subinterval</div>
+<p>Let \(f(x)\) be a function that is continuous in the closed interval \([a,b]\).</p>
+<ul><li>Approximating the curve from \(x=a\) to \(x=b\) by a chord allows the region under the curve to be approximated by a trapezium, giving
+\[\int_a^b f(x)\,dx\doteqdot\frac{b-a}{2}\Big(f(a)+f(b)\Big).\]</li>
+<li>If the function is linear, then the chord coincides with the curve and the formula is exact.</li>
+<li>Always start a trapezoidal-rule calculation by constructing a table of values.</li></ul></div>
+<div class="box tip"><div class="bt">Where the formula comes from</div>
+<ul><li>The area of a trapezium is \(\tfrac12(a+b)h\), where \(a\) and \(b\) are the lengths of the two parallel sides and \(h\) is the distance between them. Here the parallel sides are the two vertical lines at \(x=a\) and \(x=b\), with lengths \(f(a)\) and \(f(b)\), and the distance between them is the width \(b-a\) along the \(x\)-axis.</li>
+<li>So the area is \(\tfrac12\big(f(a)+f(b)\big)(b-a)\), which is the same as \(\dfrac{b-a}{2}\big(f(a)+f(b)\big)\).</li>
+<li>The sign \(\doteqdot\) means ‘is approximately equal to’. The only error comes from the gap between the curve and the chord.</li></ul></div>
+<div class="box concept"><div class="bt">Subdividing the interval</div>
+<p>Given an integral over an interval \([a,b]\), we can split that interval \([a,b]\) up into a number of subintervals and apply the trapezoidal rule to each subinterval in turn. This will usually improve the accuracy of the approximation.</p>
+<p>Here is the method applied to the reciprocal function \(y=\dfrac1x\), whose primitive we will establish in Chapter 6.</p></div>
+<div class="box tip"><div class="bt">How the pieces fit together</div>
+<p>Splitting at the points between \(a\) and \(b\) uses the dissection of the interval (Box 7 of Lesson 5C). Each smaller integral is then replaced by the area of one trapezium, and the trapezium areas are added. The chords of the smaller trapezia hug the curve more closely, which is why the accuracy usually improves.</p></div>
+
+<div class="ex demo" data-q="c1d"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">One subinterval, then three</span></div><div class="ex-body">
+Find approximations of \(\displaystyle\int_1^4\frac{12}{x}\,dx\) using the trapezoidal rule with:
+<div class="parts"><span><span class="pl">a</span>one subinterval,</span><span><span class="pl">b</span>three subintervals.</span></div>
+{{work:100}}</div></div>
+<div class="ex attempt" data-q="c1y"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find approximations of \(\displaystyle\int_2^5\frac{60}{x}\,dx\) using the trapezoidal rule with:
+<div class="parts"><span><span class="pl">a</span>one subinterval,</span><span><span class="pl">b</span>three subintervals.</span></div>
+{{work:100}}</div></div>
+<div class="ex worked" style="break-inside:avoid" data-c="we32"><div class="ex-top"><span class="tag">Worked example 32</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find approximations of \(\displaystyle\int_1^5\frac1x\,dx\) using the trapezoidal rule with:
+<div class="parts"><span><span class="pl">a</span>one subinterval,</span><span><span class="pl">b</span>four subintervals.</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Always begin with a table of values of the function.</p>
+<table class="t" data-c="we32t"><tr><th>\(x\)</th><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td><td>\(4\)</td><td>\(5\)</td></tr>
+<tr><th>\(\dfrac1x\)</th><td>\(1\)</td><td>\(\tfrac12\)</td><td>\(\tfrac13\)</td><td>\(\tfrac14\)</td><td>\(\tfrac15\)</td></tr></table>
+<p><b>a</b> One application of the trapezoidal rule, using the whole interval as the subinterval, requires just two values of the function.</p>
+\[\begin{aligned}\int_1^5\frac1x\,dx&amp;\doteqdot\frac{5-1}{2}\times\Big(f(1)+f(5)\Big)\\&amp;\doteqdot2\times\big(1+\tfrac15\big)\\&amp;\doteqdot2\tfrac25\end{aligned}\]
+</div><div>{{svg:c5h_e32}}</div></div>
+<p><b>b</b> Four applications of the trapezoidal rule require five values of the function. Dividing the interval \(1\le x\le5\) into four equal subintervals,</p>
+\[\int_1^5\frac1x\,dx=\int_1^2\frac1x\,dx+\int_2^3\frac1x\,dx+\int_3^4\frac1x\,dx+\int_4^5\frac1x\,dx.\]
+<p>Each subinterval has width 1, so applying the trapezoidal rule to each integral,</p>
+\[\begin{aligned}\int_1^5\frac1x\,dx&amp;\doteqdot\tfrac12\Big(f(1)+f(2)\Big)+\tfrac12\Big(f(2)+f(3)\Big)\\&amp;\qquad+\tfrac12\Big(f(3)+f(4)\Big)+\tfrac12\Big(f(4)+f(5)\Big)\\&amp;\doteqdot\tfrac12\big(\tfrac11+\tfrac12\big)+\tfrac12\big(\tfrac12+\tfrac13\big)+\tfrac12\big(\tfrac13+\tfrac14\big)+\tfrac12\big(\tfrac14+\tfrac15\big)\\&amp;\doteqdot1\tfrac{41}{60}.\end{aligned}\]
+</div></div>
+<div class="box tip" data-c="t32"><div class="bt">Steps the book skips: Worked example 32</div>
+<p><b>a</b> The width is \(5-1=4\), so \(\dfrac{5-1}{2}=2\). Then \(1+\tfrac15=\tfrac65\), and \(2\times\tfrac65=\tfrac{12}{5}=2\tfrac25\).</p>
+<p><b>b</b> Work out each trapezium, then add over the common denominator 120:</p>
+\[\begin{aligned}&amp;\tfrac12\big(\tfrac11+\tfrac12\big)+\tfrac12\big(\tfrac12+\tfrac13\big)+\tfrac12\big(\tfrac13+\tfrac14\big)+\tfrac12\big(\tfrac14+\tfrac15\big)\\&amp;\quad=\tfrac12\times\tfrac32+\tfrac12\times\tfrac56+\tfrac12\times\tfrac{7}{12}+\tfrac12\times\tfrac{9}{20}\\&amp;\quad=\tfrac34+\tfrac{5}{12}+\tfrac{7}{24}+\tfrac{9}{40}\\&amp;\quad=\tfrac{90}{120}+\tfrac{50}{120}+\tfrac{35}{120}+\tfrac{27}{120}\\&amp;\quad=\tfrac{202}{120}\\&amp;\quad=1\tfrac{41}{60}.\end{aligned}\]
+<p>The second answer is smaller than the first. The four chords lie closer to the curve than the single chord does, as the diagram shows.</p></div>
+<div class="box concept"><div class="bt">Equal subintervals</div>
+<p><b>Note:</b> Always take subintervals of equal width unless otherwise indicated.</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:concavity and the trapezoidal rule}}
+<div class="box concept"><div class="bt">Concavity and the trapezoidal rule</div>
+<p>The curve in the example above is concave up, so every chord is above the curve, and every approximation found using the trapezoidal rule is therefore greater than the integral.</p>
+<p>Similarly, if a curve is concave down, then every chord is below the curve, and every trapezoidal-rule approximation is less than the integral. The second derivative can be used to test concavity.</p></div></div>
+<div class="box take" data-c="box19"><div class="bt">19 Concavity and the trapezoidal rule</div>
+<ul><li>If the curve is concave up, the trapezoidal rule overestimates the integral.</li>
+<li>If the curve is concave down, the trapezoidal rule underestimates the integral.</li>
+<li>If the curve is linear, the trapezoidal rule gives the exact value of the integral.</li></ul>
+<p>The second derivative \(\dfrac{d^2y}{dx^2}\) can be used to test the concavity.</p></div>
+<div class="box tip"><div class="bt">Recall: concavity (Year 11)</div>
+<ul><li>If \(f''(x)&gt;0\) throughout an interval, the curve is concave up there: it bends upwards, and each chord lies above the curve. If \(f''(x)&lt;0\) throughout the interval, the curve is concave down, and each chord lies below the curve.</li>
+<li>A chord above the curve gives a trapezium that holds the whole region plus a thin sliver, so its area is too big. A chord below the curve leaves a sliver out, so its area is too small.</li>
+<li>Box 19 needs one concavity across the whole interval. If the concavity changes inside the interval, the errors on the two sides can partly cancel, and the box gives no conclusion.</li></ul></div>
+
+<div class="ex demo" data-q="c2d"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Over or under?</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Use the trapezoidal rule with one subinterval (that is, two function values) to approximate \(\displaystyle\int_1^3(50x-x^4)\,dx\).</span><span><span class="pl">b</span>Use the second derivative to explain why the approximation underestimates the integral.</span><span><span class="pl">c</span>Find the exact value of the integral, and check part <b>b</b>.</span></div>
+{{work:105}}</div></div>
+<div class="ex attempt" data-q="c2y"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Use the trapezoidal rule with one subinterval (that is, two function values) to approximate \(\displaystyle\int_1^3(x^3+1)\,dx\).</span><span><span class="pl">b</span>Use the second derivative to explain why the approximation overestimates the integral.</span><span><span class="pl">c</span>Find the exact value of the integral, and check part <b>b</b>.</span></div>
+{{work:70}}</div></div>
+<div class="ex worked" style="break-inside:avoid" data-c="we33"><div class="ex-top"><span class="tag">Worked example 33</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Use the trapezoidal rule with one subinterval (that is, two function values) to approximate \(\displaystyle\int_1^5(200x-x^4)\,dx\).</span><span><span class="pl">b</span>Use the second derivative to explain why the approximation underestimates the integral.</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 1fr"><div>
+<p><b>a</b> Construct a table of values for \(y=200x-x^4\).</p>
+\[\begin{aligned}\int_1^5(200x-x^4)\,dx&amp;\doteqdot\frac{5-1}{2}\times\Big(f(1)+f(5)\Big)\\&amp;\doteqdot2\times(199+375)\\&amp;\doteqdot1148\end{aligned}\]
+</div><div>
+<table class="t" data-c="we33t"><tr><th>\(x\)</th><td>\(1\)</td><td>\(5\)</td></tr><tr><th>\(y\)</th><td>\(199\)</td><td>\(375\)</td></tr></table></div></div>
+<p><b>b</b> The function is \(y=200x-x^4\).</p>
+<p>Differentiating, \(y'=200-4x^3\)<br>and \(y''=-12x^2\).</p>
+<p>Because \(y''=-12x^2\) is negative throughout the interval \(1\le x\le5\), the curve is concave down throughout this interval.<br>Hence the trapezoidal rule underestimates the integral.</p>
+</div></div>
+<div class="box tip" data-c="t33"><div class="bt">Steps the book skips: Worked example 33</div>
+<ul><li>The table: \(f(1)=200\times1-1^4=200-1=199\) and \(f(5)=200\times5-5^4=1000-625=375\).</li>
+<li>The arithmetic: \(\dfrac{5-1}{2}=2\), \(199+375=574\) and \(2\times574=1148\).</li>
+<li>Why \(y''\) is negative: \(x^2&gt;0\) for \(1\le x\le5\), so \(-12x^2&lt;0\).</li>
+<li>A check with the exact value:
+\[\begin{aligned}\int_1^5(200x-x^4)\,dx&amp;=\Big[100x^2-\tfrac15x^5\Big]_1^5\\&amp;=\big(100\times25-\tfrac15\times3125\big)-\big(100\times1-\tfrac15\times1\big)\\&amp;=(2500-625)-(100-0.2)\\&amp;=1875-99.8\\&amp;=1775.2,\end{aligned}\]
+which is greater than 1148, as part <b>b</b> says.</li></ul></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:a formula for n subintervals}}
+<div class="box concept"><div class="bt">A formula for multiple applications of the trapezoidal rule</div>
+<p>When the trapezoidal rule is being applied two or three times, it is easier to perform the two or three calculations required. These separate calculations also reinforce the meaning of the approximation, and help to gain an intuitive understanding of the accuracy of the estimates.</p>
+<p>But increasing accuracy with the trapezoidal rule requires larger numbers of applications of the rule, and this can quickly become tedious. Let us then develop a single formula that splits an integral into \(n\) subintervals of equal width and applies the trapezoidal rule to each. Anyone writing a program or using a spreadsheet to estimate integrals would want to do this.</p>
+<p>The first step is to divide the interval \([a,b]\) into \(n\) equal subintervals, each of width \(h\), like this:</p>
+<div class="fig">{{svg:c5h_div}}</div></div></div>
+<div class="box concept" data-c="deriv"><div class="bt">Deriving the formula</div>
+<p>There are \(n+1\) points altogether, and they divide the interval into \(n\) equal subintervals. The endpoints are \(a=x_0\) and \(b=x_n\), and the \(n-1\) division points in between are \(x_1\), \(x_2\), …, \(x_{n-1}\).</p>
+<p>There are \(n\) subintervals, so \(nh=b-a\), and the width \(h\) of each subinterval is</p>
+\[h=\frac{b-a}{n}.\]
+<p>Thus starting with \(a=x_0\), the successive values of the division points are</p>
+<div class="split" style="grid-template-columns:1fr 1fr;gap:2mm"><div>
+\[\begin{aligned}x_0&amp;=a\\x_1&amp;=a+h\\x_2&amp;=a+2h\\&amp;\ \ \vdots\end{aligned}\]</div><div>
+\[\begin{aligned}x_{n-2}&amp;=a+(n-2)h\\x_{n-1}&amp;=a+(n-1)h\\x_n&amp;=a+nh=a+(b-a)=b\end{aligned}\]</div></div>
+<p>That is, \(x_r=a+rh\), for \(r=0,1,2,\ldots,n-1,n\).<br>Now we can apply the trapezoidal rule to each subinterval in turn,</p>
+\[\begin{aligned}\int_a^b f(x)\,dx&amp;=\int_a^{x_1}f(x)\,dx+\int_{x_1}^{x_2}f(x)\,dx+\cdots\\&amp;\qquad+\int_{x_{n-2}}^{x_{n-1}}f(x)\,dx+\int_{x_{n-1}}^{b}f(x)\,dx\\&amp;\doteqdot\frac h2\Big(f(a)+f(x_1)\Big)+\frac h2\Big(f(x_1)+f(x_2)\Big)+\cdots\\&amp;\qquad+\frac h2\Big(f(x_{n-2})+f(x_{n-1})\Big)+\frac h2\Big(f(x_{n-1})+f(b)\Big)\\&amp;\doteqdot\frac h2\Big(f(a)+2f(x_1)+2f(x_2)+\cdots+2f(x_{n-1})+f(b)\Big).\end{aligned}\]</div>
+<div class="box take" data-c="box20"><div class="bt">20 Trapezoidal-rule formula using \(n\) subintervals</div>
+<p>Let \(f(x)\) be a function that is continuous in the closed interval \([a,b]\). Then</p>
+\[\int_a^b f(x)\,dx\doteqdot\frac h2\Big(f(a)+2f(x_1)+2f(x_2)+\cdots+2f(x_{n-1})+f(b)\Big)\]
+<p>where \(h=\dfrac{b-a}{n}\) and \(x_r=a+rh\), for \(r=1,2,\ldots,n-1\).</p></div>
+<div class="box concept" data-c="rearr"><div class="bt">A common rearrangement</div>
+<p>A common rearrangement of this formula, using three sets of nested brackets, is</p>
+\[\int_a^b f(x)\,dx\doteqdot\frac{b-a}{2n}\bigg(f(a)+f(b)+2\Big(f(x_1)+f(x_2)+\cdots+f(x_{n-1})\Big)\bigg).\]</div>
+<div class="box tip"><div class="bt">The steps of the derivation, filled in</div>
+<ul><li>Each subinterval has width \(h\), so each trapezium has area \(\dfrac h2\times(\text{left height}+\text{right height})\).</li>
+<li>Each division point \(x_1,\ldots,x_{n-1}\) is the right-hand end of one subinterval and the left-hand end of the next. So each of \(f(x_1),\ldots,f(x_{n-1})\) appears in two trapezia, and the terms collect to \(2f(x_1),\ldots,2f(x_{n-1})\). The end values \(f(a)\) and \(f(b)\) each appear in only one trapezium.</li>
+<li>For the rearrangement, \(\dfrac h2=\dfrac{b-a}{n}\div2=\dfrac{b-a}{2n}\). Then the two end values are written first, and the factor 2 is taken out of the middle terms.</li>
+<li>Check the count: \(n\) subintervals use \(n+1\) function values. For example, four subintervals use five function values.</li></ul></div>
+<div class="box concept"><div class="bt">Using the formula for the trapezoidal rule</div>
+<p>The formula may look complicated at first sight, but it is actually quite straightforward to use, provided that:</p>
+<ul><li>We begin with a sensible value of the width \(h\) of each subinterval.</li>
+<li>We construct a clear table of values to work from.</li></ul>
+<p>Here is an example where there is no equation of the function, but simply a set of experimental results gathered by recording equipment.</p></div>
+
+<div class="ex demo" data-q="c3d"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A table of measurements</span></div><div class="ex-body">
+The flow rate into a dam after a storm was measured every 3 hours, from \(t=0\) to \(t=18\) hours. The flow rates, in cubic metres per second, are shown in the table.
+<table class="t" data-c="c3dt"><tr><th>\(t\)</th><td>0</td><td>3</td><td>6</td><td>9</td><td>12</td><td>15</td><td>18</td></tr>
+<tr><th>Flow rate</th><td>50</td><td>400</td><td>900</td><td>700</td><td>500</td><td>300</td><td>200</td></tr></table>
+<div class="parts one"><span><span class="pl">a</span>Convert each flow rate to \(R\), the flow rate in millions of cubic metres per hour.</span><span><span class="pl">b</span>Use the trapezoidal rule with 3-hour subintervals to estimate the total amount of water that flowed into the dam in these 18 hours. Use both forms of the formula.</span></div>
+{{work:55}}</div></div>
+<div class="ex attempt" data-q="c3y"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+The rate at which water flows from a pipe into a tank was measured every 10 minutes for 40 minutes. The rates, in litres per minute, are shown in the table.
+<table class="t" data-c="c3yt"><tr><th>\(t\)</th><td>0</td><td>10</td><td>20</td><td>30</td><td>40</td></tr>
+<tr><th>Rate</th><td>20</td><td>35</td><td>40</td><td>30</td><td>15</td></tr></table>
+Use the trapezoidal rule with 10-minute subintervals to estimate the total amount of water that flowed into the tank. Use both forms of the formula.
+{{work:60}}</div></div>
+<div class="ex worked" data-c="we34"><div class="ex-top"><span class="tag">Worked example 34</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<p style="margin-top:0">The flow at Peachtree Creek on 24th December 2002 after a storm is shown in the graph below. The flow rate in cubic feet per second is sketched as a function of the time \(t\) in hours.</p>
+<div class="fig">{{svg:c5h_creek}}</div>
+<p>We can estimate the total amount of water that flowed down the creek after the storm that day by integrating from \(t=4\) to \(t=24\). Use the trapezoidal rule with two-hour subintervals to approximate the total amount of water.</p>
+<div class="sol-label">Solution</div>
+<p>The graph is very inaccurate, like so much internet data, but here is a rough table of values of the flow rate in cubic feet per second as a function of time \(t\) in hours.</p>
+<table class="t" data-c="we34t1" style="font-size:9.8pt"><tr><th>\(t\)</th><td>4</td><td>6</td><td>8</td><td>10</td><td>12</td><td>14</td><td>16</td><td>18</td><td>20</td><td>22</td><td>24</td></tr>
+<tr><th>Flow rate</th><td>100</td><td>600</td><td>5500</td><td>6700</td><td>5800</td><td>4800</td><td>4100</td><td>1800</td><td>800</td><td>600</td><td>500</td></tr></table>
+<p>The units need attention. The time is in hours, so the flow rates must be converted to cubic feet per hour by multiplying by \(60\times60=3600\).</p>
+<p>To avoid zeroes, let \(R\) be the flow rate in millions of cubic feet per hour.</p>
+<table class="t" data-c="we34t2" style="font-size:9.8pt"><tr><th>\(t\)</th><td>4</td><td>6</td><td>8</td><td>10</td><td>12</td><td>14</td><td>16</td><td>18</td><td>20</td><td>22</td><td>24</td></tr>
+<tr><th>\(R\)</th><td>0.36</td><td>2.16</td><td>19.8</td><td>24.12</td><td>20.88</td><td>17.28</td><td>14.76</td><td>6.48</td><td>2.88</td><td>2.16</td><td>1.8</td></tr></table>
+<p>Here \(h=2\) and \(n=10\). Also \(a=x_0=4\), \(x_1=6\), …, \(x_{n-1}=22\), \(x_n=b=24\).</p>
+\[\begin{aligned}\text{Hence}\quad\int_4^{24}R\,dt&amp;\doteqdot\frac22\Big(f(4)+2f(6)+2f(8)+\cdots+2f(22)+f(24)\Big)\\&amp;\doteqdot0.36+4.32+39.6+48.24+41.76+34.56\\&amp;\qquad+29.52+12.96+5.76+4.32+1.8\\&amp;\doteqdot223.2.\end{aligned}\]
+<p>Alternatively, using the second formula,</p>
+\[\begin{aligned}\int_4^{24}R\,dt&amp;\doteqdot\frac{24-4}{20}\bigg(f(4)+f(24)+2\Big(f(6)+f(8)+\cdots+f(22)\Big)\bigg)\\&amp;\doteqdot0.36+1.8+2(2.16+19.8+24.12+20.88+17.28\\&amp;\qquad+14.76+6.48+2.88+2.16)\\&amp;=2.16+2\times110.52\\&amp;=223.2.\end{aligned}\]
+<p>Thus about 223 million cubic feet of water flowed down the creek from 4:00 am to midnight.</p>
+</div></div>
+<div class="box tip" data-c="t34"><div class="bt">Steps the book skips: Worked example 34</div>
+<ul><li>Each flow rate \(F\) in cubic feet per second becomes \(3600F\) cubic feet per hour, which is \(3600F\div1\,000\,000\) million cubic feet per hour. For example, at \(t=4\), \(100\times3600=360\,000\), which is 0.36 million. At \(t=10\), \(6700\times3600=24\,120\,000\), which is 24.12 million.</li>
+<li>The first formula: \(\dfrac h2=\dfrac22=1\). The end values are \(f(4)=0.36\) and \(f(24)=1.8\). The nine middle values are doubled: \(2\times2.16=4.32\), \(2\times19.8=39.6\), \(2\times24.12=48.24\), \(2\times20.88=41.76\), \(2\times17.28=34.56\), \(2\times14.76=29.52\), \(2\times6.48=12.96\), \(2\times2.88=5.76\) and \(2\times2.16=4.32\).</li>
+<li>The second formula: \(n=10\), so \(\dfrac{b-a}{2n}=\dfrac{24-4}{2\times10}=\dfrac{20}{20}=1\). The end values add to \(0.36+1.8=2.16\), and the nine middle values add to 110.52, so the total is \(2.16+221.04=223.2\).</li>
+<li>The units of the answer: \(R\) is in millions of cubic feet per hour and \(t\) is in hours, so the integral is in millions of cubic feet. The interval from \(t=4\) to \(t=24\) is 4:00 am to midnight.</li></ul></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:using a spreadsheet for calculations}}
+<div class="box concept"><div class="bt">Using a spreadsheet for calculations</div>
+<p>The authors used a spreadsheet for all the calculations above. The trapezoidal-rule formula is well suited for machine computation. The next worked example shows how to use an Excel spreadsheet to carry out such a calculation, but any spreadsheet can be used. Note that:</p>
+<ul><li>Excel commands and procedures have been changing over successive versions.</li>
+<li>Mac users will need some adjustments, particularly when implementing the ‘fill down’ and ‘fill right’ commands.</li></ul>
+<p>The calculation involves the integration of \(\dfrac{e^{-\frac12x^2}}{\sqrt{2\pi}}\). We will see in Chapter 16 that this function is the probability density function of the normal distribution, and is the most important function in statistics. There is no simple equation for its primitive, so approximations are always necessary.</p></div></div>
+<div class="box tip"><div class="bt">Reading the spreadsheet</div>
+<ul><li>Row 2 holds the \(x\)-values \(x_0,x_1,\ldots,x_{10}\), row 3 holds the function values, and row 4 holds each function value times its weight in Box 20: weight 1 for the two end values and weight 2 for the nine middle values.</li>
+<li>The sum of row 4 is the big bracket in Box 20, and the last step multiplies it by \(\tfrac12h\).</li>
+<li>No spreadsheet? A calculator gives the same table one value at a time. The spreadsheet just does all the values at once.</li></ul></div>
+
+<div class="ex demo" data-q="c4d"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Spreadsheet, 10 subintervals</span></div><div class="ex-body">
+Let \(\phi(x)=\dfrac{e^{-\frac12x^2}}{\sqrt{2\pi}}\). Approximate the integral \(\displaystyle\int_0^{0.5}\phi(x)\,dx\) using the trapezoidal rule with 10 subintervals. You may use the fact that \(\phi''(x)=(x^2-1)\,\phi(x)\) to say whether your answer is an overestimate or an underestimate.
+{{work:80}}</div></div>
+<div class="ex attempt" data-q="c4y"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+With the same function \(\phi(x)\), approximate the integral \(\displaystyle\int_1^{2}\phi(x)\,dx\) using the trapezoidal rule with 10 subintervals. Use \(\phi''(x)=(x^2-1)\,\phi(x)\) to say whether your answer is an overestimate or an underestimate.
+{{work:80}}</div></div>
+<div class="ex worked" data-c="we35"><div class="ex-top"><span class="tag">Worked example 35</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Let \(\phi(x)=\dfrac{e^{-\frac12x^2}}{\sqrt{2\pi}}\). Approximate the integral \(\displaystyle\int_0^1\phi(x)\,dx\) using the trapezoidal rule with 10 subintervals.<br>
+(The symbol \(\phi\) is the lower case Greek letter ‘phi’, corresponding to Latin \(f\).)
+<div class="sol-label">Solution</div>
+<p>In these instructions, we enter a formula into a cell by typing the \(=\) sign as the first character. The cell in column D and row 3 is labelled D3, and in formulae, this refers to its contents. Normally leave the top row clear for later titles.</p>
+<ol style="padding-left:6mm;margin:1mm 0">
+<li>On a new sheet in Excel, enter 0 into Cell <code>A2</code> and press <code>Enter</code>.<br>Select Cell <code>B2</code> and type <code>=0.1+A2</code> and press <code>Enter</code>.<br>Cell <code>B2</code> should now show 0.1.</li>
+<li>Select Cells <code>B2:K2</code> and press <code>Ctrl+R</code> to ‘fill right’.<br>Cells <code>C2:K2</code> should now show 0.2, 0.3, …, 1.</li>
+<li>Type <code>=EXP(-A2*A2/2)/SQRT(2*PI())</code> into Cell <code>A3</code>.<br>Cell <code>A3</code> should now show \(\phi(0)=0.398942\).</li>
+<li>Select Cells <code>A3:K3</code> and press <code>Ctrl+R</code> to ‘fill right’.<br>Cells <code>B3:K3</code> should now show \(\phi(0.1)=0.396953\), …, \(\phi(1)=0.241971\).
+<p style="margin:1mm 0 0 -6mm">We now have the table of values for the function \(\phi(x)\), and we need to add</p>
+\[\phi(0)+2\phi(0.1)+2\phi(0.2)+\cdots+2\phi(0.9)+\phi(1)\]</li>
+<li>Select Cell <code>A4</code> and enter <code>=A3</code>. This should duplicate the value in <code>A3</code>.<br>Select Cell <code>K4</code> and enter <code>=K3</code>. Again, this duplicates the value in <code>K3</code>.<br>Select Cell <code>B4</code> and enter <code>=2*B3</code>. This should double the value in <code>B3</code>.<br>Select Cells <code>B4:J4</code> and press <code>Ctrl+R</code> to ‘fill right’.<br>Add the row by selecting Cell <code>L4</code> and typing <code>=SUM(A4:K4)</code>.
+<p style="margin:1mm 0 0 -6mm">In this case, \(h=0.1\) so we multiply by \(\tfrac12h=0.05\).</p></li>
+<li>Select Cell <code>L5</code> and type <code>=L4*0.05</code>. This shows the final answer.</li></ol>
+<p>Hence \(\displaystyle\int_0^1\phi(x)\,dx\doteqdot0.341\). We shall find in Chapter 16 that this is approximately the probability that a score in a normal distribution lies between the mean 0 and one standard deviation above the mean. The correct value to four decimal places is 0.3413. We will see in Chapter 16 that the curve is concave down in the interval \([0,1]\), which explains why our estimate is a little smaller than it should be.</p>
+</div></div>
+<div class="box tip" data-c="t35"><div class="bt">Steps the book skips: Worked example 35</div>
+<div class="split" style="grid-template-columns:auto 1fr;gap:5mm"><div><p style="margin-top:0">The sheet after step 6 (values to six decimal places):</p>
+<table class="t" data-c="t35t" style="font-size:9pt;margin:0"><tr><th>column</th><th>row 2</th><th>row 3</th><th>row 4</th></tr><tr><th>A</th><td>0</td><td>0.398942</td><td>0.398942</td></tr><tr><th>B</th><td>0.1</td><td>0.396953</td><td>0.793905</td></tr><tr><th>C</th><td>0.2</td><td>0.391043</td><td>0.782085</td></tr><tr><th>D</th><td>0.3</td><td>0.381388</td><td>0.762776</td></tr><tr><th>E</th><td>0.4</td><td>0.368270</td><td>0.736540</td></tr><tr><th>F</th><td>0.5</td><td>0.352065</td><td>0.704131</td></tr><tr><th>G</th><td>0.6</td><td>0.333225</td><td>0.666449</td></tr><tr><th>H</th><td>0.7</td><td>0.312254</td><td>0.624508</td></tr><tr><th>I</th><td>0.8</td><td>0.289692</td><td>0.579383</td></tr><tr><th>J</th><td>0.9</td><td>0.266085</td><td>0.532170</td></tr><tr><th>K</th><td>1</td><td>0.241971</td><td>0.241971</td></tr><tr><th>L4</th><td colspan="3">6.822861</td></tr><tr><th>L5</th><td colspan="3">0.341143</td></tr></table>
+</div><div><ul><li>Row 2 holds the \(x\)-values, and row 3 holds \(\phi(x)\).</li><li>Row 4 holds \(\phi(0)\), then \(2\phi(0.1),\ldots,2\phi(0.9)\), then \(\phi(1)\). Their sum is \(L4\doteqdot6.822861\). (The sheet works with more decimal places than it shows.)</li>
+<li>Then \(\tfrac12h=\tfrac12\times0.1=0.05\), and \(0.05\times6.822861\doteqdot0.341143\), which is 0.341 to three decimal places.</li>
+<li>The estimate 0.3411 is a little smaller than the correct value 0.3413, as the concavity predicts.</li></ul></div></div></div>
+<div class="box concept"><div class="bt">More subintervals</div>
+<p>Readers may like to repeat the calculations above using 100 subintervals and see how close the approximation is then.</p></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+<div style="break-inside:avoid">{{sec:blue:pencil:Textbook homework:Exercise 5H}}
+{{band:F}}
+<p><b>Technology:</b> It is not difficult to write (or download) a program that will allow the calculations of the trapezoidal rule to be automated. It can then be applied to many examples from this exercise. The number of subintervals used can be steadily increased, and the approximations may then converge to the exact value of the integral. An accompanying screen sketch showing the curve and the chords would be helpful in giving a visual impression of the size and the sign of the error.</p>
+<div class="q" data-q="q1"><span class="q-num">1</span><div class="q-body">Approximate \(\displaystyle\int_2^6f(x)\,dx\) using the formula \(\tfrac12(a+b)h\) for the area of a trapezium.
+<div class="parts three"><span><span class="pl">a</span><table class="t" style="display:inline-table;vertical-align:middle;margin:0"><tr><th>\(x\)</th><td>2</td><td>6</td></tr><tr><th>\(f(x)\)</th><td>8</td><td>12</td></tr></table></span><span><span class="pl">b</span><table class="t" style="display:inline-table;vertical-align:middle;margin:0"><tr><th>\(x\)</th><td>2</td><td>6</td></tr><tr><th>\(f(x)\)</th><td>6.2</td><td>4.8</td></tr></table></span><span><span class="pl">c</span><table class="t" style="display:inline-table;vertical-align:middle;margin:0"><tr><th>\(x\)</th><td>2</td><td>6</td></tr><tr><th>\(f(x)\)</th><td>\(-4\)</td><td>\(-9\)</td></tr></table></span></div>{{work:22}}</div></div></div>
+<div class="q" data-q="q2"><span class="q-num">2</span><div class="q-body"><div class="split" style="grid-template-columns:3fr 2fr"><div>Three function values are given in the table to the right.
+<div class="parts one"><span><span class="pl">a</span>Approximate \(\displaystyle\int_2^{10}f(x)\,dx\) by calculating the areas of two trapezia and then adding.</span><span><span class="pl">b</span>Check your answer to part <b>a</b> by using the formula for the trapezoidal rule.</span></div></div><div>
+<table class="t"><tr><th>\(x\)</th><td>2</td><td>6</td><td>10</td></tr><tr><th>\(f(x)\)</th><td>12</td><td>20</td><td>30</td></tr></table></div></div>{{work:30}}</div></div>
+<div class="q" data-q="q3"><span class="q-num">3</span><div class="q-body">Use the trapezoidal rule with the three given function values to approximate \(\displaystyle\int_{-5}^{5}f(x)\,dx\).
+<table class="t"><tr><th>\(x\)</th><td>\(-5\)</td><td>0</td><td>5</td></tr><tr><th>\(f(x)\)</th><td>2.4</td><td>2.6</td><td>4.4</td></tr></table>{{work:18}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Show, by means of a diagram, that the trapezoidal rule will:
+<div class="parts one"><span><span class="pl">a</span>overestimate \(\displaystyle\int_a^bf(x)\,dx\), if \(f''(x)&gt;0\) for \(a\le x\le b\),</span><span><span class="pl">b</span>underestimate \(\displaystyle\int_a^bf(x)\,dx\), if \(f''(x)&lt;0\) for \(a\le x\le b\).</span></div>{{work:50}}</div></div>
+<div class="q" data-q="q5"><span class="q-num">5</span><div class="q-body"><div class="split" style="grid-template-columns:1fr 1fr"><div><span class="pl">a</span>Complete this table for the function \(y=x(4-x)\).</div><div>
+<table class="t" style="margin:0"><tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>\(y\)</th><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td></tr></table></div></div>
+<div class="parts one"><span><span class="pl">b</span>Hence use the trapezoidal rule with five function values to approximate \(\displaystyle\int_0^4x(4-x)\,dx\).</span><span><span class="pl">c</span>What is the exact value of \(\displaystyle\int_0^4x(4-x)\,dx\), and why does it exceed the approximation? Sketch the curve and the four chords involved.</span><span><span class="pl">d</span>Calculate the percentage error in the approximation (that is, divide the error by the exact answer and convert to a percentage).</span></div>{{work:80}}</div></div>
+<div class="q" data-q="q6"><span class="q-num">6</span><div class="q-body"><div class="split" style="grid-template-columns:1fr 1fr"><div><span class="pl">a</span>Complete this table for the function \(y=\dfrac6x\).</div><div>
+<table class="t" style="margin:0"><tr><th>\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(y\)</th><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td></tr></table></div></div>
+<div class="parts one"><span><span class="pl">b</span>Use the trapezoidal rule with the five function values above, that is with four subintervals, to approximate \(\displaystyle\int_1^5\frac6x\,dx\).</span><span><span class="pl">c</span>Show that the second derivative of \(y=\dfrac6x\) is \(y''=12x^{-3}\), and use this result to explain why the approximation will exceed the exact value of the integral.</span></div>{{work:60}}</div></div>
+
+{{band:D}}
+<div class="q" data-q="q8"><span class="q-num">8</span><div class="q-body">Use the trapezoidal rule with three function values to approximate each definite integral, writing your answer correct to two significant figures where necessary.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int_0^12^{-x}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-2}^02^{-x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_1^3\sqrt[3]{9-2x}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-13}^{-1}\sqrt{3-x}\,dx\)</span></div>{{work:70}}</div></div>
+<div class="q" data-q="q9"><span class="q-num">9</span><div class="q-body">Use the trapezoidal rule with five function values to approximate each definite integral, writing your answer correct to three significant figures where necessary.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span><span class="pl">a</span>\(\displaystyle\int_2^6\frac1x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^2\frac{1}{2+\sqrt x}\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_4^8\sqrt{x^2-3}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_1^2\log_{10}x\,dx\)</span></div>{{work:90}}</div></div>
+<div class="q" data-q="q10"><span class="q-num">10</span><div class="q-body"><div class="split" style="grid-template-columns:3fr 2fr"><div>An object is moving along the \(x\)-axis with values of the velocity \(v\) in m/s at various times \(t\) given in the table to the right. Given that the distance travelled may be found by calculating the area under the velocity/time graph, use the trapezoidal rule to estimate the distance travelled by the particle in the first 5 seconds.</div><div>
+<table class="t"><tr><th>\(t\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>\(v\)</th><td>1.5</td><td>1.3</td><td>1.4</td><td>2.0</td><td>2.4</td><td>2.7</td></tr></table></div></div>{{work:26}}</div></div>
+<div class="q" data-q="q11"><span class="q-num">11</span><div class="q-body"><div class="split" style="grid-template-columns:3fr 2fr"><div>The diagram to the right shows the width of a lake at 10-metre intervals. Use the trapezoidal rule to estimate the surface area of the water.</div><div>{{svg:q5h_11}}</div></div>{{work:20}}</div></div>
+<div class="q" data-q="q12"><span class="q-num">12</span><div class="q-body"><div class="split" style="grid-template-columns:3fr 2fr"><div>The diagram to the right shows a vertical rock cutting of length 300 metres alongside a straight horizontal section of highway. The heights of the cutting are measured at 50-metre intervals. Use the trapezoidal rule to estimate the area of the vertical rock cutting.</div><div>{{svg:q5h_12}}</div></div>{{work:20}}</div></div>
+<div class="q" data-q="q13"><span class="q-num">13</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Use the trapezoidal rule with five function values to approximate \(\displaystyle\int_0^1\sqrt{1-x^2}\,dx\), giving your answer correct to four decimal places.</span><span><span class="pl">b</span>Use part <b>a</b> and the fact that \(y=\sqrt{1-x^2}\) is a semi-circle to approximate \(\pi\). Give your answer correct to one decimal place, and explain why your approximation is less than \(\pi\).</span></div>{{work:60}}</div></div>
+<div class="q" data-q="q14"><span class="q-num">14</span><div class="q-body">Use the trapezoidal rule with five function values, together with appropriate log laws, to show that \(\displaystyle\int_1^5\ln x\,dx\doteqdot\ln54\).{{work:40}}</div></div>
+
+{{band:E}}
+<div class="q" data-q="q15"><span class="q-num">15</span><div class="q-body"><div class="parts one"><span><span class="pl">a</span>Show that the function \(y=\sqrt x\) is increasing for all \(x&gt;0\).</span><span><span class="pl">b</span>By dividing the area under the curve \(y=\sqrt x\) into \(n\) equal subintervals, show that
+\[\sqrt1+\sqrt2+\sqrt3+\cdots+\sqrt n\ge\int_0^n\sqrt x\,dx=\frac{2n\sqrt n}{3}.\]</span><span><span class="pl">c</span>Use the trapezoidal rule to show that for all integers \(n\ge1\),
+\[\sqrt1+\sqrt2+\sqrt3+\cdots+\sqrt n\le\frac{\sqrt n\,(4n+3)}{6}.\]</span><span><span class="pl">d</span>Hence estimate \(\sqrt1+\sqrt2+\sqrt3+\cdots+\sqrt{12\,000}\), correct to the nearest hundred.</span></div>{{work:85}}</div></div>
+<div style="break-inside:avoid">
+<p style="margin:3mm 0 1mm"><b>An investigation using a spreadsheet for trapezoidal-rule calculations</b></p>
+<div class="q" data-q="q16"><span class="q-num">16</span><div class="q-body">Work through the spreadsheet example just above this exercise. Then use a spreadsheet to estimate these integrals using the trapezoidal rule with 5, 10, 20 and perhaps more subintervals.
+<div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_1^{11}\frac1x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_1^{11}\log_ex\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^{10}e^{-x^2}\,dx\)</span></div>
+You will need to look at the results and perhaps vary the number of decimal places that you are using in the calculations and recording in your answers.{{work:40}}</div></div></div>
+<div style="break-inside:avoid"><p style="margin:3mm 0 1mm"><b>Possible spreadsheet projects</b></p>
+<p>It is possible to program a spreadsheet so that the number of subintervals can be entered as a single variable. The construction of such a program and similar programs could be incorporated into a longer project examining the usefulness and accuracy of the trapezoidal rule, or examining some physical phenomena.</p></div>
+<p>In the next diagram, it is clear that in parts of the graph where there is a lot of activity, the subintervals should be quite narrow, whereas in other calmer parts they can be far wider. Such variability could also be incorporated into the spreadsheet and its formulae.</p>
+<div style="break-inside:avoid"><p style="margin:3mm 0 1mm"><b>An investigation (and possible project) integrating a graph from the web by the trapezoidal rule</b></p>
+<p>There is a great deal of data available on the web for a sustained investigation of river flow. The following question suggests some interesting questions about one such situation, but there are many more situations and questions. Integrating graphs of all kinds from the web using the trapezoidal rule could be the basis of various different projects.</p></div>
+<div class="q" data-q="q17" style="break-inside:auto"><span class="q-num">17</span><div class="q-body">
+<div class="fig"><div style="width:150mm">{{svg:q5h_17}}</div></div>
+<p style="margin-top:1mm">The hydrograph above shows the rate of flow through Control Point X on the Turia River in Spain over a three-day period in May 2004. The rate of flow (‘Caudal’) is given as a function of the date–times (‘Fecha’). Notice that the successive date–times on the horizontal axis are separated by exactly 6 hours. The rainfall (‘Lluvia’) is given by the vertical bars.</p>
+<p>The units of time are hours, and the units of the flow rate are ‘cubic metres per second’. The flow rate \(R\) should be converted to units of ‘thousands of cubic metres per hour’ so that time is in hours and there are fewer zeroes: multiply by \(\dfrac{60\times60}{1000}=3.6\).</p>
+<div class="parts one"><span><span class="pl">a</span><span style="display:inline-block;vertical-align:top;width:calc(100% - 6mm)"><span class="split" style="display:grid;grid-template-columns:3fr 2fr;gap:3mm"><span>From the graph, copy and complete the table of values of the flow rate \(R\) at the first four date–times, 04/05/2004 17:40 to 05/05/2004 11:40.</span><span><table class="t" style="margin:0"><tr><th>\(t\)</th><td>17:40</td><td>23:40</td><td>05:40</td><td>11:40</td></tr><tr><th>\(R\)</th><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td></tr></table></span></span>
+Then use the trapezoidal rule to estimate the total volume of water that flowed through the control point in those 18 hours.</span></span>
+<span><span class="pl">b</span><span style="display:inline-block;vertical-align:top;width:calc(100% - 6mm)">Draw up a similar table for the 18 hours of heavy flow from 05/05/2004 17:40 to 06/05/2004 11:40, but use 3 hours as the separation between successive times.
+<table class="t"><tr><th>\(t\)</th><td>17:40</td><td>20:40</td><td>23:40</td><td>02:40</td><td>05:40</td><td>08:40</td><td>11:40</td></tr><tr><th>\(R\)</th><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td></tr></table>
+Then use the trapezoidal rule to estimate the total volume of water that flowed through the Control Point in those 18 hours. Why are 3 hours suggested here in part <b>b</b> for the width of the subintervals, where 6 hours was used in part <b>a</b>?</span></span>
+<span><span class="pl">c</span>How many times more water flowed down the river in the second 18-hour period? Look at the rainfall record, and discuss how the river flow responded to the rainfall.</span></div><div style="break-inside:avoid">{{work:100}}</div></div></div>
+
+<!-- ============ Past papers ============ -->
+<div style="break-inside:avoid">
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 5 minutes</b></span><span><b>1 mark</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">This is the only school-paper item that needs just this lesson’s ideas. For more timed practice, do Questions 5, 9(c), 12, 13 and 14 above in 25 minutes.</p>
+
+<div class="pp" data-q="pp1"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Grammar School, 2023, Trial Examination, Form VI Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q3</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Consider the area between the curve \(y=\log_ax\), the \(x\)-axis, \(x=2\) and \(x=4\) as shown in the diagram.
+<div class="fig">{{svg:p5h_sgs}}</div>
+What is the area approximated by one application of the trapezoidal rule?
+<div class="mc" style="grid-template-columns:repeat(4,1fr)"><span>(A)&ensp;\(3\log_a2\)</span><span>(B)&ensp;\(\log_a6\)</span><span>(C)&ensp;\(\dfrac{\log_a2+\log_a4}{2}\)</span><span>(D)&ensp;\(\dfrac{3a}{2}\)</span></div></div>
+<div class="hint"><b>Hint:</b> what are the boundaries of the shaded region?</div>{{work:30}}</div>
+</div>
+</div>
