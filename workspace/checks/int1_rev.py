@@ -479,8 +479,8 @@ for p, fin in (("a", r"28(4x-1)^6"), ("b", r"-\dfrac{3}{(3x-8)^2}"), ("c", r"\df
     last = top_split(lines_of(maths(sol[p])[0])[-1], "=")[-1].strip()
     same(f"{title} {p} final = textbook {fin}", last, S(fin))
 
-# Textbook Example 21 (1E): sums
-title = "Textbook Example 21 (1E)"
+# Year 12 Example 21 (1E): sums
+title = "Year 12 Example 21 (1E)"
 q, s, notes = split_q_s(example(title), title)
 qs = qparts(q)
 
@@ -545,7 +545,7 @@ def ablock(nq):
 
 
 LABEL = {1: "Year 11 Exercise 7B Q13", 2: "Year 11 Exercise 8E Q5", 3: "Year 11 Exercise 8G Q4",
-         4: "Year 11 Exercise 8G Q8", 5: "Exercise 1E Q4"}
+         4: "Year 11 Exercise 8G Q8", 5: "Year 12 Exercise 1E Q4"}
 for nq, lab in LABEL.items():
     for blk, where in ((qblock(nq), "question"), (ablock(nq), "answer")):
         if f'<span class="muted small">{lab}</span>' in blk:
