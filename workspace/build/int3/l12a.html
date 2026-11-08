@@ -68,10 +68,11 @@ Then \(u'=1\) and \(v'=\dfrac{1}{1+x^2}\).</p>
 </div><div>
 <p>Let \(u=ax+b\),<br>then \(y=\sin^{-1}u\).<br>
 Hence \(\dfrac{du}{dx}=a\)<br>
-and \(\dfrac{dy}{du}=\dfrac{1}{\sqrt{1-u^2}}\).<br>
-In the last line, \(u\) is replaced by \(ax+b\).</p>
+and \(\dfrac{dy}{du}=\dfrac{1}{\sqrt{1-u^2}}\).</p>
 </div></div>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 1</div>
+<p>In the last line, \(u\) is replaced by \(ax+b\).</p></div>
 
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:linear extensions, and tangents with a given gradient}}
@@ -100,15 +101,19 @@ In the last line, \(u\) is replaced by \(ax+b\).</p>
 <div class="split"><div>
 <p><b>a</b> Differentiating, \(y'=-\dfrac{1}{\sqrt{1-(x-1)^2}}\).</p>
 <p>Put \(y'=-2\). Then</p>
-\[\begin{aligned}-\frac{1}{\sqrt{1-(x-1)^2}}&amp;=-2\\\sqrt{1-(x-1)^2}&amp;=\tfrac12\\1-(x-1)^2&amp;=\tfrac14\\ (x-1)^2&amp;=\tfrac34\\x-1&amp;=\tfrac12\sqrt3\ \text{ or }\ {-\tfrac12\sqrt3}\\x&amp;=1+\tfrac12\sqrt3\ \text{ or }\ 1-\tfrac12\sqrt3.\end{aligned}\]
-<p>When \(x=1+\tfrac12\sqrt3\), \(y=\cos^{-1}\tfrac12\sqrt3=\tfrac{\pi}{6}\).<br>
-When \(x=1-\tfrac12\sqrt3\), \(y=\cos^{-1}\big(-\tfrac12\sqrt3\big)=\tfrac{5\pi}{6}\).</p>
-<p>So the points are \(A\big(1+\tfrac12\sqrt3,\tfrac{\pi}{6}\big)\) and \(B\big(1-\tfrac12\sqrt3,\tfrac{5\pi}{6}\big)\).</p>
+\[\begin{aligned}-\frac{1}{\sqrt{1-(x-1)^2}}&amp;=-2\\1-(x-1)^2&amp;=\tfrac14\\ (x-1)^2&amp;=\tfrac34\\x-1&amp;=\tfrac12\sqrt3\ \text{ or }\ {-\tfrac12\sqrt3}\\x&amp;=1+\tfrac12\sqrt3\ \text{ or }\ 1-\tfrac12\sqrt3,\end{aligned}\]
+<p>so the points are \(A\big(1+\tfrac12\sqrt3,\tfrac{\pi}{6}\big)\) and \(B\big(1-\tfrac12\sqrt3,\tfrac{5\pi}{6}\big)\).</p>
 </div><div>
-<p><b>b</b> The domain is \(-1\le x-1\le1\), that is, \(0\le x\le2\), and the range is \(0\le y\le\pi\). The endpoints are \((0,\pi)\) and \((2,0)\). The short lines at \(A\) and \(B\) are the tangents of gradient \(-2\).</p>
+<p><b>b</b></p>
 <div class="center">{{svg:c12a_ex2}}</div>
 </div></div>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 2</div>
+<p><b>a</b> From \(\dfrac{1}{\sqrt{1-(x-1)^2}}=2\),</p>
+\[\sqrt{1-(x-1)^2}=\tfrac12.\]
+<p>When \(x=1+\tfrac12\sqrt3\), \(y=\cos^{-1}\tfrac12\sqrt3=\tfrac{\pi}{6}\).<br>
+When \(x=1-\tfrac12\sqrt3\), \(y=\cos^{-1}\big(-\tfrac12\sqrt3\big)=\tfrac{5\pi}{6}\).</p>
+<p><b>b</b> The domain is \(-1\le x-1\le1\), that is, \(0\le x\le2\), and the range is \(0\le y\le\pi\). The endpoints are \((0,\pi)\) and \((2,0)\). The short lines at \(A\) and \(B\) are the tangents of gradient \(-2\).</p></div>
 
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:functions whose derivatives are zero are constants}}
@@ -161,7 +166,7 @@ Use calculus to sketch \(y=\cos^{-1}\cos x\).
 <tr><th>\(y\)</th><td>\(0\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\pi\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(0\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(\pi\)</td><td>\(\ldots\)</td></tr></table>
 <div class="split"><div>
 <p>Differentiating using the chain rule,</p>
-\[\begin{aligned}\frac{dy}{dx}&amp;=\frac{dy}{du}\times\frac{du}{dx}\\&amp;=-\frac{1}{\sqrt{1-\cos^2x}}\times(-\sin x)\\&amp;=\frac{\sin x}{\sqrt{1-\cos^2x}}\\&amp;=\frac{\sin x}{\sqrt{\sin^2x}}.\end{aligned}\]
+\[\begin{aligned}\frac{dy}{dx}&amp;=\frac{\sin x}{\sqrt{1-\cos^2x}}\\&amp;=\frac{\sin x}{\sqrt{\sin^2x}}.\end{aligned}\]
 </div><div>
 <p>Let \(u=\cos x\),<br>then \(y=\cos^{-1}u\).<br>
 Hence \(\dfrac{du}{dx}=-\sin x\)<br>
@@ -173,6 +178,9 @@ When \(\sin x\) is negative, \(\sqrt{\sin^2x}=-\sin x\), so \(\dfrac{dy}{dx}=-1\
 <p>This means that the graph consists of a series of intervals, each with gradient 1 or \(-1\).</p>
 <div class="center">{{svg:c12a_ex4}}</div>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 4</div>
+<p>The first line of the chain rule, in full:</p>
+\[\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}=-\frac{1}{\sqrt{1-\cos^2x}}\times(-\sin x)=\frac{\sin x}{\sqrt{1-\cos^2x}}.\]</div>
 
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:chain-rule extensions to the standard forms}}
@@ -209,8 +217,9 @@ Use the chain-rule extension formulae to differentiate \(\tan^{-1}e^{-5x}\).
 <p>OR here \(f(x)=e^{-5x}\) and \(f'(x)=-5e^{-5x}\),</p>
 \[\begin{aligned}\text{so}\quad\frac{d}{dx}\big(\tan^{-1}e^{-5x}\big)&amp;=\frac{f'(x)}{1+\big(f(x)\big)^2}\\&amp;=\frac{-5e^{-5x}}{1+e^{-10x}}.\end{aligned}\]
 </div></div>
-<p>In the last line, \(u^2=\big(e^{-5x}\big)^2=e^{-10x}\).</p>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 5</div>
+<p>In the last line, \(u^2=\big(e^{-5x}\big)^2=e^{-10x}\).</p></div>
 
 <!-- ============ Homework ============ -->
 <div class="page-break"></div>

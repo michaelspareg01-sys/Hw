@@ -278,7 +278,7 @@ def tangent_points(label, block, F, m, template_pts):
 
 tangent_points("WE2", we2, lambda t: sp.acos(t - 1), -2,
                "points are \\(A\\big(@,@\\big)\\) and \\(B\\big(@,@\\big)\\)")
-g = grab("WE2 working", we2, "\\\\ (x-1)^2&=@\\\\x-1&=@\\ \\text{ or }\\ {-@}\\\\x&=@\\ \\text{ or }\\ @.\\end{aligned}")
+g = grab("WE2 working", we2, "\\\\ (x-1)^2&=@\\\\x-1&=@\\ \\text{ or }\\ {-@}\\\\x&=@\\ \\text{ or }\\ @,\\end{aligned}")
 if g:
     same("WE2 (x-1)^2", T(g[0]), sp.Rational(3, 4))
     same("WE2 x-1", T(g[1]) ** 2, sp.Rational(3, 4))
@@ -327,10 +327,14 @@ def table_check(label, block, F):
 
 
 table_check("WE4 table", we4, lambda t: sp.acos(sp.cos(t)))
-g = grab("WE4 chain", we4, "&=\\frac{dy}{du}\\times\\frac{du}{dx}\\\\&=@\\\\&=@\\\\&=@.\\end{aligned}")
+g = grab("WE4 chain", we4, "\\frac{dy}{dx}&=@\\\\&=@.\\end{aligned}")
 if g:
     for k, s in enumerate(g):
-        same_fn(f"WE4 dy/dx line {k + 2}", T(s), sp.diff(sp.acos(sp.cos(x)), x), [0.3, 1.2, 2.8, 3.5, 4.4, 6.0, -0.5, -2.2, 7.0])
+        same_fn(f"WE4 dy/dx line {k + 1}", T(s), sp.diff(sp.acos(sp.cos(x)), x), [0.3, 1.2, 2.8, 3.5, 4.4, 6.0, -0.5, -2.2, 7.0])
+g = grab("WE4 tip chain", we4, "\\frac{dy}{dx}=\\frac{dy}{du}\\times\\frac{du}{dx}=@=@.\\]")
+if g:
+    for k, s in enumerate(g):
+        same_fn(f"WE4 tip line {k + 2}", T(s), sp.diff(sp.acos(sp.cos(x)), x), [0.3, 1.2, 2.8, 3.5, 4.4, 6.0, -0.5, -2.2, 7.0])
 for xv, d in ((0.7, 1), (2.6, 1), (3.9, -1), (5.6, -1)):    # quadrants 1, 2, 3, 4
     same(f"WE4 gradient {d} in quadrant", sp.N(sp.diff(sp.acos(sp.cos(x)), x).subs(x, xv)), d)
 

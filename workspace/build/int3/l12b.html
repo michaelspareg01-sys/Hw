@@ -36,8 +36,9 @@ Evaluate \(\displaystyle\int_0^{\frac12}\frac{1}{\sqrt{1-x^2}}\,dx\) using both 
 <p style="margin:0">OR</p>
 \[\begin{aligned}\int_0^{\frac12}\frac{1}{\sqrt{1-x^2}}\,dx&=\Big[-\cos^{-1}x\Big]_0^{\frac12}\\&=-\cos^{-1}\tfrac12+\cos^{-1}0\\&=-\tfrac{\pi}{3}+\tfrac{\pi}{2}\\&=\tfrac{\pi}{6}\end{aligned}\]
 </div></div>
-<p class="small">The exact values come from the special triangles: \(\sin\tfrac{\pi}{6}=\tfrac12\), \(\sin0=0\), \(\cos\tfrac{\pi}{3}=\tfrac12\) and \(\cos\tfrac{\pi}{2}=0\), and each angle lies in the range of its inverse function.</p>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 6</div>
+<p>The exact values come from the special triangles: \(\sin\tfrac{\pi}{6}=\tfrac12\), \(\sin0=0\), \(\cos\tfrac{\pi}{3}=\tfrac12\) and \(\cos\tfrac{\pi}{2}=0\), and each angle lies in the range of its inverse function.</p></div>
 
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:definite integrals with inverse tan}}
@@ -59,11 +60,14 @@ Evaluate these definite integrals exactly or correct to four significant figures
 <div class="sol-label">Solution</div>
 <div class="split"><div>
 <p><b>a</b></p>
-\[\begin{aligned}\int_0^1\frac{1}{1+x^2}\,dx&=\Big[\tan^{-1}x\Big]_0^1\\&=\tan^{-1}1-\tan^{-1}0\\&=\tfrac{\pi}{4}-0\\&=\tfrac{\pi}{4}\end{aligned}\]
+\[\begin{aligned}\int_0^1\frac{1}{1+x^2}\,dx&=\Big[\tan^{-1}x\Big]_0^1\\&=\tan^{-1}1-\tan^{-1}0\\&=\tfrac{\pi}{4}\end{aligned}\]
 </div><div>
 <p><b>b</b></p>
-\[\begin{aligned}\int_0^4\frac{1}{1+x^2}\,dx&=\Big[\tan^{-1}x\Big]_0^4\\&=\tan^{-1}4-\tan^{-1}0\\&=1.3258\ldots-0\\&\doteq1.326\end{aligned}\]
+\[\begin{aligned}\int_0^4\frac{1}{1+x^2}\,dx&=\Big[\tan^{-1}x\Big]_0^4\\&=\tan^{-1}4-\tan^{-1}0\\&\doteq1.326\end{aligned}\]
 </div></div></div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 7</div>
+<p><b>a</b> \(\tan^{-1}1-\tan^{-1}0=\tfrac{\pi}{4}-0\).<br>
+<b>b</b> \(\tan^{-1}4-\tan^{-1}0=1.3258\ldots-0\).</p></div>
 
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:standard forms with one constant}}
@@ -103,12 +107,15 @@ Evaluate these indefinite integrals. In parts <b>a</b> and <b>b</b>, the formula
 <div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\displaystyle\int\frac{2}{\sqrt{9-x^2}}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int\frac{1}{8+x^2}\,dx\)</span></div>
 <div class="sol-label">Solution</div>
 <div class="split"><div>
-<p><b>a</b> Here \(a=3\).</p>
-\[\begin{aligned}\int\frac{2}{\sqrt{9-x^2}}\,dx&=2\int\frac{1}{\sqrt{3^2-x^2}}\,dx\\&=2\sin^{-1}\frac x3+C\end{aligned}\]
+<p><b>a</b></p>
+\[\begin{aligned}\int\frac{2}{\sqrt{9-x^2}}\,dx&=2\sin^{-1}\frac x3+C\end{aligned}\]
 </div><div>
-<p><b>b</b> Here \(a=\sqrt8=2\sqrt2\).</p>
-\[\begin{aligned}\int\frac{1}{8+x^2}\,dx&=\int\frac{1}{(2\sqrt2)^2+x^2}\,dx\\&=\frac{1}{2\sqrt2}\tan^{-1}\frac{x}{2\sqrt2}+C\end{aligned}\]
+<p><b>b</b></p>
+\[\begin{aligned}\int\frac{1}{8+x^2}\,dx&=\frac{1}{2\sqrt2}\tan^{-1}\frac{x}{2\sqrt2}+C\end{aligned}\]
 </div></div></div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 8a, b</div>
+<p>In <b>a</b>, \(a=3\). In <b>b</b>, \(a=\sqrt8=2\sqrt2\).</p>
+\[\int\frac{2}{\sqrt{9-x^2}}\,dx=2\int\frac{1}{\sqrt{3^2-x^2}}\,dx,\qquad\int\frac{1}{8+x^2}\,dx=\int\frac{1}{(2\sqrt2)^2+x^2}\,dx.\]</div>
 
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:when x² has a coefficient}}
@@ -141,16 +148,18 @@ Evaluate these indefinite integrals. In parts <b>c</b> and <b>d</b>, the coeffic
 <div class="parts" style="row-gap:2mm"><span><span class="pl">c</span>\(\displaystyle\int\frac{6}{49+25x^2}\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int\frac{1}{\sqrt{5-3x^2}}\,dx\)</span></div>
 <div class="sol-label">Solution</div>
 <div><div>
-<p><b>c</b> Take out 25. Then \(a^2=\tfrac{49}{25}\), so \(a=\tfrac75\).</p>
+<p><b>c</b></p>
 \[\begin{aligned}\int\frac{6}{49+25x^2}\,dx&=\frac{6}{25}\int\frac{1}{\frac{49}{25}+x^2}\,dx\\&=\frac{6}{25}\times\frac57\tan^{-1}\frac{x}{7/5}+C\\&=\frac{6}{35}\tan^{-1}\frac{5x}{7}+C\end{aligned}\]
-<p class="small">Here \(\dfrac1a=\dfrac57\), and \(x\div\dfrac75=\dfrac{5x}{7}\).</p>
 </div><div>
-<p><b>d</b> Take out \(\sqrt3\). Then \(a^2=\tfrac53\), so \(a=\sqrt{\tfrac53}\).</p>
-\[\begin{aligned}\int\frac{1}{\sqrt{5-3x^2}}\,dx&=\frac{1}{\sqrt3}\int\frac{1}{\sqrt{\frac53-x^2}}\,dx\\&=\frac{1}{\sqrt3}\sin^{-1}\frac{x}{\sqrt{5/3}}+C\\&=\tfrac13\sqrt3\sin^{-1}x\sqrt{\tfrac35}+C\end{aligned}\]
-<p class="small">Here \(\sqrt{5-3x^2}=\sqrt3\,\sqrt{\tfrac53-x^2}\), \(\ \dfrac{1}{\sqrt3}=\dfrac{\sqrt3}{3}\), and \(x\div\sqrt{\tfrac53}=x\sqrt{\tfrac35}\).</p>
+<p><b>d</b></p>
+\[\begin{aligned}\int\frac{1}{\sqrt{5-3x^2}}\,dx&=\frac{1}{\sqrt3}\int\frac{1}{\sqrt{\frac53-x^2}}\,dx\\&=\tfrac13\sqrt3\sin^{-1}x\sqrt{\tfrac35}+C\end{aligned}\]
 </div></div>
-<p class="small">Check with Box 6. In <b>c</b>, \(a=7\) and \(b=5\), so the answer is \(6\times\dfrac{1}{35}\tan^{-1}\dfrac{5x}{7}+C\). In <b>d</b>, \(a=\sqrt5\) and \(b=\sqrt3\), so the answer is \(\dfrac{1}{\sqrt3}\sin^{-1}\dfrac{\sqrt3\,x}{\sqrt5}+C\), which is the same.</p>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 8c, d</div>
+<p><b>c</b> Take out 25. Then \(a^2=\tfrac{49}{25}\), so \(a=\tfrac75\). Here \(\dfrac1a=\dfrac57\), and \(x\div\dfrac75=\dfrac{5x}{7}\).</p>
+<p><b>d</b> Take out \(\sqrt3\). Then \(a^2=\tfrac53\), so \(a=\sqrt{\tfrac53}\). Here \(\sqrt{5-3x^2}=\sqrt3\,\sqrt{\tfrac53-x^2}\), \(\ \dfrac{1}{\sqrt3}=\dfrac{\sqrt3}{3}\), and \(x\div\sqrt{\tfrac53}=x\sqrt{\tfrac35}\). The full step is</p>
+\[\frac{1}{\sqrt3}\int\frac{1}{\sqrt{\frac53-x^2}}\,dx=\frac{1}{\sqrt3}\sin^{-1}\frac{x}{\sqrt{5/3}}+C.\]
+<p>Check with Box 6. In <b>c</b>, \(a=7\) and \(b=5\), so the answer is \(6\times\dfrac{1}{35}\tan^{-1}\dfrac{5x}{7}+C\). In <b>d</b>, \(a=\sqrt5\) and \(b=\sqrt3\), so the answer is \(\dfrac{1}{\sqrt3}\sin^{-1}\dfrac{\sqrt3\,x}{\sqrt5}+C\), which is the same.</p></div>
 
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:the reverse chain rule}}
@@ -180,18 +189,22 @@ Find primitives of:
 Find primitives of:
 <div class="parts" style="row-gap:2mm"><span><span class="pl">a</span>\(\dfrac{e^x}{1+e^{2x}}\)</span><span><span class="pl">b</span>\(\dfrac{x}{\sqrt{1-x^4}}\)</span></div>
 <div class="sol-label">Solution</div>
-<p><b>a</b> Let \(u=e^x\), then \(u'=e^x\). &ensp; OR &ensp; Let \(f(x)=e^x\), then \(f'(x)=e^x\). Note that \(e^{2x}=\big(e^x\big)^2\).</p>
+<p><b>a</b> Let \(u=e^x\), then \(u'=e^x\). &ensp; OR &ensp; Let \(f(x)=e^x\), then \(f'(x)=e^x\).</p>
 <p style="margin:0">With both notations,</p>
 \[\begin{aligned}\int\frac{e^x}{1+e^{2x}}\,dx&=\int\frac{e^x}{1+\big(e^x\big)^2}\,dx\\&=\tan^{-1}e^x+C,\ \text{for some constant }C.\end{aligned}\]
-<p><b>b</b> Let \(u=x^2\), then \(u'=2x\). &ensp; OR &ensp; Let \(f(x)=x^2\), then \(f'(x)=2x\). Note that \(x^4=\big(x^2\big)^2\), and that \(x=\tfrac12\times2x\).</p>
+<p><b>b</b> Let \(u=x^2\), then \(u'=2x\). &ensp; OR &ensp; Let \(f(x)=x^2\), then \(f'(x)=2x\).</p>
 <p style="margin:0">With both notations,</p>
 \[\begin{aligned}\int\frac{x}{\sqrt{1-x^4}}\,dx&=\tfrac12\int\frac{2x}{\sqrt{1-\big(x^2\big)^2}}\,dx\\&=\tfrac12\sin^{-1}x^2+C,\ \text{for some constant }C.\end{aligned}\]
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 9</div>
+<p><b>a</b> Note that \(e^{2x}=\big(e^x\big)^2\).</p>
+<p><b>b</b> Note that \(x^4=\big(x^2\big)^2\), and that \(x=\tfrac12\times2x\).</p></div>
 
 <!-- ============ Concept 6 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 6:given a derivative, find an integral}}
 <div class="box concept"><div class="bt">The primitives of the inverse trigonometric functions</div>
-<p>As always, the result of a product-rule differentiation can be used to obtain an integral. In particular, this allows the primitives of the inverse trigonometric functions to be obtained.</p>
+<p>As always, the result of a product-rule differentiation can be used to obtain an integral. In particular, this allows the primitives of the inverse trigonometric functions to be obtained.</p></div>
+<div class="box tip"><div class="bt">The method</div>
 <ul><li>Differentiate \(x\times(\text{the inverse function})\) by the product rule. One term of the derivative is the inverse function itself.</li>
 <li>Integrate both sides of the derivative. The integral of a derivative is the function itself.</li>
 <li>Rearrange to make the integral of the inverse function the subject. The other integral left over is found by the reverse chain rule.</li></ul></div></div>
@@ -209,10 +222,9 @@ Find primitives of:
 <b>b</b> Find the shaded area under the curve \(y=\sin^{-1}x\) from \(x=0\) to \(x=1\).
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:1fr 52mm"><div>
-<p><b>a</b> Let \(y=x\sin^{-1}x\).<br>Using the product rule with \(u=x\) and \(v=\sin^{-1}x\), where \(u'=1\) and \(v'=\dfrac{1}{\sqrt{1-x^2}}\),</p>
-\[\begin{aligned}\frac{dy}{dx}&=1\times\sin^{-1}x+x\times\frac{1}{\sqrt{1-x^2}}\\&=\sin^{-1}x+\frac{x}{\sqrt{1-x^2}}.\end{aligned}\]
+<p><b>a</b> Let \(y=x\sin^{-1}x\).<br>Using the product rule with \(u=x\) and \(v=\sin^{-1}x\),</p>
+\[\begin{aligned}\frac{dy}{dx}&=\sin^{-1}x+\frac{x}{\sqrt{1-x^2}}.\end{aligned}\]
 </div><div>{{svg:c12b_ex10}}</div></div>
-<p>Integrating both sides (the integral of the derivative of \(x\sin^{-1}x\) is \(x\sin^{-1}x\)),</p>
 \[\begin{aligned}\text{Hence}\quad\int\sin^{-1}x\,dx+\int\frac{x}{\sqrt{1-x^2}}\,dx&=x\sin^{-1}x\\\int\sin^{-1}x\,dx&=x\sin^{-1}x-\int\frac{x}{\sqrt{1-x^2}}\,dx.\end{aligned}\]
 <div class="split" style="grid-template-columns:1fr 60mm;break-inside:avoid"><div>
 <p style="margin-top:0">Using the reverse chain rule,</p>
@@ -220,20 +232,20 @@ Find primitives of:
 </div><div style="border-left:1.4px solid var(--ink);padding-left:3mm">
 <p style="margin-top:0">Let \(u=1-x^2\).<br>Then \(\dfrac{du}{dx}=-2x\).</p>
 \[\int u^{-\frac12}\frac{du}{dx}\,dx=u^{\frac12}\times2.\]
-<p class="small" style="margin-bottom:0">Here \(-x=\tfrac12\times(-2x)\), and \(u^{-\frac12}\) integrates to \(\dfrac{u^{\frac12}}{\frac12}=u^{\frac12}\times2\).</p>
 </div></div>
 <div style="break-inside:avoid">
 \[\text{so}\quad\int\sin^{-1}x\,dx=x\sin^{-1}x+\sqrt{1-x^2}+C.\]
 <div class="split" style="grid-template-columns:1fr 60mm"><div>
-<p style="margin-top:0"><b>b</b> The shaded area is</p>
+<p style="margin-top:0"><b>b</b></p>
 \[\begin{aligned}\int_0^1\sin^{-1}x\,dx&=\Big[x\sin^{-1}x+\sqrt{1-x^2}\,\Big]_0^1\\&=\big(1\times\tfrac{\pi}{2}+0\big)-(0+1)\\&=\tfrac{\pi}{2}-1\text{ square units.}\end{aligned}\]
-</div><div>
-<p class="small" style="margin-top:7mm">At \(x=1\): \(\sin^{-1}1=\tfrac{\pi}{2}\) and \(\sqrt{1-1}=0\).<br>At \(x=0\): \(0\times\sin^{-1}0=0\) and \(\sqrt{1-0}=1\).</p></div></div></div>
-<p><b>Note:</b> We have already established in Section 7D that the area under \(y=\sin x\) from \(x=0\) to \(x=\tfrac{\pi}{2}\) is exactly 1 square unit. This means that the area between \(y=\sin^{-1}x\) and the \(y\)-axis is 1, and subtracting this area from the rectangle of area \(1\times\tfrac{\pi}{2}=\tfrac{\pi}{2}\) in the diagram above gives the same value \(\tfrac{\pi}{2}-1\) for the shaded area.</p>
+</div><div></div></div></div>
+<p><b>Note:</b> We have already established in Section 7D that the area under \(y=\sin x\) from \(x=0\) to \(x=\tfrac{\pi}{2}\) is exactly 1 square unit. This means that the area between \(y=\sin^{-1}x\) and the \(y\)-axis is 1, and subtracting this area from the rectangle of area \(\tfrac{\pi}{2}\) in the diagram above gives the same value \(\tfrac{\pi}{2}-1\) for the shaded area.</p>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 10</div>
+<p><b>a</b> In the product rule, \(u'=1\) and \(v'=\tfrac{1}{\sqrt{1-x^2}}\), so \(\dfrac{dy}{dx}=1\times\sin^{-1}x+x\times\dfrac{1}{\sqrt{1-x^2}}\). Integrating both sides: the integral of the derivative of \(x\sin^{-1}x\) is \(x\sin^{-1}x\). In the reverse chain rule, \(-x=\tfrac12\times(-2x)\), and \(u^{-\frac12}\) integrates to \(u^{\frac12}\div\tfrac12=u^{\frac12}\times2\).</p>
+<p><b>b</b> The shaded area is \(\displaystyle\int_0^1\sin^{-1}x\,dx\).<br>At \(x=1\): \(\sin^{-1}1=\tfrac{\pi}{2}\) and \(\sqrt{1-1}=0\).<br>At \(x=0\): \(0\times\sin^{-1}0=0\) and \(\sqrt{1-0}=1\).</p></div>
 
 <!-- ============ Homework ============ -->
-<div class="page-break"></div>
 {{sec:blue:pencil:Textbook homework:Exercise 12B}}
 {{band:F}}
 <div class="q"><span class="q-num">1</span><div class="q-body">
@@ -288,7 +300,7 @@ Find primitives of:
 \[1-t^2+t^4-t^6+\cdots+t^{4n}&lt;\frac{1}{1+t^2}+t^{4n+2}.\]</span><span><span class="pl">c</span>By integrating the inequalities of parts <b>a</b> and <b>b</b> from \(t=0\) to \(t=x\), show that
 \[\tan^{-1}x&lt;x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+\cdots+\frac{x^{4n+1}}{4n+1}&lt;\tan^{-1}x+\frac{x^{4n+3}}{4n+3}.\]</span><span><span class="pl">d</span>By taking limits as \(n\to\infty\), show that for \(0\le x\le1\),
 \[\tan^{-1}x=x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+\cdots.\]</span><span><span class="pl">e</span>Use the fact that \(\tan^{-1}x\) is an odd function to prove this identity for \(-1\le x&lt;0\).</span><span><span class="pl">f</span>[Gregory’s series] Use a suitable substitution to prove that
-\[\frac{\pi}{4}=1-\frac13+\frac15-\frac17+\cdots.\]</span><span><span class="pl">g</span>By combining the terms in pairs, show that \(\dfrac{\pi}{8}=\dfrac{1}{1\times3}+\dfrac{1}{5\times7}+\dfrac{1}{9\times11}+\cdots\), and use the calculator to find how close an approximation to \(\pi\) can be obtained by taking 10 terms.</span></div>{{work:130}}</div></div>
+\[\frac{\pi}{4}=1-\frac13+\frac15-\frac17+\cdots.\]</span><span><span class="pl">g</span>By combining the terms in pairs, show that \(\dfrac{\pi}{8}=\dfrac{1}{1\times3}+\dfrac{1}{5\times7}+\dfrac{1}{9\times11}+\cdots\), and use the calculator to find how close an approximation to \(\pi\) can be obtained by taking 10 terms.</span></div>{{work:105}}</div></div>
 <div class="q"><span class="q-num">23</span><div class="q-body">[A sandwiching argument]
 {{svg:c12b_q23}}
 In the diagram, \(n\) rectangles are constructed between the two curves \(y=\tan^{-1}x\) and \(y=\tan^{-1}(x-1)\) in the interval \(1\le x\le n+1\).

@@ -393,7 +393,7 @@ prim = one(we10, r"\\text\{so\}\\quad\\int\\sin\^\{-1\}x\\,dx=(.+?)\.\\\]", "WE1
 check_prim("WE10 primitive of asin x", T(prim), sp.asin(x))
 area = one(we10, r"&=([^&]*?)\\text\{ square units\.\}", "WE10 area")
 report(abs(quad(sp.asin(x), 0, 1) - num(T(area))) < TOL, "WE10 area pi/2 - 1", area)
-report("1\\times\\tfrac{\\pi}{2}=\\tfrac{\\pi}{2}" in we10 and abs(quad(sp.sin(x), 0, sp.pi / 2) - 1) < TOL, "WE10 note: rectangle pi/2 and the 7D area 1")
+report("rectangle of area \\(\\tfrac{\\pi}{2}\\)" in we10 and abs(quad(sp.sin(x), 0, sp.pi / 2) - 1) < TOL, "WE10 note: rectangle pi/2 and the 7D area 1")
 dy = one(we10, r"\\frac\{dy\}\{dx\}&=(.+?)\\end\{aligned\}", "WE10 dy/dx")
 for m in chain_members(dy):
     check_prim(f"WE10 dy/dx member {m[:30]}", x * sp.asin(x), T(m))

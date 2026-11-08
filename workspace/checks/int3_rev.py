@@ -282,11 +282,11 @@ if g:
 g = grab("Ex5a third side", E5, "\\(\\sqrt{5^2-1^2}=\\sqrt{24}\\)")
 if g is not None:
     same("Ex5a third side", sp.sqrt(5 ** 2 - 1 ** 2), sp.sqrt(24))
-g = grab("Ex5b result", E5, "So \\(\\sin\\alpha=@\\).</p>")
+g = grab("Ex5b result", E5, "and \\(\\sin\\alpha=@\\).</p>")
 if g:
     same("Ex5b", tex(g[0]), sp.sin(sp.acos(sp.Rational(4, 5))))
     same("Ex5b vs textbook 3/5", tex(g[0]), sp.Rational(3, 5))
-g = grab("Ex5c result", E5, "so \\(\\sin\\big(\\sin^{-1}\\tfrac45\\big)=@\\).</p>")
+g = grab("Ex5c result", E5, "So \\(\\sin\\big(\\sin^{-1}\\tfrac45\\big)=@\\).</p>")
 if g:
     same("Ex5c", tex(g[0]), sp.sin(sp.asin(sp.Rational(4, 5))))
 check_all_spans("Ex5", E5)
