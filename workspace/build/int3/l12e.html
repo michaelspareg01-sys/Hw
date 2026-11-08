@@ -6,8 +6,9 @@
 <div style="break-inside:avoid">{{sec:teal:key:Concept 1:substituting x by a function of u}}
 <div class="box concept"><div class="bt">Substituting \(x\) by a function of \(u\)</div>
 <p>The second stage of integration by substitution reverses the procedure of Lesson 12D and replaces \(x\) by a function of \(u\). The substitutions are therefore of the form ‘Let \(x=\) some function of \(u\).’</p>
-<p>As a first example, here is a quite different substitution which solves the integral given in a worked example of the last section (Lesson 12D Example 18, \(\displaystyle\int_0^1x\sqrt{1-x}\,dx\), where the substitution was \(u=1-x\)).</p></div></div>
+<p>As a first example, here is a quite different substitution which solves the integral given in a worked example of the last section.</p></div></div>
 <div class="box tip"><div class="bt">The method, step by step</div>
+<p>The earlier example is Lesson 12D Example 18, \(\displaystyle\int_0^1x\sqrt{1-x}\,dx\), where the substitution was \(u=1-x\).</p>
 <p>Write the substitution as \(x=g(u)\). Then:</p>
 <ul><li>Differentiate: \(\dfrac{dx}{du}=g'(u)\), so \(dx=g'(u)\,du\). The \(dx\) in the integral must be replaced by \(g'(u)\,du\).</li>
 <li>Replace every \(x\) in the integrand by \(g(u)\). The function \(g\) is chosen so that the awkward part of the integrand, usually a square root, becomes a simple expression in \(u\).</li>
@@ -55,7 +56,7 @@ Find \(\displaystyle\int_0^1x\sqrt{1-x}\,dx\), using the substitution \(x=1-u^2\
 <div class="box tip"><div class="bt">Why \(x=a\sin u\) removes \(\sqrt{a^2-x^2}\)</div>
 <p>When the integrand contains \(\sqrt{a^2-x^2}\), where \(a>0\), let \(x=a\sin u\). Then \(dx=a\cos u\,du\), and</p>
 \[\begin{aligned}a^2-x^2&=a^2-a^2\sin^2u\\&=a^2(1-\sin^2u)\\&=a^2\cos^2u,\end{aligned}\]
-<p>so \(\sqrt{a^2-x^2}=a\cos u\), because \(\cos u\ge0\) when \(-\tfrac{\pi}{2}\le u\le\tfrac{\pi}{2}\). The integral usually becomes a multiple of \(\cos^2u\), which is integrated with \(\cos^2u=\tfrac12+\tfrac12\cos2u\) (Lesson 12C).</p></div>
+<p style="line-height:1.9">so \(\sqrt{a^2-x^2}=a\cos u\), because \(\cos u\ge0\) when \(-\tfrac{\pi}{2}\le u\le\tfrac{\pi}{2}\). The integral usually becomes a multiple of \(\cos^2u\), which is integrated with \(\cos^2u=\tfrac12+\tfrac12\cos2u\) (Lesson 12C).</p></div>
 <div class="box tip"><div class="bt">The area of a segment (Year 11)</div>
 <div class="split" style="grid-template-columns:1fr 50mm"><div>
 <p>A chord of a circle of radius \(r\) that subtends an angle \(\theta\) (in radians) at the centre cuts off a segment. The segment is the sector minus the isosceles triangle formed by the two radii and the chord:</p>

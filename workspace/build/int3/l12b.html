@@ -8,13 +8,16 @@
 <p>Differentiation of the inverse trigonometric functions yields purely algebraic functions,</p>
 \[\frac{d}{dx}\sin^{-1}x=\frac{1}{\sqrt{1-x^2}}\qquad\text{and}\qquad\frac{d}{dx}\tan^{-1}x=\frac{1}{1+x^2}.\]
 <p>These are remarkable results, and indicate once again that trigonometric functions are very closely related to algebraic functions associated with squares and square roots. The relationship was already clear when the trigonometric functions were defined using the circle, whose equation \(x^2+y^2=r^2\) is Pythagoras’ theorem, which is purely algebraic.</p>
-<p>This lesson concerns integration, and we begin by reversing the three standard forms for differentiation. Lesson 12A also gave \(\dfrac{d}{dx}\cos^{-1}x=\dfrac{-1}{\sqrt{1-x^2}}\), so \(\dfrac{d}{dx}\big(-\cos^{-1}x\big)=\dfrac{1}{\sqrt{1-x^2}}\) as well.</p></div></div>
+<p>This lesson concerns integration, and we begin by reversing the three standard forms for differentiation.</p></div>
+<div class="box tip"><div class="bt">The third standard form</div>
+<p>Lesson 12A also gave \(\dfrac{d}{dx}\cos^{-1}x=\dfrac{-1}{\sqrt{1-x^2}}\), so \(\dfrac{d}{dx}\big(-\cos^{-1}x\big)=\dfrac{1}{\sqrt{1-x^2}}\) as well.</p></div></div>
 <div class="box take"><div class="bt">4 Standard forms for integration</div>
 \[\int\frac{1}{\sqrt{1-x^2}}\,dx=\sin^{-1}x+C\qquad\text{OR}\qquad\int\frac{1}{\sqrt{1-x^2}}\,dx=-\cos^{-1}x+C\]
 \[\int\frac{1}{1+x^2}\,dx=\tan^{-1}x+C\]</div>
-<div class="box concept"><div class="bt">Two answers that agree, and algebraic integrands</div>
-<ul><li>The two primitives of \(\dfrac{1}{\sqrt{1-x^2}}\) differ only by a constant. From the identity \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\) (revision page), \(-\cos^{-1}x=\sin^{-1}x-\tfrac{\pi}{2}\). So the constant \(-\tfrac{\pi}{2}\) is absorbed into \(C\), and a definite integral gives the same value with either form (see the example below).</li>
-<li>Thus some purely algebraic functions require the inverse trigonometric functions for their integration. We have seen this sort of phenomenon before with the standard form \(\displaystyle\int\frac1x\,dx=\log_e|x|\), where the logarithmic function was required for the integration of another purely algebraic function.</li></ul></div>
+<div class="box tip"><div class="bt">Two answers that agree</div>
+<p>The two primitives of \(\dfrac{1}{\sqrt{1-x^2}}\) differ only by a constant. From the identity \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\) (revision page), \(-\cos^{-1}x=\sin^{-1}x-\tfrac{\pi}{2}\). So the constant \(-\tfrac{\pi}{2}\) is absorbed into \(C\), and a definite integral gives the same value with either form (see the example below).</p></div>
+<div class="box concept"><div class="bt">Algebraic integrands</div>
+<p>Thus some purely algebraic functions require the inverse trigonometric functions for their integration. We have seen this sort of phenomenon before with the standard form \(\displaystyle\int\frac1x\,dx=\log_e|x|\), where the logarithmic function was required for the integration of another purely algebraic function.</p></div>
 <div class="box concept"><div class="bt">The functions \(y=\dfrac{1}{\sqrt{1-x^2}}\) and \(y=\dfrac{1}{1+x^2}\)</div>
 <p>The primitives of both these functions have now been obtained, and they should therefore be regarded as reasonably standard functions whose graphs should be known. The sketch of each function, and some important definite integrals associated with them, are developed in Questions 15 and 16 of the exercise.</p></div>
 
@@ -38,7 +41,7 @@ Evaluate \(\displaystyle\int_0^{\frac12}\frac{1}{\sqrt{1-x^2}}\,dx\) using both 
 
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:definite integrals with inverse tan}}
-<div class="box concept"><div class="bt">Exact values and calculator values</div>
+<div class="box tip"><div class="bt">Exact values and calculator values</div>
 <p>Enclose the primitive \(\tan^{-1}x\) in square brackets, substitute the upper and lower limits, and subtract. When the limits give special angles, such as \(\tan^{-1}1=\tfrac{\pi}{4}\) and \(\tan^{-1}0=0\), the answer is exact. Otherwise use the calculator, <b>in radians</b>, and round only at the end.</p>
 <p>Because \(1+x^2\) is never zero, the function \(\dfrac{1}{1+x^2}\) is continuous for all real \(x\), so any limits may be used.</p></div></div>
 
@@ -65,21 +68,23 @@ Evaluate these definite integrals exactly or correct to four significant figures
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:standard forms with one constant}}
 <div class="box concept"><div class="bt">More general standard forms</div>
-<p>When constants are involved, the calculation of the primitive becomes fiddly. These standard integrals are commonly used. Here \(a\) is a positive constant.</p></div>
+<p>When constants are involved, the calculation of the primitive becomes fiddly. These standard integrals are commonly used.</p></div>
 <div class="box take"><div class="bt">5 Standard forms with one constant</div>
 \[\int\frac{1}{\sqrt{a^2-x^2}}\,dx=\sin^{-1}\frac xa+C\qquad\text{OR}\qquad\int\frac{1}{\sqrt{a^2-x^2}}\,dx=-\cos^{-1}\frac xa+C\]
 \[\int\frac{1}{a^2+x^2}\,dx=\frac1a\tan^{-1}\frac xa+C\]</div></div>
 <div class="box concept" style="break-inside:auto"><div class="bt">Proof</div>
-<p>Both proofs take out the factor \(a^2\), then use the reverse chain rule with \(u=\dfrac xa\). By the chain rule, \(\dfrac{d}{dx}\sin^{-1}u=\dfrac{1}{\sqrt{1-u^2}}\times\dfrac{du}{dx}\) and \(\dfrac{d}{dx}\tan^{-1}u=\dfrac{1}{1+u^2}\times\dfrac{du}{dx}\), so reversing these,</p>
+<p>Let \(u=\dfrac xa\). Then \(\dfrac{du}{dx}=\dfrac1a\), and</p>
 \[\int\frac{1}{\sqrt{1-u^2}}\,\frac{du}{dx}\,dx=\sin^{-1}u\qquad\text{and}\qquad\int\frac{1}{1+u^2}\,\frac{du}{dx}\,dx=\tan^{-1}u.\]
-<p>With \(u=\dfrac xa\), we have \(\dfrac{du}{dx}=\dfrac1a\).</p>
 <div><div>
-<p><b>A</b> First, \(a^2-x^2=a^2\big(1-\big(\tfrac xa\big)^2\big)\), and \(\sqrt{a^2}=a\) because \(a&gt;0\). So</p>
+<p><b>A</b></p>
 \[\begin{aligned}\int\frac{1}{\sqrt{a^2-x^2}}\,dx&=\int\frac{1}{a\sqrt{1-\big(\frac xa\big)^2}}\,dx\\&=\int\frac{1}{\sqrt{1-\big(\frac xa\big)^2}}\times\frac1a\,dx\\&=\sin^{-1}\frac xa+C.\end{aligned}\]
 </div><div>
-<p><b>B</b> First, \(a^2+x^2=a^2\big(1+\big(\tfrac xa\big)^2\big)\). So</p>
+<p><b>B</b></p>
 \[\begin{aligned}\int\frac{1}{a^2+x^2}\,dx&=\int\frac{1}{a^2\big(1+\big(\frac xa\big)^2\big)}\,dx\\&=\frac1a\int\frac{1}{1+\big(\frac xa\big)^2}\times\frac1a\,dx\\&=\frac1a\tan^{-1}\frac xa+C.\end{aligned}\]
-</div></div>
+</div></div></div>
+<div class="box tip"><div class="bt">How the proof works</div>
+<p>Here \(a\) is a positive constant. Both proofs take out the factor \(a^2\), then use the reverse chain rule with \(u=\dfrac xa\). By the chain rule, \(\dfrac{d}{dx}\sin^{-1}u=\dfrac{1}{\sqrt{1-u^2}}\times\dfrac{du}{dx}\) and \(\dfrac{d}{dx}\tan^{-1}u=\dfrac{1}{1+u^2}\times\dfrac{du}{dx}\). Reversing these gives the two integrals in the first line of the proof.</p>
+<p>In <b>A</b>, \(a^2-x^2=a^2\big(1-\big(\tfrac xa\big)^2\big)\), and \(\sqrt{a^2}=a\) because \(a&gt;0\). In <b>B</b>, \(a^2+x^2=a^2\big(1+\big(\tfrac xa\big)^2\big)\).</p>
 <p>In <b>B</b>, \(\tfrac{1}{a^2}\) was written as \(\tfrac1a\times\tfrac1a\): one \(\tfrac1a\) is taken outside the integral, and the other is the \(\tfrac{du}{dx}\) that the reverse chain rule needs. The \(\cos^{-1}\) form follows in the same way from</p>
 \[\frac{d}{dx}\big(-\cos^{-1}u\big)=\frac{1}{\sqrt{1-u^2}}\times\frac{du}{dx}.\]</div>
 <div class="box tip"><div class="bt">Reading off \(a\)</div>
@@ -107,15 +112,17 @@ Evaluate these indefinite integrals. In parts <b>a</b> and <b>b</b>, the formula
 
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:when x² has a coefficient}}
-<div class="box concept"><div class="bt">Take the coefficient of \(x^2\) out first</div>
+<div class="box tip"><div class="bt">Take the coefficient of \(x^2\) out first</div>
 <p>In integrals such as \(\displaystyle\int\frac{6}{49+25x^2}\,dx\) and \(\displaystyle\int\frac{1}{\sqrt{5-3x^2}}\,dx\), the coefficients of \(x^2\) need to be taken out first, so that Box 5 can be used.</p>
 <ul><li>For \(a^2+b^2x^2\), take out \(b^2\): \(\ a^2+b^2x^2=b^2\Big(\dfrac{a^2}{b^2}+x^2\Big)\).</li>
 <li>For \(\sqrt{a^2-b^2x^2}\), take out \(\sqrt{b^2}=b\): \(\ \sqrt{a^2-b^2x^2}=\sqrt{b^2\Big(\dfrac{a^2}{b^2}-x^2\Big)}=b\sqrt{\dfrac{a^2}{b^2}-x^2}\).</li></ul></div></div>
 <div class="box concept"><div class="bt">Fuller versions of the standard forms</div>
-<p>Because manipulating the constants is still difficult, some prefer to remember fuller versions of the standard forms. Here \(a\) and \(b\) are positive constants. They are developed from Box 5 by taking out the coefficient of \(x^2\):</p>
+<p>Because manipulating the constants is still difficult, some prefer to remember fuller versions of the standard forms. These forms can be proven in the same manner as the forms with a single constant, or they can be developed from those forms by taking out the coefficient of \(x^2\).</p></div>
+<div class="box tip"><div class="bt">Developing Box 6 from Box 5</div>
+<p>Here \(a\) and \(b\) are positive constants. Take out the coefficient of \(x^2\):</p>
 \[\begin{aligned}\int\frac{1}{\sqrt{a^2-b^2x^2}}\,dx&=\frac1b\int\frac{1}{\sqrt{\big(\frac ab\big)^2-x^2}}\,dx\\&=\frac1b\sin^{-1}\Big(x\div\frac ab\Big)+C\\&=\frac1b\sin^{-1}\frac{bx}{a}+C,\end{aligned}\]
 \[\begin{aligned}\int\frac{1}{a^2+b^2x^2}\,dx&=\frac{1}{b^2}\int\frac{1}{\big(\frac ab\big)^2+x^2}\,dx\\&=\frac{1}{b^2}\times\frac ba\tan^{-1}\Big(x\div\frac ab\Big)+C\\&=\frac{1}{ab}\tan^{-1}\frac{bx}{a}+C.\end{aligned}\]
-<p>In the same way, the \(\cos^{-1}\) form of Box 5 gives \(-\dfrac1b\cos^{-1}\dfrac{bx}{a}+C\). These forms can also be proven in the same manner as the forms with a single constant.</p></div>
+<p>In the same way, the \(\cos^{-1}\) form of Box 5 gives \(-\dfrac1b\cos^{-1}\dfrac{bx}{a}+C\).</p></div>
 <div class="box take"><div class="bt">6 Standard forms with two constants</div>
 \[\int\frac{1}{\sqrt{a^2-b^2x^2}}\,dx=\frac1b\sin^{-1}\frac{bx}{a}+C\qquad\text{OR}\qquad-\frac1b\cos^{-1}\frac{bx}{a}+C\]
 \[\int\frac{1}{a^2+b^2x^2}\,dx=\frac{1}{ab}\tan^{-1}\frac{bx}{a}+C\]
@@ -148,9 +155,9 @@ Evaluate these indefinite integrals. In parts <b>c</b> and <b>d</b>, the coeffic
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:the reverse chain rule}}
 <div class="box concept"><div class="bt">Extending the standard forms</div>
-<p>In the usual way, the standard forms can be extended to give forms appropriate for the reverse chain rule. These forms are the reversals of the chain-rule standard forms at the end of Lesson 12A:</p>
-\[\frac{d}{dx}\sin^{-1}u=\frac{u'}{\sqrt{1-u^2}},\qquad\frac{d}{dx}\cos^{-1}u=\frac{-u'}{\sqrt{1-u^2}},\]
-\[\frac{d}{dx}\tan^{-1}u=\frac{u'}{1+u^2}.\]</div></div>
+<p>In the usual way, the standard forms can be extended to give forms appropriate for the reverse chain rule. These forms are the reversals of the chain-rule standard forms at the end of Lesson 12A.</p></div>
+<div class="box tip"><div class="bt">Box 3 from Lesson 12A</div>
+\[\frac{d}{dx}\sin^{-1}u=\frac{u'}{\sqrt{1-u^2}},\qquad\frac{d}{dx}\cos^{-1}u=\frac{-u'}{\sqrt{1-u^2}},\qquad\frac{d}{dx}\tan^{-1}u=\frac{u'}{1+u^2}.\]</div></div>
 <div class="box take"><div class="bt">7 The reverse chain rule</div>
 <div><div>
 \[\begin{aligned}\int\frac{u'}{\sqrt{1-u^2}}\,dx&=\sin^{-1}u+C\\\int\frac{u'}{\sqrt{1-u^2}}\,dx&=-\cos^{-1}u+C\\\int\frac{u'}{1+u^2}\,dx&=\tan^{-1}u+C\end{aligned}\]
@@ -297,13 +304,13 @@ In the diagram, \(n\) rectangles are constructed between the two curves \(y=\tan
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Technical High School, 2021, Extension 1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q5</span></span><span class="mk">1 mark</span></div>
 <div class="pp-q">Which of the following is the correct expression for \(\displaystyle\int\frac{dx}{\sqrt{16-x^2}}\) ?
 <div class="mc"><span>A.&ensp;\(\sin^{-1}4x+c\)</span><span>B.&ensp;\(\cos^{-1}4x+c\)</span><span>C.&ensp;\(\sin^{-1}\dfrac x4+c\)</span><span>D.&ensp;\(\cos^{-1}\dfrac x4+c\)</span></div></div>
-<div class="hint"><b>Hint:</b> what is \(a\) here?</div>{{work:18}}</div>
+<div class="hint"><b>Hint:</b> how does the square root compare with \(\sqrt{1-x^2}\)?</div>{{work:18}}</div>
 </div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Knox Grammar School, 2022, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q1</span></span><span class="mk">1 mark</span></div>
 <div class="pp-q">Which is equal to \(\displaystyle\int\frac{2}{2+x^2}\,dx\) ?
 <div class="mc"><span>A.&ensp;\(\tan^{-1}\dfrac{x}{\sqrt2}+c\)</span><span>B.&ensp;\(\dfrac{1}{\sqrt2}\tan^{-1}\dfrac{x}{\sqrt2}+c\)</span><span>C.&ensp;\(\sqrt2\tan^{-1}\dfrac{x}{\sqrt2}+c\)</span><span>D.&ensp;\(2\tan^{-1}\dfrac{x}{\sqrt2}+c\)</span></div></div>
-<div class="hint"><b>Hint:</b> what is \(a^2\) here?</div>{{work:22}}</div>
+<div class="hint"><b>Hint:</b> how does the denominator compare with \(1+x^2\)?</div>{{work:22}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>James Ruse Agricultural High School, 2020, Year 12 Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(a)</span></span><span class="mk">2 marks</span></div>
 <div class="pp-q">Find \(\displaystyle\int\frac{5}{2+x^2}\,dx\).</div>
@@ -312,19 +319,19 @@ In the diagram, \(n\) rectangles are constructed between the two curves \(y=\tan
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q9(b)</span></span><span class="mk">2 marks</span></div>
 <div class="pp-q">Evaluate
 \[\int_0^{\sqrt2}\frac{dx}{\sqrt{4-x^2}}\]</div>
-<div class="hint"><b>Hint:</b> what is \(a\) here?</div>{{work:30}}</div>
+<div class="hint"><b>Hint:</b> how does the square root compare with \(\sqrt{1-x^2}\)?</div>{{work:30}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Blacktown Boys' High School, 2024, HSC Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(a)</span></span><span class="mk">2 marks</span></div>
 <div class="pp-q">Evaluate \(\displaystyle\int_0^{\frac15}\frac{dx}{1+25x^2}\)</div>
-<div class="hint"><b>Hint:</b> what is the coefficient of \(x^2\)?</div>{{work:32}}</div>
+<div class="hint"><b>Hint:</b> how does the denominator compare with \(1+x^2\)?</div>{{work:32}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>St George Girls High School, 2020, Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q15(a)</span></span><span class="mk">2 marks</span></div>
 <div class="pp-q">Find \(\displaystyle\int_0^{0.125}\frac{2}{\sqrt{1-4x^2}}\,dx\). Write your answer correct to 3 significant figures.</div>
-<div class="hint"><b>Hint:</b> what is being squared under the square root?</div>{{work:32}}</div>
+<div class="hint"><b>Hint:</b> how does the square root compare with \(\sqrt{1-x^2}\)?</div>{{work:32}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Hornsby Girls High School, 2022, Year 12 Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q11(b)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">Evaluate and find the exact value of \(\displaystyle\int_{\sqrt2}^{\sqrt6}\frac{1}{2+x^2}\,dx\).</div>
-<div class="hint"><b>Hint:</b> what is \(a\) here?</div>{{work:40}}</div>
+<div class="hint"><b>Hint:</b> how does the denominator compare with \(1+x^2\)?</div>{{work:40}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Northern Beaches Secondary College Manly Selective Campus, 2020, Year 12 Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q7</span></span><span class="mk">1 mark</span></div>
 <div class="pp-q">What is the value of \(k\) such that \(\displaystyle\int_0^k\frac{1}{\sqrt{4-x^2}}\,dx=\frac{\pi}{3}\) ?
@@ -338,7 +345,7 @@ In the diagram, \(n\) rectangles are constructed between the two curves \(y=\tan
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q9</span></span><span class="mk">1 mark</span></div>
 <div class="pp-q">What is the value of \(k\) such that \(\displaystyle\int_0^k\frac{dx}{1+(x-1)^2}=\frac{\pi}{2}\)
 <div class="mc" style="grid-template-columns:1fr 1fr 1fr 1fr"><span>A.&ensp;\(2\sqrt3\)</span><span>B.&ensp;\(\sqrt3\)</span><span>C.&ensp;\(2\)</span><span>D.&ensp;\(1\)</span></div></div>
-<div class="hint"><b>Hint:</b> what is \(u\) here, and what is \(u'\)?</div>{{work:30}}</div>
+<div class="hint"><b>Hint:</b> how does the denominator compare with \(1+x^2\)?</div>{{work:30}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 11</span>Sydney Technical High School, 2023, Extension 1 Mathematics, Trial <span style="white-space:nowrap">HSC,&nbsp;Q14(b)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q"><div class="split" style="grid-template-columns:1fr 76mm"><div>The region enclosed by \(y=4-\dfrac{8}{\sqrt{8-x^2}}\) and the semi-circle \(y=-\sqrt{4-x^2}\) is shaded in the diagram.<br><br>Find the exact value of the area of the shaded region.</div><div>{{svg:pp12b_sths23}}</div></div></div>

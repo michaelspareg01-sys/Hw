@@ -37,7 +37,7 @@ Then \(x=\tan y\), where \(-\tfrac{\pi}{2}&lt;y&lt;\tfrac{\pi}{2}\),<br>so</p>
 </div></div></div>
 <div class="box take"><div class="bt">1 Standard forms for differentiation</div>
 <div style="display:flex;justify-content:space-around;margin:1.5mm 0 1mm">\(\displaystyle\frac{d}{dx}\sin^{-1}x=\frac{1}{\sqrt{1-x^2}}\)\(\displaystyle\frac{d}{dx}\cos^{-1}x=-\frac{1}{\sqrt{1-x^2}}\)\(\displaystyle\frac{d}{dx}\tan^{-1}x=\frac{1}{1+x^2}\)</div></div>
-<div class="box warn"><div class="bt">The endpoints of \(\sin^{-1}x\) and \(\cos^{-1}x\)</div>
+<div class="box tip"><div class="bt">The endpoints of \(\sin^{-1}x\) and \(\cos^{-1}x\)</div>
 <p>The formulae for \(\sin^{-1}x\) and \(\cos^{-1}x\) hold only for \(-1&lt;x&lt;1\). At \(x=\pm1\) the denominator \(\sqrt{1-x^2}\) is zero, so the derivative is undefined. The graphs are vertical at their endpoints, as the Revision section noted. The formula for \(\tan^{-1}x\) holds for every real \(x\).</p></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Product rule and a linear inside function</span></div><div class="ex-body">
@@ -76,7 +76,9 @@ In the last line, \(u\) is replaced by \(ax+b\).</p>
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:linear extensions, and tangents with a given gradient}}
 <div class="box concept"><div class="bt">Linear extensions</div>
-<p>The method used in part <b>b</b> above can be applied to all three inverse trigonometric functions, giving a further set of standard forms. With \(u=ax+b\) and \(\dfrac{du}{dx}=a\), the chain rule gives</p>
+<p>The method used in part <b>b</b> above can be applied to all three inverse trigonometric functions, giving a further set of standard forms.</p></div>
+<div class="box tip"><div class="bt">The other two, by the same method</div>
+<p>With \(u=ax+b\) and \(\dfrac{du}{dx}=a\), the chain rule gives</p>
 \[\begin{aligned}\frac{d}{dx}\cos^{-1}(ax+b)&amp;=-\frac{1}{\sqrt{1-u^2}}\times a=-\frac{a}{\sqrt{1-(ax+b)^2}},\\\frac{d}{dx}\tan^{-1}(ax+b)&amp;=\frac{1}{1+u^2}\times a=\frac{a}{1+(ax+b)^2}.\end{aligned}\]</div></div>
 <div class="box take"><div class="bt">2 Further standard forms for differentiation</div>
 \[\begin{aligned}\frac{d}{dx}\sin^{-1}(ax+b)&amp;=\frac{a}{\sqrt{1-(ax+b)^2}}\\\frac{d}{dx}\cos^{-1}(ax+b)&amp;=-\frac{a}{\sqrt{1-(ax+b)^2}}\\\frac{d}{dx}\tan^{-1}(ax+b)&amp;=\frac{a}{1+(ax+b)^2}\end{aligned}\]</div>
@@ -111,7 +113,8 @@ When \(x=1-\tfrac12\sqrt3\), \(y=\cos^{-1}\big(-\tfrac12\sqrt3\big)=\tfrac{5\pi}
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:functions whose derivatives are zero are constants}}
 <div class="box concept"><div class="bt">Proving identities by differentiation</div>
-<p>Several identities involving inverse trigonometric functions can be obtained by showing that some derivative is zero, and hence that the original function is a constant. The following identity is the clearest example. It has been proven already in Section 17C of the Year 11 book using symmetry arguments.</p>
+<p>Several identities involving inverse trigonometric functions can be obtained by showing that some derivative is zero, and hence that the original function is a constant. The following identity is the clearest example. It has been proven already in Section 17C of the Year 11 book using symmetry arguments.</p></div>
+<div class="box tip"><div class="bt">The method</div>
 <ul><li>Show that the derivative of the function is zero for every \(x\) in its domain.</li>
 <li>Then the function is a constant \(C\) on that domain.</li>
 <li>Find \(C\) by substituting any convenient value of \(x\) in the domain.</li></ul></div></div>
@@ -138,7 +141,8 @@ so \(C=\tfrac{\pi}{2}\), and \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\), as requir
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:curve sketching using calculus}}
 <div class="box concept"><div class="bt">Curve sketching using calculus</div>
-<p>The usual methods of curve sketching can now be extended to curves whose equations involve the inverse trigonometric functions. The next worked example applies calculus to sketching the curve \(y=\cos^{-1}\cos x\), which was sketched without calculus in Section 17C of the Year 11 book.</p>
+<p>The usual methods of curve sketching can now be extended to curves whose equations involve the inverse trigonometric functions. The next worked example applies calculus to sketching the curve \(y=\cos^{-1}\cos x\), which was sketched without calculus in Section 17C of the Year 11 book.</p></div>
+<div class="box tip"><div class="bt">The method</div>
 <ul><li>A simple table of test values gives some key points.</li>
 <li>The derivative gives the shape of the curve joining these points.</li>
 <li>Remember that \(\sqrt{A^2}=|A|\). So \(\sqrt{\sin^2x}=\sin x\) when \(\sin x\) is positive, and \(\sqrt{\sin^2x}=-\sin x\) when \(\sin x\) is negative.</li></ul></div></div>
@@ -173,7 +177,9 @@ When \(\sin x\) is negative, \(\sqrt{\sin^2x}=-\sin x\), so \(\dfrac{dy}{dx}=-1\
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:chain-rule extensions to the standard forms}}
 <div class="box concept"><div class="bt">Chain-rule extensions</div>
-<p>The usual chain-rule extensions to the standard forms can be used with the inverse trigonometric forms. They provide an alternative to the chain-rule setting out. For example, if \(y=\sin^{-1}u\), where \(u\) is a function of \(x\), then</p>
+<p>The usual chain-rule extensions to the standard forms can be used with the inverse trigonometric forms. They provide an alternative to the chain-rule setting out.</p></div>
+<div class="box tip"><div class="bt">Where the forms come from</div>
+<p>For example, if \(y=\sin^{-1}u\), where \(u\) is a function of \(x\), then</p>
 \[\frac{dy}{dx}=\frac{dy}{du}\times\frac{du}{dx}=\frac{1}{\sqrt{1-u^2}}\times u'=\frac{u'}{\sqrt{1-u^2}}.\]</div></div>
 <div class="box take"><div class="bt">3 Chain-rule extensions to the standard forms</div>
 <div class="split"><div>
@@ -304,7 +310,7 @@ Use the chain-rule extension formulae to differentiate \(\tan^{-1}e^{-5x}\).
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Knox Grammar School, 2023, Higher School Certificate Trial Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q12(c)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">The gradient of the tangent to the curve \(g(x)=\Big(\sin^{-1}\dfrac{x}{b}\Big)^2\) at the point \(A\) with \(x\) coordinate \(\dfrac{b}{2}\) is \(\dfrac{2\pi}{3}\).<br>Find the value of \(b\).</div>
-<div class="hint"><b>Hint:</b> what is \(g'(x)\), with \(b\) still in it?</div>{{work:44}}</div>
+<div class="hint"><b>Hint:</b> what does the given gradient tell you?</div>{{work:44}}</div>
 
 <div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Ascham School, 2020, Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">Given that \(f(x)=\cos^{-1}(2x-1)-2\cos^{-1}\sqrt{x}\) for \(0\le x\le1\), show that \(f'(x)=0\).</div>

@@ -96,16 +96,17 @@ def fig_c2():
     g = new(-2.6, 0.7, -1.95, 1.95, 220, 190)
     g.curve(F, color="blue", width=2.1, x0=-2, x1=0, n=900)
     g.dot(-2, -H).dot(0, H)
-    for (px, py), lab in zip((pA, pB), (("A", -10, -4), ("B", 10, 6))):
+    for (px, py), lab in zip((pA, pB), (("A", -10, -4), ("B", -11, -5))):
         tangent(g, px, py, 2, 0.22)
         g.dot(px, py, r=2.6)
         g.label(px, py, lab[0], dx=lab[1], dy=lab[2], italic=True, size=11.5)
         g.hline(py, x0=min(0, px), x1=max(0, px), dash="3 3")
     g.hline(-H, x0=-2, x1=0, dash="3 3")
-    g.xticks([(-2, "-2"), (-1, "-1")]).yticks([(H, "π/2"), (pi / 3, ""), (-pi / 3, ""), (-H, "")])
+    g.xticks([(-2, "-2"), (-1, "")]).yticks([(H, "π/2"), (pi / 3, ""), (-pi / 3, ""), (-H, "")])
+    g.label(-1, 0, "-1", dx=11, dy=14, size=11)
     g.label(0, pi / 3, "π/3", dx=7, anchor="start", size=10.5)
-    g.label(0, -pi / 3, "-π/3", dx=7, anchor="start", size=10.5)
-    g.label(0, -H, "-π/2", dx=7, anchor="start", size=10.5)
+    g.label(0, -pi / 3, "-π/3", dx=15, dy=-3, anchor="start", size=10.5)
+    g.label(0, -H, "-π/2", dx=15, dy=3, anchor="start", size=10.5)
     save("a12a_c2d", g)
     F = lambda x: acos(clamp(x - 2))
     pA, pB = (2 + R3 / 2, pi / 6), (2 - R3 / 2, 5 * pi / 6)
@@ -182,7 +183,7 @@ def fig_c4d():
     xlab(g, [(-2 * pi, "-2π", 11, 12), (-pi, "-π", 10, 12), (pi, "π", 9, 12), (2 * pi, "2π", 11, 12)])
     g.yticks([(H, ""), (-H, "")])
     g.label(0, H, "π/2", dx=-14, dy=-2, size=10.5)
-    g.label(0, -H, "-π/2", dx=16, dy=0, size=10.5)
+    g.label(0, -H, "-π/2", dx=-17, dy=16, size=10.5)
     save("a12a_c4d", g)
 
 
@@ -192,7 +193,8 @@ def fig_q13f():
     g = new(-1.6, 1.6, -0.35, 2.0, 190, 150)
     g.curve(f, color="blue", width=2.1, x0=-1, x1=1, n=900)
     g.dot(-1, 0).dot(1, 0)
-    g.xticks([(-1, "-1"), (1, "1")]).yticks([(H, "π/2")])
+    g.xticks([(-1, "-1"), (1, "1")]).yticks([(H, "")])
+    g.label(0, H, "π/2", dx=-13, dy=-13, size=10.5)
     save("a12a_q13f", g)
 
 

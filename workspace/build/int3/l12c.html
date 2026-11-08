@@ -12,7 +12,7 @@
 \[\begin{aligned}\int\sin x\,dx&=-\cos x+C\\{}^*\!\!\int\operatorname{cosec}^2x\,dx&=-\cot x+C\\{}^*\!\!\int\operatorname{cosec}x\cot x\,dx&=-\operatorname{cosec}x+C\end{aligned}\]
 </div></div>
 <p>The full list is there only for completeness, and so that the patterns can be seen. The three integrals marked * need not be memorised. They are the reversals of derivatives in Question 19 of Exercise 7B.</p></div></div>
-<div class="box formula"><div class="bt">Where the three starred integrals come from</div>
+<div class="box tip"><div class="bt">Where the three starred integrals come from</div>
 <p>Write each reciprocal function in terms of \(\sin x\) and \(\cos x\), and differentiate with the chain rule or the quotient rule.</p>
 <div class="split"><div>
 \[\begin{aligned}\frac{d}{dx}\sec x&=\frac{d}{dx}(\cos x)^{-1}\\&=-(\cos x)^{-2}\times(-\sin x)\\&=\frac{1}{\cos x}\times\frac{\sin x}{\cos x}\\&=\sec x\tan x\end{aligned}\]
@@ -21,7 +21,7 @@
 </div></div>
 \[\begin{aligned}\frac{d}{dx}(-\cot x)=\frac{d}{dx}\Big(-\frac{\cos x}{\sin x}\Big)&=-\frac{(-\sin x)\sin x-\cos x\cos x}{\sin^2x}\\&=\frac{\sin^2x+\cos^2x}{\sin^2x}\\&=\frac{1}{\sin^2x}=\operatorname{cosec}^2x\end{aligned}\]
 <p>Reading each line backwards gives the three starred integrals.</p></div>
-<div class="box concept"><div class="bt">A linear function of \(x\) inside (Part 2, Lesson 7D)</div>
+<div class="box tip"><div class="bt">A linear function of \(x\) inside (Part 2, Lesson 7D)</div>
 <p>When the angle is \(ax+b\), divide the standard primitive by \(a\), the derivative of \(ax+b\):</p>
 \[\begin{aligned}\int\cos(ax+b)\,dx&=\tfrac1a\sin(ax+b)+C\\\int\sin(ax+b)\,dx&=-\tfrac1a\cos(ax+b)+C\\\int\sec^2(ax+b)\,dx&=\tfrac1a\tan(ax+b)+C\end{aligned}\]
 <p>Check by differentiating: for example \(\dfrac{d}{dx}\big(\tfrac1a\sin(ax+b)\big)=\tfrac1a\times a\cos(ax+b)=\cos(ax+b)\). Many integrals in this lesson use this rule.</p></div>
@@ -42,7 +42,9 @@ Find:<br>
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:the primitives of \(\sin^2x\) and \(\cos^2x\)}}
 <div class="box concept"><div class="bt">Expressing \(\sin^2\theta\) and \(\cos^2\theta\) in terms of \(\cos2\theta\) (Section 11A)</div>
-<p>These two integrals are very important. The keys to finding them are two further forms of the \(\cos2\theta\) formulae. Start from \(\cos2\theta=\cos^2\theta-\sin^2\theta\). Using \(\sin^2\theta=1-\cos^2\theta\), then \(\cos^2\theta=1-\sin^2\theta\),</p>
+<p>These two integrals are very important. The keys to finding them are two further forms of the \(\cos2\theta\) formulae.</p></div>
+<div class="box tip"><div class="bt">Where the two forms come from</div>
+<p>Start from \(\cos2\theta=\cos^2\theta-\sin^2\theta\). Using \(\sin^2\theta=1-\cos^2\theta\), then \(\cos^2\theta=1-\sin^2\theta\),</p>
 \[\cos2\theta=2\cos^2\theta-1\qquad\text{and}\qquad\cos2\theta=1-2\sin^2\theta.\]
 <div class="split"><div>
 <p>From \(\cos2\theta=2\cos^2\theta-1\),</p>
@@ -53,8 +55,9 @@ Find:<br>
 </div></div></div></div>
 <div class="box take"><div class="bt">The two identities to remember</div>
 \[\sin^2\theta=\tfrac12-\tfrac12\cos2\theta\qquad\qquad\cos^2\theta=\tfrac12+\tfrac12\cos2\theta\]
-<p>It is better to remember these identities rather than the actual integrals. The square on the left becomes a cosine of the double angle on the right, and that can be integrated with the standard forms.</p></div>
-<div class="box warn"><div class="bt">The angle doubles</div>
+<p>It is better to remember these identities rather than the actual integrals.</p></div>
+<div class="box tip"><div class="bt">The angle doubles</div>
+<p>The square on the left becomes a cosine of the double angle on the right, and that can be integrated with the standard forms.</p>
 <ul><li>Replacing \(\theta\) by \(3x\) gives \(\sin^23x=\tfrac12-\tfrac12\cos6x\), with \(6x\), not \(3x\). Replacing \(\theta\) by \(\tfrac12x\) gives \(\cos^2\tfrac12x=\tfrac12+\tfrac12\cos x\).</li>
 <li>Then divide by the coefficient of \(x\) in the new angle: \(\displaystyle\int\cos6x\,dx=\tfrac16\sin6x+C\).</li>
 <li>\(\displaystyle\int\sin^2x\,dx\) is not \(\tfrac13\sin^3x+C\). Differentiating \(\tfrac13\sin^3x\) gives \(\sin^2x\cos x\), not \(\sin^2x\).</li></ul></div>
@@ -80,8 +83,10 @@ Evaluate \(\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^2x\,dx\).
 
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:the squares of all six trigonometric functions}}
-<div class="box concept"><div class="bt">The Pythagorean identities for \(\tan^2x\) and \(\cot^2x\)</div>
-<p>Here are the primitives of the squares of all six trigonometric functions. Two are given as standard forms. The other four are given only in terms of the identities that are needed to obtain them. For \(\tan^2x\) and \(\cot^2x\), divide \(\sin^2x+\cos^2x=1\) first by \(\cos^2x\) and then by \(\sin^2x\), as shown below.</p>
+<div class="box concept"><div class="bt">The squares of all six functions</div>
+<p>Here are the primitives of the squares of all six trigonometric functions. Two are given as standard forms. The other four are given only in terms of the identities that are needed to obtain them.</p></div>
+<div class="box tip"><div class="bt">The identities for \(\tan^2x\) and \(\cot^2x\)</div>
+<p>For \(\tan^2x\) and \(\cot^2x\), divide \(\sin^2x+\cos^2x=1\) first by \(\cos^2x\) and then by \(\sin^2x\), as shown below.</p>
 <div class="split"><div>
 \[\begin{aligned}\frac{\sin^2x}{\cos^2x}+\frac{\cos^2x}{\cos^2x}&=\frac{1}{\cos^2x}\\\tan^2x+1&=\sec^2x\\\tan^2x&=\sec^2x-1\end{aligned}\]
 </div><div>
@@ -106,7 +111,7 @@ Evaluate \(\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^2x\,dx\).
 
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:products to sums (reviewed from Section 11A)}}
-<div class="box concept"><div class="bt">The products-to-sums formulae</div>
+<div class="box tip"><div class="bt">The products-to-sums formulae</div>
 <p>Exercise 12C Question 6 uses these formulae from Section 11A. They come from the compound-angle formulae</p>
 <div class="split"><div>
 \[\begin{aligned}\sin(A+B)&=\sin A\cos B+\cos A\sin B\\\sin(A-B)&=\sin A\cos B-\cos A\sin B\end{aligned}\]
@@ -115,7 +120,7 @@ Evaluate \(\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^2x\,dx\).
 </div></div>
 <p>Adding and subtracting each pair, the other terms cancel:</p>
 \[\begin{aligned}\sin(A+B)+\sin(A-B)&=2\sin A\cos B\\\sin(A+B)-\sin(A-B)&=2\cos A\sin B\\\cos(A+B)+\cos(A-B)&=2\cos A\cos B\\\cos(A+B)-\cos(A-B)&=-2\sin A\sin B\end{aligned}\]</div></div>
-<div class="box take"><div class="bt">Products to sums</div>
+<div class="box tip"><div class="bt">Products to sums</div>
 \[\begin{aligned}2\sin A\cos B&=\sin(A+B)+\sin(A-B)\\2\cos A\sin B&=\sin(A+B)-\sin(A-B)\\2\cos A\cos B&=\cos(A+B)+\cos(A-B)\\-2\sin A\sin B&=\cos(A+B)-\cos(A-B)\end{aligned}\]
 <p>A product of a sine and a cosine, two cosines, or two sines cannot be integrated directly. Rewritten as a sum, each term is a standard form with a linear angle.</p></div>
 
@@ -130,8 +135,10 @@ Evaluate \(\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^2x\,dx\).
 
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:trigonometric integrals using the reverse chain rule}}
-<div class="box concept"><div class="bt">The reverse chain rule (Parts 1 and 2)</div>
-<p>It remains to demonstrate the use of the reverse chain rule in trigonometric integrals, in preparation for the next two sections on substitution. Let \(u\) be a function of \(x\). The chain rule gives \(\dfrac{d}{dx}\dfrac{u^{n+1}}{n+1}=u^n\,\dfrac{du}{dx}\) and \(\dfrac{d}{dx}\log_e|u|=\dfrac{1}{u}\,\dfrac{du}{dx}\), so</p>
+<div class="box concept"><div class="bt">Trigonometric integrals using the reverse chain rule</div>
+<p>It remains to demonstrate the use of the reverse chain rule in trigonometric integrals, in preparation for the next two sections on substitution.</p></div>
+<div class="box tip"><div class="bt">The reverse chain rule (Parts 1 and 2)</div>
+<p>Let \(u\) be a function of \(x\). The chain rule gives \(\dfrac{d}{dx}\dfrac{u^{n+1}}{n+1}=u^n\,\dfrac{du}{dx}\) and \(\dfrac{d}{dx}\log_e|u|=\dfrac{1}{u}\,\dfrac{du}{dx}\), so</p>
 \[\int u^n\,\frac{du}{dx}\,dx=\frac{u^{n+1}}{n+1}+C\quad(n\ne-1)\qquad\text{and}\qquad\int\frac{u'}{u}\,dx=\log_e|u|+C.\]
 <p>Look for a function \(u\) whose derivative \(u'\) is also a factor of the integrand, apart from a constant. With trigonometric functions, \(u=\sin x\) has \(u'=\cos x\), and \(u=\cos x\) has \(u'=-\sin x\). Set out the working for \(u\) in a column on the right.</p></div></div>
 
@@ -152,7 +159,7 @@ Integrate \(\cot x\) using the reverse chain rule.
 
 <!-- ============ Concept 6 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 6:the reverse chain rule with powers of \(\sin x\) and \(\cos x\)}}
-<div class="box concept"><div class="bt">Powers of \(\sin x\) times \(\cos x\), and powers of \(\cos x\) times \(\sin x\)</div>
+<div class="box tip"><div class="bt">Powers of \(\sin x\) times \(\cos x\), and powers of \(\cos x\) times \(\sin x\)</div>
 <ul><li>In \(\cos x\sin^nx\), take \(u=\sin x\). Then \(\frac{du}{dx}=\cos x\) is already a factor, and the primitive is \(\dfrac{u^{n+1}}{n+1}\).</li>
 <li>In \(\sin x\cos^nx\), take \(u=\cos x\). Then \(\frac{du}{dx}=-\sin x\). Write \(\sin x=-(-\sin x)\), so that the minus sign goes outside the integral.</li></ul></div></div>
 

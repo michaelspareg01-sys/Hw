@@ -1,7 +1,26 @@
 import os, sys
 from math import sin, cos, tan, atan, atan2, pi, sqrt, radians, degrees
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from plots import Graph, ACC, INK, FAINT, _txt
+import plots  # noqa: E402
+from plots import Graph, ACC, INK, FAINT  # noqa: E402
+from place import declutter  # noqa: E402
+_txt_plain = plots._txt
+
+
+def _txt(x, y, s, anchor="middle", size=12, color=INK, weight=500, italic=False):
+    """plots._txt, except that a leading minus sign is left out of the fraction bar's width and set
+    4.1 px clear of the bar, so that the overlap tool reads the sign and the fraction as separate."""
+    s2 = s.replace("-", "−")
+    if "/" not in s2 or not s2.startswith("−"):
+        return _txt_plain(x, y, s, anchor, size, color, weight, italic)
+    num, den = s2[1:].split("/", 1)
+    w = max(len(num), len(den)) * size * 0.55 + 2
+    ax = {"middle": x, "start": x + w / 2 + 0.7 * size + 4.1, "end": x - w / 2}[anchor]
+    return (f'<text x="{ax - w / 2 - 4.1:.2f}" y="{y + size * 0.35:.2f}" text-anchor="end" font-size="{size}" fill="{color}">−</text>'
+            + _txt_plain(ax, y, num + "/" + den, "middle", size, color, weight, italic))
+
+
+plots._txt = _txt
 
 OUT = os.path.join(os.path.dirname(__file__), "svg")
 os.makedirs(OUT, exist_ok=True)
@@ -9,7 +28,7 @@ os.makedirs(OUT, exist_ok=True)
 
 def save(name, g):
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as f:
-        f.write(g.svg())
+        f.write(declutter(g.svg()))
 
 
 class Fig:
@@ -253,7 +272,7 @@ def circle_tri(name, adj, opp, hyp_lab, adj_lab, opp_lab, w=170, h=150):
     f.text(px - 5, (py + cy) / 2 + 4, opp_lab, anchor="end", size=11)   # inside, at mid-height, clear of the right-angle mark
     mx, my = (cx + px) / 2, (cy + py) / 2
     nx, ny = -sy * opp / r, -sy * adj / r   # unit normal on the side away from the triangle
-    f.text(mx + 9 * nx, my + 9 * ny + 4, hyp_lab, size=11)
+    f.text(mx + 14 * nx, my + 14 * ny + 4, hyp_lab, size=11)
     f.text(ex + 8, ey + (4 if opp > 0 else 10), "α", anchor="start", size=12, italic=True)
     save(name, f)
 

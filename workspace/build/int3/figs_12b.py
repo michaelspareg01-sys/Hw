@@ -61,8 +61,9 @@ def fig_q1():
     g.items.append(f'<rect x="{g.X(0) - 15:.1f}" y="{g.Y(1) - 18:.1f}" width="12" height="13" fill="#fff"/>')
     g.label(0, 1, "1", dx=-9, dy=-11, size=11)
     g.items.append(f'<rect x="{g.X(1.12):.1f}" y="{g.Y(0.93):.1f}" width="92" height="40" fill="#fff"/>')
-    g.label(1.17, 0.72, "y =", anchor="start", size=13, italic=True)
     g.label(1.17, 0.72, "1/1 + x²", dx=62, size=14)
+    g.items.append(f'<rect x="{g.X(1.12):.1f}" y="{g.Y(0.93):.1f}" width="{g.X(1.17) - g.X(1.12) + 27:.1f}" height="40" fill="#fff"/>')
+    g.label(1.17, 0.72, "y =", anchor="start", size=13, italic=True)
     save("c12b_q1", g)
 
 
@@ -156,7 +157,7 @@ def fig_a16():
     tip(g, f, -4.1, -1)
     g.dot(0, 1, r=2.6)
     g.xticks([(-2, "-2"), (2, "2")]).yticks([(1, "1"), (2, "2")])
-    g.label(2.2, 2.4, "y = ¼(x² + 4)", anchor="start", size=10, italic=True)
+    g.label(2.15, 1.72, "y = ¼(x² + 4)", anchor="start", size=10, italic=True)
     g.label(1.5, 0.82, "y = f(x)", anchor="start", size=10, italic=True)
     save("a12b_q16", g)
 

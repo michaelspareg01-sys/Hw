@@ -7,7 +7,8 @@ import sys
 from math import cos, exp, log, pi, sin, sqrt
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from figs import Fig, Graph, save, tip, ACC, INK, _txt  # noqa: E402
+from figs import Fig, Graph, save, tip, ACC, INK, _txt, declutter  # noqa: E402
+from place import flat_panel  # noqa: E402
 
 H = pi / 2
 BLUE = ACC["blue"]
@@ -41,7 +42,7 @@ def row(name, panels, gap=6, lw=14):
     out, x0 = [], 0
     for letter, p in panels:
         out.append(f'<text x="{x0 + 1}" y="13" font-size="13" font-weight="700" fill="{ACC["teal"]}">{letter}</text>')
-        inner = p.svg().replace('<svg xmlns="http://www.w3.org/2000/svg"', f'<svg x="{x0 + lw}" y="0"', 1)
+        inner = flat_panel(declutter(p.svg()), x0 + lw, 0)
         out.append(inner)
         x0 += p.w + lw + gap
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {Hh}" width="{W}" height="{Hh}" '
@@ -126,7 +127,7 @@ def fig_slice():
     right = (f'<svg x="262" y="0" viewBox="0 0 {w} {hgt}" width="{w}" height="{hgt}">' + "".join(it) + "</svg>")
     W = 262 + w
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {hgt}" width="{W}" height="{hgt}" font-family="Inter, Arial, sans-serif">'
-           + left.replace('<svg xmlns="http://www.w3.org/2000/svg"', '<svg x="0" y="4"', 1) + right + "</svg>")
+           + flat_panel(declutter(left), 0, 4) + flat_panel(declutter(right), 262, 0) + "</svg>")
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "svg", "c12f_slice.svg"), "w", encoding="utf-8") as fh:
         fh.write(svg)
 
@@ -173,7 +174,7 @@ def fig_ex24():
     g.items.append(f'<line x1="{g.X(0)}" y1="{g.Y(4)}" x2="{g.X(2)}" y2="{g.Y(0)}" stroke="{INK}" stroke-width="1.4"/>')
     g.dot(0, 4).dot(2, 0).dot(-2, 0)
     g.label(0, 4, "A", dx=9, dy=-6, size=11.5).label(2, 0, "B", dx=8, dy=-10, size=11.5).label(-2, 0, "C", dx=-9, dy=-10, size=11.5)
-    g.label(2, 0, "2", dx=-7, dy=13, size=11).label(-2, 0, "-2", dx=-4, dy=13, size=11)
+    g.label(2, 0, "2", dx=-7, dy=13, size=11).label(-2, 0, "-2", dx=8, dy=13, size=11)
     g.label(0, 4, "4", dx=-8, dy=-2, size=11)
     save("c12f_ex24", g)
 
@@ -259,7 +260,7 @@ def fig_q3():
     edge(g, e, lambda t: 0.0, -3, 3)
     g.curve(e, x0=-3, x1=3, width=2, n=800)
     g.xticks([(-3, "-3"), (3, "3")]).label(0, 2, "2", dx=-7, dy=-9, size=11)
-    g.label(-3.3, -1.5, "y² = 4 − ⁴⁄₉x²", anchor="start", size=10.5, italic=True)
+    g.label(0.2, -1.5, "y² = 4 − ⁴⁄₉x²", anchor="start", size=10.5, italic=True)
     pan.append(("h", g))
     row("q12f_q3b", pan)
 
@@ -426,7 +427,8 @@ def fig_pp_st21():
     tip(g, q, -1.45, -1, color="ink")
     g.dot(1, 1)
     g.label(1, 1, "(1, 1)", dx=8, dy=-2, anchor="start", size=11)
-    g.xticks([(v, str(v)) for v in (-4, -3, -2, 2, 3, 4)] + [(-1, ""), (1, "")]).yticks([(-1, ""), (1, ""), (2, "2"), (3, "3"), (4, "4"), (5, "5"), (6, "6")])
+    g.xticks([(v, str(v)) for v in (-4, -3, -2, 2, 3, 4)] + [(-1, ""), (1, "")]).yticks([(-1, ""), (1, ""), (2, "2"), (3, "3"), (4, ""), (5, "5"), (6, "6")])
+    g.label(0, 4, "4", dx=-18, anchor="end", size=11)
     g.label(1, 0, "1", dx=6, dy=13, size=11).label(0, 1, "1", dx=-7, dy=-6, size=11).label(0, 0, "O", dx=-8, dy=12, size=11, italic=True)
     g.label(2.75, 6.6, "y = x²", anchor="start", size=11, italic=True).label(1.5, -1.9, "y = 5 − 4x²", anchor="start", size=11, italic=True)
     # rotation arrow around the y-axis near the top
@@ -446,8 +448,8 @@ def fig_a_jr20():
     tip(g, pq, -6.2, -1, color="ink")
     g.hline(5, color="blue", dash="", x0=-6.3, x1=6.6, width=1.4)
     g.dot(0, 3).dot(-4, 5).dot(4, 5)
-    g.label(0, 3, "(0, 3)", dx=6, dy=10, anchor="start", size=10.5).label(4, 5, "(4, 5)", dx=5, dy=-10, anchor="start", size=10.5)
-    g.label(-4, 5, "(−4, 5)", dx=-5, dy=-10, anchor="end", size=10.5).label(6.5, 5, "y = 5", dy=12, anchor="end", size=10.5, italic=True)
+    g.label(0, 3, "(0, 3)", dx=6, dy=10, anchor="start", size=10.5).label(4, 5, "(4, 5)", dx=-6, dy=-10, anchor="end", size=10.5)
+    g.label(-4, 5, "(−4, 5)", dx=6, dy=-10, anchor="start", size=10.5).label(6.5, 5, "y = 5", dy=12, anchor="end", size=10.5, italic=True)
     save("a12f_jr20", g)
 
 
