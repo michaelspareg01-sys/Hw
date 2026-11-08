@@ -12,7 +12,7 @@
 Then \(x=\sin y\), where \(-\tfrac{\pi}{2}\le y\le\tfrac{\pi}{2}\),<br>
 so \(\dfrac{dx}{dy}=\cos y\).</p>
 <p>Because \(y\) is in the first or fourth quadrant, \(\cos y\) is positive, so</p>
-\[\begin{aligned}\cos y&amp;=+\sqrt{1-\sin^2y}\\&amp;=\sqrt{1-x^2}\quad(\text{since }\sin y=x).\end{aligned}\]
+\[\begin{aligned}\cos y&amp;=+\sqrt{1-\sin^2y}\\&amp;=\sqrt{1-x^2}.\end{aligned}\]
 <p>Thus \(\dfrac{dx}{dy}=\sqrt{1-x^2}\), so \(\dfrac{dy}{dx}=\dfrac{1}{\sqrt{1-x^2}}\).</p>
 <p>Hence \(\dfrac{d}{dx}\sin^{-1}x=\dfrac{1}{\sqrt{1-x^2}}\).</p>
 </div><div>
@@ -20,10 +20,12 @@ so \(\dfrac{dx}{dy}=\cos y\).</p>
 Then \(x=\cos y\), where \(0\le y\le\pi\),<br>
 so \(\dfrac{dx}{dy}=-\sin y\).</p>
 <p>Because \(y\) is in the first or second quadrant, \(\sin y\) is positive, so</p>
-\[\begin{aligned}\sin y&amp;=+\sqrt{1-\cos^2y}\\&amp;=\sqrt{1-x^2}\quad(\text{since }\cos y=x).\end{aligned}\]
+\[\begin{aligned}\sin y&amp;=+\sqrt{1-\cos^2y}\\&amp;=\sqrt{1-x^2}.\end{aligned}\]
 <p>Thus \(\dfrac{dx}{dy}=-\sqrt{1-x^2}\), so \(\dfrac{dy}{dx}=-\dfrac{1}{\sqrt{1-x^2}}\).</p>
 <p>Hence \(\dfrac{d}{dx}\cos^{-1}x=-\dfrac{1}{\sqrt{1-x^2}}\).</p>
-</div></div></div></div>
+</div></div></div>
+<div class="box tip"><div class="bt">Steps the book skips: differentiating \(\sin^{-1}x\) and \(\cos^{-1}x\)</div>
+<p>In <b>A</b>, \(\sqrt{1-\sin^2y}=\sqrt{1-x^2}\) (since \(\sin y=x\)). In <b>B</b>, \(\sqrt{1-\cos^2y}=\sqrt{1-x^2}\) (since \(\cos y=x\)).</p></div></div>
 <div class="box concept"><div class="bt">Differentiating \(\tan^{-1}x\)</div>
 <p>The problem of which square root to choose does not arise when differentiating \(y=\tan^{-1}x\).</p>
 <div class="split"><div>
@@ -31,10 +33,12 @@ so \(\dfrac{dx}{dy}=-\sin y\).</p>
 Then \(x=\tan y\), where \(-\tfrac{\pi}{2}&lt;y&lt;\tfrac{\pi}{2}\),<br>so</p>
 \[\begin{aligned}\frac{dx}{dy}&amp;=\sec^2y\\&amp;=1+\tan^2y.\end{aligned}\]
 </div><div>
-<p>Hence \(\dfrac{dx}{dy}=1+x^2\) (since \(\tan y=x\)),</p>
+<p>Hence \(\dfrac{dx}{dy}=1+x^2\)</p>
 <p>and \(\dfrac{dy}{dx}=\dfrac{1}{1+x^2}\),</p>
 <p>giving the standard form \(\dfrac{d}{dx}\tan^{-1}x=\dfrac{1}{1+x^2}\).</p>
 </div></div></div>
+<div class="box tip"><div class="bt">Steps the book skips: differentiating \(\tan^{-1}x\)</div>
+<p>\(1+\tan^2y=1+x^2\) (since \(\tan y=x\)).</p></div>
 <div class="box take"><div class="bt">1 Standard forms for differentiation</div>
 <div style="display:flex;justify-content:space-around;margin:1.5mm 0 1mm">\(\displaystyle\frac{d}{dx}\sin^{-1}x=\frac{1}{\sqrt{1-x^2}}\)\(\displaystyle\frac{d}{dx}\cos^{-1}x=-\frac{1}{\sqrt{1-x^2}}\)\(\displaystyle\frac{d}{dx}\tan^{-1}x=\frac{1}{1+x^2}\)</div></div>
 <div class="box tip"><div class="bt">The endpoints of \(\sin^{-1}x\) and \(\cos^{-1}x\)</div>
@@ -50,7 +54,7 @@ Differentiate these functions.<br>
 <b>a</b> \(y=x^2\sin^{-1}x\)<br>
 <b>b</b> \(y=\tan^{-1}(ax+b)\)
 {{work:44}}</div></div>
-<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 Differentiate these functions.<br>
 <b>a</b> \(y=x\tan^{-1}x\)<br>
 <b>b</b> \(y=\sin^{-1}(ax+b)\)
@@ -94,7 +98,7 @@ and \(\dfrac{dy}{du}=\dfrac{1}{\sqrt{1-u^2}}\).</p>
 <b>a</b> Find the points \(A\) and \(B\) on the curve \(y=\cos^{-1}(x-2)\) where the tangent has gradient \(-2\).<br>
 <b>b</b> Sketch the curve, showing these points.
 {{work:58}}</div></div>
-<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 <b>a</b> Find the points \(A\) and \(B\) on the curve \(y=\cos^{-1}(x-1)\) where the tangent has gradient \(-2\).<br>
 <b>b</b> Sketch the curve, showing these points.
 <div class="sol-label">Solution</div>
@@ -132,7 +136,7 @@ When \(x=1-\tfrac12\sqrt3\), \(y=\cos^{-1}\big(-\tfrac12\sqrt3\big)=\tfrac{5\pi}
 <b>a</b> Differentiate \(\tan^{-1}x+\tan^{-1}(-x)\).<br>
 <b>b</b> Hence prove the identity \(\tan^{-1}(-x)=-\tan^{-1}x\).
 {{work:40}}</div></div>
-<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 <b>a</b> Differentiate \(\sin^{-1}x+\cos^{-1}x\).<br>
 <b>b</b> Hence prove the identity \(\sin^{-1}x+\cos^{-1}x=\tfrac{\pi}{2}\).
 <div class="sol-label">Solution</div>
@@ -158,7 +162,7 @@ Use calculus to sketch \(y=\tan^{-1}\tan x\).
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 Use calculus to sketch \(y=\cos^{-1}\cos2x\).
 {{work:58}}</div></div>
-<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 Use calculus to sketch \(y=\cos^{-1}\cos x\).
 <div class="sol-label">Solution</div>
 <p>The function is periodic with the same period \(2\pi\) as \(\cos x\). A simple table of test values gives some key points. The shape of the curve joining these points can be obtained by calculus.</p>
@@ -207,7 +211,7 @@ Use the chain-rule extension formulae to differentiate:<br>
 <b>a</b> \(\tan^{-1}e^{-4x}\)<br>
 <b>b</b> \(\sin^{-1}(1-x^2)\)
 {{work:48}}</div></div>
-<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 Use the chain-rule extension formulae to differentiate \(\tan^{-1}e^{-5x}\).
 <div class="sol-label">Solution</div>
 <div class="split"><div>
@@ -321,7 +325,7 @@ Use the chain-rule extension formulae to differentiate \(\tan^{-1}e^{-5x}\).
 <div class="pp-q">The gradient of the tangent to the curve \(g(x)=\Big(\sin^{-1}\dfrac{x}{b}\Big)^2\) at the point \(A\) with \(x\) coordinate \(\dfrac{b}{2}\) is \(\dfrac{2\pi}{3}\).<br>Find the value of \(b\).</div>
 <div class="hint"><b>Hint:</b> what does the given gradient tell you?</div>{{work:44}}</div>
 
-<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Ascham School, 2020, Trial HSC Examination, Mathematics <span style="white-space:nowrap">Extension&nbsp;1,&nbsp;Q14(c)</span></span><span class="mk">3 marks</span></div>
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Ascham School, 2020, Mathematics Extension&nbsp;1 Trial HSC <span style="white-space:nowrap">Examination,&nbsp;Q14(c)</span></span><span class="mk">3 marks</span></div>
 <div class="pp-q">Given that \(f(x)=\cos^{-1}(2x-1)-2\cos^{-1}\sqrt{x}\) for \(0\le x\le1\), show that \(f'(x)=0\).</div>
 <div class="hint"><b>Hint:</b> what is the derivative of each term?</div>{{work:44}}</div>
 </div>
