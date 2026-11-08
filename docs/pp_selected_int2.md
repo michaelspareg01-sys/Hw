@@ -15,7 +15,7 @@ Method: areas involving e^x, top minus bottom; regions bounded by a log curve in
 - Not taken: 2.2-03 SGGHS 2020 Q13(c) and 2.2-04 Abbotsleigh 2021 Q14(c) (the same question as Caringbah 2020 Q14(c); now barred for this pack as duplicates).
 
 ## 6I
-Method: split the fraction into two separate fractions, then the third standard form of Box 10 with u = ln x for 1/(x ln x) (as Ex 6I Q13(d)). Only one clean item is usable for int2-L3: the catalogue's other row (2.3-01, Sydney Tech 2020 Sample 2 Q1) is a revision sample paper, excluded by the controller. So the set is short (house rule 8): 2 marks, 5 min, plus a timed-practice note (Ex 6I Q4(d), 7(f), 9(d), 11(c), 12(f), 13(c), 25 min).
+Method: split the fraction into two separate fractions, then the third standard form of Box 10 with u = ln x for 1/(x ln x) (as Ex 6I Q13(d)). Only one clean item is usable for int2-L3: the catalogue's other row (2.3-01, Sydney Tech 2020 Sample 2 Q1) is a revision sample paper, excluded by the controller. So the set is short (house rule 8): 2 marks, 5 min, plus a timed-practice note (Ex 6I Q4(d), 7(d), 9(d), 11(c), 12(f), 13(c), 25 min).
 - NSB, 2022, Q13(a)(i) | 6I (find the integral of (1 - ln x)/(x ln x), row 2.3-02) | 2 | `2022/North Sydney Boys 2022 3U Trials & Solutions.pdf` | question p7, solution p15 (ln(ln x) - ln x + C = ln(ln x / x) + C; the pack prints ln|ln x| - ln x + C) | label "North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics Extension 1" (cover, as int1 5B and Ch 10); Q4 (int3 12E), Q10 (int1 5B) and Q12(b) (Ch 10) of this paper are used elsewhere; Q13(a)(ii) (substitution u = x - 8, int3) not used here
 - Not taken: 2.3-01 Sydney Tech 2020 Sample 2 Q1 (revision sample paper).
 

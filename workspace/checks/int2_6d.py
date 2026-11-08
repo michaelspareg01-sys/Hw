@@ -321,11 +321,17 @@ try:
     v = [tex(z) for z in re.findall(r"<td>\\\((?:y\(1\)|\\phantom\{y\(1\)\})=(.*?)\\\)</td>", b14)]
     report(len(v) == 2 and all(same(z, y14.subs(x, 1)) for z in v), "WE14 b", str(v))
     b12 = we["Worked example 12"]
-    note = grab(b12, r"top and bottom by \\\(e\\\): \\\(\\ (.*?)\\\)\.", "WE12 note")
+    note = grab(b12, r"top and <span style=\"white-space:nowrap\">bottom by \\\(e\\\):</span> \\\(\\ (.*?)\\\)\.", "WE12 note")
     vals = [tex(z) for z in T.split_top(prep(note), "=")]
     report(all(same(z, (sp.E ** 2 - 1) / (2 * sp.E)) for z in vals), "WE12 note chain", note)
     b15 = we["Worked example 15"]
     report(same(tex("2(-x)e^{(-x)^2}"), -tex("2xe^{x^2}")) and "2(-x)e^{(-x)^2}=-2xe^{x^2}" in b15, "WE15 odd note")
+    tips = {12: "The arithmetic in Worked example 12", 14: "The primitive in Worked example 14",
+            15: "Why Worked example 15 gives 0", 16: "The lines in Worked example 16"}
+    for n_, title in tips.items():
+        box_, _, rest_ = we[f"Worked example {n_}"].partition('<div class="box tip">')
+        report("Note:" not in box_ and rest_.startswith(f'<div class="bt">{title}</div>'),
+               f"WE{n_} pack note sits in the tip straight after the box", title)
 except Exception as err:  # noqa: BLE001
     report(False, "worked examples", f"ERROR {err}")
 

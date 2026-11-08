@@ -52,8 +52,10 @@ table.st6e td.r { color:var(--ink-soft); }
 <p><b>b</b></p>
 \[\begin{aligned}\int_0^1(e^x-e)\,dx&amp;=\Big[e^x-ex\Big]_0^1\qquad\text{(the number }e\text{ is a constant)}\\&amp;=(e^1-e)-(e^0-0)\\&amp;=-1.\end{aligned}\]
 <p>This integral is negative because the region is below the \(x\)-axis.<br>Hence the required area is \(1\) square unit.</p>
-<p class="small"><b>Note:</b> The primitive of the constant \(e\) is \(ex\), just as the primitive of \(3\) is \(3x\). In the second line, \(e^1-e=0\) and \(e^0-0=1\), so the value is \(0-1=-1\).</p>
 </div></div>
+<div class="box tip"><div class="bt">The arithmetic in Worked example 17</div>
+<p>The primitive of the constant \(e\) is \(ex\), just as the primitive of \(3\) is \(3x\). In the second line, \(e^1-e=0\) and \(e^0-0=1\), so the value is \(0-1=-1\).</p>
+</div>
 
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:areas between curves}}
@@ -67,11 +69,11 @@ table.st6e td.r { color:var(--ink-soft); }
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Top curve minus bottom curve</span></div><div class="ex-body">
 <b>a</b> Sketch the curves \(y=e^x\) and \(y=x^2\) in the interval \(-3\le x\le3\).<br>
 <b>b</b> Find the area of the region between the curves, from \(x=0\) to \(x=3\).
-{{work:84}}</div></div>
+{{work:72}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 <b>a</b> Sketch the curves \(y=e^x\) and \(y=x^2\) in the interval \(-1\le x\le1\).<br>
 <b>b</b> Find the area of the region between the curves, from \(x=0\) to \(x=1\).
-{{work:84}}</div></div>
+{{work:72}}</div></div>
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example 18</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 <b>a</b> Sketch the curves \(y=e^x\) and \(y=x^2\) in the interval \(-2\le x\le2\).<br>
 <b>b</b> Find the area of the region between the curves, from \(x=0\) to \(x=2\).
@@ -79,10 +81,13 @@ table.st6e td.r { color:var(--ink-soft); }
 <div class="split" style="grid-template-columns:1.3fr 1fr"><div>
 <p><b>a</b> The graphs are drawn to the right.<br>Note that for \(x\gt0\), \(y=e^x\) is always above \(y=x^2\).</p>
 <p><b>b</b> Using the standard formula above,</p>
-\[\begin{aligned}\text{area}&amp;=\int_0^2\big(e^x-x^2\big)\,dx\\&amp;=\Big[e^x-\tfrac13x^3\Big]_0^2\\&amp;=\big(e^2-\tfrac83\big)-\big(e^0-0\big)\\&amp;=e^2-3\tfrac23\text{ square units.}\end{aligned}\]
+\[\begin{aligned}\text{area}&amp;=\Big[e^x-\tfrac13x^3\Big]_0^2\\&amp;=\big(e^2-\tfrac83\big)-\big(e^0-0\big)\\&amp;=e^2-3\tfrac23\text{ square units.}\end{aligned}\]
 </div><div class="f6e"><div class="fig">{{svg:c6e_ex18}}</div></div></div>
-<p class="small"><b>Note:</b> The first line writes the formula with \(f(x)=e^x\) on top and \(g(x)=x^2\) below. In the third line, \(\tfrac13\times2^3=\tfrac83\) and \(e^0=1\), so the value is \(e^2-\tfrac83-1=e^2-3\tfrac23\).</p>
 </div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 18</div>
+<p>Worked example 18 leaves out the first line, which writes the formula with \(f(x)=e^x\) on top and \(g(x)=x^2\) below: \(\text{area}=\displaystyle\int_0^2\big(e^x-x^2\big)\,dx\).</p>
+<p>In the second line, \(\tfrac13\times2^3=\tfrac83\) and \(e^0=1\), so the value is \(e^2-\tfrac83-1=e^2-3\tfrac23\).</p>
+</div>
 
 <div class="box tip"><div class="bt">Integrating with respect to \(y\) (from Section 5F)</div>
 <div class="split" style="grid-template-columns:1.5fr 1fr"><div>

@@ -203,6 +203,11 @@ n2 = all_chains(ans, "answers")
 report(n1 >= 3 and n2 >= 10, "chains found", f"lesson {n1}, answers {n2}")
 
 
+def tip_after(title):
+    """The pack's titled tip box with this title (pack notes on a worked example sit here, not in the box)."""
+    return grab(teach, r'<div class="box tip"><div class="bt">' + re.escape(title) + r'</div>(.*?)\n</div>\n', f"tip {title}")
+
+
 def last_display_value(block, i):
     disp = re.findall(r"\\\[(.*?)\\\]", block, re.S)
     seg = aligned_chain(disp[i]).replace("\\text{area}", "")
@@ -241,7 +246,9 @@ try:
     report(same(v, sp.integrate(sp.exp(x) - E, (x, 0, 1))) and same(v, -1), "WE17 b integral", str(v))
     report("Hence the required area is \\(1\\) square unit" in b17, "WE17 area 1")
     report("\\(\\phantom{y}=1-e.\\)" in b17 and "\\(\\phantom{e^x}x=1.\\)" in b17 and "\\(y=-e\\)" in b17, "WE17 a intercepts and asymptote printed")
-    note = grab(b17, r"In the second line, \\\((.*?)\\\) and \\\((.*?)\\\), so the value is \\\((.*?)\\\)\.", "WE17 note")
+    t17 = tip_after("The arithmetic in Worked example 17")
+    report("Note:" not in b17 and "tip" not in b17, "WE17 box holds no pack note")
+    note = grab(t17, r"In the second line, \\\((.*?)\\\) and \\\((.*?)\\\), so the value is \\\((.*?)\\\)\.", "WE17 note")
     report(same(tex(note[0].split("=")[0]), 0) and same(tex(note[1].split("=")[0]), 1)
            and all(same(tex(z), -1) for z in T.split_top(prep(note[2]), "=")[1:]), "WE17 note arithmetic", " ; ".join(note))
 except Exception as err:  # noqa: BLE001
@@ -267,7 +274,12 @@ try:
     b18 = CON[2]["worked"][0][1]
     v, _ = last_display_value(b18, 0)
     report(same(v, sp.integrate(sp.exp(x) - x ** 2, (x, 0, 2))), "WE18 area e^2 - 3 2/3", str(v))
-    note = grab(b18, r"In the third line, \\\((.*?)\\\) and \\\((.*?)\\\), so the value is \\\((.*?)\\\)\.", "WE18 note")
+    t18 = tip_after("Steps the book skips: Worked example 18")
+    report("Note:" not in b18 and "\\int" not in b18.split("Solution")[1], "WE18 box holds only the book's lines (no added integral line)")
+    first = grab(t18, r"below: \\\((.*?)\\\)\.</p>", "WE18 tip first line")
+    v1 = side(T.split_top(prep(first.replace("\\text{area}", "")), "=")[-1])
+    report(same(v1, sp.integrate(sp.exp(x) - x ** 2, (x, 0, 2))) and "\\int_0^2\\big(e^x-x^2\\big)" in t18, "WE18 tip: skipped first line is the area integral", str(v1))
+    note = grab(t18, r"In the second line, \\\((.*?)\\\) and \\\((.*?)\\\), so the value is \\\((.*?)\\\)\.", "WE18 note")
     report(same(tex(note[0].split("=")[0]), tex(note[0].split("=")[1])) and same(tex(note[1].split("=")[1]), 1)
            and all(same(tex(z), v) for z in T.split_top(prep(note[2]), "=")), "WE18 note arithmetic", " ; ".join(note))
     tip = teach.split("Integrating with respect to \\(y\\)")[1]
