@@ -227,7 +227,7 @@ for who, qb, ab in (("demo", CON[1]["demo"], halves(BLK["C1"])[0]), ("your turn"
         report(same(vt, A) and abs(float(A) - num_area(f, lo, hi)) < 1e-6, f"C1 {who} area = {A}", str(vt))
         unit = "square unit." if A == 1 else "square units."
         report(re.search(rf"&amp;={A}\\text{{ {unit}}}", d[2]) is not None, f"C1 {who} printed area {A} {unit}")
-        logn = re.findall(r"(\d)\\log_e(\d)-\1\\log_e(\d)=\1\\log_e\\dfrac(\d)(\d)=\1\\log_e(\d)", ab)
+        logn = re.findall(r"(\d)\\log_e(\d)-\1\\log_e(\d)=\1\\log_e\\[dt]frac(\d)(\d)=\1\\log_e(\d)", ab)
         report(len(logn) >= 1 and all(same(sp.Integer(a1) * (sp.log(b1) - sp.log(c1)), sp.Integer(a1) * sp.log(sp.Rational(int(n1), int(d1))))
                                       and same(sp.Rational(int(n1), int(d1)), int(r1)) and int(n1) == int(b1) and int(d1) == int(c1)
                                       for a1, b1, c1, n1, d1, r1 in logn), f"C1 {who} log-law notes", str(logn))

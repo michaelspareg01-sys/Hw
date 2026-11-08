@@ -7,14 +7,15 @@ import sys
 from math import sin, cos, pi
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from figs import Graph, ACC, INK  # noqa: E402
+from relabel import relabel  # noqa: E402
+from figs import RELOG, Graph, ACC, INK  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "svg")
 
 
 def save_raw(name, text):
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as fh:
-        fh.write(text)
+        fh.write(relabel(text, RELOG, name))      # Int2 assembly: clear labels of strokes
 
 
 def save(name, g, width_mm=None):
@@ -112,7 +113,7 @@ def q4_grid():
     it.append(f'<path d="M{X(x1) + 14:.1f},{Y(0):.1f} l-7,-3.5 v7 z" fill="{INK}"/>')
     it.append(f'<line x1="{X(0):.1f}" y1="{Y(y0):.1f}" x2="{X(0):.1f}" y2="{Y(y1) - 12:.1f}" stroke="{INK}" stroke-width="1.5"/>')
     it.append(f'<path d="M{X(0):.1f},{Y(y1) - 12:.1f} l-3.5,7 h7 z" fill="{INK}"/>')
-    it.append(f'<text x="{X(x1) + 17:.1f}" y="{Y(0) + 4:.1f}" font-size="12" font-style="italic" fill="{INK}">x</text>')
+    it.append(f'<text x="{X(x1) + 20.4:.1f}" y="{Y(0) + 4:.1f}" font-size="12" font-style="italic" fill="{INK}">x</text>')
     it.append(f'<text x="{X(0) - 6:.1f}" y="{Y(y1) - 8:.1f}" text-anchor="end" font-size="12" font-style="italic" fill="{INK}">y</text>')
 
     def tag(xp, yp, s, w=14):

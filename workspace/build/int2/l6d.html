@@ -15,18 +15,20 @@ table.st6d td.r { color:var(--ink-soft); }
 <div class="box concept"><div class="bt">Reversing the standard forms for differentiation</div>
 <p>Reversing the standard forms for differentiating exponential functions gives the standard forms for integrating them.</p>
 <table class="st6d">
-<tr><td>Reversing</td><td>\(\dfrac{d}{dx}\,e^x=e^x\)</td><td>gives</td><td>\(\displaystyle\int e^x\,dx=e^x+C,\)</td></tr>
+<tr><td>Reversing</td><td>\(\dfrac{d}{dx}\,e^x=e^x\)</td><td>gives</td><td>\(\displaystyle\int e^x\,dx=e^x+C,\)</td><td>for some constant \(C\).</td></tr>
 <tr><td>Reversing</td><td>\(\dfrac{d}{dx}\,e^{ax+b}=a\,e^{ax+b}\)</td><td>gives</td><td>\(\displaystyle\int a\,e^{ax+b}\,dx=e^{ax+b},\)</td></tr>
-<tr><td colspan="3">and dividing through by \(a\),</td><td>\(\displaystyle\int e^{ax+b}\,dx=\dfrac1a\,e^{ax+b}+C.\)</td></tr></table>
-<p>In the first and last lines, \(C\) is some constant. The constant \(C\) is added in the last line only, because it would be pointless to divide \(C\) by \(a\) as well.</p></div></div>
+<tr><td colspan="3">and dividing through by \(a\),</td><td>\(\displaystyle\int e^{ax+b}\,dx=\dfrac1a\,e^{ax+b}+C,\)</td><td>for some constant \(C\).</td></tr></table></div></div>
+<div class="box tip"><div class="bt">Where the constant goes</div>
+<p>The second line has no \(C\). \(C\) is added in the last line, after dividing by \(a\), because \(C\) divided by \(a\) is just another constant.</p></div>
 <div class="box take"><div class="bt">4 Standard forms for integration</div>
 <ul><li>\(\displaystyle\int e^x\,dx=e^x+C\), for some constant \(C\)</li>
 <li>\(\displaystyle\int e^{ax+b}\,dx=\dfrac1a\,e^{ax+b}+C\), for some constant \(C\)</li></ul></div>
 <div class="box concept"><div class="bt">The reverse chain rule for exponential functions (for reference)</div>
 <p>There is also an associated formula for the reverse chain rule, but it is not included in the course. For reference, this formula has the usual two forms:</p>
 \[\int e^u\,\dfrac{du}{dx}\,dx=e^u+C\qquad\text{OR}\qquad\int e^{f(x)}f'(x)\,dx=e^{f(x)}+C.\]
-<p>It is the reverse of the chain-rule result \(\dfrac{d}{dx}\,e^{f(x)}=e^{f(x)}f'(x)\). Exercise 6D Q17 uses it.</p></div>
-<div class="box warn"><div class="bt">When the index is not linear</div>
+</div>
+<div class="box tip"><div class="bt">When the index is not linear</div>
+<p>The reference formula above is the reverse of the chain-rule result \(\dfrac{d}{dx}\,e^{f(x)}=e^{f(x)}f'(x)\). Exercise 6D Q17 uses it.</p>
 <p>The standard form \(\int e^{ax+b}\,dx=\tfrac1a\,e^{ax+b}+C\) needs an index of the form \(ax+b\), so that its derivative \(a\) is a constant. Check every answer by differentiating it. For an index such as \(x^2\), first differentiate \(e^{x^2}\) with the chain rule and then reverse the result (Concept 4).</p></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Indefinite integrals</span></div><div class="ex-body">
@@ -48,7 +50,9 @@ Find these indefinite integrals.
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:definite integrals}}
 <div class="box concept"><div class="bt">Definite integrals</div>
-<p>Definite integrals are evaluated in the usual way by finding the primitive and substituting. Substitute the upper limit, then the lower limit, and subtract. Remember that \(e^0=1\) and \(e^{-1}=\tfrac1e\). Answers are usually left in exact form, and a negative index is often rewritten as a fraction.</p></div></div>
+<p>Definite integrals are evaluated in the usual way by finding the primitive and substituting.</p></div></div>
+<div class="box tip"><div class="bt">Substituting the limits</div>
+<p>Substitute the upper limit, then the lower limit, and subtract. Remember that \(e^0=1\) and \(e^{-1}=\tfrac1e\). Answers are usually left in exact form, and a negative index is often rewritten as a fraction.</p></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Exact values</span></div><div class="ex-body">
 Evaluate these definite integrals.
@@ -75,10 +79,11 @@ Evaluate these definite integrals.
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:given the derivative, find the function}}
 <div class="box concept"><div class="bt">Given the derivative, find the function</div>
-<p>As before, if the derivative of a function is known, and the value of the function at one point is also known, then the whole function can be determined.</p>
+<p>As before, if the derivative of a function is known, and the value of the function at one point is also known, then the whole function can be determined.</p></div></div>
+<div class="box tip"><div class="bt">The three steps</div>
 <ul><li>Take the primitive of the derivative, including the constant \(C\).</li>
 <li>Substitute the known value to find \(C\).</li>
-<li>Write the function with the value of \(C\) in it, then use it.</li></ul></div></div>
+<li>Write the function with the value of \(C\) in it, then use it.</li></ul></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Find the constant</span></div><div class="ex-body">
 <b>1</b> It is known that \(f'(x)=e^x\) and that \(f(2)=0\).<br>
@@ -133,8 +138,9 @@ It is known that \(f'(x)=e^x\) and that \(f(1)=0\).<br>
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:given a derivative, find an integral}}
 <div class="box concept"><div class="bt">Given a derivative, find an integral</div>
-<p>The result of any differentiation can be reversed. This often allows a new primitive to be found. If \(F'(x)=f(x)\), then \(\int f(x)\,dx=F(x)+C\) and \(\int_a^bf(x)\,dx=\big[F(x)\big]_a^b\).</p></div></div>
+<p>The result of any differentiation can be reversed. This often allows a new primitive to be found.</p></div></div>
 <div class="box tip"><div class="bt">Reversing a product-rule derivative</div>
+<p>In symbols: if \(F'(x)=f(x)\), then \(\int f(x)\,dx=F(x)+C\) and \(\int_a^bf(x)\,dx=\big[F(x)\big]_a^b\).</p>
 <p>Sometimes the derivative has two terms and only one of them is the integrand we want (Exercise 6D Q14). For example, by the product rule with \(u=x\) and \(v=e^{2x}\),</p>
 \[\dfrac{d}{dx}\big(xe^{2x}\big)=1\times e^{2x}+x\times2e^{2x}=e^{2x}+2xe^{2x}.\]
 <p>Reversing this, \(\ \displaystyle\int_0^1\big(e^{2x}+2xe^{2x}\big)\,dx=\Big[xe^{2x}\Big]_0^1\). Split the left-hand side into two integrals and move the known one across:</p>
@@ -172,9 +178,10 @@ It is known that \(f'(x)=e^x\) and that \(f(1)=0\).<br>
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:using a formula for the reverse chain rule}}
 <div class="box concept"><div class="bt">Using a formula for the reverse chain rule</div>
-<p>There are some situations where the reverse chain rule formula from Section 5I can be used:</p>
+<p>There are some situations where the reverse chain rule formula from Section 5I can be used.</p></div></div>
+<div class="box tip"><div class="bt">The formula from Section 5I</div>
 \[\int u^n\,\dfrac{du}{dx}\,dx=\dfrac{u^{n+1}}{n+1}+C\qquad\text{OR}\qquad\int\big(f(x)\big)^nf'(x)\,dx=\dfrac{\big(f(x)\big)^{n+1}}{n+1}+C,\]
-<p>where \(n\ne-1\). Choose \(u\) (or \(f(x)\)) to be the bracket that is raised to a power. Its derivative \(u'\) must appear in the integrand, apart from a constant factor. Insert that constant inside the integral and balance it with its reciprocal outside.</p></div></div>
+<p>where \(n\ne-1\). Choose \(u\) (or \(f(x)\)) to be the bracket that is raised to a power. Its derivative \(u'\) must appear in the integrand, apart from a constant factor. Insert that constant inside the integral and balance it with its reciprocal outside.</p></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A power of a bracket</span></div><div class="ex-body">
 Use the reverse chain rule formula to find \(\displaystyle\int\dfrac{e^{2x}}{(1+e^{2x})^3}\,dx\).
@@ -247,7 +254,7 @@ Use one or other of the formulae to find primitives of these functions
 <div class="q"><span class="q-num">19</span><div class="q-body"><b>A power series for \(e^x\):</b> The intention of this question is to outline a reasonably rigorous proof of the famous result that \(e^x\) can be written as the limit of the power series:
 \[e^x=1+x+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+\dfrac{x^4}{4!}+\dfrac{x^5}{5!}+\cdots,\]
 where \(n!=n\times(n-1)\times\cdots\times2\times1\).
-<div class="parts one"><span><span class="pl">a</span>For any positive number \(R\), we know that \(1&lt;e^t&lt;e^R\) for \(0&lt;t&lt;R\), because \(e^x\) is an increasing function. Integrate this inequality over the interval \(t=0\) to \(t=x\), where \(0&lt;x&lt;R\), and hence show that \(x&lt;e^x-1&lt;e^Rx\).</span><span><span class="pl">b</span>Change the variable to \(t\), giving \(t&lt;e^t-1&lt;e^Rt\). Then integrate this new inequality from \(t=0\) to \(t=x\), and hence show that \(\dfrac{x^2}{2!}&lt;e^x-1-x&lt;\dfrac{e^Rx^2}{2!}\).</span><span><span class="pl">c</span>Do this process twice more, and prove that:<br>(i) \(\dfrac{x^3}{3!}&lt;e^x-1-x-\dfrac{x^2}{2!}&lt;\dfrac{e^Rx^3}{3!}\)<br>(ii) \(\dfrac{x^4}{4!}&lt;e^x-1-x-\dfrac{x^2}{2!}-\dfrac{x^3}{3!}&lt;\dfrac{e^Rx^4}{4!}\)</span><span><span class="pl">d</span>Now use induction to prove that \(\dfrac{x^{n+1}}{(n+1)!}&lt;e^x-1-x-\dfrac{x^2}{2!}-\cdots-\dfrac{x^n}{n!}&lt;\dfrac{e^Rx^{n+1}}{(n+1)!}\).</span><span><span class="pl">e</span>Show that as \(n\to\infty\), the left and right expressions converge to zero. Hence prove that the infinite power series converges to \(e^x\) for \(x&gt;0\). (Hint: Let \(k\) be the smallest integer greater than \(x\) and show that for \(n&gt;k\), each term in the sequence is less than the corresponding term of a geometric sequence with ratio \(\tfrac{x}{k}\).)</span><span><span class="pl">f</span>Prove that the power series also converges to \(e^x\) for \(x&lt;0\).</span></div>{{work:100}}</div></div>
+<div class="parts one"><span><span class="pl">a</span>For any positive number \(R\), we know that \(1&lt;e^t&lt;e^R\) for \(0&lt;t&lt;R\), because \(e^x\) is an increasing function. Integrate this inequality over the interval \(t=0\) to \(t=x\), where \(0&lt;x&lt;R\), and hence show that \(x&lt;e^x-1&lt;e^Rx\).</span><span><span class="pl">b</span>Change the variable to \(t\), giving \(t&lt;e^t-1&lt;e^Rt\). Then integrate this new inequality from \(t=0\) to \(t=x\), and hence show that \(\dfrac{x^2}{2!}&lt;e^x-1-x&lt;\dfrac{e^Rx^2}{2!}\).</span><span style="line-height:2.4"><span class="pl">c</span>Do this process twice more, and prove that:<br>(i) \(\dfrac{x^3}{3!}&lt;e^x-1-x-\dfrac{x^2}{2!}&lt;\dfrac{e^Rx^3}{3!}\)<br>(ii) \(\dfrac{x^4}{4!}&lt;e^x-1-x-\dfrac{x^2}{2!}-\dfrac{x^3}{3!}&lt;\dfrac{e^Rx^4}{4!}\)</span><span><span class="pl">d</span>Now use induction to prove that \(\dfrac{x^{n+1}}{(n+1)!}&lt;e^x-1-x-\dfrac{x^2}{2!}-\cdots-\dfrac{x^n}{n!}&lt;\dfrac{e^Rx^{n+1}}{(n+1)!}\).</span><span><span class="pl">e</span>Show that as \(n\to\infty\), the left and right expressions converge to zero. Hence prove that the infinite power series converges to \(e^x\) for \(x&gt;0\). (Hint: Let \(k\) be the smallest integer greater than \(x\) and show that for \(n&gt;k\), each term in the sequence is less than the corresponding term of a geometric sequence with ratio \(\tfrac{x}{k}\).)</span><span><span class="pl">f</span>Prove that the power series also converges to \(e^x\) for \(x&lt;0\).</span></div>{{work:100}}</div></div>
 <div class="q"><span class="q-num">20</span><div class="q-body">
 <div class="parts one"><span><span class="pl">a</span>Use the power series in the previous question to show that
 \[\dfrac{e^x+e^{-x}}{2}=1+\dfrac{x^2}{2!}+\dfrac{x^4}{4!}+\cdots+\dfrac{x^{2n}}{(2n)!}+\cdots.\]</span><span><span class="pl">b</span>Find \(\alpha\), the value of the right-hand side, correct to four decimal places when \(x=0.5\).</span><span><span class="pl">c</span>Let \(u=e^{0.5}\). Show that \(u^2-2\alpha u+1=0\).</span><span><span class="pl">d</span>Solve this quadratic equation and hence estimate both \(e^{0.5}\) and \(e^{-0.5}\) correct to two decimal places. Compare your answers with the values obtained directly from the calculator.</span></div>{{work:90}}</div></div>
@@ -261,7 +268,7 @@ where \(n!=n\times(n-1)\times\cdots\times2\times1\).
 <div class="pp-q">
 <div class="pp-sub"><span>(i) Find \(\dfrac{dy}{dx}\) if \(y=xe^{-x}\).</span><span class="mk">2</span></div>
 <div class="pp-sub"><span>(ii) Hence find \(\displaystyle\int_0^1xe^{-x}\,dx\).</span><span class="mk">3</span></div></div>
-<div class="hint"><b>Hint:</b> how is the integrand in (ii) related to your answer to (i)?</div>{{work:70}}</div>
+<div class="hint"><b>Hint:</b> what does part (i) give you?</div>{{work:70}}</div>
 </div>
 
 <p>The school trial papers used for this pack (2020–2024) have only this one question that fits this lesson, so the mini exam is short. For more timed practice, do Questions 5(e), 10(c), 10(d), 11(f), 12(d) and 14(b) above in 25 minutes.</p>

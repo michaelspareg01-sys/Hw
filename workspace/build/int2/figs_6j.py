@@ -7,14 +7,15 @@ import sys
 from math import exp, log, sqrt, e
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from figs import Graph, ACC, INK  # noqa: E402
+from relabel import relabel  # noqa: E402
+from figs import RELOG, Graph, ACC, INK  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "svg")
 
 
 def save_raw(name, text):
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as fh:
-        fh.write(text)
+        fh.write(relabel(text, RELOG, name))      # Int2 assembly: clear labels of strokes
 
 
 def styled(g, width_mm):

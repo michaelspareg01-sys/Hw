@@ -7,14 +7,15 @@ import sys
 from math import exp, log, sqrt, e
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from figs import Graph, ACC, INK, FAINT  # noqa: E402
+from relabel import relabel  # noqa: E402
+from figs import RELOG, Graph, ACC, INK, FAINT  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "svg")
 
 
 def save_raw(name, text):
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as fh:
-        fh.write(text)
+        fh.write(relabel(text, RELOG, name))      # Int2 assembly: clear labels of strokes
 
 
 def styled(g, width_mm):
@@ -93,9 +94,9 @@ def tip_y():
     g.label(0, 1, "1", dx=-6, anchor="end", size=11)
     g.label(1, 0, "1", dx=6, dy=11, size=11)
     lab(g, e, 1, "(e, 1)", dx=-4, dy=-10, anchor="end", size=10.5)
-    lab(g, 3.3, log(3.3), "y = log", None, dx=-2, dy=26, anchor="end", size=10.5)
-    g.items.append(f'<text x="{g.X(3.3) - 2:.1f}" y="{g.Y(log(3.3)) + 26 + 3.7:.1f}" text-anchor="start" font-size="10.5" fill="{INK}">'
-                   f'<tspan dy="3" font-size="7.6">e</tspan><tspan dy="-3"> x</tspan></text>')
+    # one text element, so the subscript stays attached when labels are cleared (Int2 assembly)
+    g.items.append(f'<text x="{g.X(3.3) + 12:.1f}" y="{g.Y(log(3.3)) + 26 + 3.7:.1f}" text-anchor="end" font-size="10.5" '
+                   f'fill="{INK}" font-weight="500">y = log<tspan dy="3" font-size="7.6">e</tspan><tspan dy="-3"> x</tspan></text>')
     save("c6e_tipy", g)
 
 
@@ -289,9 +290,8 @@ def pp():
     g.axes("x", "y")
     g.curve(f, color="ink", width=1.7, x0=1 + exp(-2.6), x1=4.6)
     g.vline(e + 1, 0, 1, color="ink", dash="3 2")
-    lab(g, 4.6, f(4.6), "y = log", None, dx=6, anchor="start", size=10.5)
-    g.items.append(f'<text x="{g.X(4.6) + 6 + 40:.1f}" y="{g.Y(f(4.6)) + 3.7 + 3:.1f}" font-size="7.6" fill="{INK}">e</text>')
-    g.items.append(f'<text x="{g.X(4.6) + 6 + 46:.1f}" y="{g.Y(f(4.6)) + 3.7:.1f}" font-size="10.5" fill="{INK}">(x − 1)</text>')
+    g.items.append(f'<text x="{g.X(4.6) + 6:.1f}" y="{g.Y(f(4.6)) + 3.7:.1f}" text-anchor="start" font-size="10.5" fill="{INK}" '
+                   f'font-weight="500">y = log<tspan dy="3" font-size="7.6">e</tspan><tspan dy="-3">(x − 1)</tspan></text>')
     save("p6e_plc", g)
     # Fort Street 2020 Q11(c): f(x) = e^{x/2} + 1 and the normal at x = 0 (no scale marks, as printed)
     g = Graph(-2.8, 3.2, -3.0, 5.0, w=230, h=210, pad=(18, 50, 18, 12))
@@ -360,7 +360,10 @@ def answers():
         lab(g, 0, e, "e", dx=-6, anchor="end", size=10.5)
         lab(g, 0, 1, "1", dx=-6, dy=-7 if name.endswith("a") else 8, anchor="end", size=10.5)
         lab(g, log(3.3), 3.3, "y = e", "x", dx=-6, anchor="end", size=10)
-        g.label(1.55, h(1.55), hl, dx=-2, dy=12, anchor="end", size=10)
+        if name.endswith("a"):
+            g.label(1.25, h(1.25), hl, dx=4, dy=12, anchor="start", size=10)
+        else:
+            g.label(1.55, h(1.55), hl, dx=-2, dy=12, anchor="end", size=10)
         save(name, g, 44)
     # Q11b: y = x^2 and y = e^{x+1}, second quadrant
     g = Graph(-2.3, 1.5, -0.4, 3.3, w=190, h=190, pad=(22, 40, 18, 12))
@@ -372,7 +375,7 @@ def answers():
     g.xticks([(-1, "-1")])
     lab(g, 0, e, "e", dx=6, anchor="start", size=10.5)
     lab(g, 0, 1, "1", dx=6, dy=6, anchor="start", size=10.5)
-    lab(g, log(3.3) - 1, 3.3, "y = e", "x+1", dx=-6, anchor="end", size=10)
+    lab(g, log(3.3) - 1, 3.15, "y = e", "x+1", dx=5, anchor="start", size=10)
     lab(g, 1.75, 3.06, "y = x", "2", dx=-3, dy=12, anchor="end", size=10)
     save("a6e_q11", g, 44)
     # Q12: y = e^x and y = x, from the y-axis to x = 2

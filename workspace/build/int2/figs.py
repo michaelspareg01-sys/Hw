@@ -8,8 +8,12 @@ os.makedirs(OUT, exist_ok=True)
 
 
 def save(name, g):
+    from relabel import relabel         # Int2 assembly: clear labels of strokes (svg_overlap.py)
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as f:
-        f.write(g.svg())
+        f.write(relabel(g.svg(), RELOG, name))
+
+
+RELOG = []
 
 
 class Fig:
@@ -130,7 +134,7 @@ def fig_rev():
     save("astc", f)
 
     # Year 11 Advanced Example 15 (9G): 5pi/4 and 11pi/6 with their related angles
-    def quad(ang, lab, rel, w=170, h=130):
+    def quad(ang, lab, rel, w=170, h=130, inline=False):
         cx, cy, r = w / 2, h / 2, 50
         f = Fig(w, h)
         f.line(cx - r - 8, cy, cx + r + 8, cy, width=1.3).line(cx, cy + r + 8, cx, cy - r - 8, width=1.3)
@@ -141,11 +145,15 @@ def fig_rev():
         a0, a1 = (ang, ref) if ang < ref else (ref, ang)
         f.arc(cx, cy, 24, a0, a1, color="ink", width=1.3)
         mid = radians((a0 + a1) / 2)
-        f.text(cx + 40 * cos(mid), cy - 40 * sin(mid) + 2, rel, size=13)
+        if inline:      # a narrow angle: write the related angle on one line inside it (Int2 assembly)
+            f.raw(f'<text x="{cx + 41 * cos(mid):.1f}" y="{cy - 41 * sin(mid) + 4:.1f}" text-anchor="middle" '
+                  f'font-size="11.5" fill="{INK}" font-weight="500">{rel}</text>')
+        else:
+            f.text(cx + 40 * cos(mid), cy - 40 * sin(mid) + 2, rel, size=13)
         f.text(ex + (12 if cos(t) >= 0 else -12), ey + 16, lab, size=13, anchor="start" if cos(t) >= 0 else "end")
         return f
     save("q5pi4", quad(225, "5π/4", "π/4"))
-    save("q11pi6", quad(-30, "11π/6", "π/6"))
+    save("q11pi6", quad(-30, "11π/6", "π/6", inline=True))
 
     # Textbook Example 22 (5F): the region under y = 4 - x^2
     g = Graph(-2.8, 2.8, -0.6, 4.6, w=210, h=150, pad=(14, 30, 16, 18))
