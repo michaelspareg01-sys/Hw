@@ -2,14 +2,19 @@ import os, sys
 from math import sin, cos, tan, atan, atan2, pi, sqrt, radians, degrees
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from plots import Graph, ACC, INK, FAINT, _txt
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tools"))
+from svg_overlap import text_width, check_string
 
 OUT = os.path.join(os.path.dirname(__file__), "svg")
 os.makedirs(OUT, exist_ok=True)
 
 
 def save(name, g):
+    svg = g.svg()
+    for p in check_string(svg):                 # labels crossed, overlapping or clipped (see the report)
+        print(f"{name}: {p}")
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as f:
-        f.write(g.svg())
+        f.write(svg)
 
 
 class Fig:
@@ -67,6 +72,13 @@ class Fig:
         self.items.append(_txt(x, y, s, anchor, size=size, color=ACC[color], italic=italic, weight=weight))
         return self
 
+    def ring(self, cx, cy, r, width=1.5):
+        """Open circle drawn as two arcs (int3/place.py does the same), so that svg_overlap tests labels
+        against the ring itself rather than against the circle's whole bounding box."""
+        self.items.append(f'<path d="M{cx - r:.1f},{cy:.1f} A{r:g},{r:g} 0 1 0 {cx + r:.1f},{cy:.1f} '
+                          f'A{r:g},{r:g} 0 1 0 {cx - r:.1f},{cy:.1f} Z" fill="none" stroke="{INK}" stroke-width="{width}"/>')
+        return self
+
     def dot(self, x, y, r=3, color="ink"):
         self.items.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="{ACC[color]}"/>')
         return self
@@ -82,8 +94,10 @@ class Fig:
 
 def vel_box(name, horiz, vert, hyp, ang, ang_at_top=False, w=150, h=120):
     """Velocity resolution rectangle: diagonal = velocity, sides = components."""
+    x0 = max(34, int(text_width(vert.replace("-", "−"), 11.5)) + 9)   # the vertical label fits in the frame
+    w += x0 - 34
     f = Fig(w, h)
-    x0, x1, y0, y1 = 34, w - 22, 14, h - 24
+    x1, y0, y1 = w - 22, 14, h - 24
     f.poly([(x0, y0), (x1, y0), (x1, y1), (x0, y1)], color=None, stroke="faint", width=1.1)
     if not ang_at_top:   # moving upwards: from bottom-left to top-right
         f.arrow(x0, y1, x1, y0, "blue", 2.2)
@@ -95,8 +109,15 @@ def vel_box(name, horiz, vert, hyp, ang, ang_at_top=False, w=150, h=120):
         f.text(x0 + 30, y0 + 9, ang, "start", size=11)
     f.text((x0 + x1) / 2, y1 + 15, horiz, size=11.5)
     f.text(x0 - 5, (y0 + y1) / 2, vert, "end", size=11.5)
-    f.text((x0 + x1) / 2 + 12, (y0 + y1) / 2 - 4, hyp, "start", size=11.5, color="blue")
+    hy = (y0 + y1) / 2 - (4 if ang_at_top else 1)      # below the rising diagonal, above the falling one
+    f.text((x0 + x1) / 2 + (12 if ang_at_top else 15), hy, hyp, "start", size=11.5, color="blue")
     save(name, f)
+
+
+def plain(f, x, y, s, anchor="middle", size=11, italic=False):
+    """Text without the fraction handling of _txt (for labels such as L/min)."""
+    st = ' font-style="italic"' if italic else ''
+    f.raw(f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}" font-size="{size}" fill="{INK}" font-weight="500"{st}>{s}</text>')
 
 
 # ---------------- 9E ----------------
@@ -106,8 +127,8 @@ f.raw(f'<ellipse cx="95" cy="22" rx="70" ry="12" fill="none" stroke="{INK}" stro
 f.line(25, 22, 95, 160).line(165, 22, 95, 160)
 f.raw(f'<ellipse cx="95" cy="80" rx="40.5" ry="7" fill="{ACC["blue"]}" fill-opacity=".25" stroke="{ACC["blue"]}" stroke-width="1.4"/>')
 f.poly([(54.5, 80), (135.5, 80), (95, 160)], color="blue", opacity=0.18, stroke="blue", width=1.2)
-f.line(95, 80, 135.5, 80, "ink", 1.3).text(115, 72, "r", italic=True)
-f.line(95, 80, 95, 160, "ink", 1.1, "4 3").text(101, 124, "h", "start", italic=True)
+f.line(95, 80, 135.5, 80, "ink", 1.3).text(115, 65, "r", italic=True)   # clear of the water surface
+f.line(95, 80, 95, 160, "ink", 1.1, "4 3").text(99, 122, "h", "start", italic=True)
 save("cone", f)
 
 # ladder against a wall
@@ -118,8 +139,8 @@ for k in range(8):
 f.line(40, 40, 150, 150, "blue", 3)
 f.right(40, 150, 1, -1, 9)
 f.text(102, 88, "5 m", "start", size=11.5, color="blue")
-f.dim(40, 162, 150, 162).text(95, 158, "x", italic=True)
-f.text(30, 95, "y", "end", italic=True)
+f.dim(40, 158, 150, 158).text(95, 163.2, "x", italic=True)
+f.text(26, 95, "y", "end", italic=True)
 f.arc(150, 150, 22, 135, 180).text(118, 142, "θ", italic=True)
 save("ladder", f)
 
@@ -132,10 +153,10 @@ f.line(30, 112, 200, 28, "blue", 1.8).line(200, 28, 200, 112, "faint", 1.2, "4 3
 f.right(200, 112, -1, -1, 8)
 f.raw(f'<path d="M188,28 l24,0 l-6,-4 l-10,0 z" fill="{INK}"/>')
 f.arrow(176, 18, 140, 18, "ink", 1.2)
-f.text(158, 11, "600 km/h", size=10.5)
+plain(f, 158, 12, "600 km/h", "middle", size=10.5)
 f.text(207, 72, "2 km", "start", size=11)
 f.text(115, 125, "x", italic=True)
-f.arc(30, 112, 24, 0, 26).text(60, 104, "θ", "start", italic=True)
+f.arc(30, 112, 24, 0, 26).text(62, 104, "θ", "start", italic=True)
 save("plane", f)
 
 # 9E Q6 diagram (650 km/h, 1.5 km)
@@ -147,20 +168,20 @@ f.line(30, 102, 180, 26, "blue", 1.8).line(180, 26, 180, 102, "faint", 1.2, "4 3
 f.right(180, 102, -1, -1, 8)
 f.raw(f'<path d="M168,26 l24,0 l-6,-4 l-10,0 z" fill="{INK}"/>')
 f.arrow(205, 14, 168, 14, "ink", 1.2)
-f.text(200, 8, "650 km/h", "start", size=10)
+plain(f, 186.5, 9, "650 km/h", "middle", size=10)
 f.text(186, 66, "1.5 km", "start", size=11)
 f.text(105, 115, "x", italic=True)
-f.arc(30, 102, 22, 0, 27).text(57, 95, "θ", "start", italic=True)
+f.arc(30, 102, 22, 0, 27).text(62, 94, "θ", "start", italic=True)
 save("q6plane", f)
 
 # 9E Q8 trough cross-section
 f = Fig(230, 120)
 f.poly([(20, 20), (120, 20), (70, 70)], color=None, stroke="ink")
 f.poly([(36, 36), (104, 36), (70, 70)], color="blue", opacity=0.25, stroke="blue", width=1.3)
-f.line(70, 36, 70, 70, "ink", 1.1, "4 3").text(76, 56, "h", "start", italic=True)
+f.line(70, 36, 70, 70, "ink", 1.1, "4 3").text(74, 44.8, "h", "start", italic=True)
 f.right(70, 70, 1, -1, 0)
 f.raw(f'<path d="M64,64 L70,58 L76,64" fill="none" stroke="{INK}" stroke-width="1.1"/>')
-f.text(70, 92, "cross-section", size=10.5, color="faint")
+f.raw(f'<text x="70" y="95.7" text-anchor="middle" font-size="10.5" fill="{FAINT}" font-weight="500">cross-section</text>')
 # oblique view of the prism
 f.poly([(140, 30), (200, 30), (215, 18), (155, 18)], color=None, stroke="ink", width=1.2)
 f.poly([(140, 30), (200, 30), (170, 62)], color=None, stroke="ink", width=1.2)
@@ -175,8 +196,8 @@ f.raw(f'<rect x="20" y="34" width="22" height="10" rx="3" fill="{ACC["rose"]}"/>
 f.raw(f'<rect x="120" y="22" width="44" height="22" fill="{FAINT}"/><rect x="164" y="30" width="12" height="14" fill="{INK}"/>')
 f.line(240, 46, 240, 20, "ink", 1.2).raw(f'<rect x="228" y="12" width="40" height="12" fill="#fff" stroke="{INK}" stroke-width="1"/>')
 f.text(248, 18, "lane", size=8.5)
-f.dim(31, 58, 142, 58).text(86, 54, "C", italic=True)
-f.dim(176, 58, 240, 58).text(208, 54, "L", italic=True)
+f.dim(31, 55, 142, 55).text(86, 62.5, "C", italic=True)
+f.dim(176, 55, 240, 55).text(208, 62.5, "L", italic=True)
 f.text(31, 26, "V", italic=True).text(142, 14, "V", italic=True)
 save("overtake", f)
 
@@ -187,13 +208,13 @@ th = 50
 ax, ay = cx + R * cos(radians(th)), cy - R * sin(radians(th))
 bx, by = ax, cy + R * sin(radians(th))
 f.path(f"M{ax:.1f},{ay:.1f} A{R},{R} 0 0 1 {bx:.1f},{by:.1f} Z", "blue", 1.2, fill="blue", opacity=0.22)
-f.raw(f'<circle cx="{cx}" cy="{cy}" r="{R}" fill="none" stroke="{INK}" stroke-width="1.5"/>')
+f.ring(cx, cy, R)
 f.line(cx, cy, ax, ay).line(cx, cy, bx, by).line(ax, ay, bx, by)
-f.line(cx, cy, ax, cy, "ink", 1.1, "4 3").text((cx + ax) / 2 + 2, cy + 14, "x", italic=True)
+f.line(cx, cy, ax, cy, "ink", 1.1, "4 3").text((cx + ax) / 2 + 5, cy + 14, "x", italic=True)
 f.arc(cx, cy, 14, -th, th).text(cx - 4, cy - 6, "2θ", "end", size=11)
 f.right(ax, cy, -1, -1, 7)
 # A is the area of the shaded segment (labelled with a pointer, as in the textbook)
-f.text(cx + 14, cy + 34, "r", italic=True).text(150, 20, "A", "start", italic=True)
+f.text(cx + 14, cy + 34, "r", italic=True).text(150, 18, "A", "start", italic=True)
 f.arrow(151, 25, 133, 50, "ink", 1.1, 6)
 save("chord", f)
 
@@ -207,18 +228,12 @@ for (x, y, lab) in ((20, 120, "A"), (100, 120, "B"), (220, 120, "Q"), (220, 20, 
     f.dot(x, y)
 f.text(20, 134, "A", italic=True).text(100, 134, "B", italic=True).text(220, 134, "Q", italic=True).text(228, 18, "P", "start", italic=True)
 f.text(60, 134, "100 m", size=10.5).text(160, 134, "x", italic=True).text(228, 72, "h", "start", italic=True)
-f.arc(20, 120, 26, 0, degrees(atan2(100, 200))).text(50, 112, "α", "start", italic=True)
+f.arc(20, 120, 26, 0, degrees(atan2(100, 200))).text(52, 112, "α", "start", italic=True)
 f.arc(100, 120, 22, 0, degrees(atan2(100, 120))).text(126, 110, "β", "start", italic=True)
 save("radars", f)
 
 
 # ---------------- 9E past papers ----------------
-def plain(f, x, y, s, anchor="middle", size=11, italic=False):
-    """Text without the fraction handling of _txt (for labels such as L/min)."""
-    st = ' font-style="italic"' if italic else ''
-    f.raw(f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}" font-size="{size}" fill="{INK}" font-weight="500"{st}>{s}</text>')
-
-
 # PP 3 Killara 2024 Q13(e): searchlight 6 m from the path (scale 15 px per metre)
 f = Fig(250, 150)
 Lx, Ly, Fy = 40, 128, 38
@@ -229,10 +244,10 @@ f.line(Lx, Ly, Lx, Fy, "ink", 1.3)
 f.line(Lx, Ly, Mx, Fy, "blue", 1.6)
 f.dot(Lx, Ly, 4).dot(Mx, Fy, 4, "rose")
 f.text(Lx - 6, (Ly + Fy) / 2 + 4, "6 m", "end", size=11)
-f.text((Lx + Mx) / 2, Fy - 7, "x", italic=True)
-f.arc(Lx, Ly, 24, degrees(atan2(Ly - Fy, Mx - Lx)), 90).text(Lx + 10, Ly - 30, "θ", "start", italic=True)
+f.text((Lx + Mx) / 2, Fy - 9, "x", italic=True)
+f.arc(Lx, Ly, 24, degrees(atan2(Ly - Fy, Mx - Lx)), 90).text(Lx + 12, Ly - 30, "θ", "start", italic=True)
 f.text(Lx + 8, Ly + 14, "searchlight", "start", size=10, color="faint")
-f.text(Mx + 6, Fy - 10, "man", "start", size=10, color="faint")
+f.text(Mx + 8, Fy - 11, "man", "start", size=10, color="faint")
 f.text(200, Fy + 14, "path", size=10, color="faint")
 save("pp_kil24", f)
 
@@ -242,7 +257,7 @@ cx, top, s = 100, 44, 25
 apex = top + 5 * s
 hw = 2.2                      # water depth drawn (m)
 wy, wr = apex - hw * s, 0.6 * hw * s
-f.dim(cx - 3 * s, 18, cx + 3 * s, 18).text(cx, 12, "6 m", size=11)
+f.dim(cx - 3 * s, 18, cx + 3 * s, 18).text(cx, 10.5, "6 m", size=11)
 f.line(cx - 3 * s, 14, cx - 3 * s, 24, "faint", 1).line(cx + 3 * s, 14, cx + 3 * s, 24, "faint", 1)
 f.poly([(cx - wr, wy), (cx + wr, wy), (cx, apex)], color="blue", opacity=0.22, stroke="blue", width=1.1)
 f.raw(f'<ellipse cx="{cx}" cy="{wy:.1f}" rx="{wr:.1f}" ry="5" fill="{ACC["blue"]}" fill-opacity=".3" stroke="{ACC["blue"]}" stroke-width="1.2"/>')
@@ -276,7 +291,7 @@ f.line(cx - rt, tabletop, cx - rt, tabletop + 3, "ink", 1.5).line(cx + rt, table
 f.line(cx, lampy, cx - rs, ground, "ink", 1, "3 3").line(cx, lampy, cx + rs, ground, "ink", 1, "3 3")
 f.raw(f'<path d="M{cx - 9},{lampy - 8} L{cx + 9},{lampy - 8} L{cx + 4},{lampy - 2} L{cx - 4},{lampy - 2} Z" fill="#fff" stroke="{INK}" stroke-width="1.2"/>')
 f.dot(cx, lampy, 2.6, "amber")
-f.text(cx - 10, lampy + 4, "O", "end", italic=True)
+f.text(cx - 13, lampy + 1, "O", "end", italic=True)
 f.text(cx - rs - 6, ground + 4, "L", "end", italic=True).text(cx + rs + 6, ground + 4, "N", "start", italic=True)
 f.text(cx, ground + rs * k + 13, "M", italic=True)
 xr = cx + rs + 38
@@ -292,16 +307,16 @@ Rp = Rr * s
 apy = cy - Rp
 by = apy + 2 * s
 rp = sqrt(4 * Rr - 4) * s
-f.raw(f'<circle cx="{cx}" cy="{cy}" r="{Rp:.1f}" fill="none" stroke="{INK}" stroke-width="1.5"/>')
+f.ring(cx, cy, round(Rp, 1))
 f.raw(f'<path d="M{cx - rp:.1f},{by:.1f} A{rp:.1f},13 0 0 1 {cx + rp:.1f},{by:.1f}" fill="none" stroke="{INK}" stroke-width="1.1" stroke-dasharray="4 3"/>')
 f.raw(f'<path d="M{cx - rp:.1f},{by:.1f} A{rp:.1f},13 0 0 0 {cx + rp:.1f},{by:.1f}" fill="none" stroke="{INK}" stroke-width="1.3"/>')
 f.line(cx, apy, cx - rp, by, "ink", 1.3).line(cx, apy, cx + rp, by, "ink", 1.3)
 f.line(cx, apy, cx, cy + Rp, "faint", 1, "3 3")
 f.dot(cx, cy, 3.5).dot(cx, by, 3.5)
-f.arrow(cx, cy, cx + rp - 3, by - 1, "blue", 1.4, 6).text(cx + rp * 0.4, cy + 0.4 * (by - cy) - 7, "R", italic=True, color="blue")
+f.arrow(cx, cy, cx + rp - 3, by - 1, "blue", 1.4, 6).text(cx + rp * 0.4 + 1, cy + 0.4 * (by - cy) - 10, "R", italic=True, color="blue")
 f.dim(cx + 4, by + 8, cx + rp, by + 8).text(cx + rp * 0.5, by + 22, "r", italic=True)
-f.text(cx + rp * 0.55 + 8, (apy + by) / 2 - 2, "l", "start", italic=True)
-xr = cx + Rp + 22
+f.text(cx + rp * 0.55 + 6, (apy + by) / 2, "l", "start", italic=True)
+xr = cx + Rp + 20
 f.line(cx, apy, xr + 4, apy, "faint", 1, "3 3").line(cx + rp + 4, by, xr + 4, by, "faint", 1, "3 3")
 f.dim(xr, apy, xr, by).text(xr + 7, (apy + by) / 2 + 4, "2", "start", italic=True)
 save("pp_nsb22", f)
@@ -321,9 +336,9 @@ g.hline(-25, color="ink", dash=None, x0=-12, x1=190, width=1.4)
 g.items.insert(0, f'<rect x="{g.X(-12)}" y="{g.Y(0)}" width="{g.X(0) - g.X(-12)}" height="{g.Y(-25) - g.Y(0)}" fill="{ACC["blue"]}" fill-opacity=".16"/>')
 g.vline(0, -25, 0, color="ink", dash=None, width=1.4)
 g.label(0, -12.5, "25 m", dx=-6, anchor="end")
-g.label(0, 0, "30°", dx=26, dy=-9)
+g.label(0, 0, "30°", dx=29, dy=-8)
 g.label(100 * sqrt(3), -25, "range", dy=12)
-g.dot(40 * sqrt(3), 20, "blue").label(40 * sqrt(3), 20, "top of flight", dy=-11)
+g.dot(40 * sqrt(3), 20, "blue").label(40 * sqrt(3), 20, "top of flight", dy=-14)
 save("stand", g)
 
 # Example 4: gun and fortress
@@ -354,7 +369,7 @@ f = Fig(240, 112)
 ox, oy, s = 34, 94, 0.8
 d = 50 * sqrt(180 / 9.8)
 f.arrow(ox, oy, 226, oy, "ink", 1.3, 6).arrow(ox, oy, ox, 12, "ink", 1.3, 6)
-f.text(232, oy, "x", "start", italic=True).text(ox, 6, "y", italic=True)
+f.text(232, oy, "x", "start", italic=True).text(ox - 10, 14, "y", italic=True)
 f.right(ox, oy, 1, -1, 7)
 traj(f, [(ox + s * 50 * t, oy - s * (90 - 4.9 * t * t)) for t in [i * sqrt(180 / 9.8) / 60 for i in range(61)]])
 f.arrow(ox, oy - 90 * s, ox + 150, oy - 90 * s, "ink", 1.1, 6, "4 3")
@@ -365,11 +380,11 @@ f.dot(ox + s * d, oy, 2.5).text(ox + s * d, oy + 12, "d", italic=True)
 save("pp_bhhs23", f)
 
 # PP 3 North Sydney Girls 2020 Q13(d): 30 m/s at alpha from 20 m (drawn for alpha = 50 deg, 1.3 px per metre)
-f = Fig(220, 124)
-ox, oy, s, al = 30, 108, 1.3, radians(50)
+f = Fig(224, 124)
+ox, oy, s, al = 34, 108, 1.3, radians(50)
 T = (30 * sin(al) + sqrt((30 * sin(al)) ** 2 + 400)) / 10
-f.line(10, oy, 200, oy, "ink", 1.3).arrow(200, oy, 212, oy, "ink", 1.3, 6).arrow(ox, 120, ox, 8, "ink", 1.3, 6)
-f.text(212, oy + 11, "x", italic=True).text(ox + 8, 10, "y", "start", italic=True)
+f.line(14, oy, 204, oy, "ink", 1.3).arrow(204, oy, 216, oy, "ink", 1.3, 6).arrow(ox, 120, ox, 8, "ink", 1.3, 6)
+f.text(216, oy + 11, "x", italic=True).text(ox + 8, 10, "y", "start", italic=True)
 traj(f, [(ox + s * 30 * cos(al) * t, oy - s * (20 + 30 * sin(al) * t - 5 * t * t)) for t in [i * T / 80 for i in range(81)]], "ink", 1.8)
 ly = oy - 20 * s
 f.line(ox, ly, ox + 50, ly, "ink", 1, "4 3")
@@ -392,7 +407,7 @@ traj(f, pts, "ink", 1.6)
 f.arrow(*pts[-3], *pts[-1], "ink", 1.6, 7)
 f.arrow(ox, ly, ox + 50 * cos(radians(30)), ly - 50 * sin(radians(30)), "ink", 1.3, 6)
 plain(f, ox + 50 * cos(radians(30)) + 2, ly - 50 * sin(radians(30)) - 5, "10 m/s", "start")
-f.arc(ox, ly, 20, 0, 30, "ink", 1).text(ox + 24, ly - 9, "30°", "start", size=11)
+f.arc(ox, ly, 20, 0, 30, "ink", 1).text(ox + 38, ly - 7, "30°", "start", size=11)
 px = ox + s * 5 * sqrt(3) * (5 + sqrt(105)) / 10
 f.raw(f'<rect x="{px - 1.0 * s:.1f}" y="{oy - s:.1f}" width="{2 * s}" height="{s}" fill="{FAINT}" fill-opacity=".45" stroke="{INK}" stroke-width="1.1"/>')
 f.text(px, oy + 12, "PAD", size=10.5)
@@ -404,7 +419,7 @@ save("pp_asc24b", f)
 g = Graph(-1, 13, -0.6, 5.2, 330, 180, pad=(30, 40, 18, 30))
 g.axes()
 g.curve(lambda x: x * (12 - x) / 7.2, "blue", 2.2, x0=0, x1=12)
-g.dot(12, 0).label(12, 0, "V²sin 2α / g", dy=16)
+g.dot(12, 0).label(12, 0, "V²sin 2α / g", dy=19)
 g.dot(9, 9 * 3 / 7.2).label(9, 9 * 3 / 7.2, "P(x, y)", dx=8, dy=-8, anchor="start")
 g.label(0, 0, "α", dx=20, dy=-8)
 save("range", g)
@@ -417,11 +432,11 @@ g.fill(lambda x: (16 - x * x) / 8, lambda x: 0, -4, 4, "teal", opacity=0.16)
 g.curve(lambda x: (16 - x * x) / 8, "teal", 2.2, x0=-4, x1=4)
 for T in (0.5, 1, 2, 3.5):
     g.curve(lambda x, T=T: x * T - x * x * (1 + T * T) / 8, "blue", 1.3, x0=0, x1=8 * T / (1 + T * T))
-g.label(0, 2, "V²/2g", dx=8, dy=-10, anchor="start")
+g.label(0, 2, "V²/2g", dx=10, dy=-19, anchor="start")
 save("safety", g)
 
 # Exercise 10B Q12 diagram
-g = Graph(-1, 20, -0.5, 6.5, 260, 150, pad=(26, 30, 16, 26))
+g = Graph(-1, 20, -0.5, 6.5, 260, 166, pad=(26, 30, 16, 42))
 g.axes()
 R = 18
 g.curve(lambda x: x * (1 - x / R), "blue", 2.0, x0=0, x1=R)
@@ -429,7 +444,11 @@ x1, x2 = 6, 12
 g.hline(4, x0=0, x1=x2).vline(x1, 0, 4).vline(x2, 0, 4)
 g.yticks([(4, "4")]).xticks([(x1, "x₁"), (x2, "x₂")])
 g.dot(x1, 4).dot(x2, 4)
-g.label(9, 4, "6", dy=-9)
+yd = g._y0 + 27                                    # dimension arrow under the tick labels
+g.items.append(f'<line x1="{g.X(x1) + 1:.1f}" y1="{yd:.1f}" x2="{g.X(x2) - 1:.1f}" y2="{yd:.1f}" stroke="{INK}" stroke-width="1"/>')
+for xe, sgn in ((g.X(x1) + 1, 1), (g.X(x2) - 1, -1)):
+    g.items.append(f'<path d="M{xe:.1f},{yd:.1f} l{6 * sgn},-2.5 v5 z" fill="{INK}"/>')
+g.label(9, 0, "6", dy=39, size=11)
 save("q12path", g)
 
 # ---------------- 10B past papers ----------------
@@ -444,8 +463,8 @@ k = 0.42   # vertical squash so the figure stays short; the arrow follows the dr
 f.path("M" + " L".join(f"{ox + R * i / 60:.1f},{oy - R * i / 60 * tan(al) * (1 - i / 60) * k:.1f}" for i in range(61)), "ink", 1.4, dash="5 4")
 ang = atan(tan(al) * k)   # direction of the drawn path at O
 f.arrow(ox, oy, ox + 62 * cos(ang), oy - 62 * sin(ang), "ink", 1.4, 7)
-f.text(ox + 38 * cos(ang), oy - 38 * sin(ang) - 9, "V", italic=True)
-f.arc(ox, oy, 26, 0, degrees(ang), "ink", 1).text(ox + 32, oy - 8, "α", "start", italic=True)
+f.text(ox + 38 * cos(ang), oy - 38 * sin(ang) - 11, "V", italic=True)
+f.arc(ox, oy, 26, 0, degrees(ang), "ink", 1).text(ox + 36, oy - 8, "α", "start", italic=True)
 f.line(ox, oy + 16, ox, oy + 26, "ink", 1).line(ox + R, oy + 16, ox + R, oy + 26, "ink", 1)
 f.dim(ox, oy + 21, ox + R, oy + 21, "ink").text(ox + R / 2, oy + 36, "R", italic=True)
 save("pp_sgs22", f)
@@ -464,14 +483,14 @@ for T, c in ((T1, "violet"), (T2, "rose")):
     a = atan(T)
     f.arrow(ox, oy, ox + 46 * cos(a), oy - 46 * sin(a), "ink", 1.4, 7)
     if T > 1:
-        f.text(ox + 46 * cos(a) + 5, oy - 46 * sin(a) + 8, "V", "start", italic=True)
+        f.text(ox + 46 * cos(a) + 6, oy - 46 * sin(a) + 8, "V", "start", italic=True)
     else:
-        f.text(ox + 46 * cos(a) + 3, oy - 46 * sin(a) - 7, "V", "start", italic=True)
-f.arc(ox, oy, 14, degrees(atan(T2)), degrees(atan(T1)), "ink", 1).text(ox + 6, oy - 20, "θ₁", "start", size=11, italic=True)
-f.arc(ox, oy, 22, 0, degrees(atan(T2)), "ink", 1).text(ox + 26, oy - 4, "θ₂", "start", size=11, italic=True)
+        f.text(ox + 46 * cos(a) + 3, oy - 46 * sin(a) - 8, "V", "start", italic=True)
+f.arc(ox, oy, 18, degrees(atan(T2)), degrees(atan(T1)), "ink", 1).text(ox + 14, oy - 25, "θ₁", "start", size=11, italic=True)
+f.arc(ox, oy, 22, 0, degrees(atan(T2)), "ink", 1).text(ox + 31, oy - 7, "θ₂", "start", size=11, italic=True)
 xa = 4 / (T1 + T2)
 yb = xa * T2 - xa * xa * (1 + T2 * T2) / 4
-f.dot(ox + s * xa, oy - s * yb, 3.5).text(ox + s * xa + 6, oy - s * yb - 8, "(a, b)", "start", size=11)
+f.dot(ox + s * xa, oy - s * yb, 3.5).text(ox + s * xa + 9, oy - s * yb - 10, "(a, b)", "start", size=11)
 save("pp_bhhs23b", f)
 
 
