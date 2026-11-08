@@ -309,7 +309,25 @@ present(WE[0], r"area \(\tfrac12\times4\times4=8\)", "WE1 triangle OAB")
 present(WE[0], r"area \(\tfrac12\times2\times2=2\)", "WE1 triangle BMC")
 present(WE[0], r"\(2-8=-6\)", "WE1 c")
 present(WE[1], r"\(\displaystyle\int_{-2}^{2}(x^3-4x)\,dx=0\), because the integrand is odd.", "WE2 a")
-present(WE[1], r"(Check: \((-x)^3-4(-x)=-x^3+4x=-(x^3-4x)\).)", "WE2 check")
+present(WE[1], r"Check that the integrand is odd: \((-x)^3-4(-x)=-x^3+4x=-(x^3-4x)\)", "WE2 tip: odd check")
+present(WE[1], r"Check that the integrand is even: \((-x)^2+1=x^2+1\)", "WE2 tip: even check")
+report(eq((-x) ** 3 - 4 * (-x), -(x ** 3 - 4 * x)) and eq((-x) ** 2 + 1, x ** 2 + 1), "WE2 tip: odd and even checks (sympy)")
+# the 'Steps the book skips' tips: their arithmetic chains are checked by numeric_chains above; here each is
+# also tied to its example's value
+for wi, txt, v_ in ((0, r"\big(\tfrac12\times4^2-4\times4\big)-\big(\tfrac12\times0^2-4\times0\big)=(8-16)-(0-0)=-8", -8),
+                    (0, r"\big(\tfrac12\times6^2-4\times6\big)-\big(\tfrac12\times4^2-4\times4\big)=(18-24)-(8-16)=2", 2),
+                    (0, r"\big(\tfrac12\times6^2-4\times6\big)-\big(\tfrac12\times0^2-4\times0\big)=(18-24)-(0-0)=-6", -6),
+                    (1, r"\big(\tfrac14\times2^4-2\times2^2\big)-\big(\tfrac14\times(-2)^4-2\times(-2)^2\big)=(4-8)-(4-8)=0", 0),
+                    (1, r"2\Big(\big(\tfrac13\times2^3+2\big)-\big(\tfrac13\times0^3+0\big)\Big)=2\Big(\big(2\tfrac23+2\big)-(0+0)\Big)", sp.Rational(28, 3)),
+                    (1, r"2\Big(\big(2\tfrac23+2\big)-(0+0)\Big)=2\times4\tfrac23=9\tfrac13", sp.Rational(28, 3)),
+                    (2, r"\Big(\dfrac{4^2}{2}-4\Big)-\Big(\dfrac{2^2}{2}-2\Big)=(8-4)-(2-2)=4", 4),
+                    (2, r"\Big(\dfrac{2^2}{2}-2\Big)-\Big(\dfrac{4^2}{2}-4\Big)=(2-2)-(8-4)=-4", -4),
+                    (3, r"\tfrac13+\tfrac12+1=\tfrac26+\tfrac36+\tfrac66=1\tfrac56", sp.Rational(11, 6)),
+                    (4, r"\dfrac{10\times3^4}{4}-\dfrac{10\times1^4}{4}=\dfrac{810}{4}-\dfrac{10}{4}=200", 200),
+                    (4, r"10\times\dfrac{80}{4}=10\times20=200", 200)):
+    tip = WE[wi].split('<div class="box tip"')[1] if '<div class="box tip"' in WE[wi] else ""
+    present(tip, txt, f"WE{wi + 1} tip line")
+    check_chain(split_top(txt, "="), f"WE{wi + 1} tip line", lhs_value=v_)
 report(sp.expand((-x) ** 3 - 4 * (-x) + (x ** 3 - 4 * x)) == 0, "x^3 - 4x is odd")
 present(WE[5], r"<b>b</b> Clearly \(0\le4-x^2\le4\) over the interval \(-2\le x\le2\).<br>", "WE6 b (book line)")
 present(WE[5], '<div class="bt">The steps behind Worked example 6</div>', "WE6 tip after the example")

@@ -369,6 +369,42 @@ for qs, html, keys, where in ((QW15, CON[3]["worked"], ("we15a", "we15b", "we15c
         except LookupError as err:
             report(False, f"{where} {key}", f"ERROR {err}")
 
+# the 'Steps the book skips' tip after WE15 (the pack's added lines): primitives, substitutions, derivative
+for (a, f), key in zip(QW15, ("t15a", "t15b", "t15c")):
+    try:
+        b = block(CON[3]["worked"], key)
+    except LookupError as err:
+        report(False, f"WE15 tip {key}", f"ERROR {err}")
+        continue
+    I = sp.integrate(f, (t, a, x))
+    F = sp.integrate(f, t)
+    used = 0
+    for p_, q_ in re.findall(r"primitive of \\\((.+?)\\\) is \\\((.+?)\\\)", b):
+        for mem in split_top(q_):
+            used += 1
+            report(eq(sp.diff(T(mem), t), T(p_)) and eq(T(p_), f), f"WE15 tip {key} primitive member {mem[:40]}", f"of {p_}")
+    for w, q_ in re.findall(r"Write \\\((.+?)\\\)\. Its primitive is \\\((.+?)\\\)", b):
+        w1, w2 = split_top(w)
+        report(eq(T(w1), T(w2)) and eq(T(w1), f), f"WE15 tip {key} rewrite {w}")
+        for mem in split_top(q_):
+            used += 1
+            report(eq(sp.diff(T(mem), t), T(w2)), f"WE15 tip {key} primitive member {mem[:40]}", f"of {w2}")
+    for m in maths(b):
+        mems = split_top(m)
+        if len(mems) < 2 or "t" in m.replace("\\times", "").replace("\\tfrac", "").replace("\\dfrac", "").replace("\\frac", "").replace("\\text", ""):
+            continue
+        if m.lstrip().startswith("\\dfrac{d}{dx}"):
+            target = f.subs(t, x)
+        elif "x" in m.replace("\\times", ""):
+            target = I
+        else:
+            target = F.subs(t, a)             # the value of the primitive at the lower limit, F(a)
+        for mem in mems:
+            mem = mem.replace("\\dfrac{d}{dx}", "\\frac{d}{dx}").strip().rstrip(".")
+            used += 1
+            report(eq(ev(mem), target), f"WE15 tip {key} member {mem[:45]}", f"expected {target}")
+    report(used >= 4, f"WE15 tip {key}: members checked", str(used))
+
 # ---------------------------------------------------------------- Concept 4 and Ex 10: continuity
 INF = sp.oo
 

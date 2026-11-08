@@ -169,18 +169,22 @@ Use the integral form of the fundamental theorem to evaluate each integral. Then
 Use the integral form of the fundamental theorem to evaluate each integral. Then differentiate your result, thus confirming the consistency of the discussion above.
 <div class="parts" style="grid-template-columns:1fr 1.5fr 1fr"><span><span class="pl">a</span>\(\displaystyle\frac{d}{dx}\int_1^x6t^2\,dt\)</span><span><span class="pl">b</span>\(\displaystyle\frac{d}{dx}\int_{-2}^x(t^3-9t^2+5)\,dt\)</span><span><span class="pl">c</span>\(\displaystyle\frac{d}{dx}\int_4^x\frac{1}{t^2}\,dt\)</span></div>
 <div class="sol-label">Solution</div>
-<div data-c="we15a"><p><b>a</b> The primitive of \(6t^2\) is \(\dfrac{6t^3}{3}=2t^3\).</p>
+<div data-c="we15a"><p><b>a</b></p>
 <div class="split" style="grid-template-columns:1fr 1.25fr;gap:3mm"><div>
-\[\begin{aligned}\int_1^x6t^2\,dt&amp;=\Big[2t^3\Big]_1^x\\&amp;=2x^3-2\times1^3\\&amp;=2x^3-2,\end{aligned}\]</div><div>
-\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_1^x6t^2\,dt&amp;=\frac{d}{dx}\big(2x^3-2\big)\\&amp;=6x^2,\end{aligned}\]<p style=\"margin:0 0 0 18mm\">consistent with the differential form.</p></div></div></div>
-<div data-c="we15b"><p><b>b</b> The primitive of \(t^3-9t^2+5\) is \(\dfrac{t^4}{4}-\dfrac{9t^3}{3}+5t=\tfrac14t^4-3t^3+5t\).</p>
-\[\begin{aligned}\int_{-2}^x(t^3-9t^2+5)\,dt&amp;=\Big[\tfrac14t^4-3t^3+5t\Big]_{-2}^x\\&amp;=\big(\tfrac14x^4-3x^3+5x\big)-\big(\tfrac14(-2)^4-3(-2)^3+5(-2)\big)\\&amp;=\big(\tfrac14x^4-3x^3+5x\big)-\big(\tfrac14\times16-3\times(-8)-10\big)\\&amp;=\big(\tfrac14x^4-3x^3+5x\big)-(4+24-10)\\&amp;=\tfrac14x^4-3x^3+5x-18,\end{aligned}\]
+\[\begin{aligned}\int_1^x6t^2\,dt&amp;=\Big[2t^3\Big]_1^x\\&amp;=2x^3-2,\end{aligned}\]</div><div>
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_1^x6t^2\,dt&amp;=\frac{d}{dx}\big(2x^3-2\big)\\&amp;=6x^2,\end{aligned}\]<p style="margin:0 0 0 18mm">consistent with the differential form.</p></div></div></div>
+<div data-c="we15b"><p><b>b</b></p>
+\[\begin{aligned}\int_{-2}^x(t^3-9t^2+5)\,dt&amp;=\Big[\tfrac14t^4-3t^3+5t\Big]_{-2}^x\\&amp;=\big(\tfrac14x^4-3x^3+5x\big)-(4+24-10)\\&amp;=\tfrac14x^4-3x^3+5x-18,\end{aligned}\]
 \[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_{-2}^x(t^3-9t^2+5)\,dt&amp;=\frac{d}{dx}\big(\tfrac14x^4-3x^3+5x-18\big)\\&amp;=x^3-9x^2+5,\\&amp;\qquad\text{consistent with the differential form.}\end{aligned}\]</div>
-<div data-c="we15c"><p><b>c</b> Write \(\dfrac{1}{t^2}=t^{-2}\). Its primitive is \(\dfrac{t^{-1}}{-1}=-t^{-1}\).</p>
+<div data-c="we15c"><p><b>c</b></p>
 <div class="split" style="grid-template-columns:1fr 1.25fr;gap:3mm"><div>
-\[\begin{aligned}\int_4^x\frac{1}{t^2}\,dt&amp;=\int_4^x t^{-2}\,dt\\&amp;=\Big[-t^{-1}\Big]_4^x\\&amp;=-x^{-1}-\big(-4^{-1}\big)\\&amp;=-x^{-1}+\tfrac14,\end{aligned}\]</div><div>
-\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_4^x\frac{1}{t^2}\,dt&amp;=\frac{d}{dx}\big(-x^{-1}+\tfrac14\big)\\&amp;=-(-1)x^{-2}\\&amp;=x^{-2},\end{aligned}\]<p style=\"margin:0 0 0 18mm\">consistent with the differential form.</p></div></div></div>
+\[\begin{aligned}\int_4^x\frac{1}{t^2}\,dt&amp;=\int_4^x t^{-2}\,dt\\&amp;=\Big[-t^{-1}\Big]_4^x\\&amp;=-x^{-1}+\tfrac14,\end{aligned}\]</div><div>
+\[\begin{aligned}\text{so}\quad\frac{d}{dx}\int_4^x\frac{1}{t^2}\,dt&amp;=\frac{d}{dx}\big(-x^{-1}+\tfrac14\big)\\&amp;=x^{-2},\end{aligned}\]<p style="margin:0 0 0 18mm">consistent with the differential form.</p></div></div></div>
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 15</div>
+<ul style="margin:0"><li data-c="t15a"><b>a</b> The primitive of \(6t^2\) is \(\dfrac{6t^3}{3}=2t^3\). Substitute \(x\), then 1: \(2x^3-2\times1^3=2x^3-2\).</li>
+<li data-c="t15b"><b>b</b> The primitive of \(t^3-9t^2+5\) is \(\dfrac{t^4}{4}-\dfrac{9t^3}{3}+5t=\tfrac14t^4-3t^3+5t\). Substituting \(-2\) gives \(\tfrac14(-2)^4-3(-2)^3+5(-2)=\tfrac14\times16-3\times(-8)-10=4+24-10\).</li>
+<li data-c="t15c"><b>c</b> Write \(\dfrac{1}{t^2}=t^{-2}\). Its primitive is \(\dfrac{t^{-1}}{-1}=-t^{-1}\). Substitute \(x\), then 4: \(-x^{-1}-\big(-4^{-1}\big)=-x^{-1}+\tfrac14\). Then \(\dfrac{d}{dx}\big(-x^{-1}+\tfrac14\big)=-(-1)x^{-2}=x^{-2}\).</li></ul></div>
 <div class="box tip"><div class="bt">Reading Example 15</div>
 <p>In each part the final answer is the integrand with \(t\) replaced by \(x\) (in part <b>c</b>, \(x^{-2}=\dfrac{1}{x^2}\)), just as the differential form says. The constant \(-F(a)\) disappears when we differentiate.</p></div>
 
@@ -208,7 +212,8 @@ Classify these functions as continuous or not continuous according to the defini
 Classify these functions as continuous or not continuous according to the definition above.
 <div class="parts" style="grid-template-columns:1fr 1fr;row-gap:2mm"><span><span class="pl">a</span>\(y=3-x\)</span><span><span class="pl">b</span>\(y=\dfrac{1}{x^2}\)</span><span><span class="pl">c</span>\(y=\begin{cases}\dfrac{1}{x^2}, &amp; \text{for }x\ne0,\\0, &amp; \text{for }x=0.\end{cases}\)</span><span><span class="pl">d</span>\(y=\dfrac{1}{\sqrt{x+1}}\)</span></div>
 {{work:55}}</div></div>
-<p class="small">The textbook has no worked example for this part. Exercise 5D Question 10 practises it.</p>
+<div class="box tip"><div class="bt">Practice for this part</div>
+<p>The textbook has no worked example for this part. Exercise 5D Question 10 practises it.</p></div>
 
 <!-- ============ Homework ============ -->
 <div class="page-break"></div>

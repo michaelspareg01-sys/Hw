@@ -162,6 +162,7 @@ def chains(text):
         m = re.sub(r"\\begin\{aligned\}(\[t\])?|\\end\{aligned\}", "", m)
         for row in m.split("\\\\"):
             row = row.replace("&amp;", "").replace("&", "").strip()
+            row = re.sub(r",?\\q?quad\\text\{.*$", "", row).strip()      # trailing words such as 'where C is a constant'
             if not row or "=" not in row:
                 continue
             if re.search(r"\\(lt|gt|ne|le|ge|text)\b", row):
@@ -358,7 +359,10 @@ def check_item(key, text, sp_):
                     ok(False, lab, "a primitive without its constant")
     # completeness and the textbook's answer
     if kind == "prim" and at is None:
-        if conds:
+        if conds and sp_.get("value_tb") is not None:          # the book prints only a value, such as f(4)
+            vals = [e for lhs, role, anchor, mem in rows if isinstance(role, tuple) and role[0] == "V" for t_, e in mem]
+            ok(bool(vals) and eq(vals[-1], P(sp_["value_tb"])), f"{key}: final value = textbook answer {sp_['value_tb']}")
+        elif conds:
             if not ok(bool(finals_f), f"{key}: final particular solution printed") or "tb" not in sp_:
                 return
             tb = P(sp_["tb"])
@@ -414,12 +418,23 @@ LESSON = {
     "e26b": prim(5 * x ** 3 + 7, tb=r"\tfrac54x^4+7x+C"),
     "e27a": prim(1 / x ** 2, tb=r"-\dfrac1x+C"),
     "e27b": prim(sp.sqrt(x), tb=r"\tfrac23x^{\frac32}+C"),
-    "e28a": prim((3 * x + 1) ** 4, tb=r"\dfrac{(3x+1)^5}{15}+C", params={"a": 3, "n": 4}),
-    "e28b": prim((1 - 3 * x) ** 6, tb=r"-\dfrac{(1-3x)^7}{21}+C", params={"a": -3, "n": 6}),
-    "e28c": prim(1 / (x + 1) ** 2, tb=r"-\dfrac{1}{x+1}+C", params={"a": 1, "n": -2}),
-    "e28d": prim(sp.sqrt(x + 1), tb=r"\tfrac23(x+1)^{\frac32}+C", params={"a": 1, "n": R(1, 2)}),
+    "e28a": prim((3 * x + 1) ** 4, tb=r"\dfrac{(3x+1)^5}{15}+C"),
+    "e28b": prim((1 - 3 * x) ** 6, tb=r"-\dfrac{(1-3x)^7}{21}+C"),
+    "e28c": prim(1 / (x + 1) ** 2, tb=r"-\dfrac{1}{x+1}+C"),
+    "e28d": prim(sp.sqrt(x + 1), tb=r"\tfrac23(x+1)^{\frac32}+C"),
     "e29": prim(6 * x ** 2 + 1, tb=r"2x^3+x-6", conds=[("y", 2, 12)]),
-    "e30": prim(12 * (x - 1) ** 2, order=2, conds=[("y", 0, 0), ("y", 1, 0)]),
+    "e30": prim(12 * (x - 1) ** 2, order=2, conds=[("y", 0, 0), ("y", 1, 0)], value_tb="84"),
+    # the 'Steps the book skips' tips after Worked examples 26-30 (the pack's added lines)
+    "t26a": prim(x ** 3 + x ** 2 + x + 1, tb=r"\tfrac14x^4+\tfrac13x^3+\tfrac12x^2+x+C"),
+    "t26b": prim(5 * x ** 3 + 7, tb=r"\tfrac54x^4+7x+C"),
+    "t27a": prim(1 / x ** 2, tb=r"-\dfrac1x+C"),
+    "t27b": prim(sp.sqrt(x), tb=r"\tfrac23x^{\frac32}+C"),
+    "t28a": prim((3 * x + 1) ** 4, tb=r"\dfrac{(3x+1)^5}{15}+C", params={"a": 3, "n": 4}),
+    "t28b": prim((1 - 3 * x) ** 6, tb=r"-\dfrac{(1-3x)^7}{21}+C", params={"a": -3, "n": 6}),
+    "t28c": prim(1 / (x + 1) ** 2, tb=r"-\dfrac{1}{x+1}+C", params={"a": 1, "n": -2}),
+    "t28d": prim(sp.sqrt(x + 1), tb=r"\tfrac23(x+1)^{\frac32}+C", params={"a": 1, "n": R(1, 2)}),
+    "t29": prim(6 * x ** 2 + 1, consts={C: -6}),
+    "t30": prim(12 * (x - 1) ** 2, order=2, conds=[("y", 0, 0), ("y", 1, 0)], tb="(x-1)^4+x-1"),
 }
 # the data-q questions of l4j.html (worked examples, tutor demos, your turns, Exercise 4J)
 QUESTIONS = {

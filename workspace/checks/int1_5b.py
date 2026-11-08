@@ -144,6 +144,7 @@ def check_chain(block, marker, where, a, b, f, minimum=2, first=False):
         return val
     used = 0
     for r in rows:
+        r = re.sub(r"\\qquad\\text\{\(.*$", "", r)           # a trailing annotation '(...)' (may hold maths)
         r = re.sub(r"\\qquad\\text\{.*?\}", "", r)
         r = re.sub(r"\\text\{[^}]*\}", "", r)
         r = r.replace("&", "")
@@ -275,7 +276,7 @@ report(eq(R(1 + 7, 2) * 3, sp.integrate(2 * x - 3, (x, 2, 5))) and (2 * 2 - 3, 2
 report(eq(R(1 + 5, 2) * 2, sp.integrate(2 * x - 5, (x, 3, 5))) and (2 * 3 - 5, 2 * 5 - 5) == (1, 5), "C1 yt b trapezium sides 1, 5")
 
 # WE3b expansion line printed in the lesson
-present(CON[3]["worked"], r"\((x-4)(x-6)=x^2-6x-4x+24\)<br>\(\phantom{(x-4)(x-6)}=x^2-10x+24\)", "WE3b expansion")
+present(CON[3]["worked"], r"\((x-4)(x-6)=x^2-6x-4x+24=x^2-10x+24\)", "WE3b expansion (tip)")
 report(eq(sp.expand((x - 4) * (x - 6)), x**2 - 6 * x - 4 * x + 24) and eq(x**2 - 6 * x - 4 * x + 24, x**2 - 10 * x + 24), "WE3b expansion values")
 present(CON[3]["worked"], r"\(x(x+1)=x^2+x\)", "WE3a expansion")
 report(eq(sp.expand(x * (x + 1)), x**2 + x), "WE3a expansion value")
@@ -335,6 +336,38 @@ for c in range(1, 6):
                 found = True
                 break
         report(found, f"WE{c}{lab} working chain found")
+# 'Steps the book skips' tips after the worked examples: every member of each printed chain = the value
+def tipchk(c, txt, val, label):
+    tip = CON[c]["worked"].split('<div class="box tip"')[1] if '<div class="box tip"' in CON[c]["worked"] else ""
+    present(tip, txt, f"WE{c} tip {label}")
+    mem = [m_.replace("\\Big", "").replace("\\big", "") for m_ in split_top(txt, "=")]
+    try:
+        report(all(eq(T(m_), val) for m_ in mem), f"WE{c} tip {label}: every member = {val}", txt[:80])
+    except Exception as err:
+        report(False, f"WE{c} tip {label}", f"ERROR {err}")
+
+
+for c, txt, val, lab in (
+        (1, r"2^2-0^2=4-0=4", 4, "a"), (1, r"2-0=2", 2, "a base"), (1, r"2\times2=4", 4, "a height"),
+        (1, r"\big(4^2-3\times4\big)-\big(2^2-3\times2\big)=(16-12)-(4-6)=6", 6, "b"),
+        (1, r"4-2=2", 2, "b width"), (1, r"2\times2-3=1", 1, "b side"), (1, r"2\times4-3=5", 5, "b side"),
+        (1, r"\dfrac{1+5}{2}\times2=3\times2=6", 6, "b area"),
+        (2, r"\tfrac53\times1^3-\tfrac53\times0^3=\tfrac53-0=\tfrac53", R(5, 3), "a"),
+        (2, r"\big(25\times4-\tfrac13\times4^3\big)-\big(25\times0-\tfrac13\times0^3\big)=\big(100-\tfrac13\times64\big)-(0-0)", R(236, 3), "b"),
+        (2, r"100-\tfrac{64}{3}=\tfrac{300}{3}-\tfrac{64}{3}=\tfrac{236}{3}=78\tfrac23", R(236, 3), "b arithmetic"),
+        (3, r"\dfrac{216}{3}+\dfrac{36}{2}=72+18", 90, "a value at 6"),
+        (3, r"\dfrac13+\dfrac12=\dfrac26+\dfrac36=\dfrac56", R(5, 6), "a value at 1"),
+        (3, r"\Big(\dfrac{216}{3}+\dfrac{36}{2}\Big)-\Big(\dfrac13+\dfrac12\Big)=(72+18)-\Big(\dfrac26+\dfrac36\Big)=90-\tfrac56=89\tfrac16", R(535, 6), "a"),
+        (3, r"\dfrac{27}{3}-5\times9+24\times3=9-45+72", 36, "b value at 3"),
+        (4, r"\big(-2-(-2)^2\big)-\big(-3-(-3)^2\big)=(-2-4)-(-3-9)=6", 6, "b"),
+        (5, r"-\dfrac15-\Big(-\dfrac11\Big)=-\dfrac15-(-1)=\dfrac45", R(4, 5), "a"),
+        (5, r"-\dfrac{1}{3\times8}-\Big(-\dfrac{1}{3\times1}\Big)=-\dfrac{1}{24}-\Big(-\dfrac13\Big)=-\dfrac{1}{24}+\dfrac{8}{24}=\dfrac{7}{24}", R(7, 24), "b")):
+    tipchk(c, txt, val, lab)
+present(CON[1]["worked"], r"\(\dfrac{d}{dx}x^2=2x\)", "WE1 tip derivative")
+for c, txt, l_, r_ in ((4, r"\dfrac{3x^4}{x^2}=3x^2", 3 * x**4 / x**2, 3 * x**2), (4, r"\dfrac{2x^2}{x^2}=2", 2 * x**2 / x**2, 2),
+                       (4, r"\dfrac{x^3}{x^3}=1", x**3 / x**3, 1), (4, r"\dfrac{2x^4}{x^3}=2x", 2 * x**4 / x**3, 2 * x)):
+    present(CON[c]["worked"], txt, f"WE{c} tip split")
+    report(eq(l_, r_), f"WE{c} tip split {txt[:30]}")
 # WE1 area checks
 w1 = CON[1]["worked"]
 for marker, val in ((r"\text{area of triangle}", 4), (r"\text{area of trapezium}", 6)):
@@ -361,6 +394,11 @@ Fw = x**-3 / -3
 report(all(eq(T(m), Fw.subs(x, 1) - Fw.subs(x, -1)) for m in mem) and eq(Fw.subs(x, 1) - Fw.subs(x, -1), R(-2, 3)),
        "C5 warning: the (invalid) bracket arithmetic gives -2/3", str(mem))
 report(list(sp.singularities(x**-4, x)) == [0], "C5 warning: x^-4 has its asymptote at 0")
+(g,) = grab(c5, r"gives \(@\).</p></div>", "C5 warning tip")
+mem = [m_.replace("\\Big", "") for m_ in split_top(g, "=")]
+report(all(eq(T(m_), R(-2, 3)) for m_ in mem), "C5 warning tip: every member = -2/3", g[:80])
+c6 = teach.split("<!-- ============ Concept 6 ============ -->")[1]
+present(c6, r"\(\text{length}\times\text{height}=\pi r\times r=\pi r^2\)", "C6 tip rectangle area")
 present(c5, r"\frac{x^{-3}}{-3}=-\frac{1}{3x^3}", "C5 conversion")
 report(eq(x**-3 / -3, -1 / (3 * x**3)), "C5 conversion value")
 

@@ -35,13 +35,18 @@ Evaluate these definite integrals.
 <div class="parts three"><span><span class="pl">a</span>\(\displaystyle\int_0^4(x-4)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_4^6(x-4)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_0^6(x-4)\,dx\)</span></div>
 Sketch the graph of \(y=x-4\) and shade the regions associated with these integrals. Then explain how each result is related to the shaded regions.
 <div class="sol-label">Solution</div>
-\[\begin{aligned}\textbf{a}\quad\int_0^4(x-4)\,dx&amp;=\Big[\tfrac12x^2-4x\Big]_0^4\\&amp;=\big(\tfrac12\times4^2-4\times4\big)-\big(\tfrac12\times0^2-4\times0\big)\\&amp;=(8-16)-(0-0)\\&amp;=-8\end{aligned}\]
-\[\begin{aligned}\textbf{b}\quad\int_4^6(x-4)\,dx&amp;=\Big[\tfrac12x^2-4x\Big]_4^6\\&amp;=\big(\tfrac12\times6^2-4\times6\big)-\big(\tfrac12\times4^2-4\times4\big)\\&amp;=(18-24)-(8-16)\\&amp;=-6-(-8)\\&amp;=2\end{aligned}\]
-\[\begin{aligned}\textbf{c}\quad\int_0^6(x-4)\,dx&amp;=\Big[\tfrac12x^2-4x\Big]_0^6\\&amp;=\big(\tfrac12\times6^2-4\times6\big)-\big(\tfrac12\times0^2-4\times0\big)\\&amp;=(18-24)-(0-0)\\&amp;=-6\end{aligned}\]
+\[\begin{aligned}\textbf{a}\quad\int_0^4(x-4)\,dx&amp;=\Big[\tfrac12x^2-4x\Big]_0^4\\&amp;=(8-16)-(0-0)\\&amp;=-8\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\int_4^6(x-4)\,dx&amp;=\Big[\tfrac12x^2-4x\Big]_4^6\\&amp;=(18-24)-(8-16)\\&amp;=-6-(-8)\\&amp;=2\end{aligned}\]
+\[\begin{aligned}\textbf{c}\quad\int_0^6(x-4)\,dx&amp;=\Big[\tfrac12x^2-4x\Big]_0^6\\&amp;=(18-24)-(0-0)\\&amp;=-6\end{aligned}\]
 <div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
-<p>Triangle \(OAB\) is below the \(x\)-axis and has area \(\tfrac12\times4\times4=8\), and triangle \(BMC\) is above the \(x\)-axis and has area \(\tfrac12\times2\times2=2\), so the answers \(-8\) in part <b>a</b> and \(+2\) in part <b>b</b> are expected. This integral in part <b>c</b> represents the area of \(\triangle BMC\) minus the area of \(\triangle OAB\), so the value of the integral is \(2-8=-6\) is expected.</p>
+<p>Triangle \(OAB\) is below the \(x\)-axis and has area 8, and triangle \(BMC\) is above the \(x\)-axis, and has area 2, so the answers \(-8\) in part <b>a</b> and \(+2\) in part <b>b</b> are expected. This integral in part <b>c</b> represents the area of \(\triangle BMC\) minus the area of \(\triangle OAB\), so the value of the integral is \(2-8=-6\) is expected.</p>
 </div><div>{{svg:c5c_e7}}</div></div>
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 1</div>
+<ul style="margin:0"><li><b>a</b> \(\big(\tfrac12\times4^2-4\times4\big)-\big(\tfrac12\times0^2-4\times0\big)=(8-16)-(0-0)=-8\)</li>
+<li><b>b</b> \(\big(\tfrac12\times6^2-4\times6\big)-\big(\tfrac12\times4^2-4\times4\big)=(18-24)-(8-16)=2\)</li>
+<li><b>c</b> \(\big(\tfrac12\times6^2-4\times6\big)-\big(\tfrac12\times0^2-4\times0\big)=(18-24)-(0-0)=-6\)</li>
+<li>The areas: triangle \(OAB\) has area \(\tfrac12\times4\times4=8\), and triangle \(BMC\) has area \(\tfrac12\times2\times2=2\).</li></ul></div>
 
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:odd and even functions}}
@@ -74,16 +79,18 @@ Sketch these integrals, then evaluate them using symmetry.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_{-2}^{2}(x^3-4x)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-2}^{2}(x^2+1)\,dx\)</span></div>
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:2fr 1fr"><div>
-<p><b>a</b> \(\displaystyle\int_{-2}^{2}(x^3-4x)\,dx=0\), because the integrand is odd.<br>
-(Check: \((-x)^3-4(-x)=-x^3+4x=-(x^3-4x)\).)</p>
+<p><b>a</b> \(\displaystyle\int_{-2}^{2}(x^3-4x)\,dx=0\), because the integrand is odd.</p>
 <p>Without this simplification, the calculation is:</p>
 </div><div>{{svg:c5c_odd}}</div></div>
-\[\begin{aligned}\int_{-2}^{2}(x^3-4x)\,dx&amp;=\Big[\tfrac14x^4-2x^2\Big]_{-2}^{2}\\&amp;=\big(\tfrac14\times2^4-2\times2^2\big)-\big(\tfrac14\times(-2)^4-2\times(-2)^2\big)\\&amp;=(4-8)-(4-8)\\&amp;=0,\ \text{as before.}\end{aligned}\]
+\[\begin{aligned}\int_{-2}^{2}(x^3-4x)\,dx&amp;=\Big[\tfrac14x^4-2x^2\Big]_{-2}^{2}\\&amp;=(4-8)-(4-8)\\&amp;=0,\ \text{as before.}\end{aligned}\]
 <div class="split" style="grid-template-columns:2fr 1fr"><div>
-<p><b>b</b> Because the integrand is even (\((-x)^2+1=x^2+1\)),</p>
-\[\begin{aligned}\int_{-2}^{2}(x^2+1)\,dx&amp;=2\int_0^2(x^2+1)\,dx\\&amp;=2\Big[\tfrac13x^3+x\Big]_0^2\\&amp;=2\Big(\big(\tfrac13\times2^3+2\big)-\big(\tfrac13\times0^3+0\big)\Big)\\&amp;=2\Big(\big(2\tfrac23+2\big)-(0+0)\Big)\\&amp;=2\times4\tfrac23\\&amp;=9\tfrac13.\end{aligned}\]
+<p><b>b</b> Because the integrand is even,</p>
+\[\begin{aligned}\int_{-2}^{2}(x^2+1)\,dx&amp;=2\int_0^2(x^2+1)\,dx\\&amp;=2\Big[\tfrac13x^3+x\Big]_0^2\\&amp;=2\Big(\big(2\tfrac23+2\big)-(0+0)\Big)\\&amp;=9\tfrac13.\end{aligned}\]
 </div><div>{{svg:c5c_even}}</div></div>
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 2</div>
+<ul style="margin:0"><li><b>a</b> Check that the integrand is odd: \((-x)^3-4(-x)=-x^3+4x=-(x^3-4x)\). Without symmetry, substitute 2, then \(-2\): \(\big(\tfrac14\times2^4-2\times2^2\big)-\big(\tfrac14\times(-2)^4-2\times(-2)^2\big)=(4-8)-(4-8)=0\).</li>
+<li><b>b</b> Check that the integrand is even: \((-x)^2+1=x^2+1\). Then \(2\Big(\big(\tfrac13\times2^3+2\big)-\big(\tfrac13\times0^3+0\big)\Big)=2\Big(\big(2\tfrac23+2\big)-(0+0)\Big)\), and \(2\Big(\big(2\tfrac23+2\big)-(0+0)\Big)=2\times4\tfrac23=9\tfrac13\).</li></ul></div>
 
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:dissecting the interval, zero width, running backwards}}
@@ -123,12 +130,15 @@ Evaluate and compare these two definite integrals using the fundamental theorem.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_2^4(x-1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_4^2(x-1)\,dx\)</span></div>
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:2fr 1fr"><div>
-\[\begin{aligned}\textbf{a}\quad\int_2^4(x-1)\,dx&amp;=\Big[\frac{x^2}{2}-x\Big]_2^4\\&amp;=\Big(\frac{4^2}{2}-4\Big)-\Big(\frac{2^2}{2}-2\Big)\\&amp;=(8-4)-(2-2)\\&amp;=4,\end{aligned}\]
+\[\begin{aligned}\textbf{a}\quad\int_2^4(x-1)\,dx&amp;=\Big[\frac{x^2}{2}-x\Big]_2^4\\&amp;=(8-4)-(2-2)\\&amp;=4,\end{aligned}\]
 <p>which is positive, because the region is above the \(x\)-axis.</p>
-\[\begin{aligned}\textbf{b}\quad\int_4^2(x-1)\,dx&amp;=\Big[\frac{x^2}{2}-x\Big]_4^2\\&amp;=\Big(\frac{2^2}{2}-2\Big)-\Big(\frac{4^2}{2}-4\Big)\\&amp;=(2-2)-(8-4)\\&amp;=-4,\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\int_4^2(x-1)\,dx&amp;=\Big[\frac{x^2}{2}-x\Big]_4^2\\&amp;=(2-2)-(8-4)\\&amp;=-4,\end{aligned}\]
 <p>which is the opposite of part <b>a</b>, because the integral runs backwards from right to left, from \(x=4\) to \(x=2\).</p>
 </div><div>{{svg:c5c_e9}}</div></div>
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 3</div>
+<ul style="margin:0"><li><b>a</b> Substitute 4, then 2: \(\Big(\dfrac{4^2}{2}-4\Big)-\Big(\dfrac{2^2}{2}-2\Big)=(8-4)-(2-2)=4\).</li>
+<li><b>b</b> Substitute 2, then 4: \(\Big(\dfrac{2^2}{2}-2\Big)-\Big(\dfrac{4^2}{2}-4\Big)=(2-2)-(8-4)=-4\).</li></ul></div>
 
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:sums and multiples of functions}}
@@ -158,19 +168,24 @@ Evaluate each pair of expressions and show that they are equal.
 Evaluate these two expressions and show that they are equal.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^1(x^2+x+1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^1x^2\,dx+\int_0^1x\,dx+\int_0^1 1\,dx\)</span></div>
 <div class="sol-label">Solution</div>
-\[\begin{aligned}\textbf{a}\quad\int_0^1(x^2+x+1)\,dx&amp;=\Big[\frac{x^3}{3}+\frac{x^2}{2}+x\Big]_0^1\\&amp;=\big(\tfrac13+\tfrac12+1\big)-(0+0+0)\\&amp;=\tfrac26+\tfrac36+\tfrac66\\&amp;=1\tfrac56.\end{aligned}\]
+\[\begin{aligned}\textbf{a}\quad\int_0^1(x^2+x+1)\,dx&amp;=\Big[\frac{x^3}{3}+\frac{x^2}{2}+x\Big]_0^1\\&amp;=\big(\tfrac13+\tfrac12+1\big)-(0+0+0)\\&amp;=1\tfrac56.\end{aligned}\]
 \[\begin{aligned}\textbf{b}\quad\int_0^1x^2\,dx+\int_0^1x\,dx+\int_0^1 1\,dx&amp;=\Big[\frac{x^3}{3}\Big]_0^1+\Big[\frac{x^2}{2}\Big]_0^1+\Big[x\Big]_0^1\\&amp;=\big(\tfrac13-0\big)+\big(\tfrac12-0\big)+(1-0)\\&amp;=1\tfrac56,\ \text{the same as in part }\textbf{a}.\end{aligned}\]
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 4</div>
+<p>Use the common denominator 6: \(\tfrac13+\tfrac12+1=\tfrac26+\tfrac36+\tfrac66=1\tfrac56\).</p></div>
 <div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
 Evaluate these two expressions and show that they are equal.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^3 10x^3\,dx\)</span><span><span class="pl">b</span>\(\displaystyle10\int_1^3x^3\,dx\)</span></div>
 <div class="sol-label">Solution</div>
 <div class="split"><div>
-\[\begin{aligned}\textbf{a}\quad\int_1^3 10x^3\,dx&amp;=\Big[\frac{10x^4}{4}\Big]_1^3\\&amp;=\frac{10\times3^4}{4}-\frac{10\times1^4}{4}\\&amp;=\frac{810}{4}-\frac{10}{4}\\&amp;=\frac{800}{4}\\&amp;=200\end{aligned}\]
+\[\begin{aligned}\textbf{a}\quad\int_1^3 10x^3\,dx&amp;=\Big[\frac{10x^4}{4}\Big]_1^3\\&amp;=\frac{810}{4}-\frac{10}{4}\\&amp;=\frac{800}{4}\\&amp;=200\end{aligned}\]
 </div><div>
-\[\begin{aligned}\textbf{b}\quad10\int_1^3x^3\,dx&amp;=10\times\Big[\frac{x^4}{4}\Big]_1^3\\&amp;=10\times\Big(\frac{81}{4}-\frac14\Big)\\&amp;=10\times\frac{80}{4}\\&amp;=10\times20\\&amp;=200\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad10\int_1^3x^3\,dx&amp;=10\times\Big[\frac{x^4}{4}\Big]_1^3\\&amp;=10\times\Big(\frac{81}{4}-\frac14\Big)\\&amp;=10\times\frac{80}{4}\\&amp;=200\end{aligned}\]
 </div></div>
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 5</div>
+<ul style="margin:0"><li><b>a</b> Substitute 3, then 1: \(\dfrac{10\times3^4}{4}-\dfrac{10\times1^4}{4}=\dfrac{810}{4}-\dfrac{10}{4}=200\).</li>
+<li><b>b</b> \(10\times\dfrac{80}{4}=10\times20=200\).</li></ul></div>
 
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:inequalities with definite integrals}}

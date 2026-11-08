@@ -45,19 +45,24 @@ Evaluate these definite integrals. Then draw diagrams to show the regions that t
 Evaluate these definite integrals. Then draw diagrams to show the regions that they represent, and check the answers using area formulae.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^2 2x\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_2^4(2x-3)\,dx\)</span></div>
 <div class="sol-label">Solution</div>
-<p><b>a</b> \(x^2\) is a primitive of \(2x\), because \(\dfrac{d}{dx}x^2=2x\).</p>
-\[\begin{aligned}\int_0^2 2x\,dx&amp;=\Big[x^2\Big]_0^2\\&amp;=2^2-0^2\qquad\text{(substitute 2, then substitute 0 and subtract)}\\&amp;=4-0\\&amp;=4.\end{aligned}\]
+<p><b>a</b></p>
+\[\begin{aligned}\int_0^2 2x\,dx&amp;=\Big[x^2\Big]_0^2\qquad\text{(}x^2\text{ is a primitive of }2x\text{)}\\&amp;=2^2-0^2\qquad\text{(substitute 2, then substitute 0 and subtract)}\\&amp;=4\end{aligned}\]
 <div class="split" style="grid-template-columns:minmax(0,1fr) 42mm;column-gap:4mm;break-inside:avoid"><div>
-<p>Using areas: the region is a triangle with base \(2-0=2\) and height \(2\times2=4\) (the value of \(2x\) at \(x=2\)).</p>
+<p>Using areas,</p>
 \[\begin{aligned}\text{area of triangle}&amp;=\tfrac12\times2\times4\\&amp;=4.\end{aligned}\]
 </div><div>{{svg:c5b_e2a}}</div></div>
-<p><b>b</b> Take the primitive of each term: \(x^2\) for \(2x\), and \(-3x\) for \(-3\).</p>
-\[\begin{aligned}\int_2^4(2x-3)\,dx&amp;=\Big[x^2-3x\Big]_2^4\\&amp;=\big(4^2-3\times4\big)-\big(2^2-3\times2\big)\qquad\text{(substitute 4, then 2)}\\&amp;=(16-12)-(4-6)\\&amp;=4-(-2)\\&amp;=6.\end{aligned}\]
+<p><b>b</b></p>
+\[\begin{aligned}\int_2^4(2x-3)\,dx&amp;=\Big[x^2-3x\Big]_2^4\qquad\text{(take the primitive of each term)}\\&amp;=(16-12)-(4-6)\qquad\text{(substitute 4, then substitute 2)}\\&amp;=4-(-2)\\&amp;=6\end{aligned}\]
 <div class="split" style="grid-template-columns:minmax(0,1fr) 42mm;column-gap:4mm;break-inside:avoid"><div>
-<p>Using areas: the region is a trapezium with width \(4-2=2\) and parallel sides \(2\times2-3=1\) and \(2\times4-3=5\).</p>
-\[\begin{aligned}\text{area of trapezium}&amp;=\frac{1+5}{2}\times2\\&amp;=3\times2\\&amp;=6.\end{aligned}\]
+<p>Using areas,</p>
+\[\begin{aligned}\text{area of trapezium}&amp;=\frac{1+5}{2}\times2\\&amp;=6.\end{aligned}\]
 </div><div>{{svg:c5b_e2b}}</div></div>
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 1</div>
+<ul style="margin:0"><li><b>a</b> \(x^2\) is a primitive of \(2x\), because \(\dfrac{d}{dx}x^2=2x\). Then \(2^2-0^2=4-0=4\).</li>
+<li>Using areas: the region is a triangle with base \(2-0=2\) and height \(2\times2=4\) (the value of \(2x\) at \(x=2\)).</li>
+<li><b>b</b> Take the primitive of each term: \(x^2\) for \(2x\), and \(-3x\) for \(-3\). Substitute 4, then 2: \(\big(4^2-3\times4\big)-\big(2^2-3\times2\big)=(16-12)-(4-6)=6\).</li>
+<li>Using areas: the region is a trapezium with width \(4-2=2\) and parallel sides \(2\times2-3=1\) and \(2\times4-3=5\). Then \(\dfrac{1+5}{2}\times2=3\times2=6\).</li></ul></div>
 
 <!-- ============ Concept 2 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 2:primitives with several terms}}
@@ -84,11 +89,15 @@ Evaluate these definite integrals.
 Evaluate these definite integrals.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_0^1 5x^2\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^4(25-x^2)\,dx\)</span></div>
 <div class="sol-label">Solution</div>
-<p><b>a</b> Increase the index from 2 to 3, then divide by 3.</p>
-\[\begin{aligned}\int_0^1 5x^2\,dx&amp;=\Big[\tfrac53x^3\Big]_0^1\\&amp;=\tfrac53\times1^3-\tfrac53\times0^3\qquad\text{(substitute 1, then substitute 0 and subtract)}\\&amp;=\tfrac53-0\\&amp;=\tfrac53.\end{aligned}\]
-<p><b>b</b> The primitive of \(25\) is \(25x\), and the primitive of \(x^2\) is \(\tfrac13x^3\).</p>
-\[\begin{aligned}\int_0^4(25-x^2)\,dx&amp;=\Big[25x-\tfrac13x^3\Big]_0^4\\&amp;=\big(25\times4-\tfrac13\times4^3\big)-\big(25\times0-\tfrac13\times0^3\big)\\&amp;=\big(100-\tfrac13\times64\big)-(0-0)\qquad\text{(never omit a substitution of 0)}\\&amp;=100-\tfrac{64}{3}\\&amp;=\tfrac{300}{3}-\tfrac{64}{3}\\&amp;=\tfrac{236}{3}\\&amp;=78\tfrac23.\end{aligned}\]
+<p><b>a</b></p>
+\[\begin{aligned}\int_0^1 5x^2\,dx&amp;=\Big[\tfrac53x^3\Big]_0^1\qquad\text{(increase the index from 2 to 3, then divide by 3)}\\&amp;=\tfrac53-0\qquad\text{(substitute 1, then substitute 0 and subtract)}\\&amp;=\tfrac53\end{aligned}\]
+<p><b>b</b></p>
+\[\begin{aligned}\int_0^4(25-x^2)\,dx&amp;=\Big[25x-\tfrac13x^3\Big]_0^4\\&amp;=\big(100-\tfrac13\times64\big)-(0-0)\\&amp;\qquad\text{(never omit a substitution of 0)}\\&amp;=78\tfrac23\end{aligned}\]
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 2</div>
+<ul style="margin:0"><li><b>a</b> Substitute 1, then 0: \(\tfrac53\times1^3-\tfrac53\times0^3=\tfrac53-0=\tfrac53\).</li>
+<li><b>b</b> The primitive of \(25\) is \(25x\), and the primitive of \(x^2\) is \(\tfrac13x^3\). Substitute 4, then 0: \(\big(25\times4-\tfrac13\times4^3\big)-\big(25\times0-\tfrac13\times0^3\big)=\big(100-\tfrac13\times64\big)-(0-0)\).</li>
+<li>Then \(100-\tfrac{64}{3}=\tfrac{300}{3}-\tfrac{64}{3}=\tfrac{236}{3}=78\tfrac23\).</li></ul></div>
 
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:expanding brackets in the integrand}}
@@ -110,13 +119,16 @@ Expand the brackets in each integral, then evaluate it.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^6 x(x+1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_0^3(x-4)(x-6)\,dx\)</span></div>
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div>
-<p><b>a</b> \(x(x+1)=x^2+x\).</p>
-\[\begin{aligned}&amp;\int_1^6 x(x+1)\,dx\\&amp;\quad=\int_1^6(x^2+x)\,dx\\&amp;\quad=\Big[\frac{x^3}{3}+\frac{x^2}{2}\Big]_1^6\\&amp;\quad=\Big(\frac{216}{3}+\frac{36}{2}\Big)-\Big(\frac13+\frac12\Big)\\&amp;\quad=(72+18)-\Big(\frac26+\frac36\Big)\\&amp;\quad=90-\tfrac56\qquad\text{(care with the fractions)}\\&amp;\quad=89\tfrac16\end{aligned}\]
+<p><b>a</b></p>
+\[\begin{aligned}&amp;\int_1^6 x(x+1)\,dx\\&amp;\quad=\int_1^6(x^2+x)\,dx\\&amp;\quad=\Big[\frac{x^3}{3}+\frac{x^2}{2}\Big]_1^6\\&amp;\quad=(72+18)-\Big(\frac13+\frac12\Big)\\&amp;\quad=90-\tfrac56\qquad\text{(care with the fractions)}\\&amp;\quad=89\tfrac16\end{aligned}\]
 </div><div>
-<p><b>b</b> \((x-4)(x-6)=x^2-6x-4x+24\)<br>\(\phantom{(x-4)(x-6)}=x^2-10x+24\).</p>
-\[\begin{aligned}&amp;\int_0^3(x-4)(x-6)\,dx\\&amp;\quad=\int_0^3(x^2-10x+24)\,dx\\&amp;\quad=\Big[\frac{x^3}{3}-5x^2+24x\Big]_0^3\\&amp;\quad=\Big(\frac{27}{3}-5\times9+24\times3\Big)\\&amp;\qquad\quad-(0-0+0)\\&amp;\quad=(9-45+72)-(0-0+0)\\&amp;\quad=36\end{aligned}\]
+<p><b>b</b></p>
+\[\begin{aligned}&amp;\int_0^3(x-4)(x-6)\,dx\\&amp;\quad=\int_0^3(x^2-10x+24)\,dx\\&amp;\quad=\Big[\frac{x^3}{3}-5x^2+24x\Big]_0^3\\&amp;\quad=(9-45+72)-(0-0+0)\\&amp;\quad=36\end{aligned}\]
 </div></div>
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 3</div>
+<ul style="margin:0"><li><b>a</b> Expand: \(x(x+1)=x^2+x\). Substitute 6: \(\dfrac{216}{3}+\dfrac{36}{2}=72+18\). Then \(\dfrac13+\dfrac12=\dfrac26+\dfrac36=\dfrac56\), so the value is \(\Big(\dfrac{216}{3}+\dfrac{36}{2}\Big)-\Big(\dfrac13+\dfrac12\Big)=(72+18)-\Big(\dfrac26+\dfrac36\Big)=90-\tfrac56=89\tfrac16\).</li>
+<li><b>b</b> Expand: \((x-4)(x-6)=x^2-6x-4x+24=x^2-10x+24\). Substitute 3: \(\dfrac{27}{3}-5\times9+24\times3=9-45+72\).</li></ul></div>
 
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:writing the integrand as separate fractions}}
@@ -139,13 +151,16 @@ Write each integrand as two separate fractions, then evaluate the integral.
 <div class="parts"><span><span class="pl">a</span>\(\displaystyle\int_1^2\frac{3x^4-2x^2}{x^2}\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_{-3}^{-2}\frac{x^3-2x^4}{x^3}\,dx\)</span></div>
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div>
-<p><b>a</b> \(\dfrac{3x^4}{x^2}=3x^2\) and \(\dfrac{2x^2}{x^2}=2\).</p>
+<p><b>a</b></p>
 \[\begin{aligned}&amp;\int_1^2\frac{3x^4-2x^2}{x^2}\,dx\\&amp;\quad=\int_1^2(3x^2-2)\,dx\\&amp;\quad=\Big[x^3-2x\Big]_1^2\\&amp;\quad=(8-4)-(1-2)\\&amp;\quad=4-(-1)\\&amp;\quad=5\end{aligned}\]
 </div><div>
-<p><b>b</b> \(\dfrac{x^3}{x^3}=1\) and \(\dfrac{2x^4}{x^3}=2x\).</p>
-\[\begin{aligned}&amp;\int_{-3}^{-2}\frac{x^3-2x^4}{x^3}\,dx\\&amp;\quad=\int_{-3}^{-2}(1-2x)\,dx\\&amp;\quad=\Big[x-x^2\Big]_{-3}^{-2}\\&amp;\quad=\big(-2-(-2)^2\big)-\big(-3-(-3)^2\big)\\&amp;\quad=(-2-4)-(-3-9)\\&amp;\quad=-6-(-12)\\&amp;\quad=6\end{aligned}\]
+<p><b>b</b></p>
+\[\begin{aligned}&amp;\int_{-3}^{-2}\frac{x^3-2x^4}{x^3}\,dx\\&amp;\quad=\int_{-3}^{-2}(1-2x)\,dx\\&amp;\quad=\Big[x-x^2\Big]_{-3}^{-2}\\&amp;\quad=(-2-4)-(-3-9)\\&amp;\quad=-6-(-12)\\&amp;\quad=6\end{aligned}\]
 </div></div>
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 4</div>
+<ul style="margin:0"><li><b>a</b> Divide each term by \(x^2\): \(\dfrac{3x^4}{x^2}=3x^2\) and \(\dfrac{2x^2}{x^2}=2\).</li>
+<li><b>b</b> Divide each term by \(x^3\): \(\dfrac{x^3}{x^3}=1\) and \(\dfrac{2x^4}{x^3}=2x\). Substitute \(-2\), then \(-3\): \(\big(-2-(-2)^2\big)-\big(-3-(-3)^2\big)=(-2-4)-(-3-9)=6\).</li></ul></div>
 
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:negative indices, and asymptotes}}
@@ -160,10 +175,12 @@ Write each integrand as two separate fractions, then evaluate the integral.
 <div class="box warn" style="break-inside:avoid"><div class="bt">Warning: do not integrate across an asymptote</div>
 <div class="split" style="grid-template-columns:3fr 2fr"><div>
 <p>The following calculation seems just as valid as part <b>b</b> of Worked example 5 below:</p>
-\[\begin{aligned}\int_{-1}^{1}x^{-4}\,dx&amp;=\Big[\frac{x^{-3}}{-3}\Big]_{-1}^{1}\\&amp;=-\frac{1}{3\times1^3}-\Big(-\frac{1}{3\times(-1)^3}\Big)\\&amp;=-\frac13-\frac13\\&amp;=-\frac23.\end{aligned}\]
+\[\begin{aligned}\int_{-1}^{1}x^{-4}\,dx&amp;=\Big[\frac{x^{-3}}{-3}\Big]_{-1}^{1}\\&amp;=-\frac13-\frac13\\&amp;=-\frac23.\end{aligned}\]
 </div><div>{{svg:c5b_asym}}</div></div>
 <p>But in fact the calculation is nonsense. The function has an asymptote at \(x=0\), so it is not even defined there. (And the function \(y=x^{-4}\) is always positive, so how could it give a negative answer for an integral?) You cannot integrate across an asymptote, and you always need to be on the lookout for such meaningless integrals.</p>
 </div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: the warning</div>
+<p>Substituting 1, then \(-1\), into \(\dfrac{x^{-3}}{-3}=-\dfrac{1}{3x^3}\) gives \(-\dfrac{1}{3\times1^3}-\Big(-\dfrac{1}{3\times(-1)^3}\Big)=-\dfrac13-\dfrac13=-\dfrac23\).</p></div>
 <div class="box tip"><div class="bt">Check for an asymptote first</div>
 <p>Box 4 needs \(f(x)\) to be continuous in the <i>whole</i> closed interval \([a,b]\). Before using it, check that the denominator is never zero anywhere from \(a\) to \(b\).</p></div>
 
@@ -183,21 +200,24 @@ Use negative indices to evaluate these definite integrals.
 <div class="sol-label">Solution</div>
 <div class="split" style="grid-template-columns:1fr 1fr;column-gap:6mm"><div>
 <p><b>a</b> Increase the index from \(-2\) to \(-1\), and divide by \(-1\).</p>
-\[\begin{aligned}\int_1^5 x^{-2}\,dx&amp;=\Big[\frac{x^{-1}}{-1}\Big]_1^5\\&amp;=\Big[-\frac1x\Big]_1^5\\&amp;=-\frac15-\Big(-\frac11\Big)\\&amp;=-\frac15-(-1)\\&amp;=-\frac15+1\\&amp;=\frac45\end{aligned}\]
+\[\begin{aligned}\int_1^5 x^{-2}\,dx&amp;=\Big[\frac{x^{-1}}{-1}\Big]_1^5\\&amp;=\Big[-\frac1x\Big]_1^5\\&amp;=-\frac15-(-1)\\&amp;=-\frac15+1\\&amp;=\frac45\end{aligned}\]
 </div><div>
 <p><b>b</b> Increase the index from \(-4\) to \(-3\), and divide by \(-3\).</p>
-\[\begin{aligned}\int_1^2\frac{1}{x^4}\,dx&amp;=\int_1^2x^{-4}\,dx\\&amp;=\Big[\frac{x^{-3}}{-3}\Big]_1^2\\&amp;=\Big[-\frac{1}{3x^3}\Big]_1^2\\&amp;=-\frac{1}{3\times8}-\Big(-\frac{1}{3\times1}\Big)\\&amp;=-\frac{1}{24}-\Big(-\frac13\Big)\\&amp;=-\frac{1}{24}+\frac{8}{24}\\&amp;=\frac{7}{24}\end{aligned}\]
+\[\begin{aligned}\int_1^2\frac{1}{x^4}\,dx&amp;=\int_1^2x^{-4}\,dx\\&amp;=\Big[\frac{x^{-3}}{-3}\Big]_1^2\\&amp;=\Big[-\frac{1}{3x^3}\Big]_1^2\\&amp;=-\frac{1}{24}-\Big(-\frac13\Big)\\&amp;=\frac{7}{24}\end{aligned}\]
 </div></div>
 </div></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: Worked example 5</div>
+<ul style="margin:0"><li><b>a</b> Substitute 5, then 1, into \(-\dfrac1x\): \(-\dfrac15-\Big(-\dfrac11\Big)=-\dfrac15-(-1)=\dfrac45\).</li>
+<li><b>b</b> Substitute 2, then 1, into \(-\dfrac{1}{3x^3}\): \(-\dfrac{1}{3\times8}-\Big(-\dfrac{1}{3\times1}\Big)=-\dfrac{1}{24}-\Big(-\dfrac13\Big)=-\dfrac{1}{24}+\dfrac{8}{24}=\dfrac{7}{24}\).</li></ul></div>
 
 <!-- ============ Concept 6 ============ -->
 {{sec:teal:key:Concept 6:the area of a circle}}
 <div class="box concept"><div class="bt">An old limiting argument</div>
 <p>In earlier years, the formula \(A=\pi r^2\) for the area of a circle was developed. Because the boundary is a curve, some limiting process had to be used in its proof. For comparison with the notation for the definite integral explained in Lesson 5A, here is the most common version of that argument. It is a little rough in its logic, but very quick. It involves dissecting the circle into infinitesimally thin sectors and then rearranging them into a rectangle.</p>
 <div style="text-align:center">{{svg:c5b_circle}}</div>
-<p>The height of the rectangle in the diagram is \(r\), the radius. Because the circumference \(2\pi r\) is divided equally between the top and bottom sides, the length of the rectangle is \(\pi r\). Hence the rectangle has area</p>
-\[\text{length}\times\text{height}=\pi r\times r=\pi r^2,\]
-<p>which is therefore the area of the circle.</p></div>
+<p>The height of the rectangle in the diagram is \(r\). Because the circumference \(2\pi r\) is divided equally between the top and bottom sides, the length of the rectangle is \(\pi r\). Hence the rectangle has area \(\pi r^2\), which is therefore the area of the circle.</p></div>
+<div class="box tip" style="break-inside:auto"><div class="bt">Steps the book skips: the area of the rectangle</div>
+<p>The height \(r\) is the radius. The area of the rectangle is \(\text{length}\times\text{height}=\pi r\times r=\pi r^2\).</p></div>
 <div class="box tip"><div class="bt">Where the rough logic is</div>
 <p>With finitely many sectors, the top and bottom of the shape are made of small arcs, not straight lines, and the sides slope a little. As the sectors become thinner, the shape becomes closer and closer to a rectangle. This is a limiting process, just like the strips of Lesson 5A.</p></div>
 

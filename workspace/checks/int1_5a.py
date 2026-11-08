@@ -172,7 +172,7 @@ for c in range(1, 5):
     seg = teach.split(f"<!-- ============ Concept {c} ============ -->")[1].split("<!-- ============")[0]
     exs = re.findall(r'<div class="ex (demo|attempt|worked)"(?: style="[^"]*")?><div class="ex-top"><span class="tag">([^<]*)</span>(.*?)(?=<div class="ex |$)', seg, re.S)
     CON[c] = {kind: body for kind, _, body in exs}
-    report([kd for kd, _, _ in exs] == (["demo", "attempt"] if c == 1 else ["demo", "attempt", "worked"]),
+    report([kd for kd, _, _ in exs] == (["demo", "attempt"] if c in (1, 3, 4) else ["demo", "attempt", "worked"]),
            f"Concept {c} blocks", str([kd for kd, _, _ in exs]))
 TQ = dict(re.findall(r'<div class="q"(?: style="[^"]*")?><span class="q-num">(\d+)</span>(.*?)(?=<div class="q"|\{\{band|</div>\{\{work:\d+\}\}</div>\n<div class="q">|$)', hw, re.S))
 report(sorted(TQ, key=int) == [str(i) for i in range(1, 18)], "textbook questions 1-17", str(sorted(TQ, key=int)))
@@ -223,7 +223,16 @@ for p, (a_, b_, f, tb) in WE1.items():
     check_rows(we1, f"<p><b>{p}</b>", f"WE1 {p}", val)
 present(we1, r"with base \(4-1=3\) and height \(3\)", "WE1 a")
 present(we1, r"with width \(4-2=2\) and parallel sides of length 1 and 3", "WE1 b")
-present(we1, "The shaded region is a semicircle with radius 5.", "WE1 d")
+present(we1, "The shaded region is a semi-circle with radius 5.", "WE1 d")
+# the 'Steps the book skips' tip after Worked example 1 (the pack's added lines)
+t1 = we1.split('<div class="box tip"')[1]
+present(t1, r"the value of \(x-1\) at \(x=4\), which is \(4-1=3\)", "WE1 tip a")
+for txt, val in ((r"\dfrac{1+3}{2}\times2=2\times2=4", 4), (r"2\times\big(\tfrac12\times2\times2\big)=2\times2=4", 4), (r"4-1=3", 3)):
+    present(t1, txt, "WE1 tip")
+    report(all(eq(T(m.replace("\\big", "")), val) for m in split_top(txt, "=")), f"WE1 tip chain {txt[:40]} = {val}")
+present(t1, r"the values of \(x-1\) at \(x=2\) and at \(x=4\)", "WE1 tip b")
+report((2 - 1, 4 - 1) == (1, 3) and abs(-2) == 2 == abs(2), "WE1 tip: heights 1, 3 (x-1 at 2, 4) and 2 (|x| at -2, 2)")
+present(t1, r"gives \(x^2+y^2=25\) with \(y\ge0\)", "WE1 tip d")
 
 a2 = BLK["C2"]
 dm, yt = a2.split("<b>Your turn.</b>")
@@ -249,7 +258,21 @@ def sums(fn, a_, b_, m):
     return w * sum(ys[:-1]), w * sum(ys[1:])          # increasing functions: lower = left ends
 
 
-we2 = CON[3]["worked"]
+c3 = CON[3]["attempt"]
+we2b = c3.split('<div class="box concept"')[1].split('<div class="box tip"')[0]       # the book's lines (PDF 216)
+we2 = c3.split('<div class="box tip"')[1]                                              # the pack's steps
+bsegs = re.split(r"<p>In the (first|second|third|fourth) picture,</p>", we2b)
+bpics = dict(zip(bsegs[1::2], bsegs[2::2]))
+for name, m in (("first", 2), ("second", 3), ("third", 4), ("fourth", 5)):
+    lo, up = sums(lambda t: t * t, 0, 1, m)
+    rows = bpics.get(name, "").split("\\begin{aligned}")[1].split("\\end{aligned}")[0].split("\\\\") if name in bpics else []
+    if len(rows) == 3:                     # a long first line set on two rows: lower < A, then < upper
+        rows = [rows[0] + rows[1].replace("\\qquad", ""), rows[2]]
+    good = len(rows) == 2
+    for r in rows:
+        L, R = r.replace("&", "").split("<A<")
+        good &= eq(T(L.replace("\\Big", "").replace("\\big", "")), lo) and eq(T(R.replace("\\Big", "").replace("\\big", "")), up)
+    report(good, f"WE2 book box, {name} picture: both rows are lower < A < upper", f"{lo} < A < {up}, {len(rows)} rows")
 segs = re.split(r"<p>In the (first|second|third|fourth) picture", we2)
 pics = dict(zip(segs[1::2], segs[2::2]))
 for name, m in (("first", 2), ("second", 3), ("third", 4), ("fourth", 5)):
@@ -313,13 +336,24 @@ def sum_closed(h, lo_k, hi_k, w):
     return sp.simplify(w * sp.summation(h, (k, lo_k, hi_k)))
 
 
-we3 = CON[4]["worked"]
+seg4 = teach.split("<!-- ============ Concept 4 ============ -->")[1].split('<div class="ex demo"')[0]
+we3 = seg4.split('<div class="bt">The limiting process:')[1]       # the book's steps A-D, then the pack's tip
 U = sum_closed((k / n) ** 2, 1, n, 1 / n)
 L = sum_closed((k / n) ** 2, 1, n - 1, 1 / n)
 check_rows(we3, "<p><b>B</b>", "WE3 upper sum", U)
 check_rows(we3, "<p><b>C</b>", "WE3 lower sum", L)
 report(sp.limit(U, n, sp.oo) == sp.Rational(1, 3) and sp.limit(L, n, sp.oo) == sp.Rational(1, 3), "WE3 limits are 1/3")
-present(we3, r"has limit \(\tfrac13\times1\times1=\tfrac13\) as \(n\to\infty\)", "WE3 B limit")
+present(we3, r"upper rectangles has limit \(\tfrac13\) as \(n\to\infty\)", "WE3 B limit")
+present(we3, r"has limit \(\tfrac13\times1\times1=\tfrac13\).", "WE3 tip limit")
+present(we3, r"\(6n^3=3\times n\times n\times2n\)", "WE3 tip factor")
+report(sp.expand(6 * n ** 3 - 3 * n * n * 2 * n) == 0, "6n^3 = 3 x n x n x 2n")
+try:
+    (g,) = grab(we3, r'<li data-c="t3b2">To split the fraction, write \(6n^3=3\times n\times n\times2n\):' + "\n" + r'\[\begin{aligned}@\end{aligned}\]</li>', "WE3 tip")
+    mem = split_top(g.replace("&", "").replace("\\\\", "").rstrip("."), "=")
+    report(len(mem) == 3 and all(eq(T(m_), U) for m_ in mem), "WE3 tip: every member of the split = upper sum", g[:90])
+except Exception as err:
+    report(False, "WE3 tip split chain", f"ERROR {err}")
+present(we3, r"&=\frac1n\times\frac{1}{n^2}\times(1^2+2^2+\cdots+n^2)\\&=\frac{1}{n^3}(1^2+2^2+\cdots+n^2).", "WE3 tip common factor")
 present(we3, r"also has limit \(\tfrac13\) as \(n\to\infty\)", "WE3 C limit")
 present(we3, r"so it follows that \(A=\tfrac13\)", "WE3 D")
 # the formula quoted in the box and used in the proofs

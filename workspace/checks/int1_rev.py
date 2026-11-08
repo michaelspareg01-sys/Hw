@@ -373,15 +373,21 @@ same("box sigma number of terms", one(r"There are \\\((5-2\+1=\d+)\\\) terms", s
 
 
 def example(title):
-    return one(r'<span class="ex-title">' + re.escape(title) + r'</span>(.*?)</div></div>\n\n', rev, f"example '{title}'")
+    """The textbook example box, followed by its 'Steps the book skips' tip (the pack's notes), if any."""
+    box, tip = one(r'<span class="ex-title">' + re.escape(title) + r'</span>(.*?)</div></div>\n'
+                   r'(?:<div class="box tip"[^>]*><p style="margin:0"><span class="bt"[^>]*>Steps the book skips: '
+                   + re.escape(title.split(" (")[0]) + r'</span>(.*?)</p></div>\n)?\n', rev, f"example '{title}'")
+    if '<p class="small">' in box or "box tip" in box:
+        fail(f"{title}: pack note inside the textbook box")
+    return box + ('<div class="tipnotes">' + tip + "</div>" if tip else "")
 
 
 def split_q_s(blk, title):
     if blk.count('<div class="sol-label">Solution</div>') != 1:
         fail(f"{title}: solution label")
+    blk, _, tip = blk.partition('<div class="tipnotes">')
     q, s = blk.split('<div class="sol-label">Solution</div>')
-    notes = "".join(re.findall(r'<p class="small">(.*?)</p>', s, re.S))
-    s = re.sub(r'<p class="small">.*?</p>', "", s, flags=re.S)
+    notes = tip.rsplit("</div>", 1)[0]
     return q, s, notes
 
 
@@ -513,9 +519,11 @@ check_notes(title, notes)
 same(f"{title} a = textbook 114", "114", sigma(qs["a"])[1])          # book PDF 53
 same(f"{title} b = textbook -22", "-22", sigma(qs["b"])[1])
 
-# Using the area formulae (the pack's own example)
+# Using the area formulae (the pack's own example, in a titled tip)
 title = "Using the area formulae"
-q, s, notes = split_q_s(example(title), title)
+ablk = one(r'<div class="box tip" data-ex="area"><div class="bt">Our own example: using the area formulae</div>\n(.*?)</div>\n\n', rev, "area example tip")
+q, s = ablk.split("<p style=\"margin:1mm 0 0.5mm\"><b>Solution.</b></p>")
+s = s.split("<p>Leave")[0]                     # the closing advice names part b; it is not working
 qa = one(r"parallel sides (\d+) cm and (\d+) cm, at a perpendicular distance of (\d+) cm apart", q, "area a")
 qb = one(r"a quadrant of radius (\d+) cm", q, "area b")
 qc = one(r"a triangle with base (\d+) cm and perpendicular height (\d+) cm", q, "area c")
