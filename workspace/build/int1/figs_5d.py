@@ -8,6 +8,7 @@ from math import sqrt, exp, log, atan, cos, sin, pi
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from figs import Graph, save, OUT, ACC, INK, FAINT, _txt  # noqa: E402
+from figfit import masked  # noqa: E402
 
 GREY = "#9aa3ad"
 
@@ -48,13 +49,19 @@ def size(name, mm):
 
 def combine(name, graphs, gap=10, mm=None):
     """Place several Graph objects side by side in one svg."""
-    w = sum(gr.w for gr in graphs) + gap * (len(graphs) - 1)
-    h = max(gr.h for gr in graphs)
-    out, xo = [], 0
+    import re
+    from figfit import fit, shift, untangle, separate  # each panel untangled and fitted, then placed in true coordinates
+    panels = []
     for gr in graphs:
-        out.append(f'<svg x="{xo}" y="0" width="{gr.w}" height="{gr.h}" viewBox="0 0 {gr.w} {gr.h}">'
-                   + "".join(gr.items) + '</svg>')
-        xo += gr.w + gap
+        s = fit(untangle(separate(gr.svg())))
+        pw, ph = (float(v) for v in re.search(r'viewBox="0 0 (\S+) (\S+)"', s).group(1, 2))
+        panels.append((pw, ph, s[s.index(">") + 1:s.rindex("</svg>")]))
+    w = sum(p[0] for p in panels) + gap * (len(panels) - 1)
+    h = max(p[1] for p in panels)
+    out, xo = [], 0
+    for pw, ph, body in panels:
+        out.append(shift(body, xo, 0))
+        xo += pw + gap
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as fh:
         st = f' style="width:{mm}mm;height:auto"' if mm else ''
         fh.write(f'<svg xmlns="http://www.w3.org/2000/svg"{st} viewBox="0 0 {w} {h}" width="{w}" height="{h}" '
@@ -120,10 +127,10 @@ def lesson():
     g.label(aa, 0, "a", dx=-8, dy=12, italic=True).label(b0, 0, "b", dy=-9, italic=True)
     g.label(cc, 0, "c", dx=-7, dy=-9, italic=True).label(dd, 0, "d", dx=7, dy=-9, italic=True)
     g.label(b0 - 0.5, 1.85, "B", italic=True, size=12).label(b0 + 1.05, 1.85, "B", italic=True, size=12)
-    pointer(g, b0 - 0.55, 1.6, aa - 0.45, 0.25, bend=-10)
-    pointer(g, b0 - 0.45, 1.6, b0 - 0.45, -0.45, bend=10)
-    pointer(g, b0 + 1.0, 1.6, b0 + 0.45, -0.45, bend=-10)
-    pointer(g, b0 + 1.1, 1.6, cc + 0.5, 0.25, bend=10)
+    pointer(g, b0 - 0.55, 1.5, aa - 0.45, 0.25, bend=-10)
+    pointer(g, b0 - 0.45, 1.5, b0 - 0.45, -0.45, bend=10)
+    pointer(g, b0 + 1.0, 1.5, b0 + 0.45, -0.45, bend=-10)
+    pointer(g, b0 + 1.1, 1.5, cc + 0.5, 0.25, bend=10)
     save("c5d_fp", g)
 
     g = Graph(-0.5, 4.5, -2.0, 1.2, w=200, h=156, pad=(12, 30, 24, 18))
@@ -242,7 +249,8 @@ def exercise():
     g.axes("x", "y")
     g.curve(cos, color="ink", width=1.5, x0=0, x1=2 * pi)
     g.dot(0, 1, r=2.6).dot(2 * pi, 1, r=2.6).vline(2 * pi, 0, 1)
-    g.xticks([(pi, "π"), (2 * pi, "2π")], below=False).yticks([(1, "1"), (-1, "-1")])
+    g.xticks([(pi, "π"), (2 * pi, "")], below=False).yticks([(1, "1"), (-1, "-1")])
+    g.label(2 * pi, 0, "2π", dx=9, dy=13, size=11)
     g.label(0.75, 0.55, "P", italic=True, size=12)
     save("q5d_8", g)
 
@@ -279,7 +287,7 @@ def answers():
     g.vline(-2, -8, 0).hline(-8, x0=-2, x1=0).vline(-1, -4, 0).hline(-4, x0=-1, x1=0)
     g.vline(1, 0, 3).vline(3, 0, 3).hline(3, x0=0, x1=3).hline(4, x0=0, x1=2).vline(2, 0, 4)
     g.curve(step_area(4, 2), color="blue", width=2, x0=-2.25, x1=4.25)
-    g.xticks([(-2, "-2"), (-1, "-1"), (1, "1"), (2, "2"), (3, "3"), (4, "4")])
+    g.xticks([(-2, "-2"), (-1, "-1")], below=False).xticks([(1, "1"), (2, "2"), (3, "3"), (4, "4")])
     g.yticks([(4, "4"), (-4, "-4"), (-8, "-8")])
     g.dot(2, 4, r=2.4)
     g.label(3.6, 3.6, "y = A(x)", anchor="start", color="blue", size=10.5)
@@ -291,7 +299,10 @@ def answers():
     g.vline(-3, -3, 0).hline(-3, x0=-3, x1=0).vline(3, -1.5, 0).hline(-1.5, x0=0, x1=3)
     g.vline(1, 0, 0.5).hline(0.5, x0=0, x1=1)
     g.curve(step_area(1, 1), color="blue", width=2, x0=-3.25, x1=3.3)
-    g.xticks([(-3, "-3"), (-2, "-2"), (-1, "-1"), (1, "1"), (2, "2")]).yticks([(-3, "-3"), (-1.5, "-3/2")])
+    g.xticks([(-3, "-3"), (-2, "-2")], below=False).xticks([(-1, ""), (1, "1"), (2, "2")])
+    g.label(-1, 0, "-1", dx=-4, dy=14, size=11)
+    g.yticks([(-3, "-3"), (-1.5, "")])
+    g.label(0, -1.5, "-3/2", dx=16, dy=14, anchor="start", size=11)   # right of the axis: the graph of A runs left of it
     g.label(0, 0.5, "1/2", dx=-8, dy=-4, anchor="end", size=10)
     g.label(3, 0, "3", dy=-11, size=11)
     g.dot(1, 0.5, r=2.4)
@@ -339,7 +350,7 @@ def answers():
     g = Graph(-0.4, 6.9, -1.4, 1.5, w=180, h=122, pad=(34, 26, 24, 14))
     g.axes("x", "A(x)")
     g.curve(sin, color="blue", width=2, x0=0, x1=2 * pi)
-    g.xticks([(pi / 2, "π/2"), (pi, "π")], below=False).xticks([(3 * pi / 2, "3π/2"), (2 * pi, "2π")], below=False)
+    g.xticks([(pi / 2, "π/2")]).xticks([(pi, "π"), (3 * pi / 2, "3π/2"), (2 * pi, "2π")], below=False)
     g.yticks([(1, "1"), (-1, "-1")])
     g2 = Graph(-0.4, 6.9, -0.4, 2.4, w=180, h=122, pad=(34, 26, 24, 14))
     g2.axes("x", "A(x)")

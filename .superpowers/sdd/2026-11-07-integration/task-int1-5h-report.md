@@ -73,12 +73,13 @@ Status: DONE_WITH_CONCERNS. The concerns are:
   - Q16: "use a spreadsheet estimate" is printed as "use a spreadsheet to estimate".
 - **Key slip, Q12.** The key gives 5900. The heights 5, 10, 13, 14, 11, 7, 3 at 50 m intervals give 25 × 118 = 2950 m², which is what we print. The key is exactly double; the check script records this.
 - **Book slips, written correctly without comment** (they are slips in the teaching text and solution lines, as in the 5E precedent):
+  - Box 18: "Approximating the curve from x = 1 to x = b" is printed as "from x = a to x = b".
   - Derivation: "b = x_{n+1}" is printed as x_n.
   - Derivation: the second integral's limits "∫_{x2}^{x1}" are printed as ∫_{x1}^{x2}.
   - Rearranged formula: "2(f(x1) + 2f(x2) + ⋯ + 2f(x_{n−1}))" is printed as 2(f(x1) + f(x2) + ⋯ + f(x_{n−1})).
   - Example 34, text against graph title: "4th December" is printed as "24th December", to agree with the graph title "Dec. 24, 2002".
   - Example 34: the integral's upper limit 20 is printed as 24, in both chains.
-  - Example 34: the missing term 41.76 is restored in the first sum. The book's total of 223.2 is correct.
+  - Example 34: the missing term 41.76 (that is, 2 × 20.88, the doubled value at t = 12) is restored in the first sum. The book's total of 223.2 is correct.
   - Example 34: the second-formula bracket "…+14.76+62.48+1.44+1.08" is printed as "…+14.76+6.48+2.88+2.16".
   - Example 35: "The correct approximation to three decimal places is 0.398" is printed as "The correct value to four decimal places is 0.3413". The integral is 0.34134; 0.398942 is φ(0).
   - Example 35, two small typos: "column D and row is labelled D3" gets "row 3", and "one standard deviations" becomes "deviation".
@@ -149,10 +150,25 @@ Status: DONE_WITH_CONCERNS. The concerns are:
   - workspace/build/int1/svg/{c5h_one,c5h_e32,c5h_div,c5h_creek,q5h_11,q5h_12,q5h_17,p5h_sgs,a5h_q4a,a5h_q4b,a5h_q5}.svg
   - workspace/checks/int1_5h.py
   - docs/pp_selected_int1.md
-- Commit `Int1: lesson 5H` on ch10-pack (not pushed). I staged only these paths.
+- Commit 4e095b5 `Int1: lesson 5H` on ch10-pack (not pushed). I staged only these paths.
 
 ## Concerns
 1. The past-paper shortfall: 1 mark, the only int1-L9 row.
 2. Q7 is omitted as doubtful, and the Q12 key slip is handled quietly.
 3. Example 34 has several printing slips, which I corrected silently (listed above). The controller may want to note them.
 4. The Q17 answers depend on graph readings. Ours come from our recreated graph and are labelled approximate.
+
+## Fix round 1 (review: APPROVED, one fix)
+- **Q17 graph data.** The reviewer measured the book's curve against its gridlines. In `figs_5h.py`, `Q17_FLOW` now has 7.6 at t = 30 (it was 7.4), 12.7 at t = 33 (it was 13.2) and 11.0 at t = 36 (it was 10.3). The peak (14.7 near t = 34) and the other points are unchanged.
+- **Q17 answers recomputed** (`a_5h.html`):
+  - b: the readings 3.3, 4.0, 7.6, 12.7, 11.0, 7.4 and 6.3 give R = 11.88, 14.4, 27.36, 45.72, 39.6, 26.64 and 22.68. Then 1.5 × (11.88 + 2(14.4 + 27.36 + 45.72 + 39.6 + 26.64) + 22.68) = 1.5 × 342 = 513, about 513 thousand m³.
+  - c: 513 ÷ 143.64 ≑ 3.6, so about 3.6 times as much. Part a is unchanged.
+- **Check constants** (`int1_5h.py`): 513 replaces 509, and 3.6 replaces 3.5. The readings are still compared with the drawn data.
+- **Silent fixes added to the list above**: Box 18 "x = 1" printed as x = a, and the inserted 20.88 (as 41.76) in Example 34.
+- **Commands and outputs:**
+  - `python3 workspace/checks/int1_5h.py`: 431 checks, 0 failures, ALL OK.
+  - `svg_overlap.py` on all 11 of my SVGs: 0 problems.
+  - Solo build: lesson 27 pages, answers 9 pages, qa 0/0, MathJax 0, body text 11.3 pt in both, overflow probe 0.
+  - Full flock build `python3 build.py int1 all`: lesson 266 pages, answers 100 pages, qa 0/0, MathJax 0, body text 11.3 pt in both.
+  - Pages inspected: lesson p.25-26 (Q17) and answers p.8 (Q17 answers).
+- Commit 7bf244d `Int1: 5H review fixes`; not pushed.

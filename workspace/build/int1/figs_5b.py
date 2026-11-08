@@ -48,8 +48,9 @@ def lesson():
     g.curve(f, color="ink", width=1.5, x0=0.64, x1=2.35)
     g.vline(-1, 0, 1, color="ink", dash="", width=1.1).vline(1, 0, 1, color="ink", dash="", width=1.1)
     g.xticks([(-1, "-1"), (1, "1")])
-    g.label(1.5, 2.8, "y = x", anchor="start", size=11, italic=True)
-    g.label(2.08, 3.15, "-4", anchor="start", size=8.5)
+    # one text element, so that the index stays with its base when labels are nudged
+    g.items.append(f'<text x="{g.X(1.5):.1f}" y="{g.Y(2.8) + 3.85:.1f}" font-size="11" fill="{INK}" font-weight="500" '
+                   f'font-style="italic">y = x<tspan dy="-4.5" font-size="8.5" font-style="normal">−4</tspan></text>')
     save("c5b_asym", g)
 
     # The area of a circle: the circle cut into 16 sectors, and the sectors rearranged into a 'rectangle'

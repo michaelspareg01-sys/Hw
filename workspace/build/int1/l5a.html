@@ -54,7 +54,8 @@
 <tr><td><b>Trapezium:</b></td><td>\(\text{Area}=\tfrac12(a+b)h\)</td><td>\(=\text{average of parallel sides}\times\text{width}\)</td></tr>
 <tr><td><b>Circle:</b></td><td>\(\text{Area}=\pi r^2\)</td><td>\(=\pi\times\text{square of the radius}\)</td></tr></table></div>
 <div class="box concept"><div class="bt">Notes on the formulae</div>
-<p>For a trapezium, \(h\) is the perpendicular distance between the parallel sides. Depending on the orientation, the word ‘height’ or ‘width’ may be more appropriate. Similarly, any side of a triangle may be taken as its ‘base’.</p>
+<p>For a trapezium, \(h\) is the perpendicular distance between the parallel sides. Depending on the orientation, the word ‘height’ or ‘width’ may be more appropriate. Similarly, any side of a triangle may be taken as its ‘base’.</p></div>
+<div class="box tip"><div class="bt">Semicircles and quadrants</div>
 <p>A semicircle is half a circle, with area \(\tfrac12\pi r^2\), and a quadrant is a quarter of a circle, with area \(\tfrac14\pi r^2\). The graph of \(y=\sqrt{r^2-x^2}\) is the upper semicircle with centre the origin and radius \(r\), because squaring gives \(y^2=r^2-x^2\), that is, \(x^2+y^2=r^2\), with \(y\ge0\) (see the Revision page).</p></div>
 <div class="box tip"><div class="bt">Method</div>
 <ol style="margin:0"><li>Sketch the graph of \(y=f(x)\) and shade the region from \(x=a\) to \(x=b\).</li>
@@ -70,7 +71,7 @@ Evaluate using a graph and area formulae:
 Evaluate using a graph and area formulae:
 <div class="parts" style="grid-template-columns:0.9fr 0.9fr 0.9fr 1.3fr;column-gap:4mm;margin-left:4mm"><span><span class="pl">a</span>\(\displaystyle\int_2^6(x-2)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_4^6(x-2)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{3}|x|\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-2}^{2}\sqrt{4-x^2}\,dx\)</span></div>
 {{work:56}}</div></div>
-<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 Evaluate using a graph and area formulae:
 <div class="parts" style="grid-template-columns:0.9fr 0.9fr 0.9fr 1.3fr;column-gap:4mm;margin-left:4mm"><span><span class="pl">a</span>\(\displaystyle\int_1^4(x-1)\,dx\)</span><span><span class="pl">b</span>\(\displaystyle\int_2^4(x-1)\,dx\)</span><span><span class="pl">c</span>\(\displaystyle\int_{-2}^{2}|x|\,dx\)</span><span><span class="pl">d</span>\(\displaystyle\int_{-5}^{5}\sqrt{25-x^2}\,dx\)</span></div>
 <div class="sol-label">Solution</div>
@@ -101,8 +102,10 @@ Evaluate using a graph and area formulae:
 </div><div>{{svg:c5a_sq}}</div></div>
 <p>The first step in the process is to trap the integral using <i>upper rectangles</i> (or <i>outer rectangles</i>) that the shaded region lies inside, and <i>lower rectangles</i> (or <i>inner rectangles</i>) that lie inside the shaded region. To begin the process, notice that the shaded area is completely contained within the unit square, so</p>
 \[0&lt;A&lt;1.\]
-<p>In the four pictures below, the region has been sliced successively into two, three, four and five strips, then upper and lower rectangles have been constructed so that the region is trapped, or sandwiched, between the upper and lower rectangles. Calculating the areas of these upper and lower rectangles provides tighter and tighter bounds on the area \(A\). (In the pictures, the lower rectangles are grey and the upper rectangles are hatched; each upper rectangle covers the lower rectangle below it.)</p>
+<p>In the four pictures below, the region has been sliced successively into two, three, four and five strips, then upper and lower rectangles have been constructed so that the region is trapped, or sandwiched, between the upper and lower rectangles. Calculating the areas of these upper and lower rectangles provides tighter and tighter bounds on the area \(A\).</p>
 <div style="display:flex;justify-content:space-between;gap:1mm">{{svg:c5a_tr2}}{{svg:c5a_tr3}}{{svg:c5a_tr4}}{{svg:c5a_tr5}}</div></div></div>
+<div class="box tip"><div class="bt">Reading the pictures</div>
+<p>In the pictures, the lower rectangles are grey and the upper rectangles are hatched. Each upper rectangle covers the lower rectangle below it.</p></div>
 <div class="box tip"><div class="bt">Finding the heights</div>
 <p>Because \(y=x^2\) is increasing for \(x\ge0\), the lowest point of the curve over each strip is at its left-hand end, and the highest point is at its right-hand end. So each <b>lower</b> rectangle has the height of the curve at the <b>left</b> end of its strip, and each <b>upper</b> rectangle has the height at the <b>right</b> end. The first lower rectangle has height \(0^2=0\), so it has zero area. Every rectangle has the same width, \(\tfrac1n\) for \(n\) strips, so that width can be taken out as a common factor.</p></div>
 
@@ -138,12 +141,12 @@ Let \(A=\displaystyle\int_0^1x^2\,dx\). Use two, three, four and then five strip
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:the limiting process}}
 <div class="box concept"><div class="bt">Turning the sandwich into a limit</div>
 <p>The bounds on the area are getting tighter, but the exact value of the area can only be obtained if this sandwiching process can be turned into a limiting process. The calculations below will need the formula for the sum of the first \(n\) squares, proven in Question 2f of Exercise 2A by induction:</p>
-\[1^2+2^2+\cdots+n^2=\tfrac16n(n+1)(2n+1).\]
-<p>The calculation has four steps.</p>
+\[1^2+2^2+\cdots+n^2=\tfrac16n(n+1)(2n+1).\]</div></div>
+<div class="box tip"><div class="bt">The four steps</div>
 <ul><li><b>A</b> Divide the interval into \(n\) subintervals of equal width. Then (sum of lower rectangles) \(\le A\le\) (sum of upper rectangles), however many strips there are.</li>
 <li><b>B</b> Write the sum of the upper rectangles in terms of \(n\), using the formula, and find its limit as \(n\to\infty\).</li>
 <li><b>C</b> Do the same for the sum of the lower rectangles. The formula is used with \(n-1\) in place of \(n\).</li>
-<li><b>D</b> Both sums have the same limit, and \(A\) is trapped between them, so \(A\) equals that limit.</li></ul></div></div>
+<li><b>D</b> Both sums have the same limit, and \(A\) is trapped between them, so \(A\) equals that limit.</li></ul></div>
 <div class="box tip"><div class="bt">The algebra and the limits</div>
 <ul><li>Write \(n^3\) in the denominator as \(n\times n\times n\), and split the fraction into factors that each have a limit: for example \(\dfrac{n+1}{n}=1+\dfrac1n\).</li>
 <li>As \(n\to\infty\), \(\dfrac1n\to0\) and \(\dfrac{1}{2n}\to0\), so \(1+\dfrac1n\to1\) and \(1-\dfrac{1}{2n}\to1\).</li>

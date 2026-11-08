@@ -5,13 +5,14 @@
 <!-- ============ Concept 1 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 1:functions with the same derivative}}
 <div class="box concept"><div class="bt">Reversing differentiation</div>
-<p>This section reverses the process of differentiation and asks, ‘What can we say about a function if we know its derivative?’ The results of this section will be needed when integration is introduced in Chapter 5 (Lessons 5A–5I of this pack).</p>
+<p>This section reverses the process of differentiation and asks, ‘What can we say about a function if we know its derivative?’ The results of this section will be needed when integration is introduced in Chapter 5.</p>
 <p>This topic was briefly mentioned in Section 9D of the Year 11 book, but without any terminology or formulae, and we begin the discussion again here.</p></div></div>
 <div class="box concept"><div class="bt">Functions with the same derivative</div>
 <p>Many different functions may all have the same derivative. For example, all these functions have the same derivative \(2x\):</p>
 \[x^2,\qquad x^2+3,\qquad x^2-2,\qquad x^2+4\tfrac12,\qquad x^2-\pi.\]
-<p data-c="c1_list">The derivative of a constant is zero, so the constant term adds nothing to the derivative. For example, \(\dfrac{d}{dx}\big(x^2+3\big)=2x+0=2x\) and \(\dfrac{d}{dx}\big(x^2-\pi\big)=2x-0=2x\).</p>
 <p>These functions are all the same apart from a constant term. This is true generally: <i>any two functions with the same derivative differ only by a constant.</i></p></div>
+<div class="box tip"><div class="bt">Why the constant term makes no difference</div>
+<p data-c="c1_list">The derivative of a constant is zero, so the constant term adds nothing to the derivative. For example, \(\dfrac{d}{dx}\big(x^2+3\big)=2x+0=2x\) and \(\dfrac{d}{dx}\big(x^2-\pi\big)=2x-0=2x\).</p></div>
 <div class="box take"><div class="bt">14 Functions with the same derivative</div>
 <p><b>A</b>&ensp;If a function \(f(x)\) has derivative zero in an interval \(a\lt x\lt b\), then \(f(x)\) is a constant function in \(a\lt x\lt b\).</p>
 <p><b>B</b>&ensp;If \(f'(x)=g'(x)\) for all \(x\) in an interval \(a\lt x\lt b\), then \(f(x)\) and \(g(x)\) differ by a constant in \(a\lt x\lt b\).</p></div>
@@ -19,8 +20,10 @@
 <p><b>A</b>&ensp;Because the derivative is zero, the gradient of the curve is zero throughout the interval. The curve is therefore a horizontal straight line, and \(f(x)\) is a constant function.</p>
 <p><b>B</b>&ensp;Take the difference between \(f(x)\) and \(g(x)\) and apply part <b>A</b>.</p>
 \[\begin{aligned}\text{Let}\quad h(x)&=f(x)-g(x).\\\text{Then}\quad h'(x)&=f'(x)-g'(x)\\&=0,\qquad\text{for all }x\text{ in the interval }a\lt x\lt b.\\\text{Hence by part A,}\quad h(x)&=C,\qquad\text{where }C\text{ is a constant,}\\\text{so}\quad f(x)-g(x)&=C,\qquad\text{as required.}\end{aligned}\]
-<p class="small">The line \(h'(x)=f'(x)-g'(x)\) holds because the derivative of a difference is the difference of the derivatives. The next line is zero because \(f'(x)=g'(x)\) for all \(x\) in the interval.</p>
-<p class="small">Notice that both parts of Box 14 are stated for an <b>interval</b> \(a\lt x\lt b\), with no gaps in it.</p></div>
+</div>
+<div class="box tip"><div class="bt">Reading the proof</div>
+<p>The line \(h'(x)=f'(x)-g'(x)\) holds because the derivative of a difference is the difference of the derivatives. The next line is zero because \(f'(x)=g'(x)\) for all \(x\) in the interval.</p>
+<p>Notice that both parts of Box 14 are stated for an <b>interval</b> \(a\lt x\lt b\), with no gaps in it.</p></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two functions with the same derivative</span></div><div class="ex-body">
 Let \(f(x)=(x+1)^2\) and \(g(x)=x^2+2x\).<br>
@@ -50,26 +53,26 @@ Show that the functions \(x^2\), \(x^2+3\), \(x^2-2\), \(x^2+4\tfrac12\) and \(x
 <div class="box concept"><div class="bt">The family of curves with the same derivative</div>
 <p>Continuing with the very first example, the various functions whose derivatives are \(2x\) are all of the form</p>
 \[f(x)=x^2+C,\qquad\text{where }C\text{ is a constant.}\]
-<p>By taking different values of the constant \(C\), these functions form an infinite family of curves, each consisting of the parabola \(y=x^2\) translated upwards or downwards (see the worked example below).</p></div></div>
+<p>By taking different values of the constant \(C\), these functions form an infinite family of curves, each consisting of the parabola \(y=x^2\) translated upwards or downwards.</p></div></div>
 <div class="box concept"><div class="bt">Initial or boundary conditions</div>
 <p>If we know also that the graph of the function passes through a particular point, say \((2,7)\), then we can evaluate the constant \(C\) by substituting the point into \(f(x)=x^2+C\):</p>
-<div data-c="c2_cond">\[\begin{aligned}7&=2^2+C\\7&=4+C\\C&=3.\end{aligned}\]
-<p>Thus \(C=3\) and hence \(f(x)=x^2+3\).</p></div>
-<p>In place of the infinite family of functions, there is now a single function.</p>
+<div data-c="c2_cond">\[7=4+C.\]
+<p>Thus \(C=3\) and hence \(f(x)=x^2+3\). In place of the infinite family of functions, there is now a single function.</p></div>
 <p>Such an extra condition is called an <i>initial condition</i> or <i>boundary condition</i>.</p></div>
-<div class="box concept"><div class="bt">Primitives</div>
+<div style="break-inside:avoid"><div class="box concept"><div class="bt">Primitives</div>
 <p>We need a suitable name for the result of this reverse process. The words <i>primitive</i> and <i>anti-derivative</i> are both used.</p></div>
 <div class="box take"><div class="bt">15 A primitive of a function</div>
 <ul><li>A function \(F(x)\) is called <i>a primitive</i> or <i>an anti-derivative</i> of \(f(x)\) if the derivative of \(F(x)\) is \(f(x)\),
 \[F'(x)=f(x).\]</li>
 <li>If \(F(x)\) is any primitive of \(f(x)\), then <i>the general primitive</i> of \(f(x)\) is
-\[F(x)+C,\qquad\text{where }C\text{ is a constant.}\]</li></ul></div>
+\[F(x)+C,\qquad\text{where }C\text{ is a constant.}\]</li></ul></div></div>
 <div class="box concept"><div class="bt">A primitive and the primitive</div>
 <p>The general primitive of \(f(x)\) is also called just <i>the primitive</i> of \(f(x)\). For example, each of these functions is <i>a primitive</i> of \(x^2+1\),</p>
 \[\tfrac13x^3+x,\qquad\tfrac13x^3+x+7,\qquad\tfrac13x^3+x-13,\qquad\tfrac13x^3+x+4\pi,\]
-<div data-c="c2_prim"><p>because the derivative of each one is \(x^2+1\). For example,</p>
-\[\dfrac{d}{dx}\big(\tfrac13x^3+x+7\big)=\tfrac13\times3x^2+1+0=x^2+1.\]</div>
-<p>Whereas <i>the primitive</i> of \(x^2+1\) is \(\tfrac13x^3+x+C\), where \(C\) is a constant.</p></div>
+<p>whereas <i>the primitive</i> of \(x^2+1\) is \(\tfrac13x^3+x+C\), where \(C\) is a constant.</p></div>
+<div class="box tip"><div class="bt">Checking a primitive</div>
+<div data-c="c2_prim"><p>Each function in the list is a primitive of \(x^2+1\) because the derivative of each one is \(x^2+1\). For example,</p>
+\[\dfrac{d}{dx}\big(\tfrac13x^3+x+7\big)=\tfrac13\times3x^2+1+0=x^2+1.\]</div></div>
 
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The family with derivative \(3x^2\)</span></div><div class="ex-body">
 <b>a</b> Write down four different functions whose derivative is \(3x^2\), and check each one by differentiating.<br>
@@ -97,16 +100,18 @@ Show that the functions \(x^2\), \(x^2+3\), \(x^2-2\), \(x^2+4\tfrac12\) and \(x
 
 <!-- ============ Concept 3 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 3:a rule for finding primitives}}
-<div class="box concept"><div class="bt">Reversing the derivative of \(x^{n+1}\)</div>
+<div class="box concept"><div class="bt">A rule for finding primitives</div>
 <p>We have seen that a primitive of \(x\) is \(\tfrac12x^2\), and a primitive of \(x^2\) is \(\tfrac13x^3\). Reversing the formula</p>
 \[\dfrac{d}{dx}\big(x^{n+1}\big)=(n+1)x^n\]
-<p>gives the general rule. Dividing both sides by \(n+1\), which is allowed only when \(n+1\ne0\), that is, when \(n\ne-1\),</p>
-<div data-c="c3_rule">\[\dfrac{d}{dx}\Big(\dfrac{x^{n+1}}{n+1}\Big)=\dfrac{(n+1)x^n}{n+1}=x^n.\]</div>
-<p>So \(\dfrac{x^{n+1}}{n+1}\) is a primitive of \(x^n\), and by Box 15 the general primitive is \(\dfrac{x^{n+1}}{n+1}+C\).</p></div></div>
+<p>gives the general rule:</p></div></div>
 <div class="box take"><div class="bt">16 Finding primitives</div>
 \[\begin{aligned}&\text{If}\quad\dfrac{dy}{dx}=x^n,\quad\text{where }n\ne-1,\\&\text{then}\quad y=\dfrac{x^{n+1}}{n+1}+C,\quad\text{for some constant }C.\end{aligned}\]
 <p>‘Increase the index by 1 and divide by the new index.’</p></div>
-<div class="box concept" data-c="c3_sum"><div class="bt">Sums, multiples and constants</div>
+<div class="box tip"><div class="bt">Why the rule works</div>
+<p>Divide both sides of the formula above by \(n+1\). This is allowed only when \(n+1\ne0\), that is, when \(n\ne-1\):</p>
+<div data-c="c3_rule">\[\dfrac{d}{dx}\Big(\dfrac{x^{n+1}}{n+1}\Big)=\dfrac{(n+1)x^n}{n+1}=x^n.\]</div>
+<p>So \(\dfrac{x^{n+1}}{n+1}\) is a primitive of \(x^n\), and by Box 15 the general primitive is \(\dfrac{x^{n+1}}{n+1}+C\).</p></div>
+<div class="box tip" data-c="c3_sum"><div class="bt">Sums, multiples and constants</div>
 <p>Derivatives of sums and multiples are found one term at a time (revision, Year 11, 8C), so primitives are found one term at a time too:</p>
 <ul><li>A constant factor stays where it is. For example, a primitive of \(5x^3\) is \(5\times\dfrac{x^4}{4}=\tfrac54x^4\).</li>
 <li>A constant term \(k\) is \(kx^0\), so a primitive of it is \(k\times\dfrac{x^1}{1}=kx\). For example, a primitive of 7 is \(7x\).</li>
@@ -118,11 +123,11 @@ Show that the functions \(x^2\), \(x^2+3\), \(x^2-2\), \(x^2+4\tfrac12\) and \(x
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Primitives of polynomials</span></div><div class="ex-body">
 Find the primitives (or anti-derivatives) of:
 <div class="parts three" style="margin-left:4mm"><span data-q="d3a"><span class="pl">a</span>\(x^4+x^3+x^2+3\)</span><span data-q="d3b"><span class="pl">b</span>\(4x^5-2\)</span><span data-q="d3c"><span class="pl">c</span>\((2x+1)(x-3)\)</span></div>
-{{work:40}}</div></div>
+{{work:35}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 Find the primitives (or anti-derivatives) of:
 <div class="parts three" style="margin-left:4mm"><span data-q="y3a"><span class="pl">a</span>\(x^5+x^2+x+4\)</span><span data-q="y3b"><span class="pl">b</span>\(3x^4+5\)</span><span data-q="y3c"><span class="pl">c</span>\((x+3)(x-1)\)</span></div>
-{{work:40}}</div></div>
+{{work:35}}</div></div>
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example 26</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 Find the primitives (or anti-derivatives) of:
 <div class="parts" style="margin-left:4mm"><span data-q="e26a"><span class="pl">a</span>\(x^3+x^2+x+1\)</span><span data-q="e26b"><span class="pl">b</span>\(5x^3+7\)</span></div>
@@ -135,7 +140,7 @@ Find the primitives (or anti-derivatives) of:
 
 <!-- ============ Concept 4 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 4:negative and fractional indices}}
-<div class="box concept"><div class="bt">Rewrite with indices first</div>
+<div class="box tip"><div class="bt">Rewrite with indices first</div>
 <p>The rule in Box 16 works for every index \(n\) except \(n=-1\), including negative and fractional indices. So first rewrite reciprocals of powers with negative indices, and surds with fractional indices (revision, Year 11, 7A–7B). Then apply the rule.</p>
 <ul><li data-c="c4_neg"><b>Dividing by a negative index.</b> For example, \(\dfrac{x^{-1}}{-1}=-x^{-1}=-\dfrac1x\).</li>
 <li data-c="c4_frac"><b>Dividing by a fractional index.</b> Dividing by \(\tfrac32\) is the same as multiplying by \(\tfrac23\), so \(\dfrac{x^{\frac32}}{\frac32}=\tfrac23x^{\frac32}\).</li>
@@ -161,15 +166,17 @@ Rewrite each function with negative or fractional indices, and find the primitiv
 
 <!-- ============ Concept 5 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 5:the linear extension}}
-<div class="box concept"><div class="bt">Reversing the chain rule for \((ax+b)^{n+1}\)</div>
-<p>By the chain rule (revision, Year 11, 8G), with \(u=ax+b\) and \(\dfrac{du}{dx}=a\),</p>
-\[\dfrac{d}{dx}(ax+b)^{n+1}=a(n+1)(ax+b)^n.\]
-<p>Reversing this formula gives the rule below. Dividing both sides by \(a(n+1)\), which is allowed when \(a\ne0\) and \(n\ne-1\),</p>
-<div data-c="c5_rule">\[\dfrac{d}{dx}\Big(\dfrac{(ax+b)^{n+1}}{a(n+1)}\Big)=\dfrac{a(n+1)(ax+b)^n}{a(n+1)}=(ax+b)^n.\]</div></div></div>
+<div class="box concept"><div class="bt">Linear extension</div>
+<p>Reversing the formula</p>
+\[\dfrac{d}{dx}(ax+b)^{n+1}=a(n+1)(ax+b)^n\]
+<p>gives:</p></div></div>
 <div class="box take"><div class="bt">17 Extension to powers of linear functions</div>
 \[\begin{aligned}&\text{If}\quad\dfrac{dy}{dx}=(ax+b)^n,\quad\text{where }n\ne-1,\\&\text{then}\quad y=\dfrac{(ax+b)^{n+1}}{a(n+1)}+C,\quad\text{for some constant }C.\end{aligned}\]
 <p>‘Increase the index by 1, then divide by the new index and by the coefficient of \(x\).’</p></div>
-<div class="box warn"><div class="bt">Watch the coefficient of \(x\)</div>
+<div class="box tip"><div class="bt">Why the rule works</div>
+<p>The formula above comes from the chain rule (revision, Year 11, 8G), with \(u=ax+b\) and \(\dfrac{du}{dx}=a\). Divide both sides by \(a(n+1)\). This is allowed when \(a\ne0\) and \(n\ne-1\):</p>
+<div data-c="c5_rule">\[\dfrac{d}{dx}\Big(\dfrac{(ax+b)^{n+1}}{a(n+1)}\Big)=\dfrac{a(n+1)(ax+b)^n}{a(n+1)}=(ax+b)^n.\]</div></div>
+<div class="box tip"><div class="bt">Watch the coefficient of \(x\)</div>
 <ul><li>In \((1-3x)^6\) the coefficient of \(x\) is \(a=-3\), so we divide by \(-3\). In \((x+1)^4\) the coefficient is \(a=1\).</li>
 <li>Box 17 is only for a power of a <b>linear</b> function \(ax+b\). For a power of something like \(x^2+1\), expand the brackets first for now (Lesson 5I deals with some of these).</li></ul></div>
 
@@ -203,11 +210,11 @@ Find the primitives of:
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">One initial condition</span></div><div class="ex-body">
 <b>a</b> Given that \(\dfrac{dy}{dx}=12x^2-2\), and \(y=5\) when \(x=1\), find \(y\) as a function of \(x\).<br>
 <b>b</b> Given that \(\dfrac{dy}{dx}=(2x-1)^3\), and \(y=2\) when \(x=1\), find \(y\) as a function of \(x\).
-{{work:52}}</div></div>
+{{work:42}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 <b>a</b> Given that \(\dfrac{dy}{dx}=6x^2+2x\), and \(y=7\) when \(x=1\), find \(y\) as a function of \(x\).<br>
 <b>b</b> Given that \(\dfrac{dy}{dx}=(3x+1)^2\), and \(y=1\) when \(x=0\), find \(y\) as a function of \(x\).
-{{work:52}}</div></div>
+{{work:42}}</div></div>
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example 29</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 Given that \(\dfrac{dy}{dx}=6x^2+1\), and \(y=12\) when \(x=2\), find \(y\) as a function of \(x\).
 <div class="sol-label">Solution</div>
@@ -220,7 +227,7 @@ Given that \(\dfrac{dy}{dx}=6x^2+1\), and \(y=12\) when \(x=2\), find \(y\) as a
 
 <!-- ============ Concept 7 ============ -->
 <div style="break-inside:avoid">{{sec:teal:key:Concept 7:starting from the second derivative}}
-<div class="box concept"><div class="bt">Two primitives, two constants</div>
+<div class="box tip"><div class="bt">Two primitives, two constants</div>
 <p>If the second derivative \(f''(x)\) is known, take the primitive twice. The first primitive gives \(f'(x)\) with a constant \(C\). The second primitive gives \(f(x)\) with a second constant \(D\). The primitive of the constant \(C\) is \(Cx\), so \(f(x)\) has the form \(\big(\cdots\big)+Cx+D\).</p>
 <p>Two conditions are then needed to find the two constants:</p>
 <ul><li>two values of the function, as in Worked example 30, or</li>
@@ -229,11 +236,11 @@ Given that \(\dfrac{dy}{dx}=6x^2+1\), and \(y=12\) when \(x=2\), find \(y\) as a
 <div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two constants</span></div><div class="ex-body">
 <b>a</b> Given that \(f''(x)=12(x-2)^2\), and \(f(2)=f(0)=0\), find \(f(3)\).<br>
 <b>b</b> Given that \(y''=6x-2\), and that when \(x=1\), \(y'=4\) and \(y=3\), find \(y\) as a function of \(x\).
-{{work:70}}</div></div>
+{{work:58}}</div></div>
 <div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
 <b>a</b> Given that \(f''(x)=6(x+1)\), and \(f(0)=0\) and \(f(1)=6\), find \(f(2)\).<br>
 <b>b</b> Given that \(y''=12x+2\), and that when \(x=0\), \(y'=1\) and \(y=-2\), find \(y\) as a function of \(x\).
-{{work:70}}</div></div>
+{{work:58}}</div></div>
 <div class="ex worked"><div class="ex-top"><span class="tag">Worked example 30</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
 Given that \(f''(x)=12(x-1)^2\), and \(f(0)=f(1)=0\), find \(f(4)\).
 <div class="sol-label">Solution</div>

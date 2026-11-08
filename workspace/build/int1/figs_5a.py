@@ -8,6 +8,7 @@ from math import sqrt, log
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from figs import Graph, save, ACC, INK, FAINT, _txt  # noqa: E402
+from figfit import masked  # noqa: E402
 
 GREY = "#9aa3ad"
 
@@ -233,7 +234,7 @@ def exercise():
     sk("q5a_5b", c(5), -3, 2, (-4.2, 3.4), (-0.8, 6.4), [(-3, "-3"), (2, "2")], [(5, None, "5")])
     sk("q5a_5c", lambda x: 2 * x + 4, -2, 1, (-3, 2.2), (-0.8, 7.4), [(-2, "-2"), (1, "1")], [(4, None, "4")],
        pts=[(1, 6, "(1, 6)", 4, -2, "start")])
-    sk("q5a_5d", lambda x: 3 * x + 3, -1, 3, (-2, 4.4), (-1.6, 14), [(-1, ""), (3, "3")], [(12, 3, "12"), (3, None, "3")],
+    sk("q5a_5d", lambda x: 3 * x + 3, -1, 3, (-2, 4.4), (-1.6, 16.5), [(-1, ""), (3, "3")], [(12, 3, "12"), (3, None, "3")],
        pts=[(-1, 0, "-1", -2, -9, "end")])
     sk("q5a_5e", lambda x: x + 4, -1, 5, (-3.6, 6.8), (-0.8, 11), [(-1, "-1"), (5, "5")], [(4, None, "4")],
        pts=[(5, 9, "(5, 9)", -4, -10, "end"), (-1, 3, "(-1, 3)", -4, -8, "end")])
@@ -301,7 +302,9 @@ def exercise():
         g.axes("x", "y")
         g.curve(fn, color="ink", width=1.2, x0=0, x1=x1, n=600)
         g.label(1, 0, "1", dx=-6, dy=9, size=11, anchor="end")
+        g.items[-1] = masked(g.items[-1])    # on graph paper, the unit labels sit on white
         g.label(0, 1, "1", dx=6, dy=-8, size=11, anchor="start")
+        g.items[-1] = masked(g.items[-1])
         save(name, g)
 
 

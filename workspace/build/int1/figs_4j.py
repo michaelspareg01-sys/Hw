@@ -7,6 +7,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from figs import Graph, save, ACC, INK, FAINT  # noqa: E402
+from figfit import masked  # noqa: E402
 
 
 def styled(g, width_mm):
@@ -16,9 +17,10 @@ def styled(g, width_mm):
 
 
 def save_raw(name, text):
+    from figfit import fit, flatten, untangle, separate  # panels in true coordinates; flagged labels nudged; frame grown if clipped
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "svg", name + ".svg")
     with open(out, "w", encoding="utf-8") as fh:
-        fh.write(text)
+        fh.write(fit(untangle(separate(flatten(text)))))
 
 
 def family():
@@ -35,7 +37,7 @@ def family():
     g.label(0, 3, "3", dx=-7, dy=-12, anchor="end", size=11)
     g.label(0, -3, "-3", dx=-7, dy=-12, anchor="end", size=11)
     g.label(0, -6, "-6", dx=-7, dy=-12, anchor="end", size=11)
-    g.label(2, 0, "2", dy=12, dx=7, size=11)
+    g.label(2, 0, "2", dy=12, dx=-8, size=11)
     save("c4j_family", g)
 
 
@@ -53,6 +55,7 @@ def q8_panel(f, members, special, xr, yr, title, clab, adx, ady, w=200, h=175):
     g.hline(2, x0=0, x1=1).vline(1, 0, 2)
     g.dot(1, 2, color="blue")
     g.label(1, 2, "A(1, 2)", dx=adx, dy=ady, anchor="start" if adx > 0 else "end", size=10, color="blue")
+    g.items[-1] = masked(g.items[-1])        # the label sits over the family of curves
     if clab:
         g.label(clab[0], clab[1], clab[2], anchor="start", size=10, color="blue")
     g.items.append(f'<text x="{w / 2}" y="{h - 6}" text-anchor="middle" font-size="11.5" fill="{INK}">{title}</text>')

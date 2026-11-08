@@ -62,7 +62,7 @@ def lesson():
     g.label(0, 0, "O", dx=-8, dy=11, size=11, italic=True)
     g.label(0, -4, "A", dx=9, dy=6, size=11, italic=True)
     g.label(4, 0, "B", dx=-4, dy=-9, size=11, italic=True)
-    g.label(6, 2, "C", dx=8, dy=-6, size=11, italic=True)
+    g.label(6, 2, "C", dx=8, dy=7, size=11, italic=True)
     g.label(6, 0, "M", dx=8, dy=-8, size=11, italic=True)
     save("c5c_e7", g)
 
@@ -132,7 +132,7 @@ def lesson():
     g.curve(lambda x: 4 - x * x, color="ink", width=1.5, x0=-2.25, x1=2.25)
     g.hline(4, color="ink", dash="", x0=-2.8, x1=2.8, width=1.1)
     g.vline(-2, 0, 4, color="faint").vline(2, 0, 4, color="faint")
-    g.label(-2, 0, "-2", dx=-6, dy=13, size=11).label(2, 0, "2", dx=6, dy=13, size=11)
+    g.label(-2, 0, "-2", dx=9, dy=13, size=11).label(2, 0, "2", dx=-7, dy=13, size=11)
     g.label(0, 4, "4", dx=-5, dy=-8, anchor="end", size=11)
     g.label(1.6, 4, "y = 4", dy=-9, size=10.5, italic=True)
     save("c5c_e12", g)
@@ -233,7 +233,9 @@ def pastpapers():
     g.hline(pi, color="faint", x0=-1, x1=1).vline(-1, 0, pi, color="faint")
     g.hline(pi / 2, color="faint", x0=-1, x1=0)
     g.dot(0, pi / 2, r=2.6)
-    g.yticks([(pi, "π"), (pi / 2, "π/2")])
+    g.yticks([(pi, ""), (pi / 2, "")])
+    g.label(-1, pi, "π", dx=-8, anchor="end", size=11)       # beside the ends of the dashed guides,
+    g.label(-1, pi / 2, "π/2", dx=-8, anchor="end", size=11)  # clear of the curve
     g.xticks([(-1, "-1"), (1, "1")])
     g.label(-0.5, 0.6, "S", size=12, italic=True).label(0.45, 2.5, "T", size=12, italic=True)
     save("p5c_abs", g)

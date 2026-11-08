@@ -115,7 +115,7 @@ Status: DONE_WITH_CONCERNS. The only concern is the expected past-paper shortfal
   - workspace/checks/int1_5g.py;
   - docs/pp_selected_int1.md;
   - this report.
-- Commit `Int1: lesson 5G` on ch10-pack (not pushed). Only my files were staged.
+- Commit 6bb548f `Int1: lesson 5G` on ch10-pack (not pushed). Only my files were staged.
 
 ## Concerns
 1. Past papers: none exist for int1-L8. The section has the timed-practice note only, as the brief expects.

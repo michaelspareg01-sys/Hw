@@ -8,8 +8,9 @@ os.makedirs(OUT, exist_ok=True)
 
 
 def save(name, g):
+    from figfit import fit, untangle, separate  # nudges a flagged label (<= 8 px); grows the frame only where a label would be clipped
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as f:
-        f.write(g.svg())
+        f.write(fit(untangle(separate(g.svg()))))
 
 
 class Fig:
@@ -99,7 +100,7 @@ def fig_rev():
     f.line(292, 44, 292, B, color="faint", width=1.2, dash="4 3").right(292, B, 1, -1, 7)
     f.text(292, 33, "a", italic=True).text(289, B + 15, "b", italic=True).text(284, 76, "h", italic=True)
     # circle with a radius
-    f.raw(f'<circle cx="402" cy="70" r="34" fill="{ACC["blue"]}" fill-opacity="0.16" stroke="{INK}" stroke-width="1.6"/>')
+    f.path("M368,70 A34,34 0 1 0 436,70 A34,34 0 1 0 368,70 Z", color="ink", width=1.6, fill="blue", opacity=0.16)
     f.line(402, 70, 436, 70, width=1.3).dot(402, 70, 2.4).text(419, 62, "r", italic=True)
     # semicircle
     f.path(f"M466,{B} A40,40 0 0 1 546,{B} Z", color="ink", width=1.6, fill="blue", opacity=0.16)

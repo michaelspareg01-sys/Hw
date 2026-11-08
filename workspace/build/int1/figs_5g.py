@@ -141,6 +141,18 @@ def seg(g, x0, y0, x1, y1, color="ink", width=1.0, dash=None):
     return g
 
 
+def leader(g, x0, y0, x1, y1, width=0.9, head=5.5):
+    """Arrow leader from a label at (x0, y0) to a curve at (x1, y1), data coordinates (as the textbook's)."""
+    from math import atan2, cos, sin
+    X0, Y0, X1, Y1 = g.X(x0), g.Y(y0), g.X(x1), g.Y(y1)
+    g.items.append(f'<line x1="{X0:.1f}" y1="{Y0:.1f}" x2="{X1:.1f}" y2="{Y1:.1f}" stroke="{INK}" stroke-width="{width}"/>')
+    a = atan2(Y1 - Y0, X1 - X0)
+    p1 = (X1 - head * cos(a - 0.4), Y1 - head * sin(a - 0.4))
+    p2 = (X1 - head * cos(a + 0.4), Y1 - head * sin(a + 0.4))
+    g.items.append(f'<path d="M{X1:.1f},{Y1:.1f} L{p1[0]:.1f},{p1[1]:.1f} L{p2[0]:.1f},{p2[1]:.1f} z" fill="{INK}"/>')
+    return g
+
+
 def ycurve(g, fx, y0, y1, color="ink", width=1.3, n=300):
     """Draw x = fx(y) for y0 <= y <= y1."""
     pts = [f"{g.X(fx(y0 + (y1 - y0) * i / n)):.1f},{g.Y(y0 + (y1 - y0) * i / n):.1f}" for i in range(n + 1)]
@@ -447,9 +459,9 @@ def q3q4():
     place(g, 0.95, 2.6, "y = (x + 2)^2", prefer="ne e n")
     save("q5g_3a", g)
 
-    # 3b: y = x^2 and y = (x - 3)^2, meeting at (3/2, 9/4); point label with a leader, as in the textbook
+    # 3b: y = x^2 and y = (x - 3)^2, meeting at (3/2, 9/4); point label and curve labels with leaders, as in the textbook
     f1, f2 = (lambda x: x * x), (lambda x: (x - 3) ** 2)
-    g = graph((-1.9, 5.6), (-0.4, 6.6), 225, 132, pad=(10, 28, 20, 18))
+    g = graph((-1.9, 6.6), (-0.4, 6.6), 245, 132, pad=(10, 28, 20, 18))
     g.fill(lambda x: min(f1(x), f2(x)), zero, 0, 3)
     g.axes()
     ink(g, f1, -1.9, 2.35, 1.3), ink(g, f2, 0.65, 5.35, 1.3)
@@ -457,8 +469,10 @@ def q3q4():
     num(g, 3, 0, "3", dy=11)
     fracpoint(g, -1.85, 5.9, "3", "2", "9", "4", size=10)
     seg(g, 0.15, 5.3, 1.42, 2.4, width=0.9)
-    place(g, 2.2, 4.84, "y = x^2", prefer="e se ne")
-    place(g, 4.25, 1.56, "y = (x - 3)^2", prefer="e se ne", rmax=80)
+    g.items.append(rich(g.X(2.62), g.Y(5.95), "y = x^2", "start", 10))
+    leader(g, 2.66, 5.3, 2.08, 4.33)
+    g.items.append(rich(g.X(4.6), g.Y(1.2), "y = (x - 3)^2", "start", 10))
+    leader(g, 4.35, 1.32, 3.85, f2(3.85))
     save("q5g_3b", g)
 
     # 4a: rectangle 0 <= x <= 6, 0 <= y <= 3, less the region under y = 6x - x^2 - 8 from 2 to 4
