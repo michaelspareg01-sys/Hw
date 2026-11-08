@@ -398,7 +398,7 @@ report(list(sp.singularities(x**-4, x)) == [0], "C5 warning: x^-4 has its asympt
 mem = [m_.replace("\\Big", "") for m_ in split_top(g, "=")]
 report(all(eq(T(m_), R(-2, 3)) for m_ in mem), "C5 warning tip: every member = -2/3", g[:80])
 c6 = teach.split("<!-- ============ Concept 6 ============ -->")[1]
-present(c6, r"\(\text{length}\times\text{height}=\pi r\times r=\pi r^2\)", "C6 tip rectangle area")
+present(c6, r"\(\text{length}\times\text{height}=\pi r\times r=\pi r^2.\)", "C6 tip rectangle area")
 present(c5, r"\frac{x^{-3}}{-3}=-\frac{1}{3x^3}", "C5 conversion")
 report(eq(x**-3 / -3, -1 / (3 * x**3)), "C5 conversion value")
 
