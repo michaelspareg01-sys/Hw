@@ -1,0 +1,7 @@
+{"chapter": "Year 10 Trigonometry (part 2) | Lesson and Homework",
+ "header": "YEAR 10 MATHEMATICS",
+ "lesson": {"parts": ["cover.html","revision.html","lt1.html","lt2.html","lt3.html"], "out": "lesson.pdf",
+            "title": "Year 10 Trigonometry (part 2) - Lesson and Homework"},
+ "answers": {"parts": ["a_rev.html","a_t1.html","a_t2.html","a_t3.html"], "out": "answers.pdf",
+             "title": "Year 10 Trigonometry (part 2) - Homework Answers",
+             "footer": "Year 10 Trigonometry (part 2) | Homework Answers", "heading": "Year 10 Trigonometry (part 2) - Homework Answers"}}
