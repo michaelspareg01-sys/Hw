@@ -206,17 +206,19 @@ def amsi_cyclic():
         return (p[0] + t * ux, p[1] + t * uy)
     f = CF(230, 120)
     c1, r1 = (70, 60), 52
-    X = (212, 102)
-    A, P_ = CF.on(c1, r1, 103), CF.on(c1, r1, 212)
+    yl = c1[1] + 34                                # the line PQRX is horizontal, as in the source
+    hw = sqrt(r1 * r1 - 34 * 34)
+    P_, Q = (c1[0] - hw, yl), (c1[0] + hw, yl)
+    X = (220, yl)
+    A = CF.on(c1, r1, 103)
     B = second(A, X, c1, r1)
-    Q = second(P_, X, c1, r1)
     mx, my = (B[0] + Q[0]) / 2, (B[1] + Q[1]) / 2
     dx, dy = Q[0] - B[0], Q[1] - B[1]
     L = hypot(dx, dy)
     nx, ny = dy / L, -dx / L
     if nx < 0:
         nx, ny = -nx, -ny
-    c2 = (mx + 6 * nx, my + 6 * ny)
+    c2 = (mx + 10 * nx, my + 10 * ny)
     r2 = hypot(c2[0] - B[0], c2[1] - B[1])
     Cp = second(B, X, c2, r2)
     Rp = second(Q, X, c2, r2)
