@@ -1,0 +1,7 @@
+{"chapter": "Year 10 Circle Geometry | Lesson and Homework",
+ "header": "YEAR 10 MATHEMATICS",
+ "lesson": {"parts": ["cover.html","revision.html","lc1.html","lc2.html","lc3.html"], "out": "lesson.pdf",
+            "title": "Year 10 Circle Geometry - Lesson and Homework"},
+ "answers": {"parts": ["a_rev.html","a_c1.html","a_c2.html","a_c3.html"], "out": "answers.pdf",
+             "title": "Year 10 Circle Geometry - Homework Answers",
+             "footer": "Year 10 Circle Geometry | Homework Answers", "heading": "Year 10 Circle Geometry - Homework Answers"}}
