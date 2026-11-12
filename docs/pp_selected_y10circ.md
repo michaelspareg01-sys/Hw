@@ -15,7 +15,7 @@ No past-paper items.
 ## C1 Chords, radii and angles
 Source items (not past papers):
 - AMSI TIMES *Circle Geometry*: theorem statements and proofs pp. 5–11; Exercises 1, 2, 3, 4, 5 (homework; answers p. 37).
-- Maths Pathway *Chords, Secants, and Tangents*: Q1(a)–(f) and Q4, Q5(b), Q3(b) as worked examples; Q1(g)–(l), Q3(a), Q5(a) (Easy), Q3(d), Q6(a), Q6(b) (Medium), Q6(c), Q2 (Hard). Not used here: Q3(c) (part b needs the angle at the centre, C2), Q7–Q9 (tangents, C3).
+- Maths Pathway *Chords, Secants, and Tangents*: Q1(a)–(f) and Q4, Q5(b), Q3(b) as worked examples; Q1(g)–(l), Q3(a), Q5(a) (Easy), Q3(d), Q6(a), Q6(b), Q2 (Medium), Q6(c) (Hard). Not used here: Q3(c) (part b needs the angle at the centre, C2), Q7–Q9 (tangents, C3).
 - Maths Pathway *Arcs and Angles in Circles*: Q7(a)–(c), Q8(a) (Easy). Q1–Q6 and Q8(b)–(d) are left for C2.
 
 Past papers (mini exam, 10 marks, 15 min; order PP 1–4):
@@ -23,7 +23,7 @@ Past papers (mini exam, 10 marks, 15 min; order PP 1–4):
 - y10-B-92 | Sydney Boys High School, 2022, Part A Q9 | 2 marks | `Sydney Boys 2022 Year 10 Maths Yearly & Solutions.pdf` | question p4, solution p35 | label "Sydney Boys High School, 2022, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part A Q9".
 - y10-B-84 | Sydney Boys High School, 2021, Part E (a) | 3 marks | `Sydney Boys 2021 Year 10 Maths Yearly & Solutions.pdf` | question p25, solution p54 | label "Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part E (a)" | the school's solution uses the angle at the centre (C2); our solution uses the isosceles triangle OCD and the exterior angle (C1 tools). Uses the area rule (Topic 11 prerequisite).
 - y10-A-111 | Merewether High School, 2023, Section III Part B Q2 | 4 marks | `Merewether 2023 Year 10 Maths Yearly & Solutions.pdf` | question p7, solution p21 (scan) | label "Merewether High School, 2023, Year 10 Assessment Task 4, Mathematics, Section III Part B Q2" (the catalogue's "Part B Sec 3" is Section III, Part B).
-- **House rule 8 shortfall**: these are the only clean C1 items in the catalogue (10 marks). Timed-practice note in the lesson: Questions 11, 12 and 13 in 15 minutes.
+- **House rule 8 shortfall**: these are the only clean C1 items in the catalogue (10 marks). Timed-practice note in the lesson: Questions 13, 14 and 15 in 15 minutes.
 
 ## C2 Angles at the centre and circumference
 Source items (not past papers):
@@ -56,7 +56,7 @@ Past papers, mini exam (18 marks, 25 min; order PP 1–8):
 - y10-A-073 | Girraween High School, 2020, Q25(a) | 4 | question p15, solution p26.
 - y10-B-111 | Sydney Boys High School, 2024, Part C Q7 | 3 | `Sydney Boys 2024 ...` | question p17, solution pp52–53 | label "Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, Part C Q7".
 
-Hard band (Q22):
+Hard band (Q20):
 - y10-B-104, B-105 | Sydney Boys High School, 2023, Part F Q3(a)–(b) | 2 + 3 | `Sydney Boys 2023 ...` | questions pp35–36, solutions pp72–74 | label "Sydney Boys High School, 2023, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part F Q3(a)–(b)". Part (c) (y10-B-106, 1 mark) is NOT used: it needs the converse of the angles in the same segment theorem, which the pack does not teach (AMSI puts the converses in an appendix).
 
 Chapter review at the end of lc3.html (14 marks; each item mixes lessons):

@@ -80,8 +80,13 @@ class CF(Fig):
     def circle(self, c, r, color="ink", width=1.6, dash=None, fill=None, opacity=0.18):
         d = f' stroke-dasharray="{dash}"' if dash else ''
         f = f'fill="{ACC[fill]}" fill-opacity="{opacity}"' if fill else 'fill="none"'
-        x0, x1, y = c[0] - r, c[0] + r, c[1]       # drawn as a path: svg_overlap treats <circle> as a dot box
-        self.items.append(f'<path d="M{x0:.1f},{y:.1f} A{r:.1f},{r:.1f} 0 1 0 {x1:.1f},{y:.1f} A{r:.1f},{r:.1f} 0 1 0 {x0:.1f},{y:.1f} Z" {f} stroke="{ACC[color]}" stroke-width="{width}"{d}/>')
+        # drawn as a path: svg_overlap treats <circle> as a dot box. Round the radius and the left end
+        # first and take the right end from them, so the printed chord is exactly twice the printed
+        # radius: two semicircles, never two bulging >180-degree arcs.
+        rr = round(r, 1)
+        x0, y = round(c[0] - rr, 1), round(c[1], 1)
+        x1 = round(x0 + 2 * rr, 1)
+        self.items.append(f'<path d="M{x0:.1f},{y:.1f} A{rr:.1f},{rr:.1f} 0 1 0 {x1:.1f},{y:.1f} A{rr:.1f},{rr:.1f} 0 1 0 {x0:.1f},{y:.1f} Z" {f} stroke="{ACC[color]}" stroke-width="{width}"{d}/>')
         return self
 
     @staticmethod

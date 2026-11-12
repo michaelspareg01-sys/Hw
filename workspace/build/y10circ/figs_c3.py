@@ -303,7 +303,7 @@ def concept2():
     f.C(I, rI).poly([f.T(A), f.T(B), f.T(C)], color=None, opacity=0).S(A, I).S(B, I).S(C, I).D(I)
     for v, p, q, s in ((A, C, I, "α"), (A, I, B, "α"), (B, A, I, "β"), (B, I, C, "β"), (C, I, A, "γ"), (C, B, I, "γ")):
         f.A(v, p, q, "", r=16)
-        f.alab(f.T(v), f.T(p), f.T(q), s, d=(46 if v is C else 30), size=9.5, italic=True)
+        f.alab(f.T(v), f.T(p), f.T(q), s, d=(46 if v is C else 36 if v is B else 30), size=9.5, italic=True)
     f.L(A, "A", dx=-8, dy=5).L(B, "B", dy=-8).L(C, "C", dx=8, dy=5).L(I, "I", dx=6, dy=-7)
     save("c3_incentre", f)
     # Exercise 18: feet L, M, N of the perpendiculars from I
