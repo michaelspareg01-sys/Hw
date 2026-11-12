@@ -38,3 +38,33 @@ Past papers in the mini exam (17 marks, 25 min; order PP 1–11):
 - PP11 y10-B-149 | Sydney Technical High School, 2020, Q7(c)(i)–(iii) | 3 | `Sydney Tech 2020 ...` question p6, solution p15.
 
 Checked and not used in T1: Fort St 2020–2023 rows (the papers never print the school name, only a crest; integration ruling on school identification), y10-B-14 NSG 2024 Q7 (stem says "1 decimal place" but every option has 2: doubtful), y10-A-114 (wrong printed solution).
+
+## T2 Exact values and trigonometric equations
+Source items (not past papers):
+- Year 11 Advanced 5A (PDF 164): special angles text, two triangles and Box 2 (sin/cos/tan columns); Exercise 5A Q10 a–c, Q17 a–c (Easy), Q18 b–d (Medium), Q15 a–c (Hard). Omitted parts use sec/cosec/cot or sin²+cos² = 1. Answers PDF 546.
+- Year 11 Advanced 5I Example 22 (PDF 207) as the exact-value worked example (sine rule, AAS; not the ambiguous case). T3 should not reuse Example 22.
+- Year 11 Advanced 5F (PDF 192–194): Box 18, Example 11, Note; Exercise 5F Q1 (Easy), Q5, Q6, Q7 (Medium), Q11 (Hard). Not used: Q2–Q4, Q8–Q10 (sec/cosec/cot), Q12 (sec), Q13. Answers PDF 547–548.
+- Year 11 Advanced 5G (PDF 195–199): intro sentence, Box 20 (tan line), complementary-angle text, Box 22 (cos line and its example), Proof A and B (cos lines); Exercise 5G Q5 a, d (Easy). Everything else in 5G uses reciprocal or Pythagorean identities: not used.
+- Year 11 Advanced 5H (PDF 200–205): Boxes 25, 26, 27, 29, Examples 15, 16, 17, 19, 20, 21, Note; Exercise 5H Q1, Q2, Q3 (Easy), Q4 a, b, c, e, g, Q5 a, b, d, Q6 a, d (Medium), Q7, Q8, Q9 (Hard). Box 28 and Example 18 (cosec/sec) not used. Answers PDF 548.
+- Maths Pathway *Solving Trigonometric Equations*: inverse-function box, "Multiple solutions with a calculator" box; Q8 (Easy), Q9 (Medium). Not used: Q1–Q7 (Q5–Q7 have the student enter negative numbers into the inverse functions, against the book's Box 27 method).
+
+Past papers in the homework bands:
+- Medium: y10-A-090 | Girraween High School, 2023, Short Answer Q10 | 1 | `Girraween 2023 ...` question p12, solution p44.
+- Medium: y10-A-101 | Hornsby Girls High School, 2021, Year 10 Mathematics Term 4 Assessment, Q16 | 1 | `Hornsby Girls 2021 ...` question p10, solution p32.
+- Medium: y10-B-107 | Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Section A Q4 | 2 | `Sydney Boys 2024 ...` question p2, solution p36 (catalogue: "Part A", p3; the paper prints "Section A" and the question is on p2).
+- Hard: y10-B-145 | Sydney Grammar School, 2020, Q8(c) | 3 | question p9, solution p29.
+- Hard: y10-B-103 | Sydney Boys High School, 2023, Year 10 Stage 5.3 Term 4 Yearly Assessment, Part E Q2 | 2 | `Sydney Boys 2023 ...` question p27, solution p65.
+
+Past papers in the mini exam (19 marks, 30 min; order PP 1–10):
+- PP1 y10-A-089 | Girraween High School, 2023, Year 10 Mathematics Yearly Exam, Short Answer Q9 | 1 | question p12, solution p44 (the catalogue's "Sec II" is the Short Answer section; each question is 1 mark).
+- PP2 y10-B-16 | North Sydney Girls High School, 2024, Year 10 Mathematics Yearly Examination, Q10 | 1 | question p4, solution p13 (key A).
+- PP3 y10-A-125 | Northern Beaches Christian School, 2023, Mathematics Year 10 5.3/Year 9 Accelerated Yearly Examination, Section I Q7 | 1 | question p4, solution p23.
+- PP4 y10-A-119 | Northern Beaches Christian School, 2022, Section I Q16 | 1 | question p8, solution p28.
+- PP5 y10-B-09 | North Sydney Girls High School, 2023, Year 10 Mathematics Yearly Examination, Q16(d) | 2 | question p6, solution p15.
+- PP6 y10-B-144 | Sydney Grammar School, 2020, Q7(b) | 2 | question p9, solution p24 (tagged TRG-UNIT; it is a 5F "given one, find another" item, taught in T2).
+- PP7 y10-B-10 | North Sydney Girls High School, 2023, Q17(b) | 2 | question p7, solution p17.
+- PP8 y10-B-72 | Sydney Boys High School, 2020, Q28 | 2 | question p13, solution p42.
+- PP9 y10-A-082 | Girraween High School, 2022, Year 10 Yearly Examination Mathematics, Q25(a)(i)–(ii) | 4 | question p23, solution p45. (Q25(b), y10-A-083, is a sine-rule part: left for T3.)
+- PP10 y10-B-110 | Sydney Boys High School, 2024, Part C Q6 | 3 | question p16, solution p51.
+
+Checked and not used in T2: y10-A-107, A-109 (James Ruse 2024: cosec / sin²+cos² = 1, outside scope), A-114, A-133 (wrong printed solutions), A-149 (solution contradicts the answer), Canberra Grammar rows (ACT school), Fort St rows (no printed school name). Other clean T2 rows left unused (no reuse risk): A-002, A-067, A-068, A-080, A-081, A-099, A-112, A-127, A-128, A-135, A-140 (NSB 2021, check school name first), A-155/B-06, B-04, B-17, B-20, B-40, B-41, B-42, B-43, B-49, B-63, B-78, B-85, B-97, B-140, B-143, B-151, B-153.

@@ -834,8 +834,251 @@ def fig_t1_ans():
         save(name, g)
 
 
+# ---------------- Lesson T2: exact values and trigonometric equations ----------------
+
+def qrays(name, rays, arcs=(), w=190, h=150, labs=()):
+    """Quadrant diagram (book style): axes, rays at given angles with end labels, related-angle arcs."""
+    f = Fig(w, h)
+    cx, cy = w / 2, h / 2
+    f.line(cx - 72, cy, cx + 72, cy, width=1.3).line(cx, cy - 64, cx, cy + 64, width=1.3)
+    for a, lab in rays:
+        ray(f, cx, cy, a, 60, width=1.6, head=7)
+        if lab:
+            x, y = pt(cx, cy, a, 72)
+            f.text(x, y + 4, lab, size=10.5)
+    for lo, hi, s in arcs:
+        f.arc(cx, cy, 20, lo, hi, color="faint")
+        axis_end = lo if lo % 90 == 0 else hi
+        m = 0.65 * axis_end + 0.35 * (hi if axis_end == lo else lo)
+        x, y = pt(cx, cy, m, 46)
+        f.text(x, y + (3.5 if m % 360 < 180 else 3), s, size=9.5)
+    for x, y, s in labs:
+        f.text(x, y, s, size=11)
+    save(name, f)
+
+
+def fig_t2():
+    # 5A p150: half a square (ABC) and half an equilateral triangle (PQR)
+    f = Fig(400, 150)
+    C, B, A = (30, 126), (130, 126), (130, 26)
+    f.poly([(30, 26), (130, 26), B, C], color=None, opacity=0, width=1.0, stroke="faint")
+    f.items[-1] = f.items[-1].replace('stroke-width="1.0"', 'stroke-width="1.0" stroke-dasharray="4 3"')
+    triangle(f, C, B, A)
+    right_mark(f, B, C, A, 8)
+    f.text(A[0] + 8, A[1] - 2, "A", size=11.5, italic=True).text(B[0] + 9, B[1] + 6, "B", size=11.5, italic=True)
+    f.text(C[0] - 9, C[1] + 6, "C", size=11.5, italic=True)
+    side_label(f, C, A, "√2", 11)
+    side_label(f, B, A, "1", 9, flip=True)
+    side_label(f, C, B, "1", 11, flip=True)
+    angle_arc(f, C, B, A, 16)
+    angle_label(f, C, B, A, "45°", 32, size=10.5)
+    angle_arc(f, A, C, B, 16)
+    angle_label(f, A, C, B, "45°", 40, size=10.5)
+    P, Q, R = (300, 14), (300, 126), (364.7, 126)
+    S = (235.3, 126)
+    f.line(*S, *P, width=1.5).line(*S, *R, width=1.5).line(*P, *R, width=1.5)
+    f.line(*P, *Q, width=1.2, dash="4 3")
+    right_mark(f, Q, R, P, 8)
+    f.text(P[0], P[1] - 8, "P", size=11.5, italic=True).text(Q[0], Q[1] + 15, "Q", size=11.5, italic=True)
+    f.text(R[0] + 9, R[1] + 6, "R", size=11.5, italic=True)
+    side_label(f, Q, P, "√3", 12)
+    side_label(f, P, R, "2", 10, flip=True)
+    side_label(f, Q, R, "1", 11, flip=True)
+    angle_arc(f, P, Q, R, 18)
+    f.text(P[0] + 12, P[1] + 4, "30°", size=10, anchor="start")
+    angle_arc(f, R, P, Q, 16)
+    angle_label(f, R, P, Q, "60°", 30, size=10.5)
+    save("t2_special", f)
+
+    # 5G p182: complementary angles, acute proof triangle
+    f = Fig(230, 124)
+    A, B, C = (20, 106), (180, 106), (180, 32)
+    triangle(f, A, B, C)
+    right_mark(f, B, A, C, 8)
+    angle_arc(f, A, B, C, 22)
+    angle_label(f, A, B, C, "θ", 34, italic=True)
+    angle_arc(f, C, A, B, 16)
+    f.text(C[0] - 28, C[1] - 12, "90° − θ", size=10.5)
+    side_label(f, A, C, "c", 10, italic=True)
+    side_label(f, B, C, "a", 10, italic=True, flip=False)
+    side_label(f, A, B, "b", 12, italic=True, flip=True)
+    save("t2_comp", f)
+
+    # 5G p183: reflection of P(x, y) in y = x gives P'(y, x) at 90 - theta
+    f = Fig(230, 210)
+    cx, cy, R = 104, 96, 56
+    f.circle(cx, cy, R)
+    f.arrow(cx - R - 22, cy, cx + R + 26, cy, width=1.3, head=6).arrow(cx, cy + R + 20, cx, cy - R - 24, width=1.3, head=6)
+    f.text(cx + R + 30, cy - 6, "x", size=11.5, italic=True).text(cx - 9, cy - R - 20, "y", size=11.5, italic=True)
+    f.line(cx - 76, cy + 76, cx + 76, cy - 76, color="faint", width=1.2, dash="4 3")
+    f.text(cx + 82, cy - 78, "y = x", size=10.5, italic=True)
+    th = 122
+    P = pt(cx, cy, th, R)
+    Pp = pt(cx, cy, 90 - th, R)
+    ray(f, cx, cy, th, R + 20, width=1.5, head=6)
+    ray(f, cx, cy, 90 - th, R + 20, width=1.5, head=6)
+    f.dot(*P, 2.6).dot(*Pp, 2.6)
+    f.text(P[0] - 8, P[1] + 2, "P(x, y)", size=10.5, anchor="end", italic=True)
+    f.text(Pp[0] + 4, Pp[1] + 16, "P′(y, x)", size=10.5, anchor="start", italic=True)
+    e = pt(cx, cy, th, R + 30)
+    f.text(e[0], e[1] + 4, "θ", size=11.5, italic=True)
+    e = pt(cx, cy, 90 - th, R + 28)
+    f.text(e[0] + 4, e[1] + 30, "90° − θ", size=10.5, anchor="start")
+    f.text(cx - 16, cy - 7, "O", size=11, italic=True)
+    save("t2_reflect", f)
+
+    # 5F Example 11: sin theta = 1/5, rays in quadrants 1 and 2
+    f = Fig(220, 170)
+    cx, cy, R = 110, 104, 60
+    f.circle(cx, cy, R)
+    f.arrow(cx - R - 22, cy, cx + R + 22, cy, width=1.3, head=6).arrow(cx, cy + R + 10, cx, cy - R - 26, width=1.3, head=6)
+    f.text(cx + R + 28, cy + 4, "x", size=11.5, italic=True).text(cx - 9, cy - R - 22, "y", size=11.5, italic=True)
+    a = degrees(atan2(1, sqrt(24)))
+    for ang, xl, sg in ((a, "2√6", 1), (180 - a, "−2√6", -1)):
+        P = pt(cx, cy, ang * 4.2 if False else ang, R)
+        # draw with the true height 1/5 of r scaled up so the triangle is visible
+        P = (cx + sg * R * 0.85, cy - R * 0.53)
+        f.line(cx, cy, *P, width=1.5)
+        ray(f, cx, cy, degrees(atan2(cy - P[1], (P[0] - cx))), R + 22, width=1.5, head=6)
+        M = (P[0], cy)
+        f.line(*P, *M, width=1.2)
+        right_mark(f, M, (cx, cy), P, 7)
+        f.dot(*P, 2.6)
+        f.text(P[0] - sg * 4, P[1] + 15, "1", size=11, anchor="end" if sg > 0 else "start")
+        f.text((cx + P[0]) / 2 - sg * 5, (cy + P[1]) / 2 - 9, "5", size=11)
+        f.text(M[0] - sg * 4, cy + 14, xl, size=10.5, anchor="end" if sg > 0 else "start")
+        e = pt(cx, cy, degrees(atan2(cy - P[1], (P[0] - cx))), R + 32)
+        f.text(e[0], e[1] + 4, "θ", size=11.5, italic=True)
+    save("t2_ex11", f)
+
+    # 5F Q1 a-d (book p193)
+    def circ(name, X, Y, lab_r, lab_x, lab_y, theta_side=1):
+        f = Fig(150, 140)
+        cx, cy, R = 72, 70, 44
+        f.circle(cx, cy, R)
+        f.line(cx - R - 18, cy, cx + R + 18, cy, width=1.2).line(cx, cy - R - 18, cx, cy + R + 18, width=1.2)
+        a = degrees(atan2(Y, X))
+        P = pt(cx, cy, a, R)
+        M = (P[0], cy)
+        ray(f, cx, cy, a, R + 18, width=1.5, head=6)
+        f.line(*P, *M, width=1.2)
+        right_mark(f, M, (cx, cy), P, 6)
+        e = pt(cx, cy, a, R + 28)
+        f.text(e[0], e[1] + 4, "θ", size=11.5, italic=True)
+        mx, my = (cx + P[0]) / 2, (cy + P[1]) / 2
+        nx, ny = -(P[1] - cy), (P[0] - cx)
+        nn = hypot(nx, ny)
+        nx, ny = nx / nn, ny / nn
+        if nx * (M[0] - mx) + ny * (M[1] - my) > 0:
+            nx, ny = -nx, -ny
+        if Y > 0:
+            f.text(cx + (-6 if X > 0 else 6), my + 4, lab_r, size=10.5, anchor="end" if X > 0 else "start")
+        else:
+            f.text(mx + 11 * nx, my + 11 * ny + 4, lab_r, size=10.5)
+        f.text(P[0] + (8 if X > 0 else -8), (P[1] + cy) / 2 + 4, lab_y, size=10.5, anchor="start" if X > 0 else "end")
+        f.text((cx + M[0]) / 2, cy + (13 if Y > 0 else -6), lab_x, size=10.5)
+        save(name, f)
+
+    circ("t2_f1a", 8, 15, "17", "8", "15")
+    circ("t2_f1b", -6, 8, "10", "−6", "8")
+    circ("t2_f1c", -24, -7, "25", "−24", "−7")
+    circ("t2_f1d", 20, -21, "29", "20", "−21")
+
+    # 5H Example 15: y = sin x for 0 <= x <= 720
+    g = Graph(-30, 800, -1.3, 1.3, w=310, h=130, pad=(14, 24, 16, 14))
+    g.axes("x", "y")
+    g.yticks([(1, "1"), (-1, "-1")])
+    g.curve(lambda t: sin(radians(t)), color="blue", width=2, x0=-20, x1=740)
+    for v in (270, 630):
+        g.vline(v, -1, 0)
+    g.hline(-1, x0=0, x1=630)
+    g.xticks([(270, ""), (360, ""), (630, ""), (720, "")])
+    g.label(270, 0, "270°", dx=0, dy=-11, size=10).label(630, 0, "630°", dx=-3, dy=-11, anchor="end", size=10)
+    g.label(360, 0, "360°", dx=4, dy=13, anchor="start", size=10).label(720, 0, "720°", dx=4, dy=13, anchor="start", size=10)
+    save("t2_ex15", g)
+
+    qrays("t2_ex16", [(210, "−150°"), (330, "−30°")], [(180, 210, "30°"), (330, 360, "30°")])
+    qrays("t2_ex17", [(108.43, "108°"), (288.43, "288°")], [(108.43, 180, "72°"), (288.43, 360, "72°")])
+    qrays("t2_ex19", [(60, "60°, 420°"), (240, "240°, 600°")], [(0, 60, "60°"), (180, 240, "60°")], w=230)
+    qrays("t2_ex20", [(60, "60°"), (120, "−240°")], [(0, 60, "60°"), (120, 180, "60°")])
+
+    # Maths Pathway: sin x = 1/2 on the unit circle, solutions 30 and 150
+    f = Fig(190, 160)
+    cx, cy, R = 95, 80, 56
+    f.circle(cx, cy, R)
+    axes(f, cx, cy, R, ext=12)
+    unit_ticks(f, cx, cy, R)
+    for a, dash in ((30, None), (150, "3 2")):
+        f.line(cx, cy, *pt(cx, cy, a, R), color="blue", width=1.6, dash=dash)
+    f.line(*pt(cx, cy, 150, R), *pt(cx, cy, 30, R), color="faint", width=1.0, dash="3 2")
+    f.arc(cx, cy, 16, 0, 30, color="blue")
+    f.text(cx + 34, cy - 8, "30°", size=10, color="blue")
+    save("t2_mp", f)
+
+    # 5I Example 22 (book p193) and the two demo triangles (our own), drawn with their true angles:
+    # base CB horizontal, angle b at B (right end), obtuse angle c at C (left end of base), x = CA opposite b
+    def obtuse(name, b, c, k, w=240, CB=110.0, rb=44, rc=30):
+        sb, cb_ = sin(radians(b)), cos(radians(b))
+        sc, cc = sin(radians(c)), cos(radians(c))
+        s_ = CB / (cb_ + sb * cc / sc)
+        t_ = s_ * sb / sc
+        Ax, Ay = t_ * cc, -t_ * sc
+        x0 = 24 - min(Ax, 0)
+        y0 = 24 - Ay
+        C, B, A = (x0, y0), (x0 + CB, y0), (x0 + Ax, y0 + Ay)
+        f = Fig(max(w, int(B[0] + 30)), int(y0 + 30))
+        triangle(f, A, B, C)
+        angle_arc(f, B, A, C, 26)
+        if rb:
+            angle_label(f, B, A, C, f"{b}°", rb, size=10.5)
+        else:
+            f.text(B[0] + 6, B[1] - 6, f"{b}°", size=10.5, anchor="start")
+        angle_arc(f, C, B, A, 12)
+        angle_label(f, C, B, A, f"{c}°", rc, size=10.5)
+        side_label(f, A, B, k, 11)
+        side_label(f, A, C, "x", 10, italic=True, flip=True)
+        save(name, f)
+
+    obtuse("t2_ex22", 30, 135, "12")
+    obtuse("t2_d1", 45, 120, "8", CB=60.0, rb=None, rc=24)
+    obtuse("t2_y1", 30, 120, "6")
+
+    # NBCS 2022 Section I Q16: flagpole
+    f = Fig(250, 150)
+    P, T, A = (60, 100), (60, 14), (220, 134)
+    f.line(*P, *T, width=1.5).line(*T, *A, width=1.5).line(*P, *A, width=1.5)
+    right_mark(f, P, T, A, 8)
+    f.dot(*P, 2.4).dot(*A, 2.4)
+    f.text(P[0] - 9, P[1] + 4, "P", size=11.5, italic=True).text(A[0] + 9, A[1] + 4, "A", size=11.5, italic=True)
+    f.text(P[0] - 10, (P[1] + T[1]) / 2, "h", size=11.5, italic=True)
+    side_label(f, P, A, "30 m", 12, flip=True)
+    angle_arc(f, A, P, T, 22)
+    angle_label(f, A, P, T, "30°", 58, size=10.5)
+    f.text(180, 40, "NOT TO SCALE", size=10.5)
+    save("pp_nbcs22_16", f)
+
+    # Sydney Boys 2024 Part C Q6: clock face with the hour hand at x degrees
+    f = Fig(180, 160)
+    cx, cy, R = 90, 76, 52
+    f.path(f"M{cx - R - 14},{cy + R + 22} L{cx - R - 14},{cy} A{R + 14},{R + 14} 0 0 1 {cx + R + 14},{cy} L{cx + R + 14},{cy + R + 22} Z",
+           color="ink", width=1.4, fill="faint", opacity=0.25)
+    f.circle(cx, cy, R, fill="none")
+    f.raw(f'<path d="M{cx - R},{cy} A{R},{R} 0 1 0 {cx + R},{cy} A{R},{R} 0 1 0 {cx - R},{cy} Z" fill="#fff" stroke="none"/>')
+    f.circle(cx, cy, R)
+    for s, (dx, dy) in (("12", (0, -R + 12)), ("3", (R - 10, 4)), ("6", (0, R - 6)), ("9", (-R + 10, 4))):
+        f.text(cx + dx, cy + dy, s, size=10.5)
+    f.line(cx, cy, cx, cy - R + 20, color="faint", width=1.1, dash="3 2")
+    hx, hy = pt(cx, cy, 90 - 70, 36)
+    f.line(cx, cy, hx, hy, width=2.6)
+    f.dot(cx, cy, 2.6)
+    f.arc(cx, cy, 16, 90, 20, color="ink", width=1.0)
+    f.text(cx + 10, cy - 22, "x°", size=10.5, italic=True)
+    save("pp_sbhs24_6", f)
+
+
 if __name__ == "__main__":
     fig_rev()
     fig_t1()
     fig_t1_hw()
     fig_t1_ans()
+    fig_t2()

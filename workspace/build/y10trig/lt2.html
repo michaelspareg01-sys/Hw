@@ -1,4 +1,411 @@
 <div class="lesson">
 <div class="lesson-head"><div class="eyebrow">Lesson T2</div><h2>Exact values and trigonometric equations</h2>
-<div class="focus">This lesson is still being written.</div></div>
+<div class="focus">The exact values of sin, cos and tan at 30°, 45° and 60° come from two special triangles. With the complementary-angle identity and the ratio identity, they give exact answers without a calculator. Given one trigonometric function, a circle diagram and Pythagoras’ theorem give the others. Then trigonometric equations are solved over a given domain by the quadrants-and-related-angle method, and the Hard band adds compound angles such as \(2x\). Sources: Year 11 Advanced book 5A, 5F, 5G and 5H (and Example 22 of 5I); Maths Pathway sheet <i>Solving Trigonometric Equations</i>. All angles are in degrees.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:exact values for 30°, 45° and 60°}}
+<div class="box concept"><div class="bt">Special angles (Year 11 Advanced, 5A)</div>
+<p>The values of the trigonometric functions for the three acute angles 30°, 45° and 60° can be calculated exactly using half a square and half an equilateral triangle, and applying Pythagoras’ theorem.</p>
+{{svg:t2_special}}
+<div class="split"><p style="margin:0">Take half a square with side length 1.<br>The resulting right-angled triangle \(ABC\) has two angles of 45°.<br>By Pythagoras’ theorem, the hypotenuse \(AC\) has length \(\sqrt2\)</p>
+<p style="margin:0">Take half an equilateral triangle with side length 2 by dropping an altitude.<br>The resulting right-angled \(\Delta PQR\) has angles of 60° and 30°.<br>By Pythagoras’ theorem, \(PQ=\sqrt3\).</p></div>
+<p style="margin-bottom:0">Applying the definitions in Box 1 gives the values in the table below.</p></div></div>
+<div class="box take"><div class="bt">2 A table of exact values</div>
+<table class="t" style="margin:1mm auto"><tr><th>\(\theta\)</th><th>\(\sin\theta\)</th><th>\(\cos\theta\)</th><th>\(\tan\theta\)</th></tr>
+<tr><td>30°</td><td>\(\dfrac12\)</td><td>\(\dfrac{\sqrt3}{2}\)</td><td>\(\dfrac{1}{\sqrt3}\)</td></tr>
+<tr><td>45°</td><td>\(\dfrac{1}{\sqrt2}\)</td><td>\(\dfrac{1}{\sqrt2}\)</td><td>1</td></tr>
+<tr><td>60°</td><td>\(\dfrac{\sqrt3}{2}\)</td><td>\(\dfrac12\)</td><td>\(\sqrt3\)</td></tr></table></div>
+<div class="box tip"><div class="bt">Reading the table from the triangles</div>
+<p>Box 1 is \(\sin\theta=\dfrac{\text{opp}}{\text{hyp}}\), \(\cos\theta=\dfrac{\text{adj}}{\text{hyp}}\), \(\tan\theta=\dfrac{\text{opp}}{\text{adj}}\) (see the revision pages). In \(\Delta ABC\), from the 45° angle at \(C\): opp = 1, adj = 1, hyp = \(\sqrt2\). In \(\Delta PQR\), from the 60° angle at \(R\): opp = \(\sqrt3\), adj = 1, hyp = 2; from the 30° angle at \(P\): opp = 1, adj = \(\sqrt3\), hyp = 2. The book’s table also has cosec, sec and cot columns, which are not in the Year 10 course and are left out.</p>
+<p style="margin-bottom:0">Exact values are often written with a rational denominator: \(\dfrac{1}{\sqrt2}=\dfrac{\sqrt2}{2}\) and \(\dfrac{1}{\sqrt3}=\dfrac{\sqrt3}{3}\). Combined with Lesson T1, this gives exact values for every angle whose related angle is 30°, 45° or 60°.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Exact values</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Find the exact value of \(\cos^2 45^\circ+\sin30^\circ\).</span>
+<span><span class="pl">b</span>Find the exact value of \(\tan30^\circ\times\tan60^\circ\).</span></div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div><span class="pl">c</span>Use the sine rule and exact values to find the side \(x\) in the triangle shown, in simplest exact form.</div><div>{{svg:t2_d1}}</div></div>
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Find the exact value of \(\sin^2 60^\circ+\cos60^\circ\).</span>
+<span><span class="pl">b</span>Find the exact value of \(\cos30^\circ\times\tan30^\circ\).</span></div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div><span class="pl">c</span>Use the sine rule and exact values to find the side \(x\) in the triangle shown, in simplest exact form.</div><div>{{svg:t2_y1}}</div></div>
+{{work:56}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 22</span><span class="ex-title">From the text (5I): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>
+Find the side \(x\) in the triangle shown to the right.
+<div class="sol-label">Solution</div>
+<p style="margin-top:0">Using the sine rule, and placing the unknown at the top left,</p>
+\[\begin{aligned}\frac{x}{\sin30^\circ}&amp;=\frac{12}{\sin135^\circ}\\ x&amp;=\frac{12\sin30^\circ}{\sin135^\circ}.\qquad(\times\sin30^\circ)\end{aligned}\]</div><div>{{svg:t2_ex22}}</div></div>
+<p style="margin:0">Using special angles, &emsp;\(\sin30^\circ=\dfrac12,\)</p>
+<p style="margin:0">and &emsp;\(\begin{aligned}[t]\sin135^\circ&amp;=+\sin45^\circ\qquad\text{(sine is positive for obtuse angles)}\\&amp;=\frac{1}{\sqrt2}.\qquad\text{(the related acute angle is 45°)}\end{aligned}\)</p>
+<p style="margin:0">Hence &emsp;\(\begin{aligned}[t]x&amp;=12\times\frac12\times\frac{\sqrt2}{1}\\&amp;=6\sqrt2.\end{aligned}\)</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 22</div>
+<p style="margin:0">Dividing by \(\sin135^\circ=\dfrac{1}{\sqrt2}\) is the same as multiplying by its reciprocal \(\dfrac{\sqrt2}{1}\). Then \(12\times\dfrac12=6\), so \(x=6\times\sqrt2=6\sqrt2\). The sine rule is from Topic 11 (see the revision pages).</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:tan = sin/cos and complementary angles}}
+<div class="box concept"><div class="bt">Trigonometric identities (Year 11 Advanced, 5G)</div>
+<p>Working with the trigonometric functions requires knowledge of a number of formulae called <i>trigonometric identities</i>, which relate trigonometric functions to each other.</p>
+<p style="margin-bottom:0"><b>The two ratio identities.</b> Again using the definitions of the trigonometric functions:</p></div></div>
+<div class="box take"><div class="bt">20 The ratio identities</div>
+<p style="margin:0">For any angle \(\theta\):&emsp;\(\tan\theta=\dfrac{\sin\theta}{\cos\theta}\quad\)(provided that \(\cos\theta\ne0\))</p></div>
+<div class="box concept">
+<p style="margin-top:0"><b>The three identities for complementary angles.</b> The angles \(\theta\) and \(90^\circ-\theta\) are called <i>complementary angles</i> because they add to a right angle. Three trigonometric identities relate the values of the trigonometric functions at an angle \(\theta\) and the complementary angle \(90^\circ-\theta\).</p></div>
+<div class="box take"><div class="bt">22 The complementary angle identities</div>
+<p style="margin:0">For any angle \(\theta\):&emsp;\(\cos(90^\circ-\theta)=\sin\theta\)</p>
+<p style="margin:1mm 0 0">For example, &emsp;\(\cos20^\circ=\sin70^\circ\).</p></div>
+<div class="box concept"><div class="bt">Proof</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin-top:0"><b>A</b> [Acute angles]<br>The triangle to the right shows that when a right-angled triangle is viewed from \(90^\circ-\theta\) instead of from \(\theta\), then the opposite side and the adjacent side are exchanged. Hence</p>
+\[\cos(90^\circ-\theta)=\frac ac=\sin\theta.\]</div><div>{{svg:t2_comp}}</div></div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p><b>B</b> [General angles]<br>For general angles, we take the full circle diagram, and reflect it in the diagonal line \(y=x\). Let \(P'\) be the image of \(P\) under this reflection.</p>
+<ol style="margin:0"><li>The image \(OP'\) of the ray \(OP\) corresponds to the angle \(90^\circ-\theta\).</li>
+<li>The image \(P'\) of \(P(x,y)\) has coordinates \(P'(y,x)\), because reflection in the line \(y=x\) reverses the coordinates of each point.</li></ol>
+<p>Applying the definitions of the trigonometric functions to the angle \(90^\circ-\theta\):</p>
+\[\cos(90^\circ-\theta)=\frac yr=\sin\theta.\]</div><div>{{svg:t2_reflect}}</div></div></div>
+<div class="box tip"><div class="bt">The other complementary identities, and sin(90° − θ)</div>
+<p>Box 20 also has \(\cot\theta=\dfrac{\cos\theta}{\sin\theta}\), and Box 22 and its proof also have lines for cot and cosec. They are not in the Year 10 course and are left out.</p>
+<p>Replace \(\theta\) by \(90^\circ-\theta\) in Box 22: \(\cos\big(90^\circ-(90^\circ-\theta)\big)=\sin(90^\circ-\theta)\), that is,</p>
+\[\sin(90^\circ-\theta)=\cos\theta.\]
+<p style="margin-bottom:0">So the sine of an angle is the cosine of its complement, and the cosine of an angle is the sine of its complement: \(\sin A=\cos(90^\circ-A)\) and \(\cos A=\sin(90^\circ-A)\). This is where the name <i>co</i>sine comes from (5G Box 23: cosine θ = sine (complement of θ)).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Complementary angles and tan = sin/cos</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Find the value of \(x\) if \(\sin40^\circ=\cos x\), where \(0^\circ\lt x\lt90^\circ\).</span>
+<span><span class="pl">b</span>Simplify \(\dfrac{\cos(90^\circ-\theta)}{\cos\theta}\).</span>
+<span><span class="pl">c</span>Without a calculator, find the value of \(\sin25^\circ-\cos65^\circ\).</span></div>
+{{work:40}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Find the value of \(x\) if \(\cos15^\circ=\sin x\), where \(0^\circ\lt x\lt90^\circ\).</span>
+<span><span class="pl">b</span>Simplify \(\sin(90^\circ-\theta)\tan\theta\).</span>
+<span><span class="pl">c</span>Without a calculator, find the value of \(\cos32^\circ-\sin58^\circ\).</span></div>
+{{work:40}}</div></div>
+<div class="box tip"><div class="bt">No worked example in the book here</div>
+<p style="margin:0">Section 5G has no worked example on complementary angles; its examples prove identities that use cosec, sec, cot or \(\sin^2\theta+\cos^2\theta=1\), which are outside the Year 10 course. Use the example in Box 22 and the tutor demo as your model.</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:given one trigonometric function, find another}}
+<div class="box concept"><div class="bt">Given one trigonometric function, find another (Year 11 Advanced, 5F)</div>
+<p style="margin:0">When the exact value of one trigonometric function is known for an angle, the exact values of the other trigonometric functions can easily be found using the circle diagram and Pythagoras’ theorem.</p></div></div>
+<div class="box take"><div class="bt">18 Given one trigonometric function, find another</div>
+<ul style="margin:0"><li>Place a ray or rays on a circle diagram in the quadrants allowed in the question.</li>
+<li>Complete the triangle and use Pythagoras’ theorem to find whichever of \(x\), \(y\) and \(r\) is missing.</li></ul></div>
+<div class="box tip"><div class="bt">How the definitions are used</div>
+<p style="margin:0">From Lesson T1, \(\sin\theta=\dfrac yr\), \(\cos\theta=\dfrac xr\) and \(\tan\theta=\dfrac yx\), with \(r\gt0\) always. The given ratio tells you two of \(x\), \(y\) and \(r\) (any circle will do, because only the ratios matter), Pythagoras’ theorem \(x^2+y^2=r^2\) gives the third, and the quadrant gives its sign.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">One ratio gives the others</span></div><div class="ex-body">
+It is known that \(\cos\theta=\dfrac27\).
+<div class="parts one"><span><span class="pl">a</span>Find the possible values of \(\sin\theta\).</span><span><span class="pl">b</span>Find \(\sin\theta\) if it is also known that \(\tan\theta\) is negative.</span></div>
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+It is known that \(\cos\theta=-\dfrac13\).
+<div class="parts one"><span><span class="pl">a</span>Find the possible values of \(\sin\theta\).</span><span><span class="pl">b</span>Find \(\sin\theta\) if it is also known that \(\tan\theta\) is positive.</span></div>
+{{work:46}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 11</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+It is known that \(\sin\theta=\tfrac15\).
+<div class="parts one"><span><span class="pl">a</span>Find the possible values of \(\cos\theta\).</span><span><span class="pl">b</span>Find \(\cos\theta\) if it is also known that \(\tan\theta\) is negative.</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>
+<p style="margin-top:0"><b>a</b> The angle must be in quadrant 1 or 2, because \(\sin\theta\) is positive.</p>
+<p>Because \(\sin\theta=\dfrac yr=\dfrac15\), we can take \(y=1\) and \(r=5\),</p>
+<p>so by Pythagoras’ theorem, &emsp;\(x=\sqrt{24}\) or \(-\sqrt{24}\),</p>
+<p>so &emsp;\(\cos\theta=\dfrac{2\sqrt6}{5}\) or \(-\dfrac{2\sqrt6}{5}\).</p>
+<p><b>b</b> Because \(\tan\theta\) is negative, \(\theta\) can only be in quadrant 2,</p>
+<p style="margin-bottom:0">so &emsp;\(\cos\theta=-\dfrac{2\sqrt6}{5}\).</p></div><div>{{svg:t2_ex11}}</div></div>
+</div></div>
+<div class="box concept"><p style="margin:0"><b>Note:</b> In the diagrams of this section, some of the ‘side lengths’ on the horizontal and vertical sides of triangles are marked as negative because they are really displacements from the origin rather than lengths. Always trust the quadrants to give you the correct sign.</p></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 11</div>
+<p style="margin:0"><b>a</b> \(x^2+1^2=5^2\), so \(x^2=24\) and \(x=\pm\sqrt{24}=\pm\sqrt{4\times6}=\pm2\sqrt6\). Then \(\cos\theta=\dfrac xr=\pm\dfrac{2\sqrt6}{5}\). <b>b</b> \(\tan\theta\) is negative in quadrants 2 and 4, and \(\sin\theta\) is positive in quadrants 1 and 2, so the only quadrant allowed is 2, where \(x\lt0\).</p></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:trigonometric equations: the domain and boundary angles}}
+<div class="box concept"><div class="bt">Trigonometric equations (Year 11 Advanced, 5H)</div>
+<p>This piece of work is absolutely vital, because so many problems in later work end up with a trigonometric equation that has to be solved.</p>
+<p>There are many small details and qualifications in the methods, and the subject needs a great deal of careful study.</p>
+<p style="margin-bottom:0"><b>Pay attention to the domain.</b> To begin with a warning, before any other details:</p></div></div>
+<div class="box take"><div class="bt">25 The domain</div><p style="margin:0">Always pay careful attention to the domain in which the angle can lie.</p></div>
+<div class="box concept"><p style="margin:0"><b>Equations involving boundary angles.</b> Boundary angles are a special case because they do not lie in any quadrant.</p></div>
+<div class="box take"><div class="bt">26 The boundary angles</div><p style="margin:0">If the solutions are boundary angles, read the solutions off a sketch of the graph.</p></div>
+<div class="box concept"><div class="bt">Inverse trigonometric functions (Maths Pathway, <i>Solving Trigonometric Equations</i>)</div>
+<p>The inverse of a trigonometric function swaps the input and the output. For example:</p>
+<table class="t" style="margin:1mm auto"><tr><th>Function</th><th>Inverse function</th></tr>
+<tr><td>\(\sin(90^\circ)=1\)</td><td>\(\sin^{-1}(1)=90^\circ\)</td></tr>
+<tr><td>\(\cos(0^\circ)=1\)</td><td>\(\cos^{-1}(1)=0^\circ\)</td></tr>
+<tr><td>\(\tan(45^\circ)=1\)</td><td>\(\tan^{-1}(1)=45^\circ\)</td></tr></table>
+<p style="margin-bottom:0">If we know the value of \(\sin\theta\), \(\cos\theta\), or \(\tan\theta\), we can use the inverse function to find value of \(\theta\).</p></div>
+<div class="box tip"><div class="bt">One answer from the calculator, many from the graph</div>
+<p style="margin:0">The calculator gives just one angle. An equation such as \(\sin x=-1\) has a solution wherever the graph of \(y=\sin x\) meets the line \(y=-1\), and over a domain of 720° there are two such places. Always count the solutions on a sketch over the whole domain (Box 25).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Boundary angles</span></div><div class="ex-body">
+<div class="parts one"><span data-q="d4a"><span class="pl">a</span>Solve \(\cos x=1\), for \(0^\circ\le x\le720^\circ\).</span><span data-q="d4b"><span class="pl">b</span>Solve \(\cos x=0\), for \(0^\circ\le x\le720^\circ\).</span></div>
+{{work:40}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span data-q="y4a"><span class="pl">a</span>Solve \(\sin x=1\), for \(0^\circ\le x\le720^\circ\).</span><span data-q="y4b"><span class="pl">b</span>Solve \(\tan x=0\), for \(0^\circ\le x\le720^\circ\).</span></div>
+{{work:40}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 15</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="parts one"><span data-q="w15a"><span class="pl">a</span>Solve \(\sin x=-1\), for \(0^\circ\le x\le720^\circ\).</span><span data-q="w15b"><span class="pl">b</span>Solve \(\sin x=0\), for \(0^\circ\le x\le720^\circ\).</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin-top:0"><b>a</b> The graph of \(y=\sin x\) is shown to the right.<br>Examine where the curve touches the line \(y=-1\), and read off the \(x\)-coordinates of these points.<br>The solution is \(x=270^\circ\) or \(630^\circ\).</p>
+<p style="margin-bottom:0"><b>b</b> Examine where the graph crosses the \(x\)-axis.<br>The solution is \(x=0^\circ\), \(180^\circ\), \(360^\circ\), \(540^\circ\) or \(720^\circ\).</p></div><div>{{svg:t2_ex15}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 15</div>
+<p style="margin:0">The sine graph repeats every 360°, so after the minimum at 270° the next minimum is at \(270^\circ+360^\circ=630^\circ\). The zeros are every 180°: 0°, 180°, 360°, 540° and 720°, and both ends of the domain count because the domain uses \(\le\).</p></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:the quadrants-and-related-angle method}}
+<div class="box concept"><div class="bt">The standard method — quadrants and the related acute angle (Year 11 Advanced, 5H)</div>
+<p>Most trigonometric equations eventually come down to one or more equations such as</p>
+<p style="margin-left:8mm">\(\sin x=-\tfrac12\), where \(-180^\circ\le x\le180^\circ\).</p>
+<p style="margin-bottom:0">Provided that the angle is not a boundary angle, the method is:</p></div></div>
+<div class="box take"><div class="bt">27 The quadrants-and-related-angle method</div>
+<ol style="margin:0"><li>Draw a quadrant diagram, then draw a ray in each quadrant that the angle could be in.</li>
+<li>Find the related acute angle (only work with positive numbers here):<br>&emsp;<b>a</b> using special angles, or<br>&emsp;<b>b</b> using the calculator to find an approximation.<br><i>Never</i> enter a negative number into the calculator at this point.</li>
+<li>Mark the angles on the ends of the rays, taking account of any restrictions on \(x\), and write a conclusion.</li></ol></div>
+<div class="box concept"><div class="bt">Multiple solutions with a calculator (Maths Pathway, <i>Solving Trigonometric Equations</i>)</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin-top:0">Calculators will only give one solution for a trigonometric function, even though there may be multiple solutions. You can use what you know about the unit circle to find any other solutions.</p>
+<p>For example, solving the following equation with a calculator gives us a single solution:</p>
+\[\begin{aligned}\sin(x)&amp;=\frac12\\ x&amp;=\sin^{-1}\Big(\frac12\Big)\\&amp;=30\end{aligned}\]
+<p>But looking at the unit circle, we can see <b><i>two</i></b> possible solutions.</p>
+<p style="margin-bottom:0">So, \(x\) is actually equal to \(30^\circ\), \(150^\circ\), or any other equivalent angles.</p></div><div>{{svg:t2_mp}}</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The standard method</span></div><div class="ex-body">
+<div class="parts one"><span data-q="d5a"><span class="pl">a</span>Solve the equation \(\cos x=-\dfrac{\sqrt3}{2}\), for \(-180^\circ\le x\le180^\circ\).</span>
+<span data-q="d5b"><span class="pl">b</span>Solve the equation \(\sin x=0.6\), for \(0^\circ\le x\le360^\circ\), correct to the nearest degree.</span></div>
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span data-q="y5a"><span class="pl">a</span>Solve the equation \(\tan x=-1\), for \(-180^\circ\le x\le180^\circ\).</span>
+<span data-q="y5b"><span class="pl">b</span>Solve the equation \(\cos x=-0.35\), for \(0^\circ\le x\le360^\circ\), correct to the nearest degree.</span></div>
+{{work:60}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 16</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<span data-q="w16">Solve the equation \(\sin x=-\tfrac12\), for \(-180^\circ\le x\le180^\circ\).</span>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin:0">Here &emsp;\(\sin x=-\tfrac12\), where \(-180^\circ\le x\le180^\circ\).<br>
+Because \(\sin x\) is negative, \(x\) is in quadrant 3 or 4.<br>
+The sine of the related acute angle is \(+\tfrac12\),<br>
+so the related angle is 30°.<br>
+Hence &emsp;\(x=-150^\circ\) or \(-30^\circ\).</p></div><div>{{svg:t2_ex16}}</div></div>
+</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 17</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<span data-q="w17">Solve the equation \(\tan x=-3\), for \(0^\circ\le x\le360^\circ\), correct to the nearest degree.</span>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin:0">Here &emsp;\(\tan x=-3\), where \(0^\circ\le x\le360^\circ\).<br>
+Because \(\tan x\) is negative, \(x\) is in quadrant 2 or 4.<br>
+The tangent of the related acute angle is \(+3\),<br>
+so the related angle is about 72°.<br>
+Hence &emsp;\(x\doteqdot108^\circ\) or \(288^\circ\).</p></div><div>{{svg:t2_ex17}}</div></div>
+</div></div>
+<div class="box concept"><p style="margin:0"><b>Note:</b> When using a calculator, <i>never enter a negative number and take an inverse trigonometric function of it</i>.</p>
+<p style="margin:1mm 0 0">In the example above, the calculator was used to find the <i>related acute angle</i> whose tan was 3, which is \(71^\circ34'\), correct to the nearest minute. The positive number 3 was entered, not −3.</p></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked examples 16 and 17</div>
+<p style="margin:0"><b>16</b> In the domain \(-180^\circ\le x\le180^\circ\), quadrant 3 is reached by turning clockwise: the ray 30° below the negative \(x\)-axis is \(-(180^\circ-30^\circ)=-150^\circ\), and the ray in quadrant 4 is \(-30^\circ\).</p>
+<p style="margin:0"><b>17</b> \(\tan^{-1}3\doteqdot71.57^\circ\doteqdot72^\circ\). Quadrant 2: \(180^\circ-71.57^\circ\doteqdot108.43^\circ\doteqdot108^\circ\). Quadrant 4: \(360^\circ-71.57^\circ\doteqdot288.43^\circ\doteqdot288^\circ\). Round only at the end.</p></div>
+<div class="box tip"><div class="bt">Left out: Box 28 and Example 18</div>
+<p style="margin:0">Box 28 and Example 18 solve equations in cosec and sec by taking reciprocals. These functions are not in the Year 10 course.</p></div>
+
+<!-- ============ Concept 6 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 6:equations with more than one trigonometric function}}
+<div class="box concept"><div class="bt">Equations with more than one trigonometric function (Year 11 Advanced, 5H)</div>
+<p>Some trigonometric equations involve more than one trigonometric function. For example,</p>
+<p style="margin-left:8mm">\(\sin x+\sqrt3\cos x=0\)</p>
+<p style="margin-bottom:0">The general approach is to use trigonometric identities to produce an equation in only one trigonometric function.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Divide by cos x</span></div><div class="ex-body">
+<span data-q="d6">Solve \(\sin x-\sqrt3\cos x=0\), where \(0^\circ\le x\le360^\circ\).</span>
+{{work:42}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<span data-q="y6">Solve \(\sqrt3\sin x=\cos x\), where \(0^\circ\le x\le360^\circ\).</span>
+{{work:42}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 21</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<span data-q="w21">Solve \(\sin x+\sqrt3\cos x=0\), where \(0^\circ\le x\le360^\circ\).</span>
+<div class="sol-label">Solution</div>
+\[\begin{aligned}\sin x+\sqrt3\cos x&amp;=0\\ \tan x+\sqrt3&amp;=0\qquad(\div\cos x)\\ \tan x&amp;=-\sqrt3,\ \text{where }0^\circ\le x\le360^\circ.\end{aligned}\]
+<p style="margin:0">Because \(\tan x\) is negative, \(x\) is in quadrants 2 or 4.<br>
+The tan of the related acute angle is \(\sqrt3\), so the related angle is 60°.<br>
+Hence &emsp;\(x=120^\circ\) or \(300^\circ\).</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 21</div>
+<p style="margin:0">Dividing by \(\cos x\) uses Box 20, \(\dfrac{\sin x}{\cos x}=\tan x\). It is safe: if \(\cos x=0\), the equation would say \(\sin x=0\) as well, but sin and cos are never both 0, so no solution is lost. Quadrant 2: \(180^\circ-60^\circ=120^\circ\); quadrant 4: \(360^\circ-60^\circ=300^\circ\).</p></div>
+
+<!-- ============ Concept 7 ============ -->
+<div style="break-inside:avoid">{{sec:rose:key:Concept 7:extension for the Hard band: compound angles}}
+<div class="box concept"><div class="bt">Equations with compound angles (Year 11 Advanced, 5H)</div>
+<p>In some equations, the angle is a function of \(x\) rather than simply \(x\) itself. For example,</p>
+<p style="margin-left:8mm">\(\tan2x=\sqrt3\), &ensp;where \(0^\circ\le x\le360^\circ\), &emsp;or&emsp; \(\sin(x-250^\circ)=\dfrac{\sqrt3}{2}\), &ensp;where \(0^\circ\le x\le360^\circ\).</p>
+<p style="margin-bottom:0">These equations are really trigonometric equations in the <i>compound angles</i> \(2x\) and \((x-250^\circ)\) respectively. The secret lies in solving for the <i>compound angle</i>, and in <i>first calculating the domain for that compound angle</i>.</p></div></div>
+<div class="box take"><div class="bt">29 Equations with compound angles</div>
+<ol style="margin:0"><li>Let \(u\) be the compound angle.</li><li>Find the restrictions on \(u\) from the given restrictions on \(x\).</li><li>Solve the trigonometric equation for \(u\).</li><li>Hence solve for \(x\).</li></ol></div>
+<div class="box tip"><div class="bt">For the Hard band only</div>
+<p style="margin:0">Compound angles go beyond the Year 10 course and appear only in the Hard band of this lesson. The new step is the domain: if \(0^\circ\le x\le360^\circ\), then \(0^\circ\le2x\le720^\circ\), so \(u=2x\) goes round the circle twice and there are twice as many solutions.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Compound angles</span></div><div class="ex-body">
+<div class="parts one"><span data-q="d7a"><span class="pl">a</span>Solve \(\cos2x=\tfrac12\), where \(0^\circ\le x\le360^\circ\).</span><span data-q="d7b"><span class="pl">b</span>Solve \(\tan(x-60^\circ)=1\), where \(0^\circ\le x\le360^\circ\).</span></div>
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span data-q="y7a"><span class="pl">a</span>Solve \(\sin2x=\dfrac{\sqrt3}{2}\), where \(0^\circ\le x\le360^\circ\).</span><span data-q="y7b"><span class="pl">b</span>Solve \(\cos(x+45^\circ)=-\tfrac12\), where \(0^\circ\le x\le360^\circ\).</span></div>
+{{work:60}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 19</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<span data-q="w19">Solve \(\tan2x=\sqrt3\), where \(0^\circ\le x\le360^\circ\).</span>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<table style="border-collapse:collapse"><tr><td>Let</td><td style="padding-left:6mm">\(u=2x.\)</td></tr>
+<tr><td>Then</td><td style="padding-left:6mm">\(\tan u=\sqrt3.\)</td></tr>
+<tr><td>The restriction on \(x\) is</td><td style="padding-left:6mm">\(0^\circ\le x\le360^\circ\)</td></tr>
+<tr><td style="text-align:center"><span style="border:1px solid var(--ink);padding:0 1.5mm">\(\times2\)</span></td><td style="padding-left:6mm">\(0^\circ\le2x\le720^\circ\)</td></tr>
+<tr><td>and replacing \(2x\) by \(u\),</td><td style="padding-left:6mm">\(0^\circ\le u\le720^\circ.\)</td></tr></table>
+<p style="margin:0.5mm 0">(The restriction on \(u\) is the key step here.)</p>
+<p style="margin:0">Hence from the diagram, &emsp;\(u=60^\circ,\ 240^\circ,\ 420^\circ\) or \(600^\circ\).</p>
+<p style="margin:0">Because \(x=\tfrac12u\), &emsp;\(x=30^\circ,\ 120^\circ,\ 210^\circ\) or \(300^\circ\).</p></div><div>{{svg:t2_ex19}}</div></div>
+</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 20</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<span data-q="w20">Solve \(\sin(x-250^\circ)=\dfrac{\sqrt3}{2}\), where \(0^\circ\le x\le360^\circ\).</span>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<table style="border-collapse:collapse"><tr><td>Let</td><td style="padding-left:6mm">\(u=x-250^\circ.\)</td></tr>
+<tr><td>Then</td><td style="padding-left:6mm">\(\sin u=\dfrac{\sqrt3}{2}.\)</td></tr>
+<tr><td>The restriction on \(x\) is</td><td style="padding-left:6mm">\(0^\circ\le x\le360^\circ\)</td></tr>
+<tr><td style="text-align:center"><span style="border:1px solid var(--ink);padding:0 1.5mm">\(-250^\circ\)</span></td><td style="padding-left:6mm">\(-250^\circ\le x-250^\circ\le110^\circ\)</td></tr>
+<tr><td>and replacing \(x-250^\circ\) by \(u\),</td><td style="padding-left:6mm">\(-250^\circ\le u\le110^\circ.\)</td></tr></table>
+<p style="margin:0.5mm 0">(Again, the restriction on \(u\) is the key step here.)</p>
+<p style="margin:0">Hence from the diagram, &emsp;\(u=-240^\circ\) or \(60^\circ\).</p>
+<p style="margin:0">Because \(x=u+250^\circ\), &emsp;\(x=10^\circ\) or \(310^\circ\).</p></div><div>{{svg:t2_ex20}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked examples 19 and 20</div>
+<p style="margin:0"><b>19</b> \(\tan u=\sqrt3\) is positive, so \(u\) is in quadrant 1 or 3, related angle 60°: \(u=60^\circ\) or \(180^\circ+60^\circ=240^\circ\). Going round again adds 360°: \(420^\circ\) and \(600^\circ\), both \(\le720^\circ\).</p>
+<p style="margin:0"><b>20</b> \(\sin u\) is positive, so \(u\) is in quadrant 1 or 2, related angle 60°. In \(-250^\circ\le u\le110^\circ\), quadrant 1 gives \(u=60^\circ\), and quadrant 2 gives \(120^\circ\), which is too big, so take \(120^\circ-360^\circ=-240^\circ\). Then \(x=60^\circ+250^\circ=310^\circ\) and \(x=-240^\circ+250^\circ=10^\circ\).</p></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Homework:four bands, easy to past-paper level}}
+<p class="small">The bands get harder: <b>Easy</b> and <b>Medium</b> practise each concept, <b>Hard</b> adds Year 11 Challenge questions and compound angles, and the <b>past-paper mini exam</b> is done last, under exam conditions. Each question names its source. Do not use a calculator when a question asks for an exact value.</p>
+<div class="band"><span class="diff diff-easy">Easy</span><span class="line"></span></div>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5A Q10 (parts d–f omitted: they use sec, cosec and cot)</span><br>Draw the two special triangles containing the acute angles 30°, 60° and 45°. Hence write down these exact values:
+<div class="parts three"><span data-q="e1a"><span class="pl">a</span>\(\sin60^\circ\)</span><span data-q="e1b"><span class="pl">b</span>\(\tan30^\circ\)</span><span data-q="e1c"><span class="pl">c</span>\(\cos45^\circ\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5A Q17 (part d omitted: it uses cosec and cot)</span><br>Find without using a calculator, the value of:
+<div class="parts one"><span data-q="e2a"><span class="pl">a</span>\(\sin45^\circ\cos45^\circ+\sin30^\circ\)</span><span data-q="e2b"><span class="pl">b</span>\(\sin60^\circ\cos30^\circ-\cos60^\circ\sin30^\circ\)</span><span data-q="e2c"><span class="pl">c</span>\(1+\tan^2 60^\circ\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5G Q5 (parts b and c omitted: they use sec and cot)</span><br>Use the complementary identities to simplify:
+<div class="parts"><span data-q="e3a"><span class="pl">a</span>\(\sin(90^\circ-\theta)\)</span><span data-q="e3d"><span class="pl">d</span>\(\dfrac{\cos(90^\circ-\phi)}{\sin(90^\circ-\phi)}\)</span></div>{{work:20}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5F Q1</span><br>Write down the values of \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) in each part.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:t2_f1a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:t2_f1b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:t2_f1c}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:t2_f1d}}</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5H Q1</span><br>Solve each equation for \(0^\circ\le\theta\le360^\circ\). (Each related acute angle is 30°, 45° or 60°.)
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="e5a"><span class="pl">a</span>\(\sin\theta=\dfrac{\sqrt3}{2}\)</span><span data-q="e5b"><span class="pl">b</span>\(\sin\theta=\dfrac12\)</span><span data-q="e5c"><span class="pl">c</span>\(\tan\theta=1\)</span><span data-q="e5d"><span class="pl">d</span>\(\tan\theta=\sqrt3\)</span>
+<span data-q="e5e"><span class="pl">e</span>\(\cos\theta=-\dfrac{1}{\sqrt2}\)</span><span data-q="e5f"><span class="pl">f</span>\(\tan\theta=-\sqrt3\)</span><span data-q="e5g"><span class="pl">g</span>\(\sin\theta=-\dfrac12\)</span><span data-q="e5h"><span class="pl">h</span>\(\cos\theta=-\dfrac{\sqrt3}{2}\)</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5H Q2</span><br>Solve each equation for \(0^\circ\le\theta\le360^\circ\). (The trigonometric graphs are helpful here.)
+<div class="parts three"><span data-q="e6a"><span class="pl">a</span>\(\sin\theta=1\)</span><span data-q="e6b"><span class="pl">b</span>\(\cos\theta=1\)</span><span data-q="e6c"><span class="pl">c</span>\(\cos\theta=0\)</span><span data-q="e6d"><span class="pl">d</span>\(\cos\theta=-1\)</span><span data-q="e6e"><span class="pl">e</span>\(\tan\theta=0\)</span><span data-q="e6f"><span class="pl">f</span>\(\sin\theta=-1\)</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5H Q3</span><br>Solve each equation for \(0^\circ\le x\le360^\circ\). Use your calculator to find the related acute angle in each case, and give solutions correct to the nearest degree.
+<div class="parts three"><span data-q="e7a"><span class="pl">a</span>\(\cos x=\tfrac37\)</span><span data-q="e7b"><span class="pl">b</span>\(\sin x=0.1234\)</span><span data-q="e7c"><span class="pl">c</span>\(\tan x=7\)</span><span data-q="e7d"><span class="pl">d</span>\(\sin x=-\tfrac23\)</span><span data-q="e7e"><span class="pl">e</span>\(\tan x=-\tfrac{20}{9}\)</span><span data-q="e7f"><span class="pl">f</span>\(\cos x=-0.77\)</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><span class="muted small">Maths Pathway, <i>Solving Trigonometric Equations</i>, Q8</span><br>Use a calculator to find every solution for \(x\) <u>between 0° and 360°</u> correct to two decimal places.
+<div class="parts"><span data-q="e8a"><span class="pl">a)</span>\(4\sin(x)=3\)</span><span data-q="e8b"><span class="pl">b)</span>\(\tan(x)+5=60\)</span><span data-q="e8c"><span class="pl">c)</span>\(2\cos(x)=-1\)</span><span data-q="e8d"><span class="pl">d)</span>\(5\tan(x)+12=0\)</span></div>{{work:34}}</div></div>
+
+<div class="band"><span class="diff diff-med">Medium</span><span class="line"></span></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5A Q18 (part a omitted: it uses sec)</span><br>Without using a calculator, show that:
+<div class="parts"><span><span class="pl">b</span>\(2\sin30^\circ\cos30^\circ=\sin60^\circ\)</span><span><span class="pl">c</span>\(\cos^2 60^\circ-\cos^2 30^\circ=-\tfrac12\)</span><span><span class="pl">d</span>\(\dfrac{2\tan30^\circ}{1-\tan^2 30^\circ}=\tan60^\circ\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5F Q5</span><br>Draw similar diagrams for this question and subsequent questions.
+<div class="parts"><span data-q="m10a"><span class="pl">a</span>If \(\cos\theta=\tfrac13\) and \(\theta\) is acute, find \(\tan\theta\).</span><span data-q="m10b"><span class="pl">b</span>If \(\cos\theta=-\tfrac45\) and \(\theta\) is obtuse, find \(\tan\theta\).</span>
+<span data-q="m10c"><span class="pl">c</span>If \(\cos\theta=\tfrac12\) and \(\theta\) is reflex, find \(\sin\theta\).</span><span data-q="m10d"><span class="pl">d</span>Find \(\cos\theta\) if \(\tan\theta=-\tfrac23\) and \(\theta\) is reflex.</span>
+<span data-q="m10e"><span class="pl">e</span>Find \(\sin\theta\), given that \(\cos\theta=-\tfrac{40}{41}\) and \(0^\circ\le\theta\le180^\circ\).</span><span data-q="m10f"><span class="pl">f</span>Find \(\tan\theta\), given that \(\sin\theta=\tfrac{1}{\sqrt5}\) and \(-90^\circ\le\theta\le90^\circ\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5F Q6</span><br>In this question, each part has two possible answers.
+<div class="parts"><span data-q="m11a"><span class="pl">a</span>If \(\tan\alpha=\tfrac13\), find \(\sin\alpha\).</span><span data-q="m11b"><span class="pl">b</span>If \(\cos\theta=\tfrac{2}{\sqrt5}\), find \(\sin\theta\).</span>
+<span data-q="m11c"><span class="pl">c</span>If \(\sin\theta=\tfrac35\), find \(\cos\theta\).</span><span data-q="m11d"><span class="pl">d</span>Find \(\tan\theta\), given that \(\cos\theta=-\tfrac23\).</span>
+<span data-q="m11e"><span class="pl">e</span>Find \(\tan\theta\), given that \(\sin\theta=-\tfrac{12}{13}\).</span><span data-q="m11f"><span class="pl">f</span>Find \(\cos\theta\), given that \(\tan\theta=-\tfrac{2}{\sqrt3}\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5F Q7</span>
+<div class="parts one"><span data-q="m12a"><span class="pl">a</span>If \(\cos\alpha=\tfrac45\) and \(\sin\alpha\lt0\), find \(\tan\alpha\).</span>
+<span data-q="m12b"><span class="pl">b</span>If \(\tan\theta=-\tfrac{8}{15}\) and \(\sin\theta\gt0\), find \(\cos\theta\).</span>
+<span data-q="m12c"><span class="pl">c</span>Find \(\cos\theta\), given that \(\sin\theta=\tfrac14\) and \(\tan\theta\lt0\).</span>
+<span data-q="m12d"><span class="pl">d</span>Find \(\sin\theta\), given that \(\tan\theta=\tfrac{35}{12}\) and \(\cos\theta\gt0\).</span>
+<span data-q="m12e"><span class="pl">e</span>Find \(\tan\theta\), given that \(\sin\theta=-\tfrac{21}{29}\) and \(\cos\theta\gt0\).</span>
+<span data-q="m12f"><span class="pl">f</span>Find \(\sin\theta\), given that \(\cos\theta=-\tfrac56\) and \(\tan\theta\lt0\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5H Q4 (parts d, f and h omitted: they use cosec, sec and cot)</span><br>Solve for \(0^\circ\le\alpha\le360^\circ\). Give solutions correct to the nearest minute where necessary.
+<div class="parts three"><span data-q="m13a"><span class="pl">a</span>\(\sin\alpha=0.1\)</span><span data-q="m13b"><span class="pl">b</span>\(\cos\alpha=-0.1\)</span><span data-q="m13c"><span class="pl">c</span>\(\tan\alpha=-1\)</span><span data-q="m13e"><span class="pl">e</span>\(\sin\alpha=3\)</span><span data-q="m13g"><span class="pl">g</span>\(\sqrt3\tan\alpha+1=0\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5H Q5 (part c omitted: it uses sec)</span><br>Solve for \(-180^\circ\le x\le180^\circ\). Give solutions correct to the nearest minute where necessary.
+<div class="parts three"><span data-q="m14a"><span class="pl">a</span>\(\tan x=-0.3\)</span><span data-q="m14b"><span class="pl">b</span>\(\cos x=0\)</span><span data-q="m14d"><span class="pl">d</span>\(\sin x=-0.7\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5H Q6 (parts b and c omitted: they use cot and cosec)</span><br>Solve each equation for \(0^\circ\le\theta\le720^\circ\).
+<div class="parts"><span data-q="m15a"><span class="pl">a</span>\(2\cos\theta-1=0\)</span><span data-q="m15d"><span class="pl">d</span>\(\tan\theta=\sqrt2-1\)</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><span class="muted small">Maths Pathway, <i>Solving Trigonometric Equations</i>, Q9</span><br>Use a calculator to find the solution for \(x\) within each given range correct to two decimal places.
+<div class="parts"><span data-q="m16a"><span class="pl">a)</span>\(450^\circ\lt x\lt720^\circ\): &ensp;\(8\sin(x)=7\)</span><span data-q="m16b"><span class="pl">b)</span>\(360^\circ\lt x\lt540^\circ\): &ensp;\(3\tan(x)+4=40\)</span><span data-q="m16c"><span class="pl">c)</span>\(90^\circ\lt x\lt270^\circ\): &ensp;\(7\sin(x)=-4\)</span><span data-q="m16d"><span class="pl">d)</span>\(-180^\circ\lt x\lt0^\circ\): &ensp;\(11\cos(x)=6\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><span class="muted small">Past paper: Girraween High School, 2023, Year 10 Mathematics Yearly Exam, Short Answer Q10 (1 mark)</span><br>
+<span data-q="m17">Solve \(\tan\theta=-\dfrac{1}{\sqrt3}\) for \(0\le\theta\le360^\circ\)</span>
+<div class="hint"><b>Hint:</b> in which quadrants is tan negative?</div>{{work:20}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body"><span class="muted small">Past paper: Hornsby Girls High School, 2021, Year 10 Mathematics Term 4 Assessment, Q16 (1 mark)</span><br>
+What is \(\dfrac{\sin^2\theta+\cos\theta.\cos(90-\theta)}{\cos^2\theta+\sin\theta.\sin(90-\theta)}\) simplified?
+<div class="mc" style="grid-template-columns:repeat(4,1fr)"><span>A.&ensp;\(\sin\theta\)</span><span>B.&ensp;\(\cos\theta\)</span><span>C.&ensp;\(\tan\theta\)</span><span>D.&ensp;1</span></div>
+<div class="hint"><b>Hint:</b> which identities turn \(\cos(90-\theta)\) and \(\sin(90-\theta)\) into simpler functions?</div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body"><span class="muted small">Past paper: Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, Section A Q4 (2 marks)</span><br>
+<span data-q="m19">Solve \(\sin\theta=-0.5\) for \(0^\circ\le\theta\le360^\circ\).</span>
+<div class="hint"><b>Hint:</b> which two quadrants are possible?</div>{{work:24}}</div></div>
+
+<div class="band"><span class="diff diff-chal">Hard</span><span class="line"></span></div>
+<div class="q"><span class="q-num">20</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5A Q15 (part d omitted: it uses \(\sin^2\alpha+\cos^2\alpha=1\))</span><br>It is given that \(\alpha\) is an acute angle and that \(\tan\alpha=\dfrac{\sqrt5}{2}\).
+<div class="parts one"><span><span class="pl">a</span>Draw a right-angled triangle (of any size), one of whose angles is \(\alpha\), and show this information.</span>
+<span><span class="pl">b</span>Use Pythagoras’ theorem to find the length of the unknown side.</span>
+<span><span class="pl">c</span>Hence write down the exact values of \(\sin\alpha\) and \(\cos\alpha\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5F Q11</span><br>Given that \(\sin\theta=\dfrac pq\), with \(\theta\) obtuse and \(p\) and \(q\) both positive, find \(\cos\theta\) and \(\tan\theta\).{{work:34}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5H Q9</span><br>Solve each equation for \(0^\circ\le\theta\le360^\circ\).
+<div class="parts"><span data-q="h22a"><span class="pl">a</span>\(\sin\theta=\cos\theta\)</span><span data-q="h22b"><span class="pl">b</span>\(\sin\theta+\cos\theta=0\)</span><span data-q="h22c"><span class="pl">c</span>\(\sin\theta=\sqrt3\cos\theta\)</span><span data-q="h22d"><span class="pl">d</span>\(\sqrt3\sin\theta+\cos\theta=0\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">23</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5H Q7 (compound angles)</span><br>Solve each equation for \(0^\circ\le x\le360^\circ\). (Let \(u=2x\).)
+<div class="parts"><span data-q="h23a"><span class="pl">a</span>\(\sin2x=\tfrac12\)</span><span data-q="h23b"><span class="pl">b</span>\(\tan2x=\sqrt3\)</span><span data-q="h23c"><span class="pl">c</span>\(\cos2x=-\dfrac{1}{\sqrt2}\)</span><span data-q="h23d"><span class="pl">d</span>\(\sin2x=-1\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">24</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5H Q8 (compound angles)</span><br>Solve each equation for \(0^\circ\le\alpha\le360^\circ\). (Let \(u\) be the compound angle.)
+<div class="parts"><span data-q="h24a"><span class="pl">a</span>\(\tan(\alpha-45^\circ)=\dfrac{1}{\sqrt3}\)</span><span data-q="h24b"><span class="pl">b</span>\(\sin(\alpha+30^\circ)=-\dfrac{\sqrt3}{2}\)</span><span data-q="h24c"><span class="pl">c</span>\(\cos(\alpha+60^\circ)=1\)</span><span data-q="h24d"><span class="pl">d</span>\(\cos(\alpha-75^\circ)=-\dfrac{1}{\sqrt2}\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">25</span><div class="q-body"><span class="muted small">Past paper: Sydney Grammar School, 2020, Annual Examination Form IV Mathematics, Q8(c) (3 marks)</span><br>
+<span data-q="h25">Solve \(\tan(\alpha-45^\circ)=-\dfrac{1}{\sqrt3}\) for \(0^\circ\le\alpha\le360^\circ\).</span>
+<div class="hint"><b>Hint:</b> what is the domain of the compound angle?</div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">26</span><div class="q-body"><span class="muted small">Past paper: Sydney Boys High School, 2023, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part E Q2 (2 marks)</span><br>
+<span data-q="h26">If \(\sin x=-\cos x\) and \(x\in\big[0^\circ,\ 360^\circ\big]\), determine the value(s) of \(x\).</span><br><b>In this question you must show all stages of your working.</b>
+<div class="hint"><b>Hint:</b> how can the equation be written with only one trigonometric function?</div>{{work:30}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>19 marks</b></span><span>Calculator allowed unless a question says otherwise · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Girraween High School, 2023, Year 10 Mathematics Yearly Exam, Short Answer <span style="white-space:nowrap">Q9</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Find the value of \(x\) if: &ensp;\(\cos(30^\circ)=\sin(x)\), where \(0\lt x\lt90^\circ\).</div>
+<div class="hint"><b>Hint:</b> how are 30° and \(x\) related?</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>North Sydney Girls High School, 2024, Year 10 Mathematics Yearly Examination, <span style="white-space:nowrap">Q10</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which expression is equivalent to \(\dfrac{\cos\big(90^\circ-\theta\big)}{\sin\big(180^\circ-\theta\big)}\)?
+<div class="mc"><span>A.&ensp;1</span><span>B.&ensp;−1</span><span>C.&ensp;0</span><span>D.&ensp;0.5</span></div></div>
+<div class="hint"><b>Hint:</b> what is each of the numerator and the denominator equal to?</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Northern Beaches Christian School, 2023, Mathematics Year 10 5.3/Year 9 Accelerated Yearly Examination, Section I <span style="white-space:nowrap">Q7</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">For \(\theta\) between 0° and 360°, what are the values of \(\theta\) for which \(\sin\theta=-\tfrac12\)?
+<div class="mc"><span>(A)&ensp;\(\theta=210^\circ\) and \(\theta=330^\circ\)</span><span>(B)&ensp;\(\theta=30^\circ\) and \(\theta=150^\circ\)</span><span>(C)&ensp;\(\theta=30^\circ\) and \(\theta=210^\circ\)</span><span>(D)&ensp;\(\theta=150^\circ\) and \(\theta=330^\circ\)</span></div></div>
+<div class="hint"><b>Hint:</b> where is sine negative?</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Northern Beaches Christian School, 2022, Mathematics Year 10 5.3/Year 9 Accelerated Yearly Examination, Section I <span style="white-space:nowrap">Q16</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>A point \(A\) is 30 m from point \(P\), which is the base of a flagpole. If the top of the flagpole is at an angle of elevation of 30° from \(A\), how tall is the flagpole?
+<div class="mc" style="grid-template-columns:1fr 1fr"><span>(A)&ensp;\(30\sqrt3\)</span><span>(B)&ensp;\(10\sqrt3\)</span><span>(C)&ensp;\(\dfrac{10}{\sqrt3}\)</span><span>(D)&ensp;\(15\sqrt3\)</span></div></div><div>{{svg:pp_nbcs22_16}}</div></div></div>
+<div class="hint"><b>Hint:</b> which ratio links \(h\) and the 30 m side?</div>{{work:20}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>North Sydney Girls High School, 2023, Year 10 Mathematics Yearly Examination, <span style="white-space:nowrap">Q16(d)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find the exact value of \(\tan150^\circ+\sin45^\circ\).<br>Write your answer as a simplified fraction with rational denominator.<br>Show all working. Calculator answers will not be awarded credit.</div>
+<div class="hint"><b>Hint:</b> which quadrant is 150° in?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Sydney Grammar School, 2020, Annual Examination Form IV Mathematics, <span style="white-space:nowrap">Q7(b)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">If \(\cos\theta=\dfrac{2}{\sqrt5}\), find the possible values of \(\sin\theta\).</div>
+<div class="hint"><b>Hint:</b> in which quadrants can \(\theta\) lie?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>North Sydney Girls High School, 2023, Year 10 Mathematics Yearly Examination, <span style="white-space:nowrap">Q17(b)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Solve \(1+\sqrt3\tan\theta=2\) for \(0^\circ\le\theta\le360^\circ\).</div>
+<div class="hint"><b>Hint:</b> what is \(\tan\theta\) equal to?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Sydney Boys High School, 2020, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics Stage <span style="white-space:nowrap">5.3,&nbsp;Q28</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Solve \(\sin(180^\circ-\theta)=\sin(90^\circ-\theta)\) for \(\theta\) where \(0^\circ\le\theta\le360^\circ\).</div>
+<div class="hint"><b>Hint:</b> can each side be written more simply?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Girraween High School, 2022, Year 10 Yearly Examination Mathematics, <span style="white-space:nowrap">Q25(a)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">Find all the possible values of \(\theta\), where \(0^\circ\le\theta\le360^\circ\). Give answers correct to the nearest degree.
+<div class="parts"><span><span class="pl">(i)</span>\(\sin\theta=0.416\)</span><span><span class="pl">(ii)</span>\(\cos\theta=-0.302\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is the related acute angle in each part?</div>{{work:60}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, Part <span style="white-space:nowrap">C,&nbsp;Q6</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Elsa has a grandfather clock in her house.<br>The height of the tip of the hour hand above the floor, in centimetres, is given by
+\[h=20\cos x^\circ+147,\]
+where \(x^\circ\) is the angle the hour hand has rotated through since 12 o’clock.<br>
+Calculate the first 2 values of \(x\) for which the tip of the hour hand is 150 cm above the floor.</div><div>{{svg:pp_sbhs24_6}}</div></div></div>
+<div class="hint"><b>Hint:</b> what equation does \(h=150\) give?</div>{{work:90}}</div>
 </div>
