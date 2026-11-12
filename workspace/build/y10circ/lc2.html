@@ -1,4 +1,319 @@
 <div class="lesson">
 <div class="lesson-head"><div class="eyebrow">Lesson C2</div><h2>Angles at the centre and circumference</h2>
-<div class="focus">This lesson is still being written.</div></div>
+<div class="focus">The angle in a semicircle is a special case of a much more general theorem: an angle at the circumference is half the angle at the centre standing on the same arc. From it come two key results: angles at the circumference on the same arc are equal, and the opposite angles of a cyclic quadrilateral are supplementary, with its exterior angle equal to the opposite interior angle. The converse gives a test for a quadrilateral to be cyclic. Two extensions show how circles prove that the altitudes of a triangle are concurrent and what the common ratio in the sine rule really is. The teaching follows the AMSI TIMES module <i>Circle Geometry</i>, pages 11 to 17.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the angle at the centre is twice the angle at the circumference}}
+<div class="box concept"><div class="bt">Angles at the centre and circumference (AMSI, page 11)</div>
+<p>The angle-in-a-semicircle theorem can be generalised considerably. In each diagram below, \(AB\) is an arc of a circle with centre \(O\), and \(P\) is a point on the opposite arc. The arc \(AB\) subtends the angle \(\angle AOB\) at the centre. The arc also subtends the angle \(\angle APB\), called an <b>angle at the circumference subtended by the arc</b> \(AB\).</p>
+<div class="parts three" style="justify-items:center">{{svg:c2_arcs1}}{{svg:c2_arcs2}}{{svg:c2_arcs3}}</div>
+<p>In the middle diagram, where the arc is a semicircle, the angle at the centre is a straight angle, and by the previous theorem, the angle at the circumference is a right angle – exactly half. We shall show that this relationship holds also for the other two cases, when the arc is a minor arc (left-hand diagram) or a major arc (right-hand diagram). The proof uses isosceles triangles in a similar way to the proof of Thales’ theorem.</p></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>An angle at the circumference of a circle is half the angle at the centre subtended by the same arc.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, pages 11 and 12): keep for homework</span></div><div class="ex-body">
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(AB\) be an arc of a circle with centre \(O\), and let \(P\) be any point on the opposite arc. We need to prove \(\angle AOB=2\angle APB\). The proof divides into three cases, depending on whether:</p>
+<div class="parts three" style="text-align:center"><div>{{svg:c2_case1}}<b>Case 1:</b> \(O\) lies inside \(\triangle ABP\)</div><div>{{svg:c2_case2}}<b>Case 2:</b> \(O\) lies on \(\triangle APB\)</div><div>{{svg:c2_case3}}<b>Case 3:</b> \(O\) lies outside \(\triangle APB\).</div></div>
+<p style="margin:1mm 0 0.5mm"><b>Case 1:</b> Join \(PO\) and produce \(PO\) to \(Q\). Then \(OA=OB=OP\) (radii), so we have two isosceles triangles \(OAP\) and \(OBP\).</p>
+<div style="margin:0.5mm 0 0 6mm;display:grid;grid-template-columns:auto auto 1fr;column-gap:4mm;row-gap:0.8mm;align-items:baseline">
+<span>Let</span><span>\(\angle OAP=\alpha\) and \(\angle OBP=\beta\).</span><span></span>
+<span>Then</span><span>\(\angle APO=\alpha\)</span><span>(base angles of isosceles \(\triangle OAP\))</span>
+<span>and</span><span>\(\angle BPO=\beta\)</span><span>(base angles of isosceles \(\triangle OBP\)).</span>
+<span>Hence</span><span>\(\angle AOQ=2\alpha\)</span><span>(exterior angle of \(\triangle OAP\))</span>
+<span>and</span><span>\(\angle BOQ=2\beta\) so</span><span>(exterior angle of \(\triangle OBP\)),</span>
+<span></span><span style="grid-column:2 / 4">\(\angle AOB=2\alpha+2\beta=2(\alpha+\beta)=2\times\angle APB.\)</span></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Case 1</div>
+<p>The radius \(PO\) splits \(\angle APB\) into \(\angle APO+\angle BPO=\alpha+\beta\), and splits \(\angle AOB\) into \(\angle AOQ+\angle BOQ\). The exterior angle of \(\triangle OAP\) at \(O\) equals the sum of the two opposite interior angles, \(\alpha+\alpha=2\alpha\). Cases 2 and 3 are AMSI Exercise 6, Hard homework Question 12.</p></div>
+<div class="box concept"><div class="bt">Angles subtended by an arc (Maths Pathway)</div>
+<div class="parts three" style="text-align:center;align-items:start">
+<div>{{svg:c2_mpbox1}}<p style="margin:0">Arc \(AB\)</p></div>
+<div>{{svg:c2_mpbox2}}<p style="margin:0">Angle <b>subtended</b> <u>by</u> arc \(AB\) <u>at</u> the centre</p></div>
+<div>{{svg:c2_mpbox3}}<p style="margin:0">Angle <b>subtended</b> <u>by</u> arc \(AB\) <u>at</u> point \(C\)</p></div></div>
+<div class="split" style="grid-template-columns:3fr 2fr;margin-top:2mm"><div>
+<p><b>Angles subtended at the centre.</b> The angle subtended by an arc at the centre of a circle is twice the angle subtended by the same arc at a point on the circle.</p>
+</div><div>{{svg:c2_mpbox4}}</div></div></div>
+<div class="box tip"><div class="bt">Reflex angles at the centre</div>
+<p>If the angle at the circumference is obtuse, it stands on a major arc, and the angle at the centre on that arc is a <b>reflex</b> angle, more than \(180^\circ\). The theorem still holds: an angle of \(160^\circ\) at the circumference goes with a reflex angle of \(320^\circ\) at the centre. Angles in a revolution at the centre add to \(360^\circ\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The angle at the centre</span></div><div class="ex-body">
+Calculate the values of the variables in the following circle figures. \(O\) marks the centre.
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c2d1a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2d1b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2d1c}}</span></div>
+{{work:30}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Calculate the values of the variables in the following circle figures. \(O\) marks the centre.
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c2y1a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2y1b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2y1c}}</span></div>
+{{work:30}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text (AMSI, page 12): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin:0">A punter stands on the edge of a circular racing track. With his binoculars he is following a horse that is galloping around the track at one revolution a minute. Explain why the punter’s binoculars are rotating at a constant rate of half a revolution per minute.</p>
+<div class="sol-label">Solution</div>
+<p style="margin:0">As the horse moves from position \(A\) to position \(B\), the horse moves an angle \(\angle AOB=2\theta\) about the centre \(O\) of the track. The angle at the circumference is half the angle at the centre, so \(\angle APB=\theta\) which means that the punter’s binoculars rotate by an angle \(\theta\) the horse moves from \(A\) to \(B\). Hence the punter is rotating his binoculars at a constant rate that is half the rate at which the horse is rotating about the centre.</p>
+</div><div>{{svg:c2_punter}}</div></div>
+</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Arcs and Angles in Circles, Q3(a): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+Calculate the values of the variables in the following circle figures.
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0"><span data-v="w_q3a">\(\begin{aligned}[t]x&amp;=2\times30^\circ\\&amp;=60^\circ\end{aligned}\)</span></p>
+</div><div>{{svg:c2q3a}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q3(a)</div>
+<p>The \(30^\circ\) angle at the circumference and the angle \(x\) at the centre stand on the same arc (the lower arc between the two lower points), so \(x\) is twice \(30^\circ\).</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:angles on the same arc}}
+<div class="box concept"><div class="bt">Angles subtended by the same arc (AMSI, page 12)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>In the diagram to the right, the two angles \(\angle APB\) and \(\angle AQB\) are subtended by the same (minor) arc \(AB\). Each angle is half the angle \(\angle AOB\) at the centre subtended by the same arc, so \(\angle APB=\angle AQB\).</p>
+<p>This corollary of the previous theorem is a particularly significant result about angles in circles:</p>
+</div><div>{{svg:c2_samearc}}</div></div></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>Two angles at the circumference subtended by the same arc are equal.</p>
+<p>Thales’ theorem is a special case of this theorem.</p></div>
+<div class="box concept"><div class="bt">Some alternative terminology (AMSI, page 13)</div>
+<p>The last two theorems are often expressed in slightly different language, and some explanation is needed to avoid confusion.</p>
+<ol style="margin:0"><li>An angle subtended by an arc is often said to be <b>standing on the arc</b>. With this terminology, the two theorems become:
+<ul><li>An angle at the circumference of a circle is half the angle at the centre standing on the same arc.</li>
+<li>Two angles at the circumference standing on the same arc are equal.</li></ul>
+In the context of these two theorems, it is best to avoid the phrases ‘standing on a chord \(AB\)’ and ‘subtended by a chord \(AB\)’, because we need to distinguish between angles subtended by the major arc \(AB\) and angles subtended by the minor arc \(AB\).</li></ol>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<ol start="2" style="margin:0"><li>In the upper diagram to the right, the angle \(\angle APB\) is called an angle in the (major) segment. Notice that it actually stands on the minor arc \(AB\), which can be confusing. We have already used this terminology before in speaking about an ‘angle in a semicircle’. With this terminology, the last theorem becomes:
+<p style="margin:1mm 0"><i>Two angles in the same segment of a circle are equal.</i></p>
+The situation is illustrated in the lower diagram to the right.</li></ol>
+</div><div style="display:flex;flex-direction:column;align-items:center">{{svg:c2_seg1}}{{svg:c2_seg2}}</div></div></div>
+<div class="box concept"><div class="bt">Angles subtended by the same arc (Maths Pathway)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>The angles subtended by the same arc at any two points on a circle are equal.</p></div><div>{{svg:c2_mpbox5}}</div></div></div>
+<div class="box concept"><div class="bt">Extension – The orthocentre of a triangle (AMSI, page 13)</div>
+<p>An <b>altitude</b> of a triangle is a perpendicular from any of the three vertices to the opposite side, produced if necessary. The two cases are illustrated in the diagrams below.</p>
+{{svg:c2_alt}}
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>There are three altitudes in a triangle. The following theorem proves that they concurrent at a point called the <b>orthocentre</b> \(H\) of the triangle. It is surprising that circles can be used to prove the concurrence of the altitudes.</p>
+<p><b>Theorem</b><br>The altitudes of a triangle are concurrent.</p>
+</div><div>{{svg:c2_ortho}}</div></div></div>
+<div class="box tip"><div class="bt">Where is the proof?</div>
+<p>AMSI sets the proof as Exercise 7, Hard homework Question 14. It uses the converse of the angle in a semicircle theorem (Lesson C1) to find two circles, then angles on the same arc.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Angles on the same arc</span></div><div class="ex-body">
+Calculate the values of the variables in the following circle figures.
+<div class="parts" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c2d2a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2d2b}}</span></div>
+{{work:24}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Calculate the values of the variables in the following circle figures.
+<div class="parts" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c2y2a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2y2b}}</span></div>
+{{work:24}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Arcs and Angles in Circles, Q4(a): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+Calculate the values of the variables in the following circle figures.
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0"><span data-v="w_q4a">\(x=57^\circ\)</span></p>
+</div><div>{{svg:c2q4a}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q4(a)</div>
+<p>The angle \(x\) and the \(57^\circ\) angle are both at the circumference, and both stand on the same arc (the upper-right arc between the top point and the right-hand point). So they are equal. The centre plays no part here.</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:cyclic quadrilaterals}}
+<div class="box concept"><div class="bt">Cyclic quadrilaterals (AMSI, page 14)</div>
+<div class="split" style="grid-template-columns:3fr 1fr"><div>
+<p>In the module, <i>Congruence</i>, we showed how to draw the <b>circumcircle</b> through the vertices of any triangle. To do this, we showed that the perpendicular bisectors of its three sides are concurrent, and that their intersection, called the <b>circumcentre</b> of the triangle, is equidistant from each vertex.</p>
+<p>No other circle passes through these three vertices. If we tried to take as centre a point \(P\) other than the circumcentre, then \(P\) would not lie on one of the perpendicular bisectors, so it could not be equidistant from the three vertices.</p>
+<p>When there are four points, we can always draw a circle through any three of them (provided they are not collinear), but only in special cases will that circle pass through the fourth point. A <b>cyclic quadrilateral</b> is a quadrilateral whose vertices all lie on a circle. This is the last type of special quadrilateral that we shall consider.</p>
+</div><div style="display:flex;flex-direction:column;align-items:center">{{svg:c2_circum}}{{svg:c2_cquad}}</div></div>
+<div class="split" style="grid-template-columns:3fr 1fr"><div>
+<p><b>Constructing the circumcircle of a cyclic quadrilateral.</b> Suppose that we are given a quadrilateral that is known to be cyclic, but whose circumcentre is not shown (perhaps it has been rubbed out). The circumcentre of the quadrilateral is the circumcentre of the triangle formed by any three of its vertices, so the construction to the right will find its circumcentre.</p>
+</div><div>{{svg:c2_constr}}</div></div>
+<p><b>The opposite angles of a cyclic quadrilateral.</b> The distinctive property of a cyclic quadrilateral is that its opposite angles are supplementary. The following proof uses the theorem that an angle at the circumference is half the angle at the centre standing on the same arc.</p></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>The opposite angles of a cyclic quadrilateral are supplementary.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 15): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(ABCD\) be a cyclic quadrilateral with \(O\) the centre of the circle.</p>
+<p style="margin:0.5mm 0">Join the radii \(OB\) and \(OD\). Let \(\alpha\) and \(\gamma\) be the angles at the centre, as shown on the diagram.</p>
+</div><div>{{svg:c2_opp}}</div></div>
+<p style="margin:0.5mm 0 0 6mm">\(\begin{aligned}[t]\text{Then}\quad\alpha+\gamma&amp;=360^\circ&amp;&amp;\text{(angles in a revolution at }O)\\\text{Also}\quad\angle A&amp;=\tfrac12\alpha&amp;&amp;\text{(angles on the same arc }BCD)\\\text{and}\quad\angle C&amp;=\tfrac12\gamma&amp;&amp;\text{(angles on the same arc }BAD)\\\text{so}\quad\angle A+\angle C&amp;=\tfrac12\alpha+\tfrac12\gamma=180^\circ&amp;&amp;\end{aligned}\)</p>
+<p style="margin:0.5mm 0">Hence also \(\angle ABC+\angle ADC=180^\circ\) (angle sum of quadrilateral \(ABCD\))</p>
+<p style="margin:1mm 0 0">Here is an alternative proof using the fact that two angles in the same segment are equal. (AMSI Exercise 8, Medium homework Question 8.)</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: the opposite angles</div>
+<p>\(\alpha\) is the angle at the centre standing on the arc \(BCD\), and \(\angle A\) stands on the same arc, so \(\angle A=\tfrac12\alpha\). Then \(\tfrac12\alpha+\tfrac12\gamma=\tfrac12(\alpha+\gamma)=\tfrac12\times360^\circ=180^\circ\). The angles of any quadrilateral add to \(360^\circ\), so the other pair also adds to \(360^\circ-180^\circ=180^\circ\).</p></div>
+<div class="box concept"><div class="bt">Exterior angles of a cyclic quadrilateral (AMSI, page 15)</div>
+<p>An exterior angle of a cyclic quadrilateral is supplementary to the adjacent interior angle, so is equal to the opposite interior angle. This gives us the corollary to the cyclic quadrilateral theorem:</p></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>An exterior angle of a cyclic quadrilateral is equal to the opposite interior angle.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 15): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">In the diagram to the right, \(BC\) is produced to \(P\) to form the exterior angle \(\angle PCD\). This exterior angle and \(\angle A\) are both supplementary to \(\angle BCD\), so they are equal.</p>
+</div><div>{{svg:c2_ext}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: the exterior angle</div>
+<p>\(\angle PCD+\angle BCD=180^\circ\) (angles on the straight line \(BCP\)) and \(\angle A+\angle BCD=180^\circ\) (opposite angles of the cyclic quadrilateral). So \(\angle PCD=180^\circ-\angle BCD=\angle A\).</p></div>
+<div class="box concept"><div class="bt">Quadrilaterals in circles (Maths Pathway)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>If all four points of a quadrilateral are on a circle, the sum of opposite angles is \(180^\circ\).</p>
+<p style="text-align:center">\(x+y=180^\circ\)</p></div><div>{{svg:c2_mpbox6}}</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Cyclic quadrilaterals</span></div><div class="ex-body">
+Calculate the value of the variables in the following circle figures.
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c2d3a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2d3b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2d3c}}</span></div>
+{{work:28}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Calculate the value of the variables in the following circle figures.
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c2y3a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2y3b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2y3c}}</span></div>
+{{work:28}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Arcs and Angles in Circles, Q6(a): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+Calculate the value of the variables in the following circle figures.
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0"><span data-v="w_q6a">\(\begin{aligned}[t]x&amp;=180^\circ-55^\circ\\&amp;=125^\circ\end{aligned}\)</span></p>
+</div><div>{{svg:c2q6a}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q6(a)</div>
+<p>All four vertices are on the circle, so the quadrilateral is cyclic, and \(x\) and the \(55^\circ\) angle are opposite angles. Opposite angles of a cyclic quadrilateral add to \(180^\circ\).</p></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:a test for a cyclic quadrilateral}}
+<div class="box concept"><div class="bt">Extension – A test for a cyclic quadrilateral (AMSI, page 16)</div>
+<p>The property of a cyclic quadrilateral proven earlier, that its opposite angles are supplementary, is also a test for a quadrilateral to be cyclic. That is the converse is true. This theorem completes the structure that we have been following – for each special quadrilateral, we establish its distinctive properties, and then establish tests for it.</p>
+<p>The proof uses ‘proof by contradiction’, and is thus a little more difficult than other Year 10 material.</p></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>If the opposite angles of a quadrilateral are supplementary, then the quadrilateral is cyclic.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 16): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(ABCD\) be a quadrilateral with \(\angle A+\angle C=180^\circ\).</p>
+<p style="margin:0.5mm 0">Construct the circle through \(A\), \(B\) and \(D\), and suppose, by way of contradiction, that the circle does not pass through \(C\).</p>
+<p style="margin:0.5mm 0">Let \(DC\), produced if necessary, meet the circle again at \(X\), and join \(XB\).</p>
+<p style="margin:0.5mm 0">Then \(\angle A\) and \(\angle BXD\) are supplementary because \(ABXD\) is a cyclic quadrilateral,</p>
+<p style="margin:0.5mm 0">so the angles \(\angle DXB\) and \(\angle DCB\) are equal, so \(XB\parallel CB\)</p>
+<p style="margin:0.5mm 0">Hence \(XB\) and \(CB\) are the same line, so \(C\) and \(X\) coincide, that is the circle does pass through \(C\).</p>
+</div><div>{{svg:c2_conv}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: the converse</div>
+<p>Both \(\angle DXB\) and \(\angle DCB\) are \(180^\circ-\angle A\). They are corresponding angles on the line \(DXC\), so \(XB\parallel CB\). Two parallel lines through the same point \(B\) must be the same line, which forces \(X=C\). Hard homework Question 10 (AMSI Exercise 11) proves the same test in exterior-angle form.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Is the quadrilateral cyclic?</span></div><div class="ex-body">
+<p style="margin:0">A quadrilateral \(ABCD\) has \(\angle A=97^\circ\), \(\angle B=78^\circ\) and \(\angle C=83^\circ\). Find \(\angle D\), and decide whether \(ABCD\) is a cyclic quadrilateral, giving a reason.</p>
+{{work:24}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<p style="margin:0">A quadrilateral \(PQRS\) has \(\angle P=88^\circ\), \(\angle Q=96^\circ\) and \(\angle R=93^\circ\). Find \(\angle S\), and decide whether \(PQRS\) is a cyclic quadrilateral, giving a reason.</p>
+{{work:24}}</div></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:extension, the sine rule and circle geometry}}
+<div class="box concept"><div class="bt">Extension – The sine rule and circle geometry (AMSI, page 17)</div>
+<div class="split" style="grid-template-columns:3fr 1fr"><div>
+<p>The sine rule states that for any triangle \(ABC\), the ratio of any side over the sine of its opposite angle is a constant,</p>
+\[\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}\]
+<p>Each term is the ratio of a length over a pure number, so their common value seems to be a length. Thus it reasonable to ask, what is this common length? The answer is a surprise – the common length is the diameter of the circumcircle through the vertices of the triangle.</p>
+<p>The proof of this result provides a proof of the sine rule that is independent of the proof given in the module, <i>Further Trigonometry</i>.</p>
+</div><div style="display:flex;flex-direction:column;align-items:center">{{svg:c2_sine_t}}{{svg:c2_sine_c}}</div></div></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>In any triangle \(ABC\), \(\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R\), where \(R\) is the radius of the circumcircle.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 17): keep for homework</span></div><div class="ex-body">
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(O\) be the centre of the circumcircle through \(A\), \(B\) and \(C\), and let \(\angle A=\alpha\).</p>
+<p style="margin:0.5mm 0">It is sufficient to prove that \(\dfrac{a}{\sin A}\) is the diameter of the circumcircle.</p>
+<p style="margin:0.5mm 0">There are three cases, as shown below.</p>
+<div class="parts three" style="text-align:center"><div>{{svg:c2_sine1}}<b>Case 1:</b> \(A\) and \(O\) lie on the same side of \(BC\).</div><div>{{svg:c2_sine2}}<b>Case 2:</b> \(A\) and \(O\) lie on opposite sides of \(BC\).</div><div>{{svg:c2_sine3}}<b>Case 3:</b> \(O\) lies on \(BC\)</div></div>
+<p style="margin:0.5mm 0">In cases 1 and 2, construct the diameter \(BOP\), and join \(PC\).</p>
+</div></div>
+<div class="box tip"><div class="bt">Finishing the proof</div>
+<p>The three cases are completed in AMSI Exercise 13, Hard homework Question 15. In Case 1, \(\angle BCP=90^\circ\) (angle in a semicircle) and \(\angle P=\alpha\) (angles on the same arc \(BC\)), so in right-angled \(\triangle BCP\), \(\sin\alpha=\dfrac{a}{2R}\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The circumradius</span></div><div class="ex-body">
+<p style="margin:0">In \(\triangle ABC\), \(a=12\) cm and \(A=30^\circ\). Find the diameter and the radius of the circle through \(A\), \(B\) and \(C\).</p>
+{{work:20}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<p style="margin:0">In \(\triangle ABC\), \(a=9\) cm and \(A=50^\circ\). Find the radius of the circle through \(A\), \(B\) and \(C\), correct to two decimal places.</p>
+{{work:20}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Homework:Maths Pathway sheet, AMSI exercises and past papers}}
+<p class="small">Each question is from the source named above it. Answers are in the answers booklet. In every figure, a dot inside the circle marks its centre.</p>
+<div class="band"><span class="diff diff-easy">Easy</span><span class="line"></span></div>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Maths Pathway, Arcs and Angles in Circles, Q1</span><br>In each of the following figures, are the two marked angles subtended by the same arc?
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c2q1a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2q1b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2q1c}}</span><span style="display:flex;gap:1mm"><span class="pl">d</span>{{svg:c2q1d}}</span><span style="display:flex;gap:1mm"><span class="pl">e</span>{{svg:c2q1e}}</span><span style="display:flex;gap:1mm"><span class="pl">f</span>{{svg:c2q1f}}</span><span style="display:flex;gap:1mm"><span class="pl">g</span>{{svg:c2q1g}}</span><span style="display:flex;gap:1mm"><span class="pl">h</span>{{svg:c2q1h}}</span><span style="display:flex;gap:1mm"><span class="pl">i</span>{{svg:c2q1i}}</span></div>{{work:10}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Maths Pathway, Arcs and Angles in Circles, Q3(b)–(f)</span><br>Calculate the values of the variables in the following circle figures.
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2q3b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2q3c}}</span><span style="display:flex;gap:1mm"><span class="pl">d</span>{{svg:c2q3d}}</span><span style="display:flex;gap:1mm"><span class="pl">e</span>{{svg:c2q3e}}</span><span style="display:flex;gap:1mm"><span class="pl">f</span>{{svg:c2q3f}}</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Maths Pathway, Arcs and Angles in Circles, Q4(b)–(c)</span><br>Calculate the values of the variables in the following circle figures.
+<div class="parts" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2q4b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2q4c}}</span></div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Maths Pathway, Arcs and Angles in Circles, Q6(b)–(c)</span><br>Calculate the value of the variables in the following circle figures.
+<div class="parts" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2q6b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2q6c}}</span></div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Maths Pathway, Arcs and Angles in Circles, Q8(b)–(d)</span><br>Calculate the values of the variables in the following circle figures, and explain your answer.
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2q8b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2q8c}}</span><span style="display:flex;gap:1mm"><span class="pl">d</span>{{svg:c2q8d}}</span></div>{{work:30}}</div></div>
+
+<div class="band"><span class="diff diff-med">Medium</span><span class="line"></span></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Maths Pathway, Arcs and Angles in Circles, Q5</span><br>Calculate the values of the variables in the following circle figures.
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c2q5a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c2q5b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c2q5c}}</span><span style="display:flex;gap:1mm"><span class="pl">d</span>{{svg:c2q5d}}</span><span style="display:flex;gap:1mm"><span class="pl">e</span>{{svg:c2q5e}}</span><span style="display:flex;gap:1mm"><span class="pl">f</span>{{svg:c2q5f}}</span><span style="display:flex;gap:1mm"><span class="pl">g</span>{{svg:c2q5g}}</span><span style="display:flex;gap:1mm"><span class="pl">h</span>{{svg:c2q5h}}</span><span style="display:flex;gap:1mm"><span class="pl">i</span>{{svg:c2q5i}}</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span class="muted small">Maths Pathway, Arcs and Angles in Circles, Q2</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>In this question, you will prove that \(\angle BOC=2\times\angle BAC\).
+<div class="parts one" style="margin-left:2mm"><span><span class="pl">a</span>Show that \(\Delta OAB\) and \(\Delta OAC\) in the figure to the right are isosceles.</span><span><span class="pl">b</span>Use what you proved in part (a) to write \(\angle OBA\) and \(\angle OCA\) in terms of \(x\) and \(y\).</span><span><span class="pl">c</span>Use what you found in part (b) to write \(\angle AOB\) and \(\angle AOC\) in terms of \(x\) and \(y\).</span><span><span class="pl">d</span>Write \(\angle BOC\) in terms of \(x\) and \(y\).</span><span><span class="pl">e</span>Write \(\angle BAC\) in terms of \(x\) and \(y\).</span><span><span class="pl">f</span>Use what you found in parts (d) and (e) to write \(\angle BOC\) in terms of \(\angle BAC\).</span></div></div><div>{{svg:c2q2}}</div></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 8</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>Join the diagonals \(AC\) and \(BD\) of the cyclic quadrilateral \(ABCD\). Let \(\alpha\), \(\beta\), \(\gamma\) and \(\delta\) be the angles shown.
+<div class="parts one" style="margin-left:2mm"><span><span class="pl">a</span>Give a reason why \(\angle DBC=\alpha\)</span><span><span class="pl">b</span>What other angles have sizes \(\beta\), \(\gamma\) and \(\delta\)?</span><span><span class="pl">c</span>Prove that \(\alpha+\beta+\gamma+\delta=180^\circ\).</span><span><span class="pl">d</span>Hence prove that the opposite angles of \(ABCD\) are supplementary.</span></div></div><div>{{svg:c2_ex8}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 9</span><br>
+<div class="split" style="grid-template-columns:2fr 3fr"><div>Show that \(AP\parallel CR\) in the diagram to the right.</div><div>{{svg:c2_ex9}}</div></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 11</span><br>Prove the following alternative form of the above theorem:
+<p style="margin:1mm 0"><i>If an exterior angle of a quadrilateral equals the opposite interior angle, then the quadrilateral is cyclic.</i></p>{{work:30}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 12</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>In the diagram to the right, the two adjacent acute angles of the trapezium are equal.<br>Prove that the trapezium is cyclic.</div><div>{{svg:c2_ex12}}</div></div>{{work:30}}</div></div>
+
+<div class="band"><span class="diff diff-chal">Hard</span><span class="line"></span></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 6</span><br>Complete the proof in the other two cases.
+<p class="small muted" style="margin:1mm 0 0">The cases are those of the proof in Concept 1: Case 2, \(O\) on \(\triangle APB\), and Case 3, \(O\) outside \(\triangle APB\). Their diagrams are with that proof.</p>{{work:60}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 10</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>If a cyclic trapezium is not a rectangle, show that the other two sides are not parallel, but have equal length.</div><div>{{svg:c2_ex10}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 7</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>In the diagram to the right, the altitudes \(AP\) and \(BQ\) meet at \(H\). The interval \(CH\) is produced to meet \(AB\), produced if necessary, at \(R\). We need to prove that \(CR\perp AB\).
+<div class="parts one" style="margin-left:2mm"><span><span class="pl">a</span>Explain why \(Q\), \(H\), \(P\) and \(C\) are concyclic, and draw the circle.</span><span><span class="pl">b</span>Explain why \(A\), \(B\), \(P\) and \(Q\) are concyclic, and draw the circle.</span><span><span class="pl">c</span>Join the common chord \(PQ\), and explain why \(\angle QCH=\angle QPH\).</span><span><span class="pl">d</span>Explain why \(\angle APQ=\angle ABQ\).</span><span><span class="pl">e</span>Use \(\triangle ABQ\) and \(\triangle ACR\) to explain why \(CR\perp AB\).</span></div></div><div>{{svg:c2_ex7}}</div></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 13</span><br>
+<div class="parts one"><span><span class="pl">a</span>Complete the following steps of the proof in Case 1.<br>&emsp;<span class="pl">i</span>Explain why \(\angle BCP=90^\circ\) and \(\angle P=\alpha\)<br>&emsp;<span class="pl">ii</span>Complete the proof using \(\triangle BCP\).</span>
+<span><span class="pl">b</span>Complete the following steps of the proof in Case 2.<br>&emsp;<span class="pl">i</span>Explain why \(\angle BCP=90^\circ\) and \(\sin P=\sin\alpha\)<br>&emsp;<span class="pl">ii</span>Complete the proof using \(\triangle BCP\).</span>
+<span><span class="pl">c</span>Complete the proof in Case 3.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><div class="pp-src" style="margin-bottom:1mm"><span>Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, <span style="white-space:nowrap">Part&nbsp;G&nbsp;(e)</span></span><span class="mk">5 marks</span></div>
+<div style="display:flex;justify-content:center">{{svg:c2nap1}}</div>
+<p style="margin:0">A scalene triangle \(ABC\) has equilateral triangles \(ABX\), \(BCY\) and \(ACZ\) constructed on its three sides. Circle \(\mathcal{C}_1\) is drawn to pass through the vertices of \(\triangle ABX\) and has centre \(P\). Similarly circle \(\mathcal{C}_2\) is drawn through the vertices of \(\triangle BCY\) and has centre \(Q\). These two circles meet at \(B\) and \(O\) as shown in the diagram above.</p>
+<div class="parts one" style="margin-top:1mm"><span><span class="pl">i</span>Find the sizes of \(\angle AOB\), \(\angle BOC\), and \(\angle AOC\).&emsp;<span class="mk muted">1</span></span>
+<span><span class="pl">ii</span>Prove that \(AOCZ\) is a cyclic quadrilateral.&emsp;<span class="mk muted">1</span></span>
+<span><span class="pl">iii</span>Taking \(R\) as the centre of circle \(AOCZ\), prove that \(\Delta PQR\) is equilateral.&emsp;<span class="mk muted">3</span></span></div>
+<div style="display:flex;justify-content:center">{{svg:c2nap2}}</div>
+<div class="hint"><b>Hint:</b> in (i), which quadrilateral in circle \(\mathcal{C}_1\) has \(\angle AOB\) as one of its angles?</div>{{work:40}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>17 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, <span style="white-space:nowrap">Part&nbsp;B&nbsp;(p)</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:2fr 3fr"><div>{{svg:c2pp1}}</div><div><p style="margin:0">\(A\), \(B\), \(C\), and \(D\) are concyclic points.</p><p style="margin:1mm 0">\(CDE\) is a straight line.</p><p style="margin:0">Write down the value of \(\angle ABC\).</p></div></div></div>
+<div class="hint"><b>Hint:</b> what kind of angle is the \(76^\circ\) angle for the quadrilateral \(ABCD\)?</div>{{work:16}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Boys High School, 2023, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, <span style="white-space:nowrap">Part&nbsp;C&nbsp;Q4</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q"><p style="margin:0">In the diagram below, \(A\), \(B\), \(C\), and \(D\) are points on a circle, centre \(O\).<br>\(AOC\) is a diameter of the circle.<br>\(\angle BAC=55^\circ\).</p>
+<p style="margin:1mm 0">Find \(\angle ADB\), giving full reasons.</p>
+<div style="display:flex;justify-content:center;align-items:center;gap:8mm">{{svg:c2pp2}}<b class="small">NOT TO SCALE</b></div></div>
+<div class="hint"><b>Hint:</b> what can you say about the angle that the diameter \(AC\) subtends at \(B\)?</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), <span style="white-space:nowrap">Q25(b)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q"><p style="margin:0">Find the value of the pronumeral giving reasons.</p>
+<div style="display:flex;justify-content:center">{{svg:c2pp3}}</div></div>
+<div class="hint"><b>Hint:</b> which angle at \(B\) stands on the same arc as the \(55^\circ\) angle?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), <span style="white-space:nowrap">Q25(c)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q"><p style="margin:0">\(O\) is the centre of the circle. Calculate the value of \(x\), giving reasons.</p>
+<div style="display:flex;justify-content:center">{{svg:c2pp4}}</div></div>
+<div class="hint"><b>Hint:</b> what kind of triangle is \(\triangle OAD\)?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, <span style="white-space:nowrap">Part&nbsp;E&nbsp;Q2</span></span><span class="mk">5 marks</span></div>
+<div class="pp-q"><p style="margin:0">In the diagram below, \(ABCDE\) is a circle. It is given that \(AB\parallel ED\).<br>\(AD\) and \(BE\) intersect at the point \(F\).</p>
+<div style="display:flex;justify-content:center">{{svg:c2pp5}}</div>
+<div class="pp-sub"><span><span class="pl">i</span>Show that \(2x+y=180\), giving reasons.</span><span class="mk">3</span></div>
+<div class="pp-sub"><span><span class="pl">ii</span>Express \(x\) in terms of \(\theta\).</span><span class="mk">1</span></div>
+<div class="pp-sub"><span><span class="pl">iii</span>Express \(y\) in terms of \(\theta\).</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> which angle at \(E\) stands on the same arc as \(x\)?</div>{{work:56}}</div>
 </div>

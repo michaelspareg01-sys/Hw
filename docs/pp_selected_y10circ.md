@@ -25,7 +25,33 @@ Past papers (mini exam, 10 marks, 15 min; order PP 1–4):
 - y10-A-111 | Merewether High School, 2023, Section III Part B Q2 | 4 marks | `Merewether 2023 Year 10 Maths Yearly & Solutions.pdf` | question p7, solution p21 (scan) | label "Merewether High School, 2023, Year 10 Assessment Task 4, Mathematics, Section III Part B Q2" (the catalogue's "Part B Sec 3" is Section III, Part B).
 - **House rule 8 shortfall**: these are the only clean C1 items in the catalogue (10 marks). Timed-practice note in the lesson: Questions 11, 12 and 13 in 15 minutes.
 
-### Pool left for C2 and C3 (eligible rows: SBHS 2025 rows y10-B-126 to 133 and the DOUBTFUL row y10-B-93 excluded)
+## C2 Angles at the centre and circumference
+Source items (not past papers):
+- AMSI TIMES *Circle Geometry*: theorem statements and proofs pp. 11–17 (angle at the centre, same arc, alternative terminology, orthocentre extension, cyclic quadrilaterals, exterior angle, converse test, sine-rule extension); the worked Example (punter) p. 12; Exercises 6, 7, 8, 9, 10, 11, 12, 13 (answers pp. 38–40). Tangents (p. 18 on) are left for C3.
+- Maths Pathway *Arcs and Angles in Circles*: Q3(a), Q4(a), Q6(a) as worked examples; Q1(a)–(i), Q3(b)–(f), Q4(b)–(c), Q6(b)–(c), Q8(b)–(d) (Easy); Q5(a)–(i), Q2 (Medium). The whole sheet is now used (Q7 and Q8(a) in C1).
+
+Past papers:
+- Hard band (Q16): y10-B-89, B-90, B-91 | Sydney Boys High School, 2021, Part G (e)(i)–(iii) | 1 + 1 + 3 = 5 marks | `Sydney Boys 2021 Year 10 Maths Yearly & Solutions.pdf` | questions pp. 35–36, solutions pp. 60–61 | label "Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part G (e)".
+- Mini exam (17 marks, 25 min; order PP 1–5):
+  - y10-B-79 | Sydney Boys High School, 2021, Part B (p) | 1 mark | same file | question p10, solution p44 | label "Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part B (p)".
+  - y10-B-100 | Sydney Boys High School, 2023, Part C Q4 | 3 marks | `Sydney Boys 2023 Year 10 Maths Yearly & Solutions.pdf` | question p15, solution p55 | label "Sydney Boys High School, 2023, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part C Q4".
+  - y10-A-074 | Girraween High School, 2020, Q25(b) | 4 marks | `Girraween 2020 Year 10 Maths Yearly & Solutions.pdf` | question p16, solution p27 (scan) | label "Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), Q25(b)".
+  - y10-A-075 | Girraween High School, 2020, Q25(c) | 4 marks | same file | question p16, solution p27 | label "Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), Q25(c)".
+  - y10-B-114, B-115, B-116 | Sydney Boys High School, 2024, Part E Q2(i)–(iii) | 3 + 1 + 1 = 5 marks | `Sydney Boys 2024 Year 10 Maths Yearly & Solutions.pdf` | question p28, solution p61 | label "Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, Part E Q2".
+- Not taken: y10-B-71 (Sydney Boys 2020 Q21(b), cyclic quadrilateral) needs α from Q21(a), which is the alternate segment theorem, so Q21(a)–(b) are left together for C3. y10-A-073 (Girraween 2020 Q25(a)) mixes the angle at the centre with tangents: left for C3.
+
+### Pool left for C3 (after C2)
+| Tag | Rows left | Marks |
+|---|---|---|
+| CIR-TANGENT (with CIR-ANGLE parts) | A-001, A-073, A-076, B-70, B-86, B-94, B-99, B-104, B-111 | 1 + 4 + 4 + 2 + 2 + 1 + 4 + 2 + 3 = 23 |
+| CIR-ANGLE (tangent-dependent) | B-71 (with B-70), B-105 | 2 + 3 = 5 |
+| CIR-SECANT | A-004, A-065, A-066, B-74 | 3 + 1 + 1 + 4 = 9 |
+| CIR-PROOF | B-105, B-106 | (B-105 counted above) + 1 = 1 |
+| Total | 16 rows | 38 marks |
+
+All CIR-CHORD rows are now used except B-74 (C3). No eligible CIR-ANGLE row without a tangent remains.
+
+### Pool left for C2 and C3 (as at C1) (eligible rows: SBHS 2025 rows y10-B-126 to 133 and the DOUBTFUL row y10-B-93 excluded)
 | Tag | Eligible rows | Used in C1 | Left |
 |---|---|---|---|
 | CIR-CHORD | 4 (A-111, B-74, B-76, B-91), 12 marks | A-111, B-76 (5 marks) | B-74 (4, intersecting chords: C3; also solvable with C1 perpendicular bisectors), B-91 (3, depends on cyclic parts: C2) |
