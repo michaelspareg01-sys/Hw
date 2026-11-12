@@ -1,4 +1,5 @@
-"""Figures for the Year 10 Trigonometry (part 2) pack: python3 figs.py  ->  svg/*.svg
+"""Figures for the Year 10 Trigonometry (part 2) pack: python3 figs.py  ->  svg/*.svg (every figure,
+including Lesson T3's, which live in figs_t3.py and are drawn from the main block below)
 
 Copied structure: workspace/build/int1/figs.py (Fig class, save via figfit).
 Each figure redraws a diagram of its source (Year 11 Advanced book, Maths Pathway sheet or past paper)
@@ -1082,3 +1083,6 @@ if __name__ == "__main__":
     fig_t1_hw()
     fig_t1_ans()
     fig_t2()
+    import figs_t3  # Lesson T3 figures (module imports Fig and save from this file)
+    figs_t3.fig_t3()
+    figs_t3.fig_t3_pp()

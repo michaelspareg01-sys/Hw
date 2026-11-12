@@ -153,63 +153,62 @@ EQ = {
     "d5b": (r"\sinx=0.6\),for\(0^\circ\lex\le360^\circ\),correcttothenearestdegree", lambda x: S(x) - 0.6, 0, 360, True, "deg", None),
     "y5a": (r"\tanx=-1\),for\(-180^\circ\lex\le180^\circ", lambda x: T(x) + 1, -180, 180, True, "exact", None),
     "y5b": (r"\cosx=-0.35\),for\(0^\circ\lex\le360^\circ\),correcttothenearestdegree", lambda x: C(x) + 0.35, 0, 360, True, "deg", None),
-    "d6": (r"\sinx-\sqrt3\cosx=0\),where\(0^\circ\lex\le360^\circ", lambda x: S(x) - math.sqrt(3) * C(x), 0, 360, True, "exact", None),
+    "d6": (r"\sinx=2\cosx\),where\(0^\circ\lex\le360^\circ\),correcttothenearestdegree", lambda x: S(x) - 2 * C(x), 0, 360, True, "deg", None),
     "y6": (r"\sqrt3\sinx=\cosx\),where\(0^\circ\lex\le360^\circ", lambda x: math.sqrt(3) * S(x) - C(x), 0, 360, True, "exact", None),
     "d7a": (r"\cos2x=\tfrac12\),where\(0^\circ\lex\le360^\circ", lambda x: C(2 * x) - 0.5, 0, 360, True, "exact", None),
     "d7b": (r"\tan(x-60^\circ)=1\),where\(0^\circ\lex\le360^\circ", lambda x: T(x - 60) - 1, 0, 360, True, "exact", None),
     "y7a": (r"\sin2x=\dfrac{\sqrt3}{2}\),where\(0^\circ\lex\le360^\circ", lambda x: S(2 * x) - math.sqrt(3) / 2, 0, 360, True, "exact", None),
     "y7b": (r"\cos(x+45^\circ)=-\tfrac12\),where\(0^\circ\lex\le360^\circ", lambda x: C(x + 45) + 0.5, 0, 360, True, "exact", None),
     # Exercise 5H Q1, Q2, Q3 (book answers PDF 548)
-    "e5a": (r"\sin\theta=\dfrac{\sqrt3}{2}", lambda x: S(x) - math.sqrt(3) / 2, 0, 360, True, "exact", [60, 120]),
-    "e5b": (r"\sin\theta=\dfrac12", lambda x: S(x) - 0.5, 0, 360, True, "exact", [30, 150]),
-    "e5c": (r"\tan\theta=1", lambda x: T(x) - 1, 0, 360, True, "exact", [45, 225]),
-    "e5d": (r"\tan\theta=\sqrt3", lambda x: T(x) - math.sqrt(3), 0, 360, True, "exact", [60, 240]),
-    "e5e": (r"\cos\theta=-\dfrac{1}{\sqrt2}", lambda x: C(x) + 1 / math.sqrt(2), 0, 360, True, "exact", [135, 225]),
-    "e5f": (r"\tan\theta=-\sqrt3", lambda x: T(x) + math.sqrt(3), 0, 360, True, "exact", [120, 300]),
-    "e5g": (r"\sin\theta=-\dfrac12", lambda x: S(x) + 0.5, 0, 360, True, "exact", [210, 330]),
-    "e5h": (r"\cos\theta=-\dfrac{\sqrt3}{2}", lambda x: C(x) + math.sqrt(3) / 2, 0, 360, True, "exact", [150, 210]),
-    "e6a": (r"\sin\theta=1", lambda x: S(x) - 1, 0, 360, True, "exact", [90]),
-    "e6b": (r"\cos\theta=1", lambda x: C(x) - 1, 0, 360, True, "exact", [0, 360]),
-    "e6c": (r"\cos\theta=0", lambda x: C(x), 0, 360, True, "exact", [90, 270]),
-    "e6d": (r"\cos\theta=-1", lambda x: C(x) + 1, 0, 360, True, "exact", [180]),
-    "e6e": (r"\tan\theta=0", lambda x: T(x), 0, 360, True, "exact", [0, 180, 360]),
-    "e6f": (r"\sin\theta=-1", lambda x: S(x) + 1, 0, 360, True, "exact", [270]),
-    "e7a": (r"\cosx=\tfrac37", lambda x: C(x) - 3 / 7, 0, 360, True, "deg", [65, 295]),
-    "e7b": (r"\sinx=0.1234", lambda x: S(x) - 0.1234, 0, 360, True, "deg", [7, 173]),
-    "e7c": (r"\tanx=7", lambda x: T(x) - 7, 0, 360, True, "deg", [82, 262]),
-    "e7d": (r"\sinx=-\tfrac23", lambda x: S(x) + 2 / 3, 0, 360, True, "deg", [222, 318]),
-    "e7e": (r"\tanx=-\tfrac{20}{9}", lambda x: T(x) + 20 / 9, 0, 360, True, "deg", [114, 294]),
-    "e7f": (r"\cosx=-0.77", lambda x: C(x) + 0.77, 0, 360, True, "deg", [140, 220]),
+    "e6a": (r"\sin\theta=\dfrac{\sqrt3}{2}", lambda x: S(x) - math.sqrt(3) / 2, 0, 360, True, "exact", [60, 120]),
+    "e6b": (r"\sin\theta=\dfrac12", lambda x: S(x) - 0.5, 0, 360, True, "exact", [30, 150]),
+    "e6c": (r"\tan\theta=1", lambda x: T(x) - 1, 0, 360, True, "exact", [45, 225]),
+    "e6d": (r"\tan\theta=\sqrt3", lambda x: T(x) - math.sqrt(3), 0, 360, True, "exact", [60, 240]),
+    "e6e": (r"\cos\theta=-\dfrac{1}{\sqrt2}", lambda x: C(x) + 1 / math.sqrt(2), 0, 360, True, "exact", [135, 225]),
+    "e6f": (r"\tan\theta=-\sqrt3", lambda x: T(x) + math.sqrt(3), 0, 360, True, "exact", [120, 300]),
+    "e6g": (r"\sin\theta=-\dfrac12", lambda x: S(x) + 0.5, 0, 360, True, "exact", [210, 330]),
+    "e6h": (r"\cos\theta=-\dfrac{\sqrt3}{2}", lambda x: C(x) + math.sqrt(3) / 2, 0, 360, True, "exact", [150, 210]),
+    "e7a": (r"\sin\theta=1", lambda x: S(x) - 1, 0, 360, True, "exact", [90]),
+    "e7b": (r"\cos\theta=1", lambda x: C(x) - 1, 0, 360, True, "exact", [0, 360]),
+    "e7c": (r"\cos\theta=0", lambda x: C(x), 0, 360, True, "exact", [90, 270]),
+    "e7d": (r"\cos\theta=-1", lambda x: C(x) + 1, 0, 360, True, "exact", [180]),
+    "e7e": (r"\tan\theta=0", lambda x: T(x), 0, 360, True, "exact", [0, 180, 360]),
+    "e7f": (r"\sin\theta=-1", lambda x: S(x) + 1, 0, 360, True, "exact", [270]),
+    "e8a": (r"\cosx=\tfrac37", lambda x: C(x) - 3 / 7, 0, 360, True, "deg", [65, 295]),
+    "e8b": (r"\sinx=0.1234", lambda x: S(x) - 0.1234, 0, 360, True, "deg", [7, 173]),
+    "e8c": (r"\tanx=7", lambda x: T(x) - 7, 0, 360, True, "deg", [82, 262]),
+    "e8d": (r"\sinx=-\tfrac23", lambda x: S(x) + 2 / 3, 0, 360, True, "deg", [222, 318]),
+    "e8e": (r"\tanx=-\tfrac{20}{9}", lambda x: T(x) + 20 / 9, 0, 360, True, "deg", [114, 294]),
+    "e8f": (r"\cosx=-0.77", lambda x: C(x) + 0.77, 0, 360, True, "deg", [140, 220]),
     # Maths Pathway Q8 (sheet answers p10): between 0 and 360
-    "e8a": (r"4\sin(x)=3", lambda x: 4 * S(x) - 3, 0, 360, True, "2dp", [48.59, 131.41]),
-    "e8b": (r"\tan(x)+5=60", lambda x: T(x) + 5 - 60, 0, 360, True, "2dp", [88.96, 268.96]),
-    "e8c": (r"2\cos(x)=-1", lambda x: 2 * C(x) + 1, 0, 360, True, "2dp", [120, 240]),
-    "e8d": (r"5\tan(x)+12=0", lambda x: 5 * T(x) + 12, 0, 360, True, "2dp", [112.62, 292.62]),
+    "e9a": (r"4\sin(x)=3", lambda x: 4 * S(x) - 3, 0, 360, True, "2dp", [48.59, 131.41]),
+    "e9b": (r"\tan(x)+5=60", lambda x: T(x) + 5 - 60, 0, 360, True, "2dp", [88.96, 268.96]),
+    "e9c": (r"2\cos(x)=-1", lambda x: 2 * C(x) + 1, 0, 360, True, "2dp", [120, 240]),
+    "e9d": (r"5\tan(x)+12=0", lambda x: 5 * T(x) + 12, 0, 360, True, "2dp", [112.62, 292.62]),
     # Exercise 5H Q4, Q5, Q6 (selected parts)
-    "m13a": (r"\sin\alpha=0.1", lambda x: S(x) - 0.1, 0, 360, True, "min", [5 + 44 / 60, 174 + 16 / 60]),
-    "m13b": (r"\cos\alpha=-0.1", lambda x: C(x) + 0.1, 0, 360, True, "min", [95 + 44 / 60, 264 + 16 / 60]),
-    "m13c": (r"\tan\alpha=-1", lambda x: T(x) + 1, 0, 360, True, "exact", [135, 315]),
-    "m13g": (r"\sqrt3\tan\alpha+1=0", lambda x: math.sqrt(3) * T(x) + 1, 0, 360, True, "exact", [150, 330]),
-    "m14a": (r"\tanx=-0.3", lambda x: T(x) + 0.3, -180, 180, True, "min", [-(16 + 42 / 60), 163 + 18 / 60]),
-    "m14b": (r"\cosx=0", lambda x: C(x), -180, 180, True, "exact", [-90, 90]),
-    "m14d": (r"\sinx=-0.7", lambda x: S(x) + 0.7, -180, 180, True, "min", [-(135 + 34 / 60), -(44 + 26 / 60)]),
-    "m15a": (r"2\cos\theta-1=0", lambda x: 2 * C(x) - 1, 0, 720, True, "exact", [60, 300, 420, 660]),
-    "m15d": (r"\tan\theta=\sqrt2-1", lambda x: T(x) - (math.sqrt(2) - 1), 0, 720, True, "min", [22.5, 202.5, 382.5, 562.5]),
+    "m12a": (r"\sin\alpha=0.1", lambda x: S(x) - 0.1, 0, 360, True, "min", [5 + 44 / 60, 174 + 16 / 60]),
+    "m12b": (r"\cos\alpha=-0.1", lambda x: C(x) + 0.1, 0, 360, True, "min", [95 + 44 / 60, 264 + 16 / 60]),
+    "m12c": (r"\tan\alpha=-1", lambda x: T(x) + 1, 0, 360, True, "exact", [135, 315]),
+    "m12g": (r"\sqrt3\tan\alpha+1=0", lambda x: math.sqrt(3) * T(x) + 1, 0, 360, True, "exact", [150, 330]),
+    "m13a": (r"\tanx=-0.3", lambda x: T(x) + 0.3, -180, 180, True, "min", [-(16 + 42 / 60), 163 + 18 / 60]),
+    "m13b": (r"\cosx=0", lambda x: C(x), -180, 180, True, "exact", [-90, 90]),
+    "m13d": (r"\sinx=-0.7", lambda x: S(x) + 0.7, -180, 180, True, "min", [-(135 + 34 / 60), -(44 + 26 / 60)]),
+    "m14a": (r"2\cos\theta-1=0", lambda x: 2 * C(x) - 1, 0, 720, True, "exact", [60, 300, 420, 660]),
+    "m14d": (r"\tan\theta=\sqrt2-1", lambda x: T(x) - (math.sqrt(2) - 1), 0, 720, True, "min", [22.5, 202.5, 382.5, 562.5]),
     # Maths Pathway Q9: open ranges
-    "m16a": (r"450^\circ\ltx\lt720^\circ\):&ensp;\(8\sin(x)=7", lambda x: 8 * S(x) - 7, 450, 720, False, "2dp", [478.96]),
-    "m16b": (r"360^\circ\ltx\lt540^\circ\):&ensp;\(3\tan(x)+4=40", lambda x: 3 * T(x) + 4 - 40, 360, 540, False, "2dp", [445.24]),
-    "m16c": (r"90^\circ\ltx\lt270^\circ\):&ensp;\(7\sin(x)=-4", lambda x: 7 * S(x) + 4, 90, 270, False, "2dp", [214.85]),
-    "m16d": (r"-180^\circ\ltx\lt0^\circ\):&ensp;\(11\cos(x)=6", lambda x: 11 * C(x) - 6, -180, 0, False, "2dp", [-56.94]),
+    "m15a": (r"450^\circ\ltx\lt720^\circ\):&ensp;\(8\sin(x)=7", lambda x: 8 * S(x) - 7, 450, 720, False, "2dp", [478.96]),
+    "m15b": (r"360^\circ\ltx\lt540^\circ\):&ensp;\(3\tan(x)+4=40", lambda x: 3 * T(x) + 4 - 40, 360, 540, False, "2dp", [445.24]),
+    "m15c": (r"90^\circ\ltx\lt270^\circ\):&ensp;\(7\sin(x)=-4", lambda x: 7 * S(x) + 4, 90, 270, False, "2dp", [214.85]),
+    "m15d": (r"-180^\circ\ltx\lt0^\circ\):&ensp;\(11\cos(x)=6", lambda x: 11 * C(x) - 6, -180, 0, False, "2dp", [-56.94]),
     # past papers in the bands (school answers)
-    "m17": (r"\tan\theta=-\dfrac{1}{\sqrt3}\)for\(0\le\theta\le360^\circ", lambda x: T(x) + 1 / math.sqrt(3), 0, 360, True, "exact", [150, 330]),
-    "m19": (r"\sin\theta=-0.5\)for\(0^\circ\le\theta\le360^\circ", lambda x: S(x) + 0.5, 0, 360, True, "exact", [210, 330]),
+    "m16": (r"\tan\theta=-\dfrac{1}{\sqrt3}\)for\(0\le\theta\le360^\circ", lambda x: T(x) + 1 / math.sqrt(3), 0, 360, True, "exact", [150, 330]),
+    "m18": (r"\sin\theta=-0.5\)for\(0^\circ\le\theta\le360^\circ", lambda x: S(x) + 0.5, 0, 360, True, "exact", [210, 330]),
     # Hard: 5H Q9, Q7, Q8 (book answers PDF 548) and past papers
     "h22a": (r"\sin\theta=\cos\theta", lambda x: S(x) - C(x), 0, 360, True, "exact", [45, 225]),
     "h22b": (r"\sin\theta+\cos\theta=0", lambda x: S(x) + C(x), 0, 360, True, "exact", [135, 315]),
     "h22c": (r"\sin\theta=\sqrt3\cos\theta", lambda x: S(x) - math.sqrt(3) * C(x), 0, 360, True, "exact", [60, 240]),
     "h22d": (r"\sqrt3\sin\theta+\cos\theta=0", lambda x: math.sqrt(3) * S(x) + C(x), 0, 360, True, "exact", [150, 330]),
     "h23a": (r"\sin2x=\tfrac12", lambda x: S(2 * x) - 0.5, 0, 360, True, "exact", [15, 75, 195, 255]),
-    "h23b": (r"\tan2x=\sqrt3", lambda x: T(2 * x) - math.sqrt(3), 0, 360, True, "exact", [30, 120, 210, 300]),
     "h23c": (r"\cos2x=-\dfrac{1}{\sqrt2}", lambda x: C(2 * x) + 1 / math.sqrt(2), 0, 360, True, "min", [67.5, 112.5, 247.5, 292.5]),
     "h23d": (r"\sin2x=-1", lambda x: S(2 * x) + 1, 0, 360, True, "exact", [135, 315]),
     "h24a": (r"\tan(\alpha-45^\circ)=\dfrac{1}{\sqrt3}", lambda x: T(x - 45) - 1 / math.sqrt(3), 0, 360, True, "exact", [75, 255]),
@@ -217,7 +216,7 @@ EQ = {
     "h24c": (r"\cos(\alpha+60^\circ)=1", lambda x: C(x + 60) - 1, 0, 360, True, "exact", [300]),
     "h24d": (r"\cos(\alpha-75^\circ)=-\dfrac{1}{\sqrt2}", lambda x: C(x - 75) + 1 / math.sqrt(2), 0, 360, True, "exact", [210, 300]),
     "h25": (r"\tan(\alpha-45^\circ)=-\dfrac{1}{\sqrt3}\)for\(0^\circ\le\alpha\le360^\circ", lambda x: T(x - 45) + 1 / math.sqrt(3), 0, 360, True, "exact", [15, 195]),
-    "h26": (r"\sinx=-\cosx\)and\(x\in\big[0^\circ,\360^\circ\big]", lambda x: S(x) + C(x), 0, 360, True, "exact", [135, 315]),
+    "h26": (r"\log_{\sqrt3}\!\big(\sinx\big)-\log_{\sqrt3}\!\big(\cosx\big)=1\)for\(0^\circ\ltx\lt90^\circ", lambda x: (math.log(S(x)) - math.log(C(x))) / math.log(math.sqrt(3)) - 1, 0, 90, False, "exact", [60]),
     # worked examples (printed in the lesson, checked against their printed lines)
     "w15a": (r"\sinx=-1\),for\(0^\circ\lex\le720^\circ", lambda x: S(x) + 1, 0, 720, True, "exact", [270, 630]),
     "w15b": (r"\sinx=0\),for\(0^\circ\lex\le720^\circ", lambda x: S(x), 0, 720, True, "exact", [0, 180, 360, 540, 720]),
@@ -229,7 +228,7 @@ EQ = {
 }
 WORKED_PRINTED = {"w15a": r"\(x=270^\circ\) or \(630^\circ\)", "w15b": r"\(x=0^\circ\), \(180^\circ\), \(360^\circ\), \(540^\circ\) or \(720^\circ\)",
                   "w16": r"\(x=-150^\circ\) or \(-30^\circ\)", "w17": r"\(x\doteqdot108^\circ\) or \(288^\circ\)",
-                  "w19": r"\(x=30^\circ,\ 120^\circ,\ 210^\circ\) or \(300^\circ\)", "w20": r"\(x=10^\circ\) or \(310^\circ\)",
+                  "w19": r'\(x=30^\circ,\ 120^\circ,\ 210^\circ\) or <span style="white-space:nowrap">\(300^\circ\)', "w20": r"\(x=10^\circ\) or \(310^\circ\)",
                   "w21": r"\(x=120^\circ\) or \(300^\circ\)"}
 
 for key, (tex, f, lo, hi, closed, mode, book) in EQ.items():
@@ -254,7 +253,7 @@ for key, (tex, f, lo, hi, closed, mode, book) in EQ.items():
         ok(len(got) == len(book) and all(abs(g - b) < 1e-6 for g, b in zip(sorted(got), sorted(book))), f"{key} book/sheet/school answer", f"{book}")
 
 # no-solution item
-ok(solve(lambda x: S(x) - 3, 0, 360) == [] and v("m13e") == "no solutions" and r"\sin\alpha=3" in q("m13e"), "m13e sin = 3 has no solutions")
+ok(solve(lambda x: S(x) - 3, 0, 360) == [] and v("m12e") == "no solutions" and r"\sin\alpha=3" in q("m12e"), "m12e sin = 3 has no solutions")
 
 # ------------------------------------------------------------------ exact values (sympy)
 def tex2sym(t):
@@ -362,21 +361,21 @@ def others(func, value, quads):
 FIND = {
     "d3a": ("cos", R(2, 7), (1, 4), "sin", None), "d3b": ("cos", R(2, 7), (4,), "sin", None),
     "y3a": ("cos", R(-1, 3), (2, 3), "sin", None), "y3b": ("cos", R(-1, 3), (3,), "sin", None),
-    "m10a": ("cos", R(1, 3), (1,), "tan", 2 * sq(2)), "m10b": ("cos", R(-4, 5), (2,), "tan", R(-3, 4)),
-    "m10c": ("cos", R(1, 2), (4,), "sin", -sq(3) / 2), "m10d": ("tan", R(-2, 3), (4,), "cos", 3 / sq(13)),
-    "m10e": ("cos", R(-40, 41), (2,), "sin", R(9, 41)), "m10f": ("sin", 1 / sq(5), (1,), "tan", R(1, 2)),
-    "m11a": ("tan", R(1, 3), (1, 3), "sin", ("pm", 1 / sq(10))), "m11b": ("cos", 2 / sq(5), (1, 4), "sin", ("pm", 1 / sq(5))),
-    "m11c": ("sin", R(3, 5), (1, 2), "cos", ("pm", R(4, 5))), "m11d": ("cos", R(-2, 3), (2, 3), "tan", ("pm", sq(5) / 2)),
-    "m11e": ("sin", R(-12, 13), (3, 4), "tan", ("pm", R(12, 5))), "m11f": ("tan", -2 / sq(3), (2, 4), "cos", ("pm", sq(3) / sq(7))),
-    "m12a": ("cos", R(4, 5), (4,), "tan", R(-3, 4)), "m12b": ("tan", R(-8, 15), (2,), "cos", R(-15, 17)),
-    "m12c": ("sin", R(1, 4), (2,), "cos", -sq(15) / 4), "m12d": ("tan", R(35, 12), (1,), "sin", R(35, 37)),
-    "m12e": ("sin", R(-21, 29), (4,), "tan", R(-21, 20)), "m12f": ("cos", R(-5, 6), (2,), "sin", sq(11) / 6),
+    "e5a": ("cos", R(1, 3), (1,), "tan", 2 * sq(2)), "e5b": ("cos", R(-4, 5), (2,), "tan", R(-3, 4)),
+    "e5c": ("cos", R(1, 2), (4,), "sin", -sq(3) / 2), "e5d": ("tan", R(-2, 3), (4,), "cos", 3 / sq(13)),
+    "e5e": ("cos", R(-40, 41), (2,), "sin", R(9, 41)), "e5f": ("sin", 1 / sq(5), (1,), "tan", R(1, 2)),
+    "m10a": ("tan", R(1, 3), (1, 3), "sin", ("pm", 1 / sq(10))), "m10b": ("cos", 2 / sq(5), (1, 4), "sin", ("pm", 1 / sq(5))),
+    "m10c": ("sin", R(3, 5), (1, 2), "cos", ("pm", R(4, 5))), "m10d": ("cos", R(-2, 3), (2, 3), "tan", ("pm", sq(5) / 2)),
+    "m10e": ("sin", R(-12, 13), (3, 4), "tan", ("pm", R(12, 5))), "m10f": ("tan", -2 / sq(3), (2, 4), "cos", ("pm", sq(3) / sq(7))),
+    "m11a": ("cos", R(4, 5), (4,), "tan", R(-3, 4)), "m11b": ("tan", R(-8, 15), (2,), "cos", R(-15, 17)),
+    "m11c": ("sin", R(1, 4), (2,), "cos", -sq(15) / 4), "m11d": ("tan", R(35, 12), (1,), "sin", R(35, 37)),
+    "m11e": ("sin", R(-21, 29), (4,), "tan", R(-21, 20)), "m11f": ("cos", R(-5, 6), (2,), "sin", sq(11) / 6),
 }
 IDX = {"sin": 0, "cos": 1, "tan": 2}
 QUAD_OK = {  # condition in the printed question that fixes the quadrants
-    "m10a": "acute", "m10b": "obtuse", "m10c": "reflex", "m10d": "reflex", "m10e": r"0^\circ\le\theta\le180^\circ",
-    "m10f": r"-90^\circ\le\theta\le90^\circ", "m12a": r"\sin\alpha\lt0", "m12b": r"\sin\theta\gt0", "m12c": r"\tan\theta\lt0",
-    "m12d": r"\cos\theta\gt0", "m12e": r"\cos\theta\gt0", "m12f": r"\tan\theta\lt0"}
+    "e5a": "acute", "e5b": "obtuse", "e5c": "reflex", "e5d": "reflex", "e5e": r"0^\circ\le\theta\le180^\circ",
+    "e5f": r"-90^\circ\le\theta\le90^\circ", "m11a": r"\sin\alpha\lt0", "m11b": r"\sin\theta\gt0", "m11c": r"\tan\theta\lt0",
+    "m11d": r"\cos\theta\gt0", "m11e": r"\cos\theta\gt0", "m11f": r"\tan\theta\lt0"}
 for key, (func, value, quads, want, book) in FIND.items():
     if key in QUAD_OK:
         ok(QUAD_OK[key] in q(key), f"{key} quadrant condition printed")
@@ -404,7 +403,7 @@ for pv, qv in ((1, 2), (3, 5), (2, 7)):
     th = math.pi - math.asin(pv / qv)
     ok(abs(math.cos(th) + math.sqrt(qv * qv - pv * pv) / qv) < 1e-12 and abs(math.tan(th) + pv / math.sqrt(qv * qv - pv * pv)) < 1e-12, f"h21 numeric p={pv}, q={qv}")
 al = math.atan(math.sqrt(5) / 2)
-ok(same(val("h20b"), 3) and same(val("h20s"), sq(5) / 3) and same(val("h20c"), R(2, 3))
+ok(same(val("h19b"), 3) and same(val("h19s"), sq(5) / 3) and same(val("h19c"), R(2, 3))
    and abs(math.sin(al) - math.sqrt(5) / 3) < 1e-12 and abs(math.cos(al) - 2 / 3) < 1e-12, "5A Q15 (book: 3, sqrt5/3, 2/3)")
 
 # ------------------------------------------------------------------ past papers (mini exam)
@@ -420,9 +419,9 @@ ok(sorted(parse_angles(v("pp9a"))) == [round(x) for x in solve(lambda x: S(x) - 
 ok(sorted(parse_angles(v("pp9b"))) == [round(x) for x in solve(lambda x: C(x) + 0.302, 0, 360)] == [108, 252] and "\\cos\\theta=-0.302" in LES, "pp9 (ii) 108, 252 (school)")
 first2 = [round(x, 2) for x in solve(lambda x: 20 * C(x) + 147 - 150, 0, 720)][:2]
 ok(sorted(parse_angles(v("pp10"))) == first2 == [81.37, 278.63] and "h=20\\cos x^\\circ+147" in LES, "pp10 81.37, 278.63 (school)")
-ok(v("m18") == "C" and all(abs((math.sin(math.radians(t)) ** 2 + math.cos(math.radians(t)) * math.cos(math.radians(90 - t))) /
+ok(v("m17") == "C" and all(abs((math.sin(math.radians(t)) ** 2 + math.cos(math.radians(t)) * math.cos(math.radians(90 - t))) /
                               (math.cos(math.radians(t)) ** 2 + math.sin(math.radians(t)) * math.sin(math.radians(90 - t))) - math.tan(math.radians(t))) < 1e-9
-                          for t in (10, 55, 130, 200)), "m18 Hornsby C (tan)")
+                          for t in (10, 55, 130, 200)), "m17 Hornsby C (tan)")
 marks = [int(m) for m in re.findall(r'<span class="mk">(\d+) marks?</span>', LES.split("Past-paper homework:mini exam")[1])]
 ok(sum(marks) == 19 and "<b>19 marks</b>" in LES and "Suggested time: 30 minutes" in LES and 5 * round(1.5 * 19 / 5) == 30, "mini exam 19 marks, 30 minutes", str(marks))
 

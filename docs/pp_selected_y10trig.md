@@ -41,11 +41,11 @@ Checked and not used in T1: Fort St 2020–2023 rows (the papers never print the
 
 ## T2 Exact values and trigonometric equations
 Source items (not past papers):
-- Year 11 Advanced 5A (PDF 164): special angles text, two triangles and Box 2 (sin/cos/tan columns); Exercise 5A Q10 a–c, Q17 a–c (Easy), Q18 b–d (Medium), Q15 a–c (Hard). Omitted parts use sec/cosec/cot or sin²+cos² = 1. Answers PDF 546.
+- Year 11 Advanced 5A (PDF 164): special angles text, two triangles and Box 2 (sin/cos/tan columns); Exercise 5A Q10 a–c, Q17 a–c (Easy), Q15 a–c, Q18 b–d (Hard). (Review fix: Q18 is Challenge, so it moved to Hard; Q17 is also labelled Challenge but a–c are single-step exact-value sums, so it stays in Easy.) Omitted parts use sec/cosec/cot or sin²+cos² = 1. Answers PDF 546.
 - Year 11 Advanced 5I Example 22 (PDF 207) as the exact-value worked example (sine rule, AAS; not the ambiguous case). T3 should not reuse Example 22.
-- Year 11 Advanced 5F (PDF 192–194): Box 18, Example 11, Note; Exercise 5F Q1 (Easy), Q5, Q6, Q7 (Medium), Q11 (Hard). Not used: Q2–Q4, Q8–Q10 (sec/cosec/cot), Q12 (sec), Q13. Answers PDF 547–548.
+- Year 11 Advanced 5F (PDF 192–194): Box 18, Example 11, Note; Exercise 5F Q1, Q5 (Easy; Q5 is Foundation, moved from Medium in the review fix), Q6, Q7 (Medium), Q11 (Hard). Not used: Q2–Q4, Q8–Q10 (sec/cosec/cot), Q12 (sec), Q13. Answers PDF 547–548.
 - Year 11 Advanced 5G (PDF 195–199): intro sentence, Box 20 (tan line), complementary-angle text, Box 22 (cos line and its example), Proof A and B (cos lines); Exercise 5G Q5 a, d (Easy). Everything else in 5G uses reciprocal or Pythagorean identities: not used.
-- Year 11 Advanced 5H (PDF 200–205): Boxes 25, 26, 27, 29, Examples 15, 16, 17, 19, 20, 21, Note; Exercise 5H Q1, Q2, Q3 (Easy), Q4 a, b, c, e, g, Q5 a, b, d, Q6 a, d (Medium), Q7, Q8, Q9 (Hard). Box 28 and Example 18 (cosec/sec) not used. Answers PDF 548.
+- Year 11 Advanced 5H (PDF 200–205): Boxes 25, 26, 27, 29, Examples 15, 16, 17, 19, 20, 21, Note; Exercise 5H Q1, Q2, Q3 (Easy), Q4 a, b, c, e, g, Q5 a, b, d, Q6 a, d (Medium), Q7 a, c, d, Q8, Q9 (Hard; Q7 b is Example 19 and is omitted). Box 28 and Example 18 (cosec/sec) not used. Answers PDF 548.
 - Maths Pathway *Solving Trigonometric Equations*: inverse-function box, "Multiple solutions with a calculator" box; Q8 (Easy), Q9 (Medium). Not used: Q1–Q7 (Q5–Q7 have the student enter negative numbers into the inverse functions, against the book's Box 27 method).
 
 Past papers in the homework bands:
@@ -53,7 +53,7 @@ Past papers in the homework bands:
 - Medium: y10-A-101 | Hornsby Girls High School, 2021, Year 10 Mathematics Term 4 Assessment, Q16 | 1 | `Hornsby Girls 2021 ...` question p10, solution p32.
 - Medium: y10-B-107 | Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Section A Q4 | 2 | `Sydney Boys 2024 ...` question p2, solution p36 (catalogue: "Part A", p3; the paper prints "Section A" and the question is on p2).
 - Hard: y10-B-145 | Sydney Grammar School, 2020, Q8(c) | 3 | question p9, solution p29.
-- Hard: y10-B-103 | Sydney Boys High School, 2023, Year 10 Stage 5.3 Term 4 Yearly Assessment, Part E Q2 | 2 | `Sydney Boys 2023 ...` question p27, solution p65.
+- Hard: y10-B-85 | Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part F (a) | 2 | `Sydney Boys 2021 ...` question p29, solution p56 (school answer 60°). Replaced y10-B-103 (SBHS 2023 Part E Q2, sin x = −cos x) in the T2 review fix: it repeated 5H Q9b and PP8. Part F (c) of the same page (B-86) is in the circle pack; part (a) is not.
 
 Past papers in the mini exam (19 marks, 30 min; order PP 1–10):
 - PP1 y10-A-089 | Girraween High School, 2023, Year 10 Mathematics Yearly Exam, Short Answer Q9 | 1 | question p12, solution p44 (the catalogue's "Sec II" is the Short Answer section; each question is 1 mark).
@@ -67,7 +67,7 @@ Past papers in the mini exam (19 marks, 30 min; order PP 1–10):
 - PP9 y10-A-082 | Girraween High School, 2022, Year 10 Yearly Examination Mathematics, Q25(a)(i)–(ii) | 4 | question p23, solution p45. (Q25(b), y10-A-083, is a sine-rule part: left for T3.)
 - PP10 y10-B-110 | Sydney Boys High School, 2024, Part C Q6 | 3 | question p16, solution p51.
 
-Checked and not used in T2: y10-A-107, A-109 (James Ruse 2024: cosec / sin²+cos² = 1, outside scope), A-114, A-133 (wrong printed solutions), A-149 (solution contradicts the answer), Canberra Grammar rows (ACT school), Fort St rows (no printed school name). Other clean T2 rows left unused (no reuse risk): A-002, A-067, A-068, A-080, A-081, A-099, A-112, A-127, A-128, A-135, A-140 (NSB 2021, check school name first), A-155/B-06, B-04, B-17, B-20, B-40, B-41, B-42, B-43, B-49, B-63, B-78, B-85, B-97, B-140, B-143, B-151, B-153.
+Checked and not used in T2: y10-A-107, A-109 (James Ruse 2024: cosec / sin²+cos² = 1, outside scope), A-114, A-133 (wrong printed solutions), A-149 (solution contradicts the answer), Canberra Grammar rows (ACT school), Fort St rows (no printed school name). For the Hard Q26 replacement, B-17 (NSG 2024 Q17(a), tan x = −1/√3 on 0°–360°: the same equation and domain as Medium Q16, Girraween 2023), B-20 (1-mark MC, cos 330°) and B-40 (2 marks, cos 30° − tan 135°; no solutions in the file) were checked and not chosen, because none is harder than the item it replaces. Other clean T2 rows left unused (no reuse risk): B-103 (back in the pool after the review fix), A-002, A-067, A-068, A-080, A-081, A-099, A-112, A-127, A-128, A-135, A-140 (NSB 2021, check school name first), A-155/B-06, B-04, B-17, B-20, B-40, B-41, B-42, B-43, B-49, B-63, B-78, B-97, B-140, B-143, B-151, B-153.
 
 ## T3 The ambiguous case (and chapter review)
 Source items (not past papers):
