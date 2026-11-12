@@ -80,7 +80,8 @@ Past papers in the homework bands:
 - Easy: y10-B-68 + y10-B-69 | Sydney Boys High School, 2020, Q20(a)–(b) | 3 | question p7, solution p34.
 - Medium: y10-A-143 + y10-A-144 | North Sydney Boys High School, 2022, Stage 5.3 Mathematics Year 10 Assessment Task 4, Section V Q10(a)–(b) | 4 | `North Sydney Boys 2022 ...` question p9, solution p30 (cover prints the school name).
 - Hard: y10-B-98 | Sydney Boys High School, 2022, Part D, second Q4 (the paper prints two questions numbered 4; the solutions call this one Q5) | 2 | question p20, solution p54.
-- Hard: y10-A-083 | Girraween High School, 2022, Q25(b) | 3 | question p23, solution p45 (θ = 51°7′).
+- Easy (moved from Hard in the T3 review fix: a single sine-rule angle): y10-A-083 | Girraween High School, 2022, Q25(b) | 3 | question p23, solution p45 (θ = 51°7′).
+- Hard (added in the T3 review fix): y10-A-048 | Fort Street High School, 2022, Year 10 Common Task 2, Mathematics, Question 6(b) | 3 | `Fort St 2022 ...` cover p1 ("Year 10 Common Task 2 2022 MATHEMATICS"), question p6, solution p21 (71° or 109°, both valid). School named under the Y10 naming ruling (THSC listing). Part (a), y10-A-047, a cosine-rule item, is not used.
 - Hard: y10-A-071 + y10-A-072 | Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), Q22(c)(i)–(ii) | 6 | `Girraween 2020 ...` question p10, solution p21 (19 km, 282°). The school name is printed on p3 ("GIRRAWEEN HIGH SCHOOL, YEAR 10 YEARLY EXAMINATION, MATHEMATICS 2020").
 
 Past papers in the mini exam (21 marks, 30 min; order PP 1–7):
@@ -97,7 +98,7 @@ Chapter review (end of lt3.html; T1–T3 mixed, leftover clean items):
 - R2 y10-A-153 = y10-B-04 | North Sydney Girls High School, 2022, Q18(a) | 2 | question p10, solution p21.
 - R3 y10-A-068 | Girraween High School, 2020, Q22(a) | 2 | question p10, solution p21.
 - R4 y10-B-97 | Sydney Boys High School, 2022, Part D, first Q4 | 2 | question p20, solution p54.
-- R5 y10-B-52 | The Scots College, 2023, Q18 | 2 | question p12, solution p36.
+- R5 y10-A-037 | Fort Street High School, 2021, Year 10 Common Task 2, Mathematics, Question 6 | 3 | `Fort St 2021 ...` cover p1 ("Year 10 Common Task 2 2021 MATHEMATICS"), question p7, solution p27 (59° or 121°). Replaced y10-B-52 (Scots 2023 Q18, plain cosine rule) in the T3 review fix, so the review now has an ambiguous-case item; B-52 is back in the pool.
 - R6 y10-B-135 + y10-B-136 | Sydney Grammar School, 2020, Q3(b)(i)–(ii) | 4 | question p5, solution p16.
 
 Checked and not used in T3: y10-B-83 (SBHS 2021 Part D (b)(ii): the school solution uses the rounded angle 135° and prints CD = 4.24 cm; with the unrounded angle 135.22° the answer is 4.26 cm, so the printed answer is doubtful); y10-B-48 (Scots 2022 Q19, catalogue: second case not addressed); Fort St rows (no printed school name); DOUBTFUL and wrong-solution rows (A-060, A-124, A-131, B-15, B-30); SBHS 2025 rows; Canberra Grammar rows (ACT).

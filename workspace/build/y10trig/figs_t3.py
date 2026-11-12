@@ -255,8 +255,8 @@ def fig_t3_pp():
         f.line(*S["A"], *S["D"], width=1.5).line(*S["D"], *S["E"], width=1.5).line(*S["A"], *S["E"], width=1.5)
         f.line(*S["B"], *S["C"], width=1.5)
         right_mark(f, S["C"], S["A"], S["B"], 7)
-    tri("pp3_sb24_b4", pts, poly=None, extra=sb24, sides=[],
-        names=[("A", "A", -8, 6), ("B", "B", -4, -10), ("C", "C", 0, 15), ("D", "D", 6, -8), ("E", "E", 8, 6)], maxw=260, maxh=110)
+    tri("pp3_sb24_b4", pts, poly=None, extra=sb24, sides=[("A", "B", "18 cm"), ("B", "D", "6 cm"), ("B", "C", "8 cm", False, 22)],
+        names=[("A", "A", -8, 6), ("B", "B", -9, -7), ("C", "C", 0, 15), ("D", "D", 6, -8), ("E", "E", 8, 6)], maxw=260, maxh=110)
     # NSG 2023 Q20(a): A, B on 050 T at 150 km, C on 080 T at 157.7 km, BC = 80 km
     Bx, By = 150 * sin(R(50)), 150 * cos(R(50))
     AC = 160 * sin(R(80.364))
@@ -311,6 +311,14 @@ def fig_t3_pp():
     p = sas(18, 25, 65)                          # P = A, PQ = AC = 18, PR = AB = 25
     tri("pp3_sc23_18", p, flipy=True, rot=-20, sides=[("P", "Q", "18 km"), ("P", "R", "25 km")], angles=[("P", "65°", 22)],
         names=[("P", "A", -4, -8), ("Q", "C", 9, 4), ("R", "B", 0, 15)], maxw=150, maxh=130)
+
+    # review / Hard: Fort Street 2021 Question 6: 20 deg bottom-left, 25cm base, theta at the top, 10cm right side
+    # (drawn with the obtuse case, theta = 121.23 deg, which matches the paper's proportions)
+    tri("pp3_fs21_6", aa(25, 20, 180 - 20 - 121.23), rot=2, sides=[("P", "Q", "25cm", False, 14), ("R", "Q", "10cm")],
+        angles=[("P", "20°", 54, 18), ("R", "θ", 20, 12)], maxw=240, maxh=120)
+    # Hard: Fort Street 2022 Question 6(b): 46 deg bottom-left, 11.7 base, theta at the top, 8.9 right side
+    tri("pp3_fs22_6b", aa(11.7, 46, 180 - 46 - 108.97), sides=[("P", "Q", "11.7", False, 14), ("R", "Q", "8.9")],
+        angles=[("P", "46°", 30, 14), ("R", "θ", 18, 10)], maxw=240, maxh=110)
 
 
 if __name__ == "__main__":
