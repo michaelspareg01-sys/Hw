@@ -439,10 +439,32 @@ def concept3():
         P = onm(O, 1, 270 + 2 * g + 0.55 * (360 - 2 * g))
         U = (1.75, -1)
         f.C(O, 1).S(P, A).S(P, B).S(A, B).S((-1.0, -1), U)
+        def outside(lab):
+            # a point on the bisector of angle BAU, beyond the circle by at least 9 px
+            Ap, Bp, Up, Cp = f.T(A), f.T(B), f.T(U), f.T(O)
+            ua = (Bp[0] - Ap[0], Bp[1] - Ap[1]); ub = (Up[0] - Ap[0], Up[1] - Ap[1])
+            la, lb = hypot(*ua), hypot(*ub)
+            bx, by = ua[0] / la + ub[0] / lb, ua[1] / la + ub[1] / lb
+            lbb = hypot(bx, by); bx, by = bx / lbb, by / lbb
+            d = 16
+            while hypot(Ap[0] + d * bx - Cp[0], Ap[1] + d * by - Cp[1]) < f.s + 9 + 0.35 * 11 * len(lab):
+                d += 1
+            return d, bx, by
+
+        def leader(dd, bx, by, lab):
+            Ap = f.T(A)
+            f.line(Ap[0] + 16 * bx, Ap[1] + 16 * by, Ap[0] + (dd - 0.3 * 11 * len(lab) - 4) * bx, Ap[1] + (dd - 0.3 * 11 * len(lab) - 4) * by, width=0.8)
         if mark_at == "A":
-            f.A(A, B, U, f"{g}°", r=14, d=30).A(P, A, B, "x", r=11, d=21)
+            f.A(A, B, U, "", r=14)
+            dd, bx, by = outside(f"{g}°")
+            leader(dd, bx, by, f"{g}°")
+            f.alab(f.T(A), f.T(B), f.T(U), f"{g}°", d=dd, size=11)
+            f.A(P, A, B, "x", r=11, d=21)
         else:
-            f.A(P, A, B, f"{g}°", r=11, d=26).A(A, B, U, "y", r=14, d=26)
+            f.A(P, A, B, f"{g}°", r=11, d=26).A(A, B, U, "", r=14)
+            dd, bx, by = outside("y")
+            leader(dd, bx, by, "y")
+            f.alab(f.T(A), f.T(B), f.T(U), "y", d=dd, size=11, italic=True)
         f.O(P, O, "P").O(B, O, "B").O(A, O, "A").L(U, "U", dx=8, dy=2)
         save(nm, f)
     asdemo("c3d3a", 58, "A")

@@ -42,9 +42,9 @@ Past papers:
 
 ## C3 Tangents and secants, and the chapter review
 Source items (not past papers):
-- AMSI TIMES *Circle Geometry*: theorem statements, proofs and remarks pp. 18–27; Exercises 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 (answers pp. 40–43). Exercise 15 is left out: it is about sec θ, which is outside the Year 10 course.
+- AMSI TIMES *Circle Geometry*: theorem statements, proofs and remarks pp. 18–27; Exercises 14, 16, 17, 18, 19, 20, 21, 23, 24, 25 (answers pp. 40–43). Exercise 15 is left out: it is about sec θ, which is outside the Year 10 course. Exercise 22 is left out after the C3 review: it is the same secant proof as MP Int Q4.
 - Maths Pathway *Chords, Secants, and Tangents*: Q8(a), Q9(a) as worked examples; Q7, Q8(b) (Easy), Q9(b) (Medium). The whole sheet is now used.
-- Maths Pathway *Intersecting Chords and Secants*: Q3(a), Q6(a) as worked examples; Q2, Q3(b)–(d), Q5, Q6(b)–(d) (Easy); Q1, Q4 (Medium). The whole sheet is used.
+- Maths Pathway *Intersecting Chords and Secants*: Q3(a), Q6(a) as worked examples; Q2, Q3(b)–(d), Q5, Q6(b)–(d) (Easy); Q4 (Medium). Q1 is left out after the C3 review: it repeats the Concept 4 worked proof.
 
 Past papers, mini exam (18 marks, 25 min; order PP 1–8):
 - y10-A-001 | Baulkham Hills High School, 2020, Q9 | 1 | `Baulkham Hills 2020 Year 10 Maths Yearly & Solutions.pdf` | question p5, key p32 (B) | label "Baulkham Hills High School, 2020, Year 10 Yearly Examination, Mathematics, Q9".
