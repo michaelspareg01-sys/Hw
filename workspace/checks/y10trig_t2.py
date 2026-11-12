@@ -248,7 +248,7 @@ for key, (tex, f, lo, hi, closed, mode, book) in EQ.items():
         ok(len(got) == len(book) and all(abs(g - b) < 1e-6 for g, b in zip(sorted(got), sorted(book))), f"{key} book/sheet/school answer", f"{book}")
 
 # omitted book parts (final review: they repeat past-paper items) must be absent from both files
-for k in ("e9b", "e9g", "m15b", "m17c", "m17g"):
+for k in ("e9b", "e9g", "m15b", "m17c", "m17g", "m14a", "h26d"):
     ok(f'data-q="{k}"' not in LES and f'data-v="{k}"' not in ANS, f"{k} omitted from both files")
 
 # no-solution item
@@ -585,7 +585,7 @@ ok(v("e6a") == r"\(1\)" and r"\sin^2\alpha+\cos^2\alpha" in q("e6a"), "e6a sin^2
 ok(v("e6b") == r"\(\cos^2\beta\)" and eq0(tex(r"1-\sin^2\beta") - tex(r"\cos^2\beta")) and r"1-\sin^2\beta" in q("e6b"), "e6b 1 - sin^2 = cos^2 (book)")
 # Medium: 5G Q8b, Q11, Fort St 2022 D Q2, NBCS 2022 Q33
 ok(v("m13b") == r"\(\tan^2\beta\)" and eq0(tex(r"\frac{\sin^2\beta}{\cos^2\beta}") - tex(r"\tan^2\beta")), "m13b sin^2/cos^2 = tan^2 (book)")
-for k_, l_, r_ in (("m14a", r"(1-\sin\theta)(1+\sin\theta)", r"\cos^2\theta"), ("m14b", r"(1+\tan^2\alpha)\cos^2\alpha", "1"),
+for k_, l_, r_ in (("m14b", r"(1+\tan^2\alpha)\cos^2\alpha", "1"),
                    ("m14c", r"(\sin A+\cos A)^2", r"1+2\sin A\cos A"), ("m14d", r"\cos^2 x-\sin^2 x", r"1-2\sin^2 x"),
                    ("m14f", r"3\cos^2\theta-2", r"1-3\sin^2\theta"), ("m14i", r"\cos^4 x+\cos^2 x\sin^2 x", r"\cos^2 x")):
     proof(k_, l_, r_, f"\\({l_}={r_}\\)")
@@ -600,7 +600,6 @@ proof("m24c", r"\Big(\dfrac{2}{\sqrt6}\Big)^2+\Big(\dfrac{\sqrt3}{3}\Big)^2", "1
 _s = open(os.path.join(SRC, "svg", "pp_nbcs22_33.svg"), encoding="utf-8").read()
 ok(all(t in _s for t in (">√2 cm<", ">2 cm<", ">A<", ">B<", ">C<", ">NOT TO SCALE<")), "NBCS 2022 Q33 figure labels")
 # Hard: 5A Q15d, 5G Q13c, North Sydney Boys 2022 Q24(a)-(d)
-proof("h26d", r"\sin^2\alpha+\cos^2\alpha", "1", r"Show that \(\sin^2\alpha+\cos^2\alpha=1\)")
 proof("h29c", r"\sin^4 A-\cos^4 A", r"\sin^2 A-\cos^2 A", r"\(\sin^4 A-\cos^4 A=\sin^2 A-\cos^2 A\)")
 c_th = sp.symbols("c_th")
 xpos = sp.symbols("xpos", positive=True)
