@@ -864,6 +864,64 @@ def qrays(name, rays, arcs=(), w=190, h=150, labs=()):
 
 
 def fig_t2():
+    # 5G p182: P(x, y) on the circle of radius r, with the legs x and y of the right-angled triangle
+    f = Fig(200, 180)
+    cx, cy, R = 84, 92, 62
+    axes(f, cx, cy, R, ext=20)
+    f.circle(cx, cy, R)
+    P = pt(cx, cy, 50, R)
+    f.line(cx, cy, *P, width=1.6)
+    f.line(P[0], P[1], P[0], cy, width=1.2, dash="4 3")
+    right_mark(f, (P[0], cy), (cx, cy), P, 7)
+    f.dot(*P, 2.8)
+    f.text(P[0] + 6, P[1] - 6, "P(x, y)", size=11.5, anchor="start", italic=True)
+    f.arc(cx, cy, 15, 0, 50, color="ink", width=1.1)
+    f.text(cx + 22, cy - 7, "θ", size=11.5, italic=True)
+    f.text((cx + P[0]) / 2 - 8, (cy + P[1]) / 2 - 4, "r", size=11.5, italic=True)
+    f.text((cx + P[0]) / 2 + 4, cy + 14, "x", size=11.5, italic=True)
+    f.text(P[0] + 8, (cy + P[1]) / 2 + 4, "y", size=11.5, italic=True)
+    f.text(cx - 9, cy + 13, "O", size=11.5, italic=True)
+    save("t2_pyth", f)
+
+    # NBCS 2022 Section II Q33: right angle at B, AB = sqrt2 (vertical), BC = 2
+    f = Fig(300, 120)
+    k = 62
+    B = (40, 100); A = (40, 100 - sqrt(2) * k); C = (40 + 2 * k, 100)
+    triangle(f, A, B, C)
+    right_mark(f, B, A, C, 8)
+    f.text(A[0] - 2, A[1] - 7, "A", size=11.5, italic=True).text(B[0] - 9, B[1] + 6, "B", size=11.5, italic=True)
+    f.text(C[0] + 9, C[1] + 4, "C", size=11.5, italic=True)
+    f.text(A[0] - 6, (A[1] + B[1]) / 2 + 4, "√2 cm", size=11, anchor="end")
+    f.text((B[0] + C[0]) / 2, B[1] + 15, "2 cm", size=11)
+    f.text(250, 30, "NOT TO SCALE", size=10.5)
+    save("pp_nbcs22_33", f)
+
+    # North Sydney Boys 2022 Section X Q24 (drawn with x = 6): A above B, C to the right, D with AD = DB
+    f = Fig(330, 190)
+    k = 13.0
+    def P(u, v):
+        return (50 + u * k, 160 - v * k)
+    B, C, A, D = P(0, 0), P(18, 0), P(0, 6 * sqrt(3)), P(3, 3 * sqrt(3))
+    f.line(*A, *B, width=1.5).line(*B, *C, width=1.5).line(*A, *D, width=1.5).line(*D, *B, width=1.5).line(*D, *C, width=1.5)
+    right_mark(f, B, A, C, 8)
+    for U, V in ((A, D), (D, B)):
+        mx, my = (U[0] + V[0]) / 2, (U[1] + V[1]) / 2
+        dx, dy = V[0] - U[0], V[1] - U[1]
+        n = hypot(dx, dy)
+        nx, ny = -dy / n * 4, dx / n * 4
+        f.line(mx - nx + dx / n * 1.5, my - ny + dy / n * 1.5, mx + nx + dx / n * 1.5, my + ny + dy / n * 1.5, width=1.1)
+        f.line(mx - nx - dx / n * 1.5, my - ny - dy / n * 1.5, mx + nx - dx / n * 1.5, my + ny - dy / n * 1.5, width=1.1)
+    f.arc(B[0], B[1], 18, 0, 60, color="ink", width=1.1)
+    f.text(B[0] + 26, B[1] - 12, "θ°", size=11, italic=True)
+    for Pt, s_, dx, dy in ((A, "A", -2, -8), (B, "B", -9, 12), (C, "C", 9, 5), (D, "D", 9, -4)):
+        f.text(Pt[0] + dx, Pt[1] + dy, s_, size=11.5, italic=True)
+    f.text(A[0] - 7, (A[1] + B[1]) / 2 + 4, "6√3 cm", size=11, anchor="end")
+    f.text((A[0] + D[0]) / 2 + 9, (A[1] + D[1]) / 2 - 4, "x cm", size=11, anchor="start", italic=True)
+    f.text((D[0] + C[0]) / 2 + 8, (D[1] + C[1]) / 2 - 8, "6√7 cm", size=11)
+    f.text((B[0] + C[0]) / 2, B[1] + 16, "3x cm", size=11, italic=True)
+    f.text(250, 40, "Diagram not to scale", size=10.5)
+    save("pp_nsb22_24", f)
+
     # 5A p150: half a square (ABC) and half an equilateral triangle (PQR)
     f = Fig(400, 150)
     C, B, A = (30, 126), (130, 126), (130, 26)
