@@ -208,15 +208,14 @@ EQ = {
     "h22b": (r"\sin\theta+\cos\theta=0", lambda x: S(x) + C(x), 0, 360, True, "exact", [135, 315]),
     "h22c": (r"\sin\theta=\sqrt3\cos\theta", lambda x: S(x) - math.sqrt(3) * C(x), 0, 360, True, "exact", [60, 240]),
     "h22d": (r"\sqrt3\sin\theta+\cos\theta=0", lambda x: math.sqrt(3) * S(x) + C(x), 0, 360, True, "exact", [150, 330]),
-    "h23a": (r"\sin2x=\tfrac12", lambda x: S(2 * x) - 0.5, 0, 360, True, "exact", [15, 75, 195, 255]),
-    "h23c": (r"\cos2x=-\dfrac{1}{\sqrt2}", lambda x: C(2 * x) + 1 / math.sqrt(2), 0, 360, True, "min", [67.5, 112.5, 247.5, 292.5]),
-    "h23d": (r"\sin2x=-1", lambda x: S(2 * x) + 1, 0, 360, True, "exact", [135, 315]),
-    "h24a": (r"\tan(\alpha-45^\circ)=\dfrac{1}{\sqrt3}", lambda x: T(x - 45) - 1 / math.sqrt(3), 0, 360, True, "exact", [75, 255]),
-    "h24b": (r"\sin(\alpha+30^\circ)=-\dfrac{\sqrt3}{2}", lambda x: S(x + 30) + math.sqrt(3) / 2, 0, 360, True, "exact", [210, 270]),
-    "h24c": (r"\cos(\alpha+60^\circ)=1", lambda x: C(x + 60) - 1, 0, 360, True, "exact", [300]),
-    "h24d": (r"\cos(\alpha-75^\circ)=-\dfrac{1}{\sqrt2}", lambda x: C(x - 75) + 1 / math.sqrt(2), 0, 360, True, "exact", [210, 300]),
-    "h25": (r"\tan(\alpha-45^\circ)=-\dfrac{1}{\sqrt3}\)for\(0^\circ\le\alpha\le360^\circ", lambda x: T(x - 45) + 1 / math.sqrt(3), 0, 360, True, "exact", [15, 195]),
-    "h26": (r"\log_{\sqrt3}\!\big(\sinx\big)-\log_{\sqrt3}\!\big(\cosx\big)=1\)for\(0^\circ\ltx\lt90^\circ", lambda x: (math.log(S(x)) - math.log(C(x))) / math.log(math.sqrt(3)) - 1, 0, 90, False, "exact", [60]),
+    "h24a": (r"\sin2x=\tfrac12", lambda x: S(2 * x) - 0.5, 0, 360, True, "exact", [15, 75, 195, 255]),
+    "h24c": (r"\cos2x=-\dfrac{1}{\sqrt2}", lambda x: C(2 * x) + 1 / math.sqrt(2), 0, 360, True, "min", [67.5, 112.5, 247.5, 292.5]),
+    "h24d": (r"\sin2x=-1", lambda x: S(2 * x) + 1, 0, 360, True, "exact", [135, 315]),
+    "h25a": (r"\tan(\alpha-45^\circ)=\dfrac{1}{\sqrt3}", lambda x: T(x - 45) - 1 / math.sqrt(3), 0, 360, True, "exact", [75, 255]),
+    "h25b": (r"\sin(\alpha+30^\circ)=-\dfrac{\sqrt3}{2}", lambda x: S(x + 30) + math.sqrt(3) / 2, 0, 360, True, "exact", [210, 270]),
+    "h25c": (r"\cos(\alpha+60^\circ)=1", lambda x: C(x + 60) - 1, 0, 360, True, "exact", [300]),
+    "h25d": (r"\cos(\alpha-75^\circ)=-\dfrac{1}{\sqrt2}", lambda x: C(x - 75) + 1 / math.sqrt(2), 0, 360, True, "exact", [210, 300]),
+    "h26": (r"\tan(\alpha-45^\circ)=-\dfrac{1}{\sqrt3}\)for\(0^\circ\le\alpha\le360^\circ", lambda x: T(x - 45) + 1 / math.sqrt(3), 0, 360, True, "exact", [15, 195]),
     # worked examples (printed in the lesson, checked against their printed lines)
     "w15a": (r"\sinx=-1\),for\(0^\circ\lex\le720^\circ", lambda x: S(x) + 1, 0, 720, True, "exact", [270, 630]),
     "w15b": (r"\sinx=0\),for\(0^\circ\lex\le720^\circ", lambda x: S(x), 0, 720, True, "exact", [0, 180, 360, 540, 720]),
@@ -419,6 +418,16 @@ ok(sorted(parse_angles(v("pp9a"))) == [round(x) for x in solve(lambda x: S(x) - 
 ok(sorted(parse_angles(v("pp9b"))) == [round(x) for x in solve(lambda x: C(x) + 0.302, 0, 360)] == [108, 252] and "\\cos\\theta=-0.302" in LES, "pp9 (ii) 108, 252 (school)")
 first2 = [round(x, 2) for x in solve(lambda x: 20 * C(x) + 147 - 150, 0, 720)][:2]
 ok(sorted(parse_angles(v("pp10"))) == first2 == [81.37, 278.63] and "h=20\\cos x^\\circ+147" in LES, "pp10 81.37, 278.63 (school)")
+# Hard Q26: Hornsby Girls 2021 Q12 (trapezium). AD = AX + XY + YD, computed exactly from the givens.
+_ax = 12 * sp.sin(sp.pi / 4); _bx = 12 * sp.cos(sp.pi / 4); _yd = _bx * sp.tan(sp.pi * (150 - 90) / 180)
+_ad = sp.nsimplify(_ax + 4 * sq(2) + _yd)
+_opts = {"A": 6 * sq(2) + 6 * sq(6), "B": 10 * sq(2) + 2 * sq(6), "C": 10 * sq(2) + 6 * sq(6), "D": 16 * sq(2) + 6 * sq(6)}
+_hit = [k for k, e in _opts.items() if sp.simplify(e - _ad) == 0]
+ok(_hit == ["C"] and v("h23") == "C", "h23 Hornsby Q12 AD = 10sqrt2 + 6sqrt6 (key C)", str(_ad))
+ok(all(t in q("h23") for t in (r"AB=12", r"BC=4\sqrt2", r"\angleABX=45^\circ", r"\angleBCD=150^\circ")), "h23 givens printed")
+ok("C.&ensp;\\(10\\sqrt2+6\\sqrt6\\)" in LES, "h23 option C printed")
+_svg = open(os.path.join(SRC, "svg", "pp_hgs21_12.svg"), encoding="utf-8").read()
+ok(all(t in _svg for t in (">12 m<", ">4√2 m<", ">45°<", ">150°<")), "h23 figure labels")
 ok(v("m17") == "C" and all(abs((math.sin(math.radians(t)) ** 2 + math.cos(math.radians(t)) * math.cos(math.radians(90 - t))) /
                               (math.cos(math.radians(t)) ** 2 + math.sin(math.radians(t)) * math.sin(math.radians(90 - t))) - math.tan(math.radians(t))) < 1e-9
                           for t in (10, 55, 130, 200)), "m17 Hornsby C (tan)")

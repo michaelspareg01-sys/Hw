@@ -1058,6 +1058,27 @@ def fig_t2():
     f.text(180, 40, "NOT TO SCALE", size=10.5)
     save("pp_nbcs22_16", f)
 
+    # Hornsby Girls 2021 Section A Q12: trapezium ABCD, BC parallel to AD (drawn to true scale)
+    k = 12.0
+    h = 6 * sqrt(2) * k
+    A = (30, 30 + h)
+    X = (A[0] + 6 * sqrt(2) * k, A[1]); B = (X[0], 30)
+    C = (B[0] + 4 * sqrt(2) * k, 30); Y = (C[0], A[1]); D = (Y[0] + 6 * sqrt(6) * k, A[1])
+    f = Fig(int(D[0]) + 30, int(A[1]) + 30)
+    f.poly([A, B, C, D], color=None, width=1.5)
+    f.line(*B, *X, color="faint", width=1.1, dash="4 3").line(*C, *Y, color="faint", width=1.1, dash="4 3")
+    right_mark(f, X, B, Y, 7); right_mark(f, Y, C, D, 7)
+    for P_, s_, dx, dy in ((A, "A", -9, 6), (B, "B", -2, -9), (C, "C", 6, -9), (D, "D", 10, 6), (X, "X", 0, 18), (Y, "Y", 0, 18)):
+        f.text(P_[0] + dx, P_[1] + dy, s_, size=11.5, italic=True)
+    side_label(f, A, B, "12 m", 13)
+    f.text((B[0] + C[0]) / 2, B[1] - 9, "4√2 m", size=11)
+    angle_arc(f, B, A, X, 22)
+    angle_label(f, B, A, X, "45°", 34, size=10.5)
+    angle_arc(f, C, B, D, 18)
+    angle_label(f, C, B, D, "150°", 34, size=10.5)
+    f.text(A[0] + 10, 36, "Not to scale", size=11, anchor="start", weight=700)
+    save("pp_hgs21_12", f)
+
     # Sydney Boys 2024 Part C Q6: clock face with the hour hand at x degrees
     f = Fig(180, 160)
     cx, cy, R = 90, 76, 52
