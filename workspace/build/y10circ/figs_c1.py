@@ -708,6 +708,16 @@ def pastpapers():
     save("pp4", f)
 
 
+def mp_diam():
+    # Maths Pathway 'Arcs and Angles' box: every angle subtended by the diameter is 90 deg
+    f, c, r = circ(150, 124, (75, 62), 52)
+    L, R_ = (c[0] - r, c[1]), (c[0] + r, c[1])
+    P = CF.on(c, r, 62)
+    f.seg(L, R_).seg(L, P).seg(P, R_).pdot(c, 2.4).pdot(L, 2).pdot(R_, 2).pdot(P, 2)
+    f.right(P, L, R_, s=7).alab(P, L, R_, "90°", d=22, size=10.5)
+    save("c1_mp_diam", f)
+
+
 if __name__ == "__main__":
     concept1()
     demos1()
@@ -716,3 +726,4 @@ if __name__ == "__main__":
     concept4()
     q6()
     pastpapers()
+    mp_diam()
