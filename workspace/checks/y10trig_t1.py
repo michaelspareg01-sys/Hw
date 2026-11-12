@@ -161,24 +161,24 @@ ORD = {"1st": 1, "2nd": 2, "3rd": 3, "4th": 4}
 
 BOOK = {  # Year 11 Advanced answers (PDF 547, 550) and Maths Pathway answer pages, transcribed
     "e1": [270, 330, 15, 165, 70, (0, 360)], "e2": [4, 1, 2, 4, 3, 4, 3, 1], "e3": "+++--+--",
-    "e4": "++--+--+-+---++-", "e5": [10, 30, 50, 20, 80, 70, 70, 80, 10, 20],
-    "e6": ["-\\tan50", "\\cos50", "-\\sin40", "\\tan80", "-\\cos10", "-\\sin40", "-\\cos5", "\\sin55", "-\\tan35",
+    "e5": "++--+--+-+---++-", "e6": [10, 30, 50, 20, 80, 70, 70, 80, 10, 20],
+    "e7": ["-\\tan50", "\\cos50", "-\\sin40", "\\tan80", "-\\cos10", "-\\sin40", "-\\cos5", "\\sin55", "-\\tan35",
            "\\sin85", "-\\cos85", "\\tan25"],
-    "e7": ["0", "-1", "0", "0", "1", "1", "-1", "undefined", "0", "0", "undefined", "0"],
-    "e8": ["\\frac{\\sqrt3}{2}", "\\frac{\\sqrt3}{2}", "-\\frac{\\sqrt3}{2}", "-\\frac{\\sqrt3}{2}", "\\frac{1}{\\sqrt2}",
+    "e8": ["0", "-1", "0", "0", "1", "1", "-1", "undefined", "0", "0", "undefined", "0"],
+    "e9": ["\\frac{\\sqrt3}{2}", "\\frac{\\sqrt3}{2}", "-\\frac{\\sqrt3}{2}", "-\\frac{\\sqrt3}{2}", "\\frac{1}{\\sqrt2}",
            "-\\frac{1}{\\sqrt2}", "-\\frac{1}{\\sqrt2}", "\\frac{1}{\\sqrt2}", "\\frac{1}{\\sqrt3}", "-\\frac{1}{\\sqrt3}",
            "\\frac{1}{\\sqrt3}", "-\\frac{1}{\\sqrt3}"],
-    "e9": [0.27, -1.00, 0.41, 3.08], "e10": [45, 120, 76, 30],
-    "m11": [[70, 430, -290, -650], [100, 460, -260, -620], [140, 500, -220, -580], [200, 560, -160, -520],
+    "e10": [0.27, -1.00, 0.41, 3.08], "e11": [45, 120, 76, 30],
+    "e4": [[70, 430, -290, -650], [100, 460, -260, -620], [140, 500, -220, -580], [200, 560, -160, -520],
             [240, 600, -120, -480], [340, 700, -20, -380]],
-    "m12": [("4/5", "3/5", "4/3"), ("3/5", "-4/5", "-3/4"), ("-2/sqrt(5)", "-1/sqrt(5)", "2"), ("-5/13", "12/13", "-5/12")],
-    "m13": ["-1/2", "1", "-1/2", "1/sqrt(2)", "sqrt(3)", "-sqrt(3)/2", "-1", "1/2", "-1/sqrt(2)", "-sqrt(3)/2", "-1/2", "-sqrt(3)"],
-    "m14": [60, 20, 30, 60, 70, 10, 50, 40],
-    "m15": ["1/2", "-sqrt(3)/2", "sqrt(3)", "1/sqrt(2)", "-1/sqrt(3)", "-1/sqrt(2)", "sqrt(3)", "-sqrt(3)/2", "1/sqrt(2)",
+    "m13": [("4/5", "3/5", "4/3"), ("3/5", "-4/5", "-3/4"), ("-2/sqrt(5)", "-1/sqrt(5)", "2"), ("-5/13", "12/13", "-5/12")],
+    "m14": ["-1/2", "1", "-1/2", "1/sqrt(2)", "sqrt(3)", "-sqrt(3)/2", "-1", "1/2", "-1/sqrt(2)", "-sqrt(3)/2", "-1/2", "-sqrt(3)"],
+    "m15": [60, 20, 30, 60, 70, 10, 50, 40],
+    "m16": ["1/2", "-sqrt(3)/2", "sqrt(3)", "1/sqrt(2)", "-1/sqrt(3)", "-1/sqrt(2)", "sqrt(3)", "-sqrt(3)/2", "1/sqrt(2)",
             "-1/2", "-1/2", "1"],
-    "m16": [0.26, -0.97, -1, -0.5, -0.97, 1.73, -0.87, 0.87],
-    "m17": [(390, 510), (-30, -150), (455, 625), (530, 550)],
-    "m19": ["less", "equal", "less", "more"],
+    "m17": [0.26, -0.97, -1, -0.5, -0.97, 1.73, -0.87, 0.87],
+    "m18": [(390, 510), (-30, -150), (455, 625), (530, 550)],
+    "e12": ["less", "equal", "less", "more"],
     "m20": [((-2, 0), (0, 6), "3", 72), ((2, 0), (0, 1), "-1/2", 153), ((-4, 0), (0, -3), "-3/4", 143), ((3, 0), (0, -2), "2/3", 34)],
     "h23a": [0.5, -0.5, 0.95, 0.95, 0.59, 0.81, -0.89, 0.45, -0.81, 0.59],
     "h23b": [(30, 150), (120, 240), (64, 116), (53, 307), (53, 127), (143, 217), (204, 336), (107, 253)],
@@ -188,7 +188,7 @@ BOOK = {  # Year 11 Advanced answers (PDF 547, 550) and Maths Pathway answer pag
 L = "abcdefghijklmnop"
 
 # ------------------------------------------------------------------ exact-value families
-for fam, n in (("d5", 3), ("y5", 3), ("e7", 12), ("e8", 12), ("m13", 12), ("m15", 12)):
+for fam, n in (("d5", 3), ("y5", 3), ("e8", 12), ("e9", 12), ("m14", 12), ("m16", 12)):
     for i in range(n):
         key = fam + L[i]
         qt = q(key)
@@ -213,12 +213,12 @@ for i in range(8):
     ok(v(key) == want, f"{key} sign of {fn} {deg}", f"printed {v(key)}")
     ok((v(key)[0] == "P") == (BOOK["e3"][i] == "+"), f"{key} sheet answer")
 for i in range(16):
-    key = "e4" + L[i]
+    key = "e5" + L[i]
     fn, deg = fn_of(q(key))
     want = "+" if fnum(fn, deg) > 0 else "-"
     ok(v(key) == want, f"{key} sign of {fn} {deg}", f"printed {v(key)}")
-    ok(v(key) == BOOK["e4"][i], f"{key} book answer")
-for fam, n in (("e5", 10), ("m14", 8)):
+    ok(v(key) == BOOK["e5"][i], f"{key} book answer")
+for fam, n in (("e6", 10), ("m15", 8)):
     for i in range(n):
         key = fam + L[i]
         deg = angle_of(q(key))
@@ -242,7 +242,7 @@ for i in range(6):
 
 # 5E Q3: ratio of an acute angle with a sign
 for i in range(12):
-    key = "e6" + L[i]
+    key = "e7" + L[i]
     fn, deg = fn_of(q(key))
     a = v(key)
     m = re.fullmatch(r"(-?)\\(sin|cos|tan)(\d+)\^\\circ", a.replace(" ", ""))
@@ -250,24 +250,24 @@ for i in range(12):
         continue
     val = (-1 if m.group(1) else 1) * fnum(m.group(2), int(m.group(3)))
     ok(0 < int(m.group(3)) < 90 and abs(val - fnum(fn, deg)) < 1e-9, f"{key} {fn} {deg} = {a}")
-    ok(a.replace("^\\circ", "") == BOOK["e6"][i], f"{key} book answer")
+    ok(a.replace("^\\circ", "") == BOOK["e7"][i], f"{key} book answer")
 
 # 6B Q6 and Q7
 for i in range(4):
-    key = "e9" + L[i]
+    key = "e10" + L[i]
     deg = angle_of(q(key))
     got = float(v(key))
     ok(abs(got - round(math.tan(math.radians(deg)), 2)) < 1e-9 and re.fullmatch(r"-?\d+\.\d\d", v(key)),
        f"{key} tan {deg}", f"printed {v(key)}")
-    ok(got == BOOK["e9"][i], f"{key} book answer")
+    ok(got == BOOK["e10"][i], f"{key} book answer")
 for i in range(4):
-    key = "e10" + L[i]
+    key = "e11" + L[i]
     m = tex2sym(q(key))
     alpha = math.degrees(math.atan(float(m)))
     alpha = alpha + 180 if alpha < 0 else alpha
     got = angles_in(v(key))
     ok(got == [round(alpha)], f"{key} inclination for gradient {m}", f"printed {v(key)}, computed {alpha:.2f}")
-    ok(got == [BOOK["e10"][i]], f"{key} book answer")
+    ok(got == [BOOK["e11"][i]], f"{key} book answer")
 
 # ------------------------------------------------------------------ Medium
 # 5D Q5: ray angles from the figure's labels (20 deg right of y-axis, ...)
@@ -275,13 +275,13 @@ labs = re.findall(r">([^<>]+)</text>", open(os.path.join(SRC, "svg", "hw_5d5.svg
 ok(sorted(labs) == sorted(["a", "b", "c", "d", "e", "f", "20°", "10°", "40°", "20°", "30°", "20°"]), "5D Q5 figure labels", str(labs))
 rays = [90 - 20, 90 + 10, 180 - 40, 180 + 20, 270 - 30, 360 - 20]
 for i, r in enumerate(rays):
-    key = "m11" + L[i]
+    key = "e4" + L[i]
     got = angles_in(v(key))
     pos = [g for g in got if 0 < g < 720]
     neg = [g for g in got if -720 < g < 0]
     ok(len(got) == 4 and len(pos) == 2 and len(neg) == 2 and all((g - r) % 360 == 0 for g in got) and len(set(got)) == 4,
        f"{key} ray {r}", f"printed {got}")
-    ok(got == BOOK["m11"][i], f"{key} book answer")
+    ok(got == BOOK["e4"][i], f"{key} book answer")
 # 5D Q6: points and radii from the figures
 for i, (name, part) in enumerate((("hw_5d6a", "a"), ("hw_5d6b", "b"), ("hw_5d6c", "c"), ("hw_5d6d", "d"))):
     labs = re.findall(r">([^<>]+)</text>", open(os.path.join(SRC, "svg", name + ".svg"), encoding="utf-8").read())
@@ -289,44 +289,44 @@ for i, (name, part) in enumerate((("hw_5d6a", "a"), ("hw_5d6b", "b"), ("hw_5d6c"
     x, y = (int(t) for t in re.findall(r"-?\d+", pt))
     rl = [l for l in labs if l not in (pt.replace("-", "−"), "θ") and not l.startswith("(")][0]
     r = sp.sqrt(x * x + y * y)
-    ok(r == (sp.sqrt(5) if rl == "√5" else sp.Integer(rl)), f"m12{part} radius label {rl} = sqrt(x^2+y^2)")
+    ok(r == (sp.sqrt(5) if rl == "√5" else sp.Integer(rl)), f"m13{part} radius label {rl} = sqrt(x^2+y^2)")
     for k, want in (("s", sp.Integer(y) / r), ("c", sp.Integer(x) / r), ("t", sp.Rational(y, x))):
-        got = ans_sym(f"m12{part}{k}")
-        ok(same(got, want), f"m12{part}{k}", f"printed {v('m12' + part + k)}, computed {want}")
-        ok(same(got, sp.sympify(BOOK["m12"][i]["sct".index(k)])), f"m12{part}{k} book answer")
+        got = ans_sym(f"m13{part}{k}")
+        ok(same(got, want), f"m13{part}{k}", f"printed {v('m13' + part + k)}, computed {want}")
+        ok(same(got, sp.sympify(BOOK["m13"][i]["sct".index(k)])), f"m13{part}{k} book answer")
 # Maths Pathway Symmetry Q9 (table values, two decimal places)
 for i in range(8):
-    key = "m16" + L[i]
+    key = "m17" + L[i]
     fn, deg = fn_of(q(key))
     got = float(v(key))
     ok(abs(got - fnum(fn, deg)) < 0.011, f"{key} {fn} {deg}", f"printed {got}, true {fnum(fn, deg):.4f}")
-    ok(got == BOOK["m16"][i], f"{key} sheet answer")
+    ok(got == BOOK["m17"][i], f"{key} sheet answer")
 # Maths Pathway Graphs Q5 (brute force over whole degrees)
 spec = [("sin", 30, 360, 540), ("sin", 330, -180, 180), ("cos", 95, 450, 630), ("cos", 170, 360, 720)]
 for i, (fn, ref, lo, hi) in enumerate(spec):
-    key = "m17" + L[i]
+    key = "m18" + L[i]
     want = sorted(x for x in range(lo + 1, hi) if abs(fnum(fn, x) - fnum(fn, ref)) < 1e-9)
     got = angles_in(v(key))
     ok(sorted(got) == want, f"{key} {fn} = {fn} {ref} in ({lo}, {hi})", f"printed {got}, computed {want}")
-    ok(tuple(got) == BOOK["m17"][i], f"{key} sheet answer")
+    ok(tuple(got) == BOOK["m18"][i], f"{key} sheet answer")
 for t, vals in (("pathway question text", None),):
     for txt in ("between 360° and 540° have the same sine value as 30°", "between −180° and 180° have the same sine value as 330°",
                 "between 450° and 630° have the same cosine value as 95°", "between 360° and 720° have the same cosine value as 170°"):
-        ok(LES.count(txt) == 1, f"m17 question text '{txt}'")
+        ok(LES.count(txt) == 1, f"m18 question text '{txt}'")
 # Maths Pathway Graphs Q9(a) table
 for j, deg in enumerate((-180, -90, 0, 90, 180)):
     for fn, c in (("sin", "s"), ("cos", "c"), ("tan", "t")):
-        key = f"m18{c}{j + 1}"
+        key = f"m19{c}{j + 1}"
         got = ans_sym(key)
         ok(same(got, exact(fn, deg)), f"{key} {fn} {deg}", f"printed {v(key)}")
 # 6B Q8
 for i in range(4):
-    key = "m19" + L[i]
+    key = "e12" + L[i]
     xs = [int(t) for t in re.findall(r"-?\d+", q(key).replace("−", "-"))]
     x1, y1, x2, y2 = xs
     m = sp.Rational(y2 - y1, x2 - x1)
     want = "less" if m < 1 else ("equal" if m == 1 else "more")
-    ok(v(key) == want == BOOK["m19"][i], f"{key} gradient {m}", f"printed {v(key)}")
+    ok(v(key) == want == BOOK["e12"][i], f"{key} gradient {m}", f"printed {v(key)}")
 # 6B Q17: lines (a, b, c) with ax + by = c, checked against the printed question
 LINES = {"a": ("y=3x+6", (-3, 1, 6)), "b": ("y=-\\tfrac12x+1", (sp.Rational(1, 2), 1, 1)),
          "c": ("3x+4y+12=0", (3, 4, -12)), "d": ("\\dfrac x3-\\dfrac y2=1", (sp.Rational(1, 3), sp.Rational(-1, 2), 1))}
@@ -469,7 +469,22 @@ for key, fn, deg, tex in (("w10a", "tan", 300, "-\\sqrt3."), ("w10b", "sin", -21
 ok(round(math.degrees(math.atan(5 / 3))) == 59 and round(180 - math.degrees(math.atan(5 / 3))) == 121, "Example 6: 59 and 121 degrees")
 
 # ------------------------------------------------------------------ past papers
-ok(v("m21") == "C" and round(math.degrees(math.atan(5 / 4))) == 51 and "(C)&ensp;51°" in LES, "m21 NBCS Q13: C = 51")
+# MC items: the data are read from the printed figure and the options from the printed question
+def svg_labels(name):
+    return re.findall(r">([^<>]+)</text>", open(os.path.join(SRC, "svg", name + ".svg"), encoding="utf-8").read())
+
+
+def mc_options(after):
+    seg = LES.split(after, 1)[1].split('<div class="hint">', 1)[0]
+    return {k: int(d) for k, d in re.findall(r"\(?([A-D])[).]&ensp;(\d+)°", seg)}
+
+
+pm = [re.fullmatch(r"P\((-?\d+), (-?\d+)\)", t.replace("−", "-")) for t in svg_labels("pp_nbcs22_13")]
+px, py = [(int(m.group(1)), int(m.group(2))) for m in pm if m][0]
+ok("\\(P\\) has coordinates \\((%d,%d)\\)" % (px, py) in LES, "m21 printed P matches the figure", f"P({px}, {py})")
+opts = mc_options("Section I Q13 (1 mark)")
+want = round(math.degrees(math.atan2(py, px)))
+ok(len(opts) == 4 and [k for k, d in opts.items() if d == want] == [v("m21")], "m21 NBCS Q13: answer letter", f"options {opts}, angle {want}")
 ok(angles_in(v("m22")) == [x for x in range(0, 361) if abs(math.cos(math.radians(x))) < 1e-9], "m22 cos = 0")
 ok(v("h28") == "B" and "B.&ensp;\\(y=\\sin(-x)^\\circ\\)" in LES
    and all(abs(math.sin(math.radians(-x)) + math.sin(math.radians(x))) < 1e-12 for x in range(-180, 361, 15)), "h28 SBHS Q8: B")
@@ -488,13 +503,30 @@ def stmt_true(p, q_, quad_):
 S = {"A": (("cos", 1), ("sin", -1), 4), "B": (("cos", 1), ("tan", 1), 3), "C": (("tan", -1), ("cos", -1), 2), "D": (("sin", 1), ("tan", 1), 1)}
 wrong = [k for k, (p, q_, qq) in S.items() if not stmt_true(p, q_, qq)]
 ok(v("pp3") == "B" and wrong == ["B"], "pp3 incorrect statement B")
-ok(v("pp4") == "C" and round(math.degrees(math.atan((0 - (-4)) / (2 - 0)))) == 63 and "C)&ensp;63°" in LES, "pp4 63 = C")
+labs = svg_labels("pp_gir23_3")
+ints = [int(t.replace("−", "-")) for t in labs if re.fullmatch(r"−?\d+", t)]
+xi = [n for n in ints if n > 0][0]
+yi = [n for n in ints if n < 0][0]
+grad = (0 - yi) / (xi - 0)                     # line through (xi, 0) and (0, yi)
+want = round(math.degrees(math.atan(grad)))
+opts = mc_options("Multiple <span")
+ok(len(opts) == 4 and [k for k, d in opts.items() if d == want] == [v("pp4")], "pp4 Girraween Q3: answer letter", f"intercepts {xi}, {yi}; options {opts}; angle {want}")
 acute = [x for x in range(1, 90) if abs(fnum("cos", x) - fnum("cos", 286)) < 1e-9]
 ok(angles_in(v("pp5")) == acute == [74] and "\\cos\\theta=\\cos286^\\circ" in LES, "pp5 74")
-ok(same(ans_sym("pp6"), exact("sin", 240)) and "Express \\(\\sin240^\\circ\\)" in LES, "pp6 sin 240")
+m6 = re.search(r"y=(\d+)x-\d+", q("pp6") or "")
+if ok(bool(m6), "pp6 question line read"):
+    a6 = math.degrees(math.atan(int(m6.group(1))))
+    d6, mi6 = int(a6), round((a6 - int(a6)) * 60)
+    got6 = re.fullmatch(r"(\d+)\^\\circ(\d+)'", v("pp6"))
+    ok(got6 is not None and (int(got6.group(1)), int(got6.group(2))) == (d6, mi6) == (75, 58), "pp6 inclination to the nearest minute (school 75°58′)", f"computed {d6}°{mi6}′, printed {v('pp6')}")
 ok(angles_in(v("pp7")) == [related(480)] and "represent 480°" in LES, "pp7 related angle of 480")
-ok(same(ans_sym("pp8s"), sp.Rational(4, 5)) and same(ans_sym("pp8t"), sp.Rational(-4, 3)) and "\\(P(-3,4)\\)" in LES and 9 + 16 == 25,
-   "pp8 sin and tan")
+PP8 = LES.split('<span class="pn">PP 8</span>', 1)[1].split('<div class="hint">', 1)[0]
+m8 = re.search(r"the point \\\(P\((-?\d+),(-?\d+)\)\\\)", PP8)
+r8 = re.search(r"Given \\\(OP=(\d+)\\\) units", PP8)
+if ok(bool(m8 and r8), "pp8 P and OP read from the question"):
+    x8, y8, r8v = int(m8.group(1)), int(m8.group(2)), int(r8.group(1))
+    ok(x8 * x8 + y8 * y8 == r8v * r8v, "pp8 OP consistent with P")
+    ok(same(ans_sym("pp8s"), sp.Rational(y8, r8v)) and same(ans_sym("pp8t"), sp.Rational(y8, x8)), "pp8 sin and tan", f"P({x8},{y8}), r={r8v}")
 val = (exact("sin", 150) + exact("cos", 300)) / (exact("tan", 750) - exact("tan", 120))
 ok(same(ans_sym("pp10"), sp.simplify(val)) and "\\dfrac{\\sin150^\\circ+\\cos300^\\circ}{\\tan750^\\circ-\\tan120^\\circ}" in LES, "pp10", str(sp.simplify(val)))
 ok(same(ans_sym("pp11a"), exact("cos", 45)) and same(ans_sym("pp11b"), exact("sin", 240)) and same(ans_sym("pp11c"), exact("tan", 420) ** 2), "pp11")
