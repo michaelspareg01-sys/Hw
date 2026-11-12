@@ -1,4 +1,451 @@
 <div class="lesson">
 <div class="lesson-head"><div class="eyebrow">Lesson C3</div><h2>Tangents and secants</h2>
-<div class="focus">This lesson is still being written.</div></div>
+<div class="focus">A tangent meets a circle at just one point, and it is perpendicular to the radius there. From this come the equal tangents from an external point, and the alternate segment theorem, which links the angle between a tangent and a chord to the angles in the other segment. The lesson ends with three theorems that combine similarity with circles: intersecting chords, secants from an external point, and the square on a tangent. The teaching follows the AMSI TIMES module <i>Circle Geometry</i>, pages 18 to 27. A chapter review across Lessons C1 to C3 follows the past-paper set.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the tangent and the radius}}
+<div class="box concept"><div class="bt">Tangents to circles (AMSI, page 18)</div>
+<p>A <b>tangent</b> to a circle is a line that meets the circle at just one point. The diagram below shows that given a line and a circle, three possibilities can arise:</p>
+<ul><li>The line may be a <b>secant</b>, cutting the circle at two points.</li>
+<li>The line may be a <b>tangent</b>, touching the circle at just one point.</li>
+<li>The line may miss the circle entirely.</li></ul>
+<p>The words ‘secant’ and ‘tangent’ are from Latin – ‘secant’ means ‘cutting’ (as in ‘cross-section’), and ‘tangent’ means ‘touching’ (as in ‘tango’).</p>
+{{svg:c3_three}}
+<p>The point where a tangent touches a circle is called a <b>point of contact</b>. It is not immediately obvious how to draw a tangent at a particular point on a circle, or even whether there may be more than one tangent at that point. The following theorem makes the situation clear, and uses Pythagoras’ theorem in its proof.</p></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>Let \(T\) be a point on a circle with centre \(O\).</p>
+<p style="margin:0"><b>a</b> The line through \(T\), perpendicular to the radius \(OT\), is a tangent to the circle.<br>
+<b>b</b> This line is the only tangent to the circle at \(T\).<br>
+<b>c</b> Every point on the tangent, except for \(T\) itself, lies outside the circle.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 19): keep for homework</span></div><div class="ex-body">
+<div class="sol-label">Proof</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin:0.5mm 0">First we prove parts <b>a</b> and <b>c</b>. Let \(\ell\) be the line through \(T\) perpendicular to the radius \(OT\). Let \(P\) be any other point on \(\ell\), and join the interval \(OP\). Then using Pythagoras’ theorem in \(\triangle OTP\),</p>
+<p style="margin:0.5mm 0 0.5mm 6mm">\(OP^2=OT^2+PT^2\), which is greater than \(OT^2\),</p>
+</div><div>{{svg:c3_tproof1}}</div></div>
+<p style="margin:0.5mm 0">so \(OP\) is greater than the radius \(OT\). Hence \(P\) lies outside the circle, and not on it. This proves that the line \(\ell\) is a tangent, because it meets the circle only at \(T\). It also proves that every point on \(\ell\), except for \(T\), lies outside the circle.</p>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin:0.5mm 0">It remains to prove part <b>b</b>, that there is no other tangent to the circle at \(T\).</p>
+<p style="margin:0.5mm 0">Let \(t\) be a tangent at \(T\), and suppose, by way of contradiction, that \(t\) were not perpendicular to \(OT\). Let \(M\) be the foot of the perpendicular from \(O\) to \(t\), and construct the point \(U\) on \(t\), on the other side of \(M\), so that \(UM=MT\). Then using Pythagoras’ theorem in \(\triangle OMT\) and \(\triangle OMU\),</p>
+</div><div>{{svg:c3_tproof2}}</div></div>
+<p style="margin:0.5mm 0 0.5mm 6mm">\(OT^2=OM^2+MT^2=OM^2+MU^2=OU^2\),</p>
+<p style="margin:0.5mm 0">So \(OU=OT\). Hence \(U\) also lies on the circle, contradicting the fact that \(t\) is a tangent.</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: the tangent theorem</div>
+<p>\(PT\gt0\) because \(P\) is a different point from \(T\), so \(OT^2+PT^2\) is greater than \(OT^2\). In part <b>b</b>, \(MT=MU\) by the construction, which is why \(OM^2+MT^2=OM^2+MU^2\). A tangent meets the circle only once, so a second point \(U\) on the circle is impossible.</p></div>
+<div class="box concept"><div class="bt">Angle between tangent and radius (Maths Pathway)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div><p>The tangent to a circle is always perpendicular to the radius.</p></div><div>{{svg:c3_mpbox}}</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Tangent and radius</span></div><div class="ex-body">
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span><span>Find the value of the missing variable, giving reasons.<br>{{svg:c3d1a}}</span></span>
+<span style="display:flex;gap:1mm"><span class="pl">b</span><span>\(PT\) is a tangent to the circle with centre \(O\) and radius 5 cm, and \(OP=13\) cm. Find the length of \(PT\).<br>{{svg:c3d1b}}</span></span></div>
+{{work:30}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span><span>Find the value of the missing variable, giving reasons.<br>{{svg:c3y1a}}</span></span>
+<span style="display:flex;gap:1mm"><span class="pl">b</span><span>\(PT\) is a tangent to the circle with centre \(O\) and radius 8 cm, and \(OP=17\) cm. Find the length of \(PT\).<br>{{svg:c3y1b}}</span></span></div>
+{{work:30}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Chords, Secants and Tangents, Q8(a): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+Find the value of the missing variable, giving reasons.
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0">The tangent is perpendicular to the radius, therefore</p>
+<p style="margin:0.5mm 0"><span data-v="w_q8a">\(\begin{aligned}[t]x+37^\circ&amp;=90^\circ\\x&amp;=53^\circ\end{aligned}\)</span></p>
+</div><div>{{svg:c3q8a}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q8(a)</div>
+<p>The radius and the tangent make a right angle at the point of contact. The line from that point splits the right angle into \(x\) and \(37^\circ\), so \(x=90^\circ-37^\circ\).</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:tangents from an external point}}
+<div class="box concept"><div class="bt">Construction – Tangents from an external point (AMSI, page 19)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Using this radius and tangent theorem, and the angle in a semicircle theorem, we can now construct tangents to a circle with centre \(O\) from a point \(P\) outside the circle.</p>
+<ol style="margin:0"><li>Join \(OP\) and construct the midpoint \(M\) of \(OP\).</li>
+<li>Draw the circle with centre \(M\) through \(O\) and \(P\), and let it meet the circle at \(T\) and \(U\).</li></ol>
+</div><div>{{svg:c3_constr}}</div></div>
+<p>The angles \(\angle PTO\) and \(\angle PUO\) are right angles, because they are angles in a semicircle. Hence the lines \(PT\) and \(PU\) are tangents, because they are perpendicular to the radii \(OT\) and \(OU\), respectively.</p>
+<p><b>Tangents from an external point have equal length.</b> It is also a simple consequence of the radius-and-tangent theorem that the two tangents \(PT\) and \(PU\) have equal length.</p>
+<p>Notice that here, and elsewhere, we are using the word ‘tangent’ in a second sense, to mean not the whole line, but just the interval from an external point to the point of contact.</p></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>Tangents to a circle from an external point have equal length.</p></div>
+<div class="box tip"><div class="bt">Where is the proof?</div>
+<p>AMSI sets it as Exercise 14 (‘Prove this result using either congruence or Pythagoras’ theorem’), Medium homework Question 10. Join \(OP\): it is common to two right-angled triangles.</p></div>
+<div class="box concept"><div class="bt">Tangents and trigonometry (AMSI, page 20)</div>
+<p>The right angle formed by a radius and tangent gives further opportunities for simple trigonometry. The following exercise shows how the names ‘tangent’ and ‘secant’, and their abbreviations \(\tan\theta\) and \(\sec\theta\), came to be used in trigonometry. In a circle of radius 1, the length of a tangent subtending an angle \(\theta\) at the centre is \(\tan\theta\), and the length of the secant from the external point to the centre is \(\sec\theta\).</p></div>
+<div class="box tip"><div class="bt">A name, not a new function</div>
+<p>The function \(\sec\theta=\dfrac{1}{\cos\theta}\) is not part of the Year 10 course; it is named here only to explain where the word ‘tangent’ in trigonometry comes from. In right-angled \(\triangle OTP\) with \(OT=1\), \(\tan\theta=\dfrac{PT}{OT}=PT\).</p></div>
+<div class="box concept"><div class="bt">Quadrilaterals with incircles, common tangents and touching circles (AMSI, pages 20 and 21)</div>
+<p>The following exercise involves quadrilaterals within which an incircle can be drawn tangent to all four sides. These quadrilaterals form yet another class of special quadrilaterals.</p>
+<p>A line that is tangent to two circles is called a <b>common tangent</b> to the circles. When the points of contact are distinct, there are two cases, as in the diagrams below. The two circles lie on the same side of a <b>direct common tangent</b>, and lie on opposite sides of an <b>indirect common tangent</b>.</p>
+{{svg:c3_common}}
+<p>Two circles are said to touch at a common point \(T\) if there is a common tangent to both circles at the point \(T\). As in the diagram below, the circles <b>touch externally</b> when they are on opposite sides of the common tangent, and <b>touch internally</b> when they are on the same side of the common tangent.</p>
+{{svg:c3_touch}}
+<p>Provided that they are distinct, touching circles have only the one point in common.</p></div>
+<div class="box tip"><div class="bt">Where are these exercises?</div>
+<p>The exercise on quadrilaterals with incircles is AMSI Exercise 16, Medium homework Question 11. Common tangents and touching circles are AMSI Exercise 17, homework Questions 12 (Medium) and 16 (Hard).</p></div>
+<div class="box concept"><div class="bt">Extension – The incentre of a triangle (AMSI, pages 21 and 22)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>We are now in a position to prove a wonderful theorem on the angle bisectors of a triangle. These three bisectors are concurrent, and their point of intersection is called the <b>incentre</b> of the triangle. The incentre is the centre of the <b>incircle</b> tangent to all three sides of the triangle, as in the diagram to the right.</p>
+<p><b>Theorem.</b> The angle bisectors of a triangle are concurrent, and the resulting incentre is the centre of the incircle, that is tangent to all three sides.</p>
+</div><div>{{svg:c3_incentre}}</div></div>
+<p><b>Proof.</b> We have to prove \(IC\) bisects \(\angle ACB\).<br>
+Given \(\triangle ABC\), construct the angle bisectors of \(\angle A\) and \(\angle B\), and let \(I\) be their point of intersection.<br>
+Join \(IC\), and let \(\alpha=\angle BAI=\angle CAI\) and \(\beta=\angle ABI=\angle CBI\).<br>
+Drop perpendiculars \(IL\), \(IM\) and \(IN\) to \(BC\), \(CA\) and \(AB\) respectively.</p>
+<p><b>Summary – The four centres of a triangle.</b> This completes the development of the four best-known centres of a triangle. The results, and the associated terminology and notation, are summarised here for reference.</p>
+<ul><li>The perpendicular bisectors of the three sides of a triangle are concurrent at the <b>circumcentre</b> \(O\), which is the centre of the <b>circumcircle</b> through all three vertices. This was proven in the module, <i>Congruence</i>.</li>
+<li>The angle bisectors of the three angles of a triangle are concurrent at the <b>incentre</b> \(I\), which is the centre of the <b>incircle</b> that is tangent to all three sides. This was proven above.</li>
+<li>A median of a triangle is an interval joining a vertex to the midpoint of an opposite side. The medians of a triangle are concurrent at the <b>centroid</b> \(G\), which divides each median in the ratio \(2:1\). This was proven in the module, <i>Scale Drawings and Similarity</i>.</li>
+<li>An altitude of a triangle is a perpendicular from a vertex to the opposite side, produced if necessary. The altitudes of a triangle, also produced if necessary, are concurrent at the <b>orthocentre</b> \(H\). This was proven earlier in the present module as an extension in the section on angles at the centre and circumference.</li></ul></div>
+<div class="box tip"><div class="bt">Finishing the incentre proof</div>
+<p>AMSI completes the proof in Exercise 18, Medium homework Question 13.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two tangents from a point</span></div><div class="ex-body">
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span><span>\(AB\) and \(AC\) are tangents to the circle with centre \(O\), and \(\angle CAB=64^\circ\). Find \(\angle COB\).<br>{{svg:c3d2a}}</span></span>
+<span style="display:flex;gap:1mm"><span class="pl">b</span><span>\(PA\) and \(PB\) are tangents, and the angle between the chord \(AB\) and the tangent \(PA\) is \(66^\circ\). Find \(\angle APB\).<br>{{svg:c3d2b}}</span></span></div>
+{{work:32}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span><span>\(AB\) and \(AC\) are tangents to the circle with centre \(O\), and \(\angle CAB=52^\circ\). Find \(\angle COB\).<br>{{svg:c3y2a}}</span></span>
+<span style="display:flex;gap:1mm"><span class="pl">b</span><span>\(PA\) and \(PB\) are tangents, and the angle between the chord \(AB\) and the tangent \(PA\) is \(74^\circ\). Find \(\angle APB\).<br>{{svg:c3y2b}}</span></span></div>
+{{work:32}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Chords, Secants and Tangents, Q9(a): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin:0">Copy the figure. Then, use the information provided to find the required value. Show your working.<br>Given information: \(\angle CAB=70^\circ\)<br>Find the value of \(\angle COB\).</p>
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0">Since \(AB\) is tangent to the circle, \(\angle OBA=90^\circ\)<br>
+Since \(AC\) is tangent to the circle, \(\angle OCA=90^\circ\)<br>
+The sum of angles in a quadrilateral is \(360^\circ\), therefore</p>
+<p style="margin:0.5mm 0">\(\begin{aligned}[t]\angle COB+\angle CAB+\angle OBA+\angle OCA&amp;=360^\circ\\\angle COB+70^\circ+90^\circ+90^\circ&amp;=360^\circ\\\angle COB&amp;=110^\circ\end{aligned}\)</p>
+</div><div>{{svg:c3q9a}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q9(a)</div>
+<p>\(70^\circ+90^\circ+90^\circ=250^\circ\), and \(360^\circ-250^\circ=110^\circ\). The two right angles come from the radii \(OB\) and \(OC\) meeting the tangents at the points of contact.</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:the alternate segment theorem}}
+<div class="box concept"><div class="bt">The alternate segment theorem (AMSI, page 22)</div>
+<p>The left-hand diagram below shows two angles \(\angle P\) and \(\angle Q\) lying in the same segment of a circle – we have proven that these two angles are equal. In the next two diagrams, the angle \(\angle BQU\) remains equal to \(\angle P\) as the point \(Q\) moves around the arc closer and closer to \(A\). In the last diagram, \(Q\) coincides with \(A\), and \(AU\) is a tangent.</p>
+<div class="parts three" style="justify-items:center">{{svg:c3_as1}}{{svg:c3_as2}}{{svg:c3_as3}}</div>
+<p>It seems reasonable from these diagrams that in the limiting case, the angle \(\angle BAU\) will still equal \(\angle P\) – this is what the alternate segment theorem says.</p></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>An angle between a chord and a tangent is equal to any angle in the alternate segment.</p></div>
+<div class="box concept"><div class="bt">The alternate segment (AMSI, page 23)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Here \(\angle BAU\) is ‘an angle between a chord and a tangent’. The word ‘alternate’ means ‘other’ – the chord \(AB\) divides the circle into two segments, and the <b>alternate segment</b> is the segment on the left containing the angle \(\angle P\). We have already proven that all the angles in this left-hand segment are equal.</p>
+<p>There are two equally satisfactory proofs of this theorem. One is written out below and the other is left as an exercise.</p>
+</div><div>{{svg:c3_asthm}}</div></div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, pages 23 and 24): keep for homework</span></div><div class="ex-body">
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(AB\) be a chord of a circle and let \(BU\) be a tangent at \(B\).<br>
+Let \(P\) be a point on the arc that is not within the arms of \(\angle ABU\), and let \(\angle P=\alpha\).<br>
+There are three cases, depending on whether:<br>
+<b>Case 1:</b> The centre \(O\) lies on the chord \(AB\).<br>
+<b>Case 2:</b> The centre \(O\) lies outside the arms of \(\angle ABU\).<br>
+<b>Case 3:</b> The centre \(O\) lies within the arms of \(\angle ABU\).<br>
+In each case, we need to prove that \(\angle ABU=\alpha\)</p>
+<div class="parts three" style="text-align:center"><div>{{svg:c3_case1}}Case 1</div><div>{{svg:c3_case2}}Case 2</div><div>{{svg:c3_case3}}Case 3</div></div>
+<p style="margin:0.5mm 0">Case 1 is easily settled:</p>
+<p style="margin:0.5mm 0 0.5mm 6mm">\(\alpha=90^\circ\) (angle in a semicircle)&emsp;and&emsp;\(\angle ABU=90^\circ\) (radius and tangent)</p>
+<p style="margin:0.5mm 0">For the other two cases, construct the diameter \(BOD\), and join \(DA\).</p>
+<div style="display:grid;grid-template-columns:auto auto 1fr;column-gap:4mm;row-gap:0.6mm;align-items:baseline;margin:1mm 0 1mm 4mm">
+<span>Case 2:</span><span>\(\angle ADB=\alpha\)</span><span>(angles on the same arc \(AB\))</span>
+<span>and</span><span>\(\angle BAD=90^\circ\)</span><span>(angle in a semicircle)</span>
+<span>so</span><span>\(\angle DBA=90^\circ-\alpha\)</span><span>(angle sum of \(\triangle ABD\))</span>
+<span>But</span><span>\(\angle DBU=90^\circ\)</span><span>(radius and tangent)</span>
+<span>so</span><span>\(\angle ABU=\alpha\)</span><span>(adjacent angles at \(B\))</span></div>
+<div style="display:grid;grid-template-columns:auto auto 1fr;column-gap:4mm;row-gap:0.6mm;align-items:baseline;margin:1mm 0 1mm 4mm">
+<span>Case 3:</span><span>\(\angle ADB=180^\circ-\alpha\)</span><span>(cyclic quadrilateral \(APBD\))</span>
+<span>and</span><span>\(\angle BAD=90^\circ\)</span><span>(angle in a semicircle)</span>
+<span>so</span><span>\(\angle ABD=\alpha-90^\circ\)</span><span>(angle sum of \(\triangle ABD\))</span>
+<span>But</span><span>\(\angle DBU=90^\circ\)</span><span>(radius and tangent)</span>
+<span>so</span><span>\(\angle ABU=\alpha\)</span><span>(adjacent angles at \(B\))</span></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: the alternate segment theorem</div>
+<p>In Case 2, \(\angle ABU=\angle DBU-\angle DBA=90^\circ-(90^\circ-\alpha)=\alpha\). In Case 3, the ray \(BD\) lies outside the angle \(\angle ABU\), so \(\angle ABU=\angle ABD+\angle DBU=(\alpha-90^\circ)+90^\circ=\alpha\). The other proof, with the radii \(AO\) and \(BO\), is AMSI Exercise 19, Hard homework Question 17.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The alternate segment</span></div><div class="ex-body">
+\(AU\) is a tangent to the circle at \(A\). Find the value of each pronumeral, giving reasons.
+<div class="parts" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c3d3a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c3d3b}}</span></div>
+{{work:24}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+\(AU\) is a tangent to the circle at \(A\). Find the value of each pronumeral, giving reasons.
+<div class="parts" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c3y3a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c3y3b}}</span></div>
+{{work:24}}</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:intersecting chords}}
+<div class="box concept"><div class="bt">Recall: Similar triangles (Maths Pathway)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Similar triangles have the following two properties:</p>
+<ul><li>Corresponding angles are equal.</li><li>The ratios of corresponding sides are the same.</li></ul>
+<p>You can use either property to show two triangles are similar.</p>
+<p>\(\triangle ABC\) is similar to \(\triangle DEF\): \(\angle BAC=\angle EDF\), \(\angle ABC=\angle DEF\), \(\angle ACB=\angle DFE\), and \(\dfrac{AB}{DE}=\dfrac{BC}{EF}=\dfrac{AC}{DF}\)</p>
+</div><div>{{svg:c3_sim}}</div></div></div>
+<div class="box concept"><div class="bt">Similarity and circles: intersecting chords (AMSI, page 24)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>The final theorems in this module combine similarity with circle geometry to produce three theorems about intersecting chords, intersecting secants, and the square on a tangent.</p>
+<p>The first theorem deals with chords that intersect within the circle. In this situation, each chord cuts the other into two sub-intervals called <b>intercepts</b>. It is an amazing consequence of similar triangles that, in this situation, the products of the intercepts on each chord are equal. That is, in the diagram to the right, \(AM\times MB=PM\times MQ\).</p>
+</div><div>{{svg:c3_ic1}}</div></div></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>When two chords intersect within a circle, the products of the intercepts are equal.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 25): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(AB\) and \(PQ\) be chords intersecting at \(M\). Join \(AP\) and \(BQ\).</p>
+<p style="margin:0.5mm 0">In the triangles \(APM\) and \(QBM\):</p>
+</div><div>{{svg:c3_ic2}}</div></div>
+<div style="display:grid;grid-template-columns:auto auto 1fr;column-gap:3mm;row-gap:0.8mm;align-items:baseline;margin-left:4mm">
+<span></span><span>\(\angle PAM=\angle BQM\)</span><span>(angles on the same arc \(PB\))</span>
+<span></span><span>\(\angle APM=\angle QBM\)</span><span>(angles on the same arc \(AQ\))</span>
+<span>so</span><span>\(\triangle APM\) is similar to \(\triangle QBM\) (AA):</span><span></span>
+<span>Hence</span><span>\(\dfrac{AM}{QM}=\dfrac{PM}{BM}\)</span><span>(matching sides of similar triangles)</span>
+<span>so</span><span>\(AM\times BM=PM\times QM\).</span><span></span></div>
+<p style="margin:1mm 0 0">The very last step is particularly interesting. It converts the equality of two ratios of lengths to the equality of two products of lengths. This is a common procedure when working with similarity.</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: intersecting chords</div>
+<p>Multiply both sides of \(\dfrac{AM}{QM}=\dfrac{PM}{BM}\) by \(QM\times BM\): the left side becomes \(AM\times BM\) and the right side becomes \(PM\times QM\).</p></div>
+<div class="box concept"><div class="bt">The sine rule and similarity (AMSI, page 25)</div>
+<p>Many problems involving similarity can be handled using the sine rule. The exercise below gives an alternative proof of the intersecting chord theorem using the sine rule to deal directly with the ratio of two sides of the triangles.</p>
+<p>The remaining two theorems of this section also have alternative proofs using the sine rule.</p></div>
+<div class="box tip"><div class="bt">Where is the exercise?</div>
+<p>It is AMSI Exercise 21, Hard homework Question 19.</p></div>
+<div class="box concept"><div class="bt">Intersecting chords (Maths Pathway)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Since intersecting chords form similar triangles, you can apply the following rule:</p>
+<p style="text-align:center">\(ab=xy\)</p></div><div>{{svg:c3_mpchords}}</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Intersecting chords</span></div><div class="ex-body">
+Find the value of the missing variable in the following figures involving intersecting chords.
+<div class="parts" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c3d4a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c3d4b}}</span></div>
+{{work:22}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find the value of the missing variable in the following figures involving intersecting chords.
+<div class="parts" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c3y4a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c3y4b}}</span></div>
+{{work:22}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Intersecting Chords and Secants, Q3(a): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+Find the value of the missing variable in the following figures involving intersecting chords.
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0"><span data-v="w_iq3a">\(\begin{aligned}[t]x\times6&amp;=5\times12\\x&amp;=\frac{60}{6}\\&amp;=10\end{aligned}\)</span></p>
+</div><div>{{svg:c3iq3a}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q3(a)</div>
+<p>Pair the two intercepts that lie on the same chord: 6 and \(x\) are on one chord, 5 and 12 on the other. Then divide both sides by 6.</p></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:secants and tangents from an external point}}
+<div class="box concept"><div class="bt">Secants from an external point (AMSI, page 25)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Now suppose that the chords do not meet within the circle. If they meet on the circle, the identity above holds trivially, and if they are parallel, there is nothing to say. Otherwise, we can produce the chords until they intersect outside the circle, and an analogous theorem applies.</p>
+</div><div>{{svg:c3_sec2}}</div></div>
+<p>We are now dealing with secants from an external point. When a secant through an external point \(M\) meets a circle at two points \(A\) and \(B\), the lengths \(AM\) and \(BM\) are called the <b>intercepts</b> of the secant from the external point, and as before \(AM\times MB=PM\times MQ\).</p>
+<p>Be careful here, the chord \(AB\) is not one of the two intercepts. With this definition of intercept, the previous theorem can now be stated as follows. Its proof is word for word almost the same, apart from the reasons:</p></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>The product of the intercepts on two secants from an external point are equal.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 26): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(ABM\) and \(PQM\) be two secants from an external point \(M\), as shown.</p>
+<p style="margin:0.5mm 0">Join \(AP\) and \(BQ\).</p>
+</div><div>{{svg:c3_sec1}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Finishing the proof</div>
+<p>AMSI leaves the rest as Exercise 22 (‘Complete the proof’), Medium homework Question 14. Exercise 23, Question 15, joins \(AQ\) and \(BP\) instead.</p></div>
+<div class="box concept"><div class="bt">Tangent and secant from an external point (AMSI, page 26)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Now imagine the secant \(MPQ\) in the previous diagrams rotating until it becomes a tangent at a point \(T\) on the circle. As the secant rotates, the length of each intercept \(PM\) and \(QM\) gets closer to the length of the tangent \(TM\) to the circle from \(M\), so the product \(PM\times QM\) gets closer to the square \(TM^2\) of the tangent from \(M\). This is a proof using limits.</p>
+<p>When we draw a secant and a tangent from \(M\), we have seen that the product \(AM\times BM\) equals the square \(TM^2\) of the tangent. The geometric proof is similar to the previous two proofs, but it does require the alternate segment theorem to establish the similarity.</p>
+</div><div>{{svg:c3_ts}}</div></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>The product of the intercepts on a secant from an external point equals the square of the tangent from that point.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 27): keep for homework</span></div><div class="ex-body">
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(ABM\) be a secant, and \(TM\) a tangent, from an external point \(M\), as shown. We need to prove that \(AM\times BM=TM^2\). Join \(AT\) and \(BT\).</p>
+</div></div>
+<div class="box tip"><div class="bt">Finishing the proof</div>
+<p>AMSI completes it in Exercise 24, Hard homework Question 20, which has the diagram.</p></div>
+<div class="box concept"><div class="bt">Intersecting secants (Maths Pathway)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Since intersecting secants form similar triangles, you can apply the following rule:</p>
+<p style="text-align:center">\(ab=xy\)</p></div><div>{{svg:c3_mpsec}}</div></div></div>
+<div class="box tip"><div class="bt">Outer part times whole secant</div>
+<p>For a secant from an external point, the two intercepts are the outer part (from the point to the near intersection) and the whole secant (from the point to the far intersection). For the tangent and secant theorem, the tangent counts twice: \(TM\times TM=AM\times BM\).</p></div>
+<div class="box concept"><div class="bt">The concurrence of three common chords (AMSI, page 27)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Proving concurrence usually involves logic that is a little more sophisticated than required in most proofs. The following theorem is a difficult application of the intersecting chord theorem.</p>
+</div><div>{{svg:c3_ex25}}</div></div></div>
+<div class="box concept"><div class="bt">Links forward, and the converse of the circle theorems (AMSI, page 27)</div>
+<p>Circle geometry is often used as part of the solution to problems in trigonometry and calculus.</p>
+<p>The circle theorems proven in this module all have dramatic and important converse theorems, which are tests for points to lie on a circle. The proofs of these converses, and their applications, are usually regarded as inappropriate for Years 9–10, apart from the converse of the angle in a semicircle theorem, which was developed within the module. They are so closely related to the material in this module, however, that they have been fully developed in an Appendix.</p></div>
+<div class="box tip"><div class="bt">The concurrence exercise</div>
+<p>‘The following theorem’ is AMSI Exercise 25, Hard homework Question 21.</p></div>
+<div class="box tip"><div class="bt">Converses in this pack</div>
+<p>The AMSI appendix is not part of this pack. You have met two converses: the converse of the angle in a semicircle (Lesson C1) and the test for a cyclic quadrilateral (Lesson C2).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Secants and tangents from a point</span></div><div class="ex-body">
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span><span>Calculate the value of the missing variable.<br>{{svg:c3d5a}}</span></span>
+<span style="display:flex;gap:1mm"><span class="pl">b</span><span>\(MT\) is a tangent at \(T\), \(MB=4\) and \(BA=5\). Find the length of \(MT\).<br>{{svg:c3d5b}}</span></span></div>
+{{work:28}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span><span>Calculate the value of the missing variable.<br>{{svg:c3y5a}}</span></span>
+<span style="display:flex;gap:1mm"><span class="pl">b</span><span>\(MT\) is a tangent at \(T\), \(MB=4\) and \(BA=12\). Find the length of \(MT\).<br>{{svg:c3y5b}}</span></span></div>
+{{work:28}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Intersecting Chords and Secants, Q6(a): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:2fr 3fr"><div>
+Calculate the value of the missing variable.
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0"><span data-v="w_iq6a">\(\begin{aligned}[t]15\times x&amp;=18\times25\\x&amp;=\frac{18\times25}{15}\\&amp;=6\times5\\&amp;=30\end{aligned}\)</span></p>
+</div><div>{{svg:c3iq6a}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q6(a)</div>
+<p>On the upper secant the outer part is 15 and the whole secant is \(x\); on the lower secant the outer part is 18 and the whole secant is 25. \(\dfrac{18}{15}=\dfrac65\), so \(\dfrac{18\times25}{15}=\dfrac{6\times25}{5}=6\times5\).</p></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Homework:Maths Pathway sheets, AMSI exercises and a past paper}}
+<p class="small">Each question is from the source named above it. Answers are in the answers booklet. In every figure, a dot inside the circle marks its centre.</p>
+<div class="band"><span class="diff diff-easy">Easy</span><span class="line"></span></div>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q7</span><br>Use a protractor to measure the angle between the tangent and the radius in each of the following figures:
+<div class="parts" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:c3q7a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c3q7b}}</span></div>{{work:10}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q8(b)</span><br>Find the value of the missing variable, giving reasons.
+<div class="split" style="grid-template-columns:2fr 3fr"><div>{{svg:c3q8b}}</div><div>{{work:24}}</div></div></div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Maths Pathway, Intersecting Chords and Secants, Q2</span><br>Use the ratio property of similar triangles to find the missing values.
+<div class="parts" style="align-items:start"><span><span class="pl">a</span>{{svg:c3iq2a}}<br>Since \(\Delta IHJ\) is similar to \(\Delta IKL\),<br>\(\dfrac{HI}{\square}=\dfrac{JI}{\square}\)&emsp;and&emsp;\(HI\times\square=JI\times\square\)</span>
+<span><span class="pl">b</span>{{svg:c3iq2b}}<br>\(f\times\square=\square\times\square\)</span></div></div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Maths Pathway, Intersecting Chords and Secants, Q3(b)–(d)</span><br>Find the value of the missing variable in the following figures involving intersecting chords.
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c3iq3b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c3iq3c}}</span><span style="display:flex;gap:1mm"><span class="pl">d</span>{{svg:c3iq3d}}</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Maths Pathway, Intersecting Chords and Secants, Q5</span><br>Use the ratio property of similar triangles to find the missing values.
+<div class="parts" style="align-items:start"><span><span class="pl">a</span>{{svg:c3iq5a}}<br>Since \(\Delta EFG\) is similar to \(\Delta EHI\),<br>\(\dfrac{EF}{\square}=\dfrac{EG}{\square}\)&emsp;and&emsp;\(EF\times\square=EG\times\square\)</span>
+<span><span class="pl">b</span>{{svg:c3iq5b}}<br>\(p\times\square=\square\times\square\)</span></div></div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Maths Pathway, Intersecting Chords and Secants, Q6(b)–(d)</span><br>Calculate the value of the missing variable.
+<div class="parts three" style="justify-items:center;align-items:start"><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:c3iq6b}}</span><span style="display:flex;gap:1mm"><span class="pl">c</span>{{svg:c3iq6c}}</span><span style="display:flex;gap:1mm"><span class="pl">d</span>{{svg:c3iq6d}}</span></div>{{work:30}}</div></div>
+
+<div class="band"><span class="diff diff-med">Medium</span><span class="line"></span></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q9(b)</span><br>Copy the figure. Then, use the information provided to find the required value. Show your working.
+<div class="split" style="grid-template-columns:2fr 3fr"><div><p style="margin:1mm 0">Given information: \(\angle CBD=60^\circ\)<br>Find the value of \(\angle OAB\).</p></div><div>{{svg:c3q9b}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><span class="muted small">Maths Pathway, Intersecting Chords and Secants, Q1</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>This question will use similar triangles to prove a property about intersecting chords.
+<div class="parts one" style="margin-left:2mm"><span><span class="pl">a</span>Sketch the figure. Then, prove that \(\Delta ABC\) is similar to \(\Delta ADE\).<br><i>Hint: Use the fact that angles subtended by the same arc at points on the circle are equal.</i></span><span><span class="pl">b</span>Use the ratio property of similar triangles to prove that \(AC\times AE=AB\times AD\).</span></div></div><div>{{svg:c3iq1}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span class="muted small">Maths Pathway, Intersecting Chords and Secants, Q4</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>This question will use similar triangles to prove a property about secants which intersect at a point outside the circle.
+<div class="parts one" style="margin-left:2mm"><span><span class="pl">a</span>Prove that \(\Delta PQS\) is similar to \(\Delta PTR\).<br><i>Hint: Use the fact that in a quadrilateral whose points are on a circle, the sum of opposite angles is \(180^\circ\).</i></span><span><span class="pl">b</span>Use the ratio property of similar triangles to prove that \(PQ\times PR=PS\times PT\).</span></div></div><div>{{svg:c3iq4}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 14</span><br>Prove this result using either congruence or Pythagoras’ theorem.<p class="small muted" style="margin:1mm 0 0">The result is the theorem in Concept 2: tangents to a circle from an external point have equal length.</p>{{work:36}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 16</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>The sides of a quadrilateral are tangent to a circle drawn inside it. Show that the sums of opposite sides of the quadrilateral are equal.</div><div>{{svg:c3_ex16}}</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 17(a)</span><br>How many common tangents are there to two circles when the circles:
+<div class="parts three" style="margin-left:2mm"><span><span class="pl">i</span>are one inside the other,</span><span><span class="pl">ii</span>touch internally,</span><span><span class="pl">iii</span>overlap,</span><span><span class="pl">iv</span>touch externally,</span><span style="grid-column:span 2"><span class="pl">v</span>are next to each other without touching?</span></div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 18</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div><div class="parts one"><span><span class="pl">a</span>Prove that \(\triangle MAI\equiv\triangle NAI\) and that \(\triangle NBI\equiv\triangle LBI\).</span><span><span class="pl">b</span>Explain why \(LI=MI=NI\).</span><span><span class="pl">c</span>Prove that \(\triangle LCI\equiv\triangle MCI\).</span><span><span class="pl">d</span>Hence complete the proof that the angle bisectors meet at \(I\), and that \(I\) is the incentre.</span></div></div><div>{{svg:c3_ex18}}</div></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 22</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>Complete the proof.<p class="small muted" style="margin:1mm 0 0">The proof is the one in Concept 5: two secants \(ABM\) and \(PQM\) from an external point \(M\), with \(AP\) and \(BQ\) joined; the result is \(AM\times BM=PM\times QM\).</p></div><div>{{svg:c3_sec2}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 23</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>If instead we had joined the intervals \(AQ\) and \(BP\), what corresponding changes should be made to the proof?</div><div>{{svg:c3_ex23}}</div></div>{{work:36}}</div></div>
+
+<div class="band"><span class="diff diff-chal">Hard</span><span class="line"></span></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 17(b)–(c)</span><br>
+<div class="parts one"><span><span class="pl">b</span>Prove that the intervals between the points of contact on two indirect common tangents have equal length.</span><span><span class="pl">c</span>Prove that the intervals between the points of contact on two direct common tangents have equal length.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 19</span><br>Find an alternative proof in cases 2 and 3 by constructing the radii \(AO\) and \(BO\) and using angles at the centre.
+<div class="parts" style="justify-items:center"><span style="text-align:center">{{svg:c3_ex19a}}Case 2</span><span style="text-align:center">{{svg:c3_ex19b}}Case 3</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 20</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div><p style="margin:0">The result in the following exercise is surprising. One would not expect parallel lines to emerge so easily in a diagram with two touching circles.</p><p style="margin:1mm 0 0">Prove that \(AB\parallel PQ\) in the diagram to the right, where \(STU\) is a common tangent to both circles. \(AQ\) and \(BP\) are straight lines.</p></div><div>{{svg:c3_ex20}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 21</span><br>Use the sine rule in the diagram in the above proof to prove that \(\dfrac{AM}{PM}=\dfrac{QM}{BM}\).<p class="small muted" style="margin:1mm 0 0">The diagram is the one with the proof of the intersecting chord theorem in Concept 4.</p>{{work:40}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 24</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div><div class="parts one"><span><span class="pl">a</span>Explain why \(\angle A=\angle MTB\).</span><span><span class="pl">b</span>Prove that \(\triangle ATM\) is similar to \(\triangle TBM\).</span><span><span class="pl">c</span>Complete the proof.</span></div></div><div>{{svg:c3_ex24}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 25</span><br>Show that the three common chords \(AB\), \(PQ\) and \(ST\) to the three circles in the diagram above are concurrent.<p class="small muted" style="margin:1mm 0 0">The diagram is the one with ‘The concurrence of three common chords’ in Concept 5.</p>{{work:50}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body"><div class="pp-src" style="margin-bottom:1mm"><span>Sydney Boys High School, 2023, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, <span style="white-space:nowrap">Part&nbsp;F&nbsp;Q3(a)–(b)</span></span><span class="mk">5 marks</span></div>
+<div class="split" style="grid-template-columns:1fr 1fr"><div>
+<p style="margin:0">The diagram shows two circles \(\mathcal{C}_1\) and \(\mathcal{C}_2\). The point \(P\) is one of their points of intersection. The tangent to \(\mathcal{C}_2\) at \(P\) meets \(\mathcal{C}_1\) at \(Q\), and the tangent to \(\mathcal{C}_1\) at \(P\) meets \(\mathcal{C}_2\) at \(R\).</p>
+<p style="margin:1mm 0">The points \(A\) and \(D\) are chosen on \(\mathcal{C}_1\) so that \(AD\) is a diameter of \(\mathcal{C}_1\) and parallel to \(PQ\). Likewise, points \(B\) and \(C\) are chosen on \(\mathcal{C}_2\) so that \(BC\) is a diameter of \(\mathcal{C}_2\) and parallel to \(PR\).</p>
+<p style="margin:0">The points \(X\) and \(Y\) lie on the tangents \(PR\) and \(PQ\), respectively, as shown in the diagram.</p>
+</div><div>{{svg:c3hd1}}</div></div>
+<div class="pp-sub"><span><span class="pl">a</span>Show that \(\angle APX=\angle DPQ\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span><span class="pl">b</span>Show that \(A\), \(P\), and \(C\) are collinear.</span><span class="mk">3</span></div>
+<div class="hint"><b>Hint:</b> what do you know about each of the lines through \(P\) in the diagram?</div>{{work:60}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>18 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Baulkham Hills High School, 2020, Year 10 Yearly Examination, Mathematics, <span style="white-space:nowrap">Q9</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:1fr 1fr"><div>
+<p style="margin:0">The points \(A\), \(B\) and \(P\) lie on a circle centred at \(O\). The tangents to the circle at \(A\) and \(B\) meet at the point \(T\), and \(\angle ATB=\theta\).</p>
+<p style="margin:1mm 0">What is \(\angle APB\) in terms of \(\theta\)?</p>
+<div class="mc" style="grid-template-columns:1fr 1fr"><span>A.&ensp;\(\dfrac{\theta}{2}\)</span><span>B.&ensp;\(90^\circ-\dfrac{\theta}{2}\)</span><span>C.&ensp;\(\theta\)</span><span>D.&ensp;\(180^\circ-\theta\)</span></div>
+</div><div>{{svg:c3pp1}}</div></div></div>
+<div class="hint"><b>Hint:</b> what do you know about the two tangents from \(T\)?</div>{{work:20}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), <span style="white-space:nowrap">Q16</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin:0">\(AB\) is tangent. \(BC=2\text{ cm}\), \(CD=5\text{ cm}\). The length of \(AB\) in centimetres is</p>
+<div class="mc"><span>(A)&ensp;\(\sqrt{10}\)</span><span>(B)&ensp;\(\sqrt{14}\)</span><span>(C)&ensp;\(\sqrt{20}\)</span><span>(D)&ensp;\(\sqrt{35}\)</span></div>
+</div><div>{{svg:c3pp2}}</div></div></div>
+<div class="hint"><b>Hint:</b> what do you know about the lines from \(B\)?</div>{{work:16}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), <span style="white-space:nowrap">Q17</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin:0">The value of \(x\) is</p>
+<div class="mc"><span>(A)&ensp;\(3\tfrac13\)</span><span>(B)&ensp;\(4\tfrac45\)</span><span>(C)&ensp;\(7\)</span><span>(D)&ensp;\(7\tfrac12\)</span></div>
+</div><div style="text-align:center">{{svg:c3pp3}}<span class="small">NOT TO SCALE</span></div></div></div>
+<div class="hint"><b>Hint:</b> what do you know about the lengths in the diagram?</div>{{work:16}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Sydney Boys High School, 2022, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, <span style="white-space:nowrap">Part&nbsp;B&nbsp;Q3</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q"><p style="margin:0">\(A\) and \(B\) are points on a circle. \(PA\) and \(PB\) are tangents.<br>Write down the value of angle \(APB\).</p>
+<div style="display:flex;justify-content:center;align-items:center;gap:6mm">{{svg:c3pp4}}<b class="small">NOT DRAWN TO SCALE</b></div></div>
+<div class="hint"><b>Hint:</b> what do you know about the lengths and angles in the diagram?</div>{{work:16}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Sydney Boys High School, 2020, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics Stage 5.3, <span style="white-space:nowrap">Q21</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:2fr 3fr"><div>{{svg:c3pp5}}</div><div>
+<p style="margin:0">Consider the diagram.</p>
+<p style="margin:1mm 0">Find the values of the following pronumerals, justifying your answers geometrically.</p>
+<div class="pp-sub"><span><span class="pl">a</span>\(\alpha\)</span><span class="mk">2</span></div>
+<div class="pp-sub"><span><span class="pl">b</span>\(\beta\)</span><span class="mk">2</span></div></div></div></div>
+<div class="hint"><b>Hint:</b> what do you know about the lines through \(T\)?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Baulkham Hills High School, 2020, Year 10 Yearly Examination, Mathematics, <span style="white-space:nowrap">Q20</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q"><p style="margin:0">Two secants from the point \(P\) intersect a circle as shown in the diagram.</p>
+<div style="display:flex;justify-content:center;align-items:center;gap:6mm">{{svg:c3pp6}}<b class="small">NOT TO<br>SCALE</b></div>
+<p style="margin:0">What is the value of \(x\)? Give reasons for your answer.</p></div>
+<div class="hint"><b>Hint:</b> what do you know about the two lines from \(P\)?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), <span style="white-space:nowrap">Q25(a)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q"><p style="margin:0">Find the value of the pronumerals giving reasons. \(O\) is the centre of the circle.</p>
+<div style="display:flex;justify-content:center">{{svg:c3pp7}}</div></div>
+<div class="hint"><b>Hint:</b> which angles in the diagram can you find first?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, <span style="white-space:nowrap">Part&nbsp;C&nbsp;Q7</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q"><p style="margin:0">In the figure below, \(P\), \(Q\) and \(R\) are points lying on a circle.<br>
+Lines \(ST\), \(TU\) and \(SU\) are the tangents to the circle at \(P\), \(Q\), and \(R\) respectively.<br>
+\(RQ\) produced and \(ST\) produced meet at the point \(V\).<br>
+If \(\angle PSR=34^\circ\) and \(\angle QPT=46^\circ\), then what is the value of \(\angle PVQ\)?<br>
+Geometrical reasons are needed.</p>
+<div style="display:flex;justify-content:center">{{svg:c3pp8}}</div></div>
+<div class="hint"><b>Hint:</b> what do you know about the lengths and angles near \(S\)?</div>{{work:50}}</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="page-break"></div>
+<div class="lesson-head"><div class="eyebrow">Chapter review</div><h2>Circle geometry review</h2>
+<div class="focus">Four past-paper questions that each need ideas from more than one lesson: chords and the perpendicular from the centre (C1), the angle in a semicircle (C1), tangents, the alternate segment theorem and the similarity theorems (C3). Allow about 25 minutes for the 14 marks.</div></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">R 1</span>Sydney Boys High School, 2020, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics Stage 5.3, <span style="white-space:nowrap">Q34</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:1fr 1fr"><div>
+<p style="margin:0">In the diagram below, \(AB\) and \(CD\) are perpendicular chords that intersect at \(P\) on a circle centred at \(O\).</p>
+<p style="margin:1mm 0">Given that \(AP=6\), \(BP=4\) and \(CP=2\), find the radius of the circle in simplest exact form.</p></div><div>{{svg:c3r1}}</div></div></div>
+<div class="hint"><b>Hint:</b> which lengths in the diagram can you find first?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">R 2</span>Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, <span style="white-space:nowrap">Part&nbsp;F&nbsp;(c)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q"><p style="margin:0">In the diagram \(AB\) is a diameter of the circle, \(TP\) is a tangent at point \(T\), \(O\) is the centre of the circle and \(\angle ATP=111^\circ\).</p>
+<div style="display:flex;justify-content:center">{{svg:c3r2}}</div>
+<p style="margin:0">Write down the value of \(\angle BAT\), giving clear reasoning.</p></div>
+<div class="hint"><b>Hint:</b> what do you know about the angles at \(T\)?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">R 3</span>Sydney Boys High School, 2022, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, <span style="white-space:nowrap">Part&nbsp;F&nbsp;Q3</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q"><p style="margin:0">In the diagram below, \(ABCD\) is a rectangle and \(AF\) is a diameter of a semi-circle with tangent \(BC\). If \(AE=6\) cm, find the area of \(ABCD\).</p>
+<div style="display:flex;justify-content:center">{{svg:c3r3}}</div></div>
+<div class="hint"><b>Hint:</b> what do you know about the semi-circle and the tangent \(BC\)?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">R 4</span>Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), <span style="white-space:nowrap">Q25(d)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q"><p style="margin:0">\(AT\) is a tangent to the circle at \(T\). \(TA=TC\). Find the value of \(x\) giving reasons.</p>
+<div style="display:flex;justify-content:center">{{svg:c3r4}}</div></div>
+<div class="hint"><b>Hint:</b> what do you know about the lengths and angles in the diagram?</div>{{work:40}}</div>
 </div>

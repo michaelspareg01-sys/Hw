@@ -40,6 +40,33 @@ Past papers:
   - y10-B-114, B-115, B-116 | Sydney Boys High School, 2024, Part E Q2(i)–(iii) | 3 + 1 + 1 = 5 marks | `Sydney Boys 2024 Year 10 Maths Yearly & Solutions.pdf` | question p28, solution p61 | label "Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, Part E Q2".
 - Not taken: y10-B-71 (Sydney Boys 2020 Q21(b), cyclic quadrilateral) needs α from Q21(a), which is the alternate segment theorem, so Q21(a)–(b) are left together for C3. y10-A-073 (Girraween 2020 Q25(a)) mixes the angle at the centre with tangents: left for C3.
 
+## C3 Tangents and secants, and the chapter review
+Source items (not past papers):
+- AMSI TIMES *Circle Geometry*: theorem statements, proofs and remarks pp. 18–27; Exercises 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 (answers pp. 40–43). Exercise 15 is left out: it is about sec θ, which is outside the Year 10 course.
+- Maths Pathway *Chords, Secants, and Tangents*: Q8(a), Q9(a) as worked examples; Q7, Q8(b) (Easy), Q9(b) (Medium). The whole sheet is now used.
+- Maths Pathway *Intersecting Chords and Secants*: Q3(a), Q6(a) as worked examples; Q2, Q3(b)–(d), Q5, Q6(b)–(d) (Easy); Q1, Q4 (Medium). The whole sheet is used.
+
+Past papers, mini exam (18 marks, 25 min; order PP 1–8):
+- y10-A-001 | Baulkham Hills High School, 2020, Q9 | 1 | `Baulkham Hills 2020 Year 10 Maths Yearly & Solutions.pdf` | question p5, key p32 (B) | label "Baulkham Hills High School, 2020, Year 10 Yearly Examination, Mathematics, Q9".
+- y10-A-065 | Girraween High School, 2020, Q16 | 1 | `Girraween 2020 Year 10 Maths Yearly & Solutions.pdf` | question p7, key p18 (B) | label "Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), Q16".
+- y10-A-066 | Girraween High School, 2020, Q17 | 1 | same file | question p7, key p18 (B) | same label style.
+- y10-B-94 | Sydney Boys High School, 2022, Part B Q3 | 1 | `Sydney Boys 2022 ...` | question p9, solution p41 | label "Sydney Boys High School, 2022, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part B Q3".
+- y10-B-70, B-71 | Sydney Boys High School, 2020, Q21(a)–(b) | 2 + 2 | `Sydney Boys 2020 ...` | question p8, solution p35 | label "Sydney Boys High School, 2020, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics Stage 5.3, Q21".
+- y10-A-004 | Baulkham Hills High School, 2020, Q20 | 3 | question p11, solution p24.
+- y10-A-073 | Girraween High School, 2020, Q25(a) | 4 | question p15, solution p26.
+- y10-B-111 | Sydney Boys High School, 2024, Part C Q7 | 3 | `Sydney Boys 2024 ...` | question p17, solution pp52–53 | label "Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, Part C Q7".
+
+Hard band (Q22):
+- y10-B-104, B-105 | Sydney Boys High School, 2023, Part F Q3(a)–(b) | 2 + 3 | `Sydney Boys 2023 ...` | questions pp35–36, solutions pp72–74 | label "Sydney Boys High School, 2023, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part F Q3(a)–(b)". Part (c) (y10-B-106, 1 mark) is NOT used: it needs the converse of the angles in the same segment theorem, which the pack does not teach (AMSI puts the converses in an appendix).
+
+Chapter review at the end of lc3.html (14 marks; each item mixes lessons):
+- y10-B-74 | Sydney Boys High School, 2020, Q34 | 4 | question p17, solutions pp46–47 (C1 perpendicular from the centre + C3 intersecting chords).
+- y10-B-86 | Sydney Boys High School, 2021, Part F (c) | 2 | question p29, solution p56 (C1 semicircle + C3 alternate segment).
+- y10-B-99 | Sydney Boys High School, 2022, Part F Q3 | 4 | question p30, solutions pp63–65 (C1 semicircle + C3 tangent + similarity).
+- y10-A-076 | Girraween High School, 2020, Q25(d) | 4 | question p16, solution p27 (isosceles + C3 alternate segment).
+
+Pool after C3: every eligible CIR row is used except y10-B-106 (SBHS 2023 F Q3(c), 1 mark, needs an untaught converse). Excluded throughout: Sydney Boys 2025 rows (publisher recreation) and the DOUBTFUL row y10-B-93.
+
 ### Pool left for C3 (after C2)
 | Tag | Rows left | Marks |
 |---|---|---|
