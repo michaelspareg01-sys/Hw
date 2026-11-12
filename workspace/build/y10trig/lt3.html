@@ -1,4 +1,280 @@
 <div class="lesson">
 <div class="lesson-head"><div class="eyebrow">Lesson T3</div><h2>The ambiguous case</h2>
-<div class="focus">This lesson is still being written.</div></div>
+<div class="focus">When two sides and the included angle are known, the area formula gives the area; when the area is known, it gives a side or an angle, and an angle found this way has two possible values. When two sides and a <i>non-included</i> angle are known, the sine rule gives one value for the sine of the unknown angle, and there may be two triangles: this is the ambiguous case. The angle sum decides whether the obtuse answer is possible. Source: Year 11 Advanced book 5I (and two Challenge questions from 5J). The lesson ends with a chapter review of Lessons T1 to T3.</div></div>
+
+<div class="box tip"><div class="bt">Revision from Topic 11 (see the revision pages at the front of this pack)</div>
+<p>In any triangle \(ABC\), with side \(a\) opposite \(A\), side \(b\) opposite \(B\) and side \(c\) opposite \(C\):</p>
+<ul style="margin:0"><li><b>Sine rule</b> (Box 30): \(\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}\). To find a side, place the unknown side at the top left (Box 31).</li>
+<li><b>Cosine rule</b> (Boxes 35 and 39): \(a^2=b^2+c^2-2bc\cos A\), or \(\cos A=\dfrac{b^2+c^2-a^2}{2bc}\).</li>
+<li><b>Area formula</b> (Box 32): \(\text{area}=\tfrac12bc\sin A\), half the product of two sides times the sine of the included angle.</li>
+<li>From Lesson T1: \(\sin(180^\circ-\theta)=\sin\theta\). So an acute angle and its supplement have the same sine.</li></ul></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:the area formula in the SAS situation}}
+<div class="box concept"><div class="bt">Using the area formula — the SAS congruence situation (Year 11 Advanced, 5I)</div>
+<p style="margin:0">The area formula requires the SAS congruence situation in which two sides and the included angle are known.</p></div>
+<div class="box take"><div class="bt">33 Using the area formula</div>
+<p style="margin:0">In the SAS congruence situation:<br>&emsp;&emsp;area = (half the product of two sides) × (sine of the included angle).</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Exact area</span></div><div class="ex-body">
+<span data-q="d1">Find the exact area of a triangle with sides 5 and 8 and an included angle of 120°.</span>
+{{work:34}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<span data-q="y1">Find the exact area of a triangle with sides 6 and 10 and an included angle of 150°.</span>
+{{work:34}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 23</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>
+Find the area of the triangle shown to the right.
+<div class="sol-label">Solution</div>
+<p style="margin:0">Using the formula, area \(=\tfrac12\times3\times4\times\sin135^\circ\).</p>
+<p style="margin:0">Because &emsp;\(\sin135^\circ=\dfrac{1}{\sqrt2}\), &emsp;(as in Example 22)</p>
+\[\begin{aligned}\text{area}&amp;=6\times\frac{1}{\sqrt2}\\&amp;=6\times\frac{1}{\sqrt2}\times\frac{\sqrt2}{\sqrt2}\qquad\text{(rationalise the denominator)}\\&amp;=3\sqrt2\text{ square units.}\end{aligned}\]</div><div>{{svg:t3_ex23}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 23</div>
+<p style="margin:0">Example 22 is in Lesson T2. 135° is in quadrant 2, where sine is positive, and its related angle is 45°, so \(\sin135^\circ=\sin45^\circ=\dfrac{1}{\sqrt2}\). Also \(\tfrac12\times3\times4=6\), and \(6\times\dfrac{\sqrt2}{2}=3\sqrt2\).</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:using the area formula to find a side or an angle}}
+<div class="box concept"><div class="bt">Using the area formula to find a side or an angle (Year 11 Advanced, 5I)</div>
+<p>Substituting into the area formula when the area is known may allow an unknown side or angle to be found.</p>
+<p style="margin-bottom:0">When finding an angle, the formula will always give a single answer for \(\sin\theta\). There will be two solutions for \(\theta\), however, one acute and one obtuse.</p></div></div>
+<div class="box tip"><div class="bt">Why both angles work here</div>
+<p style="margin:0">With two sides and the included angle, any angle between 0° and 180° makes a triangle. The two answers \(\theta\) and \(180^\circ-\theta\) have the same sine (Lesson T1), so they give two different triangles with the same area. The only exception is \(\sin\theta=1\), which gives the single angle 90°. If the formula gives \(\sin\theta\gt1\), there is no such triangle.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A side, then an angle, from the area</span></div><div class="ex-body">
+<div class="parts one"><span data-q="d2a"><span class="pl">a</span>A triangle has area 40 m², and two of its sides, \(x\) m and 15 m, include an angle of 58°. Find \(x\), correct to four significant figures.</span>
+<span data-q="d2b"><span class="pl">b</span>A triangle has area 30 cm², and two of its sides are 10 cm and 9 cm. Find the angle \(\theta\) between these two sides, correct to the nearest minute.</span></div>
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span data-q="y2a"><span class="pl">a</span>A triangle has area 50 m², and two of its sides, \(x\) m and 20 m, include an angle of 64°. Find \(x\), correct to four significant figures.</span>
+<span data-q="y2b"><span class="pl">b</span>A triangle has area 21 cm², and two of its sides are 8 cm and 7 cm. Find the angle \(\theta\) between these two sides, correct to the nearest minute.</span></div>
+{{work:56}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 24</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>
+Find \(x\), correct to four significant figures, given that the triangle to the right has area 72 m².
+<div class="sol-label">Solution</div>
+<p style="margin:0">Substituting into the area formula,</p>
+<table style="border-collapse:collapse;margin-left:6mm"><tr><td></td><td>\(72=\tfrac12\times24\times x\times\sin67^\circ\)</td></tr>
+<tr><td></td><td>\(72=12\times x\times\sin67^\circ\)</td></tr>
+<tr><td style="padding-right:3mm"><span style="border:1px solid var(--ink);padding:0 1.5mm">\(\div12\sin67^\circ\)</span></td><td>\(x=\dfrac{6}{\sin67^\circ}\)</td></tr>
+<tr><td></td><td>\(\phantom{x}\doteqdot6.518\text{ metres.}\)</td></tr></table></div><div>{{svg:t3_ex24}}</div></div>
+</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 25</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>
+Find \(\theta\), correct to the nearest minute, given that the triangle below has area 60 cm².
+<div class="sol-label">Solution</div>
+<p style="margin:0">Substituting into the area formula,</p>
+<table style="border-collapse:collapse;margin-left:6mm"><tr><td></td><td>\(60=\tfrac12\times13\times12\times\sin\theta\)</td></tr>
+<tr><td></td><td>\(60=6\times13\sin\theta\)</td></tr>
+<tr><td style="padding-right:3mm"><span style="border:1px solid var(--ink);padding:0 1.5mm">\(\div(6\times13)\)</span></td><td>\(\sin\theta=\tfrac{10}{13}.\)</td></tr>
+<tr><td>Hence</td><td>\(\theta\doteqdot50^\circ17'\) or \(129^\circ43'\).</td></tr></table>
+<p style="margin-bottom:0">Notice that the second angle is the supplement of the first.</p></div><div>{{svg:t3_ex25}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked examples 24 and 25</div>
+<p style="margin:0"><b>24</b> \(\tfrac12\times24=12\). Dividing both sides by \(12\sin67^\circ\) gives \(x=\dfrac{72}{12\sin67^\circ}=\dfrac{6}{\sin67^\circ}\), and \(\sin67^\circ\doteqdot0.9205\), so \(x\doteqdot6.518\).</p>
+<p style="margin:0"><b>25</b> \(\tfrac12\times13\times12=78=6\times13\), so \(\sin\theta=\dfrac{60}{78}=\dfrac{10}{13}\). The calculator gives \(\sin^{-1}\tfrac{10}{13}\doteqdot50.28^\circ\doteqdot50^\circ17'\). The supplement is \(180^\circ-50^\circ17'=129^\circ43'\). Both are possible, because \(\theta\) is the included angle.</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:the sine rule in the ambiguous ASS situation}}
+<div class="box concept"><div class="bt">Using the sine rule to find an angle — the ambiguous ASS situation (Year 11 Advanced, 5I)</div>
+<p>The SAS congruence test requires that the angle be included between the two sides. When two sides and a non-included angle are known, the resulting triangle may not be determined up to congruence, and two triangles may be possible. This situation may be referred to as ‘the ambiguous ASS situation’.</p>
+<p style="margin-bottom:0">When the sine rule is applied in the ambiguous ASS situation, there is only one answer for the sine of an angle. There may be two possible solutions for the angle itself, however, one acute and one obtuse.</p></div></div>
+<div class="box take"><div class="bt">34 Using the sine rule to find an angle</div>
+<p style="margin-top:0">In the ambiguous ASS situation, in which two sides and a non-included angle of the triangle are known,</p>
+\[\frac{\text{sine of unknown angle}}{\text{its opposite side}}=\frac{\text{sine of known angle}}{\text{its opposite side}}.\]
+<p style="margin-bottom:0">Always check the angle sum to see whether both answers are possible.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two possible angles</span></div><div class="ex-body">
+<span data-q="d3">In \(\Delta ABC\), \(\angle B=45^\circ\), \(AC=10\) and \(BC=5\sqrt6\). Find the possible sizes of \(\angle A\), and check that each is possible.</span>
+{{work:50}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<span data-q="y3">In \(\Delta PQR\), \(\angle Q=30^\circ\), \(PR=4\) and \(QR=4\sqrt2\). Find the possible sizes of \(\angle P\), and check that each is possible.</span>
+{{work:50}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 26</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>
+Find the angle \(\theta\) in the triangle drawn to the right.
+<div class="sol-label">Solution</div>
+<p style="margin:0">\(\dfrac{\sin\theta}{7\sqrt6}=\dfrac{\sin45^\circ}{14}\)&emsp;(always place the unknown at the top left)</p>
+<p style="margin:1mm 0 0">\(\sin\theta=7\times\sqrt6\times\dfrac{1}{14}\times\dfrac{1}{\sqrt2}\), since \(\sin45^\circ=\dfrac{1}{\sqrt2}\),</p>
+<p style="margin:1mm 0 0">\(\sin\theta=\dfrac{\sqrt3}{2}\)</p>
+<p style="margin:1mm 0 0 6mm">\(\theta=60^\circ\) or \(120^\circ\).</p></div><div>{{svg:t3_ex26}}</div></div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start;margin-top:2mm"><div>
+<p style="margin:0"><b>Note:</b> There are <i>two</i> angles whose sine is \(\dfrac{\sqrt3}{2}\), one of them acute and the other obtuse. Moreover,</p>
+<p style="margin:0 0 0 8mm">\(120^\circ+45^\circ=165^\circ\)</p>
+<p style="margin:0">leaving just 15° for the third angle in the obtuse case, so it all seems to work. Opposite is the ruler-and-compasses construction of the triangle, showing how two different triangles can be produced from the same given ASS measurements.</p>
+<p style="margin-bottom:0">In many examples, however, the obtuse angle solution can be excluded using the fact that the angle sum of a triangle cannot exceed 180°.</p></div><div>{{svg:t3_ex26c}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 26</div>
+<p style="margin:0">Multiply both sides by \(7\sqrt6\): \(\sin\theta=\dfrac{7\sqrt6\sin45^\circ}{14}\). Then \(\dfrac{7}{14}=\dfrac12\) and \(\dfrac{\sqrt6}{\sqrt2}=\sqrt3\), so \(\sin\theta=\dfrac{\sqrt3}{2}\). The related angle is 60°, and sine is positive in quadrants 1 and 2, so \(\theta=60^\circ\) or \(180^\circ-60^\circ=120^\circ\). In the construction, the arc of radius 14 about the top vertex cuts the base line twice: once where the angle is 60° and once where it is 120°.</p></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:checking whether the obtuse answer is possible}}
+<div class="box tip"><div class="bt">The angle-sum test</div>
+<p style="margin:0">Suppose the sine rule gives an acute answer \(\alpha\) for the unknown angle, and the known angle is \(K\). The obtuse answer \(180^\circ-\alpha\) is possible only if \((180^\circ-\alpha)+K\lt180^\circ\), that is, only if \(\alpha\gt K\). Put another way, a larger side is always opposite a larger angle: if the known angle is opposite the <i>longer</i> of the two given sides, the unknown angle must be smaller than it, so only the acute answer is possible.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Only one solution</span></div><div class="ex-body">
+<span data-q="d4">In \(\Delta ABC\), \(\angle C=75^\circ\), \(AB=8\) and \(BC=5\). Find \(\angle A\), correct to the nearest minute, and show that there is only one solution.</span>
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<span data-q="y4">In \(\Delta XYZ\), \(\angle Z=70^\circ\), \(XY=9\) and \(YZ=6\). Find \(\angle X\), correct to the nearest minute, and show that there is only one solution.</span>
+{{work:46}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 27</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>
+Find the angle \(\theta\) in the triangle drawn to the right, and show that there is only one solution.
+<div class="sol-label">Solution</div>
+<p style="margin:0">\(\dfrac{\sin\theta}{4}=\dfrac{\sin80^\circ}{7}\)&emsp;(always place the unknown at the top left)</p>
+<p style="margin:1mm 0 0">\(\sin\theta=\dfrac{4\sin80^\circ}{7}\)</p>
+<p style="margin:1mm 0 0 6mm">\(\theta\doteqdot34^\circ15'\) or \(145^\circ45'\).</p>
+<p style="margin:1mm 0 0">But \(\theta\doteqdot145^\circ45'\) is impossible, because the angle sum would then exceed 180°,</p>
+<p style="margin:0">so &emsp;\(\theta\doteqdot34^\circ15'\) is the only solution.</p></div><div>{{svg:t3_ex27}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 27</div>
+<p style="margin:0">\(\sin\theta=\dfrac{4\sin80^\circ}{7}\doteqdot0.5628\), and \(\sin^{-1}0.5628\doteqdot34.25^\circ=34^\circ15'\). The obtuse answer is \(180^\circ-34^\circ15'=145^\circ45'\), and \(145^\circ45'+80^\circ=225^\circ45'\), which is more than 180°. Notice that the known angle 80° is opposite the longer given side 7, as in the angle-sum test above.</p></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Homework:four bands, easy to past-paper level}}
+<p class="small">The bands get harder: <b>Easy</b> practises the sine rule and the area formula, <b>Medium</b> brings in the ambiguous case and finding angles from the area, <b>Hard</b> has the Year 11 Challenge questions and harder past-paper parts, and the <b>past-paper mini exam</b> is done last, under exam conditions. Each question names its source. A calculator is needed unless a question asks for an exact value.</p>
+<div class="band"><span class="diff diff-easy">Easy</span><span class="line"></span></div>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q1</span><br>Find \(x\) in each triangle, correct to one decimal place.
+<div class="parts three" style="align-items:start">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:t3_q1a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:t3_q1b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:t3_q1c}}</div>
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:t3_q1d}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">e</span>{{svg:t3_q1e}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">f</span>{{svg:t3_q1f}}</div></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q2</span><br>Find the value of the pronumeral in each triangle, correct to two decimal places.
+<div class="parts three" style="align-items:start">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:t3_q2a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:t3_q2b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:t3_q2c}}</div></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q3</span><br>Find \(\theta\) in each triangle, correct to the nearest degree.
+<div class="parts three" style="align-items:start">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:t3_q3a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:t3_q3b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:t3_q3c}}</div>
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:t3_q3d}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">e</span>{{svg:t3_q3e}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">f</span>{{svg:t3_q3f}}</div></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q4</span><br>Find the area of each triangle, correct to the nearest square centimetre.
+<div class="parts three" style="align-items:start">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:t3_q4a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:t3_q4b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:t3_q4c}}</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Past paper: Northern Beaches Christian School, 2022, Mathematics Year 10 5.3/Year 9 Accelerated Yearly Examination, Section I Q5 (1 mark)</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>What is the area of the triangle to the nearest square metre?
+<div class="mc"><span>(A)&ensp;102 m²</span><span>(B)&ensp;153 m²</span><span>(C)&ensp;172 m²</span><span>(D)&ensp;178 m²</span></div>
+<p class="small" style="margin:1mm 0 0">The diagram on the paper is marked NOT TO SCALE.</p></div><div>{{svg:pp3_nb22_5}}</div></div>
+<div class="hint"><b>Hint:</b> What does the diagram give you?</div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Past paper: Sydney Boys High School, 2020, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics Stage 5.3, Q20 (3 marks)</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Given the diagram below, find the following, rounding your answers to 2 significant figures:
+<div class="pp-sub"><span><span class="pl">a.</span>The value of \(b\)</span><span class="mk">1</span></div>
+<div class="pp-sub"><span><span class="pl">b.</span>The area of the triangle</span><span class="mk">2</span></div></div><div>{{svg:pp3_sb20_20}}</div></div>
+<div class="hint"><b>Hint:</b> What do you know about the angles of the triangle?</div>{{work:34}}</div></div>
+
+<div class="band"><span class="diff diff-med">Medium</span><span class="line"></span></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q5</span>
+<div class="parts one"><span><span class="pl">a</span>Sketch \(\Delta ABC\) in which \(A=43^\circ\), \(B=101^\circ\) and \(a=7.5\) cm.</span><span data-q="m7b"><span class="pl">b</span>Find \(b\) and \(c\), in cm correct to two decimal places.</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q6</span>
+<div class="parts one"><span><span class="pl">a</span>Sketch \(\Delta XYZ\) in which \(y=32\) cm, \(Y=58^\circ\) and \(Z=52^\circ\).</span><span data-q="m8b"><span class="pl">b</span>Find the perimeter of \(\Delta XYZ\), correct to the nearest centimetre.</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q7</span><br><span data-q="m9">Sketch \(\Delta ABC\) in which \(a=2.8\) cm, \(b=2.7\) cm and \(A=52^\circ21'\).</span>
+<div class="parts one"><span><span class="pl">a</span>Find \(B\), correct to the nearest minute.</span><span><span class="pl">b</span>Hence find \(C\), correct to the nearest minute.</span><span><span class="pl">c</span>Hence find the area of \(\Delta ABC\) in cm², correct to two decimal places.</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q8</span>
+<div class="split" style="grid-template-columns:2fr 3fr;align-items:start"><div>There are two triangles that have sides 9 cm and 5 cm, and in which the angle opposite the 5 cm side is 22°. Find, in each case, the size of angle opposite the 9 cm side, correct to the nearest degree.</div><div style="display:flex;gap:2mm">{{svg:t3_q8a}}{{svg:t3_q8b}}</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q9</span>
+<div class="split" style="grid-template-columns:2fr 3fr;align-items:start"><div>Two triangles are shown, with sides 6 cm and 4 cm, in which the angle opposite the 4 cm is 36°. Find, in each case, the angle opposite the 6 cm side, correct to the nearest degree.</div><div style="display:flex;gap:2mm">{{svg:t3_q9a}}{{svg:t3_q9b}}</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q10</span><br><span data-q="m12">Sketch \(\Delta PQR\) in which \(p=7\) cm, \(q=15\) cm and \(\angle P=25^\circ50'\).</span>
+<div class="parts one"><span><span class="pl">a</span>Find the two possible sizes of \(\angle Q\), correct to the nearest minute.</span><span><span class="pl">b</span>For each possible size of \(\angle Q\), find \(r\) in cm, correct to one decimal place.</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q11</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>A travelling salesman drove from town \(A\) to town \(B\), then to town \(C\), and finally directly home to town \(A\).<br>Town \(B\) is 67 km north of town \(A\), and the bearings of town \(C\) from towns \(A\) and \(B\) are 039°T and 063°T respectively.<br>Find how far the salesman drove, correct to the nearest kilometre.</div><div>{{svg:t3_q11}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q12</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Melissa is standing at \(A\) on a path that leads to the base \(B\) of a vertical flagpole. The path is inclined at 12° to the horizontal, and the angle of elevation of the top \(T\) of the flagpole from \(A\) is 34°.
+<div class="parts one"><span><span class="pl">a</span>Explain why \(\angle TAB=22^\circ\) and \(\angle ABT=102^\circ\).</span><span><span class="pl">b</span>Given that \(AB=20\) m, find the height of the flagpole, correct to the nearest metre.</span></div></div><div>{{svg:t3_q12}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q13</span>
+<div class="parts one"><span data-q="m15a"><span class="pl">a</span>In \(\Delta ABC\), \(\sin A=\tfrac14\), \(\sin B=\tfrac23\) and \(a=12\). Find the value of \(b\).</span><span data-q="m15b"><span class="pl">b</span>In \(\Delta PQR\), \(p=25\), \(q=21\) and \(\sin Q=\tfrac35\). Find the value of \(\sin P\).</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q14</span><br>Substitute into the area formula to find the side length \(x\), given that each triangle has area 48 m². Give your answers in exact form, or correct to the nearest centimetre.
+<div class="parts three" style="align-items:start">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:t3_q14a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:t3_q14b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:t3_q14c}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q15</span><br>Substitute into the area formula to find the angle \(\theta\), given that each triangle has area 72 cm². Give answers correct to the nearest minute, where appropriate.
+<div class="parts three" style="align-items:start">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:t3_q15a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:t3_q15b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:t3_q15c}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body"><span class="muted small">Past paper: North Sydney Boys High School, 2022, Stage 5.3 Mathematics Year 10 Assessment Task 4, Section V Q10 (4 marks)</span><br>
+<span data-q="m18">In \(\Delta ABC\), sides \(c=24\), \(b=31\) and angle \(ABC=60^\circ\).</span>
+<div class="pp-sub"><span><span class="pl">a)</span>Draw \(\Delta ABC\), labelling with the information given</span><span class="mk">1</span></div>
+<div class="pp-sub"><span><span class="pl">b)</span>Find angle \(ACB\), correct to the nearest minute</span><span class="mk">3</span></div>
+<div class="hint"><b>Hint:</b> What does the question give you?</div>{{work:50}}</div></div>
+
+<div class="band"><span class="diff diff-chal">Hard</span><span class="line"></span></div>
+<div class="q"><span class="q-num">19</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q16</span><br>Find the exact value of \(x\) in each diagram.
+<div class="parts" style="grid-template-columns:repeat(4,1fr);align-items:start">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:t3_q16a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:t3_q16b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:t3_q16c}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:t3_q16d}}</div></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5I Q17</span>
+<div class="split" style="grid-template-columns:3fr 1fr;align-items:start"><div>The diagram to the right shows an isosceles triangle in which the apex angle is 35°.<br>Its area is 35 cm².<br>Find the length of the equal sides, correct to the nearest millimetre.</div><div>{{svg:t3_q17}}</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5J Q14 (Challenge)</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Use the cosine rule to find the two possible values of \(x\) in the diagram to the right.</div><div>{{svg:t3_j14}}</div></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5J Q15 (Challenge)</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>The diagram shows \(\Delta ABC\) in which \(\angle A=30^\circ\), \(AB=6\) cm and \(BC=4\) cm. Let \(AC=x\) cm.
+<div class="parts one"><span><span class="pl">a</span>Use the cosine rule to show that \(x^2-6\sqrt3\,x+20=0\).</span><span><span class="pl">b</span>Use the quadratic formula to show that \(AC\) has length \(3\sqrt3+\sqrt7\) cm or \(3\sqrt3-\sqrt7\) cm.</span><span><span class="pl">c</span>Copy the diagram and indicate on it (approximately) the other possible position of the point \(C\).</span></div></div><div>{{svg:t3_j15}}</div></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">23</span><div class="q-body"><span class="muted small">Past paper: Sydney Boys High School, 2022, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part D, second Q4 (2 marks)</span>
+{{svg:pp3_sb22_d4}}
+In the diagram above, \(BCD\) is a straight line.<br>\(AC=7.9\) cm, \(AD=6.4\) cm and \(BC=6\) cm.<br>Angle \(ACB=130^\circ\).<br>Calculate the acute angle \(ADC\), to the nearest degree. Geometrical reasoning not needed.
+<div class="hint"><b>Hint:</b> What does the diagram give you?</div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">24</span><div class="q-body"><span class="muted small">Past paper: Girraween High School, 2022, Year 10 Yearly Examination Mathematics, Q25(b) (3 marks)</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Find the size of angle \(\theta\). Give answer correct to the nearest minute.</div><div>{{svg:pp3_g22_25b}}</div></div>
+<div class="hint"><b>Hint:</b> What does the diagram give you?</div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">25</span><div class="q-body"><span class="muted small">Past paper: Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), Q22(c) (6 marks)</span><br>
+The diagram shows a point \(P\) which is 30 km due west of the point \(Q\). The point \(R\) is 12km from \(P\) and has a bearing from \(P\) of 070°.
+{{svg:pp3_g20_22c}}
+<div class="pp-sub"><span><span class="pl">i.</span>Find the distance of \(R\) from \(Q\) to the nearest km.</span><span class="mk">3</span></div>
+<div class="pp-sub"><span><span class="pl">ii.</span>Find the bearing of \(R\) from \(Q\).</span><span class="mk">3</span></div>
+<div class="hint"><b>Hint:</b> What does the question give you?</div>{{work:56}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>21 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Hornsby Girls High School, 2021, Year 10 Mathematics Term 4 <span style="white-space:nowrap">Assessment,&nbsp;Q9</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">In \(\Delta DEF\), \(\angle D=42^\circ\), \(d=5\) cm and \(f=7\) cm. What is the obtuse value of \(\angle F\), correct to the nearest degree?
+<div class="mc" style="grid-template-columns:repeat(4,1fr)"><span>A.&ensp;28°</span><span>B.&ensp;70°</span><span>C.&ensp;110°</span><span>D.&ensp;152°</span></div></div>
+<div class="hint"><b>Hint:</b> What does the question give you?</div>{{work:20}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>The Scots College, 2023, Year 10 Assessment Task 4, Mathematics 5.3, <span style="white-space:nowrap">Q19</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Given that \(\theta\) is obtuse, find the value of \(\theta\) correct to the nearest minute.<p class="small" style="margin:1mm 0 0">The diagram on the paper is marked Not to scale.</p></div><div>{{svg:pp3_sc23_19}}</div></div></div>
+<div class="hint"><b>Hint:</b> What does the diagram give you?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part <span style="white-space:nowrap">D,&nbsp;(b)(i)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>In \(\Delta ABC\), \(AB=5\) cm, \(AC=3\) cm, \(\angle B=25^\circ\), and \(\angle C\) is obtuse.<br>(i)&ensp;Find, to the nearest degree, the size of \(\angle C\).</div><div>{{svg:pp3_sb21_d}}</div></div></div>
+<div class="hint"><b>Hint:</b> What does the question give you?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Baulkham Hills High School, 2020, Year 10 Yearly Examination, Mathematics, <span style="white-space:nowrap">Q14</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Find the value(s) of \(\theta\) in the diagram. Give your answer to the nearest degree.</div><div>{{svg:pp3_bh20_14}}</div></div></div>
+<div class="hint"><b>Hint:</b> What does the diagram give you?</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), <span style="white-space:nowrap">Q22(b)</span></span><span class="mk">6 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>The area of the triangle is \(22\sqrt3\) cm².</div><div>{{svg:pp3_g20_22b}}</div></div>
+<div class="pp-sub"><span><span class="pl">i.</span>Find the value of \(x\).</span><span class="mk">3</span></div>
+<div class="pp-sub"><span><span class="pl">ii.</span>Hence find the exact value of \(y\).</span><span class="mk">3</span></div></div>
+<div class="hint"><b>Hint:</b> What do you know about the angle 60°?</div>{{work:56}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, Part <span style="white-space:nowrap">B,&nbsp;Q4</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">In the diagram below, \(AB=18\) cm, \(BD=6\) cm, \(BC=8\) cm, and the area of triangle \(ADE=160\) cm².
+{{svg:pp3_sb24_b4}}
+Calculate the length of \(AE\), to 2 decimal places.</div>
+<div class="hint"><b>Hint:</b> What does the diagram give you?</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>North Sydney Girls High School, 2023, Year 10 Mathematics Yearly Examination, <span style="white-space:nowrap">Q20(a)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q">Pocahontas headed from \(A\) to \(B\), 150 km away on a bearing of 050°T.<br>She then turned towards \(C\), which is 80 km from \(B\) and on a bearing of 080°T from \(A\).
+<div style="display:flex;align-items:flex-start;gap:4mm"><span class="small" style="margin-top:4mm">NOT TO SCALE</span>{{svg:pp3_nsg23_20}}</div>
+\(A\) is further from \(C\) than from \(B\).<br>Through what angle did Pocahontas turn at \(B\)?</div>
+<div class="hint"><b>Hint:</b> What does the question give you?</div>{{work:56}}</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="page-break"></div>
+<div class="lesson-head"><div class="eyebrow">Chapter Review</div><h2>Chapter review: Lessons T1 to T3</h2>
+<div class="focus">Mixed questions from the whole pack: angles of any size, exact values and equations, and the sine, cosine and area rules. Each question is from a school paper not used anywhere else in this pack.</div></div>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Sydney Boys High School, 2024, Year 10 Stage 5 Term 4 Yearly Exam, Mathematics, Section A Q5 (1 mark)</span><br>
+<span data-q="r1">What is the angle that the line \(y=-x\) makes with the positive direction of the \(x\)-axis?</span>{{work:16}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">North Sydney Girls High School, 2022, Year 10 Mathematics Yearly Examination, Q18(a) (2 marks)</span><br>
+<span data-q="r2">Find the exact value of \(\cos45^\circ+\tan120^\circ\).</span> You do not need to simplify your answer.{{work:20}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), Q22(a) (2 marks)</span><br>
+<span data-q="r3">Solve this trigonometric equation for \(0^\circ\le\theta\le360^\circ\). &ensp;\(\tan\theta=-1\)</span>{{work:20}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Sydney Boys High School, 2022, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part D, first Q4 (2 marks)</span><br>
+<span data-q="r4">Solve \(\cos x=-\cos225^\circ\) for \(0^\circ\le x\le360^\circ\).</span>{{work:22}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">The Scots College, 2023, Year 10 Assessment Task 4, Mathematics 5.3, Q18 (2 marks)</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div><span data-q="r5">Three towns, \(A\), \(B\) and \(C\), are connected by straight roads. The distance from town \(A\) to town \(B\) is 25 km and the distance from town \(A\) to town \(C\) is 18 km. If the angle between the two roads \(AB\) and \(AC\) is 65°, what is the distance \(BC\) to the nearest kilometre?</span><p class="small" style="margin:1mm 0 0">The diagram on the paper is marked Diagram Not to Scale.</p></div><div>{{svg:pp3_sc23_18}}</div></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Sydney Grammar School, 2020, Annual Examination Form IV Mathematics, Q3(b) (4 marks)</span>
+{{svg:pp3_sgs20_3b}}
+In \(\triangle ABC\) above, \(\angle ACB=60^\circ\), \(BC=5\) cm and \(AC=6\) cm.
+<div class="pp-sub"><span><span class="pl">(i)</span>Use the cosine rule to calculate the exact length of side \(AB\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span><span class="pl">(ii)</span>Calculate the exact area of \(\triangle ABC\).</span><span class="mk">2</span></div>{{work:34}}</div></div>
 </div>

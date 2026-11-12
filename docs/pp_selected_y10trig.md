@@ -68,3 +68,36 @@ Past papers in the mini exam (19 marks, 30 min; order PP 1–10):
 - PP10 y10-B-110 | Sydney Boys High School, 2024, Part C Q6 | 3 | question p16, solution p51.
 
 Checked and not used in T2: y10-A-107, A-109 (James Ruse 2024: cosec / sin²+cos² = 1, outside scope), A-114, A-133 (wrong printed solutions), A-149 (solution contradicts the answer), Canberra Grammar rows (ACT school), Fort St rows (no printed school name). Other clean T2 rows left unused (no reuse risk): A-002, A-067, A-068, A-080, A-081, A-099, A-112, A-127, A-128, A-135, A-140 (NSB 2021, check school name first), A-155/B-06, B-04, B-17, B-20, B-40, B-41, B-42, B-43, B-49, B-63, B-78, B-85, B-97, B-140, B-143, B-151, B-153.
+
+## T3 The ambiguous case (and chapter review)
+Source items (not past papers):
+- Year 11 Advanced 5I (PDF 208–210): text, Boxes 33 and 34, Examples 23, 24, 25, 26 (with Note and construction), 27; Exercise 5I Q1–Q4 (Easy; Foundation), Q5–Q15 (Medium; Development), Q16, Q17 (Hard; Challenge). Example 22 is in T2 and not reused. Answers PDF 548.
+- Year 11 Advanced 5J (PDF 217): Exercise 5J Q14, Q15 (Hard; Challenge, the cosine-rule form of the ambiguous case). Answers PDF 549 (Q14: 3 or 5; Q15 a, b show-that).
+- Revision tip only: 5I Boxes 30–32, 5J Boxes 35, 39 (Topic 11 prerequisites).
+
+Past papers in the homework bands:
+- Easy: y10-A-117 | Northern Beaches Christian School, 2022, Section I Q5 | 1 | `NBCS 2022 ...` question p4, solution p24 (key C).
+- Easy: y10-B-68 + y10-B-69 | Sydney Boys High School, 2020, Q20(a)–(b) | 3 | question p7, solution p34.
+- Medium: y10-A-143 + y10-A-144 | North Sydney Boys High School, 2022, Stage 5.3 Mathematics Year 10 Assessment Task 4, Section V Q10(a)–(b) | 4 | `North Sydney Boys 2022 ...` question p9, solution p30 (cover prints the school name).
+- Hard: y10-B-98 | Sydney Boys High School, 2022, Part D, second Q4 (the paper prints two questions numbered 4; the solutions call this one Q5) | 2 | question p20, solution p54.
+- Hard: y10-A-083 | Girraween High School, 2022, Q25(b) | 3 | question p23, solution p45 (θ = 51°7′).
+- Hard: y10-A-071 + y10-A-072 | Girraween High School, 2020, Year 10 Term 4 (Yearly Examination), Q22(c)(i)–(ii) | 6 | `Girraween 2020 ...` question p10, solution p21 (19 km, 282°). The school name is printed on p3 ("GIRRAWEEN HIGH SCHOOL, YEAR 10 YEARLY EXAMINATION, MATHEMATICS 2020").
+
+Past papers in the mini exam (21 marks, 30 min; order PP 1–7):
+- PP1 y10-A-098 | Hornsby Girls High School, 2021, Year 10 Mathematics Term 4 Assessment, Q9 | 1 | question p6, solution p28 (key C, 110°).
+- PP2 y10-B-53 | The Scots College, 2023, Year 10 Assessment Task 4, Mathematics 5.3, Q19 | 2 | `Scots 2023 ...` question p12, solution p36 (127°43′).
+- PP3 y10-B-82 | Sydney Boys High School, 2021, Part D (b)(i) | 2 | question p21, solution p51 (135°).
+- PP4 y10-A-003 | Baulkham Hills High School, 2020, Year 10 Yearly Examination, Mathematics, Q14 | 3 | `Baulkham Hills 2020 ...` question p9, solution p22 (73° or 107°).
+- PP5 y10-A-069 + y10-A-070 | Girraween High School, 2020, Q22(b)(i)–(ii) | 6 | question p10, solution p21 (x = 11, y = √97).
+- PP6 y10-B-109 | Sydney Boys High School, 2024, Part B Q4 | 3 | question p9, solution p42 (AE = 30).
+- PP7 y10-B-11 | North Sydney Girls High School, 2023, Year 10 Mathematics Yearly Examination, Q20(a) | 4 | question p11, solution p26 (99°38′).
+
+Chapter review (end of lt3.html; T1–T3 mixed, leftover clean items):
+- R1 y10-B-108 | Sydney Boys High School, 2024, Section A Q5 | 1 | question p3, solution p36 (135°; catalogue says "Part A": the paper prints "Section A").
+- R2 y10-A-153 = y10-B-04 | North Sydney Girls High School, 2022, Q18(a) | 2 | question p10, solution p21.
+- R3 y10-A-068 | Girraween High School, 2020, Q22(a) | 2 | question p10, solution p21.
+- R4 y10-B-97 | Sydney Boys High School, 2022, Part D, first Q4 | 2 | question p20, solution p54.
+- R5 y10-B-52 | The Scots College, 2023, Q18 | 2 | question p12, solution p36.
+- R6 y10-B-135 + y10-B-136 | Sydney Grammar School, 2020, Q3(b)(i)–(ii) | 4 | question p5, solution p16.
+
+Checked and not used in T3: y10-B-83 (SBHS 2021 Part D (b)(ii): the school solution uses the rounded angle 135° and prints CD = 4.24 cm; with the unrounded angle 135.22° the answer is 4.26 cm, so the printed answer is doubtful); y10-B-48 (Scots 2022 Q19, catalogue: second case not addressed); Fort St rows (no printed school name); DOUBTFUL and wrong-solution rows (A-060, A-124, A-131, B-15, B-30); SBHS 2025 rows; Canberra Grammar rows (ACT).
