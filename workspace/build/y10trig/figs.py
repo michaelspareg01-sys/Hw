@@ -47,8 +47,10 @@ class Fig:
         return self
 
     def circle(self, cx, cy, r, color="ink", width=1.5, fill="none", opacity=1):
+        # drawn as a path (two half arcs), so that svg_overlap.py tests the curve, not its bounding box
         f = ACC[fill] if fill != "none" else "none"
-        self.items.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="{f}" fill-opacity="{opacity}" stroke="{ACC[color]}" stroke-width="{width}"/>')
+        self.items.append(f'<path d="M{cx - r:.1f},{cy:.1f} A{r:.1f},{r:.1f} 0 1 0 {cx + r:.1f},{cy:.1f} A{r:.1f},{r:.1f} 0 1 0 {cx - r:.1f},{cy:.1f} Z" '
+                          f'fill="{f}" fill-opacity="{opacity}" stroke="{ACC[color]}" stroke-width="{width}"/>')
         return self
 
     def path(self, d, color="blue", width=2.2, dash=None, fill="none", opacity=1):
@@ -293,5 +295,547 @@ def fig_rev():
     save("rev_k7", f)
 
 
+# ---------------- Lesson T1: angles of any size ----------------
+
+def axes(f, cx, cy, R, lab=True, ext=14, xlab="x", ylab="y", width=1.3):
+    f.arrow(cx - R - ext, cy, cx + R + ext, cy, width=width, head=6)
+    f.arrow(cx, cy + R + ext, cx, cy - R - ext, width=width, head=6)
+    if lab:
+        f.text(cx + R + ext + 8, cy + 4, xlab, size=11.5, italic=True)
+        f.text(cx - 9, cy - R - ext + 2, ylab, size=11.5, italic=True)
+
+
+def ray(f, cx, cy, a, L, color="ink", width=1.6, head=7):
+    f.arrow(cx, cy, cx + L * cos(radians(a)), cy - L * sin(radians(a)), color=color, width=width, head=head)
+
+
+def pt(cx, cy, a, L):
+    return (cx + L * cos(radians(a)), cy - L * sin(radians(a)))
+
+
+def unit_ticks(f, cx, cy, R):
+    for (x, y, s, dx, dy) in ((cx + R, cy, "1", 7, 12), (cx - R, cy, "-1", -9, 12), (cx, cy - R, "1", 8, -7), (cx, cy + R, "-1", -10, 9)):
+        f.text(x + dx, y + dy, s, size=10.5)
+
+
+def fig_t1():
+    # 5D p181: rays for 100, 40 (= -320, 400), 200 (= -160), 320 (= -40)
+    f = Fig(260, 200)
+    cx, cy = 120, 104
+    axes(f, cx, cy, 80)
+    for a, s, dx, dy, anc in ((100, "100°", -10, -4, "end"), (40, "−320°, 40°, 400°", 4, -10, "start"),
+                              (200, "−160°, 200°", -6, 14, "middle"), (320, "−40°, 320°", 8, 14, "start")):
+        ray(f, cx, cy, a, 86)
+        x, y = pt(cx, cy, a, 86)
+        f.text(x + dx, y + dy, s, size=11, anchor=anc)
+    save("t1_rays", f)
+
+    # Maths Pathway, Graphs of trig functions: equivalent angles (-45 deg and 410 deg)
+    f = Fig(400, 186)
+    for cx, cap in ((95, "−45° is equivalent to 315°"), (300, "410° is equivalent to 50°")):
+        cy, R = 80, 60
+        f.circle(cx, cy, R, width=1.3)
+        axes(f, cx, cy, R, ext=16)
+        unit_ticks(f, cx, cy, R)
+        f.text(cx, cy + R + 36, cap, size=11.5, color="blue")
+    cx, cy, R = 95, 80, 60
+    f.line(cx, cy, *pt(cx, cy, -45, R), color="blue", width=1.6)
+    f.arc(cx, cy, 16, 0, -45, color="blue")
+    f.text(cx + 30, cy + 18, "−45°", size=11, color="blue", anchor="start")
+    cx = 300
+    f.line(cx, cy, *pt(cx, cy, 50, R), color="blue", width=1.6)
+    f.circle(cx, cy, 10, color="blue", width=1.2)
+    f.arc(cx, cy, 18, 0, 50, color="blue")
+    f.text(cx + 34, cy - 15, "410°", size=11, color="blue")
+    save("t1_equiv", f)
+
+    # 5D p182: definition diagram, circle radius r, ray theta through P(x, y)
+    f = Fig(190, 170)
+    cx, cy, R = 80, 86, 50
+    axes(f, cx, cy, R, ext=22)
+    f.circle(cx, cy, R)
+    P = pt(cx, cy, 52, R)
+    ray(f, cx, cy, 52, R + 26)
+    f.dot(*P, 2.8)
+    f.text(P[0] + 8, P[1] + 4, "P(x, y)", size=11.5, anchor="start", italic=True)
+    f.text(P[0] + 20, P[1] - 26, "θ", size=12, italic=True)
+    f.text(cx + R + 6, cy + 13, "r", size=11.5, italic=True)
+    save("t1_def", f)
+
+    # 5D p182: agreement with the earlier definition (first-quadrant arc, P, M)
+    f = Fig(190, 160)
+    cx, cy, R = 40, 130, 100
+    f.arrow(cx - 20, cy, cx + R + 24, cy, width=1.3, head=6).arrow(cx, cy + 14, cx, cy - R - 20, width=1.3, head=6)
+    f.text(cx + R + 30, cy + 4, "x", size=11.5, italic=True).text(cx - 9, cy - R - 16, "y", size=11.5, italic=True)
+    f.arc(cx, cy, R, -8, 100, color="ink", width=1.4)
+    P = pt(cx, cy, 52, R)
+    M = (P[0], cy)
+    ray(f, cx, cy, 52, R + 26)
+    f.dot(*P, 2.8)
+    f.line(*P, *M, width=1.3)
+    right_mark(f, M, (cx, cy), P, 7)
+    angle_arc(f, (cx, cy), (cx + 20, cy), P, 18)
+    f.text(cx + 27, cy - 9, "θ", size=11.5, italic=True)
+    f.text(P[0] + 8, P[1] + 2, "P(x, y)", size=11.5, anchor="start", italic=True)
+    f.text(P[0] + 20, P[1] - 26, "θ", size=12, italic=True)
+    side_label(f, (cx, cy), P, "r", 10, italic=True)
+    f.text(P[0] + 8, (P[1] + cy) / 2, "y", size=11.5, italic=True)
+    f.text((cx + M[0]) / 2, cy + 13, "x", size=11.5, italic=True)
+    f.text(M[0], cy + 14, "M", size=11.5, italic=True, anchor="start")
+    f.text(cx - 9, cy + 12, "O", size=11.5, italic=True)
+    f.text(cx + R + 8, cy + 13, "r", size=11.5, italic=True)
+    save("t1_agree", f)
+
+    # Maths Pathway, The Unit Circle: the unit circle box
+    f = Fig(170, 160)
+    cx, cy, R = 82, 80, 58
+    f.circle(cx, cy, R)
+    axes(f, cx, cy, R, ext=10)
+    unit_ticks(f, cx, cy, R)
+    f.line(cx, cy, *pt(cx, cy, 72, R), color="blue", width=1.6)
+    f.arc(cx, cy, 14, 0, 72, color="blue")
+    f.text(cx + 22, cy - 18, "θ", size=12, italic=True, color="blue")
+    save("t1_unit", f)
+
+    # Maths Pathway, The Unit Circle Q4(a) answer: 30 deg, (0.87, 0.5), sides 1, 0.87, 0.5
+    def mp_tri(name, a, plab, lab1, labx, laby, alab):
+        f = Fig(200, 170)
+        cx, cy, R = 84, 84, 62
+        f.circle(cx, cy, R)
+        axes(f, cx, cy, R, ext=10, lab=False)
+        unit_ticks(f, cx, cy, R)
+        P = pt(cx, cy, a, R)
+        M = (P[0], cy)
+        f.line(cx, cy, *P, color="blue", width=1.7)
+        f.line(*P, *M, color="faint", width=1.2, dash="3 2")
+        right_mark(f, M, (cx, cy), P, 7)
+        f.arc(cx, cy, 14, 0, a, color="blue")
+        lx, ly = pt(cx, cy, a / 2, 38)
+        f.text(lx, ly + 3, alab, size=9.5, color="blue")
+        f.text(P[0] + 6, P[1] - 8, plab, size=11, anchor="start")
+        side_label(f, (cx, cy), P, lab1, 9, size=11, italic=(lab1 == "1" and False))
+        f.text(P[0] + 10, (P[1] + cy) / 2 + 2, laby, size=11, italic=(laby == "y"))
+        f.text((cx + M[0]) / 2, cy + 13, labx, size=11, italic=(labx == "x"))
+        save(name, f)
+
+    mp_tri("t1_mp4", 30, "(0.87, 0.5)", "1", "0.87", "0.5", "30°")
+    mp_tri("t1_mp5", 50, "(x, y)", "1", "x", "y", "θ")
+
+    # Maths Pathway, Using Symmetry Q1(a): the tangent line x = 1 and tan 40 deg = 0.84
+    f = Fig(210, 190)
+    cx, cy, R = 92, 98, 62
+    f.circle(cx, cy, R)
+    axes(f, cx, cy, R, ext=12, lab=False)
+    unit_ticks(f, cx, cy, R)
+    f.line(cx + R, cy - R - 20, cx + R, cy + R + 20, width=1.4)
+    T = (cx + R, cy - R * tan(radians(40)))
+    f.line(cx, cy, *pt(cx, cy, 40, R), color="blue", width=1.7)
+    f.line(*pt(cx, cy, 40, R), *T, color="faint", width=1.2, dash="3 2")
+    f.line(cx, cy, *pt(cx, cy, 220, R + 20), color="faint", width=1.2, dash="3 2")
+    f.dot(*T, 2.6)
+    f.arc(cx, cy, 15, 0, 40, color="blue")
+    f.text(cx + 28, cy - 9, "40°", size=10.5, color="blue")
+    f.text(T[0] + 6, T[1] - 6, "(1, 0.84)", size=11, anchor="start")
+    save("t1_tanline", f)
+
+    # 5D p182: boundary angles
+    f = Fig(250, 200)
+    cx, cy, R = 120, 100, 54
+    f.circle(cx, cy, R)
+    f.arrow(cx - R - 40, cy, cx + R + 40, cy, width=1.3, head=6).arrow(cx, cy + R + 34, cx, cy - R - 34, width=1.3, head=6)
+    for x, y in ((cx + R, cy), (cx - R, cy), (cx, cy - R), (cx, cy + R)):
+        f.dot(x, y, 2.8)
+    f.text(cx + R + 18, cy + 15, "(r, 0)", size=11, italic=True).text(cx - R - 18, cy + 15, "(−r, 0)", size=11, italic=True)
+    f.text(cx - 22, cy - R - 9, "(0, r)", size=11, italic=True).text(cx - 26, cy + R + 14, "(0, −r)", size=11, italic=True)
+    f.text(cx + R + 34, cy - 9, "0°", size=11).text(cx - R - 34, cy - 9, "180°", size=11)
+    f.text(cx + 18, cy - R - 26, "90°", size=11).text(cx + 20, cy + R + 28, "270°", size=11)
+    save("t1_boundary", f)
+
+    # 5E p186: numbering of the quadrants
+    f = Fig(160, 110)
+    f.line(80, 6, 80, 104, width=1.3).line(6, 55, 154, 55, width=1.3)
+    for x, y, s in ((43, 26, "2nd"), (117, 26, "1st"), (43, 76, "3rd"), (117, 76, "4th")):
+        f.text(x, y, s, size=11).text(x, y + 16, "quadrant", size=11)
+    save("t1_quads", f)
+
+    # 5E p186: rays for 30, 150, 210, 330 deg
+    f = Fig(220, 170)
+    cx, cy = 110, 86
+    f.line(cx - 92, cy, cx + 92, cy, width=1.3).line(cx, cy - 76, cx, cy + 76, width=1.3)
+    f.text(cx + 98, cy + 4, "x", size=11.5, italic=True).text(cx - 8, cy - 72, "y", size=11.5, italic=True)
+    for a, s, anc in ((30, "30°", "start"), (150, "150°", "end"), (210, "210°", "end"), (330, "330°", "start")):
+        ray(f, cx, cy, a, 80, width=1.5, head=6)
+        x, y = pt(cx, cy, a, 94)
+        f.text(x, y + (-6 if a < 180 else 12), s, size=11, anchor=anc)
+        lo, hi = {30: (0, 30), 150: (150, 180), 210: (180, 210), 330: (-30, 0)}[a]
+        f.arc(cx, cy, 22, lo, hi, color="faint")
+        lx, ly = pt(cx, cy, (lo + hi) / 2, 56)
+        f.text(lx, ly + (4 if a < 180 else 1), "30°", size=10)
+    save("t1_30", f)
+
+    # 5E p186: signs of x and y in the four quadrants
+    f = Fig(190, 160)
+    cx, cy, R = 95, 82, 46
+    f.circle(cx, cy, R)
+    f.arrow(cx - R - 26, cy, cx + R + 30, cy, width=1.3, head=6).arrow(cx, cy + R + 26, cx, cy - R - 28, width=1.3, head=6)
+    f.text(cx + R + 32, cy + 13, "x", size=11.5, italic=True).text(cx - 9, cy - R - 24, "y", size=11.5, italic=True)
+    for a, s, anc in ((45, "(+, +)", "start"), (135, "(−, +)", "end"), (225, "(−, −)", "end"), (315, "(+, −)", "start")):
+        ray(f, cx, cy, a, R + 14, width=1.3, head=6)
+        P = pt(cx, cy, a, R)
+        f.dot(*P, 2.6)
+        f.text(P[0] + (8 if anc == "start" else -8), P[1] + 4, s, size=11, anchor=anc)
+    save("t1_signs", f)
+
+    # 5E p187: the ASTC diagram
+    f = Fig(150, 110)
+    f.line(75, 6, 75, 104, width=1.3).line(6, 55, 144, 55, width=1.3)
+    for x, y, s in ((40, 34, "S"), (110, 34, "A"), (40, 82, "T"), (110, 82, "C")):
+        f.text(x, y, s, size=13)
+    save("t1_astc", f)
+
+    # 5E p187: points P, Q, R, S on a circle of radius r at 30, 150, 210, 330 deg
+    f = Fig(240, 200)
+    cx, cy, R = 120, 100, 70
+    f.circle(cx, cy, R)
+    f.arrow(cx - R - 30, cy, cx + R + 30, cy, width=1.3, head=6).arrow(cx, cy + R + 22, cx, cy - R - 26, width=1.3, head=6)
+    f.text(cx + R + 36, cy + 4, "x", size=11.5, italic=True).text(cx - 9, cy - R - 22, "y", size=11.5, italic=True)
+    for a, s, lab, anc in ((30, "30°", "P", "start"), (150, "150°", "Q", "end"), (210, "210°", "R", "end"), (330, "330°", "S", "start")):
+        ray(f, cx, cy, a, R + 16, width=1.3, head=6)
+        P = pt(cx, cy, a, R)
+        f.dot(*P, 2.6)
+        x, y = pt(cx, cy, a, R + 22)
+        f.text(x, y + (-4 if a < 180 else 10), s, size=10.5, anchor=anc)
+        f.text(P[0] + (9 if anc == "start" else -9), P[1] + (10 if a < 180 else -4), lab, size=11.5, italic=True)
+    for a in (30, 150, 210, 330):
+        ref = 0 if a in (30, 330) else 180
+        lo, hi = (ref, a) if a in (30, 150) else ((a, ref) if a == 210 else (-30, 0))
+        f.arc(cx, cy, 20, lo, hi, color="faint")
+        mid = {30: 15, 150: 165, 210: 195, 330: -15}[a]
+        x, y = pt(cx, cy, mid, 52)
+        f.text(x, y + (1.5 if a < 180 else 1), "30°", size=9.5)
+    save("t1_pqrs", f)
+
+    # 5E Example 10: quadrant diagrams for 300, -210 and 570 deg
+    def qd(name, a, lab, rel, ref, ccw=True):
+        f = Fig(170, 150)
+        cx, cy = 85, 74
+        f.line(cx - 66, cy, cx + 66, cy, width=1.3).line(cx, cy - 64, cx, cy + 64, width=1.3)
+        ray(f, cx, cy, a, 64, width=1.6, head=7)
+        x, y = pt(cx, cy, a, 74)
+        f.text(x, y + 4, lab, size=11)
+        lo, hi = sorted((ref, a % 360 if ref == 0 else (a % 360)))
+        if ref == 360:
+            lo, hi = a % 360, 360
+        f.arc(cx, cy, 18, lo, hi, color="faint")
+        x, y = pt(cx, cy, (lo + hi) / 2, 46)
+        f.text(x, y + 4, rel, size=10.5)
+        save(name, f)
+
+    qd("t1_ex10a", 300, "300°", "60°", 360)
+    qd("t1_ex10b", 150, "−210°", "30°", 180)
+    qd("t1_ex10c", 210, "570°", "30°", 180)
+
+    # Maths Pathway, Using Symmetry Q3(a) answer: main angle 140 deg, reference 40 deg, (-0.77, 0.64)
+    f = Fig(220, 170)
+    cx, cy, R = 120, 86, 60
+    f.circle(cx, cy, R)
+    axes(f, cx, cy, R, ext=10, lab=False)
+    unit_ticks(f, cx, cy, R)
+    P = pt(cx, cy, 140, R)
+    M = (P[0], cy)
+    f.line(cx, cy, *P, color="blue", width=1.7)
+    f.line(*P, *M, color="faint", width=1.2, dash="3 2")
+    f.arc(cx, cy, 14, 0, 140, color="blue")
+    f.text(cx + 18, cy - 18, "140°", size=10.5, color="blue")
+    f.arc(cx, cy, 20, 140, 180, color="faint")
+    lx, ly = pt(cx, cy, 160, 36)
+    f.text(lx, ly + 3, "40°", size=10, color="faint")
+    f.text(P[0] - 4, P[1] - 10, "(−0.77, 0.64)", size=11, anchor="end")
+    save("t1_sym140", f)
+
+    # 5E p175: the graphs of sin x, cos x and tan x for -360 <= x <= 360
+    ticks = [(v, f"{v}°") for v in (-360, -270, -180, -90, 90, 180, 270, 360)]
+    for name, fn, lab in (("t1_gsin", lambda t: sin(radians(t)), "y = sin x"), ("t1_gcos", lambda t: cos(radians(t)), "y = cos x")):
+        g = Graph(-380, 380, -1.3, 1.3, w=620, h=120, pad=(14, 28, 16, 22))
+        g.axes("x", "y")
+        g.xticks(ticks)
+        g.yticks([(1, ""), (-1, "-1")])
+        g.label(0, 1, "1", dx=-8, dy=10 if name == "t1_gcos" else 0, anchor="end", size=11)
+        g.curve(fn, color="blue", width=2)
+        g.label(-380, 1.15, lab, anchor="start", size=11.5, color="blue")
+        save(name, g)
+    g = Graph(-380, 380, -2.6, 2.6, w=620, h=150, pad=(14, 28, 16, 22))
+    g.axes("x", "y")
+    g.xticks([(v, f"{v}°") for v in (-360, -180, 180, 360)] + [(-270, ""), (-90, ""), (90, ""), (270, "")])
+    g.yticks([(1, ""), (-1, "")])
+    g.label(0, 1, "1", dx=-7, anchor="end", size=11).label(0, -1, "-1", dx=7, anchor="start", size=11)
+    for a in (-270, -90, 90, 270):
+        g.vline(a, color="faint")
+        g.label(a, 0, f"{a}°", anchor="start", dx=4, dy=14, size=11)
+    for k in range(-2, 3):
+        g.curve(lambda t: tan(radians(t)), color="blue", width=2, x0=max(-380, k * 180 - 82), x1=min(380, k * 180 + 82))
+    g.label(-380, 2.35, "y = tan x", anchor="start", size=11.5, color="blue")
+    g.hline(1, x0=0, x1=45).vline(45, 0, 1).hline(-1, x0=-45, x1=0).vline(-45, -1, 0)
+    g.label(45, 0, "45°", dy=14, size=10.5).label(-45, 0, "−45°", dy=-13, size=10.5)
+    save("t1_gtan", g)
+
+    # 6B p227: angle of inclination, acute and obtuse
+    f = Fig(420, 170)
+    for k, (cx, a) in enumerate(((110, 45), (300, 135))):
+        cy = 96
+        f.arrow(cx - 80, cy, cx + 86, cy, width=1.3, head=6).arrow(cx, cy + 62, cx, cy - 84, width=1.3, head=6)
+        f.text(cx + 98, cy + 4, "x", size=11.5, italic=True).text(cx - 9, cy - 80, "y", size=11.5, italic=True)
+        f.arrow(cx - 80 * cos(radians(a)), cy + 80 * sin(radians(a)), *pt(cx, cy, a, 96), width=1.6, head=7)
+        f.arrow(*pt(cx, cy, a, 0), *pt(cx, cy, a + 180, 82), width=1.6, head=7)
+        P = pt(cx, cy, a, 68)
+        M = (P[0], cy)
+        f.line(*P, *M, color="faint", width=1.2, dash="3 2")
+        right_mark(f, M, (cx, cy), P, 7)
+        f.path(f"M{cx},{cy} L{cx + 16},{cy} A16,16 0 0 0 {pt(cx, cy, a, 16)[0]:.1f},{pt(cx, cy, a, 16)[1]:.1f} Z", color="blue", width=1, fill="blue", opacity=0.35)
+        x, y = pt(cx, cy, a / 2 if a < 90 else a * 0.62, 30)
+        f.text(x, y + 4, "α", size=12, italic=True)
+        f.text(P[0] + (-10 if a < 90 else 10), P[1] - 8, "P", size=11.5, italic=True)
+        f.text(M[0], cy + 14, "M", size=11.5, italic=True)
+        f.text(cx + (10 if a < 90 else -10), cy + 14, "O", size=11.5, italic=True)
+    save("t1_incl", f)
+
+    # 6B Example 6: A(-3, 5), B(-6, 0), O(0, 0)
+    g = Graph(-7, 1, -0.8, 5.8, w=200, h=150, pad=(10, 22, 14, 18))
+    g.axes("x", "y")
+    g.items.append(f'<polygon points="{g.X(-3)},{g.Y(5)} {g.X(-6)},{g.Y(0)} {g.X(0)},{g.Y(0)}" fill="none" stroke="{INK}" stroke-width="1.6"/>')
+    g.hline(5, x0=-3, x1=0)
+    g.vline(-3, 0, 5)
+    g.label(-3, 5, "A", dy=-9, italic=True)
+    g.label(-6, 0, "B", dx=-6, dy=-9, italic=True)
+    g.label(0, 0, "O", dx=-8, dy=11, italic=True)
+    g.label(-6, 0, "−6", dy=13, size=10.5)
+    g.label(-3, 0, "−3", dy=13, size=10.5)
+    g.label(0, 5, "5", dx=8, size=10.5, anchor="start")
+    save("t1_ex6", g)
+
+    # Maths Pathway, The Unit Circle Q7: an unknown angle in the second quadrant
+    f = Fig(200, 170)
+    cx, cy, R = 100, 86, 62
+    f.circle(cx, cy, R)
+    axes(f, cx, cy, R, ext=12)
+    unit_ticks(f, cx, cy, R)
+    P = pt(cx, cy, 142, R)
+    M = (P[0], cy)
+    f.line(cx, cy, *P, color="blue", width=1.7)
+    f.line(*P, *M, color="faint", width=1.2, dash="3 2")
+    right_mark(f, M, (cx, cy), P, 7)
+    f.arc(cx, cy, 13, 0, 142, color="blue")
+    f.text(cx + 14, cy - 22, "θ°", size=11, color="blue", italic=True)
+    save("t1_mpq7", f)
+
+    # Maths Pathway, Graphs of Trigonometric Functions Q6 and Q7: sin and cos for 0 to 360 with key points
+    for name, fn, lab in (("t1_mp6", lambda t: sin(radians(t)), "sin(θ)"), ("t1_mp7", lambda t: cos(radians(t)), "cos(θ)")):
+        g = Graph(-30, 390, -1.3, 1.3, w=330, h=120, pad=(14, 24, 18, 14))
+        g.axes("θ", lab)
+        g.xticks([(90, ""), (180, ""), (270, ""), (360, "")])
+        g.yticks([(1, "1" if name == "t1_mp6" else ""), (-1, "-1")])
+        if name == "t1_mp7":
+            g.label(0, 1, "1", dx=-8, dy=11, anchor="end", size=11)
+        g.curve(fn, color="blue", width=2, x0=-25, x1=380)
+        for v in (0, 90, 180, 270, 360):
+            g.dot(v, round(fn(v)), color="blue", r=3)
+        for v in (90, 180, 270, 360):
+            up = round(fn(v)) < 0 or (round(fn(v)) == 0 and fn(v + 10) < 0)
+            g.label(v, 0, f"{v}°", dx=12 if round(fn(v)) == 0 else 0, dy=-12 if up else 13, size=10.5)
+        save(name, g)
+
+
+def fig_t1_hw():
+    # 5D Q5 (book p184): rays a-f
+    f = Fig(270, 240)
+    cx, cy = 135, 116
+    f.line(cx - 108, cy, cx + 108, cy, width=1.3).line(cx, cy - 104, cx, cy + 108, width=1.3)
+    for a, s in ((70, "a"), (100, "b"), (140, "c"), (200, "d"), (240, "e"), (340, "f")):
+        ray(f, cx, cy, a, 92, width=1.5, head=6)
+        x, y = pt(cx, cy, a, 104)
+        f.text(x, y + 4, s, size=12, color="green", weight=700)
+    for lo, hi, s, r, m in ((70, 90, "20°", 30, 52), (90, 100, "10°", 44, 116), (140, 180, "40°", 30, 160),
+                            (180, 200, "20°", 56, 190), (240, 270, "30°", 34, 258), (340, 360, "20°", 56, 350)):
+        f.arc(cx, cy, r, lo, hi, color="faint")
+        x, y = pt(cx, cy, m, r + 14)
+        f.text(x, y + (4 if m < 180 else 1), s, size=10.5)
+    save("hw_5d5", f)
+
+    # 5D Q6 a-d (book p184)
+    for name, (X, Y), rl, plab in (("hw_5d6a", (3, 4), "5", "(3, 4)"), ("hw_5d6b", (-4, 3), "5", "(−4, 3)"),
+                                    ("hw_5d6c", (-1, -2), "√5", "(−1, −2)"), ("hw_5d6d", (12, -5), "13", "(12, −5)")):
+        f = Fig(170, 150)
+        cx, cy, R = 82, 74, 42
+        f.line(cx - R - 22, cy, cx + R + 22, cy, width=1.2).line(cx, cy - R - 26, cx, cy + R + 26, width=1.2)
+        f.circle(cx, cy, R, width=1.3)
+        a = degrees(atan2(Y, X))
+        P = pt(cx, cy, a, R)
+        ray(f, cx, cy, a, R + 24, width=1.5, head=6)
+        f.dot(*P, 2.6)
+        right = X > 0
+        f.text(P[0] + (8 if right else -8), P[1] + (12 if Y < 0 else -6), plab, size=11, anchor="start" if right else "end")
+        e = pt(cx, cy, a, R + 34)
+        f.text(e[0] + (4 if right else -4) + (8 if Y < 0 and right else 0), e[1] + 4 - (10 if Y < 0 and right else 0), "θ", size=12, italic=True)
+        f.text(cx + R + 8, cy + (13 if Y > 0 else -7), rl, size=11, anchor="start")
+        save(name, f)
+
+    # 5D Q8 (book p185): sin x and cos x on a grid
+    g = Graph(-40, 400, -1.25, 1.25, w=560, h=260, pad=(30, 20, 14, 18))
+    for v in range(-40, 401, 10):
+        g.vline(v, -1.25, 1.25, color="faint", dash=None, width=0.6 if v % 90 else 1.0)
+    for k in range(-12, 13):
+        y = k / 10
+        g.hline(y, x0=-40, x1=400, color="faint", dash=None, width=1.0 if k % 5 == 0 else 0.6)
+    g.items.append(f'<line x1="{g.X(0)}" y1="{g.Y(-1.25)}" x2="{g.X(0)}" y2="{g.Y(1.25)}" stroke="{INK}" stroke-width="1.3"/>')
+    g.items.append(f'<line x1="{g.X(-40)}" y1="{g.Y(0)}" x2="{g.X(400)}" y2="{g.Y(0)}" stroke="{INK}" stroke-width="1.3"/>')
+    g.curve(lambda t: sin(radians(t)), color="ink", width=1.6, x0=0, x1=360)
+    g.curve(lambda t: cos(radians(t)), color="ink", width=1.6, x0=0, x1=360)
+    for v, dx in ((90, -12), (180, -12), (270, 13)):
+        g.items.append(f'<rect x="{g.X(v) + dx - 15:.1f}" y="{g.Y(0) + 6:.1f}" width="30" height="13" fill="#fff"/>')
+        g.label(v, 0, f"{v}°", dx=dx, dy=13, size=11)
+    g.items.append(f'<rect x="{g.X(360) - 12:.1f}" y="{g.Y(0.15) - 7:.1f}" width="30" height="13" fill="#fff"/>')
+    g.label(360, 0.15, "360°", dx=3, size=11)
+    for v, s in ((1, "1"), (0, "0"), (-1, "-1")):
+        g.items.append(f'<rect x="{g.X(-40) + 4:.1f}" y="{g.Y(v) - 7:.1f}" width="16" height="13" fill="#fff"/>')
+        g.label(-40, v, s, dx=12, size=11)
+    g.items.append(f'<rect x="{g.X(110):.1f}" y="{g.Y(1.18) - 7:.1f}" width="60" height="13" fill="#fff"/>')
+    g.label(140, 1.18, "y = sin x", size=11, italic=True)
+    g.items.append(f'<rect x="{g.X(290):.1f}" y="{g.Y(1.18) - 7:.1f}" width="60" height="13" fill="#fff"/>')
+    g.label(320, 1.18, "y = cos x", size=11, italic=True)
+    save("hw_5d8", g)
+
+    # NBCS 2022 Section I Q13: interval OP with P(4, 5)
+    f = Fig(240, 150)
+    cx, cy = 70, 108
+    f.arrow(cx - 60, cy, cx + 150, cy, width=1.2, head=6).arrow(cx, cy + 36, cx, cy - 98, width=1.2, head=6)
+    f.text(cx + 156, cy + 4, "x", size=11.5, italic=True).text(cx - 8, cy - 94, "y", size=11.5, italic=True)
+    P = (cx + 4 * 17, cy - 5 * 17)
+    f.line(cx, cy, cx + 1.45 * (P[0] - cx), cy + 1.45 * (P[1] - cy), width=1.4)
+    f.dot(*P, 2.4).text(P[0] + 6, P[1] + 2, "P(4, 5)", size=11, anchor="start")
+    f.arrow(*pt(cx, cy, 8, 20), *pt(cx, cy, 46, 20), width=1.1, head=5)
+    f.text(cx + 30, cy - 12, "θ", size=11.5, italic=True)
+    f.text(cx - 8, cy + 13, "O", size=11.5, italic=True)
+    f.text(cx + 128, cy - 40, "NOT TO SCALE", size=10.5)
+    save("pp_nbcs22_13", f)
+
+    # Girraween 2023 MC Q3: line k through (2, 0) and (0, -4), angle at the x-intercept
+    f = Fig(330, 170)
+    cx, cy, u = 70, 96, 17
+    f.arrow(cx - 50, cy, cx + 210, cy, width=1.2, head=6).arrow(cx, cy + 60, cx, cy - 86, width=1.2, head=6)
+    f.text(cx + 216, cy + 4, "x", size=11.5, italic=True).text(cx - 8, cy - 82, "y", size=11.5, italic=True)
+    X2 = (cx + 2 * u, cy)
+    v = 15
+    f.line(cx - 0.3 * u, cy + 4.6 * v, cx + 4.6 * u, cy - 5.2 * v, width=1.4)
+    f.text(cx + 4.6 * u + 6, cy - 5.2 * v - 2, "k", size=11.5, italic=True)
+    f.line(cx - 4, cy + 4 * v, cx + 4, cy + 4 * v, width=1.1)
+    f.arc(X2[0], X2[1], 14, 0, 58, color="ink", width=1.1)
+    f.text(X2[0] - 6, cy + 14, "2", size=11).text(cx - 14, cy + 4 * v + 4, "−4", size=11)
+    f.text(X2[0] + 24, cy - 12, "Ø", size=11.5)
+    f.text(cx + 160, cy - 50, "DIAGRAM NOT TO SCALE", size=10)
+    save("pp_gir23_3", f)
+
+    # Sydney Boys 2021 Part C (f): ray OP through P(-3, 4), OP = 5
+    f = Fig(190, 150)
+    cx, cy = 120, 92
+    f.arrow(cx - 100, cy, cx + 60, cy, width=1.2, head=6).arrow(cx, cy + 50, cx, cy - 86, width=1.2, head=6)
+    f.text(cx + 66, cy + 4, "x", size=11.5, italic=True).text(cx - 8, cy - 82, "y", size=11.5, italic=True)
+    P = (cx - 3 * 14, cy - 4 * 14)
+    f.arrow(cx, cy, cx - 3 * 20, cy - 4 * 20, width=1.4, head=6)
+    f.dot(*P, 2.4).text(P[0] - 6, P[1] + 2, "P(−3, 4)", size=10.5, anchor="end")
+    f.text((cx + P[0]) / 2 - 8, (cy + P[1]) / 2 - 2, "5", size=10.5)
+    f.arc(cx, cy, 14, 0, 126.87, color="ink", width=1.1)
+    f.text(cx + 12, cy - 18, "θ", size=11.5, italic=True)
+    f.text(cx - 9, cy + 13, "O", size=11.5, italic=True)
+    save("pp_sbhs21_f", f)
+
+    # Sydney Boys 2020 Q8: the graph y = sin(-x)
+    g = Graph(-200, 400, -2, 2, w=560, h=200, pad=(20, 24, 16, 14))
+    for v in (-180, -90, 90, 180, 270, 360):
+        g.vline(v, -2, 2, color="faint", dash=None, width=0.8)
+    for v in (-2, -1, 1, 2):
+        g.hline(v, color="faint", dash=None, width=0.8)
+    g.axes("x", "y")
+    g.curve(lambda t: -sin(radians(t)), color="ink", width=1.8, x0=-198, x1=398)
+    for v in (-180, -90, 90, 180, 270, 360):
+        g.items.append(f'<rect x="{g.X(v) + 3:.1f}" y="{g.Y(0) + 4:.1f}" width="28" height="13" fill="#fff"/>')
+        g.label(v, 0, str(v).replace("-", "−"), dx=17, dy=11, size=10.5)
+    for v in (-2, -1, 1, 2):
+        g.label(0, v, str(v), dx=-6, anchor="end", size=10.5)
+    save("pp_sbhs20_8", g)
+
+
+class _S:
+    def __init__(self, s):
+        self.s = s
+
+    def svg(self):
+        return self.s
+
+
+def fig_t1_ans():
+    from plots import quadrant
+    for name, a, lab in (("a_mpg1a", -90, "−90°"), ("a_mpg1b", -30, "−30°"), ("a_mpg1c", 375, "375°"),
+                         ("a_mpg1d", -195, "−195°"), ("a_mpg1e", 430, "430°"), ("a_mpg1f", 720, "720°")):
+        save(name, _S(quadrant(a, lab, w=130, h=110)))
+    f = Fig(160, 140)
+    cx, cy = 80, 70
+    f.line(cx - 64, cy, cx + 64, cy, width=1.3).line(cx, cy - 62, cx, cy + 62, width=1.3)
+    ray(f, cx, cy, 120, 62, color="blue", width=1.8)
+    x, y = pt(cx, cy, 120, 72)
+    f.text(x - 4, y, "480°", size=11)
+    f.arc(cx, cy, 18, 120, 180, color="faint")
+    x, y = pt(cx, cy, 150, 36)
+    f.text(x, y + 4, "60°", size=10.5)
+    save("a_sgs480", f)
+    # North Sydney Girls 2022 Q16(c): y = tan x for 0 <= x <= 180
+    g = Graph(0, 190, -3, 3, w=260, h=170, pad=(22, 26, 14, 14))
+    g.axes("x", "y")
+    g.xticks([(45, ""), (135, ""), (180, "180°")])
+    g.vline(90)
+    g.curve(lambda t: tan(radians(t)), color="blue", width=2, x0=0, x1=88)
+    g.curve(lambda t: tan(radians(t)), color="blue", width=2, x0=92, x1=180)
+    g.label(90, 0, "90°", dx=4, dy=-12, anchor="start", size=10.5)
+    g.dot(45, 1, r=2.4).dot(135, -1, r=2.4)
+    g.label(45, 1, "(45°, 1)", dx=-6, dy=-8, anchor="end", size=10.5)
+    g.label(135, -1, "(135°, −1)", dx=6, dy=10, anchor="start", size=10.5)
+    save("a_nsg_tan", g)
+    # Sydney Grammar 2020 Q6(c)(i): y = cos theta for 0 <= theta <= 360
+    g = Graph(0, 380, -1.3, 1.3, w=300, h=130, pad=(22, 26, 14, 14))
+    g.axes("θ", "y")
+    g.xticks([(90, "90°"), (180, ""), (270, "270°"), (360, "")])
+    g.label(180, 0, "180°", dy=-12, size=11).label(360, 0, "360°", dy=-12, size=11)
+    g.yticks([(1, "1"), (-1, "-1")])
+    g.curve(lambda t: cos(radians(t)), color="blue", width=2, x0=0, x1=360)
+    save("a_sgs_cos", g)
+    # Maths Pathway Graphs Q9(b): sin, cos, tan for -180 <= theta <= 180
+    for name, fn, lab in (("a_mpg9s", lambda t: sin(radians(t)), "y = sin θ"), ("a_mpg9c", lambda t: cos(radians(t)), "y = cos θ"),
+                          ("a_mpg9t", lambda t: tan(radians(t)), "y = tan θ")):
+        g = Graph(-200, 200, -1.5, 1.5, w=230, h=130, pad=(10, 24, 14, 14))
+        g.axes("θ", "")
+        g.xticks([(-180, ""), (-90, ""), (90, ""), (180, "")])
+        g.label(-180, 0, "−180°", dy=-12 if name == "a_mpg9s" else 13, size=10)
+        g.label(180, 0, "180°", dy=-12 if name == "a_mpg9t" else 13, size=10)
+        g.yticks([(1, ""), (0.5, ""), (-0.5, ""), (-1, "")])
+        if name == "a_mpg9t":
+            for k in (-1, 0, 1):
+                g.curve(fn, color="blue", width=2, x0=max(-180, k * 180 - 56), x1=min(180, k * 180 + 56))
+            g.vline(-90).vline(90)
+        else:
+            g.curve(fn, color="blue", width=2, x0=-180, x1=180)
+        if name == "a_mpg9t":
+            g.label(-90, 0, "−90°", dx=-4, dy=-12, anchor="end", size=10).label(90, 0, "90°", dx=4, dy=-12, anchor="start", size=10)
+            g.label(200, 1.45, lab, anchor="end", size=11, color="blue")
+        else:
+            g.label(-90, 0, "−90°", dy=13 if name != "a_mpg9s" else -12, size=10)
+            g.label(90, 0, "90°", dy=-12 if name != "a_mpg9c" else 13, size=10)
+            g.label(0, 1.5, lab, dx=6, dy=0, anchor="start", size=11, color="blue")
+        g.label(0, 1, "1", dx=-5, dy=-6 if name == "a_mpg9c" else 0, anchor="end", size=10)
+        g.label(0, -1, "−1", dx=5, anchor="start", size=10)
+        save(name, g)
+
+
 if __name__ == "__main__":
     fig_rev()
+    fig_t1()
+    fig_t1_hw()
+    fig_t1_ans()

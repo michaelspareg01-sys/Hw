@@ -1,4 +1,538 @@
+<style>.t1tt td,.t1tt th{padding:0.8mm 1.2mm}</style>
 <div class="lesson">
 <div class="lesson-head"><div class="eyebrow">Lesson T1</div><h2>Angles of any size</h2>
-<div class="focus">This lesson is still being written.</div></div>
+<div class="focus">The definitions of sin, cos and tan are extended from acute angles to angles of any size, positive or negative, using a circle in the coordinate plane. The quadrant of the angle and the ASTC rule give the sign, and the related acute angle gives the size, so every value comes back to an acute angle. The lesson ends with the graphs of sin, cos and tan, and the angle of inclination of a line, where the gradient is \(\tan\alpha\). Sources: Year 11 Advanced book 5D, 5E and 6B; Maths Pathway sheets <i>The Unit Circle</i>, <i>Using Symmetry on the Unit Circle</i> and <i>Graphs of Trigonometric Functions</i>.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:angles of any size and their rays}}
+<div class="box concept"><div class="bt">Trigonometric functions of a general angle (Year 11 Advanced, 5D)</div>
+<p>The definitions of the trigonometric functions given in Section 5A only apply to acute angles, because in a right-angled triangle, both other angles are acute angles.</p>
+<p>This section introduces more general definitions based on circles in the coordinate plane (whose equations are Pythagoras’ theorem, as we saw in Section 3G). The new definitions will apply to any angle, but will, of course, give the same values as the previous definitions for acute angles.</p>
+<p><b>Putting a general angle on the coordinate plane.</b> Let \(\theta\) be any angle — possibly negative, possibly obtuse or reflex, possibly greater than 360°. We shall associate with \(\theta\) a ray with vertex at the origin.</p></div></div>
+<div class="box take"><div class="bt">8 The ray corresponding to \(\theta\)</div>
+<ul><li>The positive direction of the \(x\)-axis is the ray representing the angle 0°.</li>
+<li>For all other angles, rotate this ray anticlockwise through an angle \(\theta\).</li></ul>
+<p style="margin-bottom:0">If the angle is negative, the ray is rotated backwards, which means clockwise.</p></div>
+<div class="box concept"><div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p>Here are some examples of angles and the corresponding rays. The angles have been written at the ends of the arrows representing the rays.</p>
+<p>Notice that one ray can correspond to many angles. For example, all the following angles have the same ray as 40°:</p>
+<p style="margin-left:6mm">…, −680°, −320°, 40°, 400°, 760°, …</p>
+<p>A given ray thus corresponds to infinitely many angles, all differing by multiples of 360°. The relation from rays to angles is thus one-to-many.</p></div><div>{{svg:t1_rays}}</div></div></div>
+<div class="box take"><div class="bt">9 Corresponding angles and rays</div>
+<ul style="margin-bottom:0"><li>To each angle, there corresponds exactly one ray.</li>
+<li>To each ray, there correspond infinitely many angles, all differing from each other by multiples of 360°.</li></ul></div>
+<div class="box tip"><div class="bt">Finding angles with the same ray</div>
+<p>Add or subtract 360° as many times as you need. One full turn brings the ray back to where it started. For example, \(400^\circ-360^\circ=40^\circ\) and \(40^\circ-360^\circ=-320^\circ\). To find the angle between 0° and 360° with the same ray as a negative angle, keep adding 360° until the answer is positive.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Angles with the same ray</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Write down two positive angles and two negative angles that have the same ray as 50°.</span>
+<span><span class="pl">b</span>Which angle between 0° and 360° has the same ray as: <b>i</b> −120°, <b>ii</b> 470°?</span></div>
+{{work:30}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Write down two positive angles and two negative angles that have the same ray as 70°.</span>
+<span><span class="pl">b</span>Which angle between 0° and 360° has the same ray as: <b>i</b> −150°, <b>ii</b> 520°?</span></div>
+{{work:30}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: Maths Pathway, <i>Graphs of Trigonometric Functions</i></span></div><div class="ex-body">
+<p style="margin-top:0"><b>Equivalent angles on the unit circle.</b> The unit circle can measure negative angles and angles greater than 360°. If two different angles look the same on the unit circle, we can say that they are <u>equivalent angles.</u></p>
+<div class="split"><p style="margin:0;text-align:center"><u>Negative angles</u> are measured in the clockwise direction.</p><p style="margin:0;text-align:center"><u>Angles greater than 360°</u> continue in the anti-clockwise direction.</p></div>
+{{svg:t1_equiv}}
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: equivalent angles</div>
+<p>\(-45^\circ+360^\circ=315^\circ\), so −45° is equivalent to 315°. \(410^\circ-360^\circ=50^\circ\), so 410° is equivalent to 50°. "Equivalent angles" is the Maths Pathway name for angles with the same ray.</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:sin, cos and tan of any angle}}
+<div class="box concept"><div class="bt">Defining the trigonometric functions for general angles (Year 11 Advanced, 5D)</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p>Let \(\theta\) be any angle, positive or negative.</p>
+<p>Construct a circle with centre the origin and any positive radius \(r\). Let the ray corresponding to \(\theta\) intersect the circle at the point \(P(x,y)\).</p>
+<p>The six trigonometric functions are now defined in terms of \(x\), \(y\) and \(r\) as follows:</p></div><div>{{svg:t1_def}}</div></div></div></div>
+<div class="box take"><div class="bt">10 Definitions of the trigonometric functions</div>
+\[\sin\theta=\frac yr\qquad\qquad\cos\theta=\frac xr\qquad\qquad\tan\theta=\frac yx\]</div>
+<div class="box concept">
+<p><b>Note:</b> We chose \(r\) to be ‘any positive radius’. If a different radius were chosen, the two figures would be similar, so the lengths \(x\), \(y\) and \(r\) would stay in the same ratio. Because the definitions depend only on the ratios of the lengths, the values of the trigonometric functions would not change.</p>
+<p>In particular, we may use a circle of radius 1 in the definitions. When this is done, however, we would then lose the intuition that a trigonometric function is not a length, but is the ratio of two lengths.</p>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p><b>Agreement with the earlier definition.</b> Let \(\theta\) be an acute angle. Construct the ray corresponding to \(\theta\). Let the perpendicular from \(P\) meet the \(x\)-axis at \(M\). Then \(\theta=\angle POM\), so relating the sides to the angle \(\theta\),</p>
+<p style="margin-left:4mm">hypotenuse = \(OP=r\), &ensp; opposite = \(PM=y\), &ensp; adjacent = \(OM=x\).</p>
+<p>Hence the old and the new definitions are in agreement.</p></div><div>{{svg:t1_agree}}</div></div>
+<p><b>Note:</b> Most people find that the diagram above is the easiest way to learn the new definitions of the trigonometric functions. Take the old definitions in terms of hypotenuse, opposite and adjacent sides, and make the replacements,</p>
+<p style="margin-left:6mm;margin-bottom:0">hypotenuse \(\longleftrightarrow r\), &emsp; opposite \(\longleftrightarrow y\), &emsp; adjacent \(\longleftrightarrow x\).</p></div>
+<div class="box tip"><div class="bt">Left out of this lesson: cosec, sec and cot</div>
+<p>The book defines six functions here. The other three, cosec, sec and cot, are the reciprocals of sin, cos and tan. They are not in the Year 10 course, so this pack leaves them out of Boxes 10, 11, 12 and 14 and of the graphs. Where a sentence of the book mentions them, read only the part about sin, cos and tan.</p></div>
+<div class="box concept"><div class="bt">The unit circle (Maths Pathway, <i>The Unit Circle</i> and <i>Using Symmetry on the Unit Circle</i>)</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p><i>Note: the values in this module have been rounded to two decimal places.</i></p>
+<p>The unit circle has a radius of 1. Angles are measured starting from the positive side of the \(x\)-axis.</p>
+<p>The unit circle has a tangent that touches at the point \((1,0)\). The tangent of any angle \((\tan\theta)\) is the \(y\)-value where the angle meets the tangent to the circle.</p>
+<p style="margin-bottom:0">\(\tan40^\circ=0.84\)</p></div><div>{{svg:t1_unit}}{{svg:t1_tanline}}</div></div></div>
+<div class="box tip"><div class="bt">Why the unit circle is useful</div>
+<p>With \(r=1\), Box 10 becomes \(\sin\theta=\dfrac y1=y\) and \(\cos\theta=\dfrac x1=x\). So the point where the ray meets the unit circle is \((\cos\theta,\sin\theta)\): cos is the \(x\)-coordinate and sin is the \(y\)-coordinate. Dividing, \(\tan\theta=\dfrac yx=\dfrac{\sin\theta}{\cos\theta}\). On the tangent line \(x=1\), the ray reaches the height \(\tan\theta\), because the triangles are similar: \(\dfrac{\text{height}}{1}=\dfrac yx\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Values from a point on the ray</span></div><div class="ex-body">
+The ray of the angle \(\theta\) meets the circle with centre \(O\) and radius 13 at the point \(P(-5,12)\).
+<div class="parts one"><span><span class="pl">a</span>Check that \(P\) lies on the circle, that is, \(OP=13\).</span>
+<span><span class="pl">b</span>Write down the values of \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\).</span></div>
+{{work:34}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+The ray of the angle \(\theta\) meets the circle with centre \(O\) and radius 17 at the point \(P(8,-15)\).
+<div class="parts one"><span><span class="pl">a</span>Check that \(P\) lies on the circle, that is, \(OP=17\).</span>
+<span><span class="pl">b</span>Write down the values of \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\).</span></div>
+{{work:34}}</div></div>
+<div class="ex worked" style="break-inside:auto"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: Maths Pathway, <i>The Unit Circle</i> Q4 and Q5</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin-top:0"><b>4.</b> An angle of 30° touches the unit circle at the point \((0.87,0.5)\). Drawing a line from the point straight down to the \(x\)-axis creates a right triangle.</p>
+<p><b>a)</b> Copy the diagram and label the lengths of each triangle side.</p>
+<p><b>b)</b> Use the diagram to find: \(\sin(30^\circ)\), \(\cos(30^\circ)\).</p>
+<div class="sol-label">Solution</div>
+<p><b>a)</b> See the diagram.</p>
+<p><b>b)</b> \(\begin{aligned}[t]\sin(30^\circ)&amp;=\frac{0.5}{1}\\&amp;=0.5\end{aligned}\qquad\begin{aligned}[t]\cos(30^\circ)&amp;=\frac{0.87}{1}\\&amp;=0.87\end{aligned}\)</p>
+</div><div>{{svg:t1_mp4}}</div></div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin-top:2mm"><b>5.</b> The angle \(\theta\) touches the unit circle at the point \((x,y)\). Drawing a line from the point straight down to the \(x\)-axis creates a right triangle.</p>
+<p><b>a)</b> Copy the diagram and label the lengths of each triangle side.</p>
+<p><b>b)</b> Use the diagram to find \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\). Leave your answers in terms of \(x\) and \(y\).</p>
+<p><b>c)</b> Use your answers from part b) to write \(\tan\theta\) in terms of \(\sin\theta\) and \(\cos\theta\).</p>
+</div><div>{{svg:t1_mp5}}</div></div>
+<div class="sol-label">Solution</div>
+<p><b>a)</b> See the diagram.</p>
+<p><b>b)</b> \(\begin{aligned}[t]\sin\theta&amp;=\frac y1\\&amp;=y\end{aligned}\qquad\begin{aligned}[t]\cos\theta&amp;=\frac x1\\&amp;=x\end{aligned}\qquad\tan\theta=\frac yx\)</p>
+<p><b>c)</b> \(\tan\theta=\dfrac yx\qquad\sin\theta=y\qquad\cos\theta=x\qquad\tan\theta=\dfrac{\sin\theta}{\cos\theta}\)</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q4 and Q5</div>
+<p>In Q4 the right triangle has hypotenuse 1 (the radius), adjacent side 0.87 and opposite side 0.5, so \(\sin30^\circ=\dfrac{\text{opp}}{\text{hyp}}=\dfrac{0.5}{1}\) and \(\cos30^\circ=\dfrac{\text{adj}}{\text{hyp}}=\dfrac{0.87}{1}\). In Q5(c), replace \(y\) by \(\sin\theta\) and \(x\) by \(\cos\theta\) in \(\tan\theta=\dfrac yx\).</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:boundary angles}}
+<div class="box concept"><div class="bt">Boundary angles (Year 11 Advanced, 5D)</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p>Integer multiples of 90°, that is</p>
+<p style="margin-left:6mm">…, −90°, 0°, 90°, 180°, 270°, 360°, 450°, …</p>
+<p>are called <i>boundary angles</i> because they lie on the boundaries between quadrants.</p>
+<p>The values of the trigonometric functions at these boundary angles are not always defined, and are 0, 1 or −1 when they are defined. The diagram to the right can be used to calculate them, and the results are shown in the table below (where the star * indicates that the value is undefined).</p></div><div>{{svg:t1_boundary}}</div></div></div></div>
+<div class="box take"><div class="bt">11 The boundary angles</div>
+<table class="t" style="margin:1mm auto"><tr><th>\(\theta\)</th><th>0°</th><th>90°</th><th>180°</th><th>270°</th></tr>
+<tr><td>\(x\)</td><td>\(r\)</td><td>0</td><td>\(-r\)</td><td>0</td></tr>
+<tr><td>\(y\)</td><td>0</td><td>\(r\)</td><td>0</td><td>\(-r\)</td></tr>
+<tr><td>\(r\)</td><td>\(r\)</td><td>\(r\)</td><td>\(r\)</td><td>\(r\)</td></tr>
+<tr><td>\(\sin\theta\)</td><td>0</td><td>1</td><td>0</td><td>−1</td></tr>
+<tr><td>\(\cos\theta\)</td><td>1</td><td>0</td><td>−1</td><td>0</td></tr>
+<tr><td>\(\tan\theta\)</td><td>0</td><td>*</td><td>0</td><td>*</td></tr></table></div>
+<div class="box concept">
+<p>In practice, the answer to any question about the values of the trigonometric functions at these boundary angles should be read off the graphs of the functions. These graphs need to be known very well indeed.</p>
+<p style="margin-bottom:0"><b>The domains of the trigonometric functions.</b> The trigonometric functions are defined everywhere except where the denominator is zero.</p></div>
+<div class="box take"><div class="bt">12 Domains of the trigonometric functions</div>
+<ul style="margin-bottom:0"><li>\(\sin\theta\) and \(\cos\theta\) are defined for all angles \(\theta\).</li>
+<li>\(\tan\theta\) and \(\sec\theta\) are undefined when \(x=0\), that is, when \(\theta=\ldots,\,-90^\circ,\,90^\circ,\,270^\circ,\,450^\circ,\,\ldots\)</li></ul></div>
+<div class="box tip"><div class="bt">Reading the table</div>
+<p>At 90° the point is \((0,r)\), so \(\tan90^\circ=\dfrac yx=\dfrac r0\), which is undefined: you cannot divide by zero. A boundary angle outside 0° to 270° has the same values as the angle with the same ray. For example, 450° has the same ray as 90°, and −90° has the same ray as 270°.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Boundary angles</span></div><div class="ex-body">
+Use the boundary-angle diagram to find \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) (if they exist) for:
+<div class="parts"><span><span class="pl">a</span>\(\theta=450^\circ\)</span><span><span class="pl">b</span>\(\theta=-90^\circ\)</span></div>
+{{work:30}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use the boundary-angle diagram to find \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) (if they exist) for:
+<div class="parts"><span><span class="pl">a</span>\(\theta=540^\circ\)</span><span><span class="pl">b</span>\(\theta=-270^\circ\)</span></div>
+{{work:30}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: Maths Pathway, <i>Using Symmetry on the Unit Circle</i> Q2(c) and (d)</span></div><div class="ex-body">
+<p style="margin-top:0">The following questions are related to the tangent of an angle.</p>
+<p><b>c)</b> List two angles on the unit circle where \(\tan\theta=0\).</p>
+<p><b>d)</b> List two angles on the unit circle that will never touch the tangent line.</p>
+<div class="sol-label">Solution</div>
+<p><b>c)</b> 0° and 180° touch the tangent to the circle on the \(x\)-axis, so \(\tan(0^\circ)=0\) and \(\tan(180^\circ)=0\).</p>
+<p style="margin-bottom:0"><b>d)</b> 90° and 270° extend along the \(y\)-axis, so they will never touch the tangent to the circle.<br><b>Note:</b> for these angles we say that \(\tan\theta\) is undefined.</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q2(c) and (d)</div>
+<p>The ray for 180° points left along the \(x\)-axis. Extended back through \(O\), it is the \(x\)-axis itself, which meets the tangent line \(x=1\) at \((1,0)\), at height 0. The rays for 90° and 270° lie along the \(y\)-axis, which is parallel to the tangent line \(x=1\), so they never meet it. This agrees with Box 11.</p></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:quadrants and the ASTC rule}}
+<div class="box concept"><div class="bt">Quadrant, sign, and related acute angle (Year 11 Advanced, 5E)</div>
+<div class="split" style="grid-template-columns:3fr 1.3fr;align-items:center"><div>
+<p><i>Symmetry</i> is an essential aspect of trigonometric functions. In this section we will use symmetry to express the values of the trigonometric functions of any angle in terms of trigonometric functions of acute angles.</p>
+<p style="margin-bottom:0">The diagram shows the conventional anticlockwise numbering of the four quadrants of the coordinate plane. Acute angles are in the first quadrant, obtuse angles are in the second, and reflex angles are in the third and fourth.</p></div><div>{{svg:t1_quads}}</div></div></div></div>
+<div class="box concept">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin-top:0"><b>The signs of the trigonometric functions.</b> The signs of the trigonometric functions depend only on the signs of \(x\) and \(y\). (The radius \(r\) is always positive.) The signs of \(x\) and \(y\) depend in turn only on the quadrant in which the ray lies. Thus we can easily compute the signs of the trigonometric functions from the accompanying diagram and the definitions.</p></div><div>{{svg:t1_signs}}</div></div>
+<table class="t" style="margin:1mm auto"><tr><th>Quadrant</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+<tr><td>\(x\)</td><td>+</td><td>−</td><td>−</td><td>+</td></tr>
+<tr><td>\(y\)</td><td>+</td><td>+</td><td>−</td><td>−</td></tr>
+<tr><td>\(r\)</td><td>+</td><td>+</td><td>+</td><td>+</td></tr>
+<tr><td>\(\sin\theta\)</td><td>+</td><td>+</td><td>−</td><td>−</td></tr>
+<tr><td>\(\cos\theta\)</td><td>+</td><td>−</td><td>−</td><td>+</td></tr>
+<tr><td>\(\tan\theta\)</td><td>+</td><td>−</td><td>+</td><td>−</td></tr></table>
+<p style="margin-bottom:0">In NSW, these results are usually remembered by the phrase:</p></div>
+<div class="box take"><div class="bt">14 Signs of the trigonometric functions</div>
+<p style="margin:0">‘<u>A</u>ll <u>S</u>tations <u>T</u>o <u>C</u>entral’</p></div>
+<div class="box concept"><div class="split" style="grid-template-columns:3fr 1.2fr;align-items:center"><div>
+<p style="margin-top:0">indicating that the four letters A, S, T and C are placed successively in the four quadrants as shown. The significance of the letters is:</p>
+<p style="margin-left:4mm">A means <i>all</i> six functions are positive.<br>S means only <i>sine</i> (and cosecant) are positive.<br>T means only <i>tangent</i> (and cotangent) are positive.<br>C means only <i>cosine</i> (and secant) are positive.</p></div><div>{{svg:t1_astc}}</div></div>
+<p style="margin-bottom:0">Three graphs of the trigonometric functions were constructed in Exercise 5D, and all six are drawn together at the end of this section. Study each of them to see how the table of signs above, and the ASTC rule, agree with your observations about when the graph is above the \(x\)-axis and when it is below.</p></div>
+<div class="box tip"><div class="bt">Using ASTC with any angle</div>
+<p>First find the quadrant of the ray. For a negative angle or an angle greater than 360°, first add or subtract multiples of 360° to get an angle between 0° and 360° with the same ray. Then read the letter: in quadrant 1 all three are positive, in quadrant 2 only sin, in quadrant 3 only tan, in quadrant 4 only cos. The other two are negative.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Quadrant and signs</span></div><div class="ex-body">
+For each angle, state its quadrant, then use the ASTC rule to give the signs of \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\).
+<div class="parts three"><span><span class="pl">a</span>\(\theta=115^\circ\)</span><span><span class="pl">b</span>\(\theta=250^\circ\)</span><span><span class="pl">c</span>\(\theta=-60^\circ\)</span></div>
+{{work:30}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+For each angle, state its quadrant, then use the ASTC rule to give the signs of \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\).
+<div class="parts three"><span><span class="pl">a</span>\(\theta=165^\circ\)</span><span><span class="pl">b</span>\(\theta=320^\circ\)</span><span><span class="pl">c</span>\(\theta=400^\circ\)</span></div>
+{{work:30}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: Maths Pathway, <i>The Unit Circle</i> Q7</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin-top:0">The angle in the following diagram is unknown. Which of the following is correct?</p>
+<p style="margin-left:2mm">A) \(\sin\theta\) is negative, \(\cos\theta\) is positive, and \(\tan\theta\) is negative.<br>
+B) \(\sin\theta\) is positive, \(\cos\theta\) is negative, and \(\tan\theta\) is positive.<br>
+C) \(\sin\theta\) is positive, \(\cos\theta\) is negative, and \(\tan\theta\) is negative.<br>
+D) There is not enough information to know if \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) are positive or negative.</p>
+<div class="sol-label">Solution</div>
+<p style="margin-bottom:0"><b>C)</b> \(\sin\theta\) is positive, \(\cos\theta\) is negative, and \(\tan\theta\) is negative.</p></div><div>{{svg:t1_mpq7}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q7</div>
+<p>The ray ends in the second quadrant, where \(x\lt0\) and \(y\gt0\). So \(\sin\theta=y\) is positive, \(\cos\theta=x\) is negative, and \(\tan\theta=\dfrac yx\) is a positive divided by a negative, which is negative. This is the S quadrant: only sine is positive.</p></div>
+
+<!-- ============ Concept 5 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 5:the related acute angle}}
+<div class="box concept"><div class="bt">The quadrant and the related acute angle (Year 11 Advanced, 5E)</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin-top:0">The diagram to the right shows the four rays corresponding to the four angles 30°, 150°, 210° and 330°.</p>
+<p style="margin-bottom:0">These four rays lie in each of the four quadrants of the plane, and they all make the same acute angle of 30° with the \(x\)-axis. The four rays are thus the reflections of each other in the two axes.</p></div><div>{{svg:t1_30}}</div></div></div></div>
+<div class="box take"><div class="bt">13 Quadrant and related acute angle</div>
+<p style="margin-top:0">Let \(\theta\) be any angle.</p>
+<ul style="margin-bottom:0"><li>The <i>quadrant</i> of \(\theta\) is the quadrant (1, 2, 3 or 4) in which the ray lies.</li>
+<li>The <i>related acute angle</i> of \(\theta\) is the acute angle between the ray and the \(x\)-axis.</li></ul></div>
+<div class="box concept">
+<p style="margin-top:0">Each of the four angles above has the same related acute angle 30°. Notice that \(\theta\) and its related angle are only the same when \(\theta\) is an acute angle.</p>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p><b>The angle and the related acute angle.</b> In the diagram to the right, a circle of radius \(r\) has been added to the earlier diagram showing the four angles 30°, 150°, 210° and 330°.</p>
+<p>The four points \(P\), \(Q\), \(R\) and \(S\) where the four rays meet the circle are all reflections of each other in the \(x\)-axis and \(y\)-axis. Because of this symmetry, the coordinates of these four points are identical, apart from their signs.</p>
+<p style="margin-bottom:0">Hence the trigonometric functions of these angles will all be the same too, except that the signs may be different.</p></div><div>{{svg:t1_pqrs}}</div></div></div>
+<div class="box take"><div class="bt">15 The angle and the related acute angle</div>
+<ul style="margin-bottom:0"><li>The trigonometric functions of any angle \(\theta\) are the same as the trigonometric functions of its related acute angle, apart from a possible change of sign.</li>
+<li>The sign is best found using the ASTC diagram.</li></ul></div>
+<div class="box concept"><p style="margin:0"><b>Evaluating the trigonometric functions of any angle.</b> This gives a straightforward way of evaluating the trigonometric functions of any angle.</p></div>
+<div class="box take"><div class="bt">16 Trigonometric functions of any angle</div>
+<p style="margin-top:0">Draw a quadrant diagram then:</p>
+<ul style="margin-bottom:0"><li>Place the ray in the correct quadrant, and use the ASTC rule to work out the sign of the answer.</li>
+<li>Find the related acute angle, and work out the value of the trigonometric function at this related angle.</li></ul></div>
+<div class="box concept"><div class="bt">Reference angles (Maths Pathway, <i>Using Symmetry on the Unit Circle</i>)</div>
+<p>Every angle on the unit circle has a <u>reference angle</u> in the first quadrant based on the triangle it makes with the \(x\)-axis.</p>
+<p>The values from the first quadrant will help us figure out the values of \(\sin\theta\), \(\cos\theta\), and \(\tan\theta\) for other angles.</p>
+<p style="margin-bottom:0">For example, in question 3 you used the angle 40° as a reference for three other angles (140°, 220° and 320°).</p></div>
+<div class="box tip"><div class="bt">Finding the related acute angle</div>
+<p>"Reference angle" is the Maths Pathway name for the related acute angle. For an angle \(\theta\) between 0° and 360°:</p>
+<ul><li>quadrant 1: the related angle is \(\theta\);&emsp; quadrant 2: \(180^\circ-\theta\);</li>
+<li>quadrant 3: \(\theta-180^\circ\);&emsp; quadrant 4: \(360^\circ-\theta\).</li></ul>
+<p style="margin-bottom:0">For any other angle, first add or subtract multiples of 360°.</p></div>
+<div class="box tip"><div class="bt">Exact values you need now (from 5A, taught fully in Lesson T2)</div>
+<table class="t" style="margin:1mm auto"><tr><th>\(\theta\)</th><th>\(\sin\theta\)</th><th>\(\cos\theta\)</th><th>\(\tan\theta\)</th></tr>
+<tr><td>30°</td><td>\(\dfrac12\)</td><td>\(\dfrac{\sqrt3}{2}\)</td><td>\(\dfrac{1}{\sqrt3}\)</td></tr>
+<tr><td>45°</td><td>\(\dfrac{1}{\sqrt2}\)</td><td>\(\dfrac{1}{\sqrt2}\)</td><td>1</td></tr>
+<tr><td>60°</td><td>\(\dfrac{\sqrt3}{2}\)</td><td>\(\dfrac12\)</td><td>\(\sqrt3\)</td></tr></table>
+<p style="margin-bottom:0">This is the table of exact values in Box 2 of the Year 11 book (sin, cos and tan columns only). Lesson T2 shows where the values come from.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Exact values of any angle</span></div><div class="ex-body">
+Find the exact value of:
+<div class="parts three"><span data-q="d5a"><span class="pl">a</span>\(\sin480^\circ\)</span><span data-q="d5b"><span class="pl">b</span>\(\cos(-135^\circ)\)</span><span data-q="d5c"><span class="pl">c</span>\(\tan660^\circ\)</span></div>
+{{work:44}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find the exact value of:
+<div class="parts three"><span data-q="y5a"><span class="pl">a</span>\(\sin600^\circ\)</span><span data-q="y5b"><span class="pl">b</span>\(\cos(-330^\circ)\)</span><span data-q="y5c"><span class="pl">c</span>\(\tan495^\circ\)</span></div>
+{{work:44}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 10</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+Find the exact value of:
+<div class="parts three"><span data-q="w10a"><span class="pl">a</span>\(\tan300^\circ\)</span><span data-q="w10b"><span class="pl">b</span>\(\sin(-210^\circ)\)</span><span data-q="w10c"><span class="pl">c</span>\(\cos570^\circ\)</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts three" style="align-items:start"><div>{{svg:t1_ex10a}}</div><div>{{svg:t1_ex10b}}</div><div>{{svg:t1_ex10c}}</div>
+<div><b>a</b> 300° is in quadrant 4,<br>the related angle is 60°,<br>so \(\begin{aligned}[t]\tan300^\circ&amp;=-\tan60^\circ\\&amp;=-\sqrt3.\end{aligned}\)</div>
+<div><b>b</b> −210° is in quadrant 2,<br>the related angle is 30°,<br>so \(\begin{aligned}[t]\sin(-210^\circ)&amp;=+\sin30^\circ\\&amp;=\tfrac12.\end{aligned}\)</div>
+<div><b>c</b> 570° is in quadrant 3,<br>the related angle is 30°,<br>so \(\begin{aligned}[t]\cos570^\circ&amp;=-\cos30^\circ\\&amp;=-\frac{\sqrt3}{2}.\end{aligned}\)</div></div>
+<p style="margin-bottom:0"><b>Note:</b> A calculator will give approximate values of the trigonometric functions without any need to find the related acute angle. It will <i>not</i> give exact values, however, when these values involve surds.</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 10</div>
+<p><b>a</b> 300° is between 270° and 360°, so it is in quadrant 4, and the related angle is \(360^\circ-300^\circ=60^\circ\). Quadrant 4 is the C quadrant, so tan is negative.</p>
+<p><b>b</b> \(-210^\circ+360^\circ=150^\circ\), so −210° has the same ray as 150°, in quadrant 2. The related angle is \(180^\circ-150^\circ=30^\circ\). Quadrant 2 is the S quadrant, so sin is positive.</p>
+<p style="margin-bottom:0"><b>c</b> \(570^\circ-360^\circ=210^\circ\), in quadrant 3. The related angle is \(210^\circ-180^\circ=30^\circ\). Quadrant 3 is the T quadrant, so cos is negative.</p></div>
+
+<!-- ============ Concept 6 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 6:obtuse angles and formulae with general angles}}
+<div class="box concept"><div class="bt">General angles with pronumerals (Year 11 Advanced, 5E)</div>
+<p style="margin-bottom:0">This quadrant-diagram method can be used to generate formulae for expressions such as \(\sin(180^\circ+A)\) or \(\cot(360^\circ-A)\). The trick is to place \(A\) on the quadrant diagram <i>as if it were acute</i>.</p></div></div>
+<div class="box take"><div class="bt">17 Some formulae with general angles</div>
+<div class="parts three" style="margin:1mm 0;font-size:9.8pt;column-gap:4mm"><span>\(\begin{aligned}\sin(180^\circ-A)&amp;=\sin A\\ \cos(180^\circ-A)&amp;=-\cos A\\ \tan(180^\circ-A)&amp;=-\tan A\end{aligned}\)</span><span>\(\begin{aligned}\sin(180^\circ+A)&amp;=-\sin A\\ \cos(180^\circ+A)&amp;=-\cos A\\ \tan(180^\circ+A)&amp;=\tan A\end{aligned}\)</span><span>\(\begin{aligned}\sin(360^\circ-A)&amp;=-\sin A\\ \cos(360^\circ-A)&amp;=\cos A\\ \tan(360^\circ-A)&amp;=-\tan A\end{aligned}\)</span></div></div>
+<div class="box concept"><p style="margin:0">Some people prefer to learn this list of identities to evaluate trigonometric functions, but this seems unnecessary when the quadrant-diagram method is so clear.</p></div>
+<div class="box tip"><div class="bt">Obtuse angles in the Year 10 course</div>
+<p>If \(A\) is obtuse, then \(180^\circ-A\) is its related acute angle, and \(A\) is in quadrant 2, where only sin is positive. So, for any obtuse angle \(A\),</p>
+\[\begin{aligned}\sin A&amp;=\sin(180^\circ-A)\\ \cos A&amp;=-\cos(180^\circ-A)\\ \tan A&amp;=-\tan(180^\circ-A)\end{aligned}\]
+<p>These are the first column of Box 17 read the other way. For example, \(\sin150^\circ=\sin30^\circ\) and \(\cos150^\circ=-\cos30^\circ\).</p>
+<p style="margin-bottom:0"><b>Negative angles.</b> The ray for \(-A\) is the reflection of the ray for \(A\) in the \(x\)-axis: \(x\) stays the same and \(y\) changes sign. So \(\sin(-A)=-\sin A\), \(\cos(-A)=\cos A\) and \(\tan(-A)=-\tan A\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Using a reference angle</span></div><div class="ex-body">
+Given \(\sin35^\circ\doteqdot0.57\), \(\cos35^\circ\doteqdot0.82\) and \(\tan35^\circ\doteqdot0.70\), write down without a calculator:
+<div class="parts"><span><span class="pl">a</span>\(\sin145^\circ\), \(\cos145^\circ\) and \(\tan145^\circ\)</span><span><span class="pl">b</span>\(\sin325^\circ\), \(\cos325^\circ\) and \(\tan325^\circ\)</span></div>
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Given \(\sin55^\circ\doteqdot0.82\), \(\cos55^\circ\doteqdot0.57\) and \(\tan55^\circ\doteqdot1.43\), write down without a calculator:
+<div class="parts"><span><span class="pl">a</span>\(\sin125^\circ\), \(\cos125^\circ\) and \(\tan125^\circ\)</span><span><span class="pl">b</span>\(\sin235^\circ\), \(\cos235^\circ\) and \(\tan235^\circ\)</span></div>
+{{work:62}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: Maths Pathway, <i>Using Symmetry on the Unit Circle</i> Q3(a)</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin-top:0">The angle 40° has been reflected into other quadrants on the unit circle. \(\sin(40^\circ)=0.64\), \(\cos(40^\circ)=0.77\), \(\tan(40^\circ)=\dfrac{\sin(40^\circ)}{\cos(40^\circ)}=0.84\).</p>
+<p>a) i) Copy the diagram and fill in the main angle and the missing coordinates.<br>&ensp;&ensp;ii) Write \(\sin\theta\), \(\cos\theta\), and \(\tan\theta\) for the main angle.</p></div><div>{{svg:t1_sym140}}</div></div>
+<div class="sol-label">Solution</div>
+<p>i) See the diagram: the main angle is 140° and the point is \((-0.77,0.64)\).</p>
+<p style="margin-bottom:0">ii) \(\begin{aligned}[t]\sin(140^\circ)&amp;=\sin(40^\circ)=0.64\\ \cos(140^\circ)&amp;=-\cos(40^\circ)=-0.77\\ \tan(140^\circ)&amp;=\frac{\sin(40^\circ)}{-\cos(40^\circ)}=-\tan(40^\circ)\\&amp;=-0.84\end{aligned}\)</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q3(a)</div>
+<p>The ray for 140° is the reflection of the ray for 40° in the \(y\)-axis, because \(180^\circ-40^\circ=140^\circ\). Reflecting in the \(y\)-axis changes the sign of \(x\) only, so the point \((0.77,0.64)\) becomes \((-0.77,0.64)\). Then \(\sin140^\circ\) is the \(y\)-coordinate and \(\cos140^\circ\) is the \(x\)-coordinate.</p></div>
+
+<!-- ============ Concept 7 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 7:the graphs of sin, cos and tan}}
+<div class="box concept"><div class="bt">The graphs of the trigonometric functions (Year 11 Advanced, 5E)</div>
+<p>The sine and cosine graphs are waves, and they are the basis of all the mathematics that deals with waves. The later trigonometry in this course will mostly deal with these wave properties. These two graphs each repeat every 360°, and the graphs are therefore said to have a <i>period</i> of 360°.</p>
+<p style="margin-bottom:0">The piece of the sine wave from \(\theta=0^\circ\) to \(\theta=90^\circ\) is enough to construct the whole sine wave and the whole cosine wave — use reflections, rotations and translations.</p></div></div>
+<div class="box concept"><div class="bt">The graphs from −360° to 360° (Year 11 Advanced, 5E)</div>
+{{svg:t1_gsin}}{{svg:t1_gcos}}{{svg:t1_gtan}}</div>
+<div class="box concept"><div class="bt">Graphs of trigonometric functions (Maths Pathway, <i>Graphs of Trigonometric Functions</i>)</div>
+<p style="margin:0">Graphing \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) makes it easier to look at angles which are equivalent on the unit circle. The horizontal axis will show the value of the angle, \(\theta\). The vertical axis will show the function value: \(\sin\theta\), \(\cos\theta\) or \(\tan\theta\).</p></div>
+<div class="box tip"><div class="bt">Reading the three graphs</div>
+<ul style="margin:0"><li>Each graph of sin and cos stays between −1 and 1. Its value at an angle is the \(y\)-coordinate (sin) or \(x\)-coordinate (cos) of the point on the unit circle.</li>
+<li>The graph of \(y=\tan x\) repeats every 180°, so its period is 180°. It has vertical asymptotes at \(x=\ldots,-270^\circ,-90^\circ,90^\circ,270^\circ,\ldots\), where \(\tan x\) is undefined (Box 12).</li>
+<li>Each graph is above the \(x\)-axis exactly in the quadrants where ASTC says the function is positive. For example, \(\cos x\lt0\) for \(90^\circ\lt x\lt270^\circ\), quadrants 2 and 3.</li>
+<li>A horizontal line \(y=k\) with \(-1\lt k\lt1\) meets the sine graph twice between 0° and 360°: two angles with the same sine.</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Reading the cosine graph</span></div><div class="ex-body">
+Use the graph of \(y=\cos x\) for \(0^\circ\le x\le360^\circ\) to:
+<div class="parts one"><span><span class="pl">a</span>find the values of \(x\) for which \(\cos x=0\),</span><span><span class="pl">b</span>find the values of \(x\) for which \(\cos x\) is negative,</span><span><span class="pl">c</span>find the other angle between 0° and 360° with the same cosine as 50°.</span></div>
+{{work:58}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use the graph of \(y=\sin x\) for \(0^\circ\le x\le360^\circ\) to:
+<div class="parts one"><span><span class="pl">a</span>find the values of \(x\) for which \(\sin x=0\),</span><span><span class="pl">b</span>find the values of \(x\) for which \(\sin x\) is negative,</span><span><span class="pl">c</span>find the other angle between 0° and 360° with the same sine as 50°.</span></div>
+{{work:58}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">From the text: Maths Pathway, <i>Graphs of Trigonometric Functions</i> Q6 and Q7</span></div><div class="ex-body">
+<div class="split" style="align-items:start;grid-template-columns:minmax(0,1fr) minmax(0,1fr)"><div>
+<p style="margin-top:0"><b>6.</b> The following graph shows \(\sin\theta\) from 0° to 360°.</p>{{svg:t1_mp6}}
+<p><b>c)</b> Copy and complete the table below using the values from the graph.</p>
+<p><b>d)</b> Based on the graph, how many angles between 0° and 360° have a sine value of 0.75?</p></div><div>
+<p style="margin-top:0"><b>7.</b> The following graph shows \(\cos\theta\) from 0° to 360°.</p>{{svg:t1_mp7}}
+<p><b>c)</b> Copy and complete the table using the values from the graph.</p>
+<p><b>d)</b> Based on the graph, how many angles between 0° and 360° have a cosine value of −0.75?</p></div></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="align-items:start;grid-template-columns:minmax(0,1fr) minmax(0,1fr)"><div>
+<table class="t t1tt" style="margin:0"><tr><th>\(\theta\)</th><td>0°</td><td>90°</td><td>180°</td><td>270°</td><td>360°</td></tr><tr><th>\(\sin\theta\)</th><td>0</td><td>1</td><td>0</td><td>−1</td><td>0</td></tr></table>
+<p>d) 2</p></div><div>
+<table class="t t1tt" style="margin:0"><tr><th>\(\theta\)</th><td>0°</td><td>90°</td><td>180°</td><td>270°</td><td>360°</td></tr><tr><th>\(\cos\theta\)</th><td>1</td><td>0</td><td>−1</td><td>0</td><td>1</td></tr></table>
+<p>d) 2</p></div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q6(d) and Q7(d)</div>
+<p>Draw the horizontal line \(y=0.75\) across the sine graph. It meets the graph once in the first quadrant (rising) and once in the second quadrant (falling), so there are 2 angles. The line \(y=-0.75\) meets the cosine graph once in quadrant 2 and once in quadrant 3, where cos is negative.</p></div>
+
+<!-- ============ Concept 8 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 8:gradient and the angle of inclination}}
+<div class="box tip"><div class="bt">Gradient (Year 11 Advanced, 6B Box 5, in brief)</div>
+<p style="margin:0">The gradient of the interval from \(P(x_1,y_1)\) to \(Q(x_2,y_2)\) is \(\dfrac{\text{rise}}{\text{run}}=\dfrac{y_2-y_1}{x_2-x_1}\). Horizontal intervals have gradient zero, and vertical intervals have no gradient. A line that rises from left to right has positive gradient, and one that falls has negative gradient.</p></div>
+<div class="box concept"><div class="bt">Gradient and the angle of inclination (Year 11 Advanced, 6B)</div>
+<p style="margin-top:0">The <i>angle of inclination</i> of a line is the angle between the upward direction of the line and the positive direction of the \(x\)-axis.</p>
+{{svg:t1_incl}}
+<p style="margin-bottom:0">The two diagrams above show that lines with positive gradients have acute angles of inclination, and lines with negative gradients have obtuse angles of inclination. They also illustrate the trigonometric relationship between the gradient and the angle of inclination \(\alpha\).</p></div></div>
+<div class="box take"><div class="bt">8 Angle of inclination</div>
+<p style="margin-top:0">Suppose that a line has angle of inclination \(\alpha\). Then:</p>
+<ul style="margin-bottom:0"><li>gradient of line \(=\tan\alpha\) &emsp; OR &emsp; the line is vertical and \(\alpha=90^\circ\).</li></ul></div>
+<div class="box concept"><div class="bt">Proof</div>
+<p style="margin-top:0"><b>A</b> When \(\alpha\) is acute, as in the first diagram above, then the rise \(MP\) and the run \(OM\) are the opposite and adjacent sides of the triangle \(POM\), so</p>
+\[\tan\alpha=\frac{MP}{OM}=\text{gradient of }OP.\]
+<p><b>B</b> When \(\alpha\) is obtuse, as in the second diagram, then \(\angle POM=180^\circ-\alpha\), so</p>
+\[\tan\alpha=-\tan\angle POM=-\frac{MP}{OM}=\text{gradient of }OP.\]</div>
+<div class="box tip"><div class="bt">Steps the book skips: the proof, part B</div>
+<p>\(\tan\alpha=-\tan(180^\circ-\alpha)\) is the obtuse-angle rule from Concept 6. In the second diagram \(M\) is to the left of \(O\), so the run from \(O\) to \(P\) is \(-OM\), and the gradient of \(OP\) is \(\dfrac{MP}{-OM}=-\dfrac{MP}{OM}\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Angles of inclination</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Given the points \(A(-2,4)\), \(B(-4,0)\) and \(O(0,0)\), find the angles of inclination of the intervals \(AB\) and \(AO\), correct to the nearest degree.</span>
+<span><span class="pl">b</span>What sort of triangle is \(\Delta ABO\)?</span></div>
+{{work:44}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Given the points \(A(-4,3)\), \(B(-8,0)\) and \(O(0,0)\), find the angles of inclination of the intervals \(AB\) and \(AO\), correct to the nearest degree.</span>
+<span><span class="pl">b</span>What sort of triangle is \(\Delta ABO\)?</span></div>
+{{work:44}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">From the text: keep for homework</span></div><div class="ex-body">
+<div class="parts one"><span><span class="pl">a</span>Given the points \(A(-3,5)\), \(B(-6,0)\) and \(O(0,0)\), find the angles of inclination of the intervals \(AB\) and \(AO\).</span>
+<span><span class="pl">b</span>What sort of triangle is \(\Delta ABO\)?</span></div>
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>
+<p style="margin-top:0"><b>a</b> First, \(\begin{aligned}[t]\text{gradient of }AB&amp;=\frac{0-5}{-6+3}\\&amp;=\tfrac53,\end{aligned}\)</p>
+<p>and using a calculator to solve \(\tan\alpha=\tfrac53\),<br>&emsp;&emsp;angle of inclination of \(AB\doteqdot59^\circ\).</p>
+<p>Secondly, \(\begin{aligned}[t]\text{gradient of }AO&amp;=\frac{0-5}{0+3}\\&amp;=-\tfrac53,\end{aligned}\)</p>
+<p>and using a calculator to solve \(\tan\alpha=-\tfrac53\),<br>&emsp;&emsp;angle of inclination of \(AO\doteqdot121^\circ\).</p>
+<p style="margin-bottom:0"><b>b</b> Hence &emsp;\(\angle AOB=59^\circ\) (straight angle).<br>Thus the base angles of \(\Delta AOB\) are equal, so the triangle is isosceles.</p></div><div>{{svg:t1_ex6}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Worked example 6</div>
+<p><b>a</b> \(\tan^{-1}\tfrac53\doteqdot59.04^\circ\). For \(\tan\alpha=-\tfrac53\) the calculator gives \(\tan^{-1}\big(-\tfrac53\big)\doteqdot-59.04^\circ\), which is not an angle of inclination. The gradient is negative, so \(\alpha\) is obtuse, and \(\tan\alpha=-\tan(180^\circ-\alpha)\) gives \(180^\circ-\alpha\doteqdot59.04^\circ\), so \(\alpha\doteqdot120.96^\circ\doteqdot121^\circ\).</p>
+<p style="margin-bottom:0"><b>b</b> \(\angle AOB\) and the angle of inclination of \(AO\) lie on the straight line \(BO\) extended, so they add to 180°: \(\angle AOB\doteqdot180^\circ-121^\circ=59^\circ\). The angle of inclination of \(AB\) is \(\angle ABO\doteqdot59^\circ\). So \(\angle ABO=\angle AOB\).</p></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Homework:four bands, easy to past-paper level}}
+<p class="small">The bands get harder: <b>Easy</b> and <b>Medium</b> practise each concept, <b>Hard</b> mixes ideas and includes Year 11 Challenge questions, and the <b>past-paper mini exam</b> is done last, under exam conditions. Each question names its source. A calculator may be used unless a question asks for an exact value.</p>
+<div class="band"><span class="diff diff-easy">Easy</span><span class="line"></span></div>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Maths Pathway, <i>Graphs of Trigonometric Functions</i>, Q1</span><br>Sketch each of the following angles on the unit circle. State which angle between 0° and 360° it is equivalent to.
+<div class="parts three"><span data-q="e1a"><span class="pl">a)</span>\(-90^\circ\)</span><span data-q="e1b"><span class="pl">b)</span>\(-30^\circ\)</span><span data-q="e1c"><span class="pl">c)</span>\(375^\circ\)</span><span data-q="e1d"><span class="pl">d)</span>\(-195^\circ\)</span><span data-q="e1e"><span class="pl">e)</span>\(430^\circ\)</span><span data-q="e1f"><span class="pl">f)</span>\(720^\circ\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Maths Pathway, <i>Graphs of Trigonometric Functions</i>, Q3</span><br>State which quadrant the following angles belong to.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="e2a"><span class="pl">a)</span>\(-45^\circ\)</span><span data-q="e2b"><span class="pl">b)</span>\(400^\circ\)</span><span data-q="e2c"><span class="pl">c)</span>\(-185^\circ\)</span><span data-q="e2d"><span class="pl">d)</span>\(640^\circ\)</span><span data-q="e2e"><span class="pl">e)</span>\(560^\circ\)</span><span data-q="e2f"><span class="pl">f)</span>\(-400^\circ\)</span><span data-q="e2g"><span class="pl">g)</span>\(-98^\circ\)</span><span data-q="e2h"><span class="pl">h)</span>\(725^\circ\)</span></div>{{work:18}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Maths Pathway, <i>The Unit Circle</i>, Q9</span><br>State whether each of the following values will be positive or negative.<br><i>Hint: sketch a diagram if you get stuck.</i>
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="e3a"><span class="pl">a)</span>\(\sin(26^\circ)\)</span><span data-q="e3b"><span class="pl">b)</span>\(\cos(26^\circ)\)</span><span data-q="e3c"><span class="pl">c)</span>\(\tan(26^\circ)\)</span><span data-q="e3d"><span class="pl">d)</span>\(\sin(331^\circ)\)</span><span data-q="e3e"><span class="pl">e)</span>\(\cos(162^\circ)\)</span><span data-q="e3f"><span class="pl">f)</span>\(\sin(179^\circ)\)</span><span data-q="e3g"><span class="pl">g)</span>\(\cos(223^\circ)\)</span><span data-q="e3h"><span class="pl">h)</span>\(\tan(91^\circ)\)</span></div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q1</span><br>Use the ASTC rule to determine the sign (+ or −) of each trigonometric ratio.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="e4a"><span class="pl">a</span>\(\sin20^\circ\)</span><span data-q="e4b"><span class="pl">b</span>\(\cos50^\circ\)</span><span data-q="e4c"><span class="pl">c</span>\(\cos100^\circ\)</span><span data-q="e4d"><span class="pl">d</span>\(\tan140^\circ\)</span>
+<span data-q="e4e"><span class="pl">e</span>\(\tan250^\circ\)</span><span data-q="e4f"><span class="pl">f</span>\(\sin310^\circ\)</span><span data-q="e4g"><span class="pl">g</span>\(\sin200^\circ\)</span><span data-q="e4h"><span class="pl">h</span>\(\cos280^\circ\)</span>
+<span data-q="e4i"><span class="pl">i</span>\(\sin340^\circ\)</span><span data-q="e4j"><span class="pl">j</span>\(\cos350^\circ\)</span><span data-q="e4k"><span class="pl">k</span>\(\tan290^\circ\)</span><span data-q="e4l"><span class="pl">l</span>\(\cos190^\circ\)</span>
+<span data-q="e4m"><span class="pl">m</span>\(\tan170^\circ\)</span><span data-q="e4n"><span class="pl">n</span>\(\sin110^\circ\)</span><span data-q="e4o"><span class="pl">o</span>\(\tan80^\circ\)</span><span data-q="e4p"><span class="pl">p</span>\(\cos170^\circ\)</span></div>{{work:22}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q2</span><br>Find the related acute angle of each angle.
+<div class="parts" style="grid-template-columns:repeat(5,1fr)"><span data-q="e5a"><span class="pl">a</span>\(10^\circ\)</span><span data-q="e5b"><span class="pl">b</span>\(150^\circ\)</span><span data-q="e5c"><span class="pl">c</span>\(310^\circ\)</span><span data-q="e5d"><span class="pl">d</span>\(200^\circ\)</span><span data-q="e5e"><span class="pl">e</span>\(80^\circ\)</span>
+<span data-q="e5f"><span class="pl">f</span>\(250^\circ\)</span><span data-q="e5g"><span class="pl">g</span>\(290^\circ\)</span><span data-q="e5h"><span class="pl">h</span>\(100^\circ\)</span><span data-q="e5i"><span class="pl">i</span>\(350^\circ\)</span><span data-q="e5j"><span class="pl">j</span>\(160^\circ\)</span></div>{{work:18}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q3</span><br>Write each trigonometric ratio as the ratio of an acute angle with the correct sign attached.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="e6a"><span class="pl">a</span>\(\tan130^\circ\)</span><span data-q="e6b"><span class="pl">b</span>\(\cos310^\circ\)</span><span data-q="e6c"><span class="pl">c</span>\(\sin220^\circ\)</span><span data-q="e6d"><span class="pl">d</span>\(\tan260^\circ\)</span>
+<span data-q="e6e"><span class="pl">e</span>\(\cos170^\circ\)</span><span data-q="e6f"><span class="pl">f</span>\(\sin320^\circ\)</span><span data-q="e6g"><span class="pl">g</span>\(\cos185^\circ\)</span><span data-q="e6h"><span class="pl">h</span>\(\sin125^\circ\)</span>
+<span data-q="e6i"><span class="pl">i</span>\(\tan325^\circ\)</span><span data-q="e6j"><span class="pl">j</span>\(\sin85^\circ\)</span><span data-q="e6k"><span class="pl">k</span>\(\cos95^\circ\)</span><span data-q="e6l"><span class="pl">l</span>\(\tan205^\circ\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q4</span><br>Use the trigonometric graphs to find the values (if they exist) of these trigonometric ratios of boundary angles.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="e7a"><span class="pl">a</span>\(\sin0^\circ\)</span><span data-q="e7b"><span class="pl">b</span>\(\cos180^\circ\)</span><span data-q="e7c"><span class="pl">c</span>\(\cos90^\circ\)</span><span data-q="e7d"><span class="pl">d</span>\(\tan0^\circ\)</span>
+<span data-q="e7e"><span class="pl">e</span>\(\sin90^\circ\)</span><span data-q="e7f"><span class="pl">f</span>\(\cos0^\circ\)</span><span data-q="e7g"><span class="pl">g</span>\(\sin270^\circ\)</span><span data-q="e7h"><span class="pl">h</span>\(\tan270^\circ\)</span>
+<span data-q="e7i"><span class="pl">i</span>\(\sin180^\circ\)</span><span data-q="e7j"><span class="pl">j</span>\(\cos270^\circ\)</span><span data-q="e7k"><span class="pl">k</span>\(\tan90^\circ\)</span><span data-q="e7l"><span class="pl">l</span>\(\tan180^\circ\)</span></div>{{work:22}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q5</span><br>Find the exact value of:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="e8a"><span class="pl">a</span>\(\sin60^\circ\)</span><span data-q="e8b"><span class="pl">b</span>\(\sin120^\circ\)</span><span data-q="e8c"><span class="pl">c</span>\(\sin240^\circ\)</span><span data-q="e8d"><span class="pl">d</span>\(\sin300^\circ\)</span>
+<span data-q="e8e"><span class="pl">e</span>\(\cos45^\circ\)</span><span data-q="e8f"><span class="pl">f</span>\(\cos135^\circ\)</span><span data-q="e8g"><span class="pl">g</span>\(\cos225^\circ\)</span><span data-q="e8h"><span class="pl">h</span>\(\cos315^\circ\)</span>
+<span data-q="e8i"><span class="pl">i</span>\(\tan30^\circ\)</span><span data-q="e8j"><span class="pl">j</span>\(\tan150^\circ\)</span><span data-q="e8k"><span class="pl">k</span>\(\tan210^\circ\)</span><span data-q="e8l"><span class="pl">l</span>\(\tan330^\circ\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 6B Q6</span><br>Use the formula gradient \(=\tan\alpha\) to find the gradient, correct to two decimal places where necessary, of a line with angle of inclination:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="e9a"><span class="pl">a</span>\(15^\circ\)</span><span data-q="e9b"><span class="pl">b</span>\(135^\circ\)</span><span data-q="e9c"><span class="pl">c</span>\(22\tfrac12^\circ\)</span><span data-q="e9d"><span class="pl">d</span>\(72^\circ\)</span></div>{{work:18}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 6B Q7</span><br>Use the formula gradient \(=\tan\alpha\) to find the angle of inclination, correct to the nearest degree where necessary, of a line with gradient:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="e10a"><span class="pl">a</span>\(1\)</span><span data-q="e10b"><span class="pl">b</span>\(-\sqrt3\)</span><span data-q="e10c"><span class="pl">c</span>\(4\)</span><span data-q="e10d"><span class="pl">d</span>\(\dfrac{1}{\sqrt3}\)</span></div>{{work:20}}</div></div>
+
+<div class="band"><span class="diff diff-med">Medium</span><span class="line"></span></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5D Q5</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Write down two positive angles between 0° and 720° and two negative angles between −720° and 0° that are represented by each of the rays in the diagram to the right.</div><div>{{svg:hw_5d5}}</div></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5D Q6</span><br>Use the definitions \(\sin\theta=\dfrac yr\) and \(\cos\theta=\dfrac xr\) and \(\tan\theta=\dfrac yx\) to write down the values of the six trigonometric ratios of the angle \(\theta\) in each diagram.
+<div class="box tip" style="padding:1.5mm 3mm;margin:1mm 0"><p style="margin:0"><span class="bt" style="display:inline;margin-right:2mm">For this pack</span>Write down \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) only (see the note on cosec, sec and cot in Concept 2).</p></div>
+<div class="parts" style="grid-template-columns:repeat(4,1fr)">
+<div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:hw_5d6a}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:hw_5d6b}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:hw_5d6c}}</div><div style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:hw_5d6d}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q6</span><br>Find the exact value of:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="m13a"><span class="pl">a</span>\(\cos120^\circ\)</span><span data-q="m13b"><span class="pl">b</span>\(\tan225^\circ\)</span><span data-q="m13c"><span class="pl">c</span>\(\sin330^\circ\)</span><span data-q="m13d"><span class="pl">d</span>\(\sin135^\circ\)</span>
+<span data-q="m13e"><span class="pl">e</span>\(\tan240^\circ\)</span><span data-q="m13f"><span class="pl">f</span>\(\cos210^\circ\)</span><span data-q="m13g"><span class="pl">g</span>\(\tan315^\circ\)</span><span data-q="m13h"><span class="pl">h</span>\(\cos300^\circ\)</span>
+<span data-q="m13i"><span class="pl">i</span>\(\sin225^\circ\)</span><span data-q="m13j"><span class="pl">j</span>\(\cos150^\circ\)</span><span data-q="m13k"><span class="pl">k</span>\(\sin210^\circ\)</span><span data-q="m13l"><span class="pl">l</span>\(\tan300^\circ\)</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q9</span><br>Find the related acute angle of each angle.
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="m14a"><span class="pl">a</span>\(-60^\circ\)</span><span data-q="m14b"><span class="pl">b</span>\(-200^\circ\)</span><span data-q="m14c"><span class="pl">c</span>\(-150^\circ\)</span><span data-q="m14d"><span class="pl">d</span>\(-300^\circ\)</span>
+<span data-q="m14e"><span class="pl">e</span>\(430^\circ\)</span><span data-q="m14f"><span class="pl">f</span>\(530^\circ\)</span><span data-q="m14g"><span class="pl">g</span>\(590^\circ\)</span><span data-q="m14h"><span class="pl">h</span>\(680^\circ\)</span></div>{{work:20}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q10</span><br>Find the exact value of:
+<div class="parts three"><span data-q="m15a"><span class="pl">a</span>\(\cos(-60^\circ)\)</span><span data-q="m15b"><span class="pl">b</span>\(\sin(-120^\circ)\)</span><span data-q="m15c"><span class="pl">c</span>\(\tan(-120^\circ)\)</span>
+<span data-q="m15d"><span class="pl">d</span>\(\sin(-315^\circ)\)</span><span data-q="m15e"><span class="pl">e</span>\(\tan(-210^\circ)\)</span><span data-q="m15f"><span class="pl">f</span>\(\cos(-225^\circ)\)</span>
+<span data-q="m15g"><span class="pl">g</span>\(\tan420^\circ\)</span><span data-q="m15h"><span class="pl">h</span>\(\cos510^\circ\)</span><span data-q="m15i"><span class="pl">i</span>\(\sin495^\circ\)</span>
+<span data-q="m15j"><span class="pl">j</span>\(\sin690^\circ\)</span><span data-q="m15k"><span class="pl">k</span>\(\cos600^\circ\)</span><span data-q="m15l"><span class="pl">l</span>\(\tan585^\circ\)</span></div>{{work:48}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><span class="muted small">Maths Pathway, <i>Using Symmetry on the Unit Circle</i>, Q9</span><br>Use the following table to find the missing values below.
+<table class="t" style="margin:1.5mm 0"><tr><th>\(\theta\)</th><td>15°</td><td>30°</td><td>45°</td><td>60°</td></tr>
+<tr><th>\(\sin\theta\)</th><td>0.26</td><td>0.5</td><td>0.71</td><td>0.87</td></tr>
+<tr><th>\(\cos\theta\)</th><td>0.97</td><td>0.87</td><td>0.71</td><td>0.5</td></tr>
+<tr><th>\(\tan\theta\)</th><td>0.27</td><td>0.58</td><td>1</td><td>1.73</td></tr></table>
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="m16a"><span class="pl">a)</span>\(\sin(165^\circ)\)</span><span data-q="m16b"><span class="pl">b)</span>\(\cos(165^\circ)\)</span><span data-q="m16c"><span class="pl">c)</span>\(\tan(315^\circ)\)</span><span data-q="m16d"><span class="pl">d)</span>\(\sin(210^\circ)\)</span>
+<span data-q="m16e"><span class="pl">e)</span>\(\cos(195^\circ)\)</span><span data-q="m16f"><span class="pl">f)</span>\(\tan(240^\circ)\)</span><span data-q="m16g"><span class="pl">g)</span>\(\sin(300^\circ)\)</span><span data-q="m16h"><span class="pl">h)</span>\(\cos(330^\circ)\)</span></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><span class="muted small">Maths Pathway, <i>Graphs of Trigonometric Functions</i>, Q5</span><br>The following questions look at equivalent angles with the same sine and cosine values.<br><i>Hint: you can use your sketches from question 2.</i>
+<div class="parts one"><span><span class="pl">a)</span>Which angles between 360° and 540° have the same sine value as 30°?</span>
+<span><span class="pl">b)</span>Which angles between −180° and 180° have the same sine value as 330°?</span>
+<span><span class="pl">c)</span>Which angles between 450° and 630° have the same cosine value as 95°?</span>
+<span><span class="pl">d)</span>Which angles between 360° and 720° have the same cosine value as 170°?</span></div>
+<div class="box tip" style="padding:1.5mm 3mm;margin:1mm 0"><p style="margin:0"><span class="bt" style="display:inline;margin-right:2mm">About the hint</span>Question 2 of the sheet asks for unit circles labelled with the angle at the start of each quadrant, for 0° to 360°, 360° to 720°, −360° to 0° and 720° to 1080°.</p></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body"><span class="muted small">Maths Pathway, <i>Graphs of Trigonometric Functions</i>, Q9</span><br>The following questions will be looking at trigonometric functions between −180° and 180°.
+<div class="parts one"><span><span class="pl">a)</span>Copy and complete the following table.</span></div>
+<table class="t" style="margin:1.5mm 0 1.5mm 6mm"><tr><th>\(\theta\)</th><td>−180°</td><td>−90°</td><td>0°</td><td>90°</td><td>180°</td></tr>
+<tr><th>\(\sin\theta\)</th><td></td><td></td><td></td><td></td><td></td></tr><tr><th>\(\cos\theta\)</th><td></td><td></td><td></td><td></td><td></td></tr><tr><th>\(\tan\theta\)</th><td></td><td></td><td></td><td></td><td></td></tr></table>
+<div class="parts one"><span><span class="pl">b)</span>Use your table of values from part a) to graph \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) from −180° to 180°.<br>• Each graph should be on its own set of axes<br>• Label the horizontal axes from −180° to 180°, marking every 90 degrees<br>• Label the vertical axes from −1.5 to 1.5, marking every 0.5 units.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 6B Q8</span><br>The gradient measures the steepness of a line. Each of the following lines \(AB\) has positive gradient. By comparing the gradient to 1, determine if the angle of inclination is less than, equal to, or more than 45°.
+<div class="parts"><span data-q="m19a"><span class="pl">a</span>\(A(1,3),\ B(6,5)\)</span><span data-q="m19b"><span class="pl">b</span>\(A(4,1),\ B(7,4)\)</span><span data-q="m19c"><span class="pl">c</span>\(A(-3,2),\ B(1,5)\)</span><span data-q="m19d"><span class="pl">d</span>\(A(-3,4),\ B(-7,-2)\)</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 6B Q17</span><br>Find the points \(A\) and \(B\) where each line below meets the \(x\)-axis and \(y\)-axis respectively. Hence find the gradient of \(AB\) and its angle of inclination \(\alpha\) (correct to the nearest degree).
+<div class="parts" style="grid-template-columns:repeat(2,1fr)"><span data-q="m20a"><span class="pl">a</span>\(y=3x+6\)</span><span data-q="m20b"><span class="pl">b</span>\(y=-\tfrac12x+1\)</span><span data-q="m20c"><span class="pl">c</span>\(3x+4y+12=0\)</span><span data-q="m20d"><span class="pl">d</span>\(\dfrac x3-\dfrac y2=1\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">21</span><div class="q-body"><span class="muted small">Past paper: Northern Beaches Christian School, 2022, Mathematics Year 10 5.3/Year 9 Accelerated Yearly Examination, Section I Q13 (1 mark)</span>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>The diagram shows the interval \(OP\) where \(O\) is the origin and \(P\) has coordinates \((4,5)\).<br>What is the size (to the nearest degree) of the angle represented by \(\theta\) in the diagram?
+<div class="mc"><span>(A)&ensp;38°</span><span>(B)&ensp;39°</span><span>(C)&ensp;51°</span><span>(D)&ensp;52°</span></div></div><div>{{svg:pp_nbcs22_13}}</div></div>
+<div class="hint"><b>Hint:</b> what right-angled triangle can you see under \(OP\)?</div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">22</span><div class="q-body"><span class="muted small">Past paper: Sydney Grammar School, 2020, Annual Examination Form IV Mathematics, Q6(c) (3 marks)</span>
+<div class="pp-sub"><span><span class="pl">(i)</span>Sketch the graph of \(y=\cos\theta\) for \(0^\circ\le\theta\le360^\circ\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span><span class="pl">(ii)</span>Hence solve \(\cos\theta=0\) for \(0^\circ\le\theta\le360^\circ\).</span><span class="mk">1</span></div>
+<div class="hint"><b>Hint:</b> which points of the graph can you mark first?</div>{{work:40}}</div></div>
+
+<div class="band"><span class="diff diff-chal">Hard</span><span class="line"></span></div>
+<div class="q"><span class="q-num">23</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5D Q8</span><br>Use the following diagram to answer the questions.
+{{svg:hw_5d8}}
+<div class="parts one"><span><span class="pl">a</span>Read off the diagram, correct to two decimal places where necessary, the values of:</span></div>
+<div class="parts" style="grid-template-columns:repeat(5,1fr);margin-left:6mm"><span data-q="h23ai"><span class="pl">i</span>\(\cos60^\circ\)</span><span data-q="h23aii"><span class="pl">ii</span>\(\sin210^\circ\)</span><span data-q="h23aiii"><span class="pl">iii</span>\(\sin72^\circ\)</span><span data-q="h23aiv"><span class="pl">iv</span>\(\cos18^\circ\)</span><span data-q="h23av"><span class="pl">v</span>\(\sin144^\circ\)</span>
+<span data-q="h23avi"><span class="pl">vi</span>\(\cos36^\circ\)</span><span data-q="h23avii"><span class="pl">vii</span>\(\cos153^\circ\)</span><span data-q="h23aviii"><span class="pl">viii</span>\(\sin27^\circ\)</span><span data-q="h23aix"><span class="pl">ix</span>\(\sin234^\circ\)</span><span data-q="h23ax"><span class="pl">x</span>\(\cos306^\circ\)</span></div>
+<div class="parts one"><span><span class="pl">b</span>Find from the graphs two values of \(x\) between 0° and 360° for which:</span></div>
+<div class="parts" style="grid-template-columns:repeat(4,1fr);margin-left:6mm"><span data-q="h23bi"><span class="pl">i</span>\(\sin x=0.5\)</span><span data-q="h23bii"><span class="pl">ii</span>\(\cos x=-0.5\)</span><span data-q="h23biii"><span class="pl">iii</span>\(\sin x=0.9\)</span><span data-q="h23biv"><span class="pl">iv</span>\(\cos x=0.6\)</span>
+<span data-q="h23bv"><span class="pl">v</span>\(\sin x=0.8\)</span><span data-q="h23bvi"><span class="pl">vi</span>\(\cos x=-0.8\)</span><span data-q="h23bvii"><span class="pl">vii</span>\(\sin x=-0.4\)</span><span data-q="h23bviii"><span class="pl">viii</span>\(\cos x=-0.3\)</span></div>
+<div class="parts one"><span><span class="pl">c</span>Find two values of \(x\) between 0° and 360° for which \(\sin x=\cos x\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">24</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q12</span><br>Given that \(\sin25^\circ\doteqdot0.42\) and \(\cos25^\circ\doteqdot0.91\), write down approximate values, without using a calculator, for:
+<div class="parts three"><span data-q="h24a"><span class="pl">a</span>\(\sin155^\circ\)</span><span data-q="h24b"><span class="pl">b</span>\(\cos205^\circ\)</span><span data-q="h24c"><span class="pl">c</span>\(\cos335^\circ\)</span><span data-q="h24d"><span class="pl">d</span>\(\sin335^\circ\)</span><span data-q="h24e"><span class="pl">e</span>\(\sin205^\circ-\cos155^\circ\)</span><span data-q="h24f"><span class="pl">f</span>\(\cos385^\circ-\sin515^\circ\)</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">25</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q14</span><br>Show by substitution into LHS and RHS that each trigonometric identity is satisfied by the given values of the angles.
+<div class="parts one"><span><span class="pl">a</span>Show that \(\sin2\theta=2\sin\theta\cos\theta\), when \(\theta=150^\circ\).</span>
+<span><span class="pl">b</span>Show that \(\cos3\theta=4\cos^3\theta-3\cos\theta\), when \(\theta=225^\circ\).</span>
+<span><span class="pl">c</span>Show that \(\sin(A+B)=\sin A\cos B+\cos A\sin B\), when \(A=300^\circ\) and \(B=240^\circ\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">26</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 5E Q15 (part d omitted: it uses sec)</span><br>Write as a trigonometric ratio of \(\theta\), with the correct sign attached:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="h26a"><span class="pl">a</span>\(\sin(-\theta)\)</span><span data-q="h26b"><span class="pl">b</span>\(\cos(-\theta)\)</span><span data-q="h26c"><span class="pl">c</span>\(\tan(-\theta)\)</span><span data-q="h26e"><span class="pl">e</span>\(\sin(180^\circ-\theta)\)</span>
+<span data-q="h26f"><span class="pl">f</span>\(\sin(360^\circ-\theta)\)</span><span data-q="h26g"><span class="pl">g</span>\(\cos(180^\circ-\theta)\)</span><span data-q="h26h"><span class="pl">h</span>\(\tan(180^\circ+\theta)\)</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">27</span><div class="q-body"><span class="muted small">Year 11 Advanced Exercise 6B Q20</span><br>Find the gradient, correct to two decimal places where appropriate, of a line sloping upwards, if its acute angle with the \(y\)-axis is:
+<div class="parts" style="grid-template-columns:repeat(4,1fr)"><span data-q="h27a"><span class="pl">a</span>\(15^\circ\)</span><span data-q="h27b"><span class="pl">b</span>\(45^\circ\)</span><span data-q="h27c"><span class="pl">c</span>\(22\tfrac12^\circ\)</span><span data-q="h27d"><span class="pl">d</span>\(72^\circ\)</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">28</span><div class="q-body"><span class="muted small">Past paper: Sydney Boys High School, 2020, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics Stage 5.3, Q8 (1 mark)</span><br>What is the equation of the graph below?
+{{svg:pp_sbhs20_8}}
+<div class="mc" style="grid-template-columns:repeat(4,1fr)"><span>A.&ensp;\(y=\sin x^\circ\)</span><span>B.&ensp;\(y=\sin(-x)^\circ\)</span><span>C.&ensp;\(y=\cos x^\circ\)</span><span>D.&ensp;\(y=-\cos x^\circ\)</span></div>
+<div class="hint"><b>Hint:</b> where does the graph cross the axes, and is it above or below the \(x\)-axis just after 0?</div>{{work:16}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>17 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Boys High School, 2020, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics Stage <span style="white-space:nowrap">5.3,&nbsp;Q4</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Given that \(\sin\theta\gt0\) and \(\cos\theta\lt0\), which quadrant does \(\theta\) lie in?
+<div class="mc"><span>A.&ensp;Quadrant 1</span><span>B.&ensp;Quadrant 2</span><span>C.&ensp;Quadrant 3</span><span>D.&ensp;Quadrant 4</span></div></div>
+<div class="hint"><b>Hint:</b> where on the unit circle could the ray of \(\theta\) end?</div>{{work:12}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Girraween High School, 2022, Year 10 Yearly Examination Mathematics, Part <span style="white-space:nowrap">A,&nbsp;Q12</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The obtuse angle \(\theta\) such that \(\tan\theta=-\tan50^\circ\) is
+<div class="mc" style="grid-template-columns:repeat(4,1fr)"><span>(A)&ensp;\(\theta=130^\circ\)</span><span>(B)&ensp;\(\theta=140^\circ\)</span><span>(C)&ensp;\(\theta=145^\circ\)</span><span>(D)&ensp;\(\theta=155^\circ\)</span></div></div>
+<div class="hint"><b>Hint:</b> where does an obtuse angle lie on the quadrant diagram?</div>{{work:12}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Girraween High School, 2022, Year 10 Yearly Examination Mathematics, Part <span style="white-space:nowrap">A,&nbsp;Q13</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">The incorrect statement below is
+<div class="mc" style="grid-template-columns:1fr 1fr"><span>(A)&ensp;\(\cos\theta\gt0,\ \sin\theta\lt0\Rightarrow\theta\) is in the fourth quadrant.</span><span>(B)&ensp;\(\cos\theta\gt0,\ \tan\theta\gt0\Rightarrow\theta\) is in the third quadrant.</span><span>(C)&ensp;\(\tan\theta\lt0,\ \cos\theta\lt0\Rightarrow\theta\) is in the second quadrant.</span><span>(D)&ensp;\(\sin\theta\gt0,\ \tan\theta\gt0\Rightarrow\theta\) is in the first quadrant.</span></div></div>
+<div class="hint"><b>Hint:</b> which quadrants allow each pair of signs?</div>{{work:14}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Girraween High School, 2023, Year 10 Mathematics Yearly Exam, Multiple <span style="white-space:nowrap">Choice,&nbsp;Q3</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:2fr 3fr;align-items:start"><div>To the nearest degree, what is the size of angle Ø shown in this diagram?
+<div class="mc" style="grid-template-columns:1fr"><span>A)&ensp;26°</span><span>B)&ensp;27°</span><span>C)&ensp;63°</span><span>D)&ensp;64°</span></div></div><div>{{svg:pp_gir23_3}}</div></div></div>
+<div class="hint"><b>Hint:</b> which two points on line \(k\) does the diagram give?</div>{{work:16}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>The Scots College, 2024, Year 10 Assessment Task 4, Mathematics 5.3, <span style="white-space:nowrap">Q28(a)</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">If \(\theta\) is acute, find the value of \(\theta\) in \(\cos\theta=\cos286^\circ\)</div>
+<div class="hint"><b>Hint:</b> where is the ray for 286°, and what acute angle does it make with the \(x\)-axis?</div>{{work:16}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Sydney Boys High School, 2020, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics Stage <span style="white-space:nowrap">5.3,&nbsp;Q17</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q">Express \(\sin240^\circ\) in simplest exact form.</div>
+<div class="hint"><b>Hint:</b> which quadrant is 240° in?</div>{{work:16}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Sydney Grammar School, 2020, Annual Examination Form IV Mathematics, <span style="white-space:nowrap">Q1(h)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Draw a quadrant diagram to represent 480° and state its related angle.</div>
+<div class="hint"><b>Hint:</b> how does 480° compare with one full revolution?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part <span style="white-space:nowrap">C,&nbsp;(f)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>In the diagram, the ray \(OP\) passes through the point \(P(-3,4)\) and makes the angle \(\theta\) with the positive \(x\)-axis.<br>Given \(OP=5\) units, write down the values of \(\sin\theta\) and \(\tan\theta\).</div><div>{{svg:pp_sbhs21_f}}</div></div></div>
+<div class="hint"><b>Hint:</b> what do the coordinates of \(P\) and the length \(OP\) tell you?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>North Sydney Girls High School, 2022, Year 10 Mathematics Yearly Examination, <span style="white-space:nowrap">Q16(c)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Draw a neat sketch of the graph of \(y=\tan x\) for \(0^\circ\le x\le180^\circ\).</div>
+<div class="hint"><b>Hint:</b> what happens to \(\tan x\) as \(x\) gets close to 90°?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>North Sydney Boys High School, 2020, Stage 5 Mathematics Year 10 Yearly Examination, <span style="white-space:nowrap">Q2(b)</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find the exact value of \(\dfrac{\sin150^\circ+\cos300^\circ}{\tan750^\circ-\tan120^\circ}\)</div>
+<div class="hint"><b>Hint:</b> which of these angles is larger than 360°?</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 11</span>Sydney Technical High School, 2020, Year 10 Mathematics Assessment 4, <span style="white-space:nowrap">Q7(c)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find the exact value of &ensp;(i) \(\cos45^\circ\) &emsp; (ii) \(\sin240^\circ\) &emsp; (iii) \(\tan^2(420^\circ)\)</div>
+<div class="hint"><b>Hint:</b> which quadrant is each angle in?</div>{{work:80}}</div>
 </div>
