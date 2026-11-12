@@ -38,7 +38,6 @@ The scope comes from the official NSW Mathematics K–10 (2022), Stage 5.
 - radians;
 - cosec, sec and cot;
 - compound angles such as 2x in trig equations, except in the Hard band;
-- Pythagorean identities beyond tan = sin/cos;
 - equations of circles.
 
 ## Sources, all already downloaded
@@ -93,6 +92,9 @@ The scope comes from the official NSW Mathematics K–10 (2022), Stage 5.
 4. **Past-paper level:** a mini exam per lesson, 15–22 marks, timed at 1.5 × marks, under house rules 3–8.
 
 **No reuse.** Never use a question twice within or between the two packs. Track them in `docs/pp_selected_y10trig.md` and `docs/pp_selected_y10circ.md`; re-read both before choosing and again before committing.
+
+## Owner addition (13 Nov)
+The owner asked for trig identity proofs. T2 gains a concept on sin²θ + cos²θ = 1 and proving identities (Year 11 Advanced 5G, sin/cos/tan forms only), with past-paper identity proofs in the Medium and Hard bands.
 
 ## Rules carried over from the integration reviews
 - Textbook-styled boxes (concept, theorem, "From the text" example) hold only the source's own sentences and lines. Every added line, step or note goes straight after the box in a titled tip, such as "Steps the source skips: Example N". Our own examples are titled "Our own example: …". No step of working may be skipped.
