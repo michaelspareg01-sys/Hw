@@ -14,10 +14,10 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "svg")
 os.makedirs(OUT, exist_ok=True)
 
 
-def save(name, g):
-    from figfit import fit, untangle, separate  # nudges a flagged label (<= 8 px); grows the frame only where a label would be clipped
+def save(name, g, rmax=8):
+    from figfit import fit, untangle, separate  # nudges a flagged label (<= rmax px); grows the frame only where a label would be clipped
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as f:
-        f.write(fit(untangle(separate(g.svg()))))
+        f.write(fit(untangle(separate(g.svg()), rmax=rmax)))
 
 
 class Fig:
@@ -80,7 +80,8 @@ class CF(Fig):
     def circle(self, c, r, color="ink", width=1.6, dash=None, fill=None, opacity=0.18):
         d = f' stroke-dasharray="{dash}"' if dash else ''
         f = f'fill="{ACC[fill]}" fill-opacity="{opacity}"' if fill else 'fill="none"'
-        self.items.append(f'<circle cx="{c[0]:.1f}" cy="{c[1]:.1f}" r="{r:.1f}" {f} stroke="{ACC[color]}" stroke-width="{width}"{d}/>')
+        x0, x1, y = c[0] - r, c[0] + r, c[1]       # drawn as a path: svg_overlap treats <circle> as a dot box
+        self.items.append(f'<path d="M{x0:.1f},{y:.1f} A{r:.1f},{r:.1f} 0 1 0 {x1:.1f},{y:.1f} A{r:.1f},{r:.1f} 0 1 0 {x0:.1f},{y:.1f} Z" {f} stroke="{ACC[color]}" stroke-width="{width}"{d}/>')
         return self
 
     @staticmethod

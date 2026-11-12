@@ -1,4 +1,330 @@
 <div class="lesson">
 <div class="lesson-head"><div class="eyebrow">Lesson C1</div><h2>Chords, radii and angles</h2>
-<div class="focus">This lesson is still being written.</div></div>
+<div class="focus">This lesson sets up the language of circles: radius, chord, diameter, secant, arc, sector and segment, and what it means for an angle to be subtended. Then come the first theorems, each proved with isosceles and congruent triangles: the line from the centre to the midpoint of a chord is perpendicular to it, equal chords subtend equal angles at the centre, and an angle in a semicircle is a right angle. The teaching follows the AMSI TIMES module <i>Circle Geometry</i>, pages 5 to 11.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:circles and their parts}}
+<div class="box concept"><div class="bt">Radii and chords (AMSI, page 5)</div>
+<div class="split" style="grid-template-columns:1fr 1fr"><div>
+<p>We begin by recapitulating the definition of a circle and the terminology used for circles. Throughout this module, all geometry is assumed to be within a fixed plane.</p>
+<ul><li>A <b>circle</b> is the set of all points in the plane that are a fixed distance (<b>the radius</b>) from a fixed point (<b>the centre</b>).</li>
+<li>Any <b>interval</b> joining a point on the circle to the centre is called a <b>radius</b>. By the definition of a circle, any two radii have the same length. Notice that the word ‘radius’ is being used to refer both to these intervals and to the common length of these intervals.</li></ul>
+</div><div>{{svg:c1_terms}}</div></div>
+<ul><li>An interval joining two points on the circle is called a <b>chord</b>.</li>
+<li>A chord that passes through the centre is called a <b>diameter</b>. Since a diameter consists of two radii joined at their endpoints, every diameter has length equal to twice the radius. The word ‘diameter’ is used to refer both to these intervals and to their common length.</li>
+<li>A line that cuts a circle at two distinct points is called a <b>secant</b>. Thus a chord is the interval that the circle cuts off a secant, and a diameter is the interval cut off by a secant passing through the centre of a circle.</li></ul></div></div>
+
+<div class="box concept"><div class="bt">Chords, secants and tangents (Maths Pathway)</div>
+<div class="parts three" style="text-align:center;align-items:start">
+<div>{{svg:c1_mp_chord}}<p style="margin:0">A <b>chord</b> is a line segment between two points on a circle</p></div>
+<div>{{svg:c1_mp_secant}}<p style="margin:0">A <b>secant</b> is a line which meets the circle at <i>two</i> points, and extends beyond the circle</p></div>
+<div>{{svg:c1_mp_tangent}}<p style="margin:0">A <b>tangent</b> is a line which intersects the circle at <i>one</i> point</p></div></div>
+<p style="margin-top:2mm">Note: A chord which is extended into a full line is a secant.</p></div>
+<div class="box tip"><div class="bt">Tangents come later</div>
+<p>Lesson C3 studies tangents in detail. For now you only need to recognise one: a tangent touches the circle at exactly one point, while a secant cuts it at two.</p></div>
+
+<div class="box concept"><div class="bt">Symmetries of a circle (AMSI, page 6)</div>
+<p>Circles have an abundance of symmetries:</p>
+<ul><li>A circle has every possible rotation symmetry about its centre, in that every rotation of the circle about its centre rotates the circle onto itself.</li>
+<li>If \(AOB\) is a diameter of a circle with centre \(O\), then the reflection in the line \(AOB\) reflects the circle onto itself. Thus every diameter of the circle is an axis of symmetry.</li></ul>
+<div class="parts three" style="justify-items:center">{{svg:c1_sym_a}}{{svg:c1_sym_b}}{{svg:c1_sym_c}}</div>
+<p>As a result of these symmetries, any point \(P\) on a circle can be moved to any other point \(Q\) on the circle. This can be done by a rotation through the angle \(\theta=\angle POQ\) about the centre. It can also be done by a reflection in the diameter \(AOB\) bisecting \(\angle POQ\). Thus every point on a circle is essentially the same as every other point on the circle – no other figure in the plane has this property except for lines.</p></div>
+
+<div class="box concept"><div class="bt">Congruence and similarity of circles (AMSI, page 6)</div>
+<div class="split" style="grid-template-columns:1fr 1fr"><div>
+<p>Any two circles with the same radius are congruent – if one circle is moved so that its centre coincides with the centre of the other circle, then it follows from the definition that the two circles will coincide.</p>
+<p>More generally, any two circles are similar – move one circle so that its centre coincides with the centre of the other circle, then apply an appropriate enlargement so that it coincides exactly with the second circle.</p>
+</div><div>{{svg:c1_cong}}</div></div>
+<p>A circle forms a curve with a definite length, called the <b>circumference</b>, and it encloses a definite area. The similarity of any two circles is the basis of the definition of \(\pi\), the ratio of the circumference and the diameter of any circle. We saw in the module, <i>The Circles</i> that if a circle has radius \(r\), then</p>
+\[\text{circumference of the circle}=2\pi r\qquad\text{and}\qquad\text{area of the circle}=\pi r^2\]</div>
+
+<div class="box concept"><div class="bt">Segments, and the word ‘subtend’ (AMSI, page 8)</div>
+<p>A chord \(AB\) of a circle divides the circle into two <b>segments</b>. If \(AB\) is a diameter, the two congruent segments are called <b>semicircles</b> – the word ‘semicircle’ is thus used both for the semicircular arc, and for the segment enclosed by the arc and the diameter. Otherwise, the two segments are called a <b>major segment</b> and a <b>minor segment</b>.</p>
+<p>The word ‘subtend’ literally means ‘holds under’, and is often used in geometry to describe an angle.</p>
+<p>Suppose that we have an interval or arc \(AB\) and a point \(P\) not on \(AB\). Join the intervals \(AP\) and \(BP\) to form the angle \(\angle APB\). We say that the angle \(\angle APB\) is the angle subtended by the interval or arc \(AB\) at the point \(P\).</p></div>
+<div class="box tip"><div class="bt">Our own picture: segments and a subtended angle</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>The chord \(AB\) cuts the circle into the shaded minor segment and the unshaded major segment. The angle \(\angle APB\), marked in blue, is the angle subtended by the chord \(AB\) at the point \(P\). Think of the chord \(AB\) as ‘held under’ the two arms \(PA\) and \(PB\).</p>
+</div><div>{{svg:c1_seg}}</div></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Naming lines and measuring circles</span></div><div class="ex-body">
+<p style="margin:0"><b>1</b> Specify whether each of the following is a chord, secant, tangent, or none.</p>
+<div class="parts" style="grid-template-columns:repeat(6,1fr);justify-items:center"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:d1a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:d1b}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:d1c}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:d1d}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">e</span>{{svg:d1e}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">f</span>{{svg:d1f}}</span></div>
+<p style="margin:1.5mm 0 0"><b>2</b> A circle has radius 6 cm. Find its diameter, and its circumference and area in exact form.</p>
+{{work:30}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same ideas</span></div><div class="ex-body">
+<p style="margin:0"><b>1</b> Specify whether each of the following is a chord, secant, tangent, or none.</p>
+<div class="parts" style="grid-template-columns:repeat(6,1fr);justify-items:center"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:y1a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:y1b}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:y1c}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:y1d}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">e</span>{{svg:y1e}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">f</span>{{svg:y1f}}</span></div>
+<p style="margin:1.5mm 0 0"><b>2</b> A circle has radius 4.5 cm. Find its diameter, and its circumference and area in exact form.</p>
+{{work:30}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Chords, Secants and Tangents, Q1(a)–(f): keep for homework</span></div><div class="ex-body">
+Specify whether each of the following is a chord, secant, tangent, or none.
+<div class="parts" style="grid-template-columns:repeat(6,1fr);justify-items:center"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:mpq1a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:mpq1b}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:mpq1c}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:mpq1d}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">e</span>{{svg:mpq1e}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">f</span>{{svg:mpq1f}}</span></div>
+<div class="sol-label">Solution</div>
+<div class="parts" style="grid-template-columns:repeat(6,1fr);justify-items:center"><span><b>a</b> Secant</span><span><b>b</b> Chord</span><span><b>c</b> None</span><span><b>d</b> Tangent</span><span><b>e</b> None</span><span><b>f</b> Chord</span></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q1(a)–(f)</div>
+<p>In <b>a</b> the line goes on beyond both points where it cuts the circle, so it is a secant. In <b>c</b> the line misses the circle. In <b>e</b> the interval joins a point on the circle to the centre: it is a radius, not a chord. In <b>f</b> the interval joins two points of the circle through the centre: it is a diameter, which is a chord.</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:radii and chords, the perpendicular from the centre}}
+<div class="box concept"><div class="bt">Radii and chords (AMSI, page 7)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Let \(AB\) be a chord of a circle not passing through its centre \(O\). The chord and the two equal radii \(OA\) and \(BO\) form an isosceles triangle whose base is the chord. The angle \(\angle AOB\) is called the <b>angle at the centre subtended by the chord</b>.</p>
+<p>In the module, <i>Rhombuses, Kites and Trapezia</i> we discussed the axis of symmetry of an isosceles triangle. Translating that result into the language of circles:</p>
+</div><div>{{svg:c2_iso}}</div></div></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Let \(AB\) be a chord of a circle with centre \(O\). The following three lines coincide:</p>
+<ul><li>The bisector of the angle \(\angle AOB\) at the centre subtended by the chord.</li>
+<li>The interval joining \(O\) and the midpoint of the chord \(AB\).</li>
+<li>The perpendicular bisector of the chord \(AB\).</li></ul>
+</div><div>{{svg:c2_thm}}</div></div></div>
+<div class="box concept"><div class="bt">Two theorems related to chords and radii (Maths Pathway)</div>
+<div class="parts" style="align-items:start;text-align:center">
+<div>{{svg:c2_mp1}}<p style="margin:0">If a radius is perpendicular to a chord, then this radius also bisects the chord.</p></div>
+<div>{{svg:c2_mp2}}<p style="margin:0">If a radius bisects a chord, then this radius is also perpendicular to the chord.</p></div></div></div>
+<div class="box tip" style="break-inside:avoid"><div class="bt">Steps the source skips: proving the three lines are the same line</div>
+<p>The AMSI module quotes this theorem from an earlier module, so here are the three short proofs. In each, \(M\) is a point of \(AB\), and \(\triangle OAM\) and \(\triangle OBM\) share the side \(OM\), with \(OA=OB\) (radii).</p>
+<ol style="margin:0"><li><b>Midpoint gives perpendicular.</b> If \(AM=BM\), then \(\triangle OAM\equiv\triangle OBM\) (SSS). The worked example below finishes this proof.</li>
+<li><b>Perpendicular gives midpoint.</b> If \(OM\perp AB\), then \(\angle OMA=\angle OMB=90^\circ\), so \(\triangle OAM\equiv\triangle OBM\) (RHS). So \(AM=BM\) (matching sides of congruent triangles).</li>
+<li><b>Angle bisector gives both.</b> If \(\angle AOM=\angle BOM\), then \(\triangle OAM\equiv\triangle OBM\) (SAS). So \(AM=BM\), and \(\angle OMA=\angle OMB\), which are adjacent angles on the straight line \(AB\), so each is \(90^\circ\).</li></ol>
+<p style="margin-top:1mm">So each of the three lines passes through \(O\) and the midpoint of \(AB\). Only one line passes through two given points, so the three lines coincide.</p></div>
+<div class="box concept"><div class="bt">Trigonometry and chords (AMSI, page 7)</div>
+<p>Constructions with radii and chords give plenty of opportunity for using trigonometry.</p>
+<p>This exercise shows that sine can be regarded as the length of the semichord \(AM\) in a circle of radius 1, and cosine as the perpendicular distance of the chord from the centre. Until modern times, tables of sines were compiled as tables of chords or semichords, and the name ‘sine’ is conjectured to have come in a complicated and confused way from the Indian word for semichord.</p></div>
+<div class="box tip"><div class="bt">Which exercise?</div>
+<p>‘This exercise’ is AMSI Exercise 2, Medium homework Question 9 below: in a circle of radius 1, \(AM=\sin\theta\) and \(OM=\cos\theta\). In a circle of radius \(r\), the same right-angled triangle \(OAM\) gives \(AM^2+OM^2=r^2\) by Pythagoras’ theorem, which finds a chord, a radius or the distance of a chord from the centre.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The perpendicular from the centre</span></div><div class="ex-body">
+Find the value of the missing variable, giving reasons.
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:d2a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:d2b}}</span></div>
+<p style="margin:1mm 0 0"><span class="pl">c</span>A chord of length 24 cm is drawn in a circle of radius 13 cm. Find the perpendicular distance of the chord from the centre.</p>
+{{work:40}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find the value of the missing variable, giving reasons.
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:y2a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:y2b}}</span></div>
+<p style="margin:1mm 0 0"><span class="pl">c</span>A chord of length 16 cm is drawn in a circle of radius 10 cm. Find the perpendicular distance of the chord from the centre.</p>
+{{work:40}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Chords, Secants and Tangents, Q4: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+Use congruent triangles to prove that \(OP\) is perpendicular to \(AB\).
+<div class="parts one" style="margin-left:2mm"><span><span class="pl">a</span>Prove that \(\Delta AOC\equiv\Delta BOC\).</span><span><span class="pl">b</span>Use what you proved in part (a) to prove that \(OP\) is perpendicular to \(AB\).</span></div>
+</div><div>{{svg:mpq4}}</div></div>
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0"><b>a</b> <u>Proof:</u> In \(\Delta AOC\) and \(\Delta COB\), we compare corresponding angles and sides.<br>
+\(AO=BO\)&emsp;(Radii of the same circle)<br>
+\(AC=BC\)&emsp;(Given)<br>
+\(OC\) is a common side in both \(\Delta AOC\) and \(\Delta BOC\).<br>
+Therefore \(\Delta AOC\equiv\Delta BOC\) by SSS.</p>
+<p style="margin:1.5mm 0 0"><b>b</b> \(\begin{aligned}[t]\angle ACO+\angle BCO&amp;=180^\circ&amp;&amp;\text{(}\angle ACO\text{ and }\angle BCO\text{ form a straight angle)}\\\angle ACO&amp;=\angle BCO&amp;&amp;\text{(Corresponding angles in congruent triangles)}\\\angle ACO+\angle ACO&amp;=180^\circ&amp;&amp;\text{(Substitution)}\\\angle ACO&amp;=\frac{180^\circ}{2}\\&amp;=90^\circ\end{aligned}\)</p>
+<p style="margin:0.5mm 0 0">Therefore \(OP\) is perpendicular to \(AB\).</p>
+<p class="small muted" style="margin:0.5mm 0 0">Note: Your working may look different, but the reasoning must be the same.</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q4</div>
+<p>In <b>b</b>, \(2\times\angle ACO=180^\circ\), so \(\angle ACO=90^\circ\). Since \(C\) lies on \(OP\), the line \(OP\) meets \(AB\) at right angles.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Chords, Secants and Tangents, Q5(b): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+Find the value of the missing variable, giving reasons.
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0">The radius bisects the chord, so it is also perpendicular to the chord.</p>
+<p style="margin:0.5mm 0">Therefore</p>
+<p style="margin:0.5mm 0">\(\begin{aligned}[t]q+30^\circ&amp;=90^\circ\\q&amp;=90^\circ-30^\circ\\&amp;=60^\circ\end{aligned}\)</p>
+</div><div>{{svg:mpq5b}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q5(b)</div>
+<p>The two marks on the chord say that the radius cuts it into two equal parts. So the angle between the chord and the radius is \(90^\circ\). The \(30^\circ\) angle and \(q\) together make up this right angle.</p></div>
+
+<!-- ============ Concept 3 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 3:arcs, sectors and equal chords}}
+<div class="box concept"><div class="bt">Arcs and sectors (AMSI, pages 7 and 8)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Let \(A\) and \(B\) be two different points on a circle with centre \(O\). These two points divide the circle into two <b>opposite arcs</b>. If the chord \(AB\) is a diameter, then the two arcs are called <b>semicircles</b>. Otherwise, one arc is longer than the other – the longer arc is called the <b>major arc</b> \(AB\) and the shorter arc is called the <b>minor arc</b> \(AB\).</p>
+</div><div>{{svg:c3_arc}}</div></div>
+<p>Now join the radii \(OA\) and \(OB\). The reflex angle \(\angle AOB\) is called the <b>angle subtended by the major arc</b> \(AB\). The non-reflex angle \(\angle AOB\) is called the <b>angle subtended by the minor arc</b> \(AB\), and is also the angle subtended by the chord \(AB\).</p>
+<p>The two radii divide the circle into two sectors, called correspondingly the <b>major sector</b> \(OAB\) and the <b>minor sector</b> \(OAB\).</p>
+<p>It is no surprise that equal chords and equal arcs both subtend equal angles at the centre of a fixed circle. The result for chords can be proven using congruent triangles, but congruent triangles cannot be used for arcs because they are not straight lines, so we need to identify the transformation involved.</p></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p><b>a</b> Equal chords of a circle subtend equal angles at the centre.<br>
+<b>b</b> Equal arcs of a circle subtend equal angles at the centre.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 8): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0"><b>a</b> In the diagram to the right, \(\triangle AOB\equiv\triangle POQ\)&emsp;(SSS)<br>
+so \(\angle AOB=\angle POQ\)&emsp;(matching angles of congruent triangles)</p>
+<p style="margin:1.5mm 0 0"><b>b</b> Rotate the circle so that the arc \(PQ\) coincides with the arc \(AB\) or \(BA\). Then the angles \(\angle POQ\) and \(\angle AOB\) coincide, and hence are equal.</p>
+</div><div>{{svg:c3_proof}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: the SSS test in part a</div>
+<p>The three pairs of equal sides are \(OA=OP\) (radii), \(OB=OQ\) (radii) and \(AB=PQ\) (the chords are given equal). Every radius of a circle has the same length, which is why two triangles with their apex at the centre are so often congruent.</p></div>
+<div class="box concept"><div class="bt">Equal angles and equal chords (Maths Pathway)</div>
+<p>Two theorems related to chords:</p>
+<div class="parts" style="align-items:start;text-align:center">
+<div>{{svg:c3_mp1}}<p style="margin:0">In a circle, if two chords are equal, then the angles they subtend at the centre are equal.</p></div>
+<div>{{svg:c3_mp2}}<p style="margin:0">In a circle, if two angles subtended at the centre are equal, then the chords which subtend them are equal.</p></div></div></div>
+<div class="box tip"><div class="bt">The second theorem is the converse</div>
+<p>The second theorem swaps the ‘if’ part and the ‘then’ part of the first. Its proof uses the SAS test instead of SSS: two radii and the equal angle between them. You prove it in Hard homework Question 12.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Equal chords and equal angles</span></div><div class="ex-body">
+Find the value of the missing variable, giving reasons.
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:d3a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:d3b}}</span></div>
+<p style="margin:1mm 0 0"><span class="pl">c</span>In part <b>a</b>, find the size of each of the other two angles of the triangle that contains the \(48^\circ\) angle.</p>
+{{work:36}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find the value of the missing variable, giving reasons.
+<div class="parts" style="align-items:start"><span style="display:flex;gap:1mm"><span class="pl">a</span>{{svg:y3a}}</span><span style="display:flex;gap:1mm"><span class="pl">b</span>{{svg:y3b}}</span></div>
+<p style="margin:1mm 0 0"><span class="pl">c</span>In part <b>a</b>, find the size of each of the other two angles of the triangle that contains the \(62^\circ\) angle.</p>
+{{work:36}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Maths Pathway, Chords, Secants and Tangents, Q3(b): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+Find the value of the missing variable, giving reasons.
+<div class="sol-label">Solution</div>
+<p style="margin:0.5mm 0">The chords are equal, so the angles they subtend at the centre are also equal.</p>
+<p style="margin:0.5mm 0">Therefore</p>
+<p style="margin:0.5mm 0"><span data-v="w_mpq3b">\(y=55^\circ\)</span></p>
+</div><div>{{svg:mpq3b}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: Q3(b)</div>
+<p>Both chords are 7 m, and each one, with two radii, makes a triangle with its apex at the centre. The \(55^\circ\) angle and \(y\) are the two angles at the centre, so they are equal.</p></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:angles in a semicircle}}
+<div class="box concept"><div class="bt">Angles in a semicircle (AMSI, page 9)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Let \(AOB\) be a diameter of a circle with centre \(O\), and let \(P\) be any other point on the circle. The angle \(\angle APB\) subtended at \(P\) by the diameter \(AB\) is called an <b>angle in a semicircle</b>. This angle is always a right angle – a fact that surprises most people when they see the result for the first time.</p>
+</div><div>{{svg:c4_semi}}</div></div></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>An angle in a semicircle is a right angle.</p></div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 9): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(AB\) be a diameter of a circle with centre \(O\), and let \(P\) be any other point on the circle.</p>
+<p style="margin:0.5mm 0">Join the radius \(PO\), and let \(\alpha=\angle A\) and \(\beta=\angle B\).</p>
+<p style="margin:0.5mm 0">The triangles \(AOP\) and \(BOP\) are isosceles because all radii are equal, so \(\angle APO=\alpha\) and \(\angle BPO=\beta\) (base angles of isosceles triangles \(AOP\) and \(BOP\)).</p>
+</div><div>{{svg:c4_proof}}</div></div>
+<p style="margin:0.5mm 0">Hence \(\alpha+\beta+(\alpha+\beta)=180^\circ\) (angle sum of \(\triangle APB\))</p>
+<p style="margin:0.5mm 0 0 10mm">\(\begin{aligned}[t]2\alpha+2\beta&amp;=180^\circ\\\alpha+\beta&amp;=90^\circ,\end{aligned}\)</p>
+<p style="margin:0.5mm 0">so \(\angle APB=90^\circ\), as required.</p>
+<p style="margin:1mm 0 0">This famous theorem is traditionally ascribed to the Greek mathematician Thales, the first known Greek mathematician.</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: the proof of Thales’ theorem</div>
+<p>The radius \(PO\) splits \(\angle APB\) into two parts, so \(\angle APB=\angle APO+\angle BPO=\alpha+\beta\). The three angles of \(\triangle APB\) are therefore \(\alpha\) at \(A\), \(\beta\) at \(B\) and \(\alpha+\beta\) at \(P\), which is where \(\alpha+\beta+(\alpha+\beta)\) comes from.</p></div>
+<div class="box concept"><div class="bt">Angles subtended by the diameter (Maths Pathway)</div>
+<p>Every angle subtended at a point on the circle by the diameter is \(90^\circ\).</p></div>
+<div class="box concept" style="break-inside:avoid"><div class="bt">Constructing a right angle at the endpoint of an interval (AMSI, page 10)</div>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p>Thales’ theorem gives a quick way to construct a right angle at the endpoint of an interval \(AX\).</p>
+<ol style="margin:0"><li>Choose a point \(O\) above the interval \(AX\).</li>
+<li>Draw a circle with centre \(O\) through \(A\) crossing \(AX\) again at \(P\).</li>
+<li>Draw the radius \(PO\) and produce it to a diameter \(POQ\).</li>
+<li>Join \(AQ\), then \(\angle PAQ=90^\circ\).</li></ol>
+</div><div>{{svg:c4_constr}}</div></div></div>
+<div class="box tip"><div class="bt">Why the construction works</div>
+<p>\(PQ\) is a diameter and \(A\) is on the circle, so \(\angle PAQ\) is an angle in a semicircle.</p></div>
+<div class="box concept"><div class="bt">The converse theorem (AMSI, page 10)</div>
+<p>The angle in a semicircle theorem has a straightforward converse that is best expressed as a property of a right-angled triangle:</p></div>
+<div class="box take"><div class="bt">Theorem</div>
+<p>The circle whose diameter is the hypotenuse of a right-angled triangle passes through all three vertices of the triangle.</p></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked proof</span><span class="ex-title">From the text (AMSI, page 10): keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<div class="sol-label">Proof</div>
+<p style="margin:0.5mm 0">Let \(\triangle ABC\) be right-angled at \(C\), and let \(M\) be the midpoint of the hypotenuse \(AB\).</p>
+<p style="margin:0.5mm 0">We need to prove that \(MC=MA=MB\). Complete the rectangle \(ACBR\). Because \(ACBR\) is a rectangle, its diagonals bisect each other and are equal. Hence \(M\) is the midpoint of the other diagonal \(CR\), and \(AM=BM=CM=RM\).</p>
+</div><div>{{svg:c4_conv}}</div></div>
+<p style="margin:1mm 0 0">This is an excellent example of the way ideas in geometry fit together – a significant theorem about circles has been proven using a property of rectangles.</p>
+</div></div>
+<div class="box tip"><div class="bt">Steps the source skips: the converse</div>
+<p>Since \(MA=MB=MC\), the circle with centre \(M\) and radius \(MA\) passes through \(A\), \(B\) and \(C\). Its diameter is \(AB\), the hypotenuse. A useful consequence: the midpoint of the hypotenuse is the same distance from all three vertices, so \(CM=\tfrac12AB\).</p></div>
+<div class="box concept"><div class="bt">Two practical situations to illustrate the converse theorem (AMSI, page 10)</div>
+<p>A set of points in the plane is often called a <b>locus</b>. The term is used particularly when the set of points is the curve traced out by a moving point. For example, a circle can be defined as the locus of a point that moves so that its distance from some fixed point is constant. The two examples below use the converse of the angle in a semicircle theorem to describe a locus.</p></div>
+<div class="box tip"><div class="bt">Where are the two examples?</div>
+<p>They are AMSI Exercises 4 and 5, Hard homework Questions 14 and 15 below.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Angles in a semicircle</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin:0"><span class="pl">a</span>\(AB\) is a diameter of the circle with centre \(O\), and \(P\) is a point on the circle with \(\angle A=28^\circ\). Find \(\angle APO\), \(\angle APB\), \(\angle BPO\) and \(\angle B\), giving reasons.</p>
+<p style="margin:1.5mm 0 0"><span class="pl">b</span>\(\triangle ABC\) is right-angled at \(C\), with \(AC=6\) cm and \(BC=8\) cm. \(M\) is the midpoint of \(AB\). Find the length of \(CM\).</p>
+</div><div>{{svg:d4a}}</div></div>
+{{work:46}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr"><div>
+<p style="margin:0"><span class="pl">a</span>\(AB\) is a diameter of the circle with centre \(O\), and \(P\) is a point on the circle with \(\angle B=57^\circ\). Find \(\angle BPO\), \(\angle APB\), \(\angle APO\) and \(\angle A\), giving reasons.</p>
+<p style="margin:1.5mm 0 0"><span class="pl">b</span>\(\triangle ABC\) is right-angled at \(C\), with \(AC=5\) cm and \(BC=12\) cm. \(M\) is the midpoint of \(AB\). Find the length of \(CM\).</p>
+</div><div>{{svg:y4a}}</div></div>
+{{work:46}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Homework:Maths Pathway sheets and AMSI exercises}}
+<p class="small">Each question is from the source named above it. Answers are in the answers booklet.</p>
+<div class="band"><span class="diff diff-easy">Easy</span><span class="line"></span></div>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q1(g)–(l)</span><br>Specify whether each of the following is a chord, secant, tangent, or none.
+<div class="parts" style="grid-template-columns:repeat(6,1fr);justify-items:center"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">g</span>{{svg:mpq1g}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">h</span>{{svg:mpq1h}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">i</span>{{svg:mpq1i}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">j</span>{{svg:mpq1j}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">k</span>{{svg:mpq1k}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">l</span>{{svg:mpq1l}}</span></div>{{work:10}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q3(a)</span><br>Find the value of the missing variable, giving reasons.
+<div class="split" style="grid-template-columns:2fr 3fr"><div>{{svg:mpq3a}}</div><div>{{work:30}}</div></div></div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q5(a)</span><br>Find the value of the missing variable, giving reasons.
+<div class="split" style="grid-template-columns:2fr 3fr"><div>{{svg:mpq5a}}</div><div>{{work:26}}</div></div></div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Maths Pathway, Arcs and Angles in Circles, Q7</span><br>Calculate the values of the variables in the following circle figures.
+<div class="parts three" style="justify-items:center"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:mpa7a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:mpa7b}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:mpa7c}}</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Maths Pathway, Arcs and Angles in Circles, Q8(a)</span><br>Calculate the values of the variables in the following circle figures, and explain your answer.
+<div class="split" style="grid-template-columns:2fr 3fr"><div>{{svg:mpa8a}}</div><div>{{work:24}}</div></div></div></div>
+
+<div class="band"><span class="diff diff-med">Medium</span><span class="line"></span></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q3(d)</span><br>Find the value of the missing variable, giving reasons.
+<div class="split" style="grid-template-columns:2fr 3fr"><div>{{svg:mpq3d}}</div><div>{{work:44}}</div></div></div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q6(a)</span><br>Copy the figure. Then, use the information provided to find the required value. Show your working.
+<div class="split" style="grid-template-columns:1fr 1fr"><div><p style="margin:1mm 0">Given information:</p><ul style="margin:0"><li>\(AB=4\text{ mm}\)</li></ul><p style="margin:1mm 0">Find the length of \(AD\).</p></div><div>{{svg:mpq6a}}</div></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q6(b)</span><br>Copy the figure. Then, use the information provided to find the required value. Show your working.
+<div class="split" style="grid-template-columns:1fr 1fr"><div><p style="margin:1mm 0">Given information:</p><ul style="margin:0"><li>\(\angle IHD=52^\circ\)</li><li>\(AH=HD\)</li><li>\(BI=IF\)</li></ul><p style="margin:1mm 0">Find the value of \(\angle IGH\).</p></div><div>{{svg:mpq6b}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 2</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>In the diagram to the right, the interval \(AM\) subtends an angle \(\theta\) at the centre \(O\) of a circle of radius 1. Show that:
+<div class="parts" style="margin-left:2mm"><span><span class="pl">a</span>\(AM=\sin\theta\)</span><span><span class="pl">b</span>\(OM=\cos\theta\)</span></div></div><div>{{svg:c2_ex2}}</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 1</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div><div class="parts one"><span><span class="pl">a</span>Identify all translations, rotations and reflections of the plane that map a line \(\ell\) onto itself.</span><span><span class="pl">b</span>Which of the transformations in part <b>a</b> map a particular point \(P\) on \(\ell\) to another particular point \(Q\) on \(\ell\).</span></div></div><div>{{svg:c1_ex1}}</div></div>{{work:40}}</div></div>
+
+<div class="band"><span class="diff diff-chal">Hard</span><span class="line"></span></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q6(c)</span><br>Copy the figure. Then, use the information provided to find the required value. Show your working.
+<div class="split" style="grid-template-columns:1fr 1fr"><div><p style="margin:1mm 0">Given information:</p><ul style="margin:0"><li>\(AB\) is the diameter of the smaller circle.</li><li>\(BE\) is the diameter of the larger circle.</li><li>\(AB=5\text{ m}\)</li><li>\(BC=4\text{ m}\)</li></ul><p style="margin:1mm 0">Find the length of \(CD\).</p></div><div>{{svg:mpq6c}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><span class="muted small">Maths Pathway, Chords, Secants and Tangents, Q2</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>Use congruent triangles to prove that \(AB=CD\).
+<div class="parts one" style="margin-left:2mm"><span><span class="pl">a</span>Prove that \(\Delta AOB\equiv\Delta COD\).</span><span><span class="pl">b</span>Use what you proved in part (a) to prove that \(AB=CD\).</span></div></div><div>{{svg:mpq2}}</div></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 3</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div><p style="margin:0">Thales’ theorem can also be proven using the following test for a rectangle developed in the module, <i>Parallelograms and Rectangles</i>.</p>
+<p style="margin:1mm 0"><i>A quadrilateral whose diagonals are equal and bisect each other is a rectangle.</i></p>
+<p style="margin:0">Join the radius \(PO\) and produce it to a diameter \(POQ\), then join up the quadrilateral \(APBQ\). Explain why \(\angle APB\) is a right angle.</p></div><div>{{svg:c4_ex3}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 4</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>A photographer is photographing the ornamental front of a building. He wants the two ends of the front to subtend a right angle at his camera. Describe the set of all positions where he can stand.</div><div>{{svg:c4_ex4}}</div></div>{{work:30}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><span class="muted small">AMSI TIMES Circle Geometry, Exercise 5</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr"><div>A plank of length \(\ell\) metres is initially resting flush against a wall, but it slips outwards, with its top sliding down the wall and its foot moving at right angles to the wall. What path does the midpoint of the plank trace out?</div><div>{{svg:c4_ex5}}</div></div>{{work:30}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 15 minutes</b></span><span><b>10 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+<p class="small">These are the only Year 10 yearly-exam items in the collection that need just this lesson’s ideas. For more timed practice, do Questions 11, 12 and 13 above in 15 minutes.</p>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Boys High School, 2020, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics Stage 5.3, <span style="white-space:nowrap">Q40(b)&nbsp;I</span></span><span class="mk">1 mark</span></div>
+<div class="pp-q"><p style="margin:0">Darth Parker is constructing a Maff Star by intersecting a sphere of radius 100 km with a sphere of radius 40 km such that their centres are 120 km apart.<br>The smaller sphere is then discarded, leaving a curved dent on the surface of the larger sphere, as shown in Diagram 1 below.</p>
+<div style="display:flex;justify-content:center;gap:12mm;align-items:flex-end">{{svg:pp1a}}{{svg:pp1b}}</div>
+<p style="margin:0">Diagram 2 above shows a cross section of the intersecting spheres, where \(A\) and \(B\) are the centres of the larger and smaller sphere respectively and \(X\) and \(Y\) mark where the spheres intersect on the cross section.</p>
+<p style="margin:1mm 0 0">I.&ensp;Given that \(AB\) bisects \(XY\), show that \(AB\perp XY\).</p></div>
+<div class="hint"><b>Hint:</b> in the cross section, what is \(XY\) for the circle with centre \(A\)?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Boys High School, 2022, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, <span style="white-space:nowrap">Part&nbsp;A&nbsp;Q9</span></span><span class="mk">2 marks</span></div>
+<div class="pp-q"><p style="margin:0">Ikan Deesine is creating a logo.<br>Ikan starts by drawing a regular pentagon \(ABCDE\).<br>The vertices of the pentagon lie on the circumference of a circle with centre \(O\).</p>
+<div style="display:flex;justify-content:center">{{svg:pp2a}}</div>
+<p style="margin:0">Ikan then adds to this as shown the diagram below.</p>
+<div style="display:flex;justify-content:center">{{svg:pp2b}}</div>
+<p style="margin:0">\(AF\) is a diameter.<br>Find the value of angle \(OBF\), reasons are not needed.</p></div>
+<div class="hint"><b>Hint:</b> what do the five sides of the pentagon have in common as chords of the circle?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Boys High School, 2021, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, <span style="white-space:nowrap">Part&nbsp;E&nbsp;(a)</span></span><span class="mk">3 marks</span></div>
+<div class="pp-q"><div style="display:flex;justify-content:center">{{svg:pp3}}</div>
+<p style="margin:0">\(AOD\) is a diameter of a circle, with centre \(O\) and radius 9 cm.<br>\(ABC\) is an arc of the circle.<br>\(AC\) is a chord.<br>Angle \(ADC=35^\circ\)</p>
+<p style="margin:1mm 0 0">Calculate the area of the shaded segment.<br>Give your answer correct to 3 significant figures.</p></div>
+<div class="hint"><b>Hint:</b> which triangle in the diagram has two sides that are radii?</div>{{work:56}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Merewether High School, 2023, Year 10 Assessment Task 4, Mathematics, <span style="white-space:nowrap">Section&nbsp;III Part&nbsp;B&nbsp;Q2</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q"><div class="split" style="grid-template-columns:3fr 2fr"><div><p style="margin:0">\(O\) is the centre of the circle and \(OJ\perp IK\).<br>Prove that \(OJ\) bisects \(\angle IOK\).</p></div><div>{{svg:pp4}}</div></div></div>
+<div class="hint"><b>Hint:</b> which two triangles in the diagram could you prove congruent?</div>{{work:50}}</div>
 </div>
