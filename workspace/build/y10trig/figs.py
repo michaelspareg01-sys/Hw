@@ -49,8 +49,13 @@ class Fig:
 
     def circle(self, cx, cy, r, color="ink", width=1.5, fill="none", opacity=1):
         # drawn as a path (two half arcs), so that svg_overlap.py tests the curve, not its bounding box
+        # Round the radius and the left end first and take the right end from them, so the printed chord
+        # is exactly twice the printed radius (two semicircles, never two bulging arcs).
         f = ACC[fill] if fill != "none" else "none"
-        self.items.append(f'<path d="M{cx - r:.1f},{cy:.1f} A{r:.1f},{r:.1f} 0 1 0 {cx + r:.1f},{cy:.1f} A{r:.1f},{r:.1f} 0 1 0 {cx - r:.1f},{cy:.1f} Z" '
+        rr = round(r, 1)
+        x0, y = round(cx - rr, 1), round(cy, 1)
+        x1 = round(x0 + 2 * rr, 1)
+        self.items.append(f'<path d="M{x0:.1f},{y:.1f} A{rr:.1f},{rr:.1f} 0 1 0 {x1:.1f},{y:.1f} A{rr:.1f},{rr:.1f} 0 1 0 {x0:.1f},{y:.1f} Z" '
                           f'fill="{f}" fill-opacity="{opacity}" stroke="{ACC[color]}" stroke-width="{width}"/>')
         return self
 

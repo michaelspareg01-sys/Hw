@@ -161,12 +161,10 @@ EQ = {
     "y7b": (r"\cos(x+45^\circ)=-\tfrac12\),where\(0^\circ\lex\le360^\circ", lambda x: C(x + 45) + 0.5, 0, 360, True, "exact", None),
     # Exercise 5H Q1, Q2, Q3 (book answers PDF 548)
     "e6a": (r"\sin\theta=\dfrac{\sqrt3}{2}", lambda x: S(x) - math.sqrt(3) / 2, 0, 360, True, "exact", [60, 120]),
-    "e6b": (r"\sin\theta=\dfrac12", lambda x: S(x) - 0.5, 0, 360, True, "exact", [30, 150]),
     "e6c": (r"\tan\theta=1", lambda x: T(x) - 1, 0, 360, True, "exact", [45, 225]),
     "e6d": (r"\tan\theta=\sqrt3", lambda x: T(x) - math.sqrt(3), 0, 360, True, "exact", [60, 240]),
     "e6e": (r"\cos\theta=-\dfrac{1}{\sqrt2}", lambda x: C(x) + 1 / math.sqrt(2), 0, 360, True, "exact", [135, 225]),
     "e6f": (r"\tan\theta=-\sqrt3", lambda x: T(x) + math.sqrt(3), 0, 360, True, "exact", [120, 300]),
-    "e6g": (r"\sin\theta=-\dfrac12", lambda x: S(x) + 0.5, 0, 360, True, "exact", [210, 330]),
     "e6h": (r"\cos\theta=-\dfrac{\sqrt3}{2}", lambda x: C(x) + math.sqrt(3) / 2, 0, 360, True, "exact", [150, 210]),
     "e7a": (r"\sin\theta=1", lambda x: S(x) - 1, 0, 360, True, "exact", [90]),
     "e7b": (r"\cos\theta=1", lambda x: C(x) - 1, 0, 360, True, "exact", [0, 360]),
@@ -188,8 +186,6 @@ EQ = {
     # Exercise 5H Q4, Q5, Q6 (selected parts)
     "m12a": (r"\sin\alpha=0.1", lambda x: S(x) - 0.1, 0, 360, True, "min", [5 + 44 / 60, 174 + 16 / 60]),
     "m12b": (r"\cos\alpha=-0.1", lambda x: C(x) + 0.1, 0, 360, True, "min", [95 + 44 / 60, 264 + 16 / 60]),
-    "m12c": (r"\tan\alpha=-1", lambda x: T(x) + 1, 0, 360, True, "exact", [135, 315]),
-    "m12g": (r"\sqrt3\tan\alpha+1=0", lambda x: math.sqrt(3) * T(x) + 1, 0, 360, True, "exact", [150, 330]),
     "m13a": (r"\tanx=-0.3", lambda x: T(x) + 0.3, -180, 180, True, "min", [-(16 + 42 / 60), 163 + 18 / 60]),
     "m13b": (r"\cosx=0", lambda x: C(x), -180, 180, True, "exact", [-90, 90]),
     "m13d": (r"\sinx=-0.7", lambda x: S(x) + 0.7, -180, 180, True, "min", [-(135 + 34 / 60), -(44 + 26 / 60)]),
@@ -202,7 +198,7 @@ EQ = {
     "m15d": (r"-180^\circ\ltx\lt0^\circ\):&ensp;\(11\cos(x)=6", lambda x: 11 * C(x) - 6, -180, 0, False, "2dp", [-56.94]),
     # past papers in the bands (school answers)
     "m16": (r"\tan\theta=-\dfrac{1}{\sqrt3}\)for\(0\le\theta\le360^\circ", lambda x: T(x) + 1 / math.sqrt(3), 0, 360, True, "exact", [150, 330]),
-    "m18": (r"\sin\theta=-0.5\)for\(0^\circ\le\theta\le360^\circ", lambda x: S(x) + 0.5, 0, 360, True, "exact", [210, 330]),
+    "m18": (r"\sinx=-\dfrac{\sqrt3}{2}\)for\(0^\circ\lex\le360^\circ", lambda x: S(x) + math.sqrt(3) / 2, 0, 360, True, "exact", [240, 300]),
     # Hard: 5H Q9, Q7, Q8 (book answers PDF 548) and past papers
     "h22a": (r"\sin\theta=\cos\theta", lambda x: S(x) - C(x), 0, 360, True, "exact", [45, 225]),
     "h22b": (r"\sin\theta+\cos\theta=0", lambda x: S(x) + C(x), 0, 360, True, "exact", [135, 315]),
@@ -250,6 +246,10 @@ for key, (tex, f, lo, hi, closed, mode, book) in EQ.items():
     ok(good, f"{key} brute-force set over [{lo}, {hi}]", f"printed {[round(g, 4) for g in got]}, computed {[round(w, 4) for w in want]}")
     if book is not None:
         ok(len(got) == len(book) and all(abs(g - b) < 1e-6 for g, b in zip(sorted(got), sorted(book))), f"{key} book/sheet/school answer", f"{book}")
+
+# omitted book parts (final review: they repeat past-paper items) must be absent from both files
+for k in ("e6b", "e6g", "m10b", "m12c", "m12g"):
+    ok(f'data-q="{k}"' not in LES and f'data-v="{k}"' not in ANS, f"{k} omitted from both files")
 
 # no-solution item
 ok(solve(lambda x: S(x) - 3, 0, 360) == [] and v("m12e") == "no solutions" and r"\sin\alpha=3" in q("m12e"), "m12e sin = 3 has no solutions")
@@ -363,7 +363,7 @@ FIND = {
     "e5a": ("cos", R(1, 3), (1,), "tan", 2 * sq(2)), "e5b": ("cos", R(-4, 5), (2,), "tan", R(-3, 4)),
     "e5c": ("cos", R(1, 2), (4,), "sin", -sq(3) / 2), "e5d": ("tan", R(-2, 3), (4,), "cos", 3 / sq(13)),
     "e5e": ("cos", R(-40, 41), (2,), "sin", R(9, 41)), "e5f": ("sin", 1 / sq(5), (1,), "tan", R(1, 2)),
-    "m10a": ("tan", R(1, 3), (1, 3), "sin", ("pm", 1 / sq(10))), "m10b": ("cos", 2 / sq(5), (1, 4), "sin", ("pm", 1 / sq(5))),
+    "m10a": ("tan", R(1, 3), (1, 3), "sin", ("pm", 1 / sq(10))),
     "m10c": ("sin", R(3, 5), (1, 2), "cos", ("pm", R(4, 5))), "m10d": ("cos", R(-2, 3), (2, 3), "tan", ("pm", sq(5) / 2)),
     "m10e": ("sin", R(-12, 13), (3, 4), "tan", ("pm", R(12, 5))), "m10f": ("tan", -2 / sq(3), (2, 4), "cos", ("pm", sq(3) / sq(7))),
     "m11a": ("cos", R(4, 5), (4,), "tan", R(-3, 4)), "m11b": ("tan", R(-8, 15), (2,), "cos", R(-15, 17)),

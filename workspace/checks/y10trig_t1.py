@@ -172,7 +172,7 @@ BOOK = {  # Year 11 Advanced answers (PDF 547, 550) and Maths Pathway answer pag
     "e4": [[70, 430, -290, -650], [100, 460, -260, -620], [140, 500, -220, -580], [200, 560, -160, -520],
             [240, 600, -120, -480], [340, 700, -20, -380]],
     "m13": [("4/5", "3/5", "4/3"), ("3/5", "-4/5", "-3/4"), ("-2/sqrt(5)", "-1/sqrt(5)", "2"), ("-5/13", "12/13", "-5/12")],
-    "m14": ["-1/2", "1", "-1/2", "1/sqrt(2)", "sqrt(3)", "-sqrt(3)/2", "-1", "1/2", "-1/sqrt(2)", "-sqrt(3)/2", "-1/2", "-sqrt(3)"],
+    "m14": ["-1/2", "1", "-1/2", "1/sqrt(2)", "sqrt(3)", "-sqrt(3)/2", "-1", "1/2", "-1/sqrt(2)", "-sqrt(3)/2", "-1/2"],  # l omitted (Worked example 10a)
     "m15": [60, 20, 30, 60, 70, 10, 50, 40],
     "m16": ["1/2", "-sqrt(3)/2", "sqrt(3)", "1/sqrt(2)", "-1/sqrt(3)", "-1/sqrt(2)", "sqrt(3)", "-sqrt(3)/2", "1/sqrt(2)",
             "-1/2", "-1/2", "1"],
@@ -186,11 +186,15 @@ BOOK = {  # Year 11 Advanced answers (PDF 547, 550) and Maths Pathway answer pag
     "h27": [3.73, 1, 2.41, 0.32],
 }
 L = "abcdefghijklmnop"
+OMITTED = {"e9c", "e11c"}   # repeat PP 11(ii) and PP 6 (final review)
 
 # ------------------------------------------------------------------ exact-value families
-for fam, n in (("d5", 3), ("y5", 3), ("e8", 12), ("e9", 12), ("m14", 12), ("m16", 12)):
+for fam, n in (("d5", 3), ("y5", 3), ("e8", 12), ("e9", 12), ("m14", 11), ("m16", 12)):
     for i in range(n):
         key = fam + L[i]
+        if key in OMITTED:
+            ok(f'data-q="{key}"' not in LES and f'data-v="{key}"' not in ANS, f"{key} omitted from both files")
+            continue
         qt = q(key)
         if qt is None:
             continue
@@ -262,6 +266,9 @@ for i in range(4):
     ok(got == BOOK["e10"][i], f"{key} book answer")
 for i in range(4):
     key = "e11" + L[i]
+    if key in OMITTED:
+        ok(f'data-q="{key}"' not in LES and f'data-v="{key}"' not in ANS, f"{key} omitted from both files")
+        continue
     m = tex2sym(q(key))
     alpha = math.degrees(math.atan(float(m)))
     alpha = alpha + 180 if alpha < 0 else alpha
@@ -412,9 +419,9 @@ def chk_list(key, ref, npos=2, nneg=2):
        and len(set(got)) == len(got), f"{key} same ray as {ref}", f"printed {got}")
 
 
-ok("same ray as 50°" in LES and "same ray as 70°" in LES, "C1 questions 50° and 70°")
+ok("same ray as 50°" in LES and "same ray as 80°" in LES, "C1 questions 50° and 80°")
 chk_list("d1a", 50)
-chk_list("y1a", 70)
+chk_list("y1a", 80)
 for key, deg in (("d1bi", -120), ("d1bii", 470), ("y1bi", -150), ("y1bii", 520)):
     ok(angles_in(v(key)) == [deg % 360], f"{key} {deg}", v(key))
 ok("radius 13 at the point \\(P(-5,12)\\)" in LES and "radius 17 at the point \\(P(8,-15)\\)" in LES, "C2 questions")
