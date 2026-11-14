@@ -62,7 +62,7 @@ def clean(t):
     t = t.replace("\\(", "").replace("\\)", "").replace("\\,", "").replace("\\;", " ")
     t = t.replace("\\left", "").replace("\\right", "").replace("\\$", "$").replace("^\\circ", "°")
     t = t.replace("−", "-").replace("\\times", "*").replace("\\div", "/").replace("\\dots", "...")
-    t = t.replace("\\cdots", "...")
+    t = t.replace("\\cdots", "...").replace("\\%", "%")
     return t.strip()
 
 
@@ -126,7 +126,8 @@ def num(t):
     c = re.sub(r"(\d)\s+(\d)", r"\1\2", c)
     c = re.sub(r"(\d)\s+(\d)", r"\1\2", c)
     c = c.replace("$", "")
-    c = re.sub(r"\s*(%|°C|°|hours?|minutes?|pages|boxes|zeros|cm|mm|km|kg|mL|m|g|L)\s*$", "", c)
+    c = re.sub(r"^[a-z]\s*=\s*", "", c)
+    c = re.sub(r"\s*(%|°C|°|hours?|minutes?|months|seconds|pages|boxes|zeros|square units|cm|mm|km|kg|mL|m|g|L)\s*$", "", c)
     c = c.replace("%", "").strip()
     try:
         return ev(c)
@@ -231,9 +232,8 @@ if "a" in SECTIONS:
     BOOK.update(A1a=5, A1d=23, A1f=440, A1i=246)
     for p in "ab":
         check_part("A2" + p, "a", 2, p)
-    for p in "ch":
-        check_part("A3" + p, "a", 3, p)
-    BOOK.update(A3c=28858, A3h=412158)
+    check_part("A3h", "a", 3, "h")
+    BOOK.update(A3h=412158)
     # A4: printed mixed numeral must equal the quotient, with proper fraction part in simplest form
     for p in "ab":
         key = "A4" + p
@@ -244,34 +244,21 @@ if "a" in SECTIONS:
         ok = bool(m) and int(m.group(1)) + F(int(m.group(2)), int(m.group(3))) == want \
             and math.gcd(int(m.group(2)), int(m.group(3))) == 1 and int(m.group(2)) < int(m.group(3))
         report(ok, key, f"printed {t!r}, quotient {want}")
-    q, r = divmod(5420, 25)
-    check_num("A5a", q)
-    check_num("A5b", r)
-    BOOK.update(A5a=216, A5b=20)
     for p in "abde":
-        check_part("A6" + p, "a", 6, p)
-    BOOK.update(A6a=4000, A6b=2970, A6d=84, A6e=3303)
+        check_part("A5" + p, "a", 5, p)
+    BOOK.update(A5a=4000, A5b=2970, A5d=84, A5e=3303)
     divs = [d for d in (2, 3, 4, 5, 6, 8, 9, 10) if 584760 % d == 0]
-    pr = [int(x) for x in re.findall(r"\d+", clean(got("A7") or ""))]
-    check_true("A7", pr == divs, f"printed {pr}, computed {divs}")
-    # A8: brute force over the two missing digits of 7?42?
-    nums = {a: 70420 + 1000 * a for a in range(10)}
-    sol_i = sorted(70420 + 1000 * a + b - 0 for a in range(10) for b in range(10)
-                   if (70420 + 1000 * a + b) % 9 == 0 and (70420 + 1000 * a + b) % 10 == 0)
-    sol_k = sorted(x for x in (70420 + 1000 * a + b for a in range(10) for b in range(10))
-                   if all(x % d == 0 for d in (2, 3, 4, 5)) and x % 9)
-    for key, sol in (("A8i", sol_i), ("A8k", sol_k)):
-        pr = sorted(int(x.replace(" ", "")) for x in re.findall(r"\d[\d ]*\d", clean(got(key) or "")))
-        check_true(key, pr == sol, f"printed {pr}, all solutions {sol}")
-    check_num("A9h", math.gcd(224, 336))
-    check_num("A9l", 224 * 336 // math.gcd(224, 336))
-    BOOK.update(A9h=112, A9l=672)
-    check_num("A10", 15 * 18 // math.gcd(15, 18))
+    pr = [int(x) for x in re.findall(r"\d+", clean(got("A6") or ""))]
+    check_true("A6", pr == divs, f"printed {pr}, computed {divs}")
+    check_num("A7h", math.gcd(224, 336))
+    check_num("A7l", 224 * 336 // math.gcd(224, 336))
+    BOOK.update(A7h=112, A7l=672)
+    check_num("A8", 15 * 18 // math.gcd(15, 18))
     sol = [(s, t) for s in range(1, 10) for t in range(10) if (s * 10000 + 7250 + t) % 72 == 0]
-    report(len(sol) == 1, "A11 unique solution", str(sol))
-    check_num("A11s", sol[0][0])
-    check_num("A11t", sol[0][1])
-    BOOK.update(A11s=7, A11t=6)
+    report(len(sol) == 1, "A9 unique solution", str(sol))
+    check_num("A9s", sol[0][0])
+    check_num("A9t", sol[0][1])
+    BOOK.update(A9s=7, A9t=6)
 
 # ================================================================== B Computation with integers
 if "b" in SECTIONS:
@@ -308,30 +295,19 @@ if "b" in SECTIONS:
         mm = re.match(r"\$(\d+)\s+(loss|profit)", t)
         ok = bool(mm) and (int(mm.group(1)) if mm.group(2) == "profit" else -int(mm.group(1))) == v
         check_true("B6" + p, ok, f"printed {t!r}, computed {v}")
-    check_num("B7", (-5 + 11 - 20) * 4)
-    BOOK["B7"] = -56
     for p, target in (("a", -1), ("b", 9), ("c", -13)):
         sols = [s for s in itertools.permutations((4, -2, -7)) if s[0] + s[1] - s[2] == target]
-        t = clean(got("B8" + p) or "")
+        t = clean(got("B7" + p) or "")
         lhs, rhs = t.split("=")
         mm = re.fullmatch(r"\(?(-?\d+)\)?\+\(?(-?\d+)\)?-\(?(-?\d+)\)?", lhs.replace(" ", ""))
         pr = tuple(int(v) for v in mm.groups()) if mm else None
-        check_true("B8" + p, pr in sols and ev(lhs) == target == F(rhs), f"printed {t!r}, solutions {sols}")
-    for p, target in (("a", 14), ("c", 37)):
-        orig = clean(qpart("b", 9, p)).split("=")[0]
-        t = clean(got("B9" + p) or "")
-        lhs, rhs = t.split("=")
-        strip = lambda s: re.sub(r"[\s]", "", s)
-        # removing the added brackets must give back the original statement (the (-3) brackets are original)
-        base = strip(lhs).replace("(-3)", "N")
-        base = base.replace("(", "").replace(")", "").replace("N", "(-3)")
-        check_true("B9" + p, base == strip(orig) and ev(lhs) == target == F(rhs), f"printed {t!r}")
+        check_true("B7" + p, pr in sols and ev(lhs) == target == F(rhs), f"printed {t!r}, solutions {sols}")
     seq = []
     for k, n in enumerate(range(100, 0, -1)):
         seq.append(n if k % 4 in (0, 1) else -n)
-    check_num("B10", sum(seq))
-    check_num("B11", 5 * 2 - 4 * 4)
-    BOOK.update(B10=100, B11=-6)
+    check_num("B8", sum(seq))
+    check_num("B9", 5 * 2 - 4 * 4)
+    BOOK.update(B8=100, B9=-6)
 
 # ================================================================== C Indices
 if "c" in SECTIONS:
@@ -406,27 +382,354 @@ if "d" in SECTIONS:
         check_part("D5" + p, "d", 5, p)
         report(recurring(got("D5" + p) or "") is not None, f"D5{p} printed as a recurring decimal")
     BOOK.update(D5a=F(3, 7), D5b=F(2, 11), D5d=F(6, 13), D5f=F(7, 12))
-    for p in "cdh":
-        check_part("D6" + p, "d", 6, p)
-    BOOK.update(D6c=60, D6d=F("0.05"), D6h=3525)
     for p in "fik":
-        check_part("D7" + p, "d", 7, p)
-    BOOK.update(D7f=F("-17.27"), D7i=F("26.4"), D7k=F("-1.5"))
-    check_num("D8e", F(23, 50) * 100)
-    check_num("D8i", F(1250, 2000) * 100)
-    check_num("D8l", F("34.20") / 60 * 100)
-    BOOK.update(D8e=46, D8i=F("62.5"), D8l=57)
-    check_num("D9a", F(2, 100) * 168)
-    check_num("D9b", F(5, 100) * 168)
-    check_num("D9c", 100 - (F("37.5") + 20 + 2 + 5))
-    BOOK.update(D9a=F("3.36"), D9b=F("8.4"), D9c=F("35.5"))
+        check_part("D6" + p, "d", 6, p)
+    BOOK.update(D6f=F("-17.27"), D6i=F("26.4"), D6k=F("-1.5"))
+    check_num("D7e", F(23, 50) * 100)
+    check_num("D7i", F(1250, 2000) * 100)
+    check_num("D7l", F("34.20") / 60 * 100)
+    BOOK.update(D7e=46, D7i=F("62.5"), D7l=57)
     x = sp.Symbol("x")
-    check_num("D10", sp.solve(sp.Eq(x - sp.Rational(2, 11) * x - sp.Rational(3, 5) * x, 84), x)[0])
-    check_num("D11", sp.solve(sp.Eq((x - 24) * sp.Rational(80, 100), sp.Rational(2, 3) * x), x)[0])
-    BOOK.update(D10=385, D11=144)
+    check_num("D8", sp.solve(sp.Eq(x - sp.Rational(2, 11) * x - sp.Rational(3, 5) * x, 84), x)[0])
+    check_num("D9", sp.solve(sp.Eq((x - 24) * sp.Rational(80, 100), sp.Rational(2, 3) * x), x)[0])
+    BOOK.update(D8=385, D9=144)
     L, W = sp.symbols("L W", positive=True)
     k = sp.solve(sp.Eq(sp.Rational(80, 100) * L * W * (1 + x / 100), L * W), x)[0]
-    check_num("D12", k)
+    check_num("D10", k)
+
+# ------------------------------------------------------------------ algebra helpers (sympy)
+LETTERS = {c: sp.Symbol(c) for c in "abcdefghjkmnpqrstuvwxyz"}
+
+
+def alg(t):
+    """Printed or question LaTeX -> sympy expression (implicit multiplication made explicit)."""
+    t = clean(t).replace("$", "")
+    t = frac_tex(t)
+    t = re.sub(r"\^\{([^{}]*)\}", r"**(\1)", t)
+    t = re.sub(r"\^(\d)", r"**\1", t)
+    t = t.replace("{", "(").replace("}", ")").replace(" ", "")
+    for _ in range(3):
+        t = re.sub(r"(\d|\))(?=[a-z(])", r"\1*", t)
+        t = re.sub(r"([a-z])(?=[a-z(\d])", r"\1*", t)
+    return sp.sympify(t, locals=LETTERS)
+
+
+def nterms(e):
+    return len(sp.Add.make_args(sp.expand(e)))
+
+
+def raw_terms(t):
+    """Number of terms as PRINTED (top-level + and - signs, outside brackets)."""
+    c = clean(t).replace(" ", "")
+    depth, n = 0, 1
+    for i, ch in enumerate(c):
+        depth += ch in "({"
+        depth -= ch in ")}"
+        if ch in "+-" and depth == 0 and i > 0 and c[i - 1] not in "^*/(":
+            n += 1
+    return n
+
+
+def check_simplify(key, sec, n, letter):
+    """Printed simplification must equal the question expression and be fully collected."""
+    USED.add(key)
+    q = alg(qpart(sec, n, letter))
+    p = alg(got(key) or "0")
+    ok = sp.expand(q - p) == 0 and raw_terms(got(key) or "0") == nterms(q)
+    report(ok, key, f"question {sp.expand(q)}, printed {p}")
+
+
+def check_expr(key, want):
+    USED.add(key)
+    p = alg(got(key) or "0")
+    report(sp.simplify(p - want) == 0, key, f"printed {p}, want {want}")
+
+
+def check_eq(key, sec, n, letter):
+    """Solve the question equation with sympy; printed 'x = value' must match."""
+    USED.add(key)
+    lhs, rhs = clean(qpart(sec, n, letter)).split("=")
+    eq = alg(lhs) - alg(rhs)
+    var = list(eq.free_symbols)
+    sol = sp.solve(eq, var[0])
+    t = clean(got(key) or "")
+    pv, pval = t.split("=")
+    v = num(pval)
+    ok = len(var) == 1 and pv.strip() == str(var[0]) and len(sol) == 1 and v is not None and F(str(sol[0])) == v
+    report(ok, key, f"solution {var[0]} = {sol}, printed {t!r}")
+
+
+def nums_list(t):
+    """'12.2, 12.1, ...' or '3\\tfrac12,\\ 2\\tfrac12' -> list of Fractions."""
+    c = clean(t).replace("\\ ", " ")
+    return [num(x) for x in c.split(",")]
+
+
+import json
+FIG = json.load(open(os.path.join(SRC, "svg", "figdata.json"))) if os.path.exists(os.path.join(SRC, "svg", "figdata.json")) else {}
+
+# ================================================================== E Algebraic techniques
+if "e" in SECTIONS:
+    for p in "acd":
+        check_simplify("E1" + p, "e", 1, p)
+    for p in "abf":
+        check_simplify("E2" + p, "e", 2, p)
+    for p in "ab":
+        check_simplify("E3" + p, "e", 3, p)
+    for p in "fgh":
+        check_simplify("E4" + p, "e", 4, p)
+    for p in "ab":
+        check_simplify("E5" + p, "e", 5, p)
+    x = LETTERS["x"]
+    # E6: the expressions built here from the words of the question
+    check_expr("E6d", (5 * x - 2) / 5)
+    check_expr("E6j", 4 * (sp.Rational(2, 5) * x - 3))
+    check_expr("E6k", sp.Rational(3, 7) * (23 - sp.Rational(4, 9) * x))
+    check_expr("E7ai", 1000 - x)
+    check_expr("E7aii", 1000 - 5 * x)
+    for key, xv in (("E7bi", 100), ("E7bii", 200), ("E7biii", 250)):
+        check_num(key, 1000 - 5 * xv)
+    m, n_ = LETTERS["m"], LETTERS["n"]
+    for p in "acd":
+        check_num("E8" + p, alg(qpart("e", 8, p)).subs({m: 6, n_: sp.Rational(1, 2)}))
+    w = LETTERS["w"]
+    for p in "def":
+        check_num("E9" + p, alg(qpart("e", 9, p)).subs(w, -2))
+    bc = 16 / x
+    per = 2 * (x + bc)
+    check_expr("E10a", bc)
+    check_expr("E10b", per)
+    check_num("E10c", per.subs(x, 4))
+    check_num("E10d", per.subs(x, sp.Rational(1, 4)))
+    BOOK.update(E7bi=500, E7bii=0, E7biii=-250, E8a=66, E8c=F(25, 4), E8d=34, E9d=64, E9e=12, E9f=-48,
+                E10c=16, E10d=F(257, 2))
+
+# ================================================================== F Equations
+if "f" in SECTIONS:
+    for (q, parts) in ((1, "djl"), (2, "ekp"), (3, "ab"), (4, "ghi"), (5, "df"), (6, "bd")):
+        for p in parts:
+            check_eq(f"F{q}{p}", "f", q, p)
+    x = LETTERS["x"]
+    check_expr("F7a", 4 * (3 * x + 2))
+    check_num("F7b", sp.solve(sp.Eq(4 * (3 * x + 2), 50), x)[0])
+    b = sp.Symbol("b")
+    bb = sp.solve(sp.Eq(b + (b + 16) + (b + 16 + 8), 400), b)[0]
+    check_num("F8b", bb)
+    check_num("F8j", bb + 16)
+    check_num("F8d", bb + 24)
+    r = sp.Symbol("r")
+    check_num("F9", sp.solve(sp.Eq(r - 12, 2 * ((60 - r) + 12)), r)[0])
+    A, B, C = sp.symbols("A B C")
+    sol = sp.solve([A + B - 27, B + C - 33, A + C - 30], [A, B, C])
+    check_num("F10a", sol[A])
+    check_num("F10b", sol[B])
+    check_num("F10c", sol[C])
+    BOOK.update(F1d=3, F1j=204, F1l=84, F2e=F(48, 5), F2k=-20, F2p=F(14, 5), F4g=F(16, 3), F4h=F(-9, 4), F4i=11,
+                F5d=9, F5f=F(81, 28), F6b=20, F6d=5, F8b=120, F8j=136, F8d=144, F9=52)
+
+# ================================================================== G Linear relationships
+if "g" in SECTIONS:
+    for p in "cd":
+        given = [F(v) for v in re.findall(r"\d+\.\d", qpart("g", 1, p))]
+        dlt = given[1] - given[0]
+        report(given[2] - given[1] == dlt, f"G1{p} pattern has a common difference")
+        want = [given[-1] + dlt * k for k in range(1, 6)]
+        USED.add("G1" + p)
+        report(nums_list(got("G1" + p) or "") == want, "G1" + p, f"want {[float(v) for v in want]}")
+    pts = re.findall(r"([A-G])\((-?\d+),\s*(-?\d+)\)", clean(got("G2") or ""))
+    pr = [(int(a), int(b)) for _, a, b in pts]
+    check_true("G2", [l for l, _, _ in pts] == list("ABCDEFG") and pr == [tuple(v) for v in FIG.get("g_coords", [])],
+               f"printed {pr}")
+    rule = lambda xv: -xv + F(1, 2)
+    want = [rule(xv) for xv in range(-3, 4)]
+    check_true("G3", nums_list(got("G3") or "") == want, f"want {want}")
+    report([tuple(map(F, map(str, p))) for p in FIG.get("g_ans12c", [])] == [(F(xv), rule(xv)) for xv in range(-3, 4)],
+           "G3 answer graph points")
+    counts = [FIG.get(f"g_tri{k}") for k in range(1, 5)]          # matches counted in the drawn diagrams
+    report(counts[:3] == [3, 5, 7], "G4 figure matches the table (3, 5, 7)", str(counts))
+    t = sp.Symbol("t")
+    slope = counts[1] - counts[0]
+    report(all(counts[k + 1] - counts[k] == slope for k in range(3)), "G4 figure grows by a constant")
+    rule4 = slope * t + (counts[0] - slope)
+    check_true("G4a", [int(v) for v in re.findall(r"\d+", clean(got("G4a") or ""))] == [int(rule4.subs(t, k)) for k in (4, 5, 6)])
+    check_num("G4b", slope)
+    tt = clean(got("G4d") or "").split("=")
+    check_true("G4d", tt[0].strip() == "m" and sp.expand(alg(tt[1]) - rule4) == 0, f"rule {rule4}")
+    qb = qblock("g", 5)
+    tables = re.findall(r'<table class="ct sm">(.*?)</table>', qb, flags=re.S)
+    for p, tab in zip("cdf", tables):
+        rows = re.findall(r"<tr><th>\\\((\w)\\\)</th>(.*?)</tr>", tab, flags=re.S)
+        (v1, r1), (v2, r2) = rows
+        xs = [num(c) for c in re.findall(r"<td>(.*?)</td>", r1)]
+        ys = [num(c) for c in re.findall(r"<td>(.*?)</td>", r2)]
+        tt = clean(got("G5" + p) or "").split("=")
+        e = alg(tt[1])
+        sym = LETTERS[v1]
+        mm = re.fullmatch(r"(-?\d+)\*" + v1 + r"-(\d+)", tt[1].replace(" ", ""))
+        ok = tt[0].strip() == v2 and bool(mm) and all(e.subs(sym, xv) == yv for xv, yv in zip(xs, ys))
+        check_true("G5" + p, ok, f"printed {tt}, table {xs} -> {ys}")
+    listed = [alg(r) for r in re.findall(r"\\\(y=([^\\]*)\\\)", qblock("g", 6))]
+    report(len(listed) == 6, "G6 six rules listed")
+    xs_ = LETTERS["x"]
+    for p in "acf":
+        tt = clean(got("G6" + p) or "").split("=")
+        e = alg(tt[1])
+        pts = FIG.get("g8" + p, [])
+        fits = [rr for rr in listed if all(rr.subs(xs_, a) == b_ for a, b_ in pts)]
+        check_true("G6" + p, len(fits) == 1 and sp.expand(e - fits[0]) == 0 and len(pts) > 3, f"fits {fits}")
+    mo = sp.Symbol("m")
+    d_rule = 1000 - 20 * mo
+    check_true("G7a", [int(v) for v in re.findall(r"\d+", clean(got("G7a") or ""))] == [int(d_rule.subs(mo, k)) for k in range(2, 7)])
+    tt = clean(got("G7b") or "").split("=")
+    check_true("G7b", tt[0].strip() == "d" and sp.expand(alg(tt[1]) - d_rule) == 0)
+    check_num("G7c", d_rule.subs(mo, 10))
+    check_num("G7d", sp.solve(d_rule, mo)[0])
+    check_num("G8", F(2 * 20, 10 - 5))
+    c_ = sp.Symbol("c")
+    cval = sp.solve(sp.Eq(2, 2 * 3 + c_), c_)[0]
+    check_true("G9a", clean(got("G9a") or "").replace(" ", "") == f"c={cval}", str(cval))
+    xi = sp.solve(2 * xs_ + cval, xs_)[0]
+    check_true("G9bx", re.sub(r"\s", "", clean(got("G9bx") or "")) == f"({xi},0)")
+    check_true("G9by", re.sub(r"\s", "", clean(got("G9by") or "")) == f"(0,{cval})")
+    check_num("G9c", F(1, 2) * abs(xi) * abs(cval))
+    BOOK.update(G4b=2, G7c=800, G7d=50, G8=8)
+
+# ================================================================== H Probability (enumeration)
+if "h" in SECTIONS:
+    def P(space, event):
+        return F(sum(1 for o in space if event(o)), len(space))
+    discs = ["R"] * 3 + ["B"] * 3
+    check_num("H1cr", P(discs, lambda o: o == "R"))
+    check_num("H1cb", P(discs, lambda o: o == "B"))
+    days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    check_num("H1d", P(["Fri"], lambda o: o == days[days.index("Thu") + 1]))     # the only possible tomorrow
+    check_num("H1e", P(["1 Feb"], lambda o: o == "1 May"))
+    marbles = list(range(1, 11))
+    check_true("H2a", [int(v) for v in re.findall(r"\d+", clean(got("H2a") or ""))] == marbles)
+    check_true("H2b", [int(v) for v in re.findall(r"\d+", clean(got("H2b") or ""))] == [m_ for m_ in marbles if m_ % 2])
+    sweets = ["red"] * 10 + ["green"] * 9 + ["yellow"] * 6 + ["blue"] * 5
+    check_num("H3b", P(sweets, lambda o: o in ("green", "yellow")))
+    check_num("H3c", P(sweets, lambda o: o != "red"))
+    check_num("H3e", P(sweets, lambda o: o not in ("yellow", "blue")))
+    cards = list(range(1, 21))
+    check_num("H4a", P(cards, lambda c: c % 2 == 1 and c % 3 == 0))
+    check_num("H4b", P(cards, lambda c: c % 2 == 1 or c % 3 == 0))
+    check_num("H4c", P(cards, lambda c: c >= 15))
+    beans = [("G", "N")] * 250 + [("R", "N")] * 400 + [("G", "D")] * 175 + [("R", "D")] * 75
+    check_num("H5a", P(beans, lambda o: o[1] == "D"))
+    check_num("H5b", P(beans, lambda o: o[0] == "G"))
+    check_num("H5c", P(beans, lambda o: o == ("G", "N")))
+    check_num("H5d", P(beans, lambda o: o == ("R", "D")))
+    check_num("H5e", P(beans, lambda o: o[0] == "R"))
+    venn = [(1, 0)] * 14 + [(1, 1)] * 9 + [(0, 1)] * 22 + [(0, 0)] * 15             # (tennis, swims)
+    report(len(venn) == 60, "H6 Venn diagram holds 60 students")
+    cnt = lambda f: sum(1 for v in venn if f(v))
+    cells = {"ts": cnt(lambda v: v == (1, 1)), "tn": cnt(lambda v: v == (1, 0)), "tt": cnt(lambda v: v[0] == 1),
+             "ns": cnt(lambda v: v == (0, 1)), "nn": cnt(lambda v: v == (0, 0)), "nt": cnt(lambda v: v[0] == 0),
+             "as": cnt(lambda v: v[1] == 1), "an": cnt(lambda v: v[1] == 0), "at": len(venn)}
+    for k_, v in cells.items():
+        check_num("H6_" + k_, v)
+    check_num("H6bi", P(venn, lambda v: v == (0, 1)))
+    check_num("H6bii", P(venn, lambda v: v == (0, 0)))
+    added = next(k for k in range(1, 200) if P(venn + [(1, 0)] * k, lambda v: v[0] == 1) == F(1, 2))
+    check_num("H6c", added)
+    removed = [k for k in range(0, 16) if F(15 - k, 23 - k) == F(1, 3)]
+    report(len(removed) == 1, "H7 unique number removed")
+    check_num("H7", removed[0])
+    tickets = list(range(1, 51))
+    check_num("H8f", P(tickets, lambda n: "7" in str(n)))
+    check_num("H8h", P(tickets, lambda n: "2" in str(n)))
+    check_num("H8i", P(tickets, lambda n: str(n).count("2") == 1))
+    check_num("H8j", P(tickets, lambda n: "2" not in str(n)))
+    bl = sp.Symbol("b")
+    bv = sp.solve(sp.Eq(sp.Rational(1, 3) + bl + bl + 2 * bl, 1), bl)[0]
+    check_num("H9", 360 * 2 * bv)
+    BOOK.update(H1cr=F(1, 2), H1cb=F(1, 2), H1d=1, H1e=0, H3b=F(1, 2), H3c=F(2, 3), H3e=F(19, 30), H5a=F(5, 18),
+                H5b=F(17, 36), H5c=F(5, 18), H5d=F(1, 12), H5e=F(19, 36), H7=11, H8f=F(1, 10), H8h=F(7, 25),
+                H8i=F(13, 50), H8j=F(18, 25))
+
+# ================================================================== I Mixed challenge
+if "i" in SECTIONS:
+    for p in "abc":
+        check_part("I1" + p, "i", 1, p)
+    BOOK.update(I1a=22, I1b=24, I1c=23)
+    for p in "ab":
+        items = [x.strip() for x in clean(qpart("i", 2, p)).replace("\\ ", " ").split(",")]
+        val = lambda s_: num(s_.replace("%", "")) / 100 if "%" in s_ else num(s_)
+        pr = [x.strip() for x in clean(got("I2" + p) or "").replace("\\ ", " ").split(",")]
+        prv = [val(x) for x in pr]
+        check_true("I2" + p, sorted(prv) == prv and sorted(prv) == sorted(val(x) for x in items) and len(set(prv)) == 3,
+                   f"printed {pr} = {[float(v) for v in prv]}")
+    for p in "abc":
+        check_part("I3" + p, "i", 3, p)
+    BOOK.update(I3a=F(17, 2), I3b=F(1, 5), I3c=F(4, 3))
+    check_num("I4", F(2, 3) * F(3, 4) * F(4, 5))
+    gaps = [F(1), F(5, 4), F(6, 5), F(7, 6)]
+    tbest = next(F(k, 60) for k in range(1, 100000) if all((F(k, 60) / g).denominator == 1 for g in gaps))
+    check_num("I5", tbest)
+    xx = LETTERS["x"]
+    check_num("I6", sp.solve(sp.Eq(xx + 13, 4 - xx / 2), xx)[0])
+    BOOK.update(I4=F(2, 5), I5=210, I6=-6)
+    balls = [("red", k) for k in range(1, 9)] + [("blue", k) for k in range(9, 15)] + [("green", k) for k in range(15, 25)]
+    prime = lambda k: k > 1 and all(k % d for d in range(2, k))
+    P2 = lambda e: F(sum(1 for b_ in balls if e(b_)), len(balls))
+    check_num("I7d", P2(lambda b_: b_[0] == "green" and b_[1] % 2))
+    check_num("I7e", P2(lambda b_: b_[0] in ("green", "red")))
+    check_num("I7g", P2(lambda b_: b_[1] % 5 == 0))
+    check_num("I7h", P2(lambda b_: prime(b_[1])))
+    BOOK.update(I7d=F(5, 24), I7e=F(3, 4), I7g=F(1, 6), I7h=F(3, 8))
+    pairs = [(a_, b_) for a_ in range(1, 40) for b_ in range(1, 40) if (a_ + b_) % 2]
+    stmts = {1: lambda a_, b_: max(a_, b_) % min(a_, b_) != 0,
+             2: lambda a_, b_: (a_ * b_) % 2 == 0,
+             3: lambda a_, b_: abs(a_ - b_) % 2 == 0,
+             4: lambda a_, b_: a_ * b_ > a_ + b_,
+             5: lambda a_, b_: ((a_ + 1) * b_) % 2 == 0}          # 1 added to the first number (either one)
+    for k, f in stmts.items():
+        vals = {f(a_, b_) for a_, b_ in pairs}
+        verdict = "always true" if vals == {True} else "always false" if vals == {False} else "sometimes true and sometimes false"
+        check_true(f"I8_{k}", clean(got(f"I8_{k}") or "") == verdict, verdict)
+
+# ------------------------------------------------------------------ figures: every svg used exists, every svg is used
+USEDSVG = set(re.findall(r"\{\{svg:([\w-]+)\}\}", "".join(Q.values()) + ANS_HTML))
+HAVE = {f[:-4] for f in os.listdir(os.path.join(SRC, "svg")) if f.endswith(".svg")} if os.path.isdir(os.path.join(SRC, "svg")) else set()
+report(USEDSVG <= HAVE, "every figure used exists", str(sorted(USEDSVG - HAVE)))
+report(HAVE <= USEDSVG, "every figure drawn is used", str(sorted(HAVE - USEDSVG)))
+
+# ------------------------------------------------------------------ cover: times and core sets
+EST = {  # minutes per question (all questions), core question numbers
+    "a": ([3, 2, 2, 3, 4, 3, 3, 3, 5], [1, 5, 6, 9]),
+    "b": ([3, 2, 2, 3, 4, 4, 3, 3, 3], [1, 5, 6, 8]),
+    "c": ([2, 3, 2, 3, 3, 2, 2, 3, 2, 4], [1, 4, 7, 9, 10]),
+    "d": ([2, 3, 3, 4, 3, 3, 3, 3, 4, 3], [4, 5, 9, 10]),
+    "e": ([2, 2, 2, 3, 3, 3, 3, 3, 2, 4], [4, 5, 8, 10]),
+    "f": ([2, 2, 2, 3, 3, 3, 2, 3, 3, 3], [1, 6, 8, 9, 10]),
+    "g": ([2, 2, 3, 4, 3, 2, 3, 3, 4], [2, 4, 7, 9]),
+    "h": ([2, 1, 2, 3, 3, 5, 3, 3, 3], [1, 6, 7, 9]),
+    "i": ([2, 2, 4, 2, 4, 3, 3, 4], [3, 6, 8]),
+}
+if os.path.exists(os.path.join(SRC, "cover.html")) and len(SECTIONS) == 9:
+    COVER = read("cover.html")
+    tot_all = tot_core = 0
+    for sec_, (times, core) in EST.items():
+        nq = len(re.findall(r'<span class="q-num">\d+</span>', Q[sec_]))
+        a_ = sum(times)
+        c_ = sum(times[k - 1] for k in core)
+        tot_all += a_
+        tot_core += c_
+        report(len(times) == nq, f"{sec_.upper()} one time estimate per question", f"{nq} questions")
+        stars = [int(k) for k in re.findall(r'<span class="q-num">(\d+)</span><div class="q-body"><span class="src">[^<]*</span><span class="star">', Q[sec_])]
+        report(stars == core, f"{sec_.upper()} stars match the core list", str(stars))
+        tl = re.search(r'<p class="tline">About (\d+) minutes\. Core: questions ([\d, and]+)\.</p>', Q[sec_])
+        tl_core = [int(k) for k in re.findall(r"\d+", tl.group(2))] if tl else None
+        report(bool(tl) and int(tl.group(1)) == a_ and tl_core == core, f"{sec_.upper()} timing line", tl.group(0) if tl else "missing")
+        row = re.search(r"<tr><td>%s &nbsp;[^<]*</td><td>([\d, ]+)</td><td class=\"m\">(\d+) min</td><td class=\"m\">(\d+) min</td></tr>" % sec_.upper(), COVER)
+        report(bool(row) and [int(k) for k in row.group(1).split(",")] == core and int(row.group(2)) == a_ and int(row.group(3)) == c_,
+               f"{sec_.upper()} cover row", f"all {a_}, core {c_}")
+        nwarm = sum(1 for k in range(1, nq + 1) if k not in core and times[k - 1] <= 2)
+    mt = re.search(r"<td><b>Total</b></td><td></td><td class=\"m\">(\d+) h (\d+) min</td><td class=\"m\">(\d+) h (\d+) min</td>", COVER)
+    report(bool(mt) and int(mt.group(1)) * 60 + int(mt.group(2)) == tot_all and int(mt.group(3)) * 60 + int(mt.group(4)) == tot_core,
+           "cover totals", f"all {tot_all} min, core {tot_core} min")
+    report(180 <= tot_all <= 240 and 110 <= tot_core <= 125, "about 3 to 4 hours in all, about 2 hours core")
 
 # ------------------------------------------------------------------ every printed key was checked
 for k in PRINTED:
@@ -436,7 +739,7 @@ for k in PRINTED:
 # ------------------------------------------------------------------ answer blocks match questions
 for s in SECTIONS:
     qq = re.findall(r'<span class="q-num">(\d+)</span><div class="q-body"><span class="src">([^<]*)</span>', Q[s])
-    aa = re.findall(r'<div class="a"><span class="an">(\d+)</span><div class="ab"><span class="src">([^<]*)</span>', read(f"a_{s}.html"))
+    aa = re.findall(r'<div class="a"><span class="an">(\d+)</span><div class="ab"[^>]*><span class="src">([^<]*)</span>', read(f"a_{s}.html"))
     report(qq == aa and [int(n) for n, _ in qq] == list(range(1, len(qq) + 1)),
            f"{s.upper()} answers match questions (number and source)", f"{len(qq)} questions")
     report(8 <= len(qq) <= 14, f"{s.upper()} has 8 to 14 questions")
