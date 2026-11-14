@@ -1,0 +1,7 @@
+{"chapter": "Year 8 Congruence | Lesson and Homework",
+ "header": "YEAR 8 MATHEMATICS",
+ "lesson": {"parts": ["cover.html","revision.html","l1.html","l2.html","l3.html"], "out": "lesson.pdf",
+            "title": "Year 8 Congruence - Lesson and Homework"},
+ "answers": {"parts": ["a_rev.html","a_l1.html","a_l2.html","a_l3.html"], "out": "answers.pdf",
+             "title": "Year 8 Congruence - Homework Answers",
+             "footer": "Year 8 Congruence | Homework Answers", "heading": "Year 8 Congruence - Homework Answers"}}
