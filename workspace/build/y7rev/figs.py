@@ -66,25 +66,36 @@ class Plane(Graph):
         self.items.append(_txt(self.X(self.xmax) + 18, y0 + 1, xlabel, "start", italic=True))
         self.items.append(_txt(x0 + 9, self.Y(self.ymax) - 13, ylabel, "start", italic=True))
         self._ticklabels = []
+        quad = self.xmin < 0 < self.xmax and self.ymin < 0 < self.ymax
         for x in range(self.xmin, self.xmax + 1):
             if x and x % xstep == 0:
-                if x == -xstep and self.ymin < 0:
-                    continue                  # no room beside the first negative y-axis label
                 self.items.append(f'<line x1="{self.X(x):.1f}" y1="{y0 - 3}" x2="{self.X(x):.1f}" y2="{y0 + 3}" stroke="{INK}" stroke-width="1.1"/>')
-                self._ticklabels.append((self.X(x), y0 + 11, str(x), "middle"))
+                dx = -3 if (quad and x == -xstep) else 0      # nudged clear of the origin 0 and the y labels
+                self._ticklabels.append((self.X(x) + dx, y0 + 11, str(x), "middle"))
         for y in range(self.ymin, self.ymax + 1):
             if y and y % ystep == 0:
                 self.items.append(f'<line x1="{x0 - 3}" y1="{self.Y(y):.1f}" x2="{x0 + 3}" y2="{self.Y(y):.1f}" stroke="{INK}" stroke-width="1.1"/>')
-                self._ticklabels.append((x0 - 6, self.Y(y), str(y), "end"))
-        if self.xmin == 0 and self.ymin == 0:
-            self._ticklabels.append((x0 - 6, y0 + 11, "0", "end"))
+                dy = 3 if (quad and y == -ystep) else 0       # nudged down, clear of the origin 0
+                self._ticklabels.append((x0 - 4, self.Y(y) + dy, str(y), "end"))
+        if quad or (self.xmin == 0 and self.ymin == 0):
+            self._ticklabels.append((x0 - 3, y0 + 8, "0", "end"))
         self._labels_on = labels
         return self
 
-    def ticklabels(self):
+    def ticklabels(self, avoid=(), r=2.8):
+        """Tick labels on white boxes. A label whose box would cover a data point in `avoid` is left out,
+        so that no plotted point is ever hidden (the points are drawn after the labels)."""
+        size = 9
         if self._labels_on:
             for px, py, s, a in self._ticklabels:
-                self.wlabel(px, py, s, a, size=9.5)
+                w = tw(s.replace("-", "−"), size) + 3
+                bx = {"middle": px - w / 2, "start": px - 1.5, "end": px - w + 1.5}[a]
+                by, bh = py - size * 0.62, size * 1.24
+                m = r + 2.5
+                if any(bx - m < self.X(x) < bx + w + m and by - m < self.Y(y) < by + bh + m for x, y in avoid):
+                    self.skipped = getattr(self, "skipped", []) + [s]
+                    continue
+                self.wlabel(px, py, s, a, size=size)
         return self
 
     def pts(self, name, pts, labels=None, r=2.8):
@@ -112,8 +123,8 @@ G_COORDS = {"A": (4, 4), "B": (-4, 3), "C": (-3, -2), "D": (3, -3), "E": (1, 1),
 def g_coords():
     g = Plane(-5, 5, -5, 5, unit=21)
     g.frame()
+    g.ticklabels(avoid=G_COORDS.values())
     g.pts("g_coords", G_COORDS.values())
-    g.ticklabels()
     off = {"G": (-9, -10)}
     for lab, (x, y) in G_COORDS.items():
         dx, dy = off.get(lab, (9, 9))
@@ -134,9 +145,10 @@ def g_ans_12c():
     g = Plane(-4, 4, -3, 4, unit=20)
     g.frame()
     pts = [(x, -x + 0.5) for x in range(-3, 4)]
-    g.pts("g_ans12c", pts)
+    line = [(-3.5 + k / 20, 4 - k / 20) for k in range(141)]       # samples of the drawn line y = -x + 1/2
+    g.ticklabels(avoid=pts + line)
     g.items.append(f'<line x1="{g.X(-3.5):.1f}" y1="{g.Y(4):.1f}" x2="{g.X(3.5):.1f}" y2="{g.Y(-3):.1f}" stroke="{ACC["blue"]}" stroke-width="1.2" stroke-dasharray="4 3"/>')
-    g.ticklabels()
+    g.pts("g_ans12c", pts)
     save("g_ans12c", g)
 
 
@@ -181,15 +193,32 @@ G8 = {"a": (lambda x: x + 3, range(-7, 7)), "c": (lambda x: -2 * x + 1, range(-4
 
 def g_match():
     for k, (f, xs) in G8.items():
-        g = Plane(-7, 7, -9, 10, unit=10.5, pad=(22, 32, 20, 18))
+        g = Plane(-7, 7, -9, 10, unit=9.5, pad=(22, 32, 17, 14))
         g.frame(xstep=2, ystep=2)
-        g.pts("g8" + k, [(x, f(x)) for x in xs if -9 <= f(x) <= 10], r=2.4)
-        g.ticklabels()
+        pts = [(x, f(x)) for x in xs if -9 <= f(x) <= 10]
+        g.ticklabels(avoid=pts, r=2.4)
+        g.pts("g8" + k, pts, r=2.4)
         save("g8" + k, g)
+
+
+# ------------------------------------------------------------------ G Pack question: which sets of points are linear?
+G_LIN = {"P": [(1, 1), (2, 3), (3, 5), (4, 7)],              # y = 2x - 1
+         "Q": [(0, 1), (1, 2), (2, 4), (3, 8)],              # doubles each step: not a line
+         "R": [(0, 7), (1, 6), (2, 5), (3, 4), (4, 3)]}      # y = 7 - x
+
+
+def g_linear():
+    for k, pts in G_LIN.items():
+        g = Plane(0, 5, 0, 9, unit=13, pad=(24, 28, 22, 22))
+        g.frame(ystep=2)
+        g.ticklabels(avoid=pts)
+        g.pts("g_lin" + k, pts)
+        save("g_lin" + k, g)
 
 
 # ------------------------------------------------------------------ H Pack question: Venn diagram
 H_VENN = {"T only": 14, "both": 9, "S only": 22, "neither": 15}
+POINTS["h_venn"] = H_VENN
 
 
 def h_venn():
@@ -218,6 +247,7 @@ if __name__ == "__main__":
     g_triangles()
     g_blank("g_plane12d", 0, 7, 0, 14, 13, xlabel="t", ylabel="m", xstep=1, ystep=2)
     g_match()
+    g_linear()
     h_venn()
     print("figures:", sorted(f for f in os.listdir(OUT)))
     import json

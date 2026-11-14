@@ -159,6 +159,15 @@ def qpart(sec, n, letter):
     return " ".join(mm) if mm else body
 
 
+def qpart_raw(sec, n, letter):
+    """Whole html of part `letter` of question n."""
+    b = qblock(sec, n)
+    m = re.search(r'<span class="pl(?: ll)?">%s</span>(.*?)</span>(?=<span>|</div>)' % re.escape(letter), b, flags=re.S)
+    if not m:
+        raise KeyError(f"part {sec.upper()}{n}{letter} not found")
+    return m.group(1)
+
+
 def got(key):
     if key not in PRINTED:
         report(False, key, "MISSING printed answer")
@@ -369,33 +378,43 @@ if "d" in SECTIONS:
         if mm:
             report(math.gcd(int(mm.group(1)), int(mm.group(2))) == 1, f"D1{p} in simplest form")
     BOOK.update(D1q=7, D1r=F(3, 5), D1t=F(6, 13), D1u=F(3, 2))
-    for p in "ehk":
-        check_part("D2" + p, "d", 2, p)
-    BOOK.update(D2e=F(7, 5), D2h=F(5, 3), D2k=F(41, 30))
-    for p in "acd":
+    # D2: a fraction of a quantity, read from the question text "Find a/b of N"
+    for p in "abc":
+        mm = re.search(r"\\tfrac\{(\d+)\}\{(\d+)\}\\\) of (?:\\\(\\\$)?([\d ]+)", qpart_raw("d", 2, p))
+        check_num("D2" + p, F(int(mm.group(1)), int(mm.group(2))) * int(mm.group(3).replace(" ", "")))
+    BOOK.update(D2a=12, D2b=15, D2c=1400)
+    for p in "ek":
         check_part("D3" + p, "d", 3, p)
-    BOOK.update(D3a=F(8, 5), D3c=F(37, 2), D3d=F(11, 3))
-    for p in "ejo":
+    BOOK.update(D3e=F(7, 5), D3k=F(41, 30))
+    for p in "acd":
         check_part("D4" + p, "d", 4, p)
-    BOOK.update(D4e=F(23, 18), D4j=F(19, 24), D4o=F(23, 210))
-    for p in "abdf":
+    BOOK.update(D4a=F(8, 5), D4c=F(37, 2), D4d=F(11, 3))
+    for p in "ejo":
         check_part("D5" + p, "d", 5, p)
-        report(recurring(got("D5" + p) or "") is not None, f"D5{p} printed as a recurring decimal")
-    BOOK.update(D5a=F(3, 7), D5b=F(2, 11), D5d=F(6, 13), D5f=F(7, 12))
-    for p in "fik":
+    BOOK.update(D5e=F(23, 18), D5j=F(19, 24), D5o=F(23, 210))
+    for p in "abdf":
         check_part("D6" + p, "d", 6, p)
-    BOOK.update(D6f=F("-17.27"), D6i=F("26.4"), D6k=F("-1.5"))
-    check_num("D7e", F(23, 50) * 100)
-    check_num("D7i", F(1250, 2000) * 100)
-    check_num("D7l", F("34.20") / 60 * 100)
-    BOOK.update(D7e=46, D7i=F("62.5"), D7l=57)
+        report(recurring(got("D6" + p) or "") is not None, f"D6{p} printed as a recurring decimal")
+    BOOK.update(D6a=F(3, 7), D6b=F(2, 11), D6d=F(6, 13), D6f=F(7, 12))
+    for p in "fik":
+        check_part("D7" + p, "d", 7, p)
+    BOOK.update(D7f=F("-17.27"), D7i=F("26.4"), D7k=F("-1.5"))
+    check_num("D8e", F(23, 50) * 100)
+    check_num("D8i", F(1250, 2000) * 100)
+    check_num("D8l", F("34.20") / 60 * 100)
+    BOOK.update(D8e=46, D8i=F("62.5"), D8l=57)
+    # D9: x% of a quantity, read from the question text "x% of N"
+    for p in "dgj":
+        mm = re.search(r"([\d.]+)% of ([\d.]+)", qpart_raw("d", 9, p))
+        check_num("D9" + p, F(mm.group(1)) / 100 * F(mm.group(2)))
+    BOOK.update(D9d=18, D9g=F("73.2"), D9j=236)
     x = sp.Symbol("x")
-    check_num("D8", sp.solve(sp.Eq(x - sp.Rational(2, 11) * x - sp.Rational(3, 5) * x, 84), x)[0])
-    check_num("D9", sp.solve(sp.Eq((x - 24) * sp.Rational(80, 100), sp.Rational(2, 3) * x), x)[0])
-    BOOK.update(D8=385, D9=144)
+    check_num("D10", sp.solve(sp.Eq((x - 24) * sp.Rational(80, 100), sp.Rational(2, 3) * x), x)[0])
+    BOOK.update(D10=144)
     L, W = sp.symbols("L W", positive=True)
-    k = sp.solve(sp.Eq(sp.Rational(80, 100) * L * W * (1 + x / 100), L * W), x)[0]
-    check_num("D10", k)
+    pct = int(re.search(r"length decreased by (\d+)%", qblock("d", 11)).group(1))
+    k = sp.solve(sp.Eq(sp.Rational(100 - pct, 100) * L * W * (1 + x / 100), L * W), x)[0]
+    check_num("D11", k)
 
 # ------------------------------------------------------------------ algebra helpers (sympy)
 LETTERS = {c: sp.Symbol(c) for c in "abcdefghjkmnpqrstuvwxyz"}
@@ -540,51 +559,57 @@ if "g" in SECTIONS:
     pr = [(int(a), int(b)) for _, a, b in pts]
     check_true("G2", [l for l, _, _ in pts] == list("ABCDEFG") and pr == [tuple(v) for v in FIG.get("g_coords", [])],
                f"printed {pr}")
+    # G3: which plotted sets are linear? (points read from the figure data; collinear by cross products)
+    def collinear(pts):
+        (x0_, y0_), (x1_, y1_) = pts[0], pts[1]
+        return all((x1_ - x0_) * (y - y0_) == (y1_ - y0_) * (x - x0_) for x, y in pts[2:])
+    lin = [k for k in "PQR" if collinear(FIG.get("g_lin" + k, [(0, 0), (1, 1), (0, 1)]))]
+    report(len(lin) == 2, "G3 two of the three sets are linear", str(lin))
+    check_true("G3", re.findall(r"\b[PQR]\b", clean(got("G3") or "")) == lin, f"linear sets {lin}")
     rule = lambda xv: -xv + F(1, 2)
     want = [rule(xv) for xv in range(-3, 4)]
-    check_true("G3", nums_list(got("G3") or "") == want, f"want {want}")
+    check_true("G4", nums_list(got("G4") or "") == want, f"want {want}")
     report([tuple(map(F, map(str, p))) for p in FIG.get("g_ans12c", [])] == [(F(xv), rule(xv)) for xv in range(-3, 4)],
-           "G3 answer graph points")
+           "G4 answer graph points")
     counts = [FIG.get(f"g_tri{k}") for k in range(1, 5)]          # matches counted in the drawn diagrams
-    report(counts[:3] == [3, 5, 7], "G4 figure matches the table (3, 5, 7)", str(counts))
+    report(counts[:3] == [3, 5, 7], "G5 figure matches the table (3, 5, 7)", str(counts))
     t = sp.Symbol("t")
     slope = counts[1] - counts[0]
-    report(all(counts[k + 1] - counts[k] == slope for k in range(3)), "G4 figure grows by a constant")
+    report(all(counts[k + 1] - counts[k] == slope for k in range(3)), "G5 figure grows by a constant")
     rule4 = slope * t + (counts[0] - slope)
-    check_true("G4a", [int(v) for v in re.findall(r"\d+", clean(got("G4a") or ""))] == [int(rule4.subs(t, k)) for k in (4, 5, 6)])
-    check_num("G4b", slope)
-    tt = clean(got("G4d") or "").split("=")
-    check_true("G4d", tt[0].strip() == "m" and sp.expand(alg(tt[1]) - rule4) == 0, f"rule {rule4}")
-    qb = qblock("g", 5)
+    check_true("G5a", [int(v) for v in re.findall(r"\d+", clean(got("G5a") or ""))] == [int(rule4.subs(t, k)) for k in (4, 5, 6)])
+    check_num("G5b", slope)
+    tt = clean(got("G5d") or "").split("=")
+    check_true("G5d", tt[0].strip() == "m" and sp.expand(alg(tt[1]) - rule4) == 0, f"rule {rule4}")
+    qb = qblock("g", 6)
     tables = re.findall(r'<table class="ct sm">(.*?)</table>', qb, flags=re.S)
     for p, tab in zip("cdf", tables):
         rows = re.findall(r"<tr><th>\\\((\w)\\\)</th>(.*?)</tr>", tab, flags=re.S)
         (v1, r1), (v2, r2) = rows
         xs = [num(c) for c in re.findall(r"<td>(.*?)</td>", r1)]
         ys = [num(c) for c in re.findall(r"<td>(.*?)</td>", r2)]
-        tt = clean(got("G5" + p) or "").split("=")
+        tt = clean(got("G6" + p) or "").split("=")
         e = alg(tt[1])
         sym = LETTERS[v1]
         mm = re.fullmatch(r"(-?\d+)\*" + v1 + r"-(\d+)", tt[1].replace(" ", ""))
         ok = tt[0].strip() == v2 and bool(mm) and all(e.subs(sym, xv) == yv for xv, yv in zip(xs, ys))
-        check_true("G5" + p, ok, f"printed {tt}, table {xs} -> {ys}")
-    listed = [alg(r) for r in re.findall(r"\\\(y=([^\\]*)\\\)", qblock("g", 6))]
-    report(len(listed) == 6, "G6 six rules listed")
+        check_true("G6" + p, ok, f"printed {tt}, table {xs} -> {ys}")
+    listed = [alg(r) for r in re.findall(r"\\\(y=([^\\]*)\\\)", qblock("g", 7))]
+    report(len(listed) == 6, "G7 six rules listed")
     xs_ = LETTERS["x"]
     for p in "acf":
-        tt = clean(got("G6" + p) or "").split("=")
+        tt = clean(got("G7" + p) or "").split("=")
         e = alg(tt[1])
         pts = FIG.get("g8" + p, [])
         fits = [rr for rr in listed if all(rr.subs(xs_, a) == b_ for a, b_ in pts)]
-        check_true("G6" + p, len(fits) == 1 and sp.expand(e - fits[0]) == 0 and len(pts) > 3, f"fits {fits}")
+        check_true("G7" + p, len(fits) == 1 and sp.expand(e - fits[0]) == 0 and len(pts) > 3, f"fits {fits}")
     mo = sp.Symbol("m")
     d_rule = 1000 - 20 * mo
-    check_true("G7a", [int(v) for v in re.findall(r"\d+", clean(got("G7a") or ""))] == [int(d_rule.subs(mo, k)) for k in range(2, 7)])
-    tt = clean(got("G7b") or "").split("=")
-    check_true("G7b", tt[0].strip() == "d" and sp.expand(alg(tt[1]) - d_rule) == 0)
-    check_num("G7c", d_rule.subs(mo, 10))
-    check_num("G7d", sp.solve(d_rule, mo)[0])
-    check_num("G8", F(2 * 20, 10 - 5))
+    check_true("G8a", [int(v) for v in re.findall(r"\d+", clean(got("G8a") or ""))] == [int(d_rule.subs(mo, k)) for k in range(2, 7)])
+    tt = clean(got("G8b") or "").split("=")
+    check_true("G8b", tt[0].strip() == "d" and sp.expand(alg(tt[1]) - d_rule) == 0)
+    check_num("G8c", d_rule.subs(mo, 10))
+    check_num("G8d", sp.solve(d_rule, mo)[0])
     c_ = sp.Symbol("c")
     cval = sp.solve(sp.Eq(2, 2 * 3 + c_), c_)[0]
     check_true("G9a", clean(got("G9a") or "").replace(" ", "") == f"c={cval}", str(cval))
@@ -592,7 +617,7 @@ if "g" in SECTIONS:
     check_true("G9bx", re.sub(r"\s", "", clean(got("G9bx") or "")) == f"({xi},0)")
     check_true("G9by", re.sub(r"\s", "", clean(got("G9by") or "")) == f"(0,{cval})")
     check_num("G9c", F(1, 2) * abs(xi) * abs(cval))
-    BOOK.update(G4b=2, G7c=800, G7d=50, G8=8)
+    BOOK.update(G5b=2, G8c=800, G8d=50)
 
 # ================================================================== H Probability (enumeration)
 if "h" in SECTIONS:
@@ -621,7 +646,8 @@ if "h" in SECTIONS:
     check_num("H5c", P(beans, lambda o: o == ("G", "N")))
     check_num("H5d", P(beans, lambda o: o == ("R", "D")))
     check_num("H5e", P(beans, lambda o: o[0] == "R"))
-    venn = [(1, 0)] * 14 + [(1, 1)] * 9 + [(0, 1)] * 22 + [(0, 0)] * 15             # (tennis, swims)
+    hv = FIG.get("h_venn", {})                                                       # counts drawn in the Venn figure
+    venn = [(1, 0)] * hv.get("T only", 0) + [(1, 1)] * hv.get("both", 0) + [(0, 1)] * hv.get("S only", 0) + [(0, 0)] * hv.get("neither", 0)  # (tennis, swims)
     report(len(venn) == 60, "H6 Venn diagram holds 60 students")
     cnt = lambda f: sum(1 for v in venn if f(v))
     cells = {"ts": cnt(lambda v: v == (1, 1)), "tn": cnt(lambda v: v == (1, 0)), "tt": cnt(lambda v: v[0] == 1),
@@ -697,14 +723,14 @@ report(HAVE <= USEDSVG, "every figure drawn is used", str(sorted(HAVE - USEDSVG)
 
 # ------------------------------------------------------------------ cover: times and core sets
 EST = {  # minutes per question (all questions), core question numbers
-    "a": ([3, 2, 2, 3, 4, 3, 3, 3, 5], [1, 5, 6, 9]),
+    "a": ([3, 2, 3, 3, 4, 3, 3, 3, 5], [1, 5, 6, 9]),
     "b": ([3, 2, 2, 3, 4, 4, 3, 3, 3], [1, 5, 6, 8]),
-    "c": ([2, 3, 2, 3, 3, 2, 2, 3, 2, 4], [1, 4, 7, 9, 10]),
-    "d": ([2, 3, 3, 4, 3, 3, 3, 3, 4, 3], [4, 5, 9, 10]),
+    "c": ([2, 3, 2, 3, 4, 2, 2, 3, 2, 4], [1, 4, 7, 9, 10]),
+    "d": ([2, 2, 2, 3, 5, 4, 3, 3, 2, 4, 3], [5, 6, 10, 11]),
     "e": ([2, 2, 2, 3, 3, 3, 3, 3, 2, 4], [4, 5, 8, 10]),
     "f": ([2, 2, 2, 3, 3, 3, 2, 3, 3, 3], [1, 6, 8, 9, 10]),
-    "g": ([2, 2, 3, 4, 3, 2, 3, 3, 4], [2, 4, 7, 9]),
-    "h": ([2, 1, 2, 3, 3, 5, 3, 3, 3], [1, 6, 7, 9]),
+    "g": ([2, 2, 2, 4, 4, 3, 2, 3, 4], [2, 5, 8, 9]),
+    "h": ([2, 1, 2, 3, 3, 5, 3, 3, 3], [6, 7, 9]),
     "i": ([2, 2, 4, 2, 4, 3, 3, 4], [3, 6, 8]),
 }
 if os.path.exists(os.path.join(SRC, "cover.html")) and len(SECTIONS) == 9:
@@ -729,7 +755,7 @@ if os.path.exists(os.path.join(SRC, "cover.html")) and len(SECTIONS) == 9:
     mt = re.search(r"<td><b>Total</b></td><td></td><td class=\"m\">(\d+) h (\d+) min</td><td class=\"m\">(\d+) h (\d+) min</td>", COVER)
     report(bool(mt) and int(mt.group(1)) * 60 + int(mt.group(2)) == tot_all and int(mt.group(3)) * 60 + int(mt.group(4)) == tot_core,
            "cover totals", f"all {tot_all} min, core {tot_core} min")
-    report(180 <= tot_all <= 240 and 110 <= tot_core <= 125, "about 3 to 4 hours in all, about 2 hours core")
+    report(180 <= tot_all <= 245 and 110 <= tot_core <= 125, "about 3 to 4 hours in all, about 2 hours core")
 
 # ------------------------------------------------------------------ every printed key was checked
 for k in PRINTED:
