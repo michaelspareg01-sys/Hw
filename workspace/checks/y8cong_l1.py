@@ -329,9 +329,14 @@ for q, n1, n2 in (("q9a", "ABC", "DEF"), ("q9b", "ABCD", "WXYZ"), ("q9c", "ABCD"
         t = caps(s)
         got = {t[i]: t[i + 1] for i in range(0, len(t), 2)}
         ok(got == f, f"{q} corresponding vertices", f"printed {got}, computed {f}")
-# Q9d note: D and S join the double-marked (longer) sides; ED is the longer of them
+# Q9d note: D and S join the double-marked sides; E/W and C/X matched by angle size
 P, Q = two_shapes("l1_q9d", "ABCDE", "STXZW")
-ok(dist(P["E"], P["D"]) > dist(P["D"], P["C"]) and dist(Q["W"], Q["S"]) > dist(Q["S"], Q["X"]), "q9d note: ED > DC and WS > SX")
+import math as _m
+def _ang(Pt, v, a, c):
+    ux, uy = Pt[a][0]-Pt[v][0], Pt[a][1]-Pt[v][1]; wx, wy = Pt[c][0]-Pt[v][0], Pt[c][1]-Pt[v][1]
+    return _m.degrees(_m.acos((ux*wx+uy*wy)/(_m.hypot(ux,uy)*_m.hypot(wx,wy))))
+ok(_ang(P, "E", "A", "D") + 30 < _ang(P, "C", "B", "D") and _ang(Q, "W", "T", "S") + 30 < _ang(Q, "X", "Z", "S"), "q9d note: angle E much smaller than C, angle W much smaller than X",
+   str((round(_ang(P,"E","A","D"),1), round(_ang(P,"C","B","D"),1), round(_ang(Q,"W","T","S"),1), round(_ang(Q,"X","Z","S"),1))))
 
 # Q10 isosceles triangle cut at the midpoint M
 pos = name_vertices("l1_q10", "ABC", polygons("l1_q10"))
