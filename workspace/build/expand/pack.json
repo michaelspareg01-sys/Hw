@@ -1,0 +1,7 @@
+{
+ "chapter": "Expanding Brackets | Homework",
+ "lesson": {"parts": ["cover.html", "q_all.html"], "out": "lesson.pdf", "title": "Expanding Brackets - Homework"},
+ "answers": {"parts": ["a_all.html"], "out": "answers.pdf", "title": "Expanding Brackets - Answers",
+             "footer": "Expanding Brackets | Answers", "heading": "Expanding Brackets - Answers"},
+ "header": "MATHEMATICS"
+}
