@@ -643,8 +643,11 @@ def fig_w4():
     f = CF(max(p[0] for p in P) + 30, max(p[1] for p in P) + 16)
     f.poly(P, color=None, opacity=0)
     f.reflex(Vr, Vaa, V23, r=9)
-    falab(f, Vaa, V37, Vr, "a°", d=18); falab(f, V37, Vaa, V23, "37°", d=32)
-    falab(f, V23, V37, Vr, "23°", d=68); falab(f, Vr, Vaa, V23, "230°", d=24)
+    # labels drawn at 14.5 so they print at 8 pt or more in the three-column layout
+    falab(f, Vaa, V37, Vr, "a°", d=19, size=14.5); falab(f, V37, Vaa, V23, "37°", d=36, size=14.5)
+    f.angle(V23, V37, Vr, r=18, width=0.8)
+    _b = radians((_ang(V23, V37) + _ang(V23, Vr)) / 2)
+    ftext(f, V23[0] - 24 * cos(_b), V23[1] + 24 * sin(_b), "23°", size=14.5); falab(f, Vr, Vaa, V23, "230°", d=28, size=14.5)
     save("w4e", f)
 
 
