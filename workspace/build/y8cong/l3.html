@@ -1,4 +1,248 @@
 <div class="lesson">
 <div class="lesson-head"><div class="eyebrow">Lesson 3</div><h2>Proving properties with congruent triangles</h2>
-<div class="focus">This lesson is still being written.</div></div>
+<div class="focus">The tests for congruent triangles can be used to prove facts about shapes. This lesson teaches how to set out a congruence proof, line by line, with a reason for every statement, and then uses such proofs to establish the properties of the special quadrilaterals: the parallelogram, rhombus, rectangle, square, trapezium and kite. The teaching follows Year 8 section 8H, <i>Using congruent triangles to establish properties of quadrilaterals</i>. The lesson ends with a short Chapter 8 review.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 1:setting out a congruence proof}}
+<div class="box concept"><div class="bt">Using congruent triangles to establish properties of quadrilaterals (Year 8, 8H)</div>
+<p>The properties of special quadrilaterals, including the parallelogram, rhombus, rectangle, square, trapezium and kite, can be examined more closely using congruence. By drawing the diagonals and using the tests for the congruence of triangles, we can prove many of the properties of these special quadrilaterals.</p></div></div>
+
+<div class="box concept"><div class="bt">Let’s start: Do the diagonals bisect each other? (8H)</div>
+<p>Here is a parallelogram with two pairs of parallel sides. Let’s assume also that opposite sides are equal (a basic property of a parallelogram, which we prove later in this exercise).</p>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<ul style="margin:0"><li>First locate \(\triangle ABE\) and \(\triangle CDE\).</li>
+<li>What can be said about the angles \(\angle BAE\) and \(\angle DCE\)?</li>
+<li>What can be said about the angles \(\angle ABE\) and \(\angle CDE\)?</li>
+<li>What can be said about the sides \(AB\) and \(DC\)?</li>
+<li>Now what can be said about \(\angle ABE\) and \(\angle CDE\)? Discuss the reasons.</li>
+<li>What does this tell us about where the diagonals intersect? Do they <b>bisect</b> each other and why? (To bisect means to cut in half.)</li></ul>
+</div><div>{{svg:l3_start}}</div></div></div>
+<div class="box tip"><div class="bt">The shape of a congruence proof</div>
+<p>A proof that two triangles are congruent is set out in four steps, one statement per line.</p>
+<ol style="margin:0.5mm 0 0"><li>Name the two triangles: “In \(\triangle\ldots\) and \(\triangle\ldots\)”.</li>
+<li>List three pairs of equal parts. Give each one its reason in brackets, for example (given), (common side), (alternate angles in parallel lines) or (vertically opposite angles).</li>
+<li>Write the congruence statement with the vertices in matching order, and the test in brackets: \(\therefore\triangle\ldots\equiv\triangle\ldots\) (SSS, SAS, AAS or RHS).</li>
+<li>Use the matching sides or angles of the two triangles to reach what you were asked to prove.</li></ol>
+<p style="margin-top:1mm">The three pairs of parts must be the ones the test needs. For SAS, the angle must be the included angle, between the two pairs of sides.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A congruence proof in a parallelogram</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin:0">\(PQRS\) is a parallelogram. Its diagonals \(PR\) and \(QS\) meet at \(M\). You may assume that opposite sides are equal, so \(PS=QR\).</p>
+<div class="parts one"><span><span class="pl">a</span>Prove that \(\triangle PSM\equiv\triangle RQM\), giving reasons.</span><span><span class="pl">b</span>Hence show that the diagonals bisect each other.</span></div>
+</div><div>{{svg:l3_d1}}</div></div>
+{{work:40}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin:0">\(ABCD\) is a parallelogram. Its diagonals meet at \(E\). The point \(X\) lies on \(AB\) and the point \(Y\) lies on \(DC\), with \(AX=CY\). You may use the result of the Tutor demo: the diagonals of a parallelogram bisect each other.</p>
+<div class="parts one"><span><span class="pl">a</span>Prove that \(\triangle AXE\equiv\triangle CYE\), giving reasons.</span><span><span class="pl">b</span>Hence show that \(XE=YE\).</span></div>
+</div><div>{{svg:l3_y1}}</div></div>
+{{work:40}}</div></div>
+<div class="ex worked" style="break-inside:avoid"><div class="ex-top"><span class="tag">Worked example</span><span class="ex-title">Year 8 Example 13 (8H) Proving that diagonals of a parallelogram bisect each other: keep for homework</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin:0">Prove that the diagonals of a parallelogram bisect each other and give reasons.</p></div><div>{{svg:l3_ex13}}</div></div>
+<div class="split" style="grid-template-columns:1fr 1fr;gap:4mm;row-gap:1.2mm">
+<div class="sol-label" style="margin-top:0">Solution</div><div class="sol-label" style="margin-top:0">Explanation</div>
+<div><span data-k="ex13">\(\angle BAE=\angle DCE\) (alternate angles in parallel lines)<br>
+\(\angle ABE=\angle CDE\) (alternate angles in parallel lines)<br>
+\(AB=CD\) (given equal side lengths)<br>
+\(\therefore\triangle ABE\equiv\triangle CDE\) (AAS)</span></div>
+<div style="display:flex;gap:2mm;align-items:flex-start">{{svg:l3_ex13a}}{{svg:l3_ex13b}}</div>
+<div><span data-k="ex13c">\(\therefore BE=DE\) and \(AE=CE\)</span><br>\(\therefore\) Diagonals bisect each other.</div>
+<div>The two triangles are congruent, using the AAS test.<br>Since \(\triangle ABE\) and \(\triangle CDE\) are congruent the corresponding sides are equal.</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips: Example 13</div>
+<p>In the left-hand Z shape the transversal is the diagonal \(AC\) and the parallel lines are \(AB\) and \(DC\). In the right-hand Z shape the transversal is the diagonal \(BD\). The equal sides \(AB\) and \(CD\) are opposite the vertically opposite angles at \(E\) in both triangles, so they are matching sides, as AAS needs.</p></div>
+
+<!-- ============ Concept 2 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 2:properties of the special quadrilaterals}}
+<div class="box concept" style="break-inside:auto"><div class="bt">Key ideas (8H)</div>
+<p>This is a summary of the properties of the special quadrilaterals.</p>
+<div class="split" style="grid-template-columns:3fr 1.3fr;align-items:center;break-inside:avoid"><div>
+<p style="margin:0"><b>■ Kite:</b> A quadrilateral with two pairs of adjacent sides equal.</p>
+<ul style="margin:0"><li>Two pairs of adjacent sides of a kite are equal.</li>
+<li>One diagonal of a kite bisects the other diagonal.</li>
+<li>One diagonal of a kite bisects the opposite angles.</li>
+<li>The diagonals of a kite are perpendicular.</li></ul></div><div>{{svg:l3_k_kite}}</div></div></div></div>
+<div class="box concept" style="break-inside:auto;margin-top:0">
+<div class="split" style="grid-template-columns:3fr 1.3fr;align-items:center;break-inside:avoid"><div>
+<p style="margin:0"><b>■ Trapezium:</b> A quadrilateral with at least one pair of parallel sides</p>
+<ul style="margin:0"><li>At least one pair of sides of a trapezium are parallel.</li></ul></div><div>{{svg:l3_k_trap}}</div></div>
+<div class="split" style="grid-template-columns:3fr 1.3fr;align-items:center;break-inside:avoid"><div>
+<p style="margin:0"><b>■ Parallelogram:</b> A quadrilateral with both pairs of opposite sides parallel</p>
+<ul style="margin:0"><li>The opposite sides of a parallelogram are parallel.</li>
+<li>The opposite sides of a parallelogram are equal.</li>
+<li>The opposite angles of a parallelogram are equal.</li>
+<li>The diagonals of a parallelogram bisect each other.</li></ul></div><div>{{svg:l3_k_para}}</div></div>
+<div class="split" style="grid-template-columns:3fr 1.3fr;align-items:center;break-inside:avoid"><div>
+<p style="margin:0"><b>■ Rhombus:</b> A parallelogram with two adjacent sides equal in length</p>
+<ul style="margin:0"><li>The opposite sides of a rhombus are parallel.</li>
+<li>All sides of a rhombus are equal.</li>
+<li>The opposite angles of a rhombus are equal.</li>
+<li>The diagonals of a rhombus bisect the vertex angles.</li>
+<li>The diagonals of a rhombus bisect each other.</li>
+<li>The diagonals of a rhombus are perpendicular.</li></ul></div><div>{{svg:l3_k_rhom}}</div></div>
+<div class="split" style="grid-template-columns:3fr 1.3fr;align-items:center;break-inside:avoid"><div>
+<p style="margin:0"><b>■ Rectangle:</b> A parallelogram with a right angle</p>
+<ul style="margin:0"><li>The opposite sides of a rectangle are parallel.</li>
+<li>The opposite sides of a rectangle are equal.</li>
+<li>All angles at the vertices of a rectangle are \(90^\circ\).</li>
+<li>The diagonals of a rectangle are equal.</li>
+<li>The diagonals of a rectangle bisect each other.</li></ul></div><div>{{svg:l3_k_rect}}</div></div>
+<div class="split" style="grid-template-columns:3fr 1.3fr;align-items:center;break-inside:avoid"><div>
+<p style="margin:0"><b>■ Square:</b> A rectangle with two adjacent sides equal</p>
+<ul style="margin:0"><li>Opposite sides of a square are parallel.</li>
+<li>All sides of a square are equal.</li>
+<li>All angles at the vertices of a square are \(90^\circ\).</li>
+<li>The diagonals of a square bisect the vertex angles.</li>
+<li>The diagonals of a square bisect each other.</li>
+<li>The diagonals of a square are perpendicular.</li></ul></div><div>{{svg:l3_k_sq}}</div></div></div>
+<div class="box tip"><div class="bt">Proving a property</div>
+<p>To prove a property of a quadrilateral, draw a diagonal (or both) so that the property you want becomes a pair of matching sides or angles in two triangles. Look for sides or angles that the marks or the shape make equal, and for a side that the two triangles share. Prove that the triangles are congruent, then use their matching parts. You may use the definitions above, and any property that has already been proved.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Proving a property of a rhombus</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin:0">\(PQRS\) is a rhombus with the diagonal \(PR\) drawn.</p>
+<div class="parts one"><span><span class="pl">a</span>Prove that \(\triangle PQR\equiv\triangle PSR\), giving reasons.</span><span><span class="pl">b</span>Hence show that the diagonal \(PR\) bisects \(\angle SPQ\) and \(\angle QRS\).</span></div>
+</div><div>{{svg:l3_d2}}</div></div>
+{{work:40}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>
+<p style="margin:0">\(ABCD\) is a trapezium with \(AB\parallel DC\). Also \(AD=BC\) and \(\angle DAB=\angle CBA\), as marked.</p>
+<div class="parts one"><span><span class="pl">a</span>Prove that \(\triangle DAB\equiv\triangle CBA\), giving reasons.</span><span><span class="pl">b</span>Hence show that the diagonals \(AC\) and \(BD\) are equal.</span></div>
+</div><div>{{svg:l3_y2}}</div></div>
+{{work:40}}</div></div>
+
+<!-- ============ Homework ============ -->
+{{sec:blue:pencil:Homework:Year 8 Exercise 8H}}
+<p class="small">Each question is from Year 8 Exercise 8H, except the last three Hard questions, which are from school examinations; the label names the source. Answers are in the answers booklet.</p>
+<div class="band"><span class="diff diff-easy">Easy</span><span class="line"></span></div>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q1</span><br>By drawing a single line, show how the following quadrilaterals can be made into two congruent triangles.
+<div class="parts" style="grid-template-columns:1fr 1fr 1fr 1fr;align-items:center"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:l3_q1a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:l3_q1b}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:l3_q1c}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:l3_q1d}}</span></div></div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q2</span><br>Which property of a parallelogram is illustrated in each diagram below?
+<div class="parts" style="align-items:center;row-gap:2mm"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:l3_q2a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:l3_q2b}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:l3_q2c}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:l3_q2d}}</span></div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q3</span><br>Write down four properties of:
+<div class="parts"><span><span class="pl">a</span>a rhombus</span><span><span class="pl">b</span>a square</span></div>{{work:20}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q4</span><br>Name the side (e.g. \(AB\)) that is common to both triangles in each diagram.
+<div class="parts three" style="align-items:center"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:l3_q4a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:l3_q4b}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:l3_q4c}}</span></div></div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q6</span><br>Which of the four tests for congruence of triangles would be used to prove that each pair of triangles is congruent?
+<div class="parts three" style="align-items:center;row-gap:2mm"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:l3_q6a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:l3_q6b}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:l3_q6c}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:l3_q6d}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">e</span>{{svg:l3_q6e}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">f</span>{{svg:l3_q6f}}</span></div>{{work:12}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q8</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Prove (as in Example 13) that the diagonals in a square, \(EFGH\), bisect each other.{{work:42}}</div><div>{{svg:l3_q8}}</div></div></div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q9</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>A parallelogram, \(ABCD\), has two pairs of parallel sides.
+<div class="parts one"><span><span class="pl">a</span>What can be said about \(\angle ABD\) and \(\angle CDB\) and give a reason?</span>
+<span><span class="pl">b</span>What can be said about \(\angle BDA\) and \(\angle DBC\) and give a reason?</span>
+<span><span class="pl">c</span>Which side is common to both \(\triangle ABD\) and \(\triangle CDB\)?</span>
+<span><span class="pl">d</span>Which congruence test would be used to show that \(\triangle ABD\equiv\triangle CDB\)?</span>
+<span><span class="pl">e</span>If \(\triangle ABD\equiv\triangle CDB\), what can be said about the opposite sides of a parallelogram?</span></div></div><div>{{svg:l3_q9}}</div></div>{{work:30}}</div></div>
+
+<div class="band"><span class="diff diff-med">Medium</span><span class="line"></span></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q10</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>For this rhombus assume that \(VW=WT\).
+<div class="parts one"><span><span class="pl">a</span>Give reasons why \(\triangle VWU\equiv\triangle TWU\).</span><span><span class="pl">b</span>Give reasons why \(\angle VWU=\angle TWU=90^\circ\).</span></div></div><div>{{svg:l3_q10}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q11</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>For this square assume that \(MQ=QO\) and \(NQ=PQ\).
+<div class="parts one"><span><span class="pl">a</span>Give reasons why \(\triangle MNQ\equiv\triangle ONQ\).</span><span><span class="pl">b</span>Give reasons why \(\angle MQN=\angle OQN=90^\circ\).</span><span><span class="pl">c</span>Give reasons why \(\angle QMN=45^\circ\).</span></div></div><div>{{svg:l3_q11}}</div></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q13</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Use Pythagoras’ theorem to prove that the diagonals in a rectangle are equal in length. You may assume that opposite sides are equal.{{work:34}}</div><div>{{svg:l3_q13}}</div></div></div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q15</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>A trapezium, \(ABCD\), has one pair of parallel sides.
+<div class="parts one"><span><span class="pl">a</span>Which angle is equal to \(\angle BAE\)?</span><span><span class="pl">b</span>Which angle is equal to \(\angle ABE\)?</span><span><span class="pl">c</span>Explain why \(\triangle ABE\) is not congruent to \(\triangle CDE\).</span></div></div><div>{{svg:l3_q15}}</div></div>{{work:24}}</div></div>
+
+<div class="band"><span class="diff diff-chal">Hard</span><span class="line"></span></div>
+<div class="q"><span class="q-num">12</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q12</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Use the information in this kite to prove these results.
+<div class="parts one"><span><span class="pl">a</span>\(\triangle ABD\equiv\triangle CBD\)</span><span><span class="pl">b</span>\(\angle DAB=\angle DCB\)</span><span><span class="pl">c</span>\(\angle ADB=\angle CDB\)</span></div></div><div>{{svg:l3_q12}}</div></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q14</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Show that opposite sides of a rectangle, \(ABCD\), are equal. Give all reasons.{{work:38}}</div><div>{{svg:l3_q14}}</div></div></div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q16</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>Use the information given for this kite to give reasons for the following properties. You may assume that \(\angle ADE=\angle CDE\), as marked.
+<div class="parts one"><span><span class="pl">a</span>\(\angle DAE=\angle DCE\)</span><span><span class="pl">b</span>\(\triangle AED\equiv\triangle CED\)</span><span><span class="pl">c</span>\(\angle AED=\angle CED=90^\circ\)</span></div></div><div>{{svg:l3_q16}}</div></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body"><span class="muted small">Year 8 Exercise 8H Q17 (Enrichment: Prove the converse)</span><br>Prove the following results, which are the converse (reverse) of some of the proofs completed earlier in this exercise.
+<div class="parts one" style="row-gap:2mm">
+<span><span class="pl">a</span>If the opposite sides of a quadrilateral are equal, then the quadrilateral is a parallelogram; that is, show that the quadrilateral has two pairs of parallel sides.<br>{{svg:l3_q17a}}</span>
+<span><span class="pl">b</span>If the diagonals of a quadrilateral bisect each other, then the quadrilateral is a parallelogram.<br>{{svg:l3_q17b}}</span>
+<span><span class="pl">c</span>If the diagonals of a parallelogram are equal, then the parallelogram is a rectangle.<br>{{svg:l3_q17c}}</span></div>{{work:52}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body"><span class="muted small">Baulkham Hills High School, 2020, Year 9 Common - Term 4 2020, Q17 (6 marks)</span><br>
+{{svg:l3_pp_bh}}
+<p style="margin:0">In the figure, \(AB\,/\!/\,DC\), \(EB\,/\!/\,DF\) and \(EB=DF\).</p>
+<p style="margin:1mm 0 0">(a)&ensp;Prove that \(\angle AEB=\angle DFC\)&emsp;<span class="muted small">(2 marks)</span></p>
+<p style="margin:1mm 0 0">(b)&ensp;Prove that \(\Delta AEB\equiv\Delta CFD\)&emsp;<span class="muted small">(3 marks)</span></p>
+<p style="margin:1mm 0 0">(c)&ensp;Explain why \(AB=CD\)&emsp;<span class="muted small">(1 mark)</span></p>
+<div class="hint"><b>Hint:</b> what information does the figure give you?</div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><span class="muted small">Sydney Grammar School, 2022, Annual Examination, Form III Mathematics, Q7(d)</span><br>
+{{svg:l3_pp_sg}}
+<p style="margin:0">Consider the rectangle \(ABCD\) above.</p>
+<p style="margin:1mm 0 0">The points \(P\) and \(Q\) are the midpoints of \(AD\) and \(BC\) respectively.</p>
+<p style="margin:1mm 0 0">Prove, with full geometric reasoning, that \(PQ\) bisects \(BD\).</p>
+<div class="hint"><b>Hint:</b> what do you know about the shape in the diagram?</div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">18</span><div class="q-body"><span class="muted small">James Ruse Agricultural High School, 2024, Semester 2 Examination, Year 10 2024, Mathematics, Q13(d)(i) (2 marks)</span><br>
+{{svg:l3_pp_jr}}
+<p style="margin:0">The diagram shows a right-angled triangle \(ABC\) with \(\angle ABC=90^\circ\). The point \(M\) is the midpoint of \(AC\), and \(Y\) is the point where the perpendicular to \(AC\) at \(M\) meets \(BC\).</p>
+<p style="margin:1mm 0 0">i.&ensp;Prove that \(\Delta AYM\equiv\Delta CYM\).</p>
+<div class="hint"><b>Hint:</b> what do you know about the lengths and angles in the diagram?</div>{{work:30}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 35 minutes</b></span><span><b>22 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Normanhurst Boys High School, 2025, Year 9 Assessment Task 4 (Yearly Examination), Mathematics, <span style="white-space:nowrap">Q8(a)</span></span><span class="mk">4 marks</span></div>
+<div class="pp-q"><p style="margin:0">Given the following diagram:</p>
+<div style="display:flex;justify-content:center">{{svg:l3_pp_nb}}</div>
+<p style="margin:0">i.&ensp;Prove that \(\triangle XYW\equiv\triangle ZYW\).&emsp;<span class="muted small">(3 marks)</span></p>
+<p style="margin:1mm 0 0">ii.&ensp;Hence, show that \(YW\) bisects \(XZ\).&emsp;<span class="muted small">(1 mark)</span></p></div>
+<div class="hint"><b>Hint:</b> what do you know about the lengths and angles in the diagram?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>North Sydney Boys High School, 2020, Year 9 Yearly Examination, Mathematics, <span style="white-space:nowrap">Q3(b)</span></span><span class="mk">6 marks</span></div>
+<div class="pp-q"><p style="margin:0">In the diagram below \(ABCD\) is a square with side lengths 14 cm. Point \(E\) is chosen on \(BC\) and the point \(F\) is chosen on \(CD\) such that \(EC=FC=4\) cm.</p>
+<div style="display:flex;justify-content:center">{{svg:l3_pp_ns}}</div>
+<p style="margin:0">(i)&ensp;Prove that \(\Delta ADF\) is congruent to \(\Delta ABE\).&emsp;<span class="muted small">(4 marks)</span></p>
+<p style="margin:1mm 0 0">(ii)&ensp;Find the area of \(AECF\).&emsp;<span class="muted small">(2 marks)</span></p></div>
+<div class="hint"><b>Hint:</b> what information does the diagram give you?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Sydney Technical High School, 2024, Year 9 Yearly Examination, Mathematics, <span style="white-space:nowrap">Q16(c)</span></span><span class="mk">5 marks</span></div>
+<div class="pp-q"><p style="margin:0">Below is a circle centre \(O\), with points \(P\), \(Q\) and \(R\) on the circumference. Chord \(PQ\) and \(QR\) are equal.</p>
+<div style="display:flex;justify-content:center">{{svg:l3_pp_st}}</div>
+<p style="margin:0">i.&ensp;Prove that triangle \(POQ\) is congruent to triangle \(ROQ\).&emsp;<span class="muted small">(3 marks)</span></p>
+<p style="margin:1mm 0 0">ii.&ensp;Hence, prove that \(\angle POR=2\angle PQR\)&emsp;<span class="muted small">(2 marks)</span></p></div>
+<div class="hint"><b>Hint:</b> what do you know about the lengths and angles in the diagram?</div>{{work:56}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Merewether High School, 2023, Year 10 Assessment Task 4, Mathematics, <span style="white-space:nowrap">Section&nbsp;III Part&nbsp;B&nbsp;Q4</span></span><span class="mk">7 marks</span></div>
+<div class="pp-q"><p style="margin:0">\(ABCD\) is a quadrilateral. The diagonals \(AC\) and \(BD\) intersect at \(P\).</p>
+<div style="display:flex;justify-content:center">{{svg:l3_pp_mere}}</div>
+<p style="margin:0;text-align:center">\(AD=BC\) and \(AC=BD\).</p>
+<p style="margin:1mm 0 0">(i)&ensp;Show that triangles \(ABC\) and \(ABD\) are congruent.&emsp;<span class="muted small">(3 marks)</span></p>
+<p style="margin:1mm 0 0">(ii)&ensp;Show that triangle \(ABP\) is isosceles.&emsp;<span class="muted small">(2 marks)</span></p>
+<p style="margin:1mm 0 0">(iii)&ensp;Hence show that triangle \(CDP\) is isosceles.&emsp;<span class="muted small">(2 marks)</span></p></div>
+<div class="hint"><b>Hint:</b> what information are you given about the quadrilateral?</div>{{work:60}}</div>
+</div>
+
+<!-- ============ Chapter review ============ -->
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Chapter 8 Review</div><h2>Chapter review: congruence</h2>
+<div class="focus">The Chapter 8 review questions on congruent figures, congruent triangles and congruence proofs (sections 8D, 8E and 8H). Each label names the book’s question number. Answers are in the answers booklet.</div></div>
+<p style="margin:0 0 1mm"><i>Questions 1, 2, 3 and 4 relate to this pair of congruent triangles.</i></p>
+<div style="display:flex;justify-content:center">{{svg:l3_r_mc}}</div>
+<div class="q"><span class="q-num">1</span><div class="q-body"><span class="muted small">Year 8 Chapter 8 review, Multiple-choice Q6</span><br>The angle on \(\triangle DEF\) that corresponds to \(\angle A\) is:
+<div class="parts" style="grid-template-columns:repeat(5,1fr)"><span>A&ensp;\(\angle C\)</span><span>B&ensp;\(\angle B\)</span><span>C&ensp;\(\angle F\)</span><span>D&ensp;\(\angle D\)</span><span>E&ensp;\(\angle E\)</span></div></div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body"><span class="muted small">Year 8 Chapter 8 review, Multiple-choice Q7</span><br>If \(AC=5\) cm, then \(ED\) is equal to:
+<div class="parts" style="grid-template-columns:repeat(5,1fr)"><span>A&ensp;5 cm</span><span>B&ensp;10 cm</span><span>C&ensp;2.5 cm</span><span>D&ensp;15 cm</span><span>E&ensp;1 cm</span></div></div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body"><span class="muted small">Year 8 Chapter 8 review, Multiple-choice Q8</span><br>A congruent statement with ordered vertices for the triangles is:
+<div class="parts"><span>A&ensp;\(\triangle ABC\equiv\triangle FED\)</span><span>B&ensp;\(\triangle ABC\equiv\triangle EDF\)</span><span>C&ensp;\(\triangle ABC\equiv\triangle DFE\)</span><span>D&ensp;\(\triangle ABC\equiv\triangle DEF\)</span><span>E&ensp;\(\triangle ABC\equiv\triangle EFD\)</span></div></div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body"><span class="muted small">Year 8 Chapter 8 review, Multiple-choice Q9</span><br>Which of the four tests would be chosen to show that these two triangles are congruent?
+<div class="parts" style="grid-template-columns:repeat(5,1fr)"><span>A&ensp;AAS</span><span>B&ensp;RHS</span><span>C&ensp;SAS</span><span>D&ensp;AAA</span><span>E&ensp;SSS</span></div></div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body"><span class="muted small">Year 8 Chapter 8 review, Multiple-choice Q10</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:center"><div>\(ABCD\) is a parallelogram. Based on the information supplied in the diagram, which test could be used most easily to prove that \(\triangle ABC\equiv\triangle CDA\).
+<div class="parts three"><span>A&ensp;AAS</span><span>B&ensp;RHS</span><span>C&ensp;SAS</span><span>D&ensp;AAA</span><span>E&ensp;SSS</span></div></div><div>{{svg:l3_r_mc10}}</div></div></div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body"><span class="muted small">Year 8 Chapter 8 review, Short-answer Q8</span><br>For these congruent quadrilaterals, name the object in quadrilateral \(EFGH\) that corresponds to the given object in quadrilateral \(ABCD\).
+<div style="display:flex;justify-content:center">{{svg:l3_r8}}</div>
+<div class="parts" style="grid-template-columns:repeat(3,1fr)"><span><span class="pl">a</span>i&ensp;\(B\)&emsp;ii&ensp;\(C\)</span><span><span class="pl">b</span>i&ensp;\(AD\)&emsp;ii&ensp;\(BC\)</span><span><span class="pl">c</span>i&ensp;\(\angle C\)&emsp;ii&ensp;\(\angle A\)</span></div>{{work:10}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body"><span class="muted small">Year 8 Chapter 8 review, Short-answer Q9</span><br>Which of the tests SSS, SAS, AAS or RHS would you choose to explain the congruence of these pairs of triangles?
+<div class="parts" style="align-items:center;row-gap:2mm"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:l3_r9a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:l3_r9b}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">c</span>{{svg:l3_r9c}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">d</span>{{svg:l3_r9d}}</span></div>{{work:10}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><span class="muted small">Year 8 Chapter 8 review, Short-answer Q10</span><br>Find the values of the pronumerals for these congruent triangles.
+<div class="parts" style="align-items:center"><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">a</span>{{svg:l3_r10a}}</span><span style="display:flex;gap:1mm;align-items:flex-start"><span class="pl">b</span>{{svg:l3_r10b}}</span></div>{{work:16}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body"><span class="muted small">Year 8 Chapter 8 review, Short-answer Q12</span><br>
+<div class="split" style="grid-template-columns:3fr 2fr;align-items:start"><div>This quadrilateral is a square with \(AE=EC\).
+<div class="parts one"><span><span class="pl">a</span>Prove that \(\triangle ABE\equiv\triangle CBE\).</span><span><span class="pl">b</span>Explain why the diagonals intersect at right angles.</span></div></div><div>{{svg:l3_r12}}</div></div>{{work:40}}</div></div>
 </div>
