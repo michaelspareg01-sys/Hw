@@ -209,15 +209,15 @@ def draw(f, tris, anns):
             c = centroid(P)
             for p, s in zip(P, A["names"]):
                 if s:
-                    f.out(p, c, s, d=11, size=12)
+                    f.out(p, c, s, d=11 + (A.get("size", 12) - 12) / 2, size=A.get("size", 12))
     for P, A in zip(tris, anns):
         for i, s in A.get("angles", {}).items():
-            angle_label(f, P, i, s)
+            angle_label(f, P, i, s, size=A.get("size", 12))
         for (i, j), s in A.get("sides", {}).items():
-            side_label(f, P, i, j, s)
+            side_label(f, P, i, j, s, size=A.get("size", 12.5))
 
 
-def pair(name, b1, b2, fmap, ann1, ann2, canon=None, s=S, t2=None):
+def pair(name, b1, b2, fmap, ann1, ann2, canon=None, s=S, t2=None, post=None):
     """b1, b2: book triangles; fmap[i] = index in b2 of the vertex matching vertex i of b1.
     canon: triangle with the given data (any position) for the first triangle, or None to keep the book's.
     t2: optional book-position triangle for a NON-congruent second triangle (used as given)."""
@@ -237,6 +237,8 @@ def pair(name, b1, b2, fmap, ann1, ann2, canon=None, s=S, t2=None):
     (T1, T2), W, H = shift_all([T1, T2])
     f = CF(W, H)
     draw(f, [T1, T2], [ann1, ann2])
+    if post:
+        post(f, T1, T2)
     save(name, f)
 
 
@@ -296,8 +298,8 @@ def fig_concept2():
          canon=tri_angles((35, 105, 40), (0, 1, 8)), s=1.0)
     # your turn a: ABC and its image FDE (SSS)
     pair("l2_y2a", [(20.0, 30.0), (40.0, 110.0), (140.0, 80.0)], [(265.0, 110.0), (180.0, 44.0), (265.0, 30.0)],
-         {0: 0, 1: 1, 2: 2}, dict(names=["A", "B", "C"], ticks={(0, 1): 1, (1, 2): 2, (0, 2): 3}),
-         dict(names=["F", "D", "E"], ticks={(0, 1): 1, (1, 2): 2, (0, 2): 3}), s=1.0)
+         {0: 0, 1: 1, 2: 2}, dict(names=["K", "L", "M"], ticks={(0, 1): 1, (1, 2): 2, (0, 2): 3}),
+         dict(names=["T", "R", "S"], ticks={(0, 1): 1, (1, 2): 2, (0, 2): 3}), s=1.0)
     # your turn b: angles 38 and 102, side 9 cm between them
     pair("l2_y2b", [(20.0, 20.0), (150.0, 20.0), (176.0, 142.0)], [(345.0, 142.0), (215.0, 142.0), (189.0, 20.0)],
          {0: 0, 1: 1, 2: 2}, dict(angles={0: "38°", 1: "102°"}, sides={(0, 1): "9 cm"}),
@@ -397,14 +399,14 @@ def fig_q3():
          dict(angles={0: "50°", 1: "80°"}, sides={(1, 2): "3 cm"}), dict(angles={0: "50°", 1: "80°"}, sides={(1, 2): "3 cm"}),
          canon=tri_angles((50, 80, 50), (1, 2, 3)), s=2.1)
     # e: rectangle cut by a diagonal; 2 cm sides, 10 cm diagonal, right angles at TL and BR
-    k = 13.0
+    k = 16.0
     w = sqrt(96)
     TL, TR, BR, BL = (0.0, 0.0), (w * k, 0.0), (w * k, 2 * k), (0.0, 2 * k)
     (T1, T2), W, H = shift_all([[TL, BL, TR], [BR, TR, BL]], pad=44)
     f = CF(W, H)
     draw(f, [T1, T2], [dict(marks={0: "R"}, sides={(0, 1): "2 cm"}), dict(marks={0: "R"}, sides={(0, 1): "2 cm"})])
     m = ((T1[1][0] + T1[2][0]) / 2, (T1[1][1] + T1[2][1]) / 2)
-    ftext(f, m[0] + 4, m[1] + 9, "10 cm", size=11.5)
+    ftext(f, m[0] - 22, m[1] - 9, "10 cm", size=11.5)
     save("l2_q3e", f)
     # f: two right triangles sharing the 5 cm side; 80 degrees at the top corners, 10 degrees at the bottom (not to scale, as in the book)
     # drawn with the book's proportions (to scale, the 10 degree angles are too thin to label)
@@ -421,7 +423,7 @@ def fig_q3():
 
 def fig_q4():
     pair("l2_q4b", [(293.9, 452.9), (353.7, 424.3), (339.0, 393.7)], [(430.6, 436.2), (364.9, 428.6), (368.8, 394.8)], I3,
-         dict(marks={1: "R"}, angles={0: "20°"}, sides={(0, 1): "x cm"}), dict(marks={1: "R"}, angles={0: "a°"}, sides={(0, 1): "9 cm"}),
+         dict(marks={1: "R"}, angles={0: "20°"}, sides={(0, 1): "x cm"}, size=14), dict(marks={1: "R"}, angles={0: "a°"}, sides={(0, 1): "9 cm"}, size=14),
          canon=tri_angles((20, 90, 70), (0, 1, 9)), s=2.1)
     pair("l2_q4c", [(94.3, 499.8), (127.8, 533.3), (120.8, 573.8)], [(212.2, 534.3), (164.9, 534.3), (141.2, 500.7)], I3,
          dict(angles={0: "18°", 2: "a°"}, sides={(0, 2): "5 cm"}), dict(angles={0: "18°", 2: "24°"}, sides={(0, 2): "x cm"}),
@@ -497,9 +499,24 @@ def fig_q6():
     pair("l2_q6c", [(115.5, 459.8), (140.8, 522.7), (96.1, 502.1)], [(227.8, 460.9), (181.2, 510.1), (181.2, 460.9)], I3,
          dict(names=["A", "B", "C"], sides={(0, 1): "9 cm", (1, 2): "7 cm"}),
          dict(names=["D", "E", "F"], sides={(0, 1): "9 cm", (1, 2): "7 cm", (0, 2): "6 cm"}), canon=tri_sides((7, 6, 9)))
+    # labels drawn larger (size 16) so they print at 8 pt or more when the figure is scaled into its column
     pair("l2_q6d", [(301.4, 529.9), (350.5, 459.9), (364.9, 499.9)], [(383.3, 460.3), (457.5, 502.7), (453.5, 460.3)], I3,
-         dict(names=["C", "A", "B"], sides={(0, 1): "26 m", (0, 2): "21 m"}),
-         dict(names=["E", "G", "F"], angles={0: "20°"}, sides={(0, 1): "26 m", (0, 2): "21 m"}), canon=tri_sas(0, 1, 2, 26, 21, 20), s=2.0)
+         dict(names=["C", "", "B"], sides={(0, 1): "26 m", (0, 2): "21 m"}, size=16),
+         dict(names=["", "G", "F"], angles={0: "20°"}, sides={(0, 1): "26 m", (0, 2): "21 m"}, size=16), canon=tri_sas(0, 1, 2, 26, 21, 20), s=2.0,
+         post=_name_e_above)
+
+
+def _name_e_above(f, T1, T2):
+    """Names A and E placed after the angle label, so the narrow 20 degree angle can be labelled just
+    outside E: E above its vertex, A to the left of its vertex."""
+    for v, s, tries in ((T2[0], "E", ((0, -15), (6, -16), (-6, -16), (0, -20))),
+                        (T1[1], "A", ((-13, -4), (-14, 2), (-12, -10), (-16, -6)))):
+        base = len(f.items)
+        for dx, dy in tries:
+            f.items = f.items[:base]
+            f.text(v[0] + dx, v[1] + dy, s, size=16, italic=True)
+            if _clean(f, s):
+                break
 
 
 def fig_q7():
@@ -515,7 +532,7 @@ def fig_q7():
          dict(angles={0: "100°", 1: "50°"}, sides={(0, 2): "5 cm"}), dict(angles={0: "100°", 2: "30°"}, sides={(0, 2): "5 cm"}),
          canon=tri_angles((100, 50, 30), (0, 2, 5)), s=2.2)
     pair("l2_q7d", [(311.9, 641.9), (329.9, 678.9), (294.4, 696.2)], [(360.9, 668.9), (389.0, 641.9), (415.0, 668.9)], I3,
-         dict(marks={1: "R"}, angles={0: "35°"}, sides={(0, 1): "10 cm"}), dict(marks={1: "R"}, angles={0: "65°"}, sides={(1, 2): "10 cm"}),
+         dict(marks={1: "R"}, angles={0: "35°"}, sides={(0, 1): "10 cm"}, size=14), dict(marks={1: "R"}, angles={0: "65°"}, sides={(1, 2): "10 cm"}, size=14),
          canon=tri_angles((35, 90, 55), (0, 1, 10)), t2=tri_angles((65, 90, 25), (1, 2, 10)), s=2.2)
 
 
