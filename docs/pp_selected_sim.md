@@ -69,3 +69,38 @@ Past papers, Hard band of the homework (leftover L2 items; no marks shown):
 - sim-36 | James Ruse Agricultural High School, 2024, Q11(b)ii | 3 marks | `workspace/pp/Y10/James Ruse 2024 Year 10 Maths Yearly.pdf` | question p6; NO SOLUTIONS, solved here (x = 11/6, y = 7/6) | label "James Ruse Agricultural High School, 2024, Semester 2 Examination, Year 10 2024, Mathematics, Q11(b)(ii)". Hidden pair (indices).
 
 L2 items left for the chapter review: sim-01, sim-06, sim-12, sim-18, sim-20, sim-40, sim-45, sim-46, sim-47, sim-49, sim-51 (25 marks). sim-05 stays excluded.
+
+## L3 Problem solving
+Textbooks:
+- Year 8 (Cambridge Maths NSW Stage 4 Year 8, second edition) section 2H *Applications*: intro paragraph, Key ideas (with the Jerome example) and Example 14 as the worked example (chapter 2 PDF 36–37). Year 11 Advanced 1G has no worked word problem.
+- Homework: Year 11 Advanced Exercise 1G Q6 a–f (Development, so Medium) and Q8 a–b (Challenge, so Hard) (PDF 40; answers PDF 518: 53 and 37; 60c, 15c; 40c, 60c; 44 adults, 22 children; 36 and 12; 189 for, 168 against; 9 $20 notes, 14 $10 notes; 5 km/h, 3 km/h).
+- Worksheets (word problems, `workspace/sources/sim/…(3)–(6) .pdf`), placed by difficulty: Easy Worksheet 3 Q1–Q4; Medium Worksheet 3 Q5, Worksheet 4 Q6, Q7, Worksheet 5 Q10, Q12; Hard Worksheet 4 Q9, Worksheet 5 Q11, Q13, Worksheet 6 Q15, Q16. Worksheet 4 Q8 and Worksheet 6 Q14 are in the chapter review.
+
+Past papers (mini exam, 22 marks, 35 min; order PP 1–7):
+- PP 1 sim-21 + sim-22 | Sydney Grammar School, 2022, Q5(b)(i)–(ii) | 1 + 2 marks, from the school's marking (part marks are not printed) | `workspace/pp/Y9/Sydney Grammar 2022 Year 9 Maths Yearly & Solutions.pdf` | question p7, solution p19 | label "Sydney Grammar School, 2022, Annual Examination, Form III Mathematics, Q5(b)".
+- PP 2 sim-03 + sim-04 | Normanhurst Boys High School, 2025, Q10(e)i–ii | 1 + 2 marks | `workspace/pp/Y9/Normanhurst Boys 2025 Year 9 Maths Yearly & Solutions.pdf` | question p14, solution p34 | label "Normanhurst Boys High School, 2025, Year 9 Assessment Task 4 (Yearly Examination), Mathematics, Q10(e)" (same style as `pp_selected_y8cong.md`).
+- PP 3 sim-02 | Normanhurst Boys High School, 2020, Q7(b) | 4 marks | `workspace/pp/Y9/Normanhurst Boys 2020 Year 9 Maths Yearly & Solutions.pdf` | question p11, solution p21 | label "Normanhurst Boys High School, 2020, Stage 5.1-5.3 Mathematics, 2020 Year 9 Yearly Examination, Q7(b)" (cover "STAGE 5.1-5.3 MATHEMATICS, 2020 Year 9 Yearly Examination").
+- PP 4 sim-08 | St George Girls High School, 2024, Section A Q7 | 3 marks | `workspace/pp/Y9/St George Girls 2024 Year 9 Maths Yearly & Solutions.pdf` | question p6, solution p17 | label as in L2 with Section A Q7. The school solution's "sub (1) in (2)" slip (catalogue) is not reproduced.
+- PP 5 sim-10 | Sydney Boys High School, 2020 (Year 9), Part D Q1 | 2 marks | `workspace/pp/Y9/Sydney Boys 2020 Year 9 Maths Yearly & Solutions.pdf` | question p15, solution p39 | label "Sydney Boys High School, 2020, Year 9 Term 4 Yearly Assessment Task, Mathematics Stage 5.3, Part D Q1". The paper's "In three years time" is kept as printed.
+- PP 6 sim-50 | Sydney Boys High School, 2023 (Year 10), Part E Q3 | 3 marks | `workspace/pp/Y10/Sydney Boys 2023 Year 10 Maths Yearly & Solutions.pdf` | question p28, solution p66 | label "Sydney Boys High School, 2023, Year 10 Stage 5.3 Term 4 Yearly Assessment, Mathematics, Part E Q3". The school solves with one pronumeral; the pack uses two (same answer, 18 and 42).
+- PP 7 sim-32 | Sydney Grammar School, 2025, Q7(c) | 4 marks | `workspace/pp/Y9/Sydney Grammar 2025 Year 9 Maths Yearly & Solutions.pdf` | question p10, solutions pp24–25 | label "Sydney Grammar School, 2025, Annual Examination, Form III Mathematics, Q7(c)".
+
+Past papers, Hard band of the homework (leftover L3 items; no marks shown):
+- sim-11 | Sydney Boys High School, 2020 (Year 9), Part E Q5 | 3 marks | Sydney Boys 2020 file | question p22, solution p46 | label "Sydney Boys High School, 2020, Year 9 Term 4 Yearly Assessment Task, Mathematics Stage 5.3, Part E Q5".
+- sim-31 | Sydney Grammar School, 2025, Q6(e) | 2 marks | Sydney Grammar 2025 file | question p9, solution p23 | label "Sydney Grammar School, 2025, Annual Examination, Form III Mathematics, Q6(e)" | box plots recreated from the paper (`l3_bp`: French 50, 60, 70, 80, 95; Geography 55, 70, 80, 90, 100).
+
+## Chapter review (end of L3)
+Worksheet 4 Q8 and Worksheet 6 Q14, and the 11 L2 catalogue items left after L2 (25 marks; no marks shown, as in a Hard band):
+- sim-46 | The Scots College, 2020, Q4 (MC) | 1 | `workspace/pp/Y10/Scots 2020 Year 10 Maths Yearly.pdf` | question p2; NO SOLUTIONS, solved here (B, y = −3) | label "The Scots College, 2020, Year 10 5.3 Mathematics, Yearly Examination, Q4" (cover "Year 10 5.3 Mathematics, Thursday 5th November 2020, Yearly Examination").
+- sim-40 | Pymble Ladies' College, 2021, Q12 (MC) | 1 | Pymble 2021 file | question p5, solution p18 (D) | label as in L1 with Q12 | the printed working (an image on the paper) is recreated as a table.
+- sim-45 | Pymble Ladies' College, 2023, Section II Q22 | 2 | Pymble 2023 file | question p16, solution p42 | label "Pymble Ladies’ College, 2023, Year 10 Mathematics, 5.3 Pathway, Yearly Examination, Section II Q22".
+- sim-51 | Sydney Technical High School, 2020, Q6(c) | 2 | `workspace/pp/Y10/Sydney Tech 2020 Year 10 Maths Yearly & Solutions.pdf` | question p4, solution p13 | label "Sydney Technical High School, 2020, Year 10 Mathematics Assessment 4, Q6(c)" (same style as `pp_selected_y10trig.md`).
+- sim-18 | Sydney Grammar School, 2020 (Form III), Q6(c)(ii) | 2 ([2] on the solutions page) | Sydney Grammar 2020 Year 9 file | question p8, solution p20 | label "Sydney Grammar School, 2020, Annual Examination, Form III Mathematics, Q6(c)(ii)". Part (i) (sim-17) is L1 PP 7.
+- sim-20 | Sydney Grammar School, 2022, Q4(b) | 3 (from the school's marking) | Sydney Grammar 2022 file | question p6, solution p17 | label "Sydney Grammar School, 2022, Annual Examination, Form III Mathematics, Q4(b)".
+- sim-06 | North Sydney Boys High School, 2020 (Year 9), Q6(d) | 3 | `workspace/pp/Y9/North Sydney Boys 2020 Year 9 Maths Yearly & Solutions.pdf` | question p12, solution p32 | label "North Sydney Boys High School, 2020, Year 9 Yearly Examination, Mathematics, Q6(d)" (same style as `pp_selected_y8cong.md`).
+- sim-47 | The Scots College, 2021, Q11 | 3 | `workspace/pp/Y10/Scots 2021 Year 10 Maths Yearly.pdf` | question p5; NO SOLUTIONS, solved here (x = −2, y = −8) | label "The Scots College, 2021, Year 10 Mathematics 5.3 Assessment Task 4, Q11".
+- sim-01 | Normanhurst Boys High School, 2020, Q7(a) | 3 | Normanhurst Boys 2020 file | question p11, solution p21 | label "Normanhurst Boys High School, 2020, Stage 5.1-5.3 Mathematics, 2020 Year 9 Yearly Examination, Q7(a)". The school's "2x − 6 = 8" slip is not reproduced; the paper's "simultaneous equation" is kept.
+- sim-49 | The Scots College, 2024, Q9 | 3 | `workspace/pp/Y10/Scots 2024 Year 10 Maths Yearly & Solutions.pdf` | question p7, solution p31 | label "The Scots College, 2024, Year 10 Assessment Task 4, Mathematics 5.3, Q9".
+- sim-12 | Sydney Boys High School, 2022 (Year 9), Q18(e) | 2 | `workspace/pp/Y9/Sydney Boys 2022 Year 9 Maths Yearly & Solutions.pdf` | question pp13–14, solution p53 | label "Sydney Boys High School, 2022, Year 9 Stage 5.3 Term 4 Yearly Examination, Mathematics, Q18(e)" | the stem (Q18) and the results of parts (c) and (d) are supplied; the figure is redrawn (`r_sb22`). The school's "In (2): 13/5 + 2y − 5 = 0" slip is not reproduced.
+
+Catalogue use: every clean row is now used (L1 21, L2 53, L3 27 marks); sim-05 stays excluded (DOUBTFUL).

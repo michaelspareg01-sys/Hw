@@ -21,13 +21,13 @@ from math import hypot
 
 import sympy as sp
 from sympy.parsing.sympy_parser import (parse_expr, standard_transformations,
-                                        implicit_multiplication_application, convert_xor)
+                                        implicit_multiplication_application, convert_xor, rationalize)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.environ.get("SIM_SRC", os.path.join(HERE, "..", "build", "sim"))
 FAILS, NOK = [], [0]
-TR = standard_transformations + (implicit_multiplication_application, convert_xor)
-LETTERS = {c: sp.Symbol(c) for c in "abcdhkmnpqrstuvwxyz"}
+TR = standard_transformations + (implicit_multiplication_application, convert_xor, rationalize)
+LETTERS = {c: sp.Symbol(c) for c in "abcdfghjklmnpqrstuvwxyzFGJKL"}
 
 
 def ok(flag, label, detail=""):
@@ -119,6 +119,7 @@ def tex2sym(s):
     s = _fracs(clean_tex(s))
     s = s.replace("{", "(").replace("}", ")")
     s = re.sub(r"\s+", "", s)
+    s = re.sub(r"(\d)([a-zA-Z])", r"\1*\2", s)        # 60j is a product, not a Python complex literal
     if not s:
         raise ValueError("empty expression")
     return parse_expr(s, local_dict=dict(LETTERS, sqrt=sp.sqrt), transformations=TR, evaluate=True)
@@ -154,7 +155,7 @@ def assignments(html):
     for t in maths(html):
         t = re.sub(r"\\[,;!: ]", " ", t)
         for piece in re.split(r",(?![^{]*\})", t):
-            m = re.fullmatch(r"\s*([a-z])\s*=\s*(.+?)\s*", piece)
+            m = re.fullmatch(r"\s*([a-zA-Z])\s*=\s*(.+?)\s*", piece)
             if m:                                   # a chain y = 2(2) = 4: the value is the last part
                 out[m.group(1)] = sp.nsimplify(tex2sym(m.group(2).split("=")[-1]))
     return out
@@ -193,8 +194,8 @@ def holds(eq, sub):
 class Values:
     def __init__(self, names):
         self.names = names
-        self.d = {a: _blocks(names, "span", "data-" + a) for a in ("q", "s", "v", "k")}
-        for a in ("w", "c"):
+        self.d = {a: _blocks(names, "span", "data-" + a) for a in ("q", "s", "v", "k", "p", "d")}
+        for a in ("w", "c", "d", "p"):
             d = _blocks(names, "div", "data-" + a)
             for k, v in _blocks(names, "span", "data-" + a).items():
                 d.setdefault(k, []).extend(v)
@@ -382,3 +383,74 @@ def same_line(line, eq, tol=0.03):
     a, b, c = line[:3]
     s = 1 if A * a + B * b > 0 else -1
     return abs(a - s * A / n) < tol and abs(b - s * B / n) < tol and abs(c - s * C / n) < tol * max(1, abs(c))
+
+
+# ---------------- word problems ----------------
+
+WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9,
+         "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16,
+         "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20, "thirty": 30, "forty": 40, "fifty": 50,
+         "sixty": 60, "seventy": 70, "eighty": 80, "ninety": 90, "twice": 2, "half": sp.Rational(1, 2)}
+DENOMS = {"half": 2, "halves": 2, "third": 3, "thirds": 3, "quarter": 4, "quarters": 4, "fifth": 5, "fifths": 5,
+          "tenth": 10, "tenths": 10}
+
+
+def plain_text(html):
+    r"""Text of a fragment with the maths written out: \$4.40 -> 4.40, \tfrac{3}{4} -> 3/4, 33\tfrac{1}{3} -> 33+1/3."""
+    def tex(m):
+        t = m.group(1) or m.group(2)
+        t = t.replace("\\$", "$").replace("\\%", "%")
+        t = re.sub(r"\\[,;!: ]", "", t)
+        t = re.sub(r"(\d)\\[dt]?frac\{(\d+)\}\{(\d+)\}", r"\1+\2/\3", t)
+        t = re.sub(r"\\[dt]?frac\{(\d+)\}\{(\d+)\}", r"\1/\2", t)
+        t = re.sub(r"\\[a-zA-Z]+", " ", t)
+        return " " + t.replace("{", "").replace("}", "") + " "
+    s = re.sub(r"\\\((.+?)\\\)|\\\[(.+?)\\\]", tex, html, flags=re.S)
+    s = re.sub(r"<[^>]+>", " ", s)
+    s = s.replace("&nbsp;", " ").replace("−", "-").replace("’", "'")
+    return re.sub(r"\s+", " ", s)
+
+
+def story_numbers(html):
+    """Every number in a printed problem, in reading order: digits (with spaces between thousands), $ and
+    % amounts, fractions and mixed numbers from the maths, number words ("Six", "twenty-four", "Ten thousand",
+    "twice", "one-third", "three-tenths")."""
+    t = plain_text(html)
+    out = []
+    tok = re.finditer(r"(\d+(?:\.\d+)?)\s*\+\s*(\d+)/(\d+)|(\d+)/(\d+)|(\d{1,3}(?: \d{3})+(?!\d))|(\d+(?:\.\d+)?)|"
+                      r"([A-Za-z]+(?:-[A-Za-z]+)?)(?: (thousand))?", t)
+    for m in tok:
+        if m.group(1):
+            out.append(sp.nsimplify(m.group(1)) + sp.Rational(int(m.group(2)), int(m.group(3))))
+        elif m.group(4):
+            out.append(sp.Rational(int(m.group(4)), int(m.group(5))))
+        elif m.group(6):
+            out.append(sp.Integer(m.group(6).replace(" ", "")))
+        elif m.group(7):
+            out.append(sp.nsimplify(m.group(7)))
+        else:
+            w = m.group(8).lower()
+            parts = w.split("-")
+            if len(parts) == 2 and parts[0] in WORDS and parts[1] in DENOMS:
+                out.append(sp.Rational(WORDS[parts[0]], DENOMS[parts[1]]))
+            elif len(parts) == 2 and parts[0] in WORDS and parts[1] in WORDS:
+                out.append(sp.nsimplify(WORDS[parts[0]] + WORDS[parts[1]]))
+            elif w in WORDS:
+                v = sp.nsimplify(WORDS[w])
+                out.append(v * 1000 if m.group(9) else v)
+    return out
+
+
+def subsequence(want, have):
+    it = iter(have)
+    return all(any(sp.simplify(w - h) == 0 for h in it) for w in want)
+
+
+def same_equation(e1, e2):
+    """Are the linear equations e1, e2 (lhs, rhs) the same up to a nonzero factor?"""
+    a = sp.expand(e1[0] - e1[1])
+    b = sp.expand(e2[0] - e2[1])
+    if a == 0 or b == 0:
+        return False
+    r = sp.simplify(a / b)
+    return r.is_number and r != 0
