@@ -82,6 +82,11 @@ def _brace(s, i):
 def _fracs(s):
     out, i = [], 0
     while i < len(s):
+        if s.startswith("\\sqrt{", i):            # \sqrt{a} -> sqrt(a)
+            arg, j = _brace(s, i + 5)
+            out.append(f"sqrt({_fracs(arg)})")
+            i = j
+            continue
         m = re.match(r"\\[dt]?frac", s[i:])
         if m:
             num, j = _brace(s, i + m.end())
@@ -116,7 +121,7 @@ def tex2sym(s):
     s = re.sub(r"\s+", "", s)
     if not s:
         raise ValueError("empty expression")
-    return parse_expr(s, local_dict=LETTERS, transformations=TR, evaluate=True)
+    return parse_expr(s, local_dict=dict(LETTERS, sqrt=sp.sqrt), transformations=TR, evaluate=True)
 
 
 def maths(html):
