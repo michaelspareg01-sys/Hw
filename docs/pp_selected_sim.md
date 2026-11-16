@@ -46,7 +46,7 @@ Past papers (mini exam, 21 marks, 30 min; order PP 1–12):
 Textbook (`workspace/zip/Cambridge Maths Advanced 2019.pdf`):
 - Teaching: 1G "Solution by elimination" and Box 13 (PDF 38), Example 22a (PDF 39) as the worked example. Example 22b (x² + y² = 53, x² − y² = 45) is not linear and is left out. Concept 3 repeats the book's two method sentences (substitution, elimination) from PDF 38.
 - Homework: Exercise 1G Q2 a–f (Foundation, so Easy) and Q4 a–j (Development, so Medium) (PDF 39; answers PDF 518).
-- Worksheets: Worksheet 1 Q1(a), Q1(b), Q1(c) (Easy); Worksheet 1 Q1(d), Worksheet 2 Q1(e), Q1(f) (Hard: their solutions are fractions, −5/13 and −46/13; −7/23 and −20/23; −30/19 and −121/19).
+- Worksheets: Worksheet 1 Q1(a), Q1(b), Q1(c) (Easy); Worksheet 1 Q1(d), Worksheet 2 Q1(e), Q1(f) (Medium since the L2 review; their solutions are fractions, −5/13 and −46/13; −7/23 and −20/23; −30/19 and −121/19).
 
 Past papers (mini exam, 21 marks, 30 min; order PP 1–10):
 - PP 1 sim-44 | Pymble Ladies' College, 2023, Section I Q3 (MC) | 1 mark | `workspace/pp/Y10/Pymble 2023 Year 10 Maths Yearly & Solutions.pdf` | question p5, solution p31 (C) | label "Pymble Ladies’ College, 2023, Year 10 Mathematics, 5.3 Pathway, Yearly Examination, Section I Q3" (cover p1).
@@ -60,7 +60,9 @@ Past papers (mini exam, 21 marks, 30 min; order PP 1–10):
 - PP 9 sim-48 | The Scots College, 2022, Q17 | 3 marks | `workspace/pp/Y10/Scots 2022 Year 10 Maths Yearly & Solutions.pdf` | question p12, solution p41 | label "The Scots College, 2022, Year 10 Assessment Task 4, Mathematics 5.3, Q17".
 - PP 10 sim-28 | Sydney Grammar School, 2024, Q5(e) | 3 marks | same file as PP 6 | question p6, solution p15 | label "Sydney Grammar School, 2024, Annual Examination, Form III Mathematics, Q5(e)".
 
-Past papers, Hard band of the homework (leftover L2 items; no marks shown):
+Past papers, Medium band of the homework (moved from the chapter review after the L2 review; no marks shown): sim-49 (The Scots College, 2024, Q9), sim-06 (North Sydney Boys High School, 2020, Q6(d)) and sim-20 (Sydney Grammar School, 2022, Q4(b)). Their file, page and label details are in the Chapter review section below, which they have left. sim-14 and sim-30 (below) also moved from Hard to Medium after the L2 review, with Worksheet 1 Q1(d) and Worksheet 2 Q1(e), (f): they are ordinary multiply-both pairs.
+
+Past papers, Hard band of the homework (leftover L2 items; no marks shown). After the L2 review the Hard band holds sim-39 (c + a), sim-45 (decimal coefficients; moved from the chapter review; details below), sim-16 (surds), sim-23 and sim-36 (indices); sim-14 and sim-30 are now Medium:
 - sim-14 | Sydney Boys High School, 2023 (Year 9), Q28 | 3 marks | `workspace/pp/Y9/Sydney Boys 2023 Year 9 Maths Yearly & Solutions.pdf` | question p24, solution p51 | label "Sydney Boys High School, 2023, Year 9 Stage 5.3 Term 4 Yearly Examination, Mathematics, Q28". The school's substitution route prints x = 7/2 in one line before using 2/7 (a slip in the printed working); the question is sound and the pack prints its own solution (C1 ruling).
 - sim-30 | Sydney Grammar School, 2025, Q5(a) | 2 marks | `workspace/pp/Y9/Sydney Grammar 2025 Year 9 Maths Yearly & Solutions.pdf` | question p8, solution p20 | label "Sydney Grammar School, 2025, Annual Examination, Form III Mathematics, Q5(a)".
 - sim-39 | Northern Beaches Christian School, 2023, Section II Q21(c) | 2 marks | `workspace/pp/Y10/NBCS 2023 Year 10 Maths Yearly & Solutions.pdf` | question p10, solution p29 | label "Northern Beaches Christian School, 2023, Mathematics Year 10 5.3/Year 9 Accelerated Yearly Examination, Section II Q21(c)".
@@ -90,7 +92,7 @@ Past papers, Hard band of the homework (leftover L3 items; no marks shown):
 - sim-31 | Sydney Grammar School, 2025, Q6(e) | 2 marks | Sydney Grammar 2025 file | question p9, solution p23 | label "Sydney Grammar School, 2025, Annual Examination, Form III Mathematics, Q6(e)" | box plots recreated from the paper (`l3_bp`: French 50, 60, 70, 80, 95; Geography 55, 70, 80, 90, 100).
 
 ## Chapter review (end of L3)
-Worksheet 4 Q8 and Worksheet 6 Q14, and the 11 L2 catalogue items left after L2 (25 marks; no marks shown, as in a Hard band):
+Worksheet 4 Q8 and Worksheet 6 Q14, and the 11 L2 catalogue items left after L2 (25 marks; no marks shown, as in a Hard band). After the L2 review, sim-49, sim-06 and sim-20 moved to L2 Medium and sim-45 to L2 Hard; the review keeps sim-46, sim-40, sim-51, sim-18, sim-47, sim-01, sim-12 and the two worksheet items (9 questions). The rows of the moved items are kept here for their file and label details:
 - sim-46 | The Scots College, 2020, Q4 (MC) | 1 | `workspace/pp/Y10/Scots 2020 Year 10 Maths Yearly.pdf` | question p2; NO SOLUTIONS, solved here (B, y = −3) | label "The Scots College, 2020, Year 10 5.3 Mathematics, Yearly Examination, Q4" (cover "Year 10 5.3 Mathematics, Thursday 5th November 2020, Yearly Examination").
 - sim-40 | Pymble Ladies' College, 2021, Q12 (MC) | 1 | Pymble 2021 file | question p5, solution p18 (D) | label as in L1 with Q12 | the printed working (an image on the paper) is recreated as a table.
 - sim-45 | Pymble Ladies' College, 2023, Section II Q22 | 2 | Pymble 2023 file | question p16, solution p42 | label "Pymble Ladies’ College, 2023, Year 10 Mathematics, 5.3 Pathway, Yearly Examination, Section II Q22".

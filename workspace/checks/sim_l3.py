@@ -196,7 +196,7 @@ for key, want in book.items():
     ok(set(sol.values()) == want, f"{key}: agrees with the book or the school's answer", str(sol))
 
 # ================= Chapter review: algebra items =================
-for key in ("r3", "r5", "r6", "r7", "r9", "r10", "r11", "r12"):
+for key in ("r5", "r6", "r10", "r11"):
     eqs = equations(V.get("q", key))
     ok(len(eqs) == 2, f"{key}: two equations printed")
     check_pair(V, key, eqs)
@@ -246,7 +246,7 @@ labels_l = re.findall(r'<span class="pn">(PP \d+)</span>(.*?)</span>', L3)
 labels_a = re.findall(r'<span class="pn">(PP \d+)</span>(.*?)</span>', A3)
 ok(labels_l == labels_a and len(labels_l) == 7, "past-paper labels identical in both files", f"{len(labels_l)}")
 lab = r'<span class="muted small">([^<]*(?:School|College)[^<]*)</span>'
-ok(re.findall(lab, L3) == re.findall(lab, A3) and len(re.findall(lab, L3)) == 13,
+ok(re.findall(lab, L3) == re.findall(lab, A3) and len(re.findall(lab, L3)) == 9,
    "Hard-band and review school labels identical in both files", str(len(re.findall(lab, L3))))
 marks = [int(n) for n in re.findall(r'<span class="mk">(\d+) marks?</span>', L3)]
 subs = re.findall(r'<div class="pp-sub"><span>.*?</span><span class="mk">(\d+)</span></div>', L3, re.S)

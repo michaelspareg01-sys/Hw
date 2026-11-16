@@ -84,6 +84,11 @@ book4 = {"a": (-1, 3), "b": (5, 2), "c": (-4, 3), "d": (2, -6), "e": (1, 2), "f"
 for p in "abcdefghij":
     sol = check_pair(V, "h4" + p, pair("h4" + p))
     ok((sol["x"], sol["y"]) == book4[p], f"h4{p} agrees with the book's answer", str(sol))
+book_school = {"h49": {"x": 9, "y": 9}, "h06": {"x": 2, "y": 7}, "h20": {"x": 1, "y": 1},
+               "h45": {"x": sp.Rational(6, 5), "y": sp.Rational(9, 2)}}     # school answers (catalogue)
+for key, want in book_school.items():
+    sol = check_pair(V, key, pair(key))
+    ok(sol == want, f"{key}: agrees with the school's answer", str(sol))
 for key in ("hws1a", "h2", "h3", "h5", "h6", "h7", "h8", "h9"):
     check_pair(V, key, pair(key))
 
@@ -131,7 +136,12 @@ labels_a = re.findall(r'<span class="pn">(PP \d+)</span>(.*?)</span>', A2)
 ok(labels_l == labels_a and len(labels_l) == 10, "past-paper labels identical in both files", f"{len(labels_l)} items")
 hard_l = re.findall(r'<span class="muted small">([^<]*(?:School|College)[^<]*)</span>', L2)
 hard_a = re.findall(r'<span class="muted small">([^<]*(?:School|College)[^<]*)</span>', A2)
-ok(hard_l == hard_a and len(hard_l) == 6, "Hard-band school labels identical in both files", f"{len(hard_l)}")
+ok(hard_l == hard_a and len(hard_l) == 10, "Medium/Hard-band school labels identical in both files", f"{len(hard_l)}")
+hi = L2.index('diff-chal')
+for key in ("h11", "h12", "h13", "h45"):                       # surd, index and decimal items stay in Hard
+    ok(L2.index(f'data-q="{key}"') > hi, f"{key} is in the Hard band")
+for key in ("h5", "h6", "h7", "h8", "h9", "h49", "h06", "h20"):
+    ok(L2.index('diff-med') < L2.index(f'data-q="{key}"') < hi, f"{key} is in the Medium band")
 marks = [int(n) for n in re.findall(r'<span class="mk">(\d+) marks?</span>', L2)]
 total = int(re.search(r"<b>(\d+) marks</b>", L2).group(1))
 mins = int(re.search(r"Suggested time: (\d+) minutes", L2).group(1))
@@ -170,7 +180,7 @@ sol = check_pair(V, "pp10", three[:2])
 conc = holds(three[2], sol)
 ok(word("pp10") == ("yes" if conc else "no"), "pp10: concurrent", f"third line holds: {conc}")
 
-for key, method in (("pp3", "elimination"), ("pp6", "elimination"), ("pp8", "elimination"), ("h9", "elimination")):
+for key, method in (("pp3", "elimination"), ("pp6", "elimination"), ("pp8", "elimination"), ("h9", "elimination"), ("h20", "elimination")):
     src = V.d["q"][key][0]
     stem = L2[:L2.index(src)][-400:]
     ok(method in stem.lower(), f"{key}: the question names the {method} method and the answer uses it")
