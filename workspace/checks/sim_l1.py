@@ -108,7 +108,24 @@ for key in ("d3a", "d3b", "y3a", "y3b"):
 # ================= Homework =================
 for p in "abcdef":
     check_pair(V, "h1" + p, pair("h1" + p))
-check_pair(V, "h2", pair("h2"))
+
+# Exercise 3C Q1-Q3 (Easy): intercepts and sketches
+book_int = {"e1": (1, -2), "e2": (4, 2), "e3a": (-1, 1), "e3b": (2, 4), "e3c": (6, -3), "e3d": (-2, -6)}  # answers PDF 522
+for key, fig in (("e1", "l1_s1"), ("e2", "l1_s2"), ("e3a", "l1_s3a"), ("e3b", "l1_s3b"), ("e3c", "l1_s3c"), ("e3d", "l1_s3d")):
+    (eq,) = equations(V.get("q", key))
+    (xi, _), (_, yi) = intercepts(eq)
+    gx = assignments(V.get("k", key + "x"))
+    gy = assignments(V.get("k", key + "y"))
+    ok(gx == {"x": xi} and gy == {"y": yi}, f"{key} intercepts", f"printed {gx}, {gy}; computed x = {xi}, y = {yi}")
+    ok((xi, yi) == book_int[key], f"{key} agrees with the book's answer")
+    L = plotted_lines(fig)
+    ok(len(L) == 1 and same_line(L[0], eq), f"{fig}: the sketched line is the printed rule")
+    P = sorted(marked_points(fig, "pt"))
+    want = sorted([(float(xi), 0.0), (0.0, float(yi))])
+    ok(len(P) == 2 and all(abs(p[0] - q[0]) < 0.03 and abs(p[1] - q[1]) < 0.03 for p, q in zip(P, want)),
+       f"{fig}: the two intercepts are marked", str(P))
+axis_scale("l1_gs")
+ok(not plotted_lines("l1_gs"), "l1_gs: blank grid")
 
 # Exercise 3C Q9: point and line
 book9 = {"a": True, "b": False, "c": True, "d": True, "e": True, "f": False}     # book answers (p. 509)

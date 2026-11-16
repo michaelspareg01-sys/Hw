@@ -8,7 +8,7 @@ Past-paper labels carry the cover title, because the Year 9 (Form III) and Year 
 - L1 uses all 12 L1 rows (21 marks) in its mini exam. Nothing is left over.
 - L2: a 15–22 mark mini exam from the L2 rows; the remaining L2 rows go in the L2 Hard band and the chapter review. The hidden-pair rows sim-16, sim-23 and sim-36 are allowed in Hard or past-paper use only (ledger ruling). sim-05 is excluded (DOUBTFUL). sim-18 is part (ii) of the sim-17 question: its stem is "Solve the following pairs of simultaneous equations:", so it can stand alone.
 - L3: a 15–22 mark mini exam from the L3 rows; the rest go in the L3 Hard band and the chapter review.
-- Worksheets: Worksheet 1 Q1(a) is used in L1. Left for L2: Worksheet 1 Q1(b)–(d) and Worksheet 2 Q1(e)–(f). Worksheet 2 Q1(g) is not linear (x² + xy − y² = 1) and is not used. Left for L3: Worksheets 3–6, Q1–Q16 (word problems).
+- Worksheets: Worksheet 1 Q1(a)–(d) and Worksheet 2 Q1(e)–(f) are used in L2 (Worksheet 1 Q1(a) moved from L1 to L2 after the L1 review: it is an elimination pair). Worksheet 2 Q1(g) is not linear (x² + xy − y² = 1) and is not used. Left for L3: Worksheets 3–6, Q1–Q16 (word problems).
 - Year 11 Advanced Exercise 1G: L1 uses Q1 and Q3. Left for L2: Q2 and Q4. Left for L3: Q6 and Q8. Q5 and Q7 are not linear.
 
 ## Revision (warm-up)
@@ -26,8 +26,7 @@ No past-paper items.
 ## L1 The graphical method and substitution
 Textbook (`workspace/zip/Cambridge Maths Advanced 2019.pdf`; PDF page = printed page + 14):
 - Teaching: 1G introduction, "Solution by substitution", Box 12 and Example 21a (PDF 38); 3C "Sketching linear functions" with Box 10, Example 8 (PDF 82–83) and "Using simultaneous equations" (PDF 83). Example 21b (y = x²) is not linear and is left out. Year 8 section 7G Key ideas (second and third bullets, with the (1, 3) example and figure; chapter 7 PDF 35–36) teach what a solution of a pair is.
-- Homework: Exercise 1G Q1 a–f (Easy), Q3 a–h (Medium) (PDF 39; answers PDF 518); Exercise 3C Q9 a–f, Q10, Q11 a–c (Medium), Q13, Q14 (Hard) (PDF 85–86; answers PDF 523).
-- Worksheet 1 Q1(a) (Easy): `workspace/sources/sim/Solving Simultaneous Equations and Problem solving involving Simultaneous (1) .pdf`.
+- Homework: Exercise 1G Q1 a–f (Easy), Q3 a–h (Medium) (PDF 39; answers PDF 518); Exercise 3C Q1, Q2, Q3 a–d (Foundation, so Easy; graphing practice added after the L1 review), Q9 a–f, Q10, Q11 a–c (Medium), Q13, Q14 (Hard) (PDF 85–86; answers PDF 522–523).
 
 Past papers (mini exam, 21 marks, 30 min; order PP 1–12):
 - PP 1 sim-41 | Pymble Ladies' College, 2021, Q21 (MC) | 1 mark | `workspace/pp/Y10/Pymble 2021 Year 10 Maths Yearly & Solutions.pdf` | question p8, solution p20 (key B) | label "Pymble Ladies’ College, 2021, Year 10 Mathematics, 5.3 Pathway, Yearly Assessment, Term 4, Q21" (cover p1).
@@ -47,7 +46,7 @@ Past papers (mini exam, 21 marks, 30 min; order PP 1–12):
 Textbook (`workspace/zip/Cambridge Maths Advanced 2019.pdf`):
 - Teaching: 1G "Solution by elimination" and Box 13 (PDF 38), Example 22a (PDF 39) as the worked example. Example 22b (x² + y² = 53, x² − y² = 45) is not linear and is left out. Concept 3 repeats the book's two method sentences (substitution, elimination) from PDF 38.
 - Homework: Exercise 1G Q2 a–f (Foundation, so Easy) and Q4 a–j (Development, so Medium) (PDF 39; answers PDF 518).
-- Worksheets: Worksheet 1 Q1(b), Q1(c) (Easy); Worksheet 1 Q1(d), Worksheet 2 Q1(e), Q1(f) (Hard: their solutions are fractions, −5/13 and −46/13; −7/23 and −20/23; −30/19 and −121/19).
+- Worksheets: Worksheet 1 Q1(a), Q1(b), Q1(c) (Easy); Worksheet 1 Q1(d), Worksheet 2 Q1(e), Q1(f) (Hard: their solutions are fractions, −5/13 and −46/13; −7/23 and −20/23; −30/19 and −121/19).
 
 Past papers (mini exam, 21 marks, 30 min; order PP 1–10):
 - PP 1 sim-44 | Pymble Ladies' College, 2023, Section I Q3 (MC) | 1 mark | `workspace/pp/Y10/Pymble 2023 Year 10 Maths Yearly & Solutions.pdf` | question p5, solution p31 (C) | label "Pymble Ladies’ College, 2023, Year 10 Mathematics, 5.3 Pathway, Yearly Examination, Section I Q3" (cover p1).

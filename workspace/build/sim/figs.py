@@ -301,8 +301,9 @@ class Plane:
         labs = [text(L["x"], L["y"], L["s"], L["anchor"], L["size"], L["color"], cls=L["cls"], italic=L["italic"])
                 for L in kept]
         body = "".join(self.grid + self.axes + labs + self.guide_items + self.lines + self.dots)
+        st = f' style="width:{_f(self.w)}px"' if getattr(self, "natural", False) else ""
         return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {_f(self.w)} {_f(self.h)}" '
-                f'width="{_f(self.w)}" height="{_f(self.h)}" font-family="Inter, Arial, sans-serif">{body}</svg>')
+                f'width="{_f(self.w)}" height="{_f(self.h)}"{st} font-family="Inter, Arial, sans-serif">{body}</svg>')
 
 
 def _num(v):

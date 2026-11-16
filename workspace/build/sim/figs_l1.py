@@ -126,7 +126,7 @@ def pp_girraween23():
         "C": dict(yax=(307, 68, 345), xax=(244, 240, 520), lines=[(279, 291, 496, 99), (289, 93, 491, 296)]),
         "D": dict(yax=(880, 76, 348), xax=(250, 812, 1080), lines=[(816, 272, 1015, 78), (870, 310, 983, 80)]),
     }
-    k = 0.62
+    k = 0.5
     for lab, P in panels.items():
         x0 = min(P["xax"][1], P["yax"][0]) - 14
         y0 = min(P["yax"][1], P["xax"][0]) - 14
@@ -142,8 +142,32 @@ def pp_girraween23():
             s.line(*T(a, b), *T(c, d), color="#5b6470", cls="sk")
         s.text(*T(yx - 10, yt + 2), "y", "end", size=11, mask=False, italic=True)
         s.text(*T(xr - 2, xy + 16), "x", "middle", size=11, mask=False, italic=True)
-        s.text(*T(yx - 8, xy - 12 if lab == "C" else xy + 18), "O", "end", size=11, mask=False, italic=True)
+        ox, oy, anc = {"B": (10, 20, "start"), "C": (-10, -14, "end")}.get(lab, (-8, 18, "end"))
+        s.text(*T(yx + ox, xy + oy), "O", anc, size=11, mask=False, italic=True)
         save(f"l1_pp_g23{lab.lower()}", s)
+
+
+# ---------- Easy graphing practice: Exercise 3C Q1-Q3 ----------
+def sketches():
+    """A common blank grid for the six sketches, and an answer graph for each (kept at its own size)."""
+    save("l1_gs", Plane(-4, 7, -7, 5, unit=CM * 0.38, pad=(16, 16, 14, 12), axis_extra=0.35))
+    items = [("l1_s1", (2, -1, 2), "y = 2x − 2", (-2, 3), (-3, 3)),
+             ("l1_s2", (1, 2, 4), "x + 2y − 4 = 0", (-1, 5), (-2, 3)),
+             ("l1_s3a", (-1, 1, 1), "y = x + 1", (-3, 2), (-2, 3)),
+             ("l1_s3b", (2, 1, 4), "y = 4 − 2x", (-1, 3), (-2, 5)),
+             ("l1_s3c", (-1, 2, -6), "y = ½x − 3", (-1, 7), (-4, 2)),
+             ("l1_s3d", (3, 1, -6), "y = −3x − 6", (-4, 1), (-7, 2))]
+    for name, (a, b, c), lab, xr, yr in items:
+        p = Plane(*xr, *yr, unit=24, pad=(18, 18, 14, 12))
+        p.natural = True
+        p.line(a, b, c, "blue", eq=lab.replace(" ", ""))
+        xi, yi = c / a, c / b
+        p.dot(xi, 0, cls="pt", color="blue", r=3.0).dot(0, yi, cls="pt", color="blue", r=3.0)
+        fmt = lambda v: str(int(v)) if v == int(v) else f"{v:g}"  # noqa: E731
+        p.plabel(xi, 0, f"({fmt(xi)}, 0)")
+        p.plabel(0, yi, f"(0, {fmt(yi)})")
+        p.llabel(a, b, c, lab, "blue")
+        save(name, p)
 
 
 if __name__ == "__main__":
@@ -151,6 +175,7 @@ if __name__ == "__main__":
     f_ex8()
     grids()
     answers()
+    sketches()
     pp_girraween20()
     pp_girraween23()
     print("lesson 1 figures written")

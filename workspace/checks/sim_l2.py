@@ -84,7 +84,7 @@ book4 = {"a": (-1, 3), "b": (5, 2), "c": (-4, 3), "d": (2, -6), "e": (1, 2), "f"
 for p in "abcdefghij":
     sol = check_pair(V, "h4" + p, pair("h4" + p))
     ok((sol["x"], sol["y"]) == book4[p], f"h4{p} agrees with the book's answer", str(sol))
-for key in ("h2", "h3", "h5", "h6", "h7", "h8", "h9"):
+for key in ("hws1a", "h2", "h3", "h5", "h6", "h7", "h8", "h9"):
     check_pair(V, key, pair(key))
 
 # Q10: c + a
