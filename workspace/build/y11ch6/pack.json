@@ -1,0 +1,7 @@
+{"chapter": "Year 11 Chapter 6 Trigonometry (6G–6K) | Lesson and Homework",
+ "header": "YEAR 11 MATHEMATICS EXTENSION 1",
+ "lesson": {"parts": ["cover.html","r6g.html","l6h.html","r6ij.html","l6k.html"], "out": "lesson.pdf",
+            "title": "Year 11 Ext 1 Chapter 6 Trigonometry 6G-6K - Lesson and Homework"},
+ "answers": {"parts": ["a_6g.html","a_6h.html","a_6ij.html","a_6k.html"], "out": "answers.pdf",
+             "title": "Year 11 Ext 1 Chapter 6 Trigonometry 6G-6K - Homework Answers",
+             "footer": "Year 11 Chapter 6 Trigonometry (6G–6K) | Homework Answers", "heading": "Chapter 6 Trigonometry - Homework Answers"}}
