@@ -150,7 +150,7 @@ def quad(name, rays, arcs=(), w=190, h=150, r=None):
 
 
 def tri(name, pts, vlab=None, slab=None, alab=None, right=(), W=188, H=150, pad=30, extra=(), arcs=True,
-        aoff=None, soff=None, fill=True, labels=(), rights=(), aout=(), marks=()):
+        aoff=None, soff=None, fill=True, labels=(), rights=(), aout=(), marks=(), closed=True):
     """Triangle (or polygon) from math coordinates (y up), scaled to fit W x H.
     vlab {i: 'A'}; slab {(i, j): '12'}; alab {i: '30°'}; right [i]; extra [((x1,y1),(x2,y2),dash)]."""
     vlab, slab, alab = vlab or {}, slab or {}, alab or {}
@@ -166,7 +166,7 @@ def tri(name, pts, vlab=None, slab=None, alab=None, right=(), W=188, H=150, pad=
     f = Fig(round(w), round(h))
     n = len(Q)
     gx, gy = sum(q[0] for q in Q) / n, sum(q[1] for q in Q) / n
-    f.poly(Q, color="blue" if fill else None, opacity=0.08, stroke="ink", width=1.5)
+    f.poly(Q, color="blue" if (fill and closed) else None, opacity=0.08, stroke="ink", width=1.5, closed=closed)
     for e in extra:
         a, b = P(e[0]), P(e[1])
         f.line(a[0], a[1], b[0], b[1], "ink" if not e[2] else "faint", 1.2 if e[2] else 1.5, e[2] or None)
@@ -487,3 +487,36 @@ tri("r35", [B35, C35, A35], vlab={0: "B", 1: "C", 2: "A"}, W=190, H=210, fill=Fa
 tri("k_ex31", [(0, 0), (0, 6), (10 * sin(radians(120)), 10 * cos(radians(120)))], vlab={0: "H", 1: "A", 2: "B"},
     slab={(0, 1): "6 km", (0, 2): "10 km"}, W=170, H=190, fill=False, extra=[((0, 0), (0, -6), "4 3"), ((-3, 0), (4, 0), "4 3")],
     labels=[((0, 0), "120°", 36, -20)], marks=[((0, 0), 14, -30, 90)])
+
+
+# ================= Year 11 school yearly exam items (past-paper sets) =================
+tri("pp_kam11", [(0, 0), (8, 0), (5 * cos(radians(60)), 5 * sin(radians(60)))], vlab={0: "B", 1: "C", 2: "A"},
+    slab={(0, 1): "8 cm", (0, 2): "5 cm"}, alab={0: "60°"})
+tri("pp_nsg13", rot(sas(10, 60, 18), 160), slab={(0, 2): "10m", (0, 1): "18m"}, alab={0: "θ"}, W=220)
+VR = 9.8 * sin(radians(16)) / sin(radians(140))
+tri("pp_lor31", [(0, 0), (VR, 0), (6.2 * cos(radians(140)), 6.2 * sin(radians(140)))],
+    slab={(0, 2): "6.2 cm", (1, 2): "9.8 cm"}, alab={0: "θ", 1: "24°"}, W=220)
+def brg(p, d_, b): return (p[0] + d_ * sin(radians(b)), p[1] + d_ * cos(radians(b)))
+A24 = (0, 0); C24 = brg(A24, 35, 140); B24 = brg(C24, 42, 38)
+tri("pp_che24", [A24, C24, B24], vlab={0: "A", 1: "C", 2: "B"}, slab={(0, 1): "35 km", (1, 2): "42 km"}, W=230, H=170, fill=False, closed=False,
+    marks=[(A24, 12, -50, 90), (C24, 12, 52, 90)],
+    extra=[(A24, (0, 18), None), (C24, (C24[0], C24[1] + 18), None), (B24, (B24[0], B24[1] + 18), None)],
+    labels=[((0, 18), "N", 0, -9), ((C24[0], C24[1] + 18), "N", 0, -9), ((B24[0], B24[1] + 18), "N", 0, -9),
+            (A24, "140°", 26, -4), (C24, "38°", 14, -24)])
+A20 = (0, 0); B20k = brg(A20, 6, 19); T20 = brg(A20, 10.8, 95)
+tri("pp_kil20", [B20k, A20, T20], vlab={1: "A", 2: "T", 0: "B"}, slab={(1, 2): "10.8 km"}, W=230, H=170, fill=False, closed=False,
+    extra=[(A20, (0, 4), None)], labels=[((0, 4), "N", 0, -9), ((B20k[0] / 2, B20k[1] / 2), "6 km", 24, 0)])
+A16b = (0, 0); B16b = brg(A16b, 32, 112); C16b = brg(B16b, 40, 10)
+tri("pp_bb16", [A16b, B16b, C16b], vlab={0: "A", 1: "B", 2: "C"}, slab={(0, 1): "32 km", (1, 2): "40 km"}, W=200, H=200, fill=False,
+    extra=[(A16b, (0, 12), None)], labels=[((0, 12), "N", 0, -9)])
+A28 = (0, 0); B28 = brg(A28, 340, 220); C28 = brg(B28, 620, 80)
+tri("pp_kil28", [A28, B28, C28], vlab={1: "B", 2: "C"}, W=240, H=170, fill=False,
+    extra=[(A28, (0, 80), None), (A28, (0, -60), None), (B28, (B28[0], B28[1] + 80), None)],
+    labels=[((0, 80), "N", 0, -9), ((B28[0], B28[1] + 80), "N", 0, -9), (A28, "A", 9, -10), (A28, "Avalon", 34, -22),
+            (B28, "Balnara", 0, 24), (C28, "Cherrytown", -8, 16)])
+A30, B30, O30, T30 = (0, 0), (10, 0), (4, 3.5), (4, 11)
+tri("pp_bh30", [A30, B30, T30], vlab={2: "T"}, W=230, H=220, fill=False,
+    extra=[(A30, O30, None), (B30, O30, None), (O30, T30, None), (A30, (-2.4, -2.1), None), (O30, (9, 7.875), "4 3"), (B30, (13.5, 0), "4 3")],
+    labels=[(A30, "A", -10, 2), (B30, "B", 4, 13), (O30, "O", -2, 14), ((-2.4, -2.1), "S", -6, 8), ((9, 7.875), "N", 8, -6), ((13.5, 0), "E", 10, 0),
+            ((4, 7.25), "h", 8, 0), (A30, "60°", 14, -34), (B30, "45°", -22, -30), ((5, 0), "20 m", 0, 13)],
+    rights=[(O30, T30, A30), (A30, B30, O30)], marks=[(A30, 18, degrees(atan2(3.5, 4)), degrees(atan2(11, 4))), (B30, 18, degrees(atan2(11, -6)), degrees(atan2(3.5, -6)))])

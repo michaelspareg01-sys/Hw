@@ -7,7 +7,7 @@ from y11ch6_common import *
 
 L, A = read("l6h.html"), read("a_6h.html")
 SOL = spans(L, "data-sol"); SOL.update(spans(A, "data-sol"))
-DOM = re.compile(r"(-?\d+)\^\\circ\s*\\le\s*\\?([a-z]+)\s*\\le\s*(-?\d+)\^\\circ")
+DOM = re.compile(r"(-?\d+)(?:\^\\circ)?\s*\\le\s*\\?([a-z]+)\s*\\le\s*(-?\d+)\^\\circ")
 n_eq = 0
 for m in re.finditer(r'<span data-eq="([\w-]+)" data-dom="(-?\d+),(-?\d+)">(.*?)</span>', L, re.S):
     key, lo, hi, q = m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)
@@ -19,7 +19,7 @@ for m in re.finditer(r'<span data-eq="([\w-]+)" data-dom="(-?\d+),(-?\d+)">(.*?)
     if after:
         pr = (int(after.group(1)), int(after.group(3)))
     else:
-        start = L.rfind('class="q-body"', 0, m.start())
+        start = max(L.rfind('class="q-body"', 0, m.start()), L.rfind('class="pp-q"', 0, m.start()))
         ds = list(DOM.finditer(L, start, m.start()))
         pr = (int(ds[-1].group(1)), int(ds[-1].group(3))) if ds else None
     check(pr == (lo, hi), f"{key}: printed domain {pr} vs data-dom {(lo, hi)}")
@@ -47,5 +47,8 @@ for m in re.finditer(r'<span data-eq="([\w-]+)" data-dom="(-?\d+),(-?\d+)">(.*?)
 for k in SOL:
     if not re.search(r'data-eq="%s"' % k, L):
         fail(f"solution {k} has no equation")
+for k, q in spans(L, "data-p").items():                      # identities in the past-paper set
+    sides = re.sub(r"^\\\(|\\\)$", "", q.strip()).split("=")
+    check(num_equal(tex(sides[0]), tex(sides[1])), f"identity {k}")
 print("equations checked:", n_eq)
 finish("y11ch6_6h")

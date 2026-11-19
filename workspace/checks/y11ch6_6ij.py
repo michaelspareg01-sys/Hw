@@ -64,6 +64,16 @@ for n in (2, 3, 5, 10):
     ang("j16", [ca(*sides)])
 L2 = 64 / (2 * (1 - cos(r(30)))); check(abs((1 - 16 / (2 * L2)) - (6 + sq(3)) / 8) < 1e-12, "6J Q17")
 
+# past-paper set (Year 11 yearly exams)
+exact("ppi1a", cr(5, 8, 60)); exact("ppi1b", .5 * 5 * 8 * sin(r(60)))
+t = d(asin(86 / (.5 * 10 * 18))); ang("ppi2", [t, 180 - t])
+s3 = d(asin(9.8 * sin(r(24)) / 6.2)); ang("ppi3", [180 - s3]); check(180 - s3 + 24 < 180, "PP3 obtuse case exists")
+check((140 + 180) % 360 == 320 and (360 - 320) + 38 == 78, "PP4a angle ACB")
+num("ppi4", cr(35, 42, 78), 0)
+BT = cr(6, 10.8, 95 - 19); num("ppi5", BT, 2); check(BT > 10.8, "PP5: Town A is closer")
+# coordinates check of the bearing diagram for PP 4
+A_ = (0, 0); C_ = (35 * sin(r(140)), 35 * cos(r(140))); B_ = (C_[0] + 42 * sin(r(38)), C_[1] + 42 * cos(r(38)))
+check(round(math.dist(A_, B_)) == 49, "PP4 by coordinates")
 # figures carry the printed data
 FIG = {"i1a": ["10", "x", "70°", "50°"], "i1c": ["4", "x", "85°", "55°"], "i1e": ["7", "x", "71°", "46°"],
        "i3b": ["10", "8", "85°", "θ"], "i3d": ["6", "17", "72°", "θ"], "i3f": ["16", "19", "53°", "θ"],
@@ -75,7 +85,9 @@ FIG = {"i1a": ["10", "x", "70°", "50°"], "i1c": ["4", "x", "85°", "55°"], "i
        "i13c": ["36 m", "130°", "x"], "i14a": ["16 cm", "18 cm", "θ"], "i14c": ["12 cm", "10 cm", "θ"],
        "i15a": ["6", "60°", "45°", "x"], "i15d": ["6", "45°", "30°", "x"], "i17": ["250 m", "42°", "18°", "54°"],
        "j5a": ["5", "6", "7"], "j5c": ["5", "4", "θ"], "j6": ["120 Nm", "180 Nm"], "j12": ["9 cm", "3 cm", "60°", "x"],
-       "j13": ["63 m", "22°", "27°", "51°", "x m"], "j15": ["6 cm", "4 cm", "x cm", "30°"], "i21": ["β", "α", "x", "y", "h"]}
+       "j13": ["63 m", "22°", "27°", "51°", "x m"], "j15": ["6 cm", "4 cm", "x cm", "30°"], "i21": ["β", "α", "x", "y", "h"],
+       "pp_kam11": ["5 cm", "8 cm", "60°"], "pp_nsg13": ["10m", "18m", "θ"], "pp_lor31": ["6.2 cm", "9.8 cm", "24°", "θ"],
+       "pp_che24": ["35 km", "42 km", "140°", "38°"], "pp_kil20": ["6 km", "10.8 km", "N"]}
 for nm, labs in FIG.items():
     with open(os.path.join(ROOT, "svg", nm + ".svg"), encoding="utf-8") as f:
         texts = re.findall(r">([^<>]+)</text>", f.read())

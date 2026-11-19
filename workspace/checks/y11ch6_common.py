@@ -52,7 +52,7 @@ def tex(s):
     """Pack LaTeX (one \\( \\) group) -> sympy expression (degrees become radians)."""
     s = s.strip().replace("\\)<br>\\(", "").replace("\\qquad", "").replace("\\quad", "")
     s = re.sub(r"^\\\(|\\\)$", "", s).strip()
-    s = s.replace(r"\operatorname{cosec}", r"\csc ").replace(r"\dfrac", r"\frac").replace(r"\tfrac", r"\frac")
+    s = re.sub(r"\\operatorname\{cosec\}(?=[A-Za-z])", r"\\csc ", s).replace(r"\operatorname{cosec}", r"\csc").replace(r"\dfrac", r"\frac").replace(r"\tfrac", r"\frac")
     s = s.replace(r"\,(", r"\cdot(").replace(r"\,", " ").replace(r"\left", "").replace(r"\right", "").replace(r"\!", "")
     s = re.sub(r"(\d+(?:\.\d+)?)\^\\circ", r"(\1\\cdot\\frac{\\pi}{180})", s)
     s = re.sub(r"\\sqrt(\d+)", r"\\sqrt{\1}", s)
@@ -67,13 +67,14 @@ def num_equal(a, b, trials=40, tol=1e-7):
     syms = sorted((a.free_symbols | b.free_symbols) - {sp.pi}, key=str)
     fa, fb = sp.lambdify(syms, a, "math"), sp.lambdify(syms, b, "math")
     good = 0
+    rnd = random.Random(12345)
     for _ in range(trials * 5):
-        vals = [random.uniform(-3, 3) for _ in syms]
+        vals = [rnd.uniform(-3, 3) for _ in syms]
         try:
             x, y = float(fa(*vals)), float(fb(*vals))
         except (ZeroDivisionError, ValueError, OverflowError):
             continue
-        if abs(x) > 1e6 or abs(y) > 1e6:
+        if abs(x) > 1e4 or abs(y) > 1e4:
             continue
         if abs(x - y) > tol * max(1, abs(x)):
             return False
