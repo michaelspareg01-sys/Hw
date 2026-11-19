@@ -49,6 +49,8 @@ def read(name):
 def clean(s):
     s = s.replace("\\operatorname{cosec}", "\\cosec").replace("\\,", "").replace("\\!", "")
     s = re.sub(r"\\(?:displaystyle|left|right|Big|big|bigg|Bigg)", "", s)
+    s = re.sub(r"\\(sin|cos|tan|cot)\s*(\d+(?:\.\d+)?)\^\\circ", r"\\\1(\2*pi/180)", s)
+    s = re.sub(r"(\d+(?:\.\d+)?)\^\\circ", r"(\1*pi/180)", s)
     s = re.sub(r"\\sqrt\s+([A-Za-z0-9])", r"\\sqrt{\1}", s)
     s = re.sub(r"\\([dt]?frac)\s+([A-Za-z0-9])([A-Za-z0-9])", r"\\\1{\2}{\3}", s)
     return s.strip()

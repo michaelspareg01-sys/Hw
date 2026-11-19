@@ -1,0 +1,175 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 17D</div><h2>Trigonometric functions of compound angles</h2>
+<div class="focus">This lesson proves the expansion of \(\cos(\alpha-\beta)\) from the distance formula and the cosine rule, derives the other five compound-angle formulae from it, and uses them to expand and simplify, to combine given ratios of two angles, and to find exact values such as \(\sin75^\circ\).</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:the six compound-angle formulae}}
+<div class="box concept"><div class="bt">Trigonometric functions of compound angles</div>
+<p style="margin-top:0">The derivatives of the trigonometric functions will be found in Year 12. Before that can be done, however, various formulae involving compound angles need to be established, beginning with the expansion of objects such as \(\sin(x+h)\), \(\tan(x-y)\) and \(\cos2x\). These trigonometric identities are most important for all sorts of other reasons as well, and must be thoroughly memorised. Their development is the concern of the rest of this chapter.</p>
+<p style="margin-bottom:0">As with all fundamental results in trigonometry, these formulae require an appeal to geometry, in this case Pythagoras’ theorem in the form of the distance formula, the cosine rule, and the Pythagorean trigonometric identity. The approach given here begins with the expansion of \(\cos(\alpha-\beta)\) and uses that result to derive the other expansions. There are many alternative approaches.</p></div>
+<div class="box concept"><div class="bt">The expansion of \(\cos(\alpha-\beta)\)</div>
+<p style="margin-top:0">We shall prove that for all real numbers \(\alpha\) and \(\beta\), \(\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta\).</p>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 205px;align-items:start"><div>
+<p style="margin-top:0"><b>Proof</b> Let the rays corresponding to the angles \(\alpha\) and \(\beta\) intersect the circle \(x^2+y^2=r^2\) at the points \(A\) and \(B\) respectively. Then by the definitions of the trigonometric functions for general angles,</p>
+<p>\(A=(r\cos\alpha,\ r\sin\alpha)\) and \(B=(r\cos\beta,\ r\sin\beta)\).</p>
+<p>Now we can use the distance formula to find \(AB^2\):</p></div><div>{{svg:d_proof}}</div></div>
+\[\begin{aligned}AB^2&=r^2(\cos\alpha-\cos\beta)^2+r^2(\sin\alpha-\sin\beta)^2\\&=r^2\big(\cos^2\alpha+\cos^2\beta+\sin^2\alpha+\sin^2\beta-2\cos\alpha\cos\beta-2\sin\alpha\sin\beta\big)\\&=2r^2(1-\cos\alpha\cos\beta-\sin\alpha\sin\beta),\ \text{ because }\sin^2\theta+\cos^2\theta=1.\end{aligned}\]
+<p>But the angle \(\angle AOB\) is \(\alpha-\beta\), so by the cosine rule,</p>
+\[AB^2=r^2+r^2-2r^2\cos(\alpha-\beta)=2r^2\big(1-\cos(\alpha-\beta)\big).\]
+<p>Equating these two expressions for \(AB^2\), \(\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta\).</p>
+<p style="margin-bottom:0"><b>Note:</b> It was claimed in the proof that \(\angle AOB=\alpha-\beta\). This is not necessarily the case, because it’s also possible that \(\angle AOB=\beta-\alpha\), or that \(\angle AOB\) differs from either of these two values by a multiple of \(2\pi\). But the cosine function is even, and it is periodic with period \(2\pi\). So it will still follow in every case that \(\cos\angle AOB=\cos(\alpha-\beta)\), which is all that is required in the proof.</p></div>
+<p>Here are the compound-angle formulae for the sine, cosine and tangent functions, followed by the remaining five proofs.</p>
+<div class="box take"><div class="bt">10 The compound-angle formulae</div>
+<div style="display:grid;grid-template-columns:1fr;gap:1.2mm"><div><b>A</b> \(\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta\)</div><div><b>B</b> \(\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta\)</div><div><b>C</b> \(\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}\)</div><div><b>D</b> \(\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta\)</div><div><b>E</b> \(\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta\)</div><div><b>F</b> \(\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}\)</div></div></div>
+<p style="margin-bottom:0">These formulae are of course true whether the angle is expressed in degrees or radians.</p></div>
+<div class="box concept"><div class="bt">Proof of the other five formulae</div>
+<p style="margin-top:0">We proceed from formula E, which has already been proven.</p>
+<p><b>B</b> Replacing \(\beta\) by \(-\beta\) in E, which is the expansion of \(\cos(\alpha-\beta)\),</p>
+\[\begin{aligned}\cos(\alpha+\beta)&=\cos\big(\alpha-(-\beta)\big)=\cos\alpha\cos(-\beta)+\sin\alpha\sin(-\beta)\\&=\cos\alpha\cos\beta-\sin\alpha\sin\beta,\ \text{ because cosine is even and sine is odd.}\end{aligned}\]
+<p><b>A</b> Using the identity \(\sin\theta=\cos\Big(\dfrac\pi2-\theta\Big)\),</p>
+\[\begin{aligned}\sin(\alpha+\beta)&=\cos\Big(\frac\pi2-(\alpha+\beta)\Big)=\cos\Big(\Big(\frac\pi2-\alpha\Big)-\beta\Big)\\&=\cos\Big(\frac\pi2-\alpha\Big)\cos\beta+\sin\Big(\frac\pi2-\alpha\Big)\sin\beta=\sin\alpha\cos\beta+\cos\alpha\sin\beta.\end{aligned}\]
+<p><b>D</b> Replacing \(\beta\) by \(-\beta\), and noting that cosine is even and sine is odd, \(\sin(\alpha-\beta)=\sin\alpha\cos\beta-\cos\alpha\sin\beta\).</p>
+<p><b>C</b> Because \(\tan\theta\) is the ratio of \(\sin\theta\) and \(\cos\theta\),</p>
+\[\tan(\alpha+\beta)=\frac{\sin(\alpha+\beta)}{\cos(\alpha+\beta)}=\frac{\sin\alpha\cos\beta+\cos\alpha\sin\beta}{\cos\alpha\cos\beta-\sin\alpha\sin\beta}=\frac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta},\]
+<p>dividing top and bottom by \(\cos\alpha\cos\beta\).</p>
+<p style="margin-bottom:0"><b>F</b> Replacing \(\beta\) by \(-\beta\), and noting that the tangent function is odd, \(\tan(\alpha-\beta)=\dfrac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Expanding with a special angle</span></div><div class="ex-body">
+Express \(\cos\Big(x-\dfrac\pi6\Big)\) in the form \(a\cos x+b\sin x\).
+{{work:34}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Express \(\sin\Big(x-\dfrac{3\pi}{4}\Big)\) in the form \(a\cos x+b\sin x\).
+{{work:34}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 7</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Express \(\sin\Big(x+\dfrac{2\pi}{3}\Big)\) in the form \(a\cos x+b\sin x\).
+<div class="sol-label">Solution</div>
+\[\begin{aligned}\sin\Big(x+\frac{2\pi}{3}\Big)&=\sin x\cos\frac{2\pi}{3}+\cos x\sin\frac{2\pi}{3}\\&=-\tfrac12\sin x+\tfrac12\sqrt3\cos x\end{aligned}\]
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:combining the ratios of two angles}}
+<div class="box tip"><div class="bt">Where to look</div>
+<p style="margin:0">Each expansion needs the sine and the cosine of both angles. Worked example 8 shows how the given quadrant fixes each sign.</p></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Two angles in given quadrants</span></div><div class="ex-body">
+<b>a</b> Given that \(\cos\alpha=\dfrac35\) and \(\sin\beta=-\dfrac{5}{13}\), where \(\alpha\) is acute and \(-\dfrac\pi2&lt;\beta&lt;0\), find \(\sin(\alpha+\beta)\) and \(\cos(\alpha-\beta)\).<br>
+<b>b</b> Find the exact value of \(\sin\Big(\tan^{-1}\dfrac12+\cos^{-1}\dfrac35\Big)\).
+{{work:72}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Given that \(\sin\alpha=\dfrac{8}{17}\) and \(\cos\beta=\dfrac{4}{5}\), where \(\alpha\) is acute and \(-\dfrac\pi2&lt;\beta&lt;0\), find \(\sin(\alpha-\beta)\) and \(\cos(\alpha+\beta)\).<br>
+<b>b</b> Find the exact value of \(\cos\Big(\sin^{-1}\dfrac35-\tan^{-1}\dfrac13\Big)\).
+{{work:72}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 8</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Given that \(\sin\alpha=\dfrac13\) and \(\cos\beta=\dfrac45\), where \(\alpha\) is acute and \(-\dfrac\pi2&lt;\beta&lt;0\), find \(\sin(\alpha-\beta)\) and \(\cos(\alpha+\beta)\).
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 135px;align-items:start"><div>
+<p style="margin-top:0">First, using the diagrams on the right, \(\cos\alpha=\tfrac23\sqrt2\) and \(\sin\beta=-\tfrac35\).</p>
+\[\begin{aligned}\text{So}\quad\sin(\alpha-\beta)&=\sin\alpha\cos\beta-\cos\alpha\sin\beta=\tfrac{4}{15}+\tfrac{6}{15}\sqrt2=\tfrac{2}{15}\big(2+3\sqrt2\big),\\\text{and}\quad\cos(\alpha+\beta)&=\cos\alpha\cos\beta-\sin\alpha\sin\beta=\tfrac{8}{15}\sqrt2+\tfrac{3}{15}=\tfrac{1}{15}\big(8\sqrt2+3\big).\end{aligned}\]
+</div><div>{{svg:d_ex8a}}{{svg:d_ex8b}}</div></div>
+</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:further exact values}}
+<div class="box concept"><div class="bt">Further exact values of trigonometric functions</div>
+<p style="margin:0">The various compound-angle formulae can be used to find expressions in surds for trigonometric functions of many angles other than ones whose related angles are the standard \(30^\circ\), \(45^\circ\) and \(60^\circ\).</p></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Sums and differences of special angles</span></div><div class="ex-body">
+Find exact values of:<br><b>a</b> \(\sin105^\circ\)<br><b>b</b> \(\tan105^\circ\)
+{{work:56}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find exact values of:<br><b>a</b> \(\cos165^\circ\)<br><b>b</b> \(\sin195^\circ\)
+{{work:56}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 9</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Find exact values of:<br><b>a</b> \(\sin75^\circ\)<br><b>b</b> \(\cos75^\circ\)
+<div class="sol-label">Solution</div>
+<p style="margin-top:0">There are many alternative methods.</p>
+\[\begin{aligned}\textbf{a}\quad\sin75^\circ&=\sin(30^\circ+45^\circ)\\&=\sin30^\circ\cos45^\circ+\cos30^\circ\sin45^\circ\\&=\tfrac12\times\tfrac12\sqrt2+\tfrac12\sqrt3\times\tfrac12\sqrt2\\&=\tfrac14\big(\sqrt2+\sqrt6\big)\end{aligned}\]
+\[\begin{aligned}\textbf{b}\quad\cos75^\circ&=\cos(135^\circ-60^\circ)\\&=\cos135^\circ\cos60^\circ+\sin135^\circ\sin60^\circ\\&=-\tfrac12\sqrt2\times\tfrac12+\tfrac12\sqrt2\times\tfrac12\sqrt3\\&=\tfrac14\big(\sqrt6-\sqrt2\big)\end{aligned}\]
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 17D}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Expand using the formulae in Box 10 (one step only):
+<div class="parts one"><span><span class="pl">a</span>\(\sin(x-y)\)</span><span><span class="pl">b</span>\(\cos(2A+3B)\)</span><span><span class="pl">c</span>\(\sin(3\alpha+5\beta)\)</span><span><span class="pl">d</span>\(\cos\Big(\theta-\dfrac\phi2\Big)\)</span><span><span class="pl">e</span>\(\tan(A+2B)\)</span><span><span class="pl">f</span>\(\tan(3\alpha-4\beta)\)</span></div>{{work:46}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Express as a single trigonometric function:
+<div class="parts one"><span><span class="pl">a</span>\(\cos x\cos y-\sin x\sin y\)</span><span><span class="pl">b</span>\(\sin3\alpha\cos2\beta+\cos3\alpha\sin2\beta\)</span><span><span class="pl">c</span>\(\dfrac{\tan40^\circ-\tan20^\circ}{1+\tan40^\circ\tan20^\circ}\)</span><span><span class="pl">d</span>\(\sin5A\cos2A-\cos5A\sin2A\)</span><span><span class="pl">e</span>\(\cos70^\circ\cos20^\circ+\sin70^\circ\sin20^\circ\)</span><span><span class="pl">f</span>\(\dfrac{\tan\alpha+\tan10^\circ}{1-\tan\alpha\tan10^\circ}\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Use the compound-angle formulae to prove:
+<div class="parts one"><span><span class="pl">a</span>\(\sin(90^\circ+A)=\cos A\)</span><span><span class="pl">b</span>\(\cos(90^\circ-A)=\sin A\)</span><span><span class="pl">c</span>\(\tan(360^\circ-A)=-\tan A\)</span><span><span class="pl">d</span>\(\tan(180^\circ+A)=\tan A\)</span><span><span class="pl">e</span>\(\cos(270^\circ-A)=-\sin A\)</span><span><span class="pl">f</span>\(\sin(360^\circ-A)=-\sin A\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Prove the identities:
+<div class="parts one"><span><span class="pl">a</span>\(\sin(A+45^\circ)=\dfrac{1}{\sqrt2}(\sin A+\cos A)\)</span><span><span class="pl">b</span>\(2\cos\Big(\theta+\dfrac\pi3\Big)=\cos\theta-\sqrt3\sin\theta\)</span><span><span class="pl">c</span>\(\tan\Big(\dfrac\pi4-A\Big)=\dfrac{1-\tan A}{1+\tan A}\)</span><span><span class="pl">d</span>\(\sin(A-30^\circ)=\tfrac12\big(\sqrt3\sin A-\cos A\big)\)</span></div>{{work:52}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>If \(\tan\alpha=\dfrac12\) and \(\tan\beta=\dfrac13\), find \(\tan(\alpha+\beta)\).</span><span><span class="pl">b</span>If \(\cos A=\dfrac45\) and \(\sin B=\dfrac{12}{13}\), where \(A\) and \(B\) are both acute, find \(\sin(A+B)\).</span><span><span class="pl">c</span>If \(\sin\theta=\dfrac23\) and \(\cos\phi=\dfrac14\), where \(\theta\) and \(\phi\) are both acute, find \(\cos(\theta-\phi)\).</span></div>{{work:52}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Prove each identity.
+<div class="parts one"><span><span class="pl">a</span>\(\sin(A+B)+\sin(A-B)=2\sin A\cos B\)</span><span><span class="pl">b</span>\(\cos(x-y)-\cos(x+y)=2\sin x\sin y\)</span><span><span class="pl">c</span>\(\sin(x+y)+\cos(x-y)=(\sin x+\cos x)(\sin y+\cos y)\)</span></div>{{work:46}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">7</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>By expressing \(15^\circ\) as \((45^\circ-30^\circ)\), show that:<br>(i) \(\sin15^\circ=\dfrac{\sqrt3-1}{2\sqrt2}\)<br>(ii) \(\cos15^\circ=\dfrac{\sqrt3+1}{2\sqrt2}\)<br>(iii) \(\tan15^\circ=2-\sqrt3\)</span><span><span class="pl">b</span>Hence find surd expressions for:<br>(i) \(\sin75^\circ\)<br>(ii) \(\cos75^\circ\)<br>(iii) \(\tan75^\circ\)</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">If \(\sin A=\dfrac23\), where \(\dfrac\pi2&lt;A&lt;\pi\), and \(\tan B=\dfrac23\), where \(\pi&lt;B&lt;\dfrac{3\pi}{2}\), show that \(\cos(A+B)=\dfrac{3\sqrt5+4}{3\sqrt{13}}\).{{work:44}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Use compound-angle formulae to find the exact value of:
+<div class="parts one"><span><span class="pl">a</span>\(\cos105^\circ\)</span><span><span class="pl">b</span>\(\sin\dfrac{13\pi}{12}\)</span><span><span class="pl">c</span>\(\cot285^\circ\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Use compound-angle formulae to find the exact value of:
+<div class="parts one"><span><span class="pl">a</span>\(\tan\Big(\tan^{-1}\dfrac14+\tan^{-1}\dfrac35\Big)\)</span><span><span class="pl">b</span>\(\sin\Big(\sin^{-1}\dfrac45+\sin^{-1}\dfrac{12}{13}\Big)\)</span><span><span class="pl">c</span>\(\tan\Big(\sin^{-1}\dfrac35+\cos^{-1}\dfrac{12}{13}\Big)\)</span><span><span class="pl">d</span>\(\cos\Big(\tan^{-1}\dfrac12+\sin^{-1}\dfrac14\Big)\)</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>If \(\alpha=\tan^{-1}x\) and \(\beta=\tan^{-1}2x\), show that \(\tan(\alpha+\beta)=\dfrac{3x}{1-2x^2}\).</span><span><span class="pl">b</span>Hence solve the equation \(\tan^{-1}x+\tan^{-1}2x=\tan^{-1}3\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">Use a similar approach to the previous question to solve for \(x\):
+<div class="parts one"><span><span class="pl">a</span>\(\tan^{-1}x+\tan^{-1}2=\tan^{-1}7\)</span><span><span class="pl">b</span>\(\tan^{-1}3x-\tan^{-1}x=\tan^{-1}\dfrac12\)</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(\sin(A+B)\sin(A-B)=\sin^2A-\sin^2B\).</span><span><span class="pl">b</span>Hence simplify \(\sin^275^\circ-\sin^215^\circ\).</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">Show that:
+<div class="parts one"><span><span class="pl">a</span>\(\sin\Big(\dfrac\pi4-\theta\Big)\cos\Big(\dfrac\pi4+\theta\Big)+\cos\Big(\dfrac\pi4-\theta\Big)\sin\Big(\dfrac\pi4+\theta\Big)=1\)</span><span><span class="pl">b</span>\(\tan35^\circ+\tan10^\circ+\tan35^\circ\tan10^\circ=1\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">Prove each identity:
+<div class="parts one"><span><span class="pl">a</span>\(\dfrac{2\sin(x-y)}{\cos(x+y)-\cos(x-y)}=\cot x-\cot y\)</span><span><span class="pl">b</span>\(\dfrac{\sin(\theta+\phi)}{\cos(\theta-\phi)}=\dfrac{\tan\theta+\tan\phi}{1+\tan\theta\tan\phi}\)</span><span><span class="pl">c</span>\(\dfrac{\sin(\alpha-\beta)}{\sin\alpha\sin\beta}+\dfrac{\sin(\beta-\gamma)}{\sin\beta\sin\gamma}+\dfrac{\sin(\gamma-\alpha)}{\sin\gamma\sin\alpha}=0\)</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">{{svg:d_q16}}
+<div class="parts one"><span><span class="pl">a</span>Write down the formula for \(\sin(\alpha+\beta)\).</span><span><span class="pl">b</span>Hence show that the angles \(\alpha\) and \(\beta\) in the diagram above have sum \(45^\circ\).</span></div>{{work:44}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body"><div class="split" style="grid-template-columns:minmax(0,1fr) 235px;align-items:start"><div>The diagram shows two rectangles. Each rectangle is 6 cm long and 3 cm wide, and they share a common diagonal \(PQ\). Show that \(\tan\alpha=\dfrac34\).</div><div>{{svg:d_q17}}</div></div>{{work:44}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">18</span><div class="q-body">Solve for \(x\): \(\tan^{-1}\dfrac{x}{1+x}+\tan^{-1}\dfrac{x}{1-x}=\tan^{-1}\dfrac67\){{work:50}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">Suppose that \(\alpha=\sin^{-1}x\) and \(\beta=\tan^{-1}x\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(\cos(\alpha+\beta)=\dfrac{\sqrt{1-x^2}-x^2}{\sqrt{1+x^2}}\).</span><span><span class="pl">b</span>If \(\alpha+\beta=\dfrac\pi2\), show that \(x^2=\dfrac{\sqrt5-1}{2}\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Prove the trigonometric identity<br>\(\tan(A+B+C)=\dfrac{\tan A+\tan B+\tan C-\tan A\tan B\tan C}{1-\tan A\tan B-\tan B\tan C-\tan C\tan A}\).</span><span><span class="pl">b</span>Hence show that in any triangle \(ABC\), \(\tan A+\tan B+\tan C=\tan A\tan B\tan C\).</span></div>{{work:62}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>18 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Caringbah High School, 2021, Year 12 Mathematics Extension 1 HSC Course Assessment Task 4, Q4</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Given that \(\alpha\) and \(\beta\) are both acute angles, evaluate \(\sin(\alpha+\beta)\) if \(\sin\alpha=\dfrac{8}{17}\) and \(\sin\beta=\dfrac45\)
+<div class="mc"><span>(A) \(\dfrac{108}{85}\)</span><span>(B) \(\dfrac{84}{85}\)</span><span>(C) \(\dfrac{36}{85}\)</span><span>(D) \(\dfrac{28}{85}\)</span></div></div>
+<div class="hint"><b>Hint:</b> which ratios of \(\alpha\) and \(\beta\) does the expansion need?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Hornsby Girls High School, 2022, Mathematics Extension 1, Year 12 Higher School Certificate Trial Examination Term 3, Q5</span><span class="mk">1 mark</span></div>
+<div class="pp-q">\(\sin(3x+x)-\sin(3x-x)=\)
+<div class="mc"><span>(A) \(-2\sin3x\sin x\)</span><span>(B) \(2\cos3x\sin x\)</span><span>(C) \(2\cos3x\cos x\)</span><span>(D) \(2\sin3x\sin x\)</span></div></div>
+<div class="hint"><b>Hint:</b> what happens when both terms are expanded?</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q2</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Given \(\tan\theta=\dfrac13\), what is the exact value of \(\tan\Big(\theta+\dfrac\pi3\Big)\)?
+<div class="mc"><span>(A) \(\dfrac{\sqrt3+3}{3\sqrt3-1}\)</span><span>(B) \(\dfrac{\sqrt3-3}{3\sqrt3+1}\)</span><span>(C) \(\dfrac{1+3\sqrt3}{3-\sqrt3}\)</span><span>(D) \(\dfrac{1-3\sqrt3}{3+\sqrt3}\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is \(\tan\dfrac\pi3\)?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Girraween High School, 2021, Trial Higher School Certificate Examination, Mathematics Extension 1, Q11(b)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Prove that \(\cot2x+\cot x=\dfrac{\sin3x}{\sin2x\sin x}\)</div>
+<div class="hint"><b>Hint:</b> how can each cotangent be written?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>North Sydney Boys High School, 2022, HSC Course Assessment Task 3-Trial Examination, Mathematics Extension 1, Q11(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Evaluate \(\cos\Big(\tan^{-1}\dfrac43-\cos^{-1}\dfrac{5}{13}\Big)\). Exact answer required with working.</div>
+<div class="hint"><b>Hint:</b> what are the two angles inside the bracket?</div>{{work:46}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>North Sydney Boys High School, 2020, Year 12 Assessment Task 3, Mathematics Extension 1, Q11(e)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Find the exact value of \(\sin\Big(\cos^{-1}\Big(\dfrac23\Big)+\tan^{-1}\Big(\dfrac{-3}{4}\Big)\Big)\)</div>
+<div class="hint"><b>Hint:</b> in which quadrant does each angle lie?</div>{{work:46}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension 1, Q13(b)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Solve \(\dfrac{\sin x+\cos x}{\sqrt2}=\dfrac{\sqrt3}{2}\) for \(0^\circ\le x\le360^\circ\).</div>
+<div class="hint"><b>Hint:</b> what do the coefficients of \(\sin x\) and \(\cos x\) remind you of?</div>{{work:50}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q13(a)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Prove that \(\tan4\theta-\tan\theta=\dfrac{\sin3\theta}{\cos4\theta\cos\theta}\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence solve \(\tan4\theta=\tan\theta\) for \(0\le\theta\le\pi\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> in (i), how can each tangent be written?</div>{{work:60}}</div>
+</div>

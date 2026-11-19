@@ -640,6 +640,99 @@ def fig_17c_ans():
           dots=[(-0.75, P2), (0.75, P2)], hollow=[(-0.25, 0), (0.25, 0)], w=210, h=150)
 
 
+
+# ---------------- 17D ----------------
+def fig_17d():
+    # proof of cos(a - b): circle, rays to A (angle a) and B (angle b)
+    f = Fig(200, 190)
+    cx, cy, r = 95, 100, 70
+    f.raw(f'<path d="M{cx - r},{cy} A{r},{r} 0 1 1 {cx + r},{cy} A{r},{r} 0 1 1 {cx - r},{cy}" fill="none" stroke="{INK}" stroke-width="1.2"/>')
+    f.arrow(cx - r - 14, cy, cx + r + 18, cy, width=1.1)
+    f.arrow(cx, cy + r + 12, cx, cy - r - 16, width=1.1)
+    for ang, name in ((110, "A"), (35, "B")):
+        a = radians(ang)
+        px, py = cx + r * cos(a), cy - r * sin(a)
+        f.line(cx, cy, px, py, color="blue", width=1.8)
+        f.dot(px, py, 3)
+        f.raw(lab(px + 15 * cos(a), py - 15 * sin(a), name, size=12, bg=False))
+    f.line(cx + r * cos(radians(110)), cy - r * sin(radians(110)), cx + r * cos(radians(35)), cy - r * sin(radians(35)), color="faint", width=1.2, dash="4 3")
+    f.arc(cx, cy, 16, 0, 35)
+    f.arc(cx, cy, 26, 0, 110)
+    f.arc(cx, cy, 36, 35, 110, color="rose")
+    f.raw(lab(cx + 22 * cos(radians(17)) + 4, cy - 22 * sin(radians(17)), "β", size=12))
+    f.raw(lab(cx - 30, cy - 14, "α", size=12))
+    f.raw(lab(cx + 52 * cos(radians(72)), cy - 52 * sin(radians(72)), "α − β", size=11, color=ACC["rose"]))
+    f.raw(lab(cx - 10, cy + 12, "O", size=12, bg=False))
+    f.raw(lab(cx + r + 22, cy + 10, "x", size=12, bg=False, italic=True))
+    f.raw(lab(cx - 9, cy - r - 14, "y", size=12, bg=False, italic=True))
+    save("d_proof", f)
+    # Example 8 triangles
+    def tri(name, opp, adj, hyp, ang_lab, w=120, h=95, flip=False):
+        f = Fig(w, h)
+        x0, y0, x1, y1 = 18, h - 18, w - 30, 16
+        if flip:   # angle below the axis: right angle at top right
+            f.poly([(x0, 16), (x1, 16), (x1, h - 18)], color="blue", opacity=0.08)
+            f.right(x1, 16, -1, 1, s=7)
+            f.raw(lab((x0 + x1) / 2, 8, adj, size=12, bg=False))
+            f.raw(lab(x1 + 6, (16 + h - 18) / 2, opp, "start", size=12, bg=False))
+            f.raw(lab((x0 + x1) / 2 - 10, (16 + h - 18) / 2 + 12, hyp, size=12, bg=False))
+            f.raw(lab(x0 + 34, 28, ang_lab, size=12))
+        else:
+            f.poly([(x0, y0), (x1, y0), (x1, y1)], color="blue", opacity=0.08)
+            f.right(x1, y0, -1, -1, s=7)
+            f.raw(lab((x0 + x1) / 2, y0 + 11, adj, size=12, bg=False))
+            f.raw(lab(x1 + 6, (y0 + y1) / 2, opp, "start", size=12, bg=False))
+            f.raw(lab((x0 + x1) / 2 - 10, (y0 + y1) / 2 - 8, hyp, size=12, bg=False))
+            f.raw(lab(x0 + 34, y0 - 10, ang_lab, size=12))
+        save(name, f)
+    tri("d_ex8a", "1", "2√2", "3", "α")
+    tri("d_ex8b", "3", "4", "5", "β", flip=True)
+    # Q16
+    f = Fig(300, 100)
+    R_, Q_, P_, T_ = (20, 80), (155, 80), (245, 80), (155, 20)
+    f.poly([R_, P_, T_], color="blue", opacity=0.06)
+    f.line(*Q_, *T_, width=1.3)
+    f.right(Q_[0], Q_[1], 1, -1, s=7)
+    for (x_, y_), n_, dx, dy in ((R_, "R", -10, 4), (Q_, "Q", 0, 13), (P_, "P", 10, 4), (T_, "T", 0, -11)):
+        f.raw(lab(x_ + dx, y_ + dy, n_, size=12, bg=False))
+    f.raw(lab(88, 92, "3 cm", size=11, bg=False))
+    f.raw(lab(200, 92, "2 cm", size=11, bg=False))
+    f.raw(lab(150, 58, "1 cm", "end", size=11, bg=False))
+    f.raw(lab(75, 72, "β", size=12))
+    f.raw(lab(215, 73, "α", size=12))
+    save("d_q16", f)
+    # Q17: two 6 x 3 rectangles sharing the diagonal PQ
+    import math as m
+    sc = 22
+    W_, H_ = 6 * sc, 3 * sc
+    P0 = (30, 150)
+    rect1 = [(P0[0], P0[1]), (P0[0] + W_, P0[1]), (P0[0] + W_, P0[1] - H_), (P0[0], P0[1] - H_)]
+    Q0 = (P0[0] + W_, P0[1] - H_)
+    d = m.atan2(3, 6)
+    rot = 2 * d                      # reflect the rectangle in the diagonal
+    def rp(x, y):
+        dx, dy = x - P0[0], -(y - P0[1])
+        X = dx * m.cos(rot) - dy * m.sin(rot)
+        Y = dx * m.sin(rot) + dy * m.cos(rot)
+        return (P0[0] + X, P0[1] - Y)
+    # second rectangle: reflection of the first in PQ
+    def refl(x, y):
+        dx, dy = x - P0[0], -(y - P0[1])
+        c2, s2 = m.cos(2 * d), m.sin(2 * d)
+        X = dx * c2 + dy * s2
+        Y = dx * s2 - dy * c2
+        return (P0[0] + X, P0[1] - Y)
+    rect2 = [refl(*p) for p in rect1]
+    f = Fig(230, 175)
+    f.poly(rect1, color="blue", opacity=0.05)
+    f.poly(rect2, color="teal", opacity=0.05)
+    f.line(P0[0], P0[1], Q0[0], Q0[1], color="faint", dash="4 3", width=1.2)
+    f.raw(lab(P0[0] - 9, P0[1] + 6, "P", size=12, bg=False))
+    f.raw(lab(Q0[0] + 9, Q0[1] - 4, "Q", size=12, bg=False))
+    f.raw(lab(P0[0] + 13, P0[1] - 22, "α", size=12))
+    save("d_q17", f)
+
+
 if __name__ == "__main__":
     for _name, _f in list(globals().items()):
         if _name.startswith("fig_") and callable(_f):
