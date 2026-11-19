@@ -413,6 +413,90 @@ def fig_17a_ans():
          labels=[(1, 0, "(1, 0)", 6, -11, "start"), (-1, -1, "(−1, −1)", 6, 9, "start"), (0.75, 1.9, "f", -8, 0, "end"), (2.0, 0.8, "f⁻¹", 0, -12, "middle")], w=190, h=190)
 
 
+
+# ---------------- 17B ----------------
+from math import asin, acos
+
+
+def unit_triangle(name, ang_deg, legs, w=180, h=170, r=60):
+    """Quadrant diagram for Example 5: circle, ray at ang_deg, perpendicular to the x-axis, side labels.
+    legs = (hyp_label, opp_label, adj_label)."""
+    f = Fig(w, h)
+    cx, cy = w / 2 - 10, h / 2
+    f.raw(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{INK}" stroke-width="1.2"/>')
+    f.line(cx - r - 10, cy, cx + r + 10, cy, width=1.1)
+    f.line(cx, cy + r + 10, cx, cy - r - 10, width=1.1)
+    a = radians(ang_deg)
+    ux, uy = cos(a), -sin(a)                 # unit vector along the ray (screen coordinates)
+    px, py = cx + r * ux, cy + r * uy
+    f.arrow(cx, cy, cx + (r + 14) * ux, cy + (r + 14) * uy, color="blue", width=1.8)
+    f.line(px, py, px, cy, color="ink", width=1.3)
+    sy = 1 if py > cy else -1                # opposite side goes down (1) or up (-1) from the axis
+    f.right(px, cy, -1 if ux > 0 else 1, sy, s=6)
+    hyp, opp, adj = legs
+    nx, ny = -uy, ux                         # normal to the ray
+    if ny * sy < 0:                          # point the normal away from the triangle
+        nx, ny = -nx, -ny
+    f.raw(lab(cx + 0.5 * r * ux + 13 * nx, cy + 0.5 * r * uy + 13 * ny, hyp, size=12))
+    f.raw(lab(px + (9 if ux > 0 else -9), (py + cy) / 2, opp, "start" if ux > 0 else "end", size=12))
+    f.raw(lab((cx + px) / 2, cy - sy * 11, adj, size=12))
+    f.raw(lab(cx + (r + 14) * ux + 12 * nx, cy + (r + 14) * uy + 12 * ny, "α", size=13))
+    save(name, f)
+
+
+def fig_17b():
+    T2 = pi_ticks(-2, 2, 0.5)
+    # sine with A, B, C, D at the stationary points
+    graph("b_sin", [(sin, "blue")], (-2 * PI, 2 * PI), (-1.5, 1.5), xt=T2, yt=[(1, "1"), (-1, "-1")], w=540, h=118,
+          labels=[(-1.5 * PI, 1, "A", 0, -11, "middle"), (-PI / 2, -1, "B", 0, 12, "middle"), (PI / 2, 1, "C", 0, -11, "middle"),
+                  (1.5 * PI, -1, "D", 0, 12, "middle")], dots=[(-1.5 * PI, 1), (-PI / 2, -1), (PI / 2, 1), (1.5 * PI, -1)])
+    yx = (lambda x: x, "faint", "5 4")
+    graph("b_sinr", [yx, (sin, "blue", None, -PI / 2, PI / 2)], (-2.0, 2.0), (-2.0, 2.0),
+          xt=[(-PI / 2, "-π/2"), (PI / 2, "π/2")], yt=[(1, "1"), (-1, "-1")], w=180, h=180, dots=[(-PI / 2, -1), (PI / 2, 1)])
+    graph("b_asin", [yx, (lambda x: asin(x) if abs(x) <= 1 else None, "teal", None, -1, 1)], (-2.0, 2.0), (-2.0, 2.0),
+          xt=[(-1, "-1"), (1, "1")], yt=[(-PI / 2, "-π/2"), (PI / 2, "π/2")], w=180, h=180, dots=[(-1, -PI / 2), (1, PI / 2)])
+    graph("b_cos", [(cos, "blue")], (-2 * PI, 2 * PI), (-1.5, 1.5), xt=T2, yt=[(1, "1"), (-1, "-1")], w=540, h=118,
+          labels=[(-PI, -1, "A", 0, 12, "middle"), (0, 1, "B", 9, -11, "middle"), (PI, -1, "C", 0, 12, "middle"), (2 * PI, 1, "D", -2, -11, "middle")],
+          dots=[(-PI, -1), (0, 1), (PI, -1), (2 * PI, 1)])
+    t = (lambda x: PI / 2 - x, "rose", "3 3")
+    graph("b_cosr", [yx, t, (cos, "blue", None, 0, PI)], (-1.6, 3.6), (-1.6, 3.6), xt=[(PI / 2, "π/2"), (PI, "π")],
+          yt=[(1, "1"), (-1, "-1"), (PI / 2, "π/2")], w=190, h=190, dots=[(0, 1), (PI, -1)])
+    graph("b_acos", [yx, t, (lambda x: acos(x) if abs(x) <= 1 else None, "teal", None, -1, 1)], (-1.6, 3.6), (-1.6, 3.6),
+          xt=[(-1, "-1"), (1, "1"), (PI / 2, "π/2")], yt=[(PI / 2, "π/2"), (PI, "π")], w=190, h=190, dots=[(-1, PI), (1, 0)])
+
+    def tn(x):
+        return None if abs(cos(x)) < 1e-3 else tan(x)
+    graph("b_tan", [(tn, "blue")], (-2 * PI, 2 * PI), (-3.2, 3.2), xt=T2, yt=[], w=540, h=128,
+          vl=[k * PI / 2 for k in (-3, -1, 1, 3)])
+    graph("b_tanr", [yx, (tn, "blue", None, -PI / 2 + 0.02, PI / 2 - 0.02)], (-2.2, 2.2), (-2.2, 2.2),
+          xt=[(-PI / 2, "-π/2"), (-PI / 4, ""), (PI / 4, ""), (PI / 2, "π/2")], yt=[(1, "1"), (-1, "-1")], w=180, h=180,
+          vl=[-PI / 2, PI / 2])
+    graph("b_atan", [yx, (atan, "teal")], (-2.6, 2.6), (-2.2, 2.2), xt=[(-1, "-1"), (1, "1")],
+          yt=[(-PI / 2, "-π/2"), (PI / 2, "π/2")], w=190, h=170, hl=[-PI / 2, PI / 2])
+    unit_triangle("b_ex5a", -24, ("5", "1", "√24"))
+    unit_triangle("b_ex5b", 36.87, ("5", "3", "4"))
+    # Exercise 17B Q1: y = cos^-1 x on a fine grid (0.1 units)
+    xs0, xs1, ys0, ys1 = -1, 1, 0, 3.3
+    W, H, pl, pr, pt, pb = 330, 470, 34, 30, 20, 26
+    g = Graph(xs0, xs1, ys0, ys1, w=W, h=H, pad=(pl, pr, pt, pb))
+    for i in range(0, 21):
+        xv = -1 + i * 0.1
+        heavy = i % 5 == 0
+        g.items.append(f'<line x1="{g.X(xv):.1f}" y1="{g.Y(0):.1f}" x2="{g.X(xv):.1f}" y2="{g.Y(3.3):.1f}" stroke="{FAINT}" stroke-width="{0.9 if heavy else 0.4}"/>')
+    for j in range(0, 34):
+        yv = j * 0.1
+        heavy = j % 5 == 0
+        g.items.append(f'<line x1="{g.X(-1):.1f}" y1="{g.Y(yv):.1f}" x2="{g.X(1):.1f}" y2="{g.Y(yv):.1f}" stroke="{FAINT}" stroke-width="{0.9 if heavy else 0.4}"/>')
+    g.axes()
+    g.curve(lambda x: acos(x) if abs(x) <= 1 else None, color="blue", x0=-1, x1=1, n=800)
+    g.dot(-1, PI)
+    g.dot(1, 0)
+    ticks(g, [(-1, "-1"), (1, "1")], [(1, "1"), (2, "2"), (3, "3")])
+    g.items.append(lab(g.X(0) + 9, g.Y(PI / 2), "π/2", "start", size=12))
+    g.items.append(lab(g.X(0) + 9, g.Y(PI), "π", "start", size=12))
+    save("b_q1", g)
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("fig_") and callable(fn):

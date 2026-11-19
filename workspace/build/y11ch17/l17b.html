@@ -1,0 +1,227 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 17B</div><h2>Defining the inverse trigonometric functions</h2>
+<div class="focus">The sine, cosine and tangent functions are many-to-one, so their inverse relations are not functions. Restricting each one to a suitable piece of its graph gives the inverse functions \(\sin^{-1}x\), \(\cos^{-1}x\) and \(\tan^{-1}x\). This lesson defines them, sketches them, and evaluates expressions such as \(\cos^{-1}\big(-\tfrac12\big)\) and \(\tan\big(\sin^{-1}(-\tfrac15)\big)\) by keeping the restriction in view every time.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:the definition of inverse sine}}
+<div class="box concept"><div class="bt">Defining the inverse trigonometric functions</div>
+<p style="margin-top:0">Each of the six trigonometric functions fails the horizontal line test completely, in that there are horizontal lines that cross each of their graphs infinitely many times. For example, \(y=\sin x\) is graphed below, and clearly every horizontal line between \(y=1\) and \(y=-1\) crosses it infinitely many times.</p>
+{{svg:b_sin}}
+<p style="margin-bottom:0">Thus \(y=\sin x\) is many-to-one, not one-to-one, and its inverse relation is not a function. To create an inverse function from \(y=\sin x\), we need to restrict the domain to a piece of the curve between two stationary points. For example, the pieces \(AB\), \(BC\) and \(CD\) all satisfy the horizontal line test. Because acute angles should be included, the obvious choice is the arc \(BC\) from \(x=-\dfrac\pi2\) to \(x=\dfrac\pi2\).</p></div>
+<div class="box concept"><div class="bt">The definition of \(\sin^{-1}x\)</div>
+<p style="margin-top:0">The function \(y=\sin^{-1}x\) (read this as ‘inverse sine ex’) is accordingly <i>defined to be the inverse function of the restricted function</i></p>
+<p>\(y=\sin x\), where \(-\dfrac\pi2\le x\le\dfrac\pi2\). (This is a closed interval.)</p>
+<p>The two curves are sketched below. Notice, when sketching the graphs, that \(y=x\) is a tangent to \(y=\sin x\) at the origin, as we shall prove in Year 12. Thus when the graph is reflected in \(y=x\), the line \(y=x\) does not move, so it is also the tangent to \(y=\sin^{-1}x\) at the origin. Notice also that \(y=\sin x\) is horizontal at its stationary points, so \(y=\sin^{-1}x\) is vertical at its endpoints.</p>
+<div style="display:flex;justify-content:space-around;text-align:center"><div>{{svg:b_sinr}}<br>\(y=\sin x,\ -\dfrac\pi2\le x\le\dfrac\pi2\)</div><div>{{svg:b_asin}}<br>\(y=\sin^{-1}x\)</div></div></div>
+<div class="box take"><div class="bt">3 The definition of \(y=\sin^{-1}x\)</div>
+<ul><li>\(y=\sin^{-1}x\) is not the inverse relation of \(y=\sin x\), it is the inverse function of the restriction of \(y=\sin x\) to \(-\dfrac\pi2\le x\le\dfrac\pi2\).</li>
+<li>\(y=\sin^{-1}x\) has domain \(-1\le x\le1\) and range \(-\dfrac\pi2\le y\le\dfrac\pi2\).</li>
+<li>\(y=\sin^{-1}x\) is an increasing function.</li>
+<li>\(y=\sin^{-1}x\) has tangent \(y=x\) at the origin, and is vertical at its endpoints.</li></ul></div>
+<div class="box concept"><div class="bt">Radian measure</div>
+<p style="margin:0">In this course, radian measure is used exclusively when dealing with the inverse trigonometric functions (except on the calculator, if you leave it in degrees mode). Calculations using degrees should be avoided, or at least not included in the formal working of problems.</p></div>
+<div class="box take"><div class="bt">4 Radian measure</div><p style="margin:0">Use radians when dealing with inverse trigonometric functions.</p></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:inverse cosine and inverse tangent}}
+<div class="box concept"><div class="bt">The definition of \(\cos^{-1}x\)</div>
+<p style="margin-top:0">The many-to-one function \(y=\cos x\) is graphed below. To create a satisfactory inverse function from \(y=\cos x\), we need to restrict the domain to a piece of the curve between two stationary points. Because acute angles should be included, the obvious choice is the arc \(BC\) from \(x=0\) to \(x=\pi\).</p>
+{{svg:b_cos}}
+<p>Thus the function \(y=\cos^{-1}x\) (read this as ‘inverse cos ex’) is defined to be the inverse function of the restricted function</p>
+<p>\(y=\cos x\), where \(0\le x\le\pi\). (This is a closed interval.)</p>
+<p>The two curves are sketched below. Notice that the tangent to \(y=\cos x\) at its \(x\)-intercept \(\Big(\dfrac\pi2,0\Big)\) is the line \(t:\ x+y=\dfrac\pi2\) with gradient \(-1\). Reflection in \(y=x\) reflects this line onto itself, so \(t\) is also the tangent to \(y=\cos^{-1}x\) at its \(y\)-intercept \(\Big(0,\dfrac\pi2\Big)\). Like \(y=\sin^{-1}x\), the graph is vertical at its endpoints.</p>
+<div style="display:flex;justify-content:space-around;text-align:center"><div>{{svg:b_cosr}}<br>\(y=\cos x,\ 0\le x\le\pi\)</div><div>{{svg:b_acos}}<br>\(y=\cos^{-1}x\)</div></div>
+<p style="margin-bottom:0" class="small">The dashed line in each graph is \(x+y=\dfrac\pi2\).</p></div>
+<div class="box take"><div class="bt">5 The definition of \(y=\cos^{-1}x\)</div>
+<ul><li>\(y=\cos^{-1}x\) is not the inverse relation of \(y=\cos x\), it is the inverse function of the restriction of \(y=\cos x\) to \(0\le x\le\pi\).</li>
+<li>\(y=\cos^{-1}x\) has domain \(-1\le x\le1\) and range \(0\le y\le\pi\).</li>
+<li>\(y=\cos^{-1}x\) is a decreasing function.</li>
+<li>\(y=\cos^{-1}x\) has gradient \(-1\) at its \(y\)-intercept, and is vertical at its endpoints.</li></ul></div>
+<div class="box concept"><div class="bt">The definition of \(\tan^{-1}x\)</div>
+<p style="margin-top:0">The graph of \(y=\tan x\) below consists of a collection of disconnected branches, and is many-to-one, not one-to-one. Because acute angles should be included, the most satisfactory inverse function is formed by choosing the branch in the interval \(-\dfrac\pi2&lt;x&lt;\dfrac\pi2\).</p>
+{{svg:b_tan}}
+<p>Thus the function \(y=\tan^{-1}x\) is defined to be the inverse function of</p>
+<p>\(y=\tan x\), where \(-\dfrac\pi2&lt;x&lt;\dfrac\pi2\). (Here we are using an open interval.)</p>
+<p>The line of reflection \(y=x\) is the tangent to both curves at the origin. Notice also that the vertical asymptotes \(x=\dfrac\pi2\) and \(x=-\dfrac\pi2\) of \(y=\tan x\) are reflected onto the horizontal asymptotes \(y=\dfrac\pi2\) and \(y=-\dfrac\pi2\) of \(y=\tan^{-1}x\).</p>
+<div style="display:flex;justify-content:space-around;text-align:center"><div>{{svg:b_tanr}}<br>\(y=\tan x,\ -\dfrac\pi2&lt;x&lt;\dfrac\pi2\)</div><div>{{svg:b_atan}}<br>\(y=\tan^{-1}x\)</div></div></div>
+<div class="box take"><div class="bt">6 The definition of \(y=\tan^{-1}x\)</div>
+<ul><li>\(y=\tan^{-1}x\) is not the inverse relation of \(y=\tan x\), it is the inverse function of the restriction of \(y=\tan x\) to \(-\dfrac\pi2&lt;x&lt;\dfrac\pi2\).</li>
+<li>\(y=\tan^{-1}x\) has domain the real line and range \(-\dfrac\pi2&lt;y&lt;\dfrac\pi2\).</li>
+<li>\(y=\tan^{-1}x\) is an increasing function.</li>
+<li>\(y=\tan^{-1}x\) has gradient 1 at its \(y\)-intercept.</li>
+<li>The lines \(y=\dfrac\pi2\) and \(y=-\dfrac\pi2\) are horizontal asymptotes.</li></ul></div>
+<div class="box concept"><div class="bt">Inverse functions of cosec \(x\), sec \(x\) and cot \(x\); alternative notations</div>
+<p style="margin-top:0">It is not appropriate in this course to define the functions \(\operatorname{cosec}^{-1}x\), \(\sec^{-1}x\) and \(\cot^{-1}x\) because of difficulties associated with their discontinuities and because they are not needed.</p>
+<p>An alternative notation for the inverse trigonometric functions uses the prefix ‘arc’,</p>
+<p style="text-align:center">\(\arcsin x=\sin^{-1}x\qquad\arccos x=\cos^{-1}x\qquad\arctan x=\tan^{-1}x\)</p>
+<p>This notation arises from the arc length formula in Section 11I. In a circle of radius 1, the arc length \(\ell\) subtended by an angle \(\theta\) is just \(\ell=\theta\), allowing angle and arc length to be identified. Thus \(\arcsin x\) can be understood either as ‘the angle whose sine is \(x\)’, or as ‘the arc length whose sine is \(x\)’.</p>
+<p>The advantage of the \(\arcsin x\) notation is that because \(\sin^2x\) means \((\sin x)^2\), the inverse function \(\sin^{-1}x\) could possibly be confused with the reciprocal function \((\sin x)^{-1}=\dfrac{1}{\sin x}\). On the other hand, the advantage of the \(\sin^{-1}x\) notation is that it is consistent with the notation used for other inverse functions, and for this reason, we will use \(\sin^{-1}x\) most of the time.</p>
+<p style="margin-bottom:0">A shorter form abbreviating ‘arc’ to ‘a’ is also standard, particularly in computing, but is best not used in this course, \(\text{asin}\,x=\sin^{-1}x\), \(\text{acos}\,x=\cos^{-1}x\), \(\text{atan}\,x=\tan^{-1}x\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Reading the definitions</span></div><div class="ex-body">
+<b>a</b> State the domain and range of \(y=\cos^{-1}x\), and whether it is increasing or decreasing.<br>
+<b>b</b> Find the exact value of:<br>&emsp;(i) \(\sin^{-1}\dfrac{\sqrt3}{2}\)<br>&emsp;(ii) \(\cos^{-1}\dfrac{1}{\sqrt2}\)<br>&emsp;(iii) \(\tan^{-1}\sqrt3\)<br>
+<b>c</b> Explain why \(\sin^{-1}2\) is not defined, while \(\tan^{-1}2\) is.
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+<b>a</b> State the domain and range of \(y=\tan^{-1}x\), and the equations of its asymptotes.<br>
+<b>b</b> Find the exact value of:<br>&emsp;(i) \(\sin^{-1}\dfrac{1}{\sqrt2}\)<br>&emsp;(ii) \(\cos^{-1}\dfrac{\sqrt3}{2}\)<br>&emsp;(iii) \(\tan^{-1}\dfrac{1}{\sqrt3}\)<br>
+<b>c</b> Explain why \(\cos^{-1}(-3)\) is not defined.
+{{work:52}}</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:calculations with the inverse trigonometric functions}}
+<div class="box concept"><div class="bt">Calculations with the inverse trigonometric functions</div>
+<p style="margin:0">The key to calculations is to <i>include the restriction every time an expression involving the inverse trigonometric functions is rewritten using trigonometric functions.</i></p></div>
+<div class="box take"><div class="bt">7 Interpreting the restrictions</div>
+<ul><li>\(y=\sin^{-1}x\) means \(x=\sin y\) where \(-\dfrac\pi2\le y\le\dfrac\pi2\).</li>
+<li>\(y=\cos^{-1}x\) means \(x=\cos y\) where \(0\le y\le\pi\).</li>
+<li>\(y=\tan^{-1}x\) means \(x=\tan y\) where \(-\dfrac\pi2&lt;y&lt;\dfrac\pi2\).</li></ul></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Negative arguments</span></div><div class="ex-body">
+Find:<br><b>a</b> \(\cos^{-1}\Big(-\dfrac{\sqrt3}{2}\Big)\)<br><b>b</b> \(\tan^{-1}\big(-\sqrt3\big)\)<br><b>c</b> \(\sin^{-1}\Big(-\dfrac12\Big)\)
+{{work:58}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Find:<br><b>a</b> \(\sin^{-1}\Big(-\dfrac{1}{\sqrt2}\Big)\)<br><b>b</b> \(\tan^{-1}\dfrac{\sqrt3}{3}\)
+{{work:40}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 4</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Find:<br><b>a</b> \(\cos^{-1}\Big(-\dfrac12\Big)\)<br><b>b</b> \(\tan^{-1}(-1)\)
+<div class="sol-label">Solution</div>
+<div class="split"><div>
+<p style="margin-top:0"><b>a</b> Let \(\alpha=\cos^{-1}\Big(-\dfrac12\Big)\).</p>
+<p>Then \(\cos\alpha=-\dfrac12\), where \(0\le\alpha\le\pi\).</p>
+<p>Hence \(\alpha\) is in the second quadrant, and the related angle is \(\dfrac\pi3\),</p>
+<p>so \(\alpha=\dfrac{2\pi}{3}\).</p></div><div>
+<p style="margin-top:0"><b>b</b> Let \(\alpha=\tan^{-1}(-1)\).</p>
+<p>Then \(\tan\alpha=-1\), where \(-\dfrac\pi2&lt;\alpha&lt;\dfrac\pi2\).</p>
+<p>Hence \(\alpha\) is in the fourth quadrant, and the related angle is \(\dfrac\pi4\),</p>
+<p>so \(\alpha=-\dfrac\pi4\).</p></div></div>
+</div></div>
+
+<!-- ============ Concept 4 ============ -->
+<div style="break-inside:avoid">{{sec:teal:key:Concept 4:a trigonometric function of an inverse trigonometric function}}
+<div class="box tip"><div class="bt">Where to look</div>
+<p style="margin:0">Worked example 5 shows the method. Its key line in each part is the restriction from Box 7, written next to the trigonometric equation.</p></div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Evaluating compositions</span></div><div class="ex-body">
+Evaluate these expressions exactly, rationalising denominators where necessary.<br>
+<b>a</b> \(\tan\Big(\cos^{-1}\Big(-\dfrac13\Big)\Big)\)<br><b>b</b> \(\cos\Big(\sin^{-1}\Big(-\dfrac56\Big)\Big)\)<br><b>c</b> \(\cos\Big(\cos^{-1}\dfrac27\Big)\)<br><b>d</b> \(\cos^{-1}\Big(\cos\dfrac{5\pi}{3}\Big)\)
+{{work:86}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Evaluate these expressions exactly, rationalising denominators where necessary.<br>
+<b>a</b> \(\tan\Big(\sin^{-1}\Big(-\dfrac23\Big)\Big)\)<br><b>b</b> \(\sin\Big(\cos^{-1}\dfrac{7}{25}\Big)\)<br><b>c</b> \(\sin\Big(\sin^{-1}\Big(-\dfrac13\Big)\Big)\)<br><b>d</b> \(\sin^{-1}\Big(\sin\dfrac{5\pi}{6}\Big)\)
+{{work:86}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 5</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Evaluate these expressions exactly, rationalising denominators where necessary.<br>
+<b>a</b> \(\tan\Big(\sin^{-1}\Big(-\dfrac15\Big)\Big)\)<br><b>b</b> \(\sin\Big(\cos^{-1}\dfrac45\Big)\)<br><b>c</b> \(\sin\Big(\sin^{-1}\dfrac45\Big)\)
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 185px;align-items:center"><div>
+<p style="margin-top:0"><b>a</b> Let \(\alpha=\sin^{-1}\Big(-\dfrac15\Big)\).</p>
+<p>Then \(\sin\alpha=-\dfrac15\), where \(-\dfrac\pi2\le\alpha\le\dfrac\pi2\).</p>
+<p>Hence \(\alpha\) is in the fourth quadrant,</p>
+<p>and \(\tan\alpha=\dfrac{-1}{\sqrt{24}}\times\dfrac{\sqrt6}{\sqrt6}=-\dfrac{1}{12}\sqrt6\).</p></div><div>{{svg:b_ex5a}}</div></div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 185px;align-items:center"><div>
+<p style="margin-top:0"><b>b</b> Let \(\alpha=\cos^{-1}\dfrac45\).</p>
+<p>Then \(\cos\alpha=\dfrac45\), where \(0\le\alpha\le\pi\).</p>
+<p>Hence \(\alpha\) is in the first quadrant, and \(\sin\alpha=\dfrac35\).</p></div><div>{{svg:b_ex5b}}</div></div>
+<p><b>c</b> Let \(\alpha=\sin^{-1}\dfrac45\).</p>
+<p style="margin-bottom:0">Then \(\sin\alpha=\dfrac45\) (where the condition \(-\dfrac\pi2\le\alpha\le\dfrac\pi2\) is now irrelevant).</p>
+</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 17B}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">
+<div class="split" style="grid-template-columns:minmax(0,1fr) 335px;align-items:start"><div>Read off the graph the values of the following correct to two decimal places.
+<div class="parts one"><span><span class="pl">a</span>\(\cos^{-1}0.4\)</span><span><span class="pl">b</span>\(\cos^{-1}0.8\)</span><span><span class="pl">c</span>\(\cos^{-1}0.25\)</span><span><span class="pl">d</span>\(\arccos(-0.1)\)</span><span><span class="pl">e</span>\(\arccos(-0.4)\)</span><span><span class="pl">f</span>\(\arccos(-0.75)\)</span></div></div><div>{{svg:b_q1}}</div></div></div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Find the exact value of:
+<div class="parts one"><span><span class="pl">a</span>\(\sin^{-1}0\)</span><span><span class="pl">b</span>\(\sin^{-1}\dfrac12\)</span><span><span class="pl">c</span>\(\arccos1\)</span><span><span class="pl">d</span>\(\arctan1\)</span><span><span class="pl">e</span>\(\sin^{-1}(-1)\)</span><span><span class="pl">f</span>\(\cos^{-1}0\)</span><span><span class="pl">g</span>\(\arctan0\)</span><span><span class="pl">h</span>\(\arctan(-1)\)</span><span><span class="pl">i</span>\(\sin^{-1}\Big(-\dfrac{\sqrt3}{2}\Big)\)</span><span><span class="pl">j</span>\(\cos^{-1}\Big(-\dfrac{1}{\sqrt2}\Big)\)</span><span><span class="pl">k</span>\(\arctan\Big(-\dfrac{1}{\sqrt3}\Big)\)</span><span><span class="pl">l</span>\(\arccos(-1)\)</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Use your calculator to find, correct to three decimal places, the value of:
+<div class="parts one"><span><span class="pl">a</span>\(\cos^{-1}0.123\)</span><span><span class="pl">b</span>\(\arccos(-0.123)\)</span><span><span class="pl">c</span>\(\sin^{-1}\dfrac23\)</span><span><span class="pl">d</span>\(\arcsin\Big(-\dfrac23\Big)\)</span><span><span class="pl">e</span>\(\tan^{-1}5\)</span><span><span class="pl">f</span>\(\arctan(-5)\)</span></div>{{work:28}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Find the exact value of:
+<div class="parts one"><span><span class="pl">a</span>\(\sin^{-1}\Big(-\dfrac12\Big)+\cos^{-1}\Big(-\dfrac12\Big)\)</span><span><span class="pl">b</span>\(\sin\big(\cos^{-1}0\big)\)</span><span><span class="pl">c</span>\(\tan(\arctan1)\)</span><span><span class="pl">d</span>\(\cos^{-1}\Big(\sin\dfrac\pi3\Big)\)</span><span><span class="pl">e</span>\(\sin\Big(\cos^{-1}\dfrac{\sqrt3}{2}\Big)\)</span><span><span class="pl">f</span>\(\arccos\Big(\cos\dfrac{3\pi}{4}\Big)\)</span><span><span class="pl">g</span>\(\tan^{-1}\Big(-\tan\dfrac\pi6\Big)\)</span><span><span class="pl">h</span>\(\cos\big(2\tan^{-1}(-1)\big)\)</span><span><span class="pl">i</span>\(\arctan\Big(\sqrt6\sin\dfrac\pi4\Big)\)</span></div>{{work:66}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">5</span><div class="q-body">Find the exact value of:
+<div class="parts one"><span><span class="pl">a</span>\(\sin^{-1}\Big(\sin\dfrac{4\pi}{3}\Big)\)</span><span><span class="pl">b</span>\(\cos^{-1}\Big(\cos\Big(-\dfrac\pi4\Big)\Big)\)</span><span><span class="pl">c</span>\(\tan^{-1}\Big(\tan\dfrac{5\pi}{6}\Big)\)</span><span><span class="pl">d</span>\(\cos^{-1}\Big(\cos\dfrac{5\pi}{4}\Big)\)</span><span><span class="pl">e</span>\(\arcsin\Big(2\sin\Big(-\dfrac\pi6\Big)\Big)\)</span><span><span class="pl">f</span>\(\arctan\Big(3\tan\dfrac{7\pi}{6}\Big)\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">By evaluating LHS and RHS, show that:
+<div class="parts one"><span><span class="pl">a</span>\(\tan^{-1}\dfrac{1}{\sqrt3}=\dfrac\pi2-\tan^{-1}\sqrt3\)</span><span><span class="pl">b</span>\(\cos^{-1}\Big(-\dfrac12\Big)=\pi-\cos^{-1}\dfrac12\)</span><span><span class="pl">c</span>\(\tan^{-1}\Big(-\sin\dfrac\pi2\Big)=-\tan^{-1}\Big(\sin\dfrac\pi2\Big)\)</span><span><span class="pl">d</span>\(\arcsin\Big(-\cos\dfrac\pi6\Big)=\dfrac\pi2-\arccos\Big(-\cos\dfrac\pi6\Big)\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>In each part use a right-angled triangle to find the exact value of:
+<div style="display:grid;grid-template-columns:1fr;gap:1.2mm;margin:1mm 0 0 4mm"><span>(i) \(\sin\Big(\cos^{-1}\dfrac35\Big)\)</span><span>(ii) \(\tan\Big(\sin^{-1}\dfrac{5}{13}\Big)\)</span><span>(iii) \(\cos\Big(\sin^{-1}\dfrac23\Big)\)</span><span>(iv) \(\sin\Big(\cos^{-1}\Big(-\dfrac{15}{17}\Big)\Big)\)</span><span>(v) \(\cos\Big(\tan^{-1}\Big(-\dfrac13\Big)\Big)\)</span><span>(vi) \(\tan\Big(\cos^{-1}\Big(-\dfrac34\Big)\Big)\)</span></div></span>
+<span><span class="pl">b</span>Use a right-angled triangle in each part to show that:<br>(i) \(\sin\big(\cos^{-1}x\big)=\sqrt{1-x^2}\)<br>(ii) \(\sin^{-1}x=\tan^{-1}\Big(\dfrac{x}{\sqrt{1-x^2}}\Big)\)</span></div>{{work:96}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">[Algebraic proof that \(\sin^{-1}x\) is odd]<br>Let \(\theta=\sin^{-1}(-x)\).
+<div class="parts one"><span><span class="pl">a</span>Use the fact that \(\sin(-\theta)=-\sin\theta\) to show that \(\theta=-\sin^{-1}x\).</span><span><span class="pl">b</span>Deduce that \(\sin^{-1}(-x)=-\sin^{-1}x\).</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Prove similarly that \(\tan^{-1}(-x)=-\tan^{-1}x\).{{work:28}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">[Algebraic proof that \(\cos^{-1}(-x)=\pi-\cos^{-1}x\)]<br>Let \(\theta=\cos^{-1}(-x)\).
+<div class="parts one"><span><span class="pl">a</span>Use the fact that \(\cos(\pi-\theta)=-\cos\theta\) to show that \(\cos^{-1}x=\pi-\theta\).</span><span><span class="pl">b</span>Deduce that \(\cos^{-1}(-x)=\pi-\cos^{-1}x\).</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">[Algebraic proof that \(\sin^{-1}x+\cos^{-1}x=\dfrac\pi2\)]<br>Let \(\theta=\sin^{-1}x\).
+<div class="parts one"><span><span class="pl">a</span>Use the fact that \(\cos\Big(\dfrac\pi2-\theta\Big)=\sin\theta\) to show that \(\cos^{-1}x=\dfrac\pi2-\theta\).</span><span><span class="pl">b</span>Deduce that \(\sin^{-1}x+\cos^{-1}x=\dfrac\pi2\).</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">[Algebraic proof that \(\tan^{-1}x+\tan^{-1}\dfrac1x=\dfrac\pi2\) for \(x>0\)]
+<div class="parts one"><span><span class="pl">a</span>Let \(x>0\). Use the identity \(\tan\Big(\dfrac\pi2-\theta\Big)=\cot\theta\), with \(\theta=\tan^{-1}x\) to show that \(\tan^{-1}x+\tan^{-1}\dfrac1x=\dfrac\pi2\).</span><span><span class="pl">b</span>Let \(x&lt;0\). Use the fact that \(\tan^{-1}x\) is odd to find the value of \(\tan^{-1}x+\tan^{-1}\dfrac1x\) for \(x&lt;0\).</span></div>{{work:44}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">13</span><div class="q-body">Determine the range of each function.
+<div class="parts one"><span><span class="pl">a</span>\(y=\tan^{-1}\big(x^2\big)\)</span><span><span class="pl">b</span>\(y=\tan^{-1}\Big(\dfrac{1}{1+x^2}\Big)\)</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Explain why \(\cos^{-1}(\cos2)=2\) but \(\sin^{-1}(\sin2)\ne2\).</span><span><span class="pl">b</span>Sketch the curve \(y=\sin x\) for \(0\le x\le\pi\), and use symmetry to explain why \(\sin2=\sin(\pi-2)\).</span><span><span class="pl">c</span>What is the exact value of \(\sin^{-1}(\sin2)\)?</span></div>{{work:56}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>15 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Sydney Technical High School, 2021, Extension 1 Mathematics, Trial HSC, Q2</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the domain of \(y=\cos^{-1}\Big(\dfrac{3x}{2}\Big)\)?
+<div class="mc"><span>(A) \(x\in\Big[-\dfrac23,\dfrac23\Big]\)</span><span>(B) \(x\in\Big(-\dfrac23,\dfrac23\Big)\)</span><span>(C) \(x\in\Big[-\dfrac32,\dfrac32\Big]\)</span><span>(D) \(x\in\Big(-\dfrac32,\dfrac32\Big)\)</span></div></div>
+<div class="hint"><b>Hint:</b> what does the definition of \(\cos^{-1}x\) say about \(x\)?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Hurlstone Agricultural High School, 2021, Higher School Certificate Assessment Task 4, Mathematics Extension 1, Q1</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the domain of the function \(y=5\cos^{-1}(4x)\)?
+<div class="mc"><span>A. \(-\dfrac54\le x\le\dfrac54\)</span><span>B. \(-\dfrac15\le x\le\dfrac15\)</span><span>C. \(-\dfrac14\le x\le\dfrac14\)</span><span>D. \(-1\le x\le1\)</span></div></div>
+<div class="hint"><b>Hint:</b> which part of the formula limits the values of \(x\)?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Abbotsleigh, 2023, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q3</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the domain and range of the function \(y=6\sin^{-1}(3x)\)?
+<div class="mc" style="grid-template-columns:1fr"><span>(A) Domain \(\Big[-\dfrac13,\dfrac13\Big]\); Range \([-6\pi,6\pi]\).</span><span>(B) Domain \(\Big[-\dfrac13,\dfrac13\Big]\); Range \([-3\pi,3\pi]\).</span><span>(C) Domain \(\Big[-\dfrac13,\dfrac13\Big]\); Range \([0,6\pi]\).</span><span>(D) Domain \(\Big[-\dfrac13,\dfrac13\Big]\); Range \([0,3\pi]\).</span></div></div>
+<div class="hint"><b>Hint:</b> how is this graph related to the graph of \(y=\sin^{-1}x\)?</div>{{work:24}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension 1 HSC Trial Examination, Q1</span><span class="mk">1 mark</span></div>
+<div class="pp-q">It is given that \(\sin\Big(\dfrac{11\pi}{12}\Big)=\dfrac{\sqrt6-\sqrt2}{4}\).<br>Which of the following is the value of \(\sin^{-1}\Big(\dfrac{\sqrt6-\sqrt2}{4}\Big)\)?
+<div class="mc"><span>A. \(\dfrac{\pi}{12}\)</span><span>B. \(\dfrac{11\pi}{12}\)</span><span>C. \(-\dfrac{\pi}{12}\)</span><span>D. \(-\dfrac{11\pi}{12}\)</span></div></div>
+<div class="hint"><b>Hint:</b> what does the definition of \(\sin^{-1}x\) say?</div>{{work:28}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Ascham School, 2023, Year 12 Trial Examination, Mathematics Extension 1, Q6</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following is true in the domain \(0\le x\le\pi\)?
+<div class="mc"><span>A) \(\sin^{-1}\big(\sin x\big)=x\)</span><span>B) \(\sin\big(\sin^{-1}x\big)=x\)</span><span>C) \(\cos^{-1}\big(\cos x\big)=x\)</span><span>D) \(\cos\big(\cos^{-1}x\big)=x\)</span></div></div>
+<div class="hint"><b>Hint:</b> what does each composition do to a number?</div>{{work:28}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics Extension 1, Q9</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the value of \(\cos^{-1}(\sin\alpha)\), where \(\dfrac\pi2&lt;\alpha&lt;\pi\)?
+<div class="mc"><span>(A) \(\pi-\alpha\)</span><span>(B) \(\dfrac\pi2-\alpha\)</span><span>(C) \(\alpha-\dfrac\pi2\)</span><span>(D) \(\alpha+\dfrac\pi2\)</span></div></div>
+<div class="hint"><b>Hint:</b> what do you know about \(\sin\alpha\) when \(\alpha\) is in this interval?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Killara High School, 2024, Year 12 Examination, Mathematics Extension 1 HSC Trial Examination, Q8</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which one of the following is \(\sin^{-1}(\cos\theta)\), given that \(\dfrac{3\pi}{2}&lt;\theta&lt;2\pi\)?
+<div class="mc"><span>A. \(\dfrac\pi2-\theta\)</span><span>B. \(\dfrac{3\pi}{2}-\theta\)</span><span>C. \(-\dfrac{3\pi}{2}+\theta\)</span><span>D. \(2\pi-\theta\)</span></div></div>
+<div class="hint"><b>Hint:</b> what do you know about \(\cos\theta\) when \(\theta\) is in this interval?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Kinross Wolaroi School, 2023, Year 12 Mathematics Extension 1 Trial HSC Examination, Q11(f)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Find the exact value of \(2\sin^{-1}\Big(\dfrac{\sqrt3}{2}\Big)-\cos^{-1}\Big(\dfrac12\Big)+\tan^{-1}(-1)\).</div>
+<div class="hint"><b>Hint:</b> what is each of the three terms worth?</div>{{work:32}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Moriah College, 2023, Trial Higher School Certificate Examination, Mathematics Extension 1, Q9(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Evaluate exactly \(\cos^{-1}\Big(\sin\dfrac{4\pi}{3}\Big)\).</div>
+<div class="hint"><b>Hint:</b> what is the inner expression worth?</div>{{work:32}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Northern Beaches Secondary College Manly Selective Campus, 2020, Year 12 Trial Examination, Mathematics Extension 1, Q11(d)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Solve the simultaneous equations for \(x\) and \(y\) leaving your answer in simplest exact form:
+\[\begin{aligned}2\sin^{-1}x+3\cos^{-1}y&=\frac{3\pi}{2}\\2\sin^{-1}x-3\cos^{-1}y&=\frac{\pi}{2}\end{aligned}\]</div>
+<div class="hint"><b>Hint:</b> what do the two equations have in common?</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 11</span>Sydney Grammar School, 2020, Trial Examination, Form VI Mathematics Extension 1, Q14(a)(i)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Let the function \(f(x)=\sec x\) be defined for the restricted domain \(0&lt;x&lt;\dfrac\pi2\), so that its inverse \(f^{-1}(x)\) is also a function.
+<div class="pp-sub"><span>(i) Show that \(f^{-1}(x)=\cos^{-1}\Big(\dfrac1x\Big)\) and clearly state the domain of \(f^{-1}(x)\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> what do you know about \(f(x)\) on the given domain?</div>{{work:46}}</div>
+</div>

@@ -308,7 +308,7 @@ def inverse_ok(G, f, dom_f, dom_g, label):
     check(not bad and ok1 >= 3 and ok2 >= 3, f"{label}: inverse checked at {ok1}+{ok2} points {bad[:3]}")
 
 
-def pp_block(lesson, answers, label_prefix="PP"):
+def pp_block(lesson, answers, label_prefix="PP", shortfall=False):
     """Past-paper block checks: marks add to the intro total, time = 1.5 x marks rounded to 5 min,
     labels identical in both files and in order, one hint per question, part marks add to the total."""
     qs = re.findall(r'<div class="pp"><div class="pp-src"><span><span class="pn">(PP \d+)</span>(.*?)</span><span class="mk">(\d+) marks?</span></div>(.*?)\{\{work', lesson, flags=re.S)
@@ -316,8 +316,9 @@ def pp_block(lesson, answers, label_prefix="PP"):
     total = sum(int(m) for _, _, m, _ in qs)
     m = re.search(r"Suggested time: (\d+) minutes</b></span><span><b>(\d+) marks</b>", lesson)
     check(m is not None and int(m.group(2)) == total, f"PP total marks printed {m.group(2) if m else None} = sum {total}")
-    check(15 <= total <= 22 or total == int(m.group(2)), f"PP total {total} in the 15-22 range (or a recorded shortfall)")
-    exp_time = int(5 * round(1.5 * total / 5))
+    check(15 <= total <= 22 or (shortfall and total < 15), f"PP total {total} in the 15-22 range" + (" (recorded shortfall)" if shortfall else ""))
+    import math as _math
+    exp_time = int(5 * _math.floor(1.5 * total / 5 + 0.5))      # nearest 5 min, halves round up
     check(m is not None and int(m.group(1)) == exp_time, f"PP time {m.group(1) if m else None} = 1.5 x {total} rounded = {exp_time}")
     check([(a_, b_) for a_, b_, _, _ in qs] == ans, f"PP labels identical and in order in both files ({len(qs)} questions)")
     check([q[0] for q in qs] == [f"PP {i}" for i in range(1, len(qs) + 1)], "PP numbering 1..n")
