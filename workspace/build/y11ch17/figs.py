@@ -773,6 +773,41 @@ def fig_17f():
     save("f_tri", f)
 
 
+def fig_17g():
+    import math as m
+    T1 = [(1, "1"), (-1, "-1")]
+    yp = [(P2, "π/2"), (-P2, "-π/2")]
+    W = dict(w=170, h=160)
+    graph("ga_7a", [(lambda x: -atan(x), "blue")], (-4, 4), (-2.1, 2.1), xt=T1, yt=yp, hl=[P2, -P2], **W)
+    graph("ga_7b", [(fn(lambda x: asin(x + 1), -2, 0), "blue", None, -2, 0)], (-2.6, 0.6), (-2.1, 2.1), xt=[(-2, "-2"), (-1, "-1")], yt=yp,
+          dots=[(-2, -P2), (0, P2)], **W)
+    graph("ga_7c", [(fn(lambda x: acos(x - 1) - PI, 0, 2), "blue", None, 0, 2)], (-0.6, 2.6), (-3.7, 0.5), xt=[(1, "1"), (2, "2")],
+          yt=[(-P2, "-π/2"), (-PI, "-π")], dots=[(0, 0), (2, -PI)], **W)
+    # review Q14: window W, car C, balloon B
+    al = m.radians(20)
+    gx, wx, cx = 158, 30, 140
+    h = (cx - wx) * m.tan(al)
+    wy = gx - h
+    bx_h = (cx - wx) * m.tan(2 * al)
+    by = wy - bx_h
+    f = Fig(180, 176)
+    f.line(10, gx, 172, gx, width=1.4)
+    f.line(wx, gx, wx, by - 10, width=1.4)
+    f.line(wx, wy, cx, gx, color="blue", width=1.5)
+    f.line(wx, wy, cx, by, color="blue", width=1.5)
+    f.line(wx, wy, cx, wy, dash="4 3", color="faint")
+    f.line(cx, gx, cx, by, dash="4 3", color="faint")
+    f.right(cx, gx, -1, -1, s=7)
+    f.raw(lab(wx - 9, wy, "W", size=12, bg=False))
+    f.raw(lab(cx + 10, gx + 11, "C", size=12, bg=False))
+    f.raw(lab(cx + 10, by, "B", size=12, bg=False))
+    f.raw(lab(wx - 9, (wy + gx) / 2, "h", size=12, bg=False))
+    f.raw(lab(cx + 10, (by + gx) / 2, "x", size=12, bg=False))
+    f.raw(lab(wx + 52, wy + 9, "α", size=12, bg=False))
+    f.raw(lab(wx + 46, wy - 11, "2α", size=12, bg=False))
+    save("rv_q14", f)
+
+
 if __name__ == "__main__":
     for _name, _f in list(globals().items()):
         if _name.startswith("fig_") and callable(_f):
