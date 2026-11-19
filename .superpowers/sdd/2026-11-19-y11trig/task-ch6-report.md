@@ -46,3 +46,12 @@ pack.json parts: cover, r6g, l6h, r6ij, l6k / a_6g, a_6h, a_6ij, a_6k. Header "Y
 - Past-paper shortfall: 4 marks total (6G only); 6H, 6I–6J and 6K have timed practice from the textbook instead (rule 8, as in Y11 Ch 13 13B).
 - Figures are schematic (not to scale), like the book's; a few dense ones (review Q29a, Q35) are readable but crowded.
 - Revision sections have no warm-up page of their own; the 6G summary acts as the revision page.
+
+## Follow-up (20 Nov): past-paper sets from Year 11 yearly exams
+- Searched `pp/Y11Ext1` (77) and `pp/Y11Adv` (97): text layer of 5810 pages plus OCR of 1947 scanned pages. Candidates recorded in `docs/pp_candidates_y11ch6.md` (second pass), selection in `docs/pp_selected_y11ch6.md`, PAST_PAPERS_USED line updated.
+- Sets now: 6G 15 marks / 25 min (7 items: 2 trial + 5 yearly); 6H 20 marks / 30 min (7 items); 6I–6J 14 marks / 20 min (5 items); 6K 22 marks / 35 min (4 items). Timed-practice notes removed; cover updated.
+- Left out: repeats of homework items (Hornsby Girls 2021 Q11 = Ex 6H Q10c; tan + cot identities = Ex 6G Q12d; Kambala 2024 = Ex 6G Q13g), Moriah 2023 Q4 (domain without degree signs), Killara 2021 (an assignment), International Grammar 2020 Q18 (near-duplicate of Loreto 2020 Q31), radian and Ch 17-method items.
+- Fort St 2021 Q3(a)(iii): the school gives 309°47′ (from the rounded AC = 1286 m); the solution prints that and notes 309°46′ with the unrounded AC.
+- 8 new figures (pp_*.svg). Checks extended: y11ch6_6g 84 OK, 6h 498 OK, 6ij 216 OK, 6k 155 OK (0 FAIL; mutation-tested). Identity test made deterministic.
+- Build: lesson 79 pp, answers 18 pp, qa 0 problems, MathJax scan clean, 11.3 pt on every page, svg_overlap 0 on 101 files; changed pages viewed.
+- Commit 0251861. Ch 17 records checked before commit: no use of the Y11 folders or NSB 2022 Q12(c).
