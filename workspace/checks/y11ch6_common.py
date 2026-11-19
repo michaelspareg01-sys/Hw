@@ -55,6 +55,7 @@ def tex(s):
     s = s.replace(r"\operatorname{cosec}", r"\csc ").replace(r"\dfrac", r"\frac").replace(r"\tfrac", r"\frac")
     s = s.replace(r"\,(", r"\cdot(").replace(r"\,", " ").replace(r"\left", "").replace(r"\right", "").replace(r"\!", "")
     s = re.sub(r"(\d+(?:\.\d+)?)\^\\circ", r"(\1\\cdot\\frac{\\pi}{180})", s)
+    s = re.sub(r"\\sqrt(\d+)", r"\\sqrt{\1}", s)
     s = re.sub(r"\\frac(\d)(\d)", r"\\frac{\1}{\2}", s)
     g = r"(?:\\alpha|\\beta|\\gamma|\\delta|\\theta|\\phi|[A-Za-z])"
     s = re.sub(r"\\(sin|cos|tan|csc|sec|cot)(\^\{?\d\}?)?\s*(" + g + r")(?![A-Za-z])", r"\\\1\2(\3)", s)
