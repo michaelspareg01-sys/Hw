@@ -1,0 +1,228 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 17A</div><h2>Restricting the domain</h2>
+<div class="focus">A function has an inverse function only when it is one-to-one. This lesson reviews inverse relations and inverse function notation, then shows how to restrict the domain of a many-to-one function so that the inverse of the restricted function is a function. This prepares for the inverse trigonometric functions in Lesson 17B.</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:inverse relations and inverse functions}}
+<p>Sections 5F and 5G discussed how the inverse relation of a function may or may not be a function, and briefly mentioned that if the inverse is not a function, then the domain can be restricted so that the inverse of this restricted function is a function. This section develops a more systematic approach to restricting the domain, in preparation for constructing the inverse trigonometric functions.</p>
+<div class="box concept"><div class="bt">1 Inverse relations and functions</div>
+<p style="margin-top:0">Suppose that the graph of a relation has been drawn.</p>
+<ul><li>The graph of the inverse relation is obtained by reflecting the original graph in the diagonal line \(y=x\).</li>
+<li>The inverse relation of a given relation is a function if and only if no horizontal line crosses the original graph more than once.</li>
+<li>In particular, suppose that the original relation is a function.<br>If the function is one-to-one, then the relation is also a function.<br>If the function is many-to-one, then the inverse is not a function.</li>
+<li>The domain and range of the inverse relation are the range and domain respectively of the original function.</li>
+<li>To find the equation and conditions of the inverse relation, write \(x\) for \(y\) and \(y\) for \(x\) every time each variable occurs. If the resulting equation can be solved for \(y\), then the inverse is a function.</li></ul></div>
+<div class="box concept"><div class="bt">Example: the logarithmic and exponential functions</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 195px;align-items:center"><div>
+<p style="margin-top:0">The two functions \(y=e^x\) and \(y=\log_ex\) provide a particularly clear example of a function and its inverse function.</p>
+<ul><li>The function \(y=e^x\) passes the horizontal line test, so we know that its inverse is also a function.</li>
+<li>The inverse relation is \(x=e^y\), which we can solve for \(y\) as \(y=\log_ex\), again showing that it is a function.</li>
+<li>The graphs are each one-to-one, and are reflections of each other in \(y=x\).</li>
+<li>The domain of \(y=\log_ex\) is all positive numbers, and its range is all real numbers. These are the range and domain of the original function.</li>
+<li>Taking the composition of the function and its inverse, in both orders,<br>\(\log_ee^x=x\), for all real \(x\), and \(e^{\log_ex}=x\), for all \(x>0\).</li></ul></div><div>{{svg:a_explog}}</div></div></div>
+<div class="box concept"><div class="bt">2 Inverse functions</div>
+<p style="margin-top:0">A function \(f(x)\) is either one-to-one or many-to-one.</p>
+<ul><li>If \(f(x)\) is one-to-one, then the inverse of \(y=f(x)\) is also a function, and is written as \(f^{-1}(x)\). The composition of the function and its inverse, in either order, is an identity function, leaving every number in their domains unchanged:
+\[f^{-1}\big(f(x)\big)=x\quad\text{and}\quad f\big(f^{-1}(x)\big)=x.\]</li>
+<li>If \(f(x)\) is many-to-one, then the inverse is not a function. We can usually restrict the domain of the original function so that the inverse of the new restricted function is a function.</li></ul></div>
+<p><b>Caution:</b> The notation \(f^{-1}(x)\) means the inverse function of \(f(x)\). Never confuse it with the reciprocal of \(f(x)\), which is written as \(\dfrac{1}{f(x)}\) or as \(\big(f(x)\big)^{-1}\). Example 1 shows how to manipulate inverse function notation.</p>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The inverse of a quotient</span></div><div class="ex-body">
+<b>a</b> Write down the inverse relation of \(f(x)=\dfrac{x-1}{x+3}\).<br>
+<b>b</b> By solving for \(y\), show that this inverse is a function, and hence write down the equation of \(f^{-1}(x)\).<br>
+<b>c</b> Show directly that \(f^{-1}\big(f(x)\big)=x\) and \(f\big(f^{-1}(x)\big)=x\).
+{{work:62}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Write down the inverse relation of \(f(x)=\dfrac{x-4}{x+1}\).<br>
+<b>b</b> By solving for \(y\), show that this inverse is a function, and hence write down the equation of \(f^{-1}(x)\).<br>
+<b>c</b> Show directly that \(f^{-1}\big(f(x)\big)=x\) and \(f\big(f^{-1}(x)\big)=x\).
+{{work:62}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 1</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Write down the inverse relation of \(f(x)=\dfrac{x-2}{x+2}\).<br>
+<b>b</b> By solving for \(y\), show that this inverse is a function, and hence write down the equation of \(f^{-1}(x)\).<br>
+<b>c</b> Show directly that \(f^{-1}\big(f(x)\big)=x\) and \(f\big(f^{-1}(x)\big)=x\).
+<div class="sol-label">Solution</div>
+<p><b>a</b> Let \(y=\dfrac{x-2}{x+2}\). Then the inverse relation is \(x=\dfrac{y-2}{y+2}\) (writing \(y\) for \(x\) and \(x\) for \(y\)).</p>
+<p><b>b</b> Solving for \(y\),</p>
+\[\begin{aligned}xy+2x&=y-2\\y(x-1)&=-2x-2\\y&=\frac{2+2x}{1-x}.\end{aligned}\]
+<p>Because there is only one solution for \(y\), the inverse relation is a function, and \(f^{-1}(x)=\dfrac{2+2x}{1-x}\).</p>
+<p><b>c</b></p>
+<div class="split"><div>
+\[\begin{aligned}f\big(f^{-1}(x)\big)&=f\Big(\frac{2+2x}{1-x}\Big)\\&=\frac{\frac{2+2x}{1-x}-2}{\frac{2+2x}{1-x}+2}\times\frac{1-x}{1-x}\\&=\frac{(2+2x)-2(1-x)}{(2+2x)+2(1-x)}\\&=\frac{4x}{4}\\&=x,\ \text{as required.}\end{aligned}\]
+</div><div>
+\[\begin{aligned}f^{-1}\big(f(x)\big)&=f^{-1}\Big(\frac{x-2}{x+2}\Big)\\&=\frac{2+\frac{2(x-2)}{x+2}}{1-\frac{x-2}{x+2}}\times\frac{x+2}{x+2}\\&=\frac{2(x+2)+2(x-2)}{(x+2)-(x-2)}\\&=\frac{4x}{4}\\&=x,\ \text{as required.}\end{aligned}\]
+</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:restricting the domain so that the inverse is a function}}
+<div class="box concept"><div class="bt">Restricting the domain so that the inverse is a function</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 155px;align-items:start"><div>
+<p style="margin-top:0">The diagram to the right shows the parabola \(y=(x-2)^2\). It clearly fails the horizontal line test, and is many-to-one.</p>
+<p>If, however, we start at the stationary point \(V(2,0)\) and restrict to the interval \(x\ge2\) to the right of \(V\), then we have a new function that passes the horizontal line test,</p>
+<p>\(y=(x-2)^2\), where \(x\ge2\).</p>
+<p>The inverse of this new one-to-one function is</p>
+\[\begin{aligned}x&=(y-2)^2,\ \text{where }y\ge2\\y-2&=\sqrt x\ \text{ or }\ -\sqrt x,\ \text{where }y\ge2\\y&=2+\sqrt x\ \text{ or }\ 2-\sqrt x,\ \text{where }y\ge2.\end{aligned}\]
+<p>The condition \(y\ge2\) excludes the second alternative, so the inverse function is \(y=2+\sqrt x\).</p>
+</div><div>{{svg:a_par1}}{{svg:a_par2}}</div></div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 155px;align-items:start"><div>
+<p style="margin-top:0">Alternatively, we could restrict to the interval \(x\le2\) to the left of the stationary point, giving a new function</p>
+<p>\(y=(x-2)^2\), where \(x\le2\).</p>
+<p>The inverse of this new one-to-one function is</p>
+\[\begin{aligned}x&=(y-2)^2,\ \text{where }y\le2\\y-2&=\sqrt x\ \text{ or }\ -\sqrt x,\ \text{where }y\le2\\y&=2+\sqrt x\ \text{ or }\ 2-\sqrt x,\ \text{where }y\le2.\end{aligned}\]
+<p>The condition \(y\le2\) excludes the first alternative, so the inverse function is \(y=2-\sqrt x\).</p>
+</div><div>{{svg:a_par3}}</div></div>
+<p style="margin-bottom:0">Notice that when the first graph meets the mirror \(y=x\), at \((4,4)\), it also meets the other graph there too. Similarly, when the second graph meets the mirror \(y=x\), at \((1,1)\), it also meets the other graph there too. This is because a point on the mirror is left unchanged by reflection in the mirror.</p></div>
+<div class="box take"><div class="bt">Which restriction should be chosen?</div>
+<p style="margin-top:0">There are no rules, except for convenience.</p>
+<ul><li>Always look first at the stationary points of the curve, if possible (the stationary points are the points where the tangent is horizontal).</li>
+<li>It is usually helpful to choose an interval as the domain so that the domain is connected.</li>
+<li>It is usually helpful to extend the restricted domain as far as possible.</li>
+<li>It may be helpful to choose a domain that includes zero.</li></ul>
+<p style="margin-bottom:0">Examples 2 and 3 use function notation to describe the procedures.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">The largest domain containing zero</span></div><div class="ex-body">
+<b>a</b> Explain why the inverse relation of \(f(x)=(x-3)^2+1\) is not a function.<br>
+<b>b</b> Define \(g(x)\) to be the restriction of \(f(x)\) to the largest possible connected domain containing \(x=0\) so that \(g(x)\) has an inverse function.<br>
+<b>c</b> Write down the equation of \(g^{-1}(x)\).<br>
+<b>d</b> Sketch \(g(x)\) and \(g^{-1}(x)\) on one set of axes.
+{{work:78}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Explain why the inverse relation of \(f(x)=(x-2)^2-1\) is not a function.<br>
+<b>b</b> Define \(g(x)\) to be the restriction of \(f(x)\) to the largest possible connected domain containing \(x=0\) so that \(g(x)\) has an inverse function.<br>
+<b>c</b> Write down the equation of \(g^{-1}(x)\).<br>
+<b>d</b> Sketch \(g(x)\) and \(g^{-1}(x)\) on one set of axes.
+{{work:78}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 2</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Explain why the inverse relation of \(f(x)=(x-1)^2+2\) is not a function.<br>
+<b>b</b> Define \(g(x)\) to be the restriction of \(f(x)\) to the largest possible connected domain containing \(x=0\) so that \(g(x)\) has an inverse function.<br>
+<b>c</b> Write down the equation of \(g^{-1}(x)\).<br>
+<b>d</b> Sketch \(g(x)\) and \(g^{-1}(x)\) on one set of axes.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 195px;align-items:start"><div>
+<p style="margin-top:0"><b>a</b> The graph of \(y=f(x)\) is a parabola with vertex \((1,2)\). This fails the horizontal line test, so the inverse is not a function. (Alternatively, \(f(0)=f(2)=3\), so \(y=3\) meets the curve twice.)</p>
+<p><b>b</b> Restricting \(f(x)\) to the domain \(x\le1\) gives the function \(g(x)=(x-1)^2+2\), where \(x\le1\), which is sketched opposite, and includes the value at \(x=0\).</p>
+<p><b>c</b> Because \(g(x)\) passes the horizontal line test, it has an inverse \(x=(y-1)^2+2\), where \(y\le1\).</p>
+\[\begin{aligned}\text{Solving for }y,\quad(y-1)^2&=x-2,\ \text{where }y\le1,\\y&=1+\sqrt{x-2}\ \text{ or }\ 1-\sqrt{x-2},\ \text{where }y\le1.\end{aligned}\]
+<p>Hence \(g^{-1}(x)=1-\sqrt{x-2}\), because \(y\le1\).</p></div><div><p style="margin:0"><b>d</b></p>{{svg:a_ex2}}</div></div>
+</div></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Restricting between the stationary points</span></div><div class="ex-body">
+<b>a</b> Find the stationary points of \(y=(x-1)^2(x+2)\), then sketch the curve.<br>
+<b>b</b> Explain why the restriction \(f(x)\) of this function to the part of the curve between the two stationary points has an inverse function.<br>
+<b>c</b> Sketch \(y=f(x)\), \(y=f^{-1}(x)\) and \(y=x\) on one set of axes.<br>
+<b>d</b> Write down an equation satisfied by the \(x\)-coordinate of the point \(M\) where the function and its inverse intersect.
+{{work:84}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Find the stationary points of \(y=(x+1)^2(x-1)\), then sketch the curve.<br>
+<b>b</b> Explain why the restriction \(f(x)\) of this function to the part of the curve between the two stationary points has an inverse function.<br>
+<b>c</b> Sketch \(y=f(x)\), \(y=f^{-1}(x)\) and \(y=x\) on one set of axes.<br>
+<b>d</b> Write down an equation satisfied by the \(x\)-coordinate of the point \(M\) where the function and its inverse intersect.
+{{work:84}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 3</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+<b>a</b> Find the stationary points of \(y=(x-2)^2(x+1)\), then sketch the curve.<br>
+<b>b</b> Explain why the restriction \(f(x)\) of this function to the part of the curve between the two stationary points has an inverse function.<br>
+<b>c</b> Sketch \(y=f(x)\), \(y=f^{-1}(x)\) and \(y=x\) on one set of axes.<br>
+<b>d</b> Write down an equation satisfied by the \(x\)-coordinate of the point \(M\) where the function and its inverse intersect.
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 195px;align-items:start"><div>
+<p style="margin-top:0"><b>a</b> For \(y=(x-2)^2(x+1)=x^3-3x^2+4\),</p>
+<p>\(y'=3x^2-6x=3x(x-2)\).</p>
+<p>So there are zeroes at \(x=2\) and \(x=-1\), and stationary points at \((0,4)\) and \((2,0)\).</p>
+<p><b>b</b> The part of the curve between the stationary points satisfies the horizontal line test, so the function \(f(x)=(x-2)^2(x+1)\), where \(0\le x\le2\), has an inverse function \(f^{-1}(x)\).</p>
+<p><b>d</b> The curves \(y=f(x)\) and \(y=f^{-1}(x)\) intersect on \(y=x\), and substituting \(y=x\) into the function, \(x=x^3-3x^2+4\), so the \(x\)-coordinate of \(M\) satisfies the cubic \(x^3-3x^2-x+4=0\).</p></div><div>
+<p style="margin:0"><b>a</b></p>{{svg:a_ex3a}}<p style="margin:0"><b>c</b></p>{{svg:a_ex3c}}</div></div>
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips</div>
+<ul><li>In Worked example 3, the curve \(y=x^3-3x^2+4\) falls from the maximum \((0,4)\) to the minimum \((2,0)\), so on \(0\le x\le2\) every horizontal line meets it at most once. Its range there is \(0\le y\le4\), which is the domain of \(f^{-1}(x)\).</li>
+<li>The point \(M\) lies on \(y=x\), so its coordinates are equal: put \(y=x\) in the equation of the curve.</li></ul></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 17A}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">The function \(f(x)=x+3\) is defined over the domain \(0\le x\le2\).
+<div class="parts one"><span><span class="pl">a</span>State the range of \(f(x)\).</span><span><span class="pl">b</span>State the domain and range of \(f^{-1}(x)\).</span><span><span class="pl">c</span>Write down the rule for \(f^{-1}(x)\).</span></div>{{work:24}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">The function \(F(x)\) is defined by \(F(x)=\sqrt x\) over the domain \(0\le x\le4\).
+<div class="parts one"><span><span class="pl">a</span>State the range of \(F(x)\).</span><span><span class="pl">b</span>State the domain and range of \(F^{-1}(x)\).</span><span><span class="pl">c</span>Write down the rule for \(F^{-1}(x)\).</span><span><span class="pl">d</span>Graph \(y=F(x)\) and \(y=F^{-1}(x)\).</span></div>{{work:50}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Sketch the graph of each function. Then use reflection in the line \(y=x\) to sketch the inverse relation. State whether the inverse is a function, and find its equation if it is.
+<div class="parts"><span><span class="pl">a</span>\(f(x)=2x\)</span><span><span class="pl">b</span>\(f(x)=x^3+1\)</span><span><span class="pl">c</span>\(f(x)=\sqrt{1-x^2}\)</span><span><span class="pl">d</span>\(f(x)=x^2-4\)</span><span><span class="pl">e</span>\(f(x)=2^x\)</span><span><span class="pl">f</span>\(f(x)=\sqrt{x-3}\)</span></div>{{work:120}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Consider the functions \(f(x)=3x+2\) and \(g(x)=\tfrac13(x-2)\).
+<div class="parts one"><span><span class="pl">a</span>Find \(f\big(g(x)\big)\) and \(g\big(f(x)\big)\).</span><span><span class="pl">b</span>What is the relationship between \(f(x)\) and \(g(x)\)?</span></div>{{work:26}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">Each function \(g(x)\) is defined over a restricted domain so that \(g^{-1}(x)\) exists. Find \(g^{-1}(x)\) and write down its domain and range. (Sketches of \(g(x)\) and \(g^{-1}(x)\) will prove helpful.)
+<div class="parts one"><span><span class="pl">a</span>\(g(x)=x^2,\ x\ge0\)</span><span><span class="pl">b</span>\(g(x)=x^2+2,\ x\le0\)</span><span><span class="pl">c</span>\(g(x)=-\sqrt{4-x^2},\ 0\le x\le2\)</span></div>{{work:60}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Write down \(\dfrac{dy}{dx}\) for the function \(y=x^3-1\).</span><span><span class="pl">b</span>Make \(x\) the subject and hence find \(\dfrac{dx}{dy}\).</span><span><span class="pl">c</span>Hence show that \(\dfrac{dy}{dx}\times\dfrac{dx}{dy}=1\).</span></div>{{work:36}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Repeat the previous question for \(y=\sqrt x\).{{work:30}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">8</span><div class="q-body">The function \(F(x)=x^2+2x+4\) is defined over the domain \(x\ge-1\).
+<div class="parts one"><span><span class="pl">a</span>Sketch the graphs of \(F(x)\) and \(F^{-1}(x)\) on the same diagram.</span><span><span class="pl">b</span>Classify each function as one-to-one or many-to-one.</span><span><span class="pl">c</span>Find the equation of \(F^{-1}(x)\) and state its domain and range.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Solve the equation \(1-\ln x=0\).</span><span><span class="pl">b</span>Sketch the graph of \(f(x)=1-\ln x\) by suitably transforming the graph of \(y=\ln x\).</span><span><span class="pl">c</span>Hence sketch the graph of \(f^{-1}(x)\) on the same diagram.</span><span><span class="pl">d</span>Find the equation of \(f^{-1}(x)\) and state its domain and range.</span><span><span class="pl">e</span>Classify \(f(x)\) and \(f^{-1}(x)\) as increasing, decreasing or neither.</span></div>{{work:64}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Carefully sketch the function defined by \(g(x)=\dfrac{x+2}{x+1}\), for \(x>-1\).</span><span><span class="pl">b</span>Classify \(g(x)\) as one-to-one or many-to-one.</span><span><span class="pl">c</span>Find \(g^{-1}(x)\) and sketch it on the same diagram.</span><span><span class="pl">d</span>Find any values of \(x\) for which \(g(x)=g^{-1}(x)\).<br>(Hint: In this case, the easiest way is to solve \(g(x)=x\). Why does this work?)</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">The previous question seems to imply that the graphs of a function and its inverse can only intersect on the line \(y=x\). This is not true, as the following example demonstrates.
+<div class="parts one"><span><span class="pl">a</span>Find the equation of the inverse of \(y=-x^3\).</span><span><span class="pl">b</span>At what points do the graphs of the function and its inverse meet?</span><span><span class="pl">c</span>Sketch the situation.</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">12</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that any linear function \(f(x)=mx+b\) has an inverse function if \(m\ne0\).</span><span><span class="pl">b</span>Does the constant function \(F(x)=b\) have an inverse function?</span></div>{{work:34}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Explain how the graph of \(f(x)=x^2\) must be transformed to obtain the graph of \(g(x)=(x+2)^2-4\).</span><span><span class="pl">b</span>Hence sketch the graph of \(g(x)\), showing the \(x\)- and \(y\)-intercepts and the vertex.</span><span><span class="pl">c</span>Classify \(g(x)\) as one-to-one or many-to-one.</span><span><span class="pl">d</span>What is the largest connected domain containing \(x=0\) so that the restriction of \(g(x)\) has an inverse function?</span><span><span class="pl">e</span>Let \(g^{-1}(x)\) be the inverse function corresponding to the restricted domain of \(g(x)\) in part c. What is the domain of \(g^{-1}(x)\)? Is \(g^{-1}(x)\) increasing or decreasing?</span><span><span class="pl">f</span>Find the equation of \(g^{-1}(x)\), and sketch it on your diagram in part b.</span></div>{{work:76}}</div></div>
+<div class="q"><span class="q-num">14</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Show that \(F(x)=x^3-3x\) is an odd function.</span><span><span class="pl">b</span>Sketch the graph of \(F(x)\), showing the \(x\)-intercepts and the coordinates of the two stationary points.</span><span><span class="pl">c</span>Classify \(F(x)\) as one-to-one or many-to-one.</span><span><span class="pl">d</span>What is the largest connected domain containing \(x=0\) so that the restriction of \(F(x)\) has an inverse function?</span><span><span class="pl">e</span>Let \(F^{-1}(x)\) be the inverse function of the restriction of \(F(x)\) in part d. State the domain of \(F^{-1}(x)\), and sketch it on the same diagram as part b.</span></div>{{work:76}}</div></div>
+<div class="q"><span class="q-num">15</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>State the domain of \(f(x)=\dfrac{e^x}{1+e^x}\).</span><span><span class="pl">b</span>Use the quotient rule to show that \(f'(x)=\dfrac{e^x}{(1+e^x)^2}\).</span><span><span class="pl">c</span>Hence explain why \(f(x)\) is increasing for all \(x\).</span><span><span class="pl">d</span>Explain why \(f(x)\) has an inverse function, and find its equation.</span></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">16</span><div class="q-body">The function \(f(x)\) is defined by \(f(x)=x-\dfrac1x\), for \(x>0\).
+<div class="parts one"><span><span class="pl">a</span>By considering the graphs of \(y=x\) and \(y=\dfrac1x\) for \(x>0\), sketch \(y=f(x)\).</span><span><span class="pl">b</span>Sketch \(y=f^{-1}(x)\) on the same diagram.</span><span><span class="pl">c</span>By completing the square or using the quadratic formula, show that \(f^{-1}(x)=\tfrac12\big(x+\sqrt{4+x^2}\big)\).</span></div>{{work:66}}</div></div>
+<div class="q"><span class="q-num">17</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>Prove geometrically that the inverse relation of an odd relation is also odd.</span><span><span class="pl">b</span>Prove algebraically that if an odd function has an inverse function, then that inverse function is also odd.</span><span><span class="pl">c</span>What sort of even functions have inverse functions?</span></div>{{work:56}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">18</span><div class="q-body">
+<div class="split" style="grid-template-columns:minmax(0,1fr) 245px;align-items:start"><div>The diagram shows the function \(g(x)=\dfrac{2x}{1+x^2}\), whose domain is all real \(x\).
+<div class="parts one"><span><span class="pl">a</span>Show that \(g\Big(\dfrac1a\Big)=g(a)\), for all \(a\ne0\).</span><span><span class="pl">b</span>Hence explain why the inverse of \(g(x)\) is not a function.</span><span><span class="pl">c</span>(i) What is the largest connected domain of \(g(x)\) containing \(x=0\) for which \(g^{-1}(x)\) exists?<br>(ii) Sketch \(g^{-1}(x)\) for this restricted domain of \(g(x)\).<br>(iii) Find the equation of \(g^{-1}(x)\) for this restricted domain of \(g(x)\).</span><span><span class="pl">d</span>Repeat part c using the complement of the domain in part c.</span><span><span class="pl">e</span>Show that the two expressions for \(g^{-1}(x)\) in parts c and d are reciprocals of each other. Why could we have anticipated this?</span></div></div><div>{{svg:a_q18}}</div></div>{{work:92}}</div></div>
+<div class="q"><span class="q-num">19</span><div class="q-body">Consider the function \(f(x)=\tfrac16\big(x^2-4x+24\big)\).
+<div class="parts one"><span><span class="pl">a</span>Sketch the parabola \(y=f(x)\), showing the vertex and any \(x\)- or \(y\)-intercepts.</span><span><span class="pl">b</span>State the largest connected domain containing only positive numbers for which \(f(x)\) has an inverse function.</span><span><span class="pl">c</span>Sketch \(f^{-1}(x)\) corresponding to this restriction on your diagram from part a, and state its domain.</span><span><span class="pl">d</span>Find any points of intersection of the graphs of \(y=f(x)\) and \(y=f^{-1}(x)\).</span><span><span class="pl">e</span>Let \(N\) be a negative real number. Find \(f^{-1}\big(f(N)\big)\).</span></div>{{work:76}}</div></div>
+<div class="q"><span class="q-num">20</span><div class="q-body">[The hyperbolic sine function]<br>The function \(\sinh x\) is defined by \(\sinh x=\tfrac12\big(e^x-e^{-x}\big)\).
+<div class="parts one"><span><span class="pl">a</span>State the domain of \(\sinh x\).</span><span><span class="pl">b</span>Find the value of \(\sinh0\).</span><span><span class="pl">c</span>Show that \(y=\sinh x\) is an odd function.</span><span><span class="pl">d</span>Find \(\dfrac{d}{dx}(\sinh x)\) and hence show that \(\sinh x\) is increasing for all \(x\).</span><span><span class="pl">e</span>To which curve is \(y=\sinh x\) asymptotic for large values of \(x\)?</span><span><span class="pl">f</span>Sketch \(y=\sinh x\), and explain why the function has an inverse function \(\sinh^{-1}x\).</span><span><span class="pl">g</span>Sketch the graph of \(\sinh^{-1}x\) on the same diagram as part f.</span><span><span class="pl">h</span>Show that \(\sinh^{-1}x=\log_e\big(x+\sqrt{x^2+1}\big)\), by treating the equation \(x=\tfrac12\big(e^y-e^{-y}\big)\) as a quadratic equation in \(e^y\).</span></div>{{work:96}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 25 minutes</b></span><span><b>16 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Normanhurst Boys High School, 2023, Mathematics Extension 1, Year 12 Course Assessment Task 4 (Trial Examination), Q2</span><span class="mk">1 mark</span></div>
+<div class="pp-q">It is given that \(f(x)=e^{x+2}\). Which of the following is the inverse function \(f^{-1}(x)\)?
+<div class="mc"><span>(A) \(f^{-1}(x)=-2+\log_ex\)</span><span>(C) \(f^{-1}(x)=e^{x-2}\)</span><span>(B) \(f^{-1}(x)=2+\log_ex\)</span><span>(D) \(f^{-1}(x)=e^{x+2}\)</span></div></div>
+<div class="hint"><b>Hint:</b> how are a function and its inverse function related?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Abbotsleigh, 2024, Higher School Certificate Assessment 4 Trial Examination, Mathematics Extension 1, Q5</span><span class="mk">1 mark</span></div>
+<div class="pp-q">If \(f(x)=\dfrac{4x}{x-2}\), what is the domain of \(f^{-1}(x)\)?
+<div class="mc"><span>A. \(x\in[4,\infty)\)</span><span>B. \(x\in(-\infty,2)\cup(2,\infty)\)</span><span>C. \(x\in(-\infty,4)\cup(4,\infty)\)</span><span>D. \(x\in(-\infty,\infty)\)</span></div></div>
+<div class="hint"><b>Hint:</b> which facts about inverse functions involve domains and ranges?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Knox Grammar School, 2022, Higher School Certificate Trial Examination, Mathematics Extension 1, Q3</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Consider the function \(f(x)=x^3+x+8\).<br>Which of the following is the point of intersection of the function \(f(x)\) and its inverse \(f^{-1}(x)\)?
+<div class="mc"><span>A. \((-8,-8)\)</span><span>B. \((-2,-2)\)</span><span>C. \((0,0)\)</span><span>D. \((2,2)\)</span></div></div>
+<div class="hint"><b>Hint:</b> what is special about a point that lies on both graphs?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Normanhurst Boys High School, 2020, Mathematics Extension 1, Year 12 Course Assessment Task 4 (Trial Examination), Q11(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Given the function \(f(x)=\sqrt{2x+1}\) and that \(f^{-1}(x)\) is the inverse function of \(f(x)\), find \(f^{-1}(5)\).</div>
+<div class="hint"><b>Hint:</b> what is the connection between \(f(x)\) and \(f^{-1}(x)\)?</div>{{work:34}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics Extension 1, Q11(b)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">{{svg:a_pp5}}The diagram above shows the function \(f(x)=\dfrac{1}{x^2+1}\) for \(x\ge0\).<br>State the domain and range of the inverse function \(f^{-1}(x)\).</div>
+<div class="hint"><b>Hint:</b> what does the diagram tell you about \(f(x)\)?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Killara High School, 2021, Year 12 Mathematics Extension 1 Trial Examination, Q12(e)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Sketch the inverse \(y=f^{-1}(x)\) given the function \(f(x)=2x^3+1\).</div>
+<div class="hint"><b>Hint:</b> which points on the graph of \(y=f(x)\) are easy to find?</div>{{work:60}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Hornsby Girls High School, 2020, Mathematics Extension 1, Year 12 Higher School Certificate Trial Examination Term 3, Q11(a)</span><span class="mk">7 marks</span></div>
+<div class="pp-q">Consider the function \(f(x)=x^2-4x+6\).
+<div class="pp-sub"><span>(i) Explain why the domain of \(f(x)\) must be restricted if \(f(x)\) is to have an inverse function.</span><span class="mk">1</span></div>
+<div class="pp-sub"><span>(ii) Given that the domain of \(f(x)\) is restricted to \(x\le2\), find an expression for \(f^{-1}(x)\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(iii) Given the restriction in part (a) (ii), state the domain and range of \(f^{-1}(x)\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(iv) The curve \(y=f(x)\) \((x\le2)\) and the curve \(y=f^{-1}(x)\) intersect at the point \(P\).<br>Find the coordinates of \(P\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> what is the shape of the graph of \(y=x^2-4x+6\)?</div>{{work:96}}</div>
+</div>

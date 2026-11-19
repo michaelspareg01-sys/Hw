@@ -1,5 +1,5 @@
 import os, sys
-from math import sin, cos, tan, atan, atan2, pi, sqrt, radians, degrees
+from math import sin, cos, tan, atan, atan2, pi, sqrt, radians, degrees, e
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from plots import Graph, ACC, INK, FAINT, _txt
 
@@ -126,23 +126,56 @@ def lab(x, y, s, anchor="middle", size=12, color=INK, bg=True, italic=False):
     return "".join(out)
 
 
-def ticks(g, xt=(), yt=(), size=12):
+def _box(x, y, s, anchor, size):
+    if "/" in s:
+        num, den = s.split("/", 1)
+        w = max(len(num), len(den)) * size * 0.6 + 4
+        h = 2.2 * size
+    else:
+        w = len(s) * size * 0.6 + 4
+        h = 1.2 * size
+    x0 = {"middle": x - w / 2, "start": x, "end": x - w}[anchor]
+    return (x0, y - h / 2, x0 + w, y + h / 2)
+
+
+def _hit(b1, b2, pad=2):
+    return not (b1[2] + pad < b2[0] or b2[2] + pad < b1[0] or b1[3] + pad < b2[1] or b2[3] + pad < b1[1])
+
+
+def ticks(g, xt=(), yt=(), size=12, dots=()):
+    """Tick marks and labels with white backgrounds. A y label that would collide with an x label or a dot
+    moves to the right of the axis; an x label that collides with a dot moves above the axis; a label that
+    still collides is left out (the tick mark stays)."""
     for v, s in xt:
         x = g.X(v)
         g.items.append(f'<line x1="{x:.1f}" y1="{g._y0 - 3:.1f}" x2="{x:.1f}" y2="{g._y0 + 3:.1f}" stroke="{INK}" stroke-width="1.2"/>')
     for v, s in yt:
         y = g.Y(v)
         g.items.append(f'<line x1="{g._x0 - 3:.1f}" y1="{y:.1f}" x2="{g._x0 + 3:.1f}" y2="{y:.1f}" stroke="{INK}" stroke-width="1.2"/>')
+    dboxes = [(g.X(dx) - 5, g.Y(dy) - 5, g.X(dx) + 5, g.Y(dy) + 5) for dx, dy in dots]
+    placed = []
     for v, s in xt:
-        if s:
-            dy = 21 if "/" in s else 15
-            g.items.append(lab(g.X(v), g._y0 + dy, s, size=size))
+        if not s:
+            continue
+        dy = 22 if "/" in s else 16
+        for yy in (g._y0 + dy, g._y0 - dy):
+            bx = _box(g.X(v), yy, s, "middle", size)
+            if not any(_hit(bx, d) for d in dboxes):
+                g.items.append(lab(g.X(v), yy, s, size=size))
+                placed.append(bx)
+                break
     for v, s in yt:
-        if s:
-            g.items.append(lab(g._x0 - 6, g.Y(v), s, "end", size=size))
+        if not s:
+            continue
+        for xx, an in ((g._x0 - 8, "end"), (g._x0 + 8, "start")):
+            bx = _box(xx, g.Y(v), s, an, size)
+            if not any(_hit(bx, d) for d in dboxes + placed):
+                g.items.append(lab(xx, g.Y(v), s, an, size=size))
+                placed.append(bx)
+                break
 
 
-def graph(name, fns, xr, yr, xt=(), yt=(), w=300, h=170, pad=(30, 26, 18, 30), dots=(), hollow=(),
+def graph(name, fns, xr, yr, xt=(), yt=(), w=300, h=170, pad=(30, 34, 22, 28), dots=(), hollow=(),
           labels=(), hl=(), vl=(), xlabel="x", ylabel="y"):
     """fns: list of (f, color, dash, x0, x1). labels: (x, y, text, dx, dy, anchor)."""
     g = Graph(xr[0], xr[1], yr[0], yr[1], w=w, h=h, pad=pad).axes(xlabel, ylabel)
@@ -156,7 +189,7 @@ def graph(name, fns, xr, yr, xt=(), yt=(), w=300, h=170, pad=(30, 26, 18, 30), d
         x0 = item[3] if len(item) > 3 else None
         x1 = item[4] if len(item) > 4 else None
         g.curve(f, color=col, dash=dash, x0=x0, x1=x1, n=600)
-    ticks(g, xt, yt)
+    ticks(g, xt, yt, dots=list(dots) + list(hollow))
     for (x, y) in dots:
         g.dot(x, y)
     for (x, y) in hollow:
@@ -184,6 +217,200 @@ def fig_rev():
         return tan(x)
     graph("rev_tan", [(tn, "blue")], (-2 * PI, 2 * PI), (-3.2, 3.2), xt=T, yt=[(1, "1"), (-1, "-1")], w=540, h=128,
           vl=[k * PI / 2 for k in (-3, -1, 1, 3)])
+
+
+
+# ---------------- 17A ----------------
+from math import exp, log
+
+
+def sq(v):
+    return sqrt(v) if v >= 0 else None
+
+
+def fig_17a():
+    yx = (lambda x: x, "faint", "5 4")
+    # e^x and log x
+    graph("a_explog", [yx, (exp, "blue"), (lambda x: log(x) if x > 0 else None, "teal", None, 0.02, 3.6)],
+          (-2.2, 3.6), (-2.2, 3.6), xt=[(1, "1"), (2, "2"), (e, "e")], yt=[(1, "1"), (2, "2"), (e, "e")], w=190, h=190, labels=[(1.25, 3.4, "y = eˣ", -6, 0, "end"), (3.4, 1.22, "y = logₑ x", 0, -14, "end"),
+                                         (3.1, 3.3, "y = x", -4, 0, "end")])
+    par = lambda x: (x - 2) ** 2
+    graph("a_par1", [(par, "blue", None, -0.1, 4.1)], (-0.4, 4.4), (-0.6, 5), xt=[(2, "2")], yt=[(4, "4")], w=150, h=118, hl=[3])
+    graph("a_par2", [yx, (par, "blue", None, 2, 4.4), (lambda x: 2 + sq(x) if x >= 0 else None, "teal", None, 0, 5)],
+          (-0.4, 5), (-0.4, 5), xt=[(2, "2"), (4, "4")], yt=[(2, "2"), (4, "4")], w=150, h=140,
+          dots=[(2, 0), (0, 2)])
+    graph("a_par3", [yx, (par, "blue", None, -0.1, 2), (lambda x: 2 - sq(x) if x >= 0 else None, "teal", None, 0, 5)],
+          (-0.4, 5), (-0.6, 5), xt=[(2, "2"), (4, "4")], yt=[(2, "2"), (4, "4")], w=150, h=140,
+          dots=[(2, 0), (0, 2), (1, 1)], labels=[(1, 1, "(1, 1)", 6, -9, "start")])
+    # Example 2
+    graph("a_ex2", [yx, (lambda x: (x - 1) ** 2 + 2, "blue", None, -0.6, 1), (lambda x: 1 - sq(x - 2) if x >= 2 else None, "teal", None, 2, 5.2)],
+          (-1.5, 5.2), (-2.4, 5.2), xt=[(1, "1"), (2, "2"), (3, "3")], yt=[(1, "1"), (2, "2"), (3, "3")], w=190, h=205, dots=[(1, 2), (2, 1)],
+          labels=[(-0.5, 4.75, "y = g(x)", 6, 0, "start"), (4.0, -1.95, "y = g⁻¹(x)", 0, 0, "middle"), (4.6, 4.6, "y = x", -4, 13, "end")])
+    cub = lambda x: (x - 2) ** 2 * (x + 1)
+    graph("a_ex3a", [(cub, "blue", None, -1.3, 3.1)], (-1.6, 3.4), (-1.5, 5.4), xt=[(-1, "-1"), (2, "2")], yt=[(4, "4")],
+          w=170, h=130, dots=[(0, 4), (2, 0)])
+    # inverse of f on [0, 2]: solve numerically by bisection (f decreasing there)
+    def finv(yv, f=cub, lo=0.0, hi=2.0):
+        if yv < -1e-9 or yv > 4 + 1e-9:
+            return None
+        for _ in range(60):
+            mid = (lo + hi) / 2
+            if f(mid) > yv:
+                lo = mid
+            else:
+                hi = mid
+        return (lo + hi) / 2
+    m = finv(0)  # placeholder
+    # M: root of x^3 - 3x^2 - x + 4 = 0 in [0, 2]
+    lo, hi = 0.0, 2.0
+    g = lambda x: x ** 3 - 3 * x ** 2 - x + 4
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        if g(lo) * g(mid) <= 0:
+            hi = mid
+        else:
+            lo = mid
+    M = (lo + hi) / 2
+    graph("a_ex3c", [yx, (cub, "blue", None, 0, 2), (finv, "teal", None, 0, 4)], (-0.5, 4.7), (-0.5, 4.7),
+          xt=[(2, "2"), (4, "4")], yt=[(2, "2"), (4, "4")], w=170, h=170, dots=[(M, M)],
+          labels=[(M, M, "M", 7, -8, "start"), (0.15, 4.1, "y = f(x)", 4, 0, "start"), (3.9, 0.35, "y = f⁻¹(x)", 0, -12, "middle"),
+                  (4.4, 4.4, "y = x", -4, 13, "end")])
+    graph("a_q18", [(lambda x: 2 * x / (1 + x * x), "blue")], (-4.5, 4.5), (-1.6, 1.6), xt=[(1, "1"), (-1, "-1")],
+          yt=[(1, "1"), (-1, "-1")], w=240, h=175, hl=[1, -1], labels=[(2.8, 0.62, "g(x)", 0, -10, "middle")])
+    graph("a_pp5", [(lambda x: 1 / (x * x + 1), "rose", None, 0, 3.2)], (-0.4, 3.3), (-0.2, 1.2),
+          xt=[(0.5, "0.5"), (1, "1"), (1.5, "1.5"), (2, "2"), (2.5, "2.5"), (3, "3")], yt=[(0.5, "0.5"), (1, "1")],
+          w=320, h=130, dots=[(0, 1)])
+
+
+
+def cbrt(v):
+    return v ** (1 / 3) if v >= 0 else -((-v) ** (1 / 3))
+
+
+def bisect_inv(f, yv, lo, hi, n=60):
+    """Inverse of a monotonic f on [lo, hi] at yv (None outside the range)."""
+    a, b = f(lo), f(hi)
+    if not (min(a, b) - 1e-12 <= yv <= max(a, b) + 1e-12):
+        return None
+    inc = b > a
+    for _ in range(n):
+        mid = (lo + hi) / 2
+        if (f(mid) < yv) == inc:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
+def pair(name, f, finv, xr, yr, xt, yt, fdom=(None, None), idom=(None, None), w=170, h=170, dots=(), hollow=(),
+         labels=(), hl=(), vl=()):
+    """f (blue), its inverse (teal) and the mirror y = x (faint dashed)."""
+    fns = [(lambda x: x, "faint", "5 4"), (f, "blue", None, fdom[0], fdom[1])]
+    if finv is not None:
+        fns.append((finv, "teal", None, idom[0], idom[1]))
+    return graph(name, fns, xr, yr, xt=xt, yt=yt, w=w, h=h, dots=dots, hollow=hollow, labels=labels, hl=hl, vl=vl)
+
+
+def fig_17a_ans():
+    # C2 tutor demo and your turn
+    pair("aa_c2d", lambda x: (x - 3) ** 2 + 1, lambda x: 3 - sq(x - 1) if x >= 1 else None, (-1, 10.5), (-1, 10.5),
+         [(1, "1"), (3, "3"), (10, "10")], [(1, "1"), (3, "3"), (10, "10")], fdom=(-0.15, 3), idom=(1, 10.5),
+         dots=[(3, 1), (1, 3)], labels=[(0.6, 9.2, "g", 6, 0, "start"), (9.2, 0.8, "g⁻¹", 0, -10, "middle")])
+    pair("aa_c2y", lambda x: (x - 2) ** 2 - 1, lambda x: 2 - sq(x + 1) if x >= -1 else None, (-2, 5.5), (-2, 5.5),
+         [(-1, "-1"), (1, "1"), (2, "2"), (3, "3")], [(-1, "-1"), (1, "1"), (2, "2"), (3, "3")], fdom=(-0.45, 2), idom=(-1, 5.5),
+         dots=[(2, -1), (-1, 2)], labels=[(-0.4, 5.0, "g", 6, 0, "start"), (5.0, -0.2, "g⁻¹", 0, -11, "middle")])
+    # C3 tutor demo: y = (x - 1)^2 (x + 2)
+    c3 = lambda x: (x - 1) ** 2 * (x + 2)
+    graph("aa_c3da", [(c3, "blue", None, -2.3, 2.0)], (-2.6, 2.4), (-1.6, 5.6), xt=[(-2, "-2"), (-1, "-1"), (1, "1")],
+          yt=[(2, "2"), (4, "4")], w=170, h=150, dots=[(-1, 4), (1, 0)])
+    pair("aa_c3dc", c3, lambda y: bisect_inv(c3, y, -1, 1), (-1.6, 4.6), (-1.6, 4.6), [(-1, "-1"), (1, "1"), (4, "4")],
+         [(-1, "-1"), (1, "1"), (4, "4")], fdom=(-1, 1), idom=(0, 4), dots=[(-1, 4), (1, 0), (4, -1), (0, 1)])
+    c3y = lambda x: (x + 1) ** 2 * (x - 1)
+    graph("aa_c3ya", [(c3y, "blue", None, -2.0, 1.45)], (-2.3, 1.8), (-2.2, 2.2), xt=[(-1, "-1"), (1, "1")],
+          yt=[(-1, "-1"), (1, "1")], w=170, h=150, dots=[(-1, 0), (1 / 3, -32 / 27)])
+    pair("aa_c3yc", c3y, lambda y: bisect_inv(c3y, y, -1, 1 / 3), (-1.6, 0.9), (-1.6, 0.9), [(-1, "-1")], [(-1, "-1")],
+         fdom=(-1, 1 / 3), idom=(-32 / 27, 0), w=170, h=170, dots=[(-1, 0), (1 / 3, -32 / 27), (0, -1), (-32 / 27, 1 / 3)])
+    # 2d
+    pair("aa_2d", sqrt, lambda x: x * x, (-0.5, 4.6), (-0.5, 4.6), [(1, "1"), (2, "2"), (4, "4")], [(1, "1"), (2, "2"), (4, "4")],
+         fdom=(0, 4), idom=(0, 2), dots=[(4, 2), (2, 4), (0, 0)], labels=[(3.4, 1.84, "F", 0, 12, "middle"), (1.85, 3.4, "F⁻¹", -10, 0, "end")])
+    T = [(1, "1"), (-1, "-1")]
+    pair("aa_3a", lambda x: 2 * x, lambda x: x / 2, (-2.5, 2.5), (-2.5, 2.5), T, T,
+         labels=[(1.1, 2.2, "f", -8, 0, "end"), (2.2, 1.1, "f⁻¹", 0, 12, "middle")], w=150, h=150)
+    pair("aa_3b", lambda x: x ** 3 + 1, lambda x: cbrt(x - 1), (-2.5, 2.5), (-2.5, 2.5), T, T,
+         labels=[(0.9, 2.2, "f", -8, 0, "end"), (2.2, 1.1, "f⁻¹", 0, 12, "middle")], w=150, h=150)
+    g = Graph(-1.7, 1.7, -1.7, 1.7, w=150, h=150, pad=(30, 34, 22, 28)).axes()
+    g.curve(lambda x: x, color="faint", dash="5 4")
+    g.curve(lambda x: sq(1 - x * x), color="blue", x0=-1, x1=1)
+    g.curve(lambda y: sq(1 - y * y), color="teal", x0=-1, x1=1)  # placeholder, replaced below
+    g.items.pop()
+    import math as _m
+    pts = " ".join(f"{g.X(_m.sqrt(max(0, 1 - y * y))):.1f},{g.Y(y):.1f}" for y in [(-1 + 2 * i / 200) for i in range(201)])
+    g.items.append(f'<polyline points="{pts}" fill="none" stroke="{ACC["teal"]}" stroke-width="2.2"/>')
+    ticks(g, T, T)
+    save("aa_3c", g)
+    g = Graph(-5, 5, -5, 5, w=150, h=150, pad=(30, 34, 22, 28)).axes()
+    g.curve(lambda x: x, color="faint", dash="5 4")
+    g.curve(lambda x: x * x - 4, color="blue", x0=-3, x1=3)
+    pts = " ".join(f"{g.X(y * y - 4):.1f},{g.Y(y):.1f}" for y in [(-3 + 6 * i / 200) for i in range(201)])
+    g.items.append(f'<polyline points="{pts}" fill="none" stroke="{ACC["teal"]}" stroke-width="2.2"/>')
+    ticks(g, [(-4, "-4"), (2, "2")], [(-4, "-4"), (2, "2")])
+    save("aa_3d", g)
+    pair("aa_3e", lambda x: 2 ** x, lambda x: log(x, 2) if x > 0 else None, (-3, 3.5), (-3, 3.5), T, T, fdom=(-3, 1.8),
+         idom=(0.13, 3.5), labels=[(-1.6, 0.55, "f", 0, -12, "middle"), (2.6, 1.38, "f⁻¹", 0, 12, "middle")], w=150, h=150)
+    pair("aa_3f", lambda x: sq(x - 3), lambda x: x * x + 3, (-0.6, 6.5), (-0.6, 6.5), [(3, "3")], [(3, "3")],
+         fdom=(3, 6.5), idom=(0, 1.9), dots=[(3, 0), (0, 3)], labels=[(5.6, 1.6, "f", 0, 12, "middle"), (1.6, 5.6, "f⁻¹", -8, 0, "end")], w=150, h=150)
+    # 8
+    F8 = lambda x: x * x + 2 * x + 4
+    pair("aa_8", F8, lambda x: -1 + sq(x - 3) if x >= 3 else None, (-1.8, 6), (-1.8, 6), [(-1, "-1"), (3, "3"), (4, "4")],
+         [(-1, "-1"), (3, "3"), (4, "4")], fdom=(-1, 0.6), idom=(3, 6), dots=[(-1, 3), (3, -1)],
+         labels=[(0.6, 5.36, "F", 7, 0, "start"), (5.3, 0.6, "F⁻¹", 0, -11, "middle")])
+    # 9
+    pair("aa_9", lambda x: 1 - log(x) if x > 0 else None, lambda x: exp(1 - x), (-1.2, 4.2), (-1.2, 4.2), [(1, "1"), (e, "e")],
+         [(1, "1"), (e, "e")], fdom=(0.05, 4.2), idom=(-0.4, 4.2), labels=[(0.25, 3.2, "f", 7, 0, "start"), (3.6, 0.3, "f⁻¹", 0, -12, "middle")])
+    # 10
+    g10 = lambda x: (x + 2) / (x + 1) if x > -1 else None
+    pair("aa_10", g10, lambda x: (2 - x) / (x - 1) if x > 1 else None, (-1.6, 5), (-1.6, 5), [(-1, "-1"), (1, "1"), (2, "2")],
+         [(-1, "-1"), (1, "1"), (2, "2")], fdom=(-0.75, 5), idom=(1.2, 5), vl=[-1, 1], hl=[1, -1],
+         dots=[(sqrt(2), sqrt(2))], labels=[(sqrt(2), sqrt(2), "(√2, √2)", 8, 2, "start"), (4.7, 1.17, "g", 0, -12, "middle"), (4.3, -0.33, "g⁻¹", 0, 11, "middle")], w=190, h=190)
+    # 11
+    pair("aa_11", lambda x: -x ** 3, lambda x: cbrt(-x), (-2, 2), (-2, 2), T, T, dots=[(-1, 1), (0, 0), (1, -1)],
+         labels=[(-1.2, 1.73, "y = −x³", 6, 0, "start")], w=160, h=160)
+    # 13
+    g13 = lambda x: (x + 2) ** 2 - 4
+    pair("aa_13", g13, lambda x: -2 + sq(x + 4) if x >= -4 else None, (-5, 3.2), (-5, 3.2), [(-4, "-4"), (-2, "-2")],
+         [(-4, "-4"), (-2, "-2")], fdom=(-4.6, 0.75), idom=(-4, 3.2), dots=[(-2, -4), (-4, -2)],
+         labels=[(-4.4, 1.8, "g", -6, 0, "end"), (2.6, 0.6, "g⁻¹", 0, -12, "middle")], w=180, h=180)
+    # 14
+    F14 = lambda x: x ** 3 - 3 * x
+    pair("aa_14", F14, lambda y: bisect_inv(F14, y, -1, 1), (-2.4, 2.4), (-2.4, 2.4), [(-2, "-2"), (-1, "-1"), (1, "1"), (2, "2")],
+         [(-2, "-2"), (2, "2")], fdom=(-2.05, 2.05), idom=(-2, 2), dots=[(-1, 2), (1, -2), (sqrt(3), 0), (-sqrt(3), 0)],
+         labels=[(1.75, 1.0, "F", 6, 0, "start"), (2.0, -0.85, "F⁻¹", 0, 11, "middle")], w=190, h=190)
+    # 16
+    f16 = lambda x: x - 1 / x if x > 0 else None
+    pair("aa_16", f16, lambda x: 0.5 * (x + sqrt(4 + x * x)), (-3.4, 3.4), (-3.4, 3.4), [(1, "1")], [(1, "1")],
+         fdom=(0.25, 3.4), labels=[(2.4, 1.98, "f", 0, 12, "middle"), (-2.6, 0.38, "f⁻¹", 0, -12, "middle")], w=170, h=170)
+    # 18 c and d
+    g18 = lambda x: 2 * x / (1 + x * x)
+    graph("aa_18c", [(lambda x: x, "faint", "5 4"), (lambda x: bisect_inv(g18, x, -1, 1) if abs(x) <= 1 else None, "teal", None, -1, 1)],
+          (-1.6, 1.6), (-1.6, 1.6), xt=T, yt=T, w=150, h=150, dots=[(1, 1), (-1, -1)])
+    gi = lambda x: (1 + sqrt(1 - x * x)) / x if 0 < abs(x) <= 1 else None
+    graph("aa_18d", [(gi, "teal", None, -1, -0.32), (gi, "teal", None, 0.32, 1)], (-1.6, 1.6), (-3.4, 3.4), xt=T, yt=T,
+          w=150, h=170, dots=[(1, 1), (-1, -1)])
+    # 19
+    f19 = lambda x: (x * x - 4 * x + 24) / 6
+    pair("aa_19", f19, lambda x: 2 + sq(6 * x - 20) if x >= 10 / 3 else None, (-0.6, 7.2), (-0.6, 7.2), [(2, "2"), (4, "4"), (6, "6")],
+         [(2, "2"), (4, "4"), (6, "6")], fdom=(-0.2, 7.2), idom=(10 / 3, 7.2), dots=[(2, 10 / 3), (0, 4), (10 / 3, 2), (4, 4), (6, 6)],
+         labels=[(0.4, 3.4, "f", 0, 13, "middle"), (6.6, 4.5, "f⁻¹", 0, 12, "middle")], w=190, h=190)
+    # 20
+    sh = lambda x: 0.5 * (exp(x) - exp(-x))
+    graph("aa_20", [(lambda x: x, "faint", "5 4"), (sh, "blue", None, -2.2, 2.2), (lambda x: log(x + sqrt(x * x + 1)), "teal")],
+          (-3, 3), (-3, 3), xt=T, yt=T, w=180, h=180, labels=[(1.55, 2.3, "sinh x", -7, 0, "end"), (2.6, 1.7, "sinh⁻¹x", 0, 12, "middle")])
+    # PP 6: inverse of 2x^3 + 1
+    f6 = lambda x: 2 * x ** 3 + 1
+    c = cbrt(-0.5)
+    pair("aa_pp6", f6, lambda x: cbrt((x - 1) / 2), (-2.3, 2.3), (-2.3, 2.3), T, T, fdom=(-1.3, 0.95),
+         dots=[(-1, -1), (1, 0), (0, c), (0, 1), (c, 0)],
+         labels=[(1, 0, "(1, 0)", 6, -11, "start"), (-1, -1, "(−1, −1)", 6, 9, "start"), (0.75, 1.9, "f", -8, 0, "end"), (2.0, 0.8, "f⁻¹", 0, -12, "middle")], w=190, h=190)
 
 
 if __name__ == "__main__":
