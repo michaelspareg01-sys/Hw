@@ -125,8 +125,8 @@ def quad(name, rays, arcs=(), w=190, h=150, r=None):
     save(name, f)
 
 
-def tri(name, pts, vlab=None, slab=None, alab=None, right=(), W=170, H=120, pad=24, extra=(), arcs=True,
-        aoff=None, soff=None, fill=True):
+def tri(name, pts, vlab=None, slab=None, alab=None, right=(), W=188, H=150, pad=30, extra=(), arcs=True,
+        aoff=None, soff=None, fill=True, labels=(), rights=(), aout=(), marks=()):
     """Triangle (or polygon) from math coordinates (y up), scaled to fit W x H.
     vlab {i: 'A'}; slab {(i, j): '12'}; alab {i: '30°'}; right [i]; extra [((x1,y1),(x2,y2),dash)]."""
     vlab, slab, alab = vlab or {}, slab or {}, alab or {}
@@ -162,7 +162,8 @@ def tri(name, pts, vlab=None, slab=None, alab=None, right=(), W=170, H=120, pad=
         if nx * (mx - gx) + ny * (my - gy) < 0: nx, ny = -nx, -ny
         tw = text_width(lab, 11.5)
         d = soff.get((i, j), 0)
-        plain(f, mx + nx * (6 + d + abs(nx) * tw / 2), my + ny * (8 + d), lab, italic=not any(ch.isdigit() for ch in lab))
+        dd = abs(nx) * tw / 2 + abs(ny) * 5.5 + 5 + d
+        plain(f, mx + nx * dd, my + ny * dd, lab, italic=not any(ch.isdigit() for ch in lab))
     for i, lab in alab.items():
         o = Q[i]; a = Q[(i - 1) % n]; b = Q[(i + 1) % n]
         a1 = degrees(atan2(-(a[1] - o[1]), a[0] - o[0])); a2 = degrees(atan2(-(b[1] - o[1]), b[0] - o[0]))
@@ -171,11 +172,31 @@ def tri(name, pts, vlab=None, slab=None, alab=None, right=(), W=170, H=120, pad=
         if arcs: f.arc(o[0], o[1], 13, a1, a1 + d, "faint", 1.2)
         mid = radians(a1 + d / 2)
         tw = text_width(lab, 11)
-        rr = aoff.get(i) or max(22, (tw / 2 + 5) / max(0.2, sin(radians(d / 2))) )
+        rr = aoff.get(i) or max(26 + tw / 4, (tw / 2 + 7) / max(0.2, sin(radians(d / 2))))
         rr = min(rr, 60)
+        if i in aout:
+            mid += pi; rr = 14 + tw / 2
         plain(f, o[0] + rr * cos(mid), o[1] - rr * sin(mid), lab, size=11, italic=not any(ch.isdigit() for ch in lab))
+    for (p, r_, a0, a1) in marks:
+        q = P(p)
+        f.arc(q[0], q[1], r_, a0, a1, "faint", 1.2)
+    for (p, lab, dx, dy) in labels:
+        q = P(p)
+        plain(f, q[0] + dx, q[1] + dy, lab, size=11, italic=not any(ch.isdigit() for ch in lab) and len(lab) < 3)
+    for (o, a, b) in rights:                      # right-angle mark at o between directions to a and b
+        o, a, b = P(o), P(a), P(b)
+        ua = (a[0] - o[0], a[1] - o[1]); la = sqrt(ua[0]**2 + ua[1]**2); ua = (ua[0]/la, ua[1]/la)
+        ub = (b[0] - o[0], b[1] - o[1]); lb = sqrt(ub[0]**2 + ub[1]**2); ub = (ub[0]/lb, ub[1]/lb)
+        f.raw(f'<path d="M{o[0]+ua[0]*7:.1f},{o[1]+ua[1]*7:.1f} L{o[0]+(ua[0]+ub[0])*7:.1f},{o[1]+(ua[1]+ub[1])*7:.1f} L{o[0]+ub[0]*7:.1f},{o[1]+ub[1]*7:.1f}" fill="none" stroke="{INK}" stroke-width="1.1"/>')
     save(name, f)
     return f
+
+
+def flipy(p): return [(x, -y) for x, y in p]
+def flipx(p): return [(-x, y) for x, y in p]
+def rot(p, d):
+    c, s_ = cos(radians(d)), sin(radians(d))
+    return [(x * c - y * s_, x * s_ + y * c) for x, y in p]
 
 
 def solve_tri(a=None, b=None, c=None, A=None, B=None, C=None):
@@ -223,3 +244,65 @@ quad("h_ex17a", [(-150, "−150°"), (-30, "−30°")], [(-150, "30°"), (-30, "
 quad("h_ex17b", [(108, "108°"), (-72, "288°")], [(108, "72°"), (-72, "72°")])
 quad("h_ex19", [(60, "60°, 420°"), (240, "240°, 600°")], [(60, "60°"), (240, "60°")], w=230)
 quad("h_ex20", [(120, "−240°"), (60, "60°")], [(120, "60°"), (60, "60°")])
+
+
+# ================= 6I / 6J revision =================
+D = "°"
+tri("i1a", asa(10, 60, 50), slab={(0, 1): "10", (2, 0): "x"}, alab={2: "70°", 1: "50°"})
+tri("i1c", flipy(asa(4, 85, 40)), slab={(0, 1): "4", (1, 2): "x"}, alab={0: "85°", 2: "55°"})
+tri("i1e", asa(1, 71, 46), slab={(2, 0): "7", (1, 2): "x"}, alab={0: "71°", 1: "46°"})
+tri("i3b", flipy(asa(10, 42.2, 52.8)), slab={(0, 1): "10", (0, 2): "8"}, alab={2: "85°", 1: "θ"})
+tri("i3d", asa(6, 72, 88.4), slab={(0, 1): "6", (1, 2): "17"}, alab={0: "72°", 2: "θ"}, aoff={0: 31}, W=170, H=230)
+tri("i3f", asa(16, 53, 84.74), slab={(0, 1): "16", (1, 2): "19"}, alab={0: "53°", 2: "θ"})
+tri("i4a", sas(3, 50, 4), slab={(0, 1): "4 cm", (0, 2): "3 cm"}, alab={0: "50°"})
+tri("i4b", rot(sas(5, 70, 8), -125), slab={(0, 1): "8 cm", (0, 2): "5 cm"}, alab={0: "70°"})
+tri("i4c", flipy(sas(7, 115, 7)), slab={(0, 1): "7 cm", (0, 2): "7 cm"}, alab={0: "115°"})
+for nm, ac in (("i7a", 9 * cos(radians(22)) - sqrt(25 - (9 * sin(radians(22))) ** 2)),
+               ("i7b", 9 * cos(radians(22)) + sqrt(25 - (9 * sin(radians(22))) ** 2))):
+    tri(nm, [(0, 0), (9 * cos(radians(22)), 9 * sin(radians(22))), (ac, 0)],
+        slab={(0, 1): "9 cm", (1, 2): "5 cm"}, alab={0: "22°"}, W=190)
+tri("i13a", sas(12, 30, 16), slab={(0, 2): "12 m", (0, 1): "x"}, alab={0: "30°"})
+tri("i13c", rot(sas(9, 130, 36), -20), slab={(0, 2): "x", (0, 1): "36 m"}, alab={0: "130°"}, W=200, aout={0})
+tri("i14a", sas(16, 30, 18), slab={(0, 2): "16 cm", (0, 1): "18 cm"}, alab={0: "θ"})
+tri("i14c", rot(sas(12, 70, 10), 180), W=220, slab={(0, 2): "12 cm", (0, 1): "10 cm"}, alab={0: "θ"})
+tri("i15a", asa(6 * sin(radians(75)) / sin(radians(45)), 60, 45), slab={(0, 2): "6", (1, 2): "x"}, alab={0: "60°", 1: "45°"})
+tri("i15d", asa(6 * sin(radians(105)) / sin(radians(30)), 45, 30), slab={(0, 2): "6", (1, 2): "x"}, alab={0: "45°", 1: "30°"}, W=200)
+# 6I Q17: mountain
+Qp, X, Y = (150, 60), 260, 300                     # schematic (not to scale), as in the book
+tri("i17", [(0, 0), Qp, (X, Y)], vlab={0: "P", 1: "Q", 2: "S"}, W=230, H=240,
+    extra=[((0, 0), (X, 0), None), ((X, 0), (X, Y), None), (Qp, (X, Qp[1]), "4 3")],
+    marks=[((0, 0), 24, 0, 49), (Qp, 24, 0, 65.4)],
+    labels=[((X, 0), "M", 10, 4), ((X, Qp[1]), "R", 10, 0), ((0, 0), "42°", 12, -40), ((0, 0), "18°", 95, -9),
+            (Qp, "54°", 34, -22), ((125, 50), "250 m", 0, -24)],
+    rights=[((X, 0), (0, 0), (X, Y)), ((X, Qp[1]), Qp, (X, Y))], fill=False)
+# 6I Q21
+xa, ya = 4.0, 9.0; h = 4.0
+tri("i21", [(0, 0), (ya, 0), (ya, h)], vlab={0: "A", 1: "C", 2: "D"}, slab={(1, 2): "h"}, right=[1], W=200,
+    extra=[((xa, 0), (ya, h), None)], labels=[((xa, 0), "B", 0, 12), ((0, 0), "β", 34, -7), ((xa, 0), "α", 26, -7),
+    ((xa / 2, 0), "x", 0, 12), ((ya / 2, 0), "y", 0, 26)], pad=36)
+# 6J
+tri("j1b", flipx(sas(5, 50, 6)), slab={(0, 1): "6", (0, 2): "5", (1, 2): "x"}, alab={0: "50°"})
+tri("j1d", sas(10, 115, 8), slab={(0, 1): "8", (0, 2): "10", (1, 2): "x"}, alab={0: "115°"})
+tri("j1f", rot(sas(13, 131, 14), 160), slab={(0, 1): "14", (0, 2): "13", (1, 2): "x"}, alab={0: "131°"}, aout={0})
+tri("j2a", sss(2, 3, 3), slab={(0, 1): "3", (0, 2): "3", (1, 2): "2"}, alab={0: "θ"})
+tri("j2c", rot(sss(10, 9, 7), 90), slab={(0, 1): "7", (0, 2): "9", (1, 2): "10"}, alab={0: "θ"})
+tri("j2e", rot(sss(12, 6, 8), 200), slab={(0, 1): "8", (0, 2): "6", (1, 2): "12"}, alab={0: "θ"})
+tri("j3a", sas(3, 60, 4), slab={(0, 1): "4", (0, 2): "3", (1, 2): "x"}, alab={0: "60°"})
+tri("j3b", sas(2, 120, 1), slab={(0, 1): "1", (0, 2): "2", (1, 2): "x"}, alab={0: "120°"}, aout={0})
+tri("j4a", flipx(sas(2, degrees(acos(0.25)), 3)), vlab={0: "A", 1: "B", 2: "C"}, slab={(0, 1): "3", (0, 2): "2", (1, 2): "a"})
+tri("j5a", sss(7, 5, 6), slab={(0, 1): "6", (0, 2): "5", (1, 2): "7"})
+tri("j5c", flipy(sss(5, 4, 4)), slab={(0, 1): "4", (0, 2): "4", (1, 2): "5"}, alab={0: "θ"})
+A6 = (120 * cos(radians(18)), 120 * sin(radians(18))); B6 = (180 * cos(radians(-46)), 180 * sin(radians(-46)))
+tri("j6", [(0, 0), A6, B6], vlab={0: "L", 1: "A", 2: "B"}, slab={(0, 1): "120 Nm", (0, 2): "180 Nm"}, W=180, H=190,
+    extra=[((0, 0), (0, 60), "4 3")], labels=[((0, 60), "N", 0, -9)], fill=False)
+Dp, Cp = (0, 0), (9, 0); Ap = (1.5, 3 * sin(radians(60))); Bp = (10.5, Ap[1]); Pp = (3, 0)
+tri("j12", [Dp, Cp, Bp, Ap], vlab={0: "D", 1: "C", 2: "B", 3: "A"}, slab={(2, 3): "9 cm", (3, 0): "3 cm"},
+    alab={0: "60°"}, aoff={0: 30}, W=250, extra=[(Ap, Pp, None), (Pp, Bp, None)],
+    labels=[(Pp, "P", 0, 12), ((1.5, 0), "3 cm", 0, 12), (Pp, "x", 6, -16)])
+Pt, Qt, Ft, Tt = (0, 0), (16, 0), (8, 4), (8, 13)
+tri("j13", [Pt, Qt, Tt], vlab={0: "P", 1: "Q", 2: "T"}, slab={(0, 1): "63 m"}, W=212, H=210,
+    extra=[(Pt, Ft, None), (Qt, Ft, None), (Ft, Tt, "4 3")],
+    labels=[(Ft, "F", -12, -10), (Pt, "22°", 41, -36), (Qt, "27°", -41, -36), (Ft, "51°", 0, 16), ((8, 6.5), "x m", 15, 0)], fill=False)
+xC = 3 * sqrt(3) + sqrt(7)
+tri("j15", [(0, 0), (6, 0), (xC * cos(radians(-30)), xC * sin(radians(-30)))], vlab={0: "A", 1: "B", 2: "C"},
+    slab={(0, 1): "6 cm", (1, 2): "4 cm", (0, 2): "x cm"}, alab={0: "30°"})
