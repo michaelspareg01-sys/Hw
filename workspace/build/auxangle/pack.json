@@ -1,0 +1,9 @@
+{
+ "chapter": "Auxiliary Angle Method | Homework",
+ "lesson": {"parts": ["cover.html", "q_all.html"], "out": "lesson.pdf",
+            "title": "Year 12 Ext 1 Auxiliary Angle Method - Homework"},
+ "answers": {"parts": ["a_all.html"], "out": "answers.pdf",
+             "title": "Year 12 Ext 1 Auxiliary Angle Method - Homework Answers",
+             "footer": "Auxiliary Angle Method | Homework Answers", "heading": "Auxiliary Angle Method - Homework Answers"},
+ "header": "YEAR 12 MATHEMATICS EXTENSION 1"
+}
