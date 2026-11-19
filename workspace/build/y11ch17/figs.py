@@ -733,6 +733,31 @@ def fig_17d():
     save("d_q17", f)
 
 
+
+# ---------------- 17E ----------------
+def fig_17e():
+    import math as m
+    h = 10 * m.sqrt(3)
+    sc = 7.0
+    ox, oy = 20, 22
+    A_, B_, C_ = (ox, oy), (ox + 20 * sc, oy), (ox + 30 * sc, oy)
+    W_ = (C_[0], oy + h * sc)
+    f = Fig(int(C_[0] + 40), int(W_[1] + 22))
+    f.line(*A_, *C_, width=1.4)
+    f.line(*C_, *W_, width=1.4, dash="4 3", color="faint")
+    f.line(*A_, *W_, color="blue", width=1.5)
+    f.line(*B_, *W_, color="blue", width=1.5)
+    f.right(C_[0], C_[1], -1, 1, s=7)
+    for (x_, y_), n_, dx, dy in ((A_, "A", -10, -2), (B_, "B", 0, -11), (C_, "C", 10, -2), (W_, "W", 0, 13)):
+        f.raw(lab(x_ + dx, y_ + dy, n_, size=12, bg=False))
+    f.raw(lab((A_[0] + B_[0]) / 2, oy - 10, "20 m", size=11, bg=False))
+    f.raw(lab((B_[0] + C_[0]) / 2, oy - 10, "10 m", size=11, bg=False))
+    f.raw(lab(C_[0] + 8, (C_[1] + W_[1]) / 2, "h", "start", size=12, bg=False))
+    f.raw(lab(A_[0] + 34, oy + 9, "θ", size=12))
+    f.raw(lab(B_[0] + 17, oy + 14, "2θ", size=12))
+    save("e_q11", f)
+
+
 if __name__ == "__main__":
     for _name, _f in list(globals().items()):
         if _name.startswith("fig_") and callable(_f):
