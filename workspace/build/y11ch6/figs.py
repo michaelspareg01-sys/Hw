@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, re
 from math import sin, cos, tan, atan, atan2, pi, sqrt, radians, degrees, acos, asin
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from plots import Graph, ACC, INK, FAINT, _txt
@@ -9,8 +9,32 @@ OUT = os.path.join(os.path.dirname(__file__), "svg")
 os.makedirs(OUT, exist_ok=True)
 
 
+def _autofix(svg):
+    """Nudge labels that are crossed, overlap or are clipped; then widen the frame for any clipping left."""
+    texts = list(re.finditer(r'<text x="([-\d.]+)" y="([-\d.]+)"([^>]*)>([^<]*)</text>', svg))
+    def probs(sv, lab):
+        return [p for p in check_string(sv) if f"'{lab}'" in p]
+    for m in texts:
+        lab = m.group(4)
+        lim = 16 if lab[-1:] in "°′θαβ" else 30
+        offs = sorted(((dx, dy) for dx in range(-lim, lim + 1, 2) for dy in range(-lim, lim + 1, 2) if (dx, dy) != (0, 0)),
+                      key=lambda o: o[0] ** 2 + o[1] ** 2)
+        if not probs(svg, lab) or "/" in lab:
+            continue
+        x, y = float(m.group(1)), float(m.group(2))
+        cur = f'<text x="{m.group(1)}" y="{m.group(2)}"{m.group(3)}>{lab}</text>'
+        if cur not in svg: continue
+        base = len(probs(svg, lab))
+        for dx, dy in offs:
+            cand = f'<text x="{x + dx:.1f}" y="{y + dy:.1f}"{m.group(3)}>{lab}</text>'
+            t = svg.replace(cur, cand, 1)
+            if not probs(t, lab) and len(check_string(t)) < len(check_string(svg)):
+                svg = t; break
+    return svg
+
+
 def save(name, g):
-    svg = g.svg()
+    svg = _autofix(g.svg())
     for p in check_string(svg):                 # labels crossed, overlapping or clipped (see the report)
         print(f"{name}: {p}")
     with open(os.path.join(OUT, name + ".svg"), "w", encoding="utf-8") as f:
@@ -306,3 +330,160 @@ tri("j13", [Pt, Qt, Tt], vlab={0: "P", 1: "Q", 2: "T"}, slab={(0, 1): "63 m"}, W
 xC = 3 * sqrt(3) + sqrt(7)
 tri("j15", [(0, 0), (6, 0), (xC * cos(radians(-30)), xC * sin(radians(-30)))], vlab={0: "A", 1: "B", 2: "C"},
     slab={(0, 1): "6 cm", (1, 2): "4 cm", (0, 2): "x cm"}, alab={0: "30°"})
+
+
+# ================= 6K =================
+def uv(a): return (cos(radians(a)), sin(radians(a)))
+def add(p, q, k=1): return (p[0] + k * q[0], p[1] + k * q[1])
+
+tri("k1a", asa(10, 43, 57), slab={(0, 2): "x", (1, 2): "23"}, alab={0: "43°", 1: "57°"})
+tri("k1b", [(-9.55, 9.55), (0, 0), (12.22, 12.22)], slab={(0, 1): "13.5", (1, 2): "x"}, alab={0: "52°"}, right=[1])
+tri("k1c", sas(11, 62, 13), slab={(0, 1): "13", (0, 2): "11", (1, 2): "x"}, alab={0: "62°"})
+tri("k1d", [(0, 0), (24 / tan(radians(41.5)), 0), (0, 24)], slab={(0, 2): "24", (1, 2): "x"}, alab={1: "41°30′"}, right=[0])
+tri("k1e", [(-7.4, 0), (0, 0), (9.2 * cos(radians(82)), 9.2 * sin(radians(82)))], slab={(0, 1): "7.4", (1, 2): "9.2", (0, 2): "x"}, alab={1: "98°"})
+tri("k1f", asa(10, 49, 77), slab={(0, 2): "x", (1, 2): "18"}, alab={0: "49°", 2: "54°"})
+tri("k2a", sss(11, 10, 12), slab={(0, 1): "12", (0, 2): "10", (1, 2): "11"}, alab={0: "θ"})
+tri("k2b", asa(8, 67, 58.1), slab={(0, 1): "8", (1, 2): "9"}, alab={0: "67°", 2: "θ"})
+t2c = degrees(acos(13 / 17))
+tri("k2c", [(0, 0), (17, 0), (13 * cos(radians(t2c)), 13 * sin(radians(t2c)))], slab={(0, 2): "13", (0, 1): "17"}, alab={0: "θ"}, right=[2])
+tri("k2d", asa(10, 36.8, 116), slab={(0, 2): "10.8", (1, 2): "7.2"}, alab={0: "θ", 1: "116°"})
+tri("k2e", [(0, 6.8), (8.6, 6.8), (8.6, 0)], slab={(0, 1): "8.6", (1, 2): "6.8"}, alab={2: "θ"}, right=[1])
+tri("k2f", rot(sss(21, 19, 5), 100), slab={(0, 1): "5", (0, 2): "19", (1, 2): "21"}, alab={0: "θ"}, H=170)
+tri("k3a", rot([(0, 0), (25.82, 0), (0, 7.89)], -55), slab={(1, 2): "27 cm", (0, 1): "x"}, alab={2: "73°"}, right=[0], W=200, H=200)
+tri("k3b", [(0, 0), (40, 0), (40, 40 * tan(radians(35)))], slab={(0, 1): "40 cm", (1, 2): "x"}, alab={0: "35°"}, right=[1], W=230)
+a3c = degrees(acos(11 / 14))
+tri("k3c", [(0, 0), (14, 0), (11 * cos(radians(-a3c)), 11 * sin(radians(-a3c)))], slab={(0, 1): "14 cm", (0, 2): "11 cm"}, alab={1: "θ"}, right=[2], W=230)
+tri("k3d", rot([(0, 0), (8, 0), (8, -15)], 25), slab={(0, 1): "8 cm", (1, 2): "15 cm", (0, 2): "17 cm"}, alab={0: "θ"}, right=[1], W=230, H=200)
+Q4, R4, P4 = asa(40, 53, 55); T4 = (P4[0], 0)
+tri("k4", [Q4, R4, P4], vlab={0: "Q", 1: "R", 2: "P"}, slab={(0, 1): "40 m"}, alab={0: "53°", 1: "55°"}, W=210,
+    extra=[(P4, T4, None)], labels=[(T4, "T", 0, 13)], rights=[(T4, R4, P4)], soff={(0, 1): 8})
+xB5 = 20 * tan(radians(68)) / (tan(radians(68)) - tan(radians(31))); yC5 = xB5 * tan(radians(31)); P5 = (20, 0)
+tri("k5", [(0, 0), (xB5, 0), (xB5, yC5)], vlab={0: "A", 1: "B", 2: "C"}, alab={0: "31°"}, right=[1], W=300, H=200,
+    extra=[(P5, (xB5, yC5), None)], labels=[(P5, "P", 0, 13), ((10, 0), "20 cm", 0, 26), (P5, "68°", 26, -16)], marks=[(P5, 14, 0, 68)], pad=34)
+BD6 = sqrt(6.7 ** 2 + 8.3 ** 2 - 2 * 6.7 * 8.3 * cos(radians(101)))
+aADB = degrees(asin(6.7 * sin(radians(101)) / BD6)); aCBD = degrees(asin(9.2 * sin(radians(73)) / BD6)); aBDC = 180 - 73 - aCBD
+D6 = (0, 0); C6 = (9.2, 0); B6 = (BD6 * cos(radians(aBDC)), BD6 * sin(radians(aBDC))); A6p = (8.3 * cos(radians(aBDC + aADB)), 8.3 * sin(radians(aBDC + aADB)))
+tri("k6", [D6, C6, B6, A6p], vlab={0: "D", 1: "C", 2: "B", 3: "A"}, slab={(2, 3): "6.7 cm", (3, 0): "8.3 cm", (0, 1): "9.2 cm"},
+    alab={3: "101°", 1: "73°"}, extra=[(B6, D6, None)], W=200, H=180, pad=44)
+a7 = degrees(acos(40 / 56))
+tri("k7", [(0, 0), (7, 0), (4 * cos(radians(a7)), 4 * sin(radians(a7)))], vlab={0: "B", 1: "C", 2: "A"}, slab={(0, 1): "7 cm", (0, 2): "4 cm", (1, 2): "5 cm"})
+P8 = (25 / tan(radians(72)), 0); X8 = (P8[0], 25); Z8 = (P8[0] + 25 / tan(radians(42)), 0)
+tri("k8", [(0, 0), Z8, X8], vlab={0: "Y", 1: "Z", 2: "X"}, alab={0: "72°", 2: "66°"}, aoff={0: 30, 2: 34}, W=240, H=240,
+    extra=[(X8, P8, None)], labels=[(P8, "P", 0, 13), ((P8[0], 12.5), "25 cm", 22, 0)], rights=[(P8, Z8, X8)])
+Q10 = (53 * sin(radians(26)), 53 * cos(radians(26))); R10 = (Q10[0] + 78, Q10[1])
+tri("k10", [(0, 0), Q10, R10], vlab={0: "P", 1: "Q", 2: "R"}, slab={(1, 2): "78 Nm"}, W=210, H=170,
+    extra=[((0, 0), (0, 50), "4 3")], labels=[((0, 0), "26°", 14, -62), ((Q10[0] / 2, Q10[1] / 2), "53 Nm", 26, 8)], fill=False)
+u11 = (sin(radians(7)), cos(radians(7)))
+g1, g2 = 10 * sin(radians(126.02)) / sin(radians(7)), 10 * sin(radians(39.98)) / sin(radians(7))
+B11a, B11b = (g1 * u11[0], g1 * u11[1]), (g2 * u11[0], g2 * u11[1])
+tri("k11", [(0, 0), (0, 60), B11a], vlab={0: "G", 1: "H", 2: "B"}, slab={(0, 1): "60 m", (1, 2): "10 m"}, W=150, H=230, fill=False, pad=40,
+    extra=[((0, 60), B11b, None)], labels=[(B11b, "B", 11, 2), ((0, 0), "7°", 8, -30)])
+AB12 = 70 / sin(radians(20)) * sin(radians(15)) / sin(radians(95)); BQ12 = 70 / tan(radians(20))
+xJ = AB12 / tan(radians(20))
+tri("k12", [(0, 0), (BQ12, 0), (BQ12, 70), (0, AB12)], vlab={0: "B", 1: "Q", 2: "P", 3: "A"}, W=230, H=150, fill=False,
+    extra=[((0, AB12), (BQ12, 70), None), ((0, 0), (BQ12, 70), None), ((0, AB12), (BQ12, AB12), "4 3")],
+    labels=[((xJ, AB12), "J", -2, 12), ((BQ12, AB12), "K", -9, 11), ((0, 0), "20°", 62, -9), ((0, AB12), "5°", 46, -8), ((BQ12, 35), "70 m", 24, 0)], pad=42)
+P13, Q13, B13, T13 = (0, 0), (15, -1), (8, 4), (8, 13)
+tri("k13", [P13, Q13, T13], vlab={0: "P", 1: "Q", 2: "T"}, W=260, H=250, fill=False,
+    extra=[(P13, B13, None), (Q13, B13, None), (B13, T13, "4 3"), (B13, (12, 8), "4 3")],
+    labels=[(B13, "B", -12, -4), ((8, 8.5), "38 m", -18, 0), (P13, "26°", 37, -34), (Q13, "22°", -40, -41), (B13, "100°", 26, 3), ((12, 8), "N", 4, -8)])
+A14, B14, D14, C14 = (0, 0), (14, -1), (6, 4), (6, 12)
+tri("k14", [A14, B14, C14], vlab={0: "A", 1: "B", 2: "C"}, slab={(0, 1): "300 m"}, W=260, H=240, fill=False,
+    extra=[(A14, D14, None), (B14, D14, "4 3"), (D14, C14, "4 3")],
+    labels=[(D14, "D", -12, -4), ((6, 8), "h", 9, 0), (A14, "32°", 42, -50), (A14, "59°", 40, -6), (D14, "78°", 4, 15)])
+tri("k15", [(0, 0), (8.3 * cos(radians(118.5)), 8.3 * sin(radians(118.5))), (15.2 * cos(radians(61.5)), 15.2 * sin(radians(61.5)))],
+    vlab={0: "A", 1: "B", 2: "C"}, slab={(0, 1): "8.3 km", (0, 2): "15.2 km"}, alab={0: "57°"}, H=170)
+A16 = (4 * cos(radians(62)), 4 * sin(radians(62))); B16 = (A16[0] + 4, A16[1])
+def inter(p1, p2, p3, p4):
+    d1 = (p2[0] - p1[0], p2[1] - p1[1]); d2 = (p4[0] - p3[0], p4[1] - p3[1])
+    den = d1[0] * d2[1] - d1[1] * d2[0]; t = ((p3[0] - p1[0]) * d2[1] - (p3[1] - p1[1]) * d2[0]) / den
+    return (p1[0] + t * d1[0], p1[1] + t * d1[1])
+P16 = inter(A16, (7, 0), B16, (0, 0))
+tri("k16", [(0, 0), (7, 0), B16, A16], vlab={0: "D", 1: "C", 2: "B", 3: "A"}, slab={(2, 3): "4 cm", (3, 0): "4 cm", (0, 1): "7 cm"},
+    W=210, extra=[(A16, (7, 0), None), (B16, (0, 0), None)], labels=[(P16, "P", 0, -12), ((0, 0), "62°", 42, -11)], marks=[((0, 0), 14, 0, 62)])
+xb = 9 / (1 - cos(radians(50))); Wr = 2 * xb
+f = Fig(230, 130); sc = 170 / Wr; ox, oy = 30, 100
+pt = lambda x, y: (ox + x * sc, oy - y * sc)
+L17, R17 = pt(0, 0), pt(Wr, 0); TL17 = pt(xb * cos(radians(50)), xb * sin(radians(50))); TR17 = pt(Wr - xb * cos(radians(50)), xb * sin(radians(50)))
+f.line(*L17, *TL17, "ink", 2).line(*R17, *TR17, "ink", 2).line(L17[0] - 10, L17[1], R17[0] + 10, R17[1], "faint", 1.2)
+f.line(*TL17, *TR17, "faint", 1, "4 3")
+f.dim(L17[0], 118, R17[0], 118)
+plain(f, (L17[0] + R17[0]) / 2, 126, "river", size=11)
+plain(f, (TL17[0] + TR17[0]) / 2, TL17[1] - 9, "18 m", size=11)
+plain(f, (L17[0] + TL17[0]) / 2 - 10, (L17[1] + TL17[1]) / 2 - 4, "x", italic=True, size=11.5)
+plain(f, (R17[0] + TR17[0]) / 2 + 10, (R17[1] + TR17[1]) / 2 - 4, "x", italic=True, size=11.5)
+f.arc(*L17, 16, 0, 50).arc(*R17, 16, 130, 180)
+plain(f, L17[0] + 30, L17[1] - 8, "50°", size=11); plain(f, R17[0] - 30, R17[1] - 8, "50°", size=11)
+save("k17", f)
+A18, B18, C18 = (8, 7), (0, 0), (9, 0); D18 = ((A18[0] + C18[0]) / 2, (A18[1] + C18[1]) / 2)
+tri("k18", [B18, C18, A18], vlab={0: "B", 1: "C", 2: "A"}, slab={(0, 1): "a", (0, 2): "c"}, W=200, H=170,
+    extra=[(B18, D18, None)], labels=[(D18, "D", 10, 2), (D18, "b", 10, -28), ((4.25, 1.75), "m", 0, -12), (D18, "θ", -14, -2)])
+P20, Q20, A20, B20 = (5, 11), (5, 4), (11, 3.5), (0, 0)
+tri("k20", [B20, A20, P20], vlab={0: "B", 1: "A", 2: "P"}, W=200, H=200, fill=False,
+    extra=[(P20, Q20, "4 3"), (Q20, A20, "4 3"), (Q20, B20, "4 3")],
+    labels=[(Q20, "Q", -11, -4), ((5, 7.5), "h", 8, 0), ((8, 3.75), "x", 0, 12), ((2.5, 2), "y", 10, 4), (A20, "α", -28, -6), (B20, "β", 31, -39), (P20, "θ", 12, 24)])
+
+
+# ================= Chapter 6 review =================
+tri("r20a", [(0, 0), (8.53, 0), (7 * cos(radians(-70)), 7 * sin(radians(-70)))], slab={(0, 1): "x", (0, 2): "7"}, alab={1: "47°", 2: "63°"})
+tri("r20b", sas(8, 75, 9), slab={(0, 1): "9", (0, 2): "8", (1, 2): "x"}, alab={0: "75°"})
+c20 = 15 * sin(radians(40)) / sin(radians(112)); TR20 = (c20, 0); BR20 = add(TR20, uv(292), 15 * sin(radians(28)) / sin(radians(112)))
+tri("r20c", [(0, 0), TR20, BR20], slab={(0, 2): "15", (1, 2): "x"}, alab={1: "112°", 2: "40°"})
+tri("r20d", rot(sas(9.3, 18.5, 17.2), 200), slab={(0, 2): "9.3", (0, 1): "17.2", (1, 2): "x"}, alab={0: "18°30′"}, aout={0}, pad=48, W=280, H=150)
+tri("r21a", sas(8, 42, 10), slab={(0, 1): "10 cm", (0, 2): "8 cm"}, alab={0: "42°"})
+tri("r21b", flipy(sas(12.3, 112.6, 9.8)), slab={(0, 1): "9.8 cm", (0, 2): "12.3 cm"}, alab={0: "112°36′"}, aout={0})
+tri("r22a", sss(7, 6, 8), slab={(0, 1): "8", (0, 2): "6", (1, 2): "7"}, alab={0: "θ"})
+tri("r22b", flipy(asa(13, 54.45, 48.55)), slab={(0, 1): "13", (0, 2): "10"}, alab={2: "77°", 1: "θ"})
+tri("r22c", rot(sas(29, 131.317, 16), 200), slab={(0, 1): "16", (0, 2): "29"}, alab={0: "131°19′", 2: "θ"}, aout={0}, W=250, H=190, pad=42)
+tri("r22d", rot(sss(23.8, 13.9, 10.7), 120), slab={(0, 1): "10.7", (0, 2): "13.9", (1, 2): "23.8"}, alab={0: "θ"}, aout={0}, H=200, W=220)
+xc25 = 600 * tan(radians(13)) / (tan(radians(7)) + tan(radians(13)))
+tri("r25", [(0, 0), (600, 0), (xc25, 160)], vlab={0: "A", 1: "B", 2: "H"}, slab={(0, 1): "600 m"}, alab={0: "7°", 1: "13°"},
+    W=230, H=130, extra=[((xc25, 160), (xc25, 0), None)], labels=[((xc25, 0), "C", 0, 13)], rights=[((xc25, 0), (600, 0), (xc25, 160))], soff={(0, 1): 8})
+tri("r26", [(0, 0), (13, 0), (13, 6)], vlab={0: "P", 1: "B", 2: "T"}, slab={(1, 2): "h"}, alab={0: "15°"}, right=[1], W=230, H=140,
+    extra=[((5, 0), (13, 6), None)], labels=[((5, 0), "Q", 0, 13), ((2.5, 0), "50 m", 0, 26), ((5, 0), "25°", 30, -8)])
+Q27 = (140 * sin(radians(50)), 140 * cos(radians(50))); R27 = add(Q27, (sin(radians(130)), cos(radians(130))), 260)
+tri("r27", [(0, 0), Q27, R27], vlab={0: "P", 1: "Q", 2: "R"}, slab={(1, 2): "260 Nm"}, W=230, H=190, fill=False,
+    extra=[((0, 0), (0, 70), "4 3"), (Q27, (Q27[0], Q27[1] + 60), "4 3")],
+    labels=[((0, 0), "50°", 13, -40), (Q27, "130°", 22, -16), ((Q27[0] / 2, Q27[1] / 2), "140 Nm", 26, 10)])
+BC29 = 8 * tan(radians(40)); BD29 = BC29 * sin(radians(122)) / sin(radians(23))
+A29, B29, C29 = (0, 0), (8, 0), (8, BC29); D29 = add(B29, uv(55), BD29)
+tri("r29a", [A29, B29, D29, C29], vlab={0: "A", 1: "B", 2: "D", 3: "C"}, slab={(0, 1): "8 m"}, alab={0: "40°"},
+    W=240, H=230, extra=[(B29, C29, None)], rights=[(B29, A29, C29)], labels=[(B29, "35°", 10, -44), (C29, "122°", 26, 14)], marks=[(B29, 22, 55, 90), (C29, 14, -90, 32)])
+A29b = (0, 0); D29b = (7 * cos(radians(-10)), 7 * sin(radians(-10))); B29b = (6 * cos(radians(75)), 6 * sin(radians(75)))
+vBD = (D29b[0] - B29b[0], D29b[1] - B29b[1]); lBD = sqrt(vBD[0] ** 2 + vBD[1] ** 2); uBD = (vBD[0] / lBD, vBD[1] / lBD)
+uBC = (uBD[0] * cos(radians(37)) - uBD[1] * sin(radians(37)), uBD[0] * sin(radians(37)) + uBD[1] * cos(radians(37)))
+C29b = add(B29b, uBC, lBD * cos(radians(37)))
+tri("r29b", [A29b, D29b, C29b, B29b], vlab={0: "A", 1: "D", 2: "C", 3: "B"}, slab={(3, 0): "6 m", (0, 1): "7 m"},
+    alab={0: "85°"}, right=[2], W=180, H=170, extra=[(B29b, D29b, None)], labels=[(B29b, "37°", 30, -7)])
+uB = uv(210); uA = uv(210 - 86.4248)
+A29c = (4 * uA[0], 4 * uA[1]); B29c = (6 * uB[0], 6 * uB[1]); D29c = (-B29c[0], -B29c[1]); PC = 6 * sin(radians(65)) / sin(radians(180 - 86.4248 - 65))
+C29c = (-PC * uA[0], -PC * uA[1])
+tri("r29c", [A29c, D29c, C29c, B29c], vlab={0: "A", 1: "D", 2: "C", 3: "B"}, slab={(3, 0): "7 m"}, W=180, H=210,
+    extra=[(A29c, C29c, None), (B29c, D29c, None)],
+    labels=[((0, 0), "P", 0, 14), ((A29c[0] / 2, A29c[1] / 2), "4 m", 14, -6), ((B29c[0] / 2, B29c[1] / 2), "6 m", 4, 12),
+            ((D29c[0] / 2, D29c[1] / 2), "6\u00a0m", -2, -12), (D29c, "65°", -10, 26)])
+AB30 = 12 * tan(radians(62)) * tan(radians(64)); BQ30 = 12 * tan(radians(62))
+tri("r30", [(0, 0), (BQ30, 0), (BQ30, AB30 - 12), (0, AB30 - 12), (0, AB30)], vlab={0: "B", 1: "Q", 2: "P", 3: "K", 4: "A"}, W=170, H=230, fill=False,
+    extra=[((0, AB30), (BQ30, AB30 - 12), None), ((0, AB30), (BQ30, 0), None), ((0, AB30), (BQ30, AB30), "4 3")],
+    labels=[((0, AB30 - 6), "12 m", -22, 0), ((0, AB30), "28°", 54, 6), ((0, AB30), "64°", 22, -12)],
+    rights=[((0, AB30 - 12), (0, AB30), (BQ30, AB30 - 12)), ((0, 0), (0, 10), (10, 0)), ((BQ30, 0), (0, 0), (BQ30, 10))])
+tri("r31", [(0, 0), (8.6, 0), (3.4, 6)], vlab={0: "T₁", 1: "T₂", 2: "S"}, W=190, H=150, fill=False,
+    extra=[((-1.5, 0), (10, 0), None), ((-1.5, 6), (10, 6), None)])
+tri("r32", [(0, 0), (6, 4), (6, -5)], vlab={0: "C", 1: "A", 2: "B"}, W=170, H=190, fill=False,
+    extra=[((0, 0), (6, 0), None)], rights=[((6, 0), (0, 0), (6, 4))],
+    labels=[((6, 0), "D", 10, 0), ((0, 0), "α", 30, -8), ((0, 0), "β", 30, 9), ((6, -2.5), "x", -9, 0), ((6, 0), "h", 22, 0)])
+tri("r33", [(0, 0), (1.618, 0), (0.809, 0.588)], vlab={0: "C", 1: "A", 2: "B"}, slab={(1, 2): "x", (0, 2): "x"}, alab={1: "36°"}, W=220, H=120,
+    extra=[((0.809, 0.588), (0.618, 0), None)], labels=[((0.618, 0), "P", 0, 13), ((0.71, 0.29), "y", -10, 0)])
+P34, B34, Q34, A34 = (0, 4), (10, 4), (5, 0), (10, 13)
+tri("r34", [P34, Q34, A34], vlab={0: "P", 1: "Q", 2: "A"}, slab={(0, 1): "200 m"}, W=210, H=210, fill=False,
+    extra=[(P34, B34, "4 3"), (Q34, B34, None), (A34, B34, None)],
+    labels=[(B34, "B", 11, 0), ((10, 8.5), "h", 9, 0), (P34, "42°", 30, -14), (Q34, "35°", 22, -24)], rights=[(B34, P34, A34)])
+D35, A35, C35, B35 = (2, 4), (2, 11), (9, 5), (5, 0)
+tri("r35", [B35, C35, A35], vlab={0: "B", 1: "C", 2: "A"}, W=190, H=210, fill=False,
+    extra=[(A35, D35, None), (D35, B35, None), (D35, C35, "4 3")],
+    labels=[(D35, "D", -11, 0), ((2, 7.5), "h", -9, 0), (C35, "45°", -26, -16), (C35, "30°", -16, 18), (B35, "30°\u200d", -2, -34), ((7, 2.5), "x", 10, 6)],
+    rights=[(D35, A35, C35)], marks=[(B35, 18, degrees(atan2(4, -3)), degrees(atan2(11, -3)))])
+
+tri("k_ex31", [(0, 0), (0, 6), (10 * sin(radians(120)), 10 * cos(radians(120)))], vlab={0: "H", 1: "A", 2: "B"},
+    slab={(0, 1): "6 km", (0, 2): "10 km"}, W=170, H=190, fill=False, extra=[((0, 0), (0, -6), "4 3"), ((-3, 0), (4, 0), "4 3")],
+    labels=[((0, 0), "120°", 36, -20)], marks=[((0, 0), 14, -30, 90)])
