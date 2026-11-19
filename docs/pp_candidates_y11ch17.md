@@ -118,6 +118,7 @@ Checked against `docs/PAST_PAPERS_USED.md` and every `docs/pp_selected_*.md` on 
 | D17 | `2024/Saint Ignatius 2024.pdf` p8 | Saint Ignatius 2024 | Q13(a)(i)(ii) | sin(x − y)sin(x + y) = sin²x − sin²y; solve sin²3x − sin²x = sin 4x | DUP of USED Kings 2021 Q13(c) |
 | D18 | `2021/3U Kings.pdf` p11 | The King's School 2021 | Q13(c) | as D17 | USED (Ch 11) |
 | D19 | `2021/3U Sydney Tech.pdf` p10 → p? | Sydney Technical 2021 | Q14(d) (4) | Six solutions of sin(2cos⁻¹(cot(2tan⁻¹x))) = 0 | Hard |
+| D20 | `2023/Abbotsleigh 2023 3U Trials & Solutions.pdf` p3 → p17 | Abbotsleigh 2023 Trial | Q2 (1, MC) | tan(θ + π/3) with tan θ = 1/3 | none (added at the 17D build) |
 
 ### 17E The double-angle formulae (with triple angles)
 
@@ -185,6 +186,43 @@ Checked against `docs/PAST_PAPERS_USED.md` and every `docs/pp_selected_*.md` on 
 | G9 | `2020/2020 SGGHS.pdf` p12 → p? | St George Girls 2020 Trial | Q15(b)(i) (1) | 2sin x cos(2k + 1)x = sin 2(k + 1)x − sin 2kx | (ii) is induction (Year 12) |
 | G10 | `2024/epping-boys-2024-e1.pdf` p9 → p? | Epping Boys 2024 Trial | Q12(d)(i)-(iii) (2, 1, 4 = 7) | S sin(θ/2) = sin(7θ/2) for S = 1 + 2cos θ + 2cos 2θ + 2cos 3θ; θ = 2π/7; cos(2π/7) is a root of 8x³ + 4x² − 4x − 1 = 0 | (iii) needs 17E |
 | G11 | `2023/2023_Killara_High_School...pdf` p12 → no solutions | Killara 2023 | Q13(e)(i)(ii) (1, 3 = 4) | 2cos(x/2)sin(5x/2) = sin 2x + sin 3x; solve | No solutions |
+
+### Year 11 school yearly papers (added 19 Nov, coordinator request)
+
+Paths are relative to `workspace/pp/Y11Ext1/` (77 Year 11 Ext 1 papers, 2020-2026). The pool was searched with a keyword scan of every page (scanned papers included, by their OCR text and by rendering the pages that the scan flagged). Labels use the school and cover title on the cover; where the cover has no school name in text (Knox 2023, Penrith 2023), the THSC listing name is used. Sydney Boys 2025 is not in this folder and is not used. "Y11" in a row means the Year 11 paper, not the Trial of the same school and year. Rows marked "checked" were read on the rendered question and solution pages; the other rows are scan leads, to be checked before any use. The Year 11 Advanced pool (`workspace/pp/Y11Adv/`, 97 papers) was keyword-scanned too: its only hits are calculator angles such as cos⁻¹(0.729) in triangle problems and equations such as sin 2x = 0.5 (Year 11 Advanced trigonometric equations, not Ch 17), so it gives no Ch 17 items.
+
+| # | File, question p → solution p | Title, school, year | Q, marks | What it asks | Flags |
+|---|---|---|---|---|---|
+| Y1 | `Caringbah 2020 3U Prelim Yearly & Solutions.pdf` p8 → p13 | Caringbah High School 2020 Preliminary Task 3 | Q14(b)(i)(ii) (2, 1 = 3) | cosec θ(cos θ − 1) in terms of t; solve = −1 on [0°, 180°] | 17F, checked |
+| Y2 | `SCEGGS 2021 3U Prelim Yearly & Solutions.pdf` p5 → p16 (handwritten) | SCEGGS Darlinghurst 2021 Year 11 Task 3 | Q7(c) (2) | (sin θ + 1 − cos θ)/(sin θ − 1 + cos θ) = (1 + tan(θ/2))/(1 − tan(θ/2)) | 17F, checked |
+| Y3 | `Knox 2023 3U Prelim Yearly & Solutions.pdf` p8 → p16 | Knox Grammar School 2023 Year 11 Yearly Examination | Q12(a) (3) | Solve sin θ + √3 cos θ = 1 on [0, 2π] by t = tan(θ/2) | 17F, checked |
+| Y4 | `Penrith 2024 3U Prelim Yearly & Solutions.pdf` p8 → p22 | Penrith Selective High School 2024 Year 11 Assessment Task 3 | Q14(d) (2) | cosec θ + cot θ = cot(θ/2) by t | 17F, checked; the same identity as Y5(a) |
+| Y5 | `Hornsby Girls 2021 3U Prelim Yearly & Solutions.pdf` p5 → p10 (handwritten) | Hornsby Girls High School 2021 Year 11 Assessment 3 | Q8(a) (2); Q8(b)(i)(ii) (1, 2 = 3) | (a) cosec θ + cot θ = cot(θ/2); (b) sin x + sin 3x = 2sin 2x cos x, hence solve sin x + sin 2x + sin 3x = 0 on [0, 2π] | (a) 17F; (b) 17G, checked |
+| Y6 | `Penrith 2024 3U Prelim Yearly & Solutions.pdf` p8 → p22 | Penrith Selective High School 2024 Year 11 Assessment Task 3 | Q14(e) (2) | 4 sin 3x sin 2x sin x = sin 2x + sin 4x − sin 6x | 17G, checked |
+| Y7 | `Penrith 2023 3U Prelim Yearly & Solutions.pdf` p11 → p27 (handwritten) | Penrith Selective High School 2023 Preliminary Assessment Task 3 (THSC listing; no school name on the cover) | Q14(c) (4) | Solve cos 7x − cos 3x = sin 5x on [0, π] | 17G, checked |
+| Y8 | `Blacktown Boys 2022 3U Prelim Yearly & Solutions.pdf` p2 → p8 (handwritten) | Blacktown Boys' High School 2022 Year 11 Yearly Examination | Q3 (1, MC) | sin 5x + sin 3x as a product | 17G, checked |
+| Y9 | `Blacktown Boys 2022 3U Prelim Yearly & Solutions.pdf` p2 → p8 | Blacktown Boys' High School 2022 Year 11 | Q2 (1, MC) | 3sin θ − 2cos θ in terms of t | 17F |
+| Y10 | `Sydney Girls 2021 3U Prelim Yearly & Solutions.pdf` p2 → p7 (handwritten) | Sydney Girls High School 2021 (Online) Year 11 Assessment Task 3 | Q1(e) (2) | Exact sin 255° cos 15° | 17G, checked |
+| Y11 | `Sydney Girls 2021 3U Prelim Yearly & Solutions.pdf` p2 | Sydney Girls 2021 Y11 | Q1(b) (1) | Simplify 2sin 3θ cos 3θ | 17E |
+| Y12 | `Knox 2020 3U Prelim Yearly & Solutions.pdf` p10 | Knox 2020 Y11 | Q?(b) (2) | 2cos 75° cos 15° | DUP of Exercise 17G Q2(a) |
+| Y13 | `SCEGGS 2021 3U Prelim Yearly & Solutions.pdf` p4 | SCEGGS 2021 Y11 | Q6(c) (2) | 2cos 40° cos 20° − 2sin 25° sin 5° = ½(√3 + 1) | DUP of Exercise 17G Q4(a) |
+| Y14 | `Hurlstone 2022 3U Prelim Yearly.pdf` p3 | Hurlstone 2022 Y11 | Q4 (1, MC) | 4sin θ + 3cos θ + 5 in terms of t | DUP of F2 (NSB 2023 Q8); no solutions |
+| Y15 | `Presbyterian 2022 3U Prelim Yearly & Solutions.pdf` p4 | Presbyterian Ladies' College 2022 Y11 | MC | sin 3x sin 4y as a sum | DUP of G1/G2 |
+| Y16 | `Penrith 2023 3U Prelim Yearly & Solutions.pdf` p4 | Penrith 2023 Y11 | Q4 (1, MC) | cos 3x cos x + sin 3x sin x | 17D |
+| Y17 | `Fort St 2021 3U Prelim Yearly & Solutions.pdf` p4 | Fort Street 2021 Y11 | Q3(a) (3); Q3(b)(i)(ii) (3, 2) | sin(2cos⁻¹(3/8)); (1 − cos θ)/(1 + cos θ) = tan²(θ/2), hence tan 67.5° | 17E, 17F |
+| Y18 | `Knox 2022 3U Prelim Yearly & Solutions.pdf` p10 | Knox 2022 Y11 | Q12(a)(i)(ii) (2, 1) | (1 − cos 2θ)/(1 + cos 2θ) = tan²θ by t; exact tan(π/8) | 17F |
+| Y19 | `Knox 2023 3U Prelim Yearly & Solutions.pdf` p9 | Knox 2023 Y11 | Q13(a), (f) | sin(cos⁻¹ ...); parametric x = 1 + cos θ, y = cos 2θ | 17B, 17E |
+| Y20 | `Presbyterian 2023 3U Prelim Yearly & Solutions.pdf` p7, p9, p10 | Presbyterian 2023 Y11 | several | (cos 3x − cos 5x)/(sin 3x + sin 5x); tan 2θ with sin θ given; sin(2 arccos x) = 2x√(1 − x²) | 17G, 17E |
+| Y21 | `Pymble 2021 3U Prelim Yearly.pdf` p10, p12, p14 | Pymble 2021 Y11 | several | tan(2tan⁻¹(−3)); sin(sin⁻¹ ... + tan⁻¹ ...); tan 3θ | No solutions |
+| Y22 | `Glenwood 2022 3U Prelim Yearly & Solutions.pdf` p5-7 | Glenwood 2022 Y11 | several | cos 20° sin 10°; 3cos⁻¹(1 − 2x) domain, range, sketch; sec(tan⁻¹ p) | 17G, 17C, 17B |
+| Y23 | `Penrith 2024 3U Prelim Yearly & Solutions.pdf` p6-7 | Penrith 2024 Y11 | several | (cos 2θ + 1)/sin 2θ, hence cot 15° = 2 + √3; sin(cos⁻¹ ... − tan⁻¹ ...) | 17E (same as E12 BBHS 2023 Q14(a), barred), 17D |
+| Y24 | `Baulkham Hills 2020, 2022, 2024, 2025 ... .pdf` | Baulkham Hills Y11 | several MC | 2cos 6θ sin 2θ; cos 2x equivalents; range of tan⁻¹(sin x) | 17G, 17E, 17C |
+| Y25 | `Manly 2024 3U Prelim Yearly & Solutions.pdf` p10 | Manly 2024 Y11 | Q?(f) (3) | sin(cos⁻¹ ... + tan⁻¹ ...) | 17D |
+| Y26 | `North Sydney Boys 2023 3U Prelim Yearly & Solutions.pdf` p11-15 | North Sydney Boys 2023 Y11 | Q1, Q3, Q4, Q5 | tan(cos⁻¹ − sin⁻¹); 1 + 3cos 2θ parametric; 2sin x − 3cos x in t; cos 3θ and 8x³ − 6x − 1 = 0 | 17D, 17E, 17F |
+| Y27 | `SGGHS 2020 3U Prelim Yearly.pdf` p8, p10 | St George Girls 2020 Y11 | several | sin ax − sin bx = 2sin 3x cos 7x; 1 + tan²θ = sec²θ by t; tan 22.5° | No solutions |
+| Y28 | `James Ruse 2020 3U Prelim Yearly & Solutions.pdf` p4-5 | James Ruse 2020 Y11 | several | sin⁻¹ + cos⁻¹ equation; 2cos⁻¹ 2x sketch; tan x tan 2x = c | 17B, 17C, 17E |
+
+Note: the Year 11 papers are a second source of the same school's questions; a Year 11 item is never the same question as the Trial row of that school and year, so used-item checks are by file, not by school and year.
 
 ### Not listed (calculus or Year 12)
 Derivatives and integrals of the inverse functions, the products-to-sums integrals (int3 12C), auxiliary-angle forms (for example Ascham 2020 Q?, NSB 2022 Q11(c), Hornsby Girls 2022 Q4, Girraween 2021 Q12(a), Manly 2020 Q13(b), Ruse 2023 Q8), vector proofs of cos(α + β) (St George Girls 2020 Q16(b), Sydney Tech 2021 Q14(c)), parametric curves (Sydney Tech 2023 Q7) and the general solutions of trigonometric equations (Ch 11 territory).

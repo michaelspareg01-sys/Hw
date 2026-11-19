@@ -758,6 +758,21 @@ def fig_17e():
     save("e_q11", f)
 
 
+def fig_17f():
+    ox, oy, wd, ht = 30, 118, 150, 80
+    P0, P1, P2 = (ox, oy), (ox + wd, oy), (ox + wd, oy - ht)
+    f = Fig(240, 140)
+    f.line(*P0, *P1, width=1.4)
+    f.line(*P1, *P2, width=1.4)
+    f.line(*P0, *P2, width=1.4, color="blue")
+    f.right(P1[0], P1[1], -1, -1, s=7)
+    f.raw(lab(ox + wd / 2, oy + 14, "1 − t²", size=12, bg=False))
+    f.raw(lab(ox + wd + 8, oy - ht / 2, "2t", "start", size=12, bg=False))
+    f.raw(lab(ox + wd / 2 - 16, oy - ht / 2 - 12, "1 + t²", "end", size=12, bg=False))
+    f.raw(lab(ox + 50, oy - 9, "θ", size=12, bg=False))
+    save("f_tri", f)
+
+
 if __name__ == "__main__":
     for _name, _f in list(globals().items()):
         if _name.startswith("fig_") and callable(_f):

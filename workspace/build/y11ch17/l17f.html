@@ -1,0 +1,149 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 17F</div><h2>The t-formulae</h2>
+<div class="focus">The t-formulae write \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) in terms of the single function \(t=\tan\tfrac12\theta\). This lesson uses them to rewrite expressions, to prove identities, and to solve equations such as \(\cos x-\sin x=1\).</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:the t-formulae}}
+<div class="box concept"><div class="bt">The t-formulae</div>
+<p style="margin:0">The t-formulae express \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) as algebraic functions of the single trigonometric function \(\tan\tfrac12\theta\). In the proliferation of trigonometric identities, this can often provide a systematic approach that does not rely on seeing some clever trick.</p></div>
+<div class="box take"><div class="bt">13 The t-formulae</div>
+<p style="margin:0">Let \(t=\tan\tfrac12\theta\). Then</p>
+<p style="margin:0">\(\sin\theta=\dfrac{2t}{1+t^2}\qquad\cos\theta=\dfrac{1-t^2}{1+t^2}\qquad\tan\theta=\dfrac{2t}{1-t^2}\)</p></div>
+<div class="box concept"><div class="bt">Proof</div>
+<p style="margin-top:0">Let \(t=\tan\tfrac12\theta\). We seek to express \(\sin\theta\), \(\cos\theta\) and \(\tan\theta\) in terms of \(t\).</p>
+<p>First, \(\tan\theta=\dfrac{2\tan\frac12\theta}{1-\tan^2\frac12\theta}=\dfrac{2t}{1-t^2}\), by the double-angle formula.</p>
+<p>Secondly, \(\cos\theta=\cos^2\tfrac12\theta-\sin^2\tfrac12\theta\), by the double-angle formula,</p>
+\[\begin{aligned}&amp;=\frac{\cos^2\frac12\theta-\sin^2\frac12\theta}{\cos^2\frac12\theta+\sin^2\frac12\theta},\ \text{ by the Pythagorean identity,}\\&amp;=\frac{1-\tan^2\frac12\theta}{1+\tan^2\frac12\theta},\ \text{ dividing through by }\cos^2\tfrac12\theta,\\&amp;=\frac{1-t^2}{1+t^2}.\end{aligned}\]
+<p>Thirdly, \(\sin\theta=2\sin\tfrac12\theta\cos\tfrac12\theta\), by the double-angle formula,</p>
+\[\begin{aligned}&amp;=\frac{2\sin\frac12\theta\cos\frac12\theta}{\cos^2\frac12\theta+\sin^2\frac12\theta},\ \text{ by the Pythagorean identity,}\\&amp;=\frac{2\tan\frac12\theta}{1+\tan^2\frac12\theta},\ \text{ dividing through by }\cos^2\tfrac12\theta,\\&amp;=\frac{2t}{1+t^2}.\end{aligned}\]
+<p style="margin-bottom:0">The right-angled triangle below demonstrates the relationship amongst the three formulae when \(\theta\) is acute. The three sides are related by Pythagoras’ theorem, and the algebra rests on the quadratic identity in \(t^2\): \((1-t^2)^2+(2t)^2=(1+t^2)^2\). This diagram may help you to memorise the t-formulae.</p></div>
+<div class="fig">{{svg:f_tri}}</div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Writing in terms of t</span></div><div class="ex-body">
+<b>a</b> Write \(\tan\theta+\cot\theta\) in terms of \(t\), where \(t=\tan\tfrac12\theta\).<br>
+<b>b</b> Use the \(t=\tan\tfrac12\theta\) results to find the exact value of \(\dfrac{1-\tan^215^\circ}{1+\tan^215^\circ}\).
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same skills</span></div><div class="ex-body">
+<b>a</b> Write \(\sin\theta+\cos\theta\) in terms of \(t\), where \(t=\tan\tfrac12\theta\).<br>
+<b>b</b> Use the \(t=\tan\tfrac12\theta\) results to find the exact value of \(\dfrac{2\tan\frac{5\pi}{12}}{1+\tan^2\frac{5\pi}{12}}\).
+{{work:52}}</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:proving identities}}
+<div class="box concept"><div class="bt">Proving identities with the t-formulae</div>
+<p style="margin:0">Write every trigonometric function in terms of \(t=\tan\tfrac12\theta\), simplify each side as an algebraic fraction in \(t\), and compare. Example 14 does this for two identities.</p></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Both sides in t</span></div><div class="ex-body">
+Use the t-formulae to prove that \(\dfrac{\sin\theta}{1+\cos\theta}+\dfrac{1+\cos\theta}{\sin\theta}=2\operatorname{cosec}\theta\).
+{{work:52}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use the t-formulae to prove that \(\sin\theta\tan\tfrac12\theta=1-\cos\theta\).
+{{work:48}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 14</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Use the t-formulae to prove:<br>
+<b>a</b> \(\dfrac{1-\cos\theta}{\sin\theta}=\dfrac{\sin\theta}{1+\cos\theta}\)<br>
+<b>b</b> \(\sec2x+\tan2x=\tan\Big(x+\dfrac\pi4\Big)\)
+<div class="sol-label">Solution</div>
+<p style="margin-top:0"><b>a</b> Let \(t=\tan\tfrac12x\).</p>
+\[\begin{aligned}\text{LHS}&amp;=\Big(1-\frac{1-t^2}{1+t^2}\Big)\div\frac{2t}{1+t^2}\\&amp;=\frac{1+t^2-1+t^2}{1+t^2}\times\frac{1+t^2}{2t}\\&amp;=\frac{2t^2}{2t}\\&amp;=t\end{aligned}\qquad\begin{aligned}\text{RHS}&amp;=\frac{2t}{1+t^2}\times\Big(1+\frac{1-t^2}{1+t^2}\Big)^{-1}\\&amp;=\frac{2t}{1+t^2}\times\frac{1+t^2}{1+t^2+1-t^2}\\&amp;=\frac{2t}{2}\\&amp;=t\\&amp;=\text{LHS}\end{aligned}\]
+<p>Notice that we have proven the further identity \(\dfrac{1-\cos\theta}{\sin\theta}=\dfrac{\sin\theta}{1+\cos\theta}=\tan\tfrac12\theta\).</p>
+<p><b>b</b> Let \(t=\tan x\).</p>
+\[\begin{aligned}\text{LHS}&amp;=\frac{1+t^2}{1-t^2}+\frac{2t}{1-t^2}\\&amp;=\frac{1+2t+t^2}{(1+t)(1-t)}\\&amp;=\frac{(1+t)^2}{(1+t)(1-t)}\\&amp;=\frac{1+t}{1-t}\end{aligned}\qquad\begin{aligned}\text{RHS}&amp;=\frac{\tan x+1}{1-\tan x\times1}\\&amp;=\frac{1+t}{1-t}\\&amp;=\text{LHS}\end{aligned}\]
+</div></div>
+<div class="box tip"><div class="bt">Steps the book skips</div>
+<ul><li>In part <b>a</b>, the book writes \(t=\tan\tfrac12x\) although the identity is in \(\theta\): read it as \(t=\tan\tfrac12\theta\).</li>
+<li>In part <b>b</b>, the t-formulae are used with \(2x\) in place of \(\theta\), so \(t=\tan x\): \(\sec2x=\dfrac{1+t^2}{1-t^2}\) and \(\tan2x=\dfrac{2t}{1-t^2}\).</li></ul></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:solving equations}}
+<div class="box concept"><div class="bt">Solving equations with the t-formulae</div>
+<p style="margin:0">An equation in \(\sin x\) and \(\cos x\) becomes an equation in \(t=\tan\tfrac12x\). Solve it for \(t\), then find \(\tfrac12x\) in the matching domain (for \(0\le x\le2\pi\), \(0\le\tfrac12x\le\pi\)).</p></div>
+<div class="box tip"><div class="bt">Steps the book skips</div>
+<ul><li>\(t=\tan\tfrac12x\) is undefined when \(\tfrac12x=\tfrac\pi2\), that is, when \(x=\pi\). The equation in \(t\) cannot find \(x=\pi\), so substitute \(x=\pi\) into the original equation to test it.</li></ul></div>
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Do not lose x = π</span></div><div class="ex-body">
+Use the t-formulae to solve \(\sin x-\sqrt3\cos x=\sqrt3\), for \(0\le x\le2\pi\).
+{{work:60}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Use the t-formulae to solve \(2\sin x-\cos x=1\), for \(0\le x\le2\pi\). Give any answers that are not exact correct to 2 decimal places.
+{{work:60}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 17F}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Write in terms of \(t\), where \(t=\tan\tfrac12\theta\):
+<div class="parts one"><span><span class="pl">a</span>\(\sin\theta\)</span><span><span class="pl">b</span>\(\cos\theta\)</span><span><span class="pl">c</span>\(\tan\theta\)</span><span><span class="pl">d</span>\(\sec\theta\)</span><span><span class="pl">e</span>\(1-\cos\theta\)</span><span><span class="pl">f</span>\(\dfrac{1-\cos\theta}{\sin\theta}\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Write in terms of \(t\), where \(t=\tan\theta\):
+<div class="parts one"><span><span class="pl">a</span>\(\cos2\theta\)</span><span><span class="pl">b</span>\(1-\sin2\theta\)</span><span><span class="pl">c</span>\(\tan2\theta+\sec2\theta\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Use the \(t=\tan\tfrac12\theta\) results to simplify:
+<div class="parts one"><span><span class="pl">a</span>\(\dfrac{2\tan10^\circ}{1-\tan^210^\circ}\)</span><span><span class="pl">b</span>\(\dfrac{2\tan10^\circ}{1+\tan^210^\circ}\)</span><span><span class="pl">c</span>\(\dfrac{1-\tan^210^\circ}{1+\tan^210^\circ}\)</span><span><span class="pl">d</span>\(\dfrac{2\tan2x}{1+\tan^22x}\)</span><span><span class="pl">e</span>\(\dfrac{2\tan2x}{1-\tan^22x}\)</span><span><span class="pl">f</span>\(\dfrac{1-\tan^22x}{1+\tan^22x}\)</span></div>{{work:40}}</div></div>
+<div class="q"><span class="q-num">4</span><div class="q-body">Use the \(t=\tan\tfrac12\theta\) results to find the exact value of:
+<div class="parts one"><span><span class="pl">a</span>\(\dfrac{2\tan15^\circ}{1-\tan^215^\circ}\)</span><span><span class="pl">b</span>\(\dfrac{2\tan15^\circ}{1+\tan^215^\circ}\)</span><span><span class="pl">c</span>\(\dfrac{1-\tan^275^\circ}{1+\tan^275^\circ}\)</span><span><span class="pl">d</span>\(\dfrac{2\tan112\frac12^\circ}{1+\tan^2112\frac12^\circ}\)</span><span><span class="pl">e</span>\(\dfrac{1-\tan^2\frac{3\pi}{8}}{1+\tan^2\frac{3\pi}{8}}\)</span><span><span class="pl">f</span>\(\dfrac{2\tan\frac{11\pi}{12}}{1-\tan^2\frac{11\pi}{12}}\)</span></div>{{work:40}}</div></div>
+{{band:D}}
+<div class="q"><span class="q-num">5</span><div class="q-body">Prove each identity using the \(t=\tan\tfrac12\theta\) results.
+<div class="parts one"><span><span class="pl">a</span>\(\cos\theta\big(\tan\theta-\tan\tfrac12\theta\big)=\tan\tfrac12\theta\)</span><span><span class="pl">b</span>\(\dfrac{1-\cos2x}{\sin2x}=\tan x\)</span><span><span class="pl">c</span>\(\dfrac{1-\cos\theta}{1+\cos\theta}=\tan^2\tfrac12\theta\)</span><span><span class="pl">d</span>\(\dfrac{1+\operatorname{cosec}\theta}{\cot\theta}=\dfrac{1+\tan\frac12\theta}{1-\tan\frac12\theta}\)</span><span><span class="pl">e</span>\(\dfrac{\tan\theta\tan\frac12\theta}{\tan\theta-\tan\frac12\theta}=\sin\theta\)</span><span><span class="pl">f</span>\(\dfrac{\cos\theta+\sin\theta-1}{\cos\theta-\sin\theta+1}=\tan\tfrac12\theta\)</span><span><span class="pl">g</span>\(\dfrac{\tan2\alpha+\cot\alpha}{\tan2\alpha-\tan\alpha}=\cot^2\alpha\)</span><span><span class="pl">h</span>\(\tan\Big(\dfrac12x+\dfrac\pi4\Big)+\tan\Big(\dfrac12x-\dfrac\pi4\Big)=2\tan x\)</span></div>{{work:110}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Consider the equation \(\cos x-\sin x=1\), for \(0\le x\le2\pi\).
+<div class="parts one"><span><span class="pl">a</span>Show that the equation can be written as \(t^2+t=0\), where \(t=\tan\tfrac12x\).</span><span><span class="pl">b</span>Hence show that \(\tan\tfrac12x=0\) or \(-1\), where \(0\le\tfrac12x\le\pi\).</span><span><span class="pl">c</span>Hence solve the given equation for \(x\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Consider the equation \(\sqrt3\sin A+\cos A=1\).
+<div class="parts one"><span><span class="pl">a</span>Show that the equation can be written as \(t^2=\sqrt3\,t\), where \(t=\tan\tfrac12A\).</span><span><span class="pl">b</span>Hence solve the equation, for \(0\le A\le2\pi\).</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body"><b>a</b> If \(t=\tan22\tfrac12^\circ\), show that \(\dfrac{2t}{1-t^2}=1\).<br>
+<b>b</b> <b>i</b> Hence show that \(\tan22\tfrac12^\circ=\sqrt2-1\).<br>
+&emsp;<b>ii</b> What does the other root of the equation represent?{{work:56}}</div></div>
+<div class="q"><span class="q-num">9</span><div class="q-body">Use the methods of the previous question to show that:
+<div class="parts one"><span><span class="pl">a</span>\(\tan67\tfrac12^\circ=\sqrt2+1\)</span><span><span class="pl">b</span>\(\tan15^\circ=2-\sqrt3\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">Suppose that \(\tan\alpha=-\dfrac13\) and \(\dfrac\pi2&lt;\alpha&lt;\pi\). Find the exact value of:
+<div class="parts one"><span><span class="pl">a</span>\(\tan2\alpha\)</span><span><span class="pl">b</span>\(\sin2\alpha\)</span><span><span class="pl">c</span>\(\cos2\alpha\)</span><span><span class="pl">d</span>\(\tan\tfrac12\alpha\)</span></div>{{work:56}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">[Alternative derivations of the t-formulae] Let \(t=\tan\tfrac12\theta\).<br>
+<b>a</b> <b>i</b> Express \(\cos\theta\) in terms of \(\cos\tfrac12\theta\).<br>
+&emsp;<b>ii</b> Write \(\cos^2\tfrac12\theta\) as \(\dfrac{1}{\sec^2\frac12\theta}\), and hence show that \(\cos\theta=\dfrac{1-t^2}{1+t^2}\).<br>
+<b>b</b> <b>i</b> Write \(\sin\theta\) in terms of \(\sin\tfrac12\theta\) and \(\cos\tfrac12\theta\).<br>
+&emsp;<b>ii</b> Write \(\sin\tfrac12\theta\cos\tfrac12\theta\) as \(\dfrac{\sin\frac12\theta}{\cos\frac12\theta}\cos^2\tfrac12\theta\), and hence show that \(\sin\theta=\dfrac{2t}{1+t^2}\).{{work:64}}</div></div>
+{{band:E}}
+<div class="q"><span class="q-num">12</span><div class="q-body"><b>a</b> If \(x=\tan\theta+\sec\theta\), use the t-formulae to show that \(\dfrac{x^2-1}{x^2+1}=\sin\theta\).<br>
+<b>b</b> If \(x=\cos2\theta\), use the t-formulae to show that \(\sqrt{\dfrac{1+x}{1-x}}=|\cot\theta|\).{{work:64}}</div></div>
+<div class="q"><span class="q-num">13</span><div class="q-body">If \(\cos x=\dfrac{5\cos y-3}{5-3\cos y}\), prove that \(\tan^2\tfrac12x=4\tan^2\tfrac12y\).<br>
+(Hint: Let \(t_1=\tan\tfrac12x\) and \(t_2=\tan\tfrac12y\).){{work:64}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>21 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>North Sydney Girls High School, 2023, HSC Trial Examination, Mathematics Extension 1, Q4</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Given that \(t=\tan\dfrac\theta2\), which of the following expressions is equivalent to \(\dfrac{\sin\theta+1}{\cos\theta}\)?
+<div class="mc"><span>A. \(\dfrac1t\)</span><span>B. \(\dfrac{1+t}{1-t}\)</span><span>C. \(\dfrac{\big(1+t^2\big)^2}{1-t^2}\)</span><span>D. \(\dfrac{1+2t-t^2}{1+t^2}\)</span></div></div>
+<div class="hint"><b>Hint:</b> after writing it in \(t\), can the top and bottom be factorised?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>North Sydney Boys High School, 2023, Mathematics Extension 1, Year 12, Assessment Task 3, Term 2 2023, Q8</span><span class="mk">1 mark</span></div>
+<div class="pp-q">If \(t=\tan\dfrac\theta2\) which of the following expressions is equivalent to \(4\sin\theta+3\cos\theta+5\)?
+<div class="mc"><span>A) \(\dfrac{2(t+2)^2}{1-t^2}\);</span><span>B) \(\dfrac{(t+4)^2}{1-t^2}\);</span><span>C) \(\dfrac{2(t+2)^2}{1+t^2}\);</span><span>D) \(\dfrac{(t+4)^2}{1+t^2}\).</span></div></div>
+<div class="hint"><b>Hint:</b> what is the expression over the common denominator \(1+t^2\)?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Caringbah High School, 2020, Preliminary Task 3, Mathematics Extension 1, Q14(b)</span><span class="mk">3 marks</span></div>
+<div class="pp-sub"><span>(i) Find a simplified expression for \(\operatorname{cosec}\theta\,(\cos\theta-1)\) in terms of \(t\) where \(t=\tan\dfrac\theta2\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence solve \(\operatorname{cosec}\theta\,(\cos\theta-1)=-1\) for \(0^\circ\le\theta\le180^\circ\).</span><span class="mk">1</span></div>
+<div class="hint"><b>Hint:</b> in (ii), which values of \(\theta\) make \(\operatorname{cosec}\theta\) undefined?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Gosford High School, 2023, Trial HSC Examination, Mathematics Extension 1, Q11(b)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Use the \(t=\tan\dfrac x2\) results to show that \(\cot x+\tan\dfrac x2=\operatorname{cosec}x\)</div>
+<div class="hint"><b>Hint:</b> what is \(\cot x\) in terms of \(t\)?</div>{{work:36}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>SCEGGS Darlinghurst, 2021, Year 11 Task 3, Mathematics Extension 1, Q7(c)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Using \(t=\tan\Big(\dfrac\theta2\Big)\), show that \(\dfrac{\sin\theta+1-\cos\theta}{\sin\theta-1+\cos\theta}=\dfrac{1+\tan\big(\frac\theta2\big)}{1-\tan\big(\frac\theta2\big)}\)</div>
+<div class="hint"><b>Hint:</b> what do the numerator and the denominator each become in terms of \(t\)?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>Girraween High School, 2023, Year 12 Trial Examination, Mathematics Extension 1, Q13(a)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">If \(t=\tan\dfrac x2\), show that \(\dfrac{1+\cos x+\sin x}{1-\cos x+\sin x}=\cot\dfrac x2\).</div>
+<div class="hint"><b>Hint:</b> is there a common factor once the top and bottom are written in \(t\)?</div>{{work:40}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Hornsby Girls High School, 2020, Mathematics Extension 1, Year 12 Higher School Certificate Trial Examination Term 3 2020, Q11(c)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Use \(t\)-formulae to solve the equation \(\cos x-\sin x=-1\), where \(0\le x\le2\pi\).</div>
+<div class="hint"><b>Hint:</b> which value of \(x\) in the domain has no value of \(t\)?</div>{{work:44}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>Knox Grammar School, 2023, Year 11 Yearly Examination, Mathematics Extension 1, Q12(a)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">By using \(t=\tan\dfrac\theta2\), solve the equation \(\sin\theta+\sqrt3\cos\theta=1\) for \(0\le\theta\le2\pi\).</div>
+<div class="hint"><b>Hint:</b> what quadratic in \(t\) do you get?</div>{{work:48}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Sydney Grammar School, 2022, Trial Examination, Form VI Mathematics Extension 1, Q11(d)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">Use the substitution \(t=\tan\frac\theta2\) to solve \(\sin\theta+2\cos\theta=2\) for \(0^\circ\le\theta\le360^\circ\). Give your answers correct to the nearest degree.</div>
+<div class="hint"><b>Hint:</b> what range of values does \(\dfrac\theta2\) take?</div>{{work:48}}</div>
+</div>
