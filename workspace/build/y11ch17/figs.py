@@ -108,7 +108,7 @@ def lab(x, y, s, anchor="middle", size=12, color=INK, bg=True, italic=False):
     out = []
     if "/" in s:
         num, den = s.split("/", 1)
-        fs = size * 0.92
+        fs = size * 1.0
         w = max(len(num), len(den)) * fs * 0.58 + 3
         ax = {"middle": x, "start": x + w / 2, "end": x - w / 2}[anchor]
         if bg:
@@ -497,7 +497,150 @@ def fig_17b():
     save("b_q1", g)
 
 
+
+# ---------------- 17C ----------------
+def fn(f, lo=None, hi=None):
+    def g(x):
+        if lo is not None and x < lo - 1e-12:
+            return None
+        if hi is not None and x > hi + 1e-12:
+            return None
+        try:
+            return f(x)
+        except ValueError:
+            return None
+    return g
+
+
+SIN = fn(lambda x: asin(x), -1, 1)
+COS = fn(lambda x: acos(x), -1, 1)
+P2, P4 = PI / 2, PI / 4
+
+
+def fig_17c():
+    pt = lambda k, d: (k * PI / d, None)
+    # Example 6
+    graph("c_ex6a", [(lambda x: P2 + atan(x + 1), "blue")], (-4.5, 2.6), (-0.5, 3.6), xt=[(-2, "-2"), (-1, "-1")],
+          yt=[(P4, "π/4"), (P2, "π/2"), (3 * P4, "3π/4"), (PI, "π")], w=210, h=170, hl=[PI], dots=[(-2, P4), (-1, P2), (0, 3 * P4)])
+    graph("c_ex6b", [(fn(lambda x: asin(-x) - P2, -1, 1), "blue", None, -1, 1)], (-1.6, 1.6), (-3.6, 0.6), xt=[(-1, "-1"), (1, "1")],
+          yt=[(-P2, "-π/2"), (-PI, "-π")], w=170, h=170, dots=[(-1, 0), (1, -PI)])
+    graph("c_comp", [(SIN, "blue", None, -1, 1), (COS, "teal", None, -1, 1)], (-1.6, 1.6), (-1.9, 3.6), xt=[(-1, "-1"), (1, "1")],
+          yt=[(P4, "π/4"), (P2, "π/2"), (PI, "π"), (-P2, "-π/2")], w=200, h=200, hl=[P4], dots=[(-1, -P2), (1, P2), (-1, PI), (1, 0)],
+          labels=[(0.55, asin(0.55), "sin⁻¹x", 6, 6, "start"), (-0.62, acos(-0.62), "cos⁻¹x", -6, 0, "end")])
+    T1 = [(1, "1"), (-1, "-1")]
+    graph("c_ss", [(lambda x: x, "blue", None, -1, 1)], (-1.6, 1.6), (-1.6, 1.6), xt=T1, yt=T1, w=150, h=150, dots=[(-1, -1), (1, 1)])
+    graph("c_cc", [(lambda x: x, "blue", None, -1, 1)], (-1.6, 1.6), (-1.6, 1.6), xt=T1, yt=T1, w=150, h=150, dots=[(-1, -1), (1, 1)])
+    graph("c_tt", [(lambda x: x, "blue")], (-1.6, 1.6), (-1.6, 1.6), xt=[], yt=[], w=150, h=150)
+    graph("c_cic", [(lambda x: acos(cos(x)), "blue")], (-3.3 * PI, 3.3 * PI), (-0.6, 3.8), xt=[(k * PI, l) for k, l in
+          ((-3, "-3π"), (-2, "-2π"), (-1, "-π"), (1, "π"), (2, "2π"), (3, "3π"))], yt=[(PI, "π")], w=520, h=120)
+    # PP figures
+    graph("c_pp1", [(lambda x: 3 * atan(x), "ink")], (-6, 6), (-5.5, 5.5), xt=[], yt=[], w=300, h=130, hl=[1.5 * PI, -1.5 * PI],
+          labels=[(0, 0, "O", -9, 9, "middle")])
+    T3 = [(-3, "-3"), (3, "3")]
+    graph("c_pp3a", [(fn(lambda x: 2 * asin(x / 3), -3, 3), "ink", None, -3, 3)], (-4, 4), (-3.9, 3.9), xt=T3,
+          yt=[(PI, "π"), (P2, "π/2"), (-P2, "-π/2"), (-PI, "-π")], w=170, h=150, dots=[(-3, -PI), (3, PI)])
+    graph("c_pp3b", [(fn(lambda x: 1.5 * PI * sin(x / 2 * P2 * 2 / PI) if False else 2 * asin(x / 2) * 1.5, -2, 2), "ink", None, -2, 2)],
+          (-3, 3), (-5.3, 6.1), xt=[(-2, "-2"), (2, "2")], yt=[(1.5 * PI, "3π/2"), (PI, "π"), (P2, "π/2"), (-P2, "-π/2"), (-PI, "-π"), (-1.5 * PI, "-3π/2")],
+          w=170, h=150, dots=[(-2, -1.5 * PI), (2, 1.5 * PI)])
+    graph("c_pp3c", [(fn(lambda x: 2 * acos(x / 3), -3, 3), "ink", None, -3, 3)], (-4, 4), (-0.8, 7.0), xt=T3,
+          yt=[(2 * PI, "2π"), (1.5 * PI, "3π/2"), (PI, "π"), (P2, "π/2")], w=170, h=150, dots=[(-3, 2 * PI), (3, 0)])
+    graph("c_pp3d", [(fn(lambda x: -2 * asin(x / 3), -3, 3), "ink", None, -3, 3)], (-4, 4), (-3.9, 3.9), xt=T3,
+          yt=[(PI, "π"), (P2, "π/2"), (-P2, "-π/2"), (-PI, "-π")], w=170, h=150, dots=[(-3, PI), (3, -PI)])
+    graph("c_pp5", [(lambda x: acos(sin(x)), "ink")], (-2.2 * PI, 2.2 * PI), (-2.0, 3.8),
+          xt=[(-2 * PI, "-2π"), (-1.5 * PI, "-3π/2"), (-PI, "-π"), (-P2, "-π/2"), (P2, "π/2"), (PI, "π"), (1.5 * PI, "3π/2"), (2 * PI, "2π")],
+          yt=[(PI, "π"), (P2, "π/2"), (-P2, "-π/2")], w=480, h=140)
+    graph("c_pp6", [(fn(lambda x: 2 * acos(2 * x - 3), 1, 2), "rose", None, 1, 2)], (-0.4, 2.6), (-0.5, 7), xt=[], yt=[],
+          w=300, h=130, labels=[(1, 2 * PI, "A", 0, -12, "middle")])
+    # NSG 2023 grid graph: y = (2/pi) acos(x/3) on a 0.5-unit grid, -4..4 by -2..6
+    g = Graph(-4, 4, -2, 6.6, w=250, h=265, pad=(30, 30, 20, 26))
+    for i in range(17):
+        xv = -4 + i * 0.5
+        g.items.append(f'<line x1="{g.X(xv):.1f}" y1="{g.Y(-2):.1f}" x2="{g.X(xv):.1f}" y2="{g.Y(6):.1f}" stroke="{FAINT}" stroke-width="{0.9 if i % 4 == 0 else 0.45}"/>')
+    for j in range(17):
+        yv = -2 + j * 0.5
+        g.items.append(f'<line x1="{g.X(-4):.1f}" y1="{g.Y(yv):.1f}" x2="{g.X(4):.1f}" y2="{g.Y(yv):.1f}" stroke="{FAINT}" stroke-width="{0.9 if j % 4 == 0 else 0.45}"/>')
+    g.axes()
+    g.curve(fn(lambda x: 2 / PI * acos(x / 3), -3, 3), color="ink", width=2.6, x0=-3, x1=3, n=800)
+    ticks(g, [(-4, "-4"), (-2, "-2"), (2, "2"), (4, "4")], [(-2, "-2"), (2, "2"), (4, "4"), (6, "6")])
+    save("c_pp8", g)
+
+
+
+def fig_17c_ans():
+    T1 = [(1, "1"), (-1, "-1")]
+    yp = [(P2, "π/2"), (-P2, "-π/2")]
+    W = dict(w=170, h=160)
+    # lesson examples
+    graph("ca_d1a", [(lambda x: atan(x - 1) - P2, "blue")], (-3.5, 4.5), (-3.6, 0.7), xt=[(1, "1"), (2, "2")],
+          yt=[(-P4, "-π/4"), (-P2, "-π/2"), (-3 * P4, "-3π/4"), (-PI, "-π")], hl=[-PI], dots=[(0, -3 * P4), (1, -P2), (2, -P4)], w=200, h=160)
+    graph("ca_d1b", [(fn(lambda x: acos(-x) + P2, -1, 1), "blue", None, -1, 1)], (-1.6, 1.6), (-0.5, 5.7), xt=T1,
+          yt=[(P2, "π/2"), (PI, "π"), (1.5 * PI, "3π/2")], dots=[(-1, P2), (0, PI), (1, 1.5 * PI)], **W)
+    graph("ca_y1a", [(lambda x: atan(x + 2) + P4, "blue")], (-5.5, 2.5), (-1.2, 2.9), xt=[(-3, "-3"), (-2, "-2"), (-1, "-1")],
+          yt=[(-P4, "-π/4"), (P4, "π/4"), (P2, "π/2"), (3 * P4, "3π/4")], hl=[-P4, 3 * P4], dots=[(-3, 0), (-2, P4), (-1, P2)], w=270, h=160)
+    graph("ca_y1b", [(fn(lambda x: asin(-x) + P2, -1, 1), "blue", None, -1, 1)], (-1.6, 1.6), (-0.5, 3.7), xt=T1,
+          yt=[(P2, "π/2"), (PI, "π")], dots=[(-1, PI), (0, P2), (1, 0)], **W)
+    T13 = [(-1 / 3, "-1/3"), (1 / 3, "1/3")]
+    graph("ca_d3a", [(lambda x: 3 * x, "blue", None, -1 / 3, 1 / 3)], (-0.6, 0.6), (-1.5, 1.5), xt=T13, yt=T1, dots=[(-1 / 3, -1), (1 / 3, 1)], w=150, h=150)
+    graph("ca_d3b", [(lambda x: x + 2, "blue")], (-3, 2), (-1.5, 3.5), xt=[(-2, "-2")], yt=[(2, "2")], w=150, h=150)
+    graph("ca_y3a", [(lambda x: x / 3, "blue", None, -3, 3)], (-4, 4), (-1.5, 1.5), xt=[(-3, "-3"), (3, "3")], yt=T1, dots=[(-3, -1), (3, 1)], w=150, h=150)
+    graph("ca_y3b", [(lambda x: 2 * x, "blue")], (-1.6, 1.6), (-2.5, 2.5), xt=T1, yt=[(2, "2"), (-2, "-2")], w=150, h=150)
+    # Exercise 17C
+    graph("ca_1a", [(atan, "blue")], (-4, 4), (-2.1, 2.1), xt=T1, yt=yp, hl=[P2, -P2], **W)
+    graph("ca_1b", [(COS, "blue", None, -1, 1)], (-1.6, 1.6), (-0.5, 3.7), xt=T1, yt=[(P2, "π/2"), (PI, "π")], dots=[(-1, PI), (1, 0)], **W)
+    graph("ca_1c", [(SIN, "blue", None, -1, 1)], (-1.6, 1.6), (-2.1, 2.1), xt=T1, yt=yp, dots=[(-1, -P2), (1, P2)], **W)
+    graph("ca_2a", [(fn(lambda x: asin(x - 1), 0, 2), "blue", None, 0, 2)], (-0.6, 2.6), (-2.1, 2.1), xt=[(1, "1"), (2, "2")], yt=yp,
+          dots=[(0, -P2), (2, P2)], **W)
+    graph("ca_2b", [(fn(lambda x: acos(x + 1), -2, 0), "blue", None, -2, 0)], (-2.6, 0.6), (-0.5, 3.7), xt=[(-2, "-2"), (-1, "-1")],
+          yt=[(P2, "π/2"), (PI, "π")], dots=[(-2, PI), (0, 0)], **W)
+    graph("ca_2c", [(lambda x: atan(x) + P2, "blue")], (-4, 4), (-0.5, 3.6), xt=[], yt=[(P2, "π/2"), (PI, "π")], hl=[PI], **W)
+    graph("ca_3a", [(fn(lambda x: -acos(x), -1, 1), "blue", None, -1, 1)], (-1.6, 1.6), (-3.7, 0.5), xt=T1, yt=[(-P2, "-π/2"), (-PI, "-π")],
+          dots=[(-1, -PI), (1, 0)], **W)
+    graph("ca_3b", [(lambda x: atan(-x), "blue")], (-4, 4), (-2.1, 2.1), xt=[], yt=yp, hl=[P2, -P2], **W)
+    graph("ca_3c", [(SIN, "blue", None, -1, 1)], (-1.6, 1.6), (-2.1, 2.1), xt=T1, yt=yp, dots=[(-1, -P2), (1, P2)], **W)
+    graph("ca_4a", [(COS, "blue", None, -1, 1), (fn(lambda x: asin(x) - P2, -1, 1), "teal", None, -1, 1)], (-1.6, 2.6), (-3.7, 3.7),
+          xt=T1, yt=[(PI, "π"), (P2, "π/2"), (-P2, "-π/2"), (-PI, "-π")], dots=[(-1, PI), (1, 0), (-1, -PI)], w=240, h=200,
+          labels=[(-0.55, acos(-0.55), "cos⁻¹x", -6, 0, "end"), (0.3, -2.7, "sin⁻¹x − π/2", 0, 0, "start")])
+    graph("ca_4bi", [(lambda x: atan(-x), "blue")], (-4, 4), (-2.1, 2.1), xt=[], yt=yp, hl=[P2, -P2], **W)
+    graph("ca_4bii", [(COS, "blue", None, -1, 1), (fn(lambda x: acos(-x), -1, 1), "teal", None, -1, 1)], (-1.6, 1.6), (-0.5, 3.7),
+          xt=T1, yt=[(P2, "π/2"), (PI, "π")], dots=[(-1, PI), (1, 0), (-1, 0), (1, PI)], hl=[P2], **W)
+    graph("ca_5", [(fn(lambda x: asin(1 - x), 0, 2), "blue", None, 0, 2)], (-0.6, 2.6), (-2.1, 2.1), xt=[(1, "1"), (2, "2")], yt=yp,
+          dots=[(0, P2), (1, 0), (2, -P2)], **W)
+    graph("ca_6a", [(fn(lambda x: acos(1 - x), 0, 2), "blue", None, 0, 2)], (-0.6, 2.6), (-0.5, 3.7), xt=[(1, "1"), (2, "2")],
+          yt=[(P2, "π/2"), (PI, "π")], dots=[(0, 0), (2, PI)], **W)
+    graph("ca_6b", [(fn(lambda x: -asin(x + 1), -2, 0), "blue", None, -2, 0)], (-2.6, 0.6), (-2.1, 2.1), xt=[(-2, "-2"), (-1, "-1")], yt=yp,
+          dots=[(-2, P2), (0, -P2)], **W)
+    graph("ca_6c", [(lambda x: -atan(1 - x), "blue")], (-3, 5), (-2.1, 2.1), xt=[(1, "1")], yt=yp + [(-P4, "-π/4")], hl=[P2, -P2], **W)
+    graph("ca_7a", [(lambda x: 2 * x, "blue", None, -0.5, 0.5)], (-1.4, 1.4), (-1.5, 1.5), xt=[(-0.5, "-1/2"), (0.5, "1/2")], yt=T1,
+          dots=[(-0.5, -1), (0.5, 1)], w=150, h=150)
+    graph("ca_7b", [(lambda x: x / 2, "blue", None, -2, 2)], (-2.6, 2.6), (-1.5, 1.5), xt=[(-2, "-2"), (2, "2")], yt=T1,
+          dots=[(-2, -1), (2, 1)], w=150, h=150)
+    graph("ca_7c", [(lambda x: x - 1, "blue")], (-2, 3), (-2.5, 2.5), xt=[(1, "1")], yt=[(-1, "-1")], w=150, h=150)
+    graph("ca_8", [(fn(lambda x: sqrt(1 - x * x), -1, 1), "blue", None, -1, 1)], (-1.6, 1.6), (-0.4, 1.5), xt=T1, yt=[(1, "1")],
+          dots=[(-1, 0), (1, 0)], w=170, h=120)
+    tt = lambda x: None if abs(cos(x)) < 0.02 else atan(tan(x))
+    graph("ca_9", [(tt, "blue")], (-2.3 * PI, 2.3 * PI), (-2.2, 2.2), xt=[(-2 * PI, "-2π"), (-PI, "-π"), (PI, "π"), (2 * PI, "2π")], yt=yp,
+          hl=[P2, -P2], hollow=[(k * P2, s_ * P2) for k in (-3, -1, 1, 3) for s_ in (1, -1)], w=300, h=150)
+    graph("ca_10", [(lambda x: asin(cos(x)), "blue")], (-2.3 * PI, 2.3 * PI), (-2.2, 2.2), xt=[(-2 * PI, "-2π"), (-PI, "-π"), (PI, "π"), (2 * PI, "2π")],
+          yt=yp, w=300, h=150)
+    graph("ca_11d", [(lambda x: asin(sin(x)), "blue")], (-2.3 * PI, 2.3 * PI), (-2.2, 2.2), xt=[(-2 * PI, "-2π"), (-PI, "-π"), (PI, "π"), (2 * PI, "2π")],
+          yt=yp, w=300, h=150)
+    graph("ca_11e", [(lambda x: acos(sin(x)), "blue")], (-2.3 * PI, 2.3 * PI), (-0.6, 3.8), xt=[(-1.5 * PI, "-3π/2"), (-P2, "-π/2"), (P2, "π/2"), (1.5 * PI, "3π/2")],
+          yt=[(P2, "π/2"), (PI, "π")], w=300, h=150)
+    # past-paper answer sketches
+    graph("ca_pp9", [(fn(lambda x: 4 * acos(x / 6) - P2, -6, 6), "blue", None, -6, 6)], (-7.5, 7.5), (-2.4, 12.3), xt=[(-6, "-6"), (6, "6")],
+          yt=[(3.5 * PI, "7π/2"), (1.5 * PI, "3π/2"), (-P2, "-π/2")], dots=[(-6, 3.5 * PI), (0, 1.5 * PI), (6, -P2)], w=200, h=200)
+    graph("ca_pp10", [(fn(lambda x: asin(3 * x + 1), -2 / 3, 0), "blue", None, -2 / 3, 0), (COS, "teal", None, -1, 1)], (-1.9, 1.4), (-2.1, 3.7),
+          xt=[(-1, "-1"), (-2 / 3, "-2/3"), (1, "1")], yt=[(P2, "π/2"), (PI, "π"), (-P2, "-π/2")], dots=[(0, P2), (-2 / 3, -P2), (-1, PI), (1, 0)],
+          labels=[(-0.66, asin(3 * -0.66 + 1), "arcsin(3x + 1)", -7, 8, "end"), (0.55, acos(0.55), "arccos x", 7, 0, "start")], w=250, h=200)
+    graph("ca_pp11i", [(fn(lambda x: asin((4 * x - 1) / 2), -0.25, 0.75), "blue", None, -0.25, 0.75)], (-0.6, 1.1), (-2.1, 2.1),
+          xt=[(-0.25, "-1/4"), (0.25, "1/4"), (0.75, "3/4")], yt=[(P2, "π/2"), (-PI / 6, "-π/6"), (-P2, "-π/2")],
+          dots=[(-0.25, -P2), (0.75, P2), (0.25, 0), (0, -PI / 6)], w=190, h=170)
+    graph("ca_pp11ii", [(fn(lambda x: asin((4 * abs(x) - 1) / 2), -0.75, 0.75), "blue", None, -0.75, 0.75)], (-1.1, 1.1), (-0.9, 2.1),
+          xt=[(-0.75, "-3/4"), (-0.25, "-1/4"), (0.25, "1/4"), (0.75, "3/4")], yt=[(P2, "π/2")],
+          dots=[(-0.75, P2), (0.75, P2)], hollow=[(-0.25, 0), (0.25, 0)], w=210, h=150)
+
+
 if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("fig_") and callable(fn):
-            fn()
+    for _name, _f in list(globals().items()):
+        if _name.startswith("fig_") and callable(_f):
+            _f()

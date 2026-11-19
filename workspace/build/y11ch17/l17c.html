@@ -1,0 +1,187 @@
+<div class="lesson">
+<div class="lesson-head"><div class="eyebrow">Lesson 17C</div><h2>Graphs involving inverse trigonometric functions</h2>
+<div class="focus">This section deals mostly with graphs that can be obtained using transformations of the graphs of the three inverse trigonometric functions. It also proves the symmetries of the three functions and the identity \(\sin^{-1}x+\cos^{-1}x=\dfrac\pi2\), and sketches compositions such as \(\sin\big(\sin^{-1}x\big)\) and \(\cos^{-1}(\cos x)\).</div></div>
+
+<!-- ============ Concept 1 ============ -->
+{{sec:teal:key:Concept 1:graphs involving shifting and reflecting}}
+<div class="box concept"><div class="bt">Graphs involving shifting and reflecting</div>
+<p style="margin:0">Reflecting in either axes, and shifting, can both be applied, but as always substitution of key values should be used to confirm the graph. In the case of \(\tan^{-1}x\), it is wise to take limits so as to confirm the horizontal asymptotes.</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">A shift, and a reflection with a shift</span></div><div class="ex-body">
+Sketch these graphs, stating their domain and range, and any asymptotes:<br>
+<b>a</b> \(y+\dfrac\pi2=\tan^{-1}(x-1)\)<br>
+<b>b</b> \(y=\cos^{-1}(-x)+\dfrac\pi2\)
+{{work:80}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Sketch these graphs, stating their domain and range, and any asymptotes:<br>
+<b>a</b> \(y-\dfrac\pi4=\tan^{-1}(x+2)\)<br>
+<b>b</b> \(y=\sin^{-1}(-x)+\dfrac\pi2\)
+{{work:80}}</div></div>
+<div class="ex worked"><div class="ex-top"><span class="tag">Worked example 6</span><span class="ex-title">Keep for homework</span></div><div class="ex-body">
+Sketch these graphs, stating their domain and range, and any asymptotes:<br>
+<b>a</b> \(y-\dfrac\pi2=\tan^{-1}(x+1)\)<br>
+<b>b</b> \(y=\sin^{-1}(-x)-\dfrac\pi2\)
+<div class="sol-label">Solution</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 215px;align-items:start"><div>
+<p style="margin-top:0"><b>a</b> \(y-\dfrac\pi2=\tan^{-1}(x+1)\) is \(y=\tan^{-1}x\) shifted left 1 unit and up \(\dfrac\pi2\) units. Confirm this by a small table of values:</p>
+<table class="t" style="font-size:9.8pt;margin:1mm 0"><tr><th>\(x\)</th><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td></tr><tr><th>\(y\)</th><td>\(\dfrac\pi4\)</td><td>\(\dfrac\pi2\)</td><td>\(\dfrac{3\pi}{4}\)</td></tr></table>
+<p>The domain is all real numbers, and the range is \(0&lt;y&lt;\pi\).</p>
+<p>As \(x\to\infty\), \(y\to\pi\), and as \(x\to-\infty\), \(y\to0\), so the horizontal asymptotes are \(y=0\) and \(y=\pi\).</p></div><div>{{svg:c_ex6a}}</div></div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 215px;align-items:start"><div>
+<p style="margin-top:0"><b>b</b> We can rewrite \(y=\sin^{-1}(-x)-\dfrac\pi2\) as \(y+\dfrac\pi2=\sin^{-1}(-x)\), so the graph is \(y=\sin^{-1}x\) reflected in the \(y\)-axis then shifted down \(\dfrac\pi2\) units. Using a small table of values to confirm the graph:</p>
+<table class="t" style="font-size:9.8pt;margin:1mm 0"><tr><th>\(x\)</th><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td></tr><tr><th>\(y\)</th><td>\(0\)</td><td>\(-\dfrac\pi2\)</td><td>\(-\pi\)</td></tr></table>
+<p style="margin-bottom:0">The domain is \(-1\le x\le1\), and the range is \(-\pi\le y\le0\).</p></div><div>{{svg:c_ex6b}}</div></div>
+</div></div>
+
+<!-- ============ Concept 2 ============ -->
+{{sec:teal:key:Concept 2:symmetries and complementary angles}}
+<div class="box concept"><div class="bt">Symmetries of the inverse trigonometric functions</div>
+<p style="margin:0">The functions \(y=\sin^{-1}x\) and \(y=\tan^{-1}x\) are both odd. The function \(y=\cos^{-1}x\) also has odd symmetry, not about the origin, but about its \(y\)-intercept \(\Big(0,\dfrac\pi2\Big)\).</p></div>
+<div class="box take"><div class="bt">8 Symmetries of the inverse trigonometric functions</div>
+<ul><li>\(y=\sin^{-1}x\) is odd, that is, \(\sin^{-1}(-x)=-\sin^{-1}x\).</li>
+<li>\(y=\tan^{-1}x\) is odd, that is, \(\tan^{-1}(-x)=-\tan^{-1}x\).</li>
+<li>\(y=\cos^{-1}x\) has odd symmetry about its \(y\)-intercept \(\Big(0,\dfrac\pi2\Big)\), that is, \(\cos^{-1}(-x)=\pi-\cos^{-1}x\).</li></ul></div>
+<div class="box concept"><div class="bt">Proof of the third symmetry</div>
+<p style="margin-top:0">These were proven in Questions 8, 9 and 10 of Exercise 17B. The last identity is a little more difficult, and its proof is repeated here.</p>
+\[\begin{aligned}\text{Let}\quad\alpha&=\cos^{-1}(-x).\\\text{Then}\quad-x&=\cos\alpha,\ \text{ where }0\le\alpha\le\pi,\\\text{so}\quad\cos(\pi-\alpha)&=x,\ \text{ because }\cos(\pi-\alpha)=-\cos\alpha,\\\pi-\alpha&=\cos^{-1}x,\ \text{ because }0\le\pi-\alpha\le\pi,\\\alpha&=\pi-\cos^{-1}x,\ \text{ as required.}\end{aligned}\]</div>
+<div class="box concept"><div class="bt">The identity \(\sin^{-1}x+\cos^{-1}x=\dfrac\pi2\)</div>
+<div class="split" style="grid-template-columns:minmax(0,1fr) 205px;align-items:start"><div>
+<p style="margin-top:0">The graphs of \(y=\sin^{-1}x\) and \(y=\cos^{-1}x\) are reflections of each other in the horizontal line \(y=\dfrac\pi4\). Hence adding the graphs pointwise, it should be clear that \(\sin^{-1}x+\cos^{-1}x=\dfrac\pi2\) (Box 9 below).</p>
+<p>This was proven algebraically in Question 11 of the previous Exercise 17B, where it was clear that the identity is really only another form of the complementary angle identity \(\cos\Big(\dfrac\pi2-\theta\Big)=\sin\theta\). The result is important, and the algebraic proof is repeated here.</p></div><div>{{svg:c_comp}}</div></div>
+\[\begin{aligned}\text{Let}\quad\alpha&=\cos^{-1}x.\\\text{Then}\quad x&=\cos\alpha,\ \text{ where }0\le\alpha\le\pi,\\\sin\Big(\frac\pi2-\alpha\Big)&=x,\ \text{ because }\sin\Big(\frac\pi2-\alpha\Big)=\cos\alpha,\\\sin^{-1}x&=\frac\pi2-\alpha,\ \text{ because }-\frac\pi2\le\frac\pi2-\alpha\le\frac\pi2,\\\sin^{-1}x+\alpha&=\frac\pi2\\\sin^{-1}x+\cos^{-1}x&=\frac\pi2.\end{aligned}\]</div>
+<div class="box take"><div class="bt">9 Complementary angles</div>
+<p style="margin:0">\(\sin^{-1}x+\cos^{-1}x=\dfrac\pi2\), &ensp; for \(-1\le x\le1\)</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Using the symmetries without a calculator</span></div><div class="ex-body">
+Given that \(\cos^{-1}0.6\doteq0.9273\), find, correct to four decimal places and without using the inverse trigonometric keys on a calculator:<br>
+<b>a</b> \(\sin^{-1}0.6\)<br>
+<b>b</b> \(\cos^{-1}(-0.6)\)<br>
+<b>c</b> \(\sin^{-1}(-0.6)\)
+{{work:48}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+Given that \(\sin^{-1}0.3\doteq0.3047\), find, correct to four decimal places and without using the inverse trigonometric keys on a calculator:<br>
+<b>a</b> \(\cos^{-1}0.3\)<br>
+<b>b</b> \(\sin^{-1}(-0.3)\)<br>
+<b>c</b> \(\cos^{-1}(-0.3)\)
+{{work:48}}</div></div>
+
+<!-- ============ Concept 3 ============ -->
+{{sec:teal:key:Concept 3:compositions of a function with its inverse}}
+<div class="box concept"><div class="bt">The graphs of \(\sin(\sin^{-1}x)\), \(\cos(\cos^{-1}x)\) and \(\tan(\tan^{-1}x)\)</div>
+<p style="margin-top:0">The composite function defined by \(y=\sin\big(\sin^{-1}x\big)\) has the same domain as \(\sin^{-1}x\), that is, \(-1\le x\le1\). Because it is the function \(y=\sin^{-1}x\) followed by the function \(y=\sin x\), the composite is therefore the identity function \(y=x\) restricted to \(-1\le x\le1\).</p>
+<div style="display:flex;justify-content:space-around;text-align:center"><div>{{svg:c_ss}}<br>\(y=\sin\big(\sin^{-1}x\big)\)</div><div>{{svg:c_cc}}<br>\(y=\cos\big(\cos^{-1}x\big)\)</div><div>{{svg:c_tt}}<br>\(y=\tan\big(\tan^{-1}x\big)\)</div></div>
+<p style="margin-bottom:0">The same remarks apply to \(y=\cos\big(\cos^{-1}x\big)\) and \(y=\tan\big(\tan^{-1}x\big)\), except that the domain of \(y=\tan\big(\tan^{-1}x\big)\) is the whole real number line.</p></div>
+<div class="box concept"><div class="bt">The graph of \(\cos^{-1}(\cos x)\)</div>
+<p style="margin-top:0">The domain of this function is the whole real number line, and the graph is far more complicated. Constructing a simple table of values is probably the surest approach, but under the graph is an argument based on symmetries.</p>
+{{svg:c_cic}}
+<p><b>A</b> For \(0\le x\le\pi\), \(\cos^{-1}(\cos x)=x\), and the graph follows \(y=x\).</p>
+<p><b>B</b> Because \(\cos x\) is an even function, the graph in the interval \(-\pi\le x\le0\) is the reflection of the graph in the interval \(0\le x\le\pi\).</p>
+<p><b>C</b> We now have the shape of the graph in the interval \(-\pi\le x\le\pi\). Because the graph has period \(2\pi\), the rest of the graph is just a repetition of this section.</p>
+<p style="margin-bottom:0">Enrichment questions in the next exercise deal with the other confusing functions \(\sin^{-1}(\sin x)\) and \(\tan^{-1}(\tan x)\), and also with functions such as \(y=\sin^{-1}(\cos x)\).</p></div>
+
+<div class="ex demo"><div class="ex-top"><span class="tag">Tutor demo</span><span class="ex-title">Compositions</span></div><div class="ex-body">
+<b>a</b> Sketch \(y=\cos\big(\cos^{-1}3x\big)\), stating its domain and whether it is even, odd or neither.<br>
+<b>b</b> Sketch \(y=\tan\big(\tan^{-1}(x+2)\big)\).<br>
+<b>c</b> Use the graph of \(y=\cos^{-1}(\cos x)\) to find \(\cos^{-1}\Big(\cos\Big(-\dfrac{2\pi}{3}\Big)\Big)\) and \(\cos^{-1}\Big(\cos\dfrac{7\pi}{3}\Big)\).
+{{work:70}}</div></div>
+<div class="ex attempt"><div class="ex-top"><span class="tag">Your turn</span><span class="ex-title">Same method</span></div><div class="ex-body">
+<b>a</b> Sketch \(y=\sin\Big(\sin^{-1}\dfrac x3\Big)\), stating its domain and whether it is even, odd or neither.<br>
+<b>b</b> Sketch \(y=\tan\big(\tan^{-1}2x\big)\).<br>
+<b>c</b> Use the graph of \(y=\cos^{-1}(\cos x)\) to find \(\cos^{-1}\Big(\cos\dfrac{3\pi}{2}\Big)\) and \(\cos^{-1}\Big(\cos\Big(-\dfrac{5\pi}{6}\Big)\Big)\).
+{{work:70}}</div></div>
+
+<!-- ============ Homework ============ -->
+<div class="page-break"></div>
+{{sec:blue:pencil:Textbook homework:Exercise 17C}}
+{{band:F}}
+<div class="q"><span class="q-num">1</span><div class="q-body">Sketch each function, stating the domain and range and whether it is even, odd or neither.
+<div class="parts one"><span><span class="pl">a</span>\(y=\tan^{-1}x\)</span><span><span class="pl">b</span>\(y=\cos^{-1}x\)</span><span><span class="pl">c</span>\(y=\sin^{-1}x\)</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">2</span><div class="q-body">Sketch each function, using appropriate translations of \(y=\sin^{-1}x\), \(y=\cos^{-1}x\) and \(y=\tan^{-1}x\). State the domain and range, and whether it is even, odd or neither.
+<div class="parts one"><span><span class="pl">a</span>\(y=\sin^{-1}(x-1)\)</span><span><span class="pl">b</span>\(y=\cos^{-1}(x+1)\)</span><span><span class="pl">c</span>\(y-\dfrac\pi2=\tan^{-1}x\)</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">3</span><div class="q-body">Sketch each function by reflecting in the \(x\)- or \(y\)-axis as appropriate. State the domain and range, and whether it is even, odd or neither.
+<div class="parts one"><span><span class="pl">a</span>\(y=-\cos^{-1}x\)</span><span><span class="pl">b</span>\(y=\tan^{-1}(-x)\)</span><span><span class="pl">c</span>\(y=-\sin^{-1}(-x)\)</span></div>{{work:80}}</div></div>
+
+{{band:D}}
+<div class="q"><span class="q-num">4</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>(i) Sketch the graphs of \(y=\cos^{-1}x\) and \(y=\sin^{-1}x-\dfrac\pi2\) on the same set of axes.<br>(ii) Hence show graphically that \(\cos^{-1}x+\sin^{-1}x=\dfrac\pi2\).</span><span><span class="pl">b</span>Use a graphical approach to show that:<br>(i) \(\tan^{-1}(-x)=-\tan^{-1}x\)<br>(ii) \(\cos^{-1}x+\cos^{-1}(-x)=\pi\)</span></div>{{work:80}}</div></div>
+<div class="q"><span class="q-num">5</span><div class="q-body">
+<div class="split" style="grid-template-columns:minmax(0,1fr) 150px;align-items:start"><div>
+<div class="parts one"><span><span class="pl">a</span>Determine the domain of the function \(y=\sin^{-1}(1-x)\) by solving \(-1\le1-x\le1\).</span><span><span class="pl">b</span>State the range of the function.</span><span><span class="pl">c</span>Complete the table to the right, and hence sketch the graph of the function.</span><span><span class="pl">d</span>About which line are the graphs of \(y=\sin^{-1}(1-x)\) and \(y=\sin^{-1}x\) symmetrical?</span></div></div><div>
+<table class="t" style="font-size:9.8pt;margin:0"><tr><th>\(x\)</th><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td></tr><tr><th>\(y\)</th><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td></tr></table></div></div>{{work:62}}</div></div>
+<div class="q"><span class="q-num">6</span><div class="q-body">Find the domain and range, then use a table of values or transformations (or both) to sketch:
+<div class="parts one"><span><span class="pl">a</span>\(y=\cos^{-1}(1-x)\)</span><span><span class="pl">b</span>\(y=-\sin^{-1}(x+1)\)</span><span><span class="pl">c</span>\(y=-\tan^{-1}(1-x)\)</span></div>{{work:84}}</div></div>
+<div class="q"><span class="q-num">7</span><div class="q-body">Sketch these graphs, stating whether each function is even, odd or neither.
+<div class="parts one"><span><span class="pl">a</span>\(y=\sin\big(\sin^{-1}2x\big)\)</span><span><span class="pl">b</span>\(y=\cos\Big(\cos^{-1}\dfrac x2\Big)\)</span><span><span class="pl">c</span>\(y=\tan\big(\tan^{-1}(x-1)\big)\)</span></div>{{work:70}}</div></div>
+<div class="q"><span class="q-num">8</span><div class="q-body">
+<div class="parts one"><span><span class="pl">a</span>What is the domain of \(y=\sin\big(\cos^{-1}x\big)\)? Is it even, odd or neither?</span><span><span class="pl">b</span>By considering the range of \(\cos^{-1}x\), explain why \(\sin\big(\cos^{-1}x\big)\ge0\), for all \(x\) in its domain.</span><span><span class="pl">c</span>By squaring both sides of \(y=\sin\big(\cos^{-1}x\big)\) and using the identity \(\sin^2\theta+\cos^2\theta=1\), show that \(y=\sqrt{1-x^2}\).</span><span><span class="pl">d</span>Hence sketch \(y=\sin\big(\cos^{-1}x\big)\).</span><span><span class="pl">e</span>Use similar methods to sketch the graph of \(y=\cos\big(\sin^{-1}x\big)\).</span></div>{{work:76}}</div></div>
+
+{{band:E}}
+<div class="q"><span class="q-num">9</span><div class="q-body">Consider the function \(y=\tan^{-1}(\tan x)\).
+<div class="parts one"><span><span class="pl">a</span>State its domain and range, and whether it is even, odd or neither.</span><span><span class="pl">b</span>Simplify \(\tan^{-1}(\tan x)\) for \(-\dfrac\pi2&lt;x&lt;\dfrac\pi2\).</span><span><span class="pl">c</span>What is the period of the function?</span><span><span class="pl">d</span>Use the above information and a table of values if necessary to sketch the function.</span></div>{{work:72}}</div></div>
+<div class="q"><span class="q-num">10</span><div class="q-body">On page 787, just above this exercise, \(y=\cos^{-1}(\cos x)\) is sketched. Use the identity \(\sin^{-1}t=\dfrac\pi2-\cos^{-1}t\) and simple transformations to sketch \(y=\sin^{-1}(\cos x)\). State its symmetry.<br><span class="small">(Page 787 of the textbook is the graph of \(y=\cos^{-1}(\cos x)\) in Concept 3 of this lesson.)</span>{{work:60}}</div></div>
+<div class="q"><span class="q-num">11</span><div class="q-body">Consider the function \(y=\sin^{-1}(\sin x)\).
+<div class="parts one"><span><span class="pl">a</span>State its domain, range and period, and whether it is even, odd or neither.</span><span><span class="pl">b</span>Simplify \(\sin^{-1}(\sin x)\) for \(-\dfrac\pi2\le x\le\dfrac\pi2\), and sketch the function in this region.</span><span><span class="pl">c</span>Use the symmetry of \(y=\sin x\) in \(x=\dfrac\pi2\) to continue the sketch for \(\dfrac\pi2\le x\le\dfrac{3\pi}{2}\).</span><span><span class="pl">d</span>Use the above information and a table of values if necessary to sketch the function.</span><span><span class="pl">e</span>Hence sketch \(y=\cos^{-1}(\sin x)\) by making use of the fact that \(\cos^{-1}t=\dfrac\pi2-\sin^{-1}t\).</span></div>{{work:90}}</div></div>
+
+<!-- ============ Past papers ============ -->
+<div class="page-break"></div>
+{{sec:amber:clock:Past-paper homework:mini exam}}
+<div class="pp-intro"><span><b>Suggested time: 30 minutes</b></span><span><b>21 marks</b></span><span>Calculator allowed · show working · hints are below each question if you get stuck</span></div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 1</span>Blacktown Boys' High School, 2020, HSC Trial Examination, Mathematics Extension 1, Q1</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Part of the graph of \(y=3\tan^{-1}x\) is shown below.
+{{svg:c_pp1}}
+The equation of its asymptotes are
+<div class="mc"><span>A. \(y=\pm3\)</span><span>B. \(y=\pm\dfrac\pi2\)</span><span>C. \(y=\pm3\pi\)</span><span>D. \(y=\pm\dfrac{3\pi}{2}\)</span></div></div>
+<div class="hint"><b>Hint:</b> what are the asymptotes of \(y=\tan^{-1}x\)?</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 2</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension 1, Q3</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the domain and range of \(y=2\cos^{-1}(x-1)\)?
+<div class="mc" style="grid-template-columns:1fr"><span>A. Domain: \(0\le x\le2\). &ensp;Range: \(0\le y\le\pi\)</span><span>B. Domain: \(-1\le x\le1\). &ensp;Range: \(0\le y\le\pi\)</span><span>C. Domain: \(-1\le x\le1\). &ensp;Range: \(0\le y\le2\pi\)</span><span>D. Domain: \(0\le x\le2\). &ensp;Range: \(0\le y\le2\pi\)</span></div></div>
+<div class="hint"><b>Hint:</b> which transformations of \(y=\cos^{-1}x\) are involved?</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 3</span>Normanhurst Boys High School, 2022, Mathematics Extension 1, Year 12 Course Assessment Task 4 (Trial Examination), Q4</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which graph best represents \(y=2\sin^{-1}\dfrac x3\)?
+<div class="mc"><span>(A)<br>{{svg:c_pp3a}}</span><span>(C)<br>{{svg:c_pp3c}}</span><span>(B)<br>{{svg:c_pp3b}}</span><span>(D)<br>{{svg:c_pp3d}}</span></div></div>
+<div class="hint"><b>Hint:</b> what are the domain and range of the function?</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 4</span>Gosford High School, 2023, Trial HSC Examination, Mathematics Extension 1, Q7</span><span class="mk">1 mark</span></div>
+<div class="pp-q">What is the range of the function \(f(x)=\tan^{-1}(\sin x)\)?
+<div class="mc"><span>A. \(\Big(\dfrac{-\pi}{4},\dfrac\pi4\Big)\)</span><span>B. \(\Big[\dfrac{-\pi}{4},\dfrac\pi4\Big]\)</span><span>C. \(\Big(\dfrac{-\pi}{2},\dfrac\pi2\Big)\)</span><span>D. \(\Big[\dfrac{-\pi}{2},\dfrac\pi2\Big]\)</span></div></div>
+<div class="hint"><b>Hint:</b> what values can the inner function take?</div>{{work:22}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 5</span>Hornsby Girls High School, 2023, Year 12 Higher School Certificate Trial Examination Term 3, Mathematics Extension 1, Q10</span><span class="mk">1 mark</span></div>
+<div class="pp-q">Which of the following equations is shown in the sketch below?
+{{svg:c_pp5}}
+<div class="mc"><span>(A) \(y=\sin^{-1}(\cos x)\)</span><span>(B) \(y=\sin\big(\cos x^{-1}\big)\)</span><span>(C) \(y=\cos\big(\sin x^{-1}\big)\)</span><span>(D) \(y=\cos^{-1}(\sin x)\)</span></div></div>
+<div class="hint"><b>Hint:</b> read off a few points on the graph.</div>{{work:26}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 6</span>The King's School, 2021, Year 12 Alternative Higher School Certificate Trial Examination, Mathematics Extension 1, Q12(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">{{svg:c_pp6}}The graph above shows \(y=2\cos^{-1}(2x-3)\).<br>Find the coordinates of point \(A\).</div>
+<div class="hint"><b>Hint:</b> what kind of point on the graph is \(A\)?</div>{{work:30}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 7</span>Hornsby Girls High School, 2023, Year 12 Higher School Certificate Trial Examination Term 3, Mathematics Extension 1, Q14(a)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">Consider the function \(f(x)=2\sin^{-1}\Big(\dfrac x3\Big)+\dfrac\pi2\). State the domain and range of \(f(x)\).</div>
+<div class="hint"><b>Hint:</b> which transformations of \(y=\sin^{-1}x\) are involved?</div>{{work:32}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 8</span>North Sydney Girls High School, 2023, HSC Trial Examination, Mathematics Extension 1, Q11(e)(i)</span><span class="mk">2 marks</span></div>
+<div class="pp-q">The graph of \(y=f(x)\) is shown below.
+{{svg:c_pp8}}
+<div class="pp-sub"><span>(i) Determine the equation of \(f(x)\), given that it is in the form \(f(x)=a\cos^{-1}bx\).</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> what are the domain and range of the graph?</div>{{work:32}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 9</span>Normanhurst Boys High School, 2021, Mathematics Extension 1, Year 12 Course Assessment Task 4 (Trial Examination), Q12(a)</span><span class="mk">4 marks</span></div>
+<div class="pp-q">Consider \(f(x)=4\cos^{-1}\Big(\dfrac16x\Big)-\dfrac\pi2\).
+<div class="pp-sub"><span>(i) State the domain and range of \(f(x)\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence sketch the graph of \(f(x)\). (Do NOT find the \(x\)-intercepts)</span><span class="mk">2</span></div></div>
+<div class="hint"><b>Hint:</b> which transformations of \(y=\cos^{-1}x\) are involved, and in which order?</div>{{work:66}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 10</span>Sydney Boys High School, 2020, Year 12 Term 3 Trial HSC, Mathematics Extension 1, Q13(c)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">By use of a suitable sketch, or otherwise, solve \(\arcsin(3x+1)=\arccos x\).</div>
+<div class="hint"><b>Hint:</b> what do the two graphs look like on one set of axes?</div>{{work:66}}</div>
+
+<div class="pp"><div class="pp-src"><span><span class="pn">PP 11</span>North Sydney Girls High School, 2020, HSC Trial Examination, Mathematics Extension 1, Q12(e)</span><span class="mk">3 marks</span></div>
+<div class="pp-q">
+<div class="pp-sub"><span>(i) Sketch the curve \(y=\sin^{-1}\dfrac{4x-1}{2}\).</span><span class="mk">2</span></div>
+<div class="pp-sub"><span>(ii) Hence or otherwise solve \(\sin^{-1}\dfrac{4|x|-1}{2}&gt;0\).</span><span class="mk">1</span></div></div>
+<div class="hint"><b>Hint:</b> what is different about the expression in (ii)?</div>{{work:66}}</div>
+</div>
